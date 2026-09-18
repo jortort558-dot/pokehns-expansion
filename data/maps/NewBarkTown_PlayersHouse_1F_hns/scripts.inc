@@ -303,23 +303,22 @@ NewBarkTown_PlayersHouse_1F_MovementFaceLeft:
 	step_end
 
 NewBarkTown_PlayersHouse_1F_Text_ElmsLookingForYou:
-	.string "Oh, {PLAYER}…! Our neighbor,\n"
-	.string "PROF.ELM, was looking for you.\p"
-	.string "He said he wanted you to do\n"
-	.string "something for him.\p"
-	.string "Oh! I almost forgot! Your POKéGEAR\n"
-	.string "is back from the repair shop.\p"
-	.string "Here you go!$"
+	.string "¡Oh, {PLAYER}…! Nuestro vecino,\n"
+	.string "el PROF. ELM, te estaba buscando.\p"
+	.string "Dijo que quería pedirte un favor.\p"
+	.string "¡Ah! ¡Casi lo olvido! Tu POKéGEAR\n"
+	.string "ya ha vuelto del taller.\p"
+	.string "¡Aquí lo tienes!$"
 
 NewBarkTown_PlayersHouse_1F_Text_ObtainedPokeGear:
-	.string "{PLAYER} obtained the POKéGEAR.$"
+	.string "¡{PLAYER} obtuvo el POKéGEAR!$"
 
 NewBarkTown_PlayersHouse_1F_Text_ExplainPokeGear:
-	.string "MOM: Phone numbers are stored\n"
-	.string "in memory.\p"
-	.string "Just choose a name you want to call.\n"
-	.string "I've already registered my number.\p"
-	.string "Gee, isn't that convenient?$"
+	.string "MADRE: Los números de teléfono se\n"
+	.string "guardan en la memoria.\p"
+	.string "Solo tienes que elegir a quién llamar.\n"
+	.string "Yo ya he registrado mi número.\p"
+	.string "¿A que es muy cómodo?$"
 
 NewBarkTown_PlayersHouse_1F_Text_WearTheseRunningShoes:
 	.string "Oh, and don't forget your\n"
