@@ -83,6 +83,6 @@ NewBarkTown_PlayersHouse_2F_EventScript_TurnOffPlayerPC::
 	end
 
 NewBarkTown_PlayersHouse_2F_Text_NES:
-    .string "{PLAYER} played with the NES.\p"
-    .string "…Okay!\n"
-    .string "It's time to go!$"
+    .string "{PLAYER} jugó a la NES.\p"
+    .string "… ¡Muy bien!\n"
+    .string "¡Es hora de salir!$"
