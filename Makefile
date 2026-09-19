@@ -291,9 +291,12 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 
 # Check if we need to scan dependencies based on the chosen rule OR user preference
 NODEP ?= 0
-# Check if we need to pre-build tools and generate assets based on the chosen rule.
-SETUP_PREREQS ?= 1
-# Disable dependency scanning for rules that don't need it.
+# Pre-build tools and generate map sources only if they do not exist yet
+ifeq ($(wildcard $(SCANINC) $(INCLUDE_DIRS)/constants/map_groups.h),)
+  SETUP_PREREQS ?= 1
+else
+  SETUP_PREREQS ?= 0
+endif
 ifneq (,$(MAKECMDGOALS))
   ifeq (,$(filter-out $(RULES_NO_SCAN),$(MAKECMDGOALS)))
     NODEP := 1

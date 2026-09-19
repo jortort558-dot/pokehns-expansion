@@ -84,7 +84,7 @@ SECTIONS {
     script_data :
     ALIGN(4)
     {
-    data/*.o(script_data);
+    KEEP(data/*.o(script_data));
     } > ROM =0
 
     lib_text :

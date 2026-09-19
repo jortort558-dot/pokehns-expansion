@@ -1,0 +1,1694 @@
+[
+  [
+    "MOVE_ICE_PUNCH",
+    "An icy punch that may\\nleave the foe with frostbite."
+  ],
+  [
+    "MOVE_SURF",
+    "Creates a huge wave, then\\ncrashes it down on the field."
+  ],
+  [
+    "MOVE_ICE_BEAM",
+    "Blasts the foe with an icy\\nbeam. May cause frostbite."
+  ],
+  [
+    "MOVE_BLIZZARD",
+    "Hits the foes with an icy\\nstorm. May cause frostbite."
+  ],
+  [
+    "MOVE_MINIMIZE",
+    "Minimizes the user's size to\\nsharply raise evasiveness."
+  ],
+  [
+    "MOVE_CONVERSION",
+    "Changes the user's type\\ninto first known move's type."
+  ],
+  [
+    "MOVE_SPITE",
+    "Spitefully cuts the PP\\nof the foe's last move by 4."
+  ],
+  [
+    "MOVE_POWDER_SNOW",
+    "Blasts the foes with a snowy\\ngust. May cause frostbite."
+  ],
+  [
+    "MOVE_RAPID_SPIN",
+    "User spins and removes some\\neffects, while upping speed."
+  ],
+  [
+    "MOVE_HEAL_BLOCK",
+    "Prevents the foes from\\nrecovering HP for 5 turns."
+  ],
+  [
+    "MOVE_POWER_TRICK",
+    "The user swaps its Attack\\nand Defense stats."
+  ],
+  [
+    "MOVE_GASTRO_ACID",
+    "Stomach acid suppresses\\nthe foe's Ability."
+  ],
+  [
+    "MOVE_LUCKY_CHANT",
+    "Prevents the foe from\\nlanding critical hits."
+  ],
+  [
+    "MOVE_ME_FIRST",
+    "Executes the foe's attack\\nwith greater power."
+  ],
+  [
+    "MOVE_COPYCAT",
+    "The user mimics the last\\nmove used by a foe."
+  ],
+  [
+    "MOVE_POWER_SWAP",
+    "Swaps changes to Attack\\nand Sp. Atk with the foe."
+  ],
+  [
+    "MOVE_GUARD_SWAP",
+    "Swaps changes to Defense\\nand Sp. Def with the foe."
+  ],
+  [
+    "MOVE_PUNISHMENT",
+    "Does more damage the more\\nthe foe has powered up."
+  ],
+  [
+    "MOVE_WORRY_SEED",
+    "Plants a seed on the foe\\ngiving it Insomnia."
+  ],
+  [
+    "MOVE_TOXIC_SPIKES",
+    "Sets spikes that poison a\\nfoe switching in."
+  ],
+  [
+    "MOVE_HEART_SWAP",
+    "Swaps any stat changes\\nwith the foe."
+  ],
+  [
+    "MOVE_MAGNET_RISE",
+    "The user levitates with\\nelectromagnetism."
+  ],
+  [
+    "MOVE_FLARE_BLITZ",
+    "A charge that may burn the\\nfoe. Also hurts the user."
+  ],
+  [
+    "MOVE_FORCE_PALM",
+    "A shock wave attack that\\nmay paralyze the foe."
+  ],
+  [
+    "MOVE_AURA_SPHERE",
+    "Attacks with an aura blast\\nthat cannot be evaded."
+  ],
+  [
+    "MOVE_ROCK_POLISH",
+    "Polishes the body to\\nsharply raise Speed."
+  ],
+  [
+    "MOVE_POISON_JAB",
+    "A stabbing attack that\\nmay poison the foe."
+  ],
+  [
+    "MOVE_DARK_PULSE",
+    "Attacks with a horrible\\naura. May cause flinching."
+  ],
+  [
+    "MOVE_NIGHT_SLASH",
+    "Hits as soon as possible.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_AQUA_TAIL",
+    "The user swings its tail\\nlike a wave to attack."
+  ],
+  [
+    "MOVE_SEED_BOMB",
+    "A barrage of hard seeds\\nis fired at the foe."
+  ],
+  [
+    "MOVE_AIR_SLASH",
+    "Attacks with a blade of\\nair. May cause flinching."
+  ],
+  [
+    "MOVE_X_SCISSOR",
+    "Slashes the foe with crossed\\nscythes, claws, etc."
+  ],
+  [
+    "MOVE_DRAGON_PULSE",
+    "Generates a shock wave to\\ndamage the foe."
+  ],
+  [
+    "MOVE_DRAGON_RUSH",
+    "Tackles the foe with menace.\\nMay cause flinching."
+  ],
+  [
+    "MOVE_POWER_GEM",
+    "Attacks with rays of light\\nthat sparkle like diamonds."
+  ],
+  [
+    "MOVE_FOCUS_BLAST",
+    "Attacks at full power.\\nMay lower Sp. Def."
+  ],
+  [
+    "MOVE_ENERGY_BALL",
+    "Draws power from nature to\\nattack. May lower Sp. Def."
+  ],
+  [
+    "MOVE_BRAVE_BIRD",
+    "A low altitude charge that\\nalso hurts the user."
+  ],
+  [
+    "MOVE_EARTH_POWER",
+    "Makes the ground erupt with\\npower. May lower Sp. Def."
+  ],
+  [
+    "MOVE_SWITCHEROO",
+    "Swaps items with the foe\\nfaster than the eye can see."
+  ],
+  [
+    "MOVE_BULLET_PUNCH",
+    "Punches as fast as a bul-\\nlet. It always hits first."
+  ],
+  [
+    "MOVE_THUNDER_FANG",
+    "May cause flinching or\\nleave the foe paralyzed."
+  ],
+  [
+    "MOVE_ICE_FANG",
+    "May cause flinching or\\nleave the foe with frostbite."
+  ],
+  [
+    "MOVE_FIRE_FANG",
+    "May cause flinching or\\nleave the foe with a burn."
+  ],
+  [
+    "MOVE_SHADOW_SNEAK",
+    "Extends the user's shadow\\nto strike first."
+  ],
+  [
+    "MOVE_ZEN_HEADBUTT",
+    "Hits with a strong head-\\nbutt. May cause flinching."
+  ],
+  [
+    "MOVE_ROCK_CLIMB",
+    "A charging attack that may\\nconfuse the foe."
+  ],
+  [
+    "MOVE_DRACO_METEOR",
+    "Casts comets onto the foe.\\nHarshly lowers the Sp. Atk."
+  ],
+  [
+    "MOVE_LEAF_STORM",
+    "Whips up a storm of leaves.\\nHarshly lowers the Sp. Atk."
+  ],
+  [
+    "MOVE_POWER_WHIP",
+    "Violently lashes the foe\\nwith vines or tentacles."
+  ],
+  [
+    "MOVE_CROSS_POISON",
+    "A slash that may poison a\\nfoe and do critical damage."
+  ],
+  [
+    "MOVE_GUNK_SHOT",
+    "Shoots filthy garbage at\\nthe foe. May also poison."
+  ],
+  [
+    "MOVE_IRON_HEAD",
+    "Slams the foe with a hard\\nhead. May cause flinching."
+  ],
+  [
+    "MOVE_STONE_EDGE",
+    "Stabs the foe with stones.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_CAPTIVATE",
+    "Makes the opposite gender\\nsharply reduce its Sp. Atk."
+  ],
+  [
+    "MOVE_STEALTH_ROCK",
+    "Sets floating stones that\\nhurt a foe switching in."
+  ],
+  [
+    "MOVE_GRASS_KNOT",
+    "A snare attack that does\\nmore damage to heavier foes."
+  ],
+  [
+    "MOVE_CHATTER",
+    "Attacks with a sound wave\\nthat causes confusion."
+  ],
+  [
+    "MOVE_JUDGMENT",
+    "The type varies with the\\nkind of Plate held."
+  ],
+  [
+    "MOVE_WOOD_HAMMER",
+    "Slams the body into a foe.\\nThe user gets hurt too."
+  ],
+  [
+    "MOVE_AQUA_JET",
+    "Strikes first by dashing\\nat the foe at a high speed."
+  ],
+  [
+    "MOVE_ATTACK_ORDER",
+    "Underlings pummel the foe.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_DEFEND_ORDER",
+    "Raises Defense and Sp. Def\\nwith a living shield."
+  ],
+  [
+    "MOVE_HEAL_ORDER",
+    "The user's underlings show\\nup to heal half its max HP."
+  ],
+  [
+    "MOVE_HEAD_SMASH",
+    "A life-risking headbutt that\\nseriously hurts the user."
+  ],
+  [
+    "MOVE_DOUBLE_HIT",
+    "Slams the foe with a tail\\netc. Strikes twice."
+  ],
+  [
+    "MOVE_ROAR_OF_TIME",
+    "Powerful, but leaves the\\nuser immobile the next turn."
+  ],
+  [
+    "MOVE_SPACIAL_REND",
+    "Tears the foe, and space.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_MAGMA_STORM",
+    "Traps the foe in a vortex\\nof fire for  turns."
+  ],
+  [
+    "MOVE_DARK_VOID",
+    "Drags the foes into total\\ndarkness, inducing Sleep."
+  ],
+  [
+    "MOVE_OMINOUS_WIND",
+    "A repulsive attack that may\\nraise all stats."
+  ],
+  [
+    "MOVE_HONE_CLAWS",
+    "Sharpens its claws to raise\\nAttack and Accuracy."
+  ],
+  [
+    "MOVE_WIDE_GUARD",
+    "Evades wide-ranging attacks\\nfor one turn."
+  ],
+  [
+    "MOVE_GUARD_SPLIT",
+    "Averages changes to Defense\\nand Sp. Def with the foe."
+  ],
+  [
+    "MOVE_POWER_SPLIT",
+    "Averages changes to Attack\\nand Sp. Atk with the foe."
+  ],
+  [
+    "MOVE_VENOSHOCK",
+    "Does double damage if the\\nfoe is poisoned."
+  ],
+  [
+    "MOVE_RAGE_POWDER",
+    "Scatters powder to make\\nfoes attack only the user."
+  ],
+  [
+    "MOVE_TELEKINESIS",
+    "Makes the foe float. It is\\neasier to hit for 3 turns."
+  ],
+  [
+    "MOVE_SMACK_DOWN",
+    "Throws a rock to knock the\\nfoe down to the ground."
+  ],
+  [
+    "MOVE_FLAME_BURST",
+    "A bursting flame that does\\ndamage to all foes."
+  ],
+  [
+    "MOVE_ELECTRO_BALL",
+    "Hurls an orb that does more\\ndamage to slower foes."
+  ],
+  [
+    "MOVE_SOAK",
+    "Sprays water at the foe,\\nchanging it to Water type."
+  ],
+  [
+    "MOVE_FLAME_CHARGE",
+    "Attacks in a cloak of\\nflames. Raises Speed."
+  ],
+  [
+    "MOVE_COIL",
+    "Coils up to raise Attack,\\nDefense and Accuracy."
+  ],
+  [
+    "MOVE_LOW_SWEEP",
+    "Attacks the foe's legs\\nlowering its Speed."
+  ],
+  [
+    "MOVE_FOUL_PLAY",
+    "The higher the foe's Attack\\nthe more damage caused."
+  ],
+  [
+    "MOVE_SIMPLE_BEAM",
+    "A beam that changes the\\nfoe's Ability to Simple."
+  ],
+  [
+    "MOVE_ENTRAINMENT",
+    "Makes the foe mimic the\\nuser, gaining its Ability."
+  ],
+  [
+    "MOVE_AFTER_YOU",
+    "Helps out the target, letting\\nit move next."
+  ],
+  [
+    "MOVE_CLEAR_SMOG",
+    "Attacks with white haze that\\neliminates all stat changes."
+  ],
+  [
+    "MOVE_STORED_POWER",
+    "The higher the user's stats\\nthe more damage caused."
+  ],
+  [
+    "MOVE_QUICK_GUARD",
+    "Evades priority attacks\\nfor one turn."
+  ],
+  [
+    "MOVE_ALLY_SWITCH",
+    "The user switches places\\nwith its partner."
+  ],
+  [
+    "MOVE_SCALD",
+    "Shoots boiling water at the\\nfoe. May inflict a burn."
+  ],
+  [
+    "MOVE_SHELL_SMASH",
+    "Sharply raises Atk/Sp.Atk/\\nSpeed, but drops Def/Sp.Def."
+  ],
+  [
+    "MOVE_HEAL_PULSE",
+    "Recovers up to half the\\ntarget's maximum HP."
+  ],
+  [
+    "MOVE_HEX",
+    "Does double damage if the\\nfoe has a status problem."
+  ],
+  [
+    "MOVE_SKY_DROP",
+    "Takes the foe into the sky\\nthen drops it the next turn."
+  ],
+  [
+    "MOVE_SHIFT_GEAR",
+    "Rotates its gears to raise\\nAttack and Speed."
+  ],
+  [
+    "MOVE_QUASH",
+    "Suppresses the foe, making\\nit move last."
+  ],
+  [
+    "MOVE_ACROBATICS",
+    "Does double damage if the\\nuser has no item."
+  ],
+  [
+    "MOVE_REFLECT_TYPE",
+    "The user reflects the foe's\\ntype, copying it."
+  ],
+  [
+    "MOVE_RETALIATE",
+    "Attack that does more\\ndamage if an ally fainted."
+  ],
+  [
+    "MOVE_FINAL_GAMBIT",
+    "The user faints to damage\\nthe foe equal to its HP."
+  ],
+  [
+    "MOVE_BESTOW",
+    "The user gives its held\\nitem to the foe."
+  ],
+  [
+    "MOVE_WATER_PLEDGE",
+    "Attacks with a column of\\nwater. May make a rainbow."
+  ],
+  [
+    "MOVE_FIRE_PLEDGE",
+    "Attacks with a column of\\nfire. May burn the grass."
+  ],
+  [
+    "MOVE_GRASS_PLEDGE",
+    "Attacks with a column of\\ngrass. May create a swamp."
+  ],
+  [
+    "MOVE_STRUGGLE_BUG",
+    "Resisting, the user attacks\\nthe foes. Lowers Sp. Atk."
+  ],
+  [
+    "MOVE_BULLDOZE",
+    "Stomps down on the ground.\\nHits all and lowers Speed."
+  ],
+  [
+    "MOVE_WORK_UP",
+    "The user is roused.\\nUps Attack and Sp. Atk."
+  ],
+  [
+    "MOVE_ELECTROWEB",
+    "Snares the foes with an\\nelectric net. Lowers Speed."
+  ],
+  [
+    "MOVE_WILD_CHARGE",
+    "An electrical tackle that\\nalso hurts the user."
+  ],
+  [
+    "MOVE_DUAL_CHOP",
+    "Attacks with brutal hits\\nthat strike twice."
+  ],
+  [
+    "MOVE_RAZOR_SHELL",
+    "Tears at the foe with sharp\\nshells. May lower Defense."
+  ],
+  [
+    "MOVE_LEAF_TORNADO",
+    "Circles the foe with leaves\\nto damage and cut accuracy."
+  ],
+  [
+    "MOVE_STEAMROLLER",
+    "Crushes the foe with its\\nbody. May cause flinching."
+  ],
+  [
+    "MOVE_COTTON_GUARD",
+    "Wraps its body in cotton.\\nDrastically raises Defense."
+  ],
+  [
+    "MOVE_TAIL_SLAP",
+    "Strikes the foe with its\\ntail 2 to 5 times."
+  ],
+  [
+    "MOVE_HURRICANE",
+    "Traps the foe in a fierce\\nwind. May cause confusion."
+  ],
+  [
+    "MOVE_HEAD_CHARGE",
+    "A charge using guard hair.\\nIt hurts the user a little."
+  ],
+  [
+    "MOVE_TECHNO_BLAST",
+    "The type varies with the\\nkind of Drive held."
+  ],
+  [
+    "MOVE_RELIC_SONG",
+    "Attacks with an ancient\\nsong. May induce sleep."
+  ],
+  [
+    "MOVE_GLACIATE",
+    "Blows very cold air at the\\nfoes. It lowers their Speed."
+  ],
+  [
+    "MOVE_BLUE_FLARE",
+    "Engulfs the foe in a blue\\nflame. May inflict a burn."
+  ],
+  [
+    "MOVE_FREEZE_SHOCK",
+    "A powerful 2-turn move that\\nmay paralyze the foe."
+  ],
+  [
+    "MOVE_SNARL",
+    "Yells and rants at the foe\\nlowering its Sp. Atk."
+  ],
+  [
+    "MOVE_ICICLE_CRASH",
+    "Drops large icicles on the\\nfoe. May cause flinching."
+  ],
+  [
+    "MOVE_FLYING_PRESS",
+    "This attack does Fighting\\nand Flying-type damage."
+  ],
+  [
+    "MOVE_ROTOTILLER",
+    "Ups the Attack and Sp. Atk\\nof Grass-type Pokémon."
+  ],
+  [
+    "MOVE_STICKY_WEB",
+    "Weaves a sticky net that\\nslows foes switching in."
+  ],
+  [
+    "MOVE_FELL_STINGER",
+    "If it knocks out a foe\\nthe Attack stat is raised."
+  ],
+  [
+    "MOVE_TRICK_OR_TREAT",
+    "Goes trick-or-treating,\\nadding Ghost type to foe."
+  ],
+  [
+    "MOVE_NOBLE_ROAR",
+    "Intimidates the foe, to cut\\nAttack and Sp. Atk."
+  ],
+  [
+    "MOVE_FORESTS_CURSE",
+    "Puts a curse on the foe,\\nadding the Grass type."
+  ],
+  [
+    "MOVE_PETAL_BLIZZARD",
+    "Stirs up a violent storm\\nof petals to attack all."
+  ],
+  [
+    "MOVE_PARTING_SHOT",
+    "Lowers the foe's Attack and\\nSp. Atk, then switches out."
+  ],
+  [
+    "MOVE_TOPSY_TURVY",
+    "Swaps all stat changes that\\naffect the target."
+  ],
+  [
+    "MOVE_FLOWER_SHIELD",
+    "Raises the Defense of\\nGrass-type Pokémon."
+  ],
+  [
+    "MOVE_GRASSY_TERRAIN",
+    "The ground turns to grass\\nfor 5 turns. Restores HP."
+  ],
+  [
+    "MOVE_MISTY_TERRAIN",
+    "Covers the ground with mist\\nfor 5 turns. Blocks status."
+  ],
+  [
+    "MOVE_ELECTRIFY",
+    "Electrifies the foe, making\\nits next move Electric-type."
+  ],
+  [
+    "MOVE_PLAY_ROUGH",
+    "Plays rough with the foe.\\nMay lower Attack."
+  ],
+  [
+    "MOVE_FAIRY_WIND",
+    "Stirs up a fairy wind to\\nstrike the foe."
+  ],
+  [
+    "MOVE_MOONBLAST",
+    "Attacks with the power of\\nthe moon. May lower Sp. Atk."
+  ],
+  [
+    "MOVE_BOOMBURST",
+    "Attacks everything with a\\ndestructive sound wave."
+  ],
+  [
+    "MOVE_FAIRY_LOCK",
+    "Locks down the battlefield\\npreventing escape next turn."
+  ],
+  [
+    "MOVE_KINGS_SHIELD",
+    "Evades damage, and sharply\\nreduces Attack if struck."
+  ],
+  [
+    "MOVE_PLAY_NICE",
+    "Befriend the foe, lowering\\nits Attack without fail."
+  ],
+  [
+    "MOVE_CONFIDE",
+    "Shares a secret with the\\nfoe, lowering Sp. Atk."
+  ],
+  [
+    "MOVE_STEAM_ERUPTION",
+    "Immerses the foe in heated\\nsteam. May inflict a burn."
+  ],
+  [
+    "MOVE_SPIKY_SHIELD",
+    "Evades attack, and damages\\nthe foe if struck."
+  ],
+  [
+    "MOVE_AROMATIC_MIST",
+    "Raises the Sp. Def of a\\npartner Pokémon."
+  ],
+  [
+    "MOVE_EERIE_IMPULSE",
+    "Exposes the foe to a pulse\\nthat sharply cuts Sp. Atk."
+  ],
+  [
+    "MOVE_VENOM_DRENCH",
+    "Lowers the Attack, Sp. Atk\\nand Speed of poisoned foes."
+  ],
+  [
+    "MOVE_POWDER",
+    "Damages the foe if it uses\\na Fire-type move."
+  ],
+  [
+    "MOVE_GEOMANCY",
+    "Raises Sp. Atk, Sp. Def and\\nSpeed on the 2nd turn."
+  ],
+  [
+    "MOVE_MAGNETIC_FLUX",
+    "Boosts the defenses of\\nthose with Plus or Minus."
+  ],
+  [
+    "MOVE_HAPPY_HOUR",
+    "Doubles the amount of\\nPrize Money received."
+  ],
+  [
+    "MOVE_ELECTRIC_TERRAIN",
+    "Electrifies the ground for\\n5 turns. Prevents sleep."
+  ],
+  [
+    "MOVE_DAZZLING_GLEAM",
+    "Damages foes by emitting\\na bright flash."
+  ],
+  [
+    "MOVE_HOLD_HANDS",
+    "The user and ally hold hands\\nmaking them happy."
+  ],
+  [
+    "MOVE_BABY_DOLL_EYES",
+    "Lowers the foe's Attack\\nbefore it can move."
+  ],
+  [
+    "MOVE_NUZZLE",
+    "Rubs its cheeks against\\nthe foe, paralyzing it."
+  ],
+  [
+    "MOVE_INFESTATION",
+    "The foe is infested and\\nattacked for  turns."
+  ],
+  [
+    "MOVE_POWER_UP_PUNCH",
+    "A hard punch that raises\\nthe user's Attack."
+  ],
+  [
+    "MOVE_THOUSAND_ARROWS",
+    "Can hit Flying foes, then\\nknocks them to the ground."
+  ],
+  [
+    "MOVE_THOUSAND_WAVES",
+    "Those hit by the wave can\\nno longer escape."
+  ],
+  [
+    "MOVE_LANDS_WRATH",
+    "Gathers the energy of the\\nland to attack every foe."
+  ],
+  [
+    "MOVE_LIGHT_OF_RUIN",
+    "Fires a great beam of light\\nthat also hurts the user."
+  ],
+  [
+    "MOVE_ORIGIN_PULSE",
+    "Beams of glowing blue light\\nblast both foes."
+  ],
+  [
+    "MOVE_PRECIPICE_BLADES",
+    "Fearsome blades of stone\\nattack both foes."
+  ],
+  [
+    "MOVE_SHORE_UP",
+    "Restores the user's HP.\\nMore HP in a sandstorm."
+  ],
+  [
+    "MOVE_FIRST_IMPRESSION",
+    "Hits hard and first.\\nOnly works first turn."
+  ],
+  [
+    "MOVE_BANEFUL_BUNKER",
+    "Protects user and poisons\\nfoes on contact."
+  ],
+  [
+    "MOVE_SPIRIT_SHACKLE",
+    "After being hit, foes can\\nno longer escape."
+  ],
+  [
+    "MOVE_DARKEST_LARIAT",
+    "Swings the arms to strike\\nIt ignores stat changes."
+  ],
+  [
+    "MOVE_ICE_HAMMER",
+    "Swings the fist to strike.\\nLowers the user's Speed."
+  ],
+  [
+    "MOVE_HIGH_HORSEPOWER",
+    "Slams hard into the foe with\\nits entire body."
+  ],
+  [
+    "MOVE_STRENGTH_SAP",
+    "Saps the foe's Attack to\\nheal HP, then drops Attack."
+  ],
+  [
+    "MOVE_LEAFAGE",
+    "Attacks with a flurry of\\nsmall leaves."
+  ],
+  [
+    "MOVE_SPOTLIGHT",
+    "Makes the foe attack the\\nspotlighted Pokémon."
+  ],
+  [
+    "MOVE_TOXIC_THREAD",
+    "Attacks with a thread that\\npoisons and drops Speed."
+  ],
+  [
+    "MOVE_LASER_FOCUS",
+    "Guarantees the next move\\nwill be a critical hit."
+  ],
+  [
+    "MOVE_GEAR_UP",
+    "Boosts the attacks of\\nthose with Plus or Minus."
+  ],
+  [
+    "MOVE_THROAT_CHOP",
+    "Chops the throat to disable\\nsound moves for 2 turns."
+  ],
+  [
+    "MOVE_POLLEN_PUFF",
+    "Explodes on foes, but\\nrestores ally's HP."
+  ],
+  [
+    "MOVE_ANCHOR_SHOT",
+    "Strangles the foe with a\\nchain. The foe can't escape."
+  ],
+  [
+    "MOVE_PSYCHIC_TERRAIN",
+    "The ground turns weird for\\n5 turns. Blocks priority."
+  ],
+  [
+    "MOVE_LUNGE",
+    "Lunges at the foe to lower\\nits Attack stat."
+  ],
+  [
+    "MOVE_FIRE_LASH",
+    "Whips the foe with fire\\nlowering its Defense."
+  ],
+  [
+    "MOVE_POWER_TRIP",
+    "It hits harder the more\\nstat boosts the user has."
+  ],
+  [
+    "MOVE_BURN_UP",
+    "Burns out the user fully\\nremoving the Fire type."
+  ],
+  [
+    "MOVE_SPEED_SWAP",
+    "Swaps user's Speed with\\nthe target's."
+  ],
+  [
+    "MOVE_SMART_STRIKE",
+    "Hits with an accurate\\nhorn that never misses."
+  ],
+  [
+    "MOVE_PURIFY",
+    "Cures the foe's status\\nto restore HP."
+  ],
+  [
+    "MOVE_REVELATION_DANCE",
+    "Dances with mystical power.\\nMatches user's first type."
+  ],
+  [
+    "MOVE_CORE_ENFORCER",
+    "Hits with a ray that\\nnullifies the foe's Ability."
+  ],
+  [
+    "MOVE_TROP_KICK",
+    "An intense kick from the\\ntropics. Lowers Attack."
+  ],
+  [
+    "MOVE_INSTRUCT",
+    "Orders the target to use\\nits last move again."
+  ],
+  [
+    "MOVE_BEAK_BLAST",
+    "Heats beak to attack last.\\nBurns foe on contact."
+  ],
+  [
+    "MOVE_AURORA_VEIL",
+    "Weakens all attacks, but\\nonly usable with snow."
+  ],
+  [
+    "MOVE_FLEUR_CANNON",
+    "A strong ray that harshly\\nlowers Sp. Attack."
+  ],
+  [
+    "MOVE_ACCELEROCK",
+    "Hits with a high-speed\\nrock that always goes first."
+  ],
+  [
+    "MOVE_LIQUIDATION",
+    "Slams the foe with water.\\nCan lower Defense."
+  ],
+  [
+    "MOVE_SPECTRAL_THIEF",
+    "Steals the target's stat\\nboosts, then attacks."
+  ],
+  [
+    "MOVE_TEARFUL_LOOK",
+    "The user tears up, dropping\\nAttack and Sp. Attack."
+  ],
+  [
+    "MOVE_NATURES_MADNESS",
+    "Halves the foe's HP with\\nthe power of nature."
+  ],
+  [
+    "MOVE_MULTI_ATTACK",
+    "Attack that changes\\nwith Memories."
+  ],
+  [
+    "MOVE_MIND_BLOWN",
+    "It explodes the user's head\\nto damage everything around."
+  ],
+  [
+    "MOVE_PLASMA_FISTS",
+    "Hits with electrical fists.\\nNormal moves turn Electric."
+  ],
+  [
+    "MOVE_PHOTON_GEYSER",
+    "User's highest attack stat\\ndetermines its category."
+  ],
+  [
+    "MOVE_SPLISHY_SPLASH",
+    "A huge electrified wave that\\nmay paralyze the foes."
+  ],
+  [
+    "MOVE_BOUNCY_BUBBLE",
+    "Attack that absorbs\\nall the damage inflicted."
+  ],
+  [
+    "MOVE_SIZZLY_SLIDE",
+    "User cloaked in fire charges.\\nLeaves the foe with a burn."
+  ],
+  [
+    "MOVE_BADDY_BAD",
+    "Acting badly, attacks. Sets\\nwall, lowering Attack damage."
+  ],
+  [
+    "MOVE_FREEZY_FROST",
+    "Crystal from cold haze hits.\\nEliminates all stat changes."
+  ],
+  [
+    "MOVE_SPARKLY_SWIRL",
+    "Wrap foe with whirlwind of\\nscent. Heals party's status."
+  ],
+  [
+    "MOVE_DOUBLE_IRON_BASH",
+    "The user spins and hits with\\nits arms. May cause flinch."
+  ],
+  [
+    "MOVE_DYNAMAX_CANNON",
+    "Unleashes core energy.\\n2x against Dynamaxed foes."
+  ],
+  [
+    "MOVE_SNIPE_SHOT",
+    "The user ignores effects\\nthat draw in moves."
+  ],
+  [
+    "MOVE_JAW_LOCK",
+    "Prevents the user and\\nthe target from escaping."
+  ],
+  [
+    "MOVE_STUFF_CHEEKS",
+    "Consumes the user's Berry,\\nthen sharply raises Def."
+  ],
+  [
+    "MOVE_NO_RETREAT",
+    "Raises all of the user's\\nstats but prevents escape."
+  ],
+  [
+    "MOVE_TAR_SHOT",
+    "Lowers the foe's Speed and\\nmakes it weak to Fire."
+  ],
+  [
+    "MOVE_MAGIC_POWDER",
+    "Magic powder changes the\\ntarget into a Psychic type."
+  ],
+  [
+    "MOVE_DRAGON_DARTS",
+    "The user attacks twice. Two\\ntargets are hit once each."
+  ],
+  [
+    "MOVE_OCTOLOCK",
+    "Traps the foe to lower Def\\nand Sp. Def each turn."
+  ],
+  [
+    "MOVE_BOLT_BEAK",
+    "Double power if the user\\nmoves before the target."
+  ],
+  [
+    "MOVE_FISHIOUS_REND",
+    "Double power if the user\\nmoves before the target."
+  ],
+  [
+    "MOVE_COURT_CHANGE",
+    "The user swaps effects on\\neither side of the field."
+  ],
+  [
+    "MOVE_CLANGOROUS_SOUL",
+    "The user uses some of its\\nHP to raise all its stats."
+  ],
+  [
+    "MOVE_BODY_PRESS",
+    "Does more damage the\\nhigher the user's Def."
+  ],
+  [
+    "MOVE_DECORATE",
+    "The user sharply raises\\nthe target's Atk and Sp.Atk."
+  ],
+  [
+    "MOVE_DRUM_BEATING",
+    "Plays a drum to attack.\\nThe foe's Speed is lowered."
+  ],
+  [
+    "MOVE_SNAP_TRAP",
+    "Snares the target in a snap\\ntrap for four to five turns."
+  ],
+  [
+    "MOVE_PYRO_BALL",
+    "Launches a fiery ball at the\\ntarget. It may cause a burn."
+  ],
+  [
+    "MOVE_BEHEMOTH_BLADE",
+    "Strikes as a sword. Deals 2x\\ndamage to Dynamaxed foes."
+  ],
+  [
+    "MOVE_BEHEMOTH_BASH",
+    "Attacks as a shield. Deals 2x\\ndamage to Dynamaxed foes."
+  ],
+  [
+    "MOVE_AURA_WHEEL",
+    "Raises Speed to attack. The\\nType is based on its form."
+  ],
+  [
+    "MOVE_BREAKING_SWIPE",
+    "Swings its tail to attack.\\nLowers the Atk of those hit."
+  ],
+  [
+    "MOVE_BRANCH_POKE",
+    "The user pokes the target\\nwith a pointed branch."
+  ],
+  [
+    "MOVE_OVERDRIVE",
+    "The user twangs its guitar,\\ncausing strong vibrations."
+  ],
+  [
+    "MOVE_APPLE_ACID",
+    "Attacks with tart apple acid\\nto lower the foe's Sp. Def."
+  ],
+  [
+    "MOVE_GRAV_APPLE",
+    "Drops an apple from above.\\nLowers the foe's Defense."
+  ],
+  [
+    "MOVE_SPIRIT_BREAK",
+    "Attacks with spirit-breaking\\nforce. Lowers Sp. Atk."
+  ],
+  [
+    "MOVE_STRANGE_STEAM",
+    "Emits a strange steam to\\npotentially confuse the foe."
+  ],
+  [
+    "MOVE_LIFE_DEW",
+    "Scatters water to restore\\nthe HP of itself and allies."
+  ],
+  [
+    "MOVE_FALSE_SURRENDER",
+    "Bows to stab the foe\\nwith hair. It never misses."
+  ],
+  [
+    "MOVE_METEOR_ASSAULT",
+    "Attacks with a thick leek.\\nThe user must then rest."
+  ],
+  [
+    "MOVE_ETERNABEAM",
+    "Eternatus' strongest move.\\nThe user rests next turn."
+  ],
+  [
+    "MOVE_STEEL_BEAM",
+    "Fires a beam of steel from\\nits body. It hurts the user."
+  ],
+  [
+    "MOVE_EXPANDING_FORCE",
+    "Power goes up and damages\\nall foes on Psychic Terrain."
+  ],
+  [
+    "MOVE_METEOR_BEAM",
+    "A 2-turn move that raises\\nSp. Attack before attacking."
+  ],
+  [
+    "MOVE_SHELL_SIDE_ARM",
+    "Deals better of physical and\\nspecial damage. May poison."
+  ],
+  [
+    "MOVE_GRASSY_GLIDE",
+    "Gliding on ground, hits. Goes\\nfirst on Grassy Terrain."
+  ],
+  [
+    "MOVE_TERRAIN_PULSE",
+    "Type and power changes\\ndepending on the terrain."
+  ],
+  [
+    "MOVE_SKITTER_SMACK",
+    "User skitters behind foe to\\nattack. Lowers foe's Sp. Atk."
+  ],
+  [
+    "MOVE_BURNING_JEALOUSY",
+    "Foes that have stats upped\\nduring the turn get burned."
+  ],
+  [
+    "MOVE_LASH_OUT",
+    "If user's stats were lowered\\nthis turn, power is doubled."
+  ],
+  [
+    "MOVE_POLTERGEIST",
+    "Control foe's item to attack.\\nFails if foe has no item."
+  ],
+  [
+    "MOVE_COACHING",
+    "Properly coaches allies to\\nup their Attack and Defense."
+  ],
+  [
+    "MOVE_FLIP_TURN",
+    "Attacks and rushes back to\\nswitch with a party Pokémon."
+  ],
+  [
+    "MOVE_TRIPLE_AXEL",
+    "A 3-kick attack that gets\\nmore powerful with each hit."
+  ],
+  [
+    "MOVE_DUAL_WINGBEAT",
+    "User slams the target with\\nwings and hits twice in a row."
+  ],
+  [
+    "MOVE_SCORCHING_SANDS",
+    "Throws scorching sand at\\nthe target. May leave a burn."
+  ],
+  [
+    "MOVE_WICKED_BLOW",
+    "Mastering the Dark style,\\nstrikes with a critical hit."
+  ],
+  [
+    "MOVE_SURGING_STRIKES",
+    "Mastering the Water style,\\nstrikes with 3 critical hits."
+  ],
+  [
+    "MOVE_THUNDER_CAGE",
+    "Traps the foe in a cage of\\nelectricity for  turns."
+  ],
+  [
+    "MOVE_DRAGON_ENERGY",
+    "The higher the user's HP\\nthe more damage caused."
+  ],
+  [
+    "MOVE_FREEZING_GLARE",
+    "Shoots psychic power from\\nthe eyes. May frostbite."
+  ],
+  [
+    "MOVE_FIERY_WRATH",
+    "Attack fueled by your\\nwrath. May cause flinching."
+  ],
+  [
+    "MOVE_THUNDEROUS_KICK",
+    "Uses a lightning-like kick\\nto hit. Lowers foe's Defense."
+  ],
+  [
+    "MOVE_GLACIAL_LANCE",
+    "Hurls a blizzard-cloaked\\nicicle lance at foes."
+  ],
+  [
+    "MOVE_ASTRAL_BARRAGE",
+    "Sends a frightful amount\\nof small ghosts at foes."
+  ],
+  [
+    "MOVE_EERIE_SPELL",
+    "Attacks with psychic power.\\nFoe's last move has 3 PP cut."
+  ],
+  [
+    "MOVE_PSYSHIELD_BASH",
+    "Hits a foe with psychic\\nenergy. May raise Defense."
+  ],
+  [
+    "MOVE_POWER_SHIFT",
+    "The user swaps its Attack\\nand Defense stats."
+  ],
+  [
+    "MOVE_STONE_AXE",
+    "Sets sharp rocks that hurt\\nthe foe."
+  ],
+  [
+    "MOVE_SPRINGTIDE_STORM",
+    "Wraps a foe in fierce winds.\\nVaries with the user's form."
+  ],
+  [
+    "MOVE_MYSTICAL_POWER",
+    "A mysterious power strikes,\\nraising the user's Sp. Atk."
+  ],
+  [
+    "MOVE_RAGING_FURY",
+    "A rampage of 2 to 3 turns\\nthat confuses the user."
+  ],
+  [
+    "MOVE_WAVE_CRASH",
+    "A slam shrouded in water.\\nIt also hurts the user."
+  ],
+  [
+    "MOVE_CHLOROBLAST",
+    "A user-hurting blast of\\namassed chlorophyll."
+  ],
+  [
+    "MOVE_MOUNTAIN_GALE",
+    "Giant chunks of ice damage\\nthe foe. It may flinch."
+  ],
+  [
+    "MOVE_VICTORY_DANCE",
+    "Dances to raise Attack,\\nDefense and Speed."
+  ],
+  [
+    "MOVE_HEADLONG_RUSH",
+    "Hits with a full-body tackle.\\nLowers the users's defenses."
+  ],
+  [
+    "MOVE_BARB_BARRAGE",
+    "Can poison on impact. Powers\\nup against poisoned foes."
+  ],
+  [
+    "MOVE_ESPER_WING",
+    "High critical hit ratio.\\nUps the user's Speed."
+  ],
+  [
+    "MOVE_BITTER_MALICE",
+    "A spine-chilling resentment.\\nLowers the foe's Attack."
+  ],
+  [
+    "MOVE_SHELTER",
+    "The user hardens their skin,\\nsharply raising its Defense."
+  ],
+  [
+    "MOVE_INFERNAL_PARADE",
+    "Hurts a foe harder if it has\\nan ailment. May leave a burn."
+  ],
+  [
+    "MOVE_CEASELESS_EDGE",
+    "Sets Spikes that hurt the\\nfoe."
+  ],
+  [
+    "MOVE_BLEAKWIND_STORM",
+    "Hits with brutal, cold winds.\\nMay lower the foe's Speed."
+  ],
+  [
+    "MOVE_WILDBOLT_STORM",
+    "Hits with a brutal tempest.\\nMay inflict paralysis."
+  ],
+  [
+    "MOVE_SANDSEAR_STORM",
+    "Hits with brutally hot sand.\\nMay inflict a burn."
+  ],
+  [
+    "MOVE_LUNAR_BLESSING",
+    "The user heals and cures\\nitself and its ally."
+  ],
+  [
+    "MOVE_TAKE_HEART",
+    "The user lifts its spirits to\\nheal and strengthen itself."
+  ],
+  [
+    "MOVE_TERA_BLAST",
+    "If the user's Terastallized,\\nit hits with its Tera type."
+  ],
+  [
+    "MOVE_AXE_KICK",
+    "May miss and hurt the kicker.\\nMay cause confusion."
+  ],
+  [
+    "MOVE_LAST_RESPECTS",
+    "This move deals more damage\\nfor each defeated ally."
+  ],
+  [
+    "MOVE_ORDER_UP",
+    "Boosts a user's stats\\ndepending on Tatsugiri."
+  ],
+  [
+    "MOVE_SPICY_EXTRACT",
+    "Sharply ups target's Attack,\\nharshly lowers its Defense."
+  ],
+  [
+    "MOVE_SPIN_OUT",
+    "Furiously strains its legs.\\nHarshly lowers user's Speed."
+  ],
+  [
+    "MOVE_POPULATION_BOMB",
+    "The user's fellows hit one\\nto ten times in a row."
+  ],
+  [
+    "MOVE_ICE_SPINNER",
+    "Ice-covered feet hit a foe\\nand destroy the terrain."
+  ],
+  [
+    "MOVE_GLAIVE_RUSH",
+    "Foe attacks next turn can't\\nmiss and do double damage."
+  ],
+  [
+    "MOVE_SALT_CURE",
+    "Hurts foe every turn. Double\\ndamage to Steel and Water."
+  ],
+  [
+    "MOVE_TRIPLE_DIVE",
+    "Hits target with splashes\\nof water 3 times in a row."
+  ],
+  [
+    "MOVE_MORTAL_SPIN",
+    "Erases trap moves and Leech\\nSeed. Poisons adjacent foes."
+  ],
+  [
+    "MOVE_DOODLE",
+    "Changes user's and ally's\\nAbility into the target's."
+  ],
+  [
+    "MOVE_FILLET_AWAY",
+    "Sharply boosts offenses and\\nSpeed by using its own HP."
+  ],
+  [
+    "MOVE_KOWTOW_CLEAVE",
+    "User slashes the foe after\\nkowtowing. It never misses."
+  ],
+  [
+    "MOVE_TORCH_SONG",
+    "Flames scorch the target.\\nBoosts the user's Sp. Atk."
+  ],
+  [
+    "MOVE_AQUA_STEP",
+    "Hits with light, fluid dance\\nsteps. Ups the user's Speed."
+  ],
+  [
+    "MOVE_RAGING_BULL",
+    "Tackle that breaks barriers.\\nUser's form determines type."
+  ],
+  [
+    "MOVE_MAKE_IT_RAIN",
+    "Lowers the user's Sp. Atk.\\nMoney is recovered after."
+  ],
+  [
+    "MOVE_RUINATION",
+    "Summons a ruinous disaster\\nand cuts half the foe's HP."
+  ],
+  [
+    "MOVE_CHILLY_RECEPTION",
+    "Bad joke summons hailstorm.\\nThe user also switches out."
+  ],
+  [
+    "MOVE_TIDY_UP",
+    "User tidies up hazards and\\nraises its Attack and Speed."
+  ],
+  [
+    "MOVE_POUNCE",
+    "The user pounces on the foe,\\nlowering its Speed."
+  ],
+  [
+    "MOVE_TRAILBLAZE",
+    "The user attacks suddenly,\\nraising its Speed."
+  ],
+  [
+    "MOVE_CHILLING_WATER",
+    "A shower with ice-cold water\\nlowers the target's Attack."
+  ],
+  [
+    "MOVE_HYPER_DRILL",
+    "A spinning pointed part\\nbypasses a foe's Protect."
+  ],
+  [
+    "MOVE_TWIN_BEAM",
+    "Mystical eye-beams that hit\\nthe target twice in a row."
+  ],
+  [
+    "MOVE_RAGE_FIST",
+    "The more the user has been\\nhit, the stronger the move."
+  ],
+  [
+    "MOVE_ARMOR_CANNON",
+    "A strong attack but lowers\\nthe defensive stats."
+  ],
+  [
+    "MOVE_BITTER_BLADE",
+    "Attack that absorbs\\nhalf the damage inflicted."
+  ],
+  [
+    "MOVE_DOUBLE_SHOCK",
+    "Discharges all electricity,\\nlosing the Electric type."
+  ],
+  [
+    "MOVE_COMEUPPANCE",
+    "Retaliates strongly against\\nwho last hurt the user."
+  ],
+  [
+    "MOVE_BLOOD_MOON",
+    "Unleashes the blood moon.\\nCan't be used twice in a row."
+  ],
+  [
+    "MOVE_MATCHA_GOTCHA",
+    "Absorbs half the damage\\ninflicted. May cause a burn."
+  ],
+  [
+    "MOVE_SYRUP_BOMB",
+    "Lowers the foe's speed\\neach turn for 3 turns."
+  ],
+  [
+    "MOVE_TERA_STARSTORM",
+    "In Terapagos's Stellar\\nForm, it hits all foes."
+  ],
+  [
+    "MOVE_BURNING_BULWARK",
+    "Evades attack, and burns\\nthe foe if struck."
+  ],
+  [
+    "MOVE_TACHYON_CUTTER",
+    "Launches particle blades at\\nthe target. Strikes twice."
+  ],
+  [
+    "MOVE_ALLURING_VOICE",
+    "Confuses foe if its stats\\nwere boosted this turn."
+  ],
+  [
+    "MOVE_TEMPER_FLARE",
+    "A desperation attack. Power\\ndoubles if last move failed."
+  ],
+  [
+    "MOVE_SUPERCELL_SLAM",
+    "An electrified slam. If it\\nmisses, the user is hurt."
+  ],
+  [
+    "MOVE_UPPER_HAND",
+    "Makes the target flinch if\\nreadying a priority move."
+  ],
+  [
+    "MOVE_MALIGNANT_CHAIN",
+    "A corrosive chain attack\\nthat may badly poison."
+  ],
+  [
+    "MOVE_BREAKNECK_BLITZ",
+    "Builds momentum and crashes\\ninto the foe. Power varies."
+  ],
+  [
+    "MOVE_ALL_OUT_PUMMELING",
+    "Rams an energy orb into\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_SUPERSONIC_SKYSTRIKE",
+    "Soars up and plummets toward\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_ACID_DOWNPOUR",
+    "Sinks the target in a poison\\nswamp. Power varies."
+  ],
+  [
+    "MOVE_TECTONIC_RAGE",
+    "Burrows deep and slams into\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_CONTINENTAL_CRUSH",
+    "Drops a huge rock mountain\\non the foe. Power varies."
+  ],
+  [
+    "MOVE_SAVAGE_SPIN_OUT",
+    "Spits threads of silk to\\nbind the foe. Power varies."
+  ],
+  [
+    "MOVE_NEVER_ENDING_NIGHTMARE",
+    "Deep-seated grudges trap\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_CORKSCREW_CRASH",
+    "Spins very fast and rams\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_INFERNO_OVERDRIVE",
+    "Breathes intense fire at\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_HYDRO_VORTEX",
+    "A huge whirlpool swallows\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_BLOOM_DOOM",
+    "Uses plant energy to attack\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_GIGAVOLT_HAVOC",
+    "Hits the foe with powerful\\nelectricity. Power varies."
+  ],
+  [
+    "MOVE_SHATTERED_PSYCHE",
+    "Controls the target to\\nhurt it. Power varies."
+  ],
+  [
+    "MOVE_SUBZERO_SLAMMER",
+    "Drops the temp and freezes\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_DEVASTATING_DRAKE",
+    "Develops aura and attacks\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_BLACK_HOLE_ECLIPSE",
+    "Sucks the target into dark\\nenergy. Power varies."
+  ],
+  [
+    "MOVE_TWINKLE_TACKLE",
+    "Toys with the target in a\\ncharming space. Power varies."
+  ],
+  [
+    "MOVE_CATASTROPIKA",
+    "Pikachu uses the max amount\\nof electricity and pounces."
+  ],
+  [
+    "MOVE_STOKED_SPARKSURFER",
+    "Alolan Raichu attacks with\\nfull force. Causes paralysis."
+  ],
+  [
+    "MOVE_EXTREME_EVOBOOST",
+    "Eevee gets energy from\\nits friends. Boosts stats."
+  ],
+  [
+    "MOVE_PULVERIZING_PANCAKE",
+    "Snorlax energetically moves\\nand attacks with full force."
+  ],
+  [
+    "MOVE_GENESIS_SUPERNOVA",
+    "Mew attacks with full force.\\nPsychically charges terrain."
+  ],
+  [
+    "MOVE_MALICIOUS_MOONSAULT",
+    "Incineroar crashes into\\nthe target with full force."
+  ],
+  [
+    "MOVE_OCEANIC_OPERETTA",
+    "Primarina summons a massive\\namount of water at the foe."
+  ],
+  [
+    "MOVE_SPLINTERED_STORMSHARDS",
+    "Lycanroc attacks with full\\nforce. Removes all terrain."
+  ],
+  [
+    "MOVE_LETS_SNUGGLE_FOREVER",
+    "Mimikyu punches the target\\nwith full force."
+  ],
+  [
+    "MOVE_CLANGOROUS_SOULBLAZE",
+    "Kommo-o attacks with full\\nforce. Boosts all stats."
+  ],
+  [
+    "MOVE_GUARDIAN_OF_ALOLA",
+    "The Land Spirit Pokémon\\ngreatly reduces the foe's HP."
+  ],
+  [
+    "MOVE_SEARING_SUNRAZE_SMASH",
+    "Solgaleo attacks with full\\nforce. Ignores abilities."
+  ],
+  [
+    "MOVE_MENACING_MOONRAZE_MAELSTROM",
+    "Lunala attacks with full\\nforce. Ignores abilities."
+  ],
+  [
+    "MOVE_LIGHT_THAT_BURNS_THE_SKY",
+    "Uses Necrozma's highest\\nattack. Ignores abilities."
+  ],
+  [
+    "MOVE_MAX_FLARE",
+    "Fire Dynamax attack.\\nIntensifies sun for 5 turns."
+  ],
+  [
+    "MOVE_MAX_FLUTTERBY",
+    "Bug Dynamax attack.\\nLowers foe's Sp. Atk stat."
+  ],
+  [
+    "MOVE_MAX_LIGHTNING",
+    "Electric Dynamax attack.\\nTurns the terrain electric."
+  ],
+  [
+    "MOVE_MAX_STRIKE",
+    "Normal Dynamax attack.\\nLowers foe's Speed stat."
+  ],
+  [
+    "MOVE_MAX_KNUCKLE",
+    "Fighting Dynamax attack.\\nBoosts ally Attack stats."
+  ],
+  [
+    "MOVE_MAX_PHANTASM",
+    "Ghost Dynamax attack.\\nLowers foe's Defense stat."
+  ],
+  [
+    "MOVE_MAX_HAILSTORM",
+    "Ice Dynamax attack.\\nSummons hail for 5 turns."
+  ],
+  [
+    "MOVE_MAX_OOZE",
+    "Poison Dynamax attack.\\nBoosts ally Sp. Atk stats."
+  ],
+  [
+    "MOVE_MAX_GEYSER",
+    "Water Dynamax attack.\\nSummons rain for 5 turns."
+  ],
+  [
+    "MOVE_MAX_AIRSTREAM",
+    "Flying Dynamax attack.\\nBoosts ally Speed stats."
+  ],
+  [
+    "MOVE_MAX_STARFALL",
+    "Fairy Dynamax attack.\\nTurns the terrain misty."
+  ],
+  [
+    "MOVE_MAX_WYRMWIND",
+    "Dragon Dynamax attack.\\nLowers foe's Attack stat."
+  ],
+  [
+    "MOVE_MAX_MINDSTORM",
+    "Psychic Dynamax attack.\\nTurns the terrain psychic."
+  ],
+  [
+    "MOVE_MAX_ROCKFALL",
+    "Rock Dynamax attack.\\nSummons a sandstorm."
+  ],
+  [
+    "MOVE_MAX_QUAKE",
+    "Ground Dynamax attack.\\nBoosts ally Sp. Def stats."
+  ],
+  [
+    "MOVE_MAX_DARKNESS",
+    "Dark Dynamax attack.\\nLowers foe's Sp. Def stat."
+  ],
+  [
+    "MOVE_MAX_OVERGROWTH",
+    "Grass Dynamax attack.\\nTurns the terrain grassy."
+  ],
+  [
+    "MOVE_MAX_STEELSPIKE",
+    "Steel Dynamax attack.\\nBoosts ally Defense stats."
+  ],
+  [
+    "MOVE_G_MAX_VINE_LASH",
+    "G-max Venusaur attack.\\nDamages for 4 turns."
+  ],
+  [
+    "MOVE_G_MAX_WILDFIRE",
+    "G-max Charizard attack.\\nDamages for 4 turns."
+  ],
+  [
+    "MOVE_G_MAX_CANNONADE",
+    "G-max Blastoise attack.\\nDamages for 4 turns."
+  ],
+  [
+    "MOVE_G_MAX_BEFUDDLE",
+    "G-max Butterfree attack.\\nPoison, paralysis, or sleep."
+  ],
+  [
+    "MOVE_G_MAX_VOLT_CRASH",
+    "G-max Pikachu attack.\\nParalyzes opponents."
+  ],
+  [
+    "MOVE_G_MAX_GOLD_RUSH",
+    "G-max Meowth attack.\\nConfuses and earns money."
+  ],
+  [
+    "MOVE_G_MAX_CHI_STRIKE",
+    "G-max Machamp attack.\\nBoosts critical-hit ratio."
+  ],
+  [
+    "MOVE_G_MAX_TERROR",
+    "G-max Gengar attack.\\nPrevents foes from escaping."
+  ],
+  [
+    "MOVE_G_MAX_FOAM_BURST",
+    "G-max Kingler attack.\\nHarshly lowers foe's Speed."
+  ],
+  [
+    "MOVE_G_MAX_RESONANCE",
+    "G-max Lapras attack.\\nReduces damage for 5 turns."
+  ],
+  [
+    "MOVE_G_MAX_CUDDLE",
+    "G-max Eevee attack.\\nInfatuates opponents."
+  ],
+  [
+    "MOVE_G_MAX_REPLENISH",
+    "G-max Snorlax attack.\\nRestores eaten Berries."
+  ],
+  [
+    "MOVE_G_MAX_MALODOR",
+    "G-max Garbodor attack.\\nPoisons opponents."
+  ],
+  [
+    "MOVE_G_MAX_MELTDOWN",
+    "G-max Melmetal attack.\\nPrevents repeat move use."
+  ],
+  [
+    "MOVE_G_MAX_DRUM_SOLO",
+    "G-max Rillaboom attack.\\nIgnores target's abilities."
+  ],
+  [
+    "MOVE_G_MAX_FIREBALL",
+    "G-max Cinderace attack.\\nIgnores target's abilities."
+  ],
+  [
+    "MOVE_G_MAX_HYDROSNIPE",
+    "G-max Inteleon attack.\\nIgnores target's abilities."
+  ],
+  [
+    "MOVE_G_MAX_WIND_RAGE",
+    "G-max Corviknight attack.\\nRemoves opponent screens."
+  ],
+  [
+    "MOVE_G_MAX_GRAVITAS",
+    "G-max Orbeetle attack.\\nChanges gravity for 5 turns."
+  ],
+  [
+    "MOVE_G_MAX_STONESURGE",
+    "G-max Drednaw attack.\\nScatters sharp rocks."
+  ],
+  [
+    "MOVE_G_MAX_VOLCALITH",
+    "G-max Coalossal attack.\\nDamages for 4 turns."
+  ],
+  [
+    "MOVE_G_MAX_TARTNESS",
+    "G-max Flapple attack.\\nLowers foe's evasiveness."
+  ],
+  [
+    "MOVE_G_MAX_SWEETNESS",
+    "G-max Appletun attack.\\nHeals ally status conditions."
+  ],
+  [
+    "MOVE_G_MAX_SANDBLAST",
+    "G-max Sandaconda attack.\\nTraps foes in a sandstorm."
+  ],
+  [
+    "MOVE_G_MAX_STUN_SHOCK",
+    "G-max Toxtricity attack.\\nPoisons or paralyzes foes."
+  ],
+  [
+    "MOVE_G_MAX_CENTIFERNO",
+    "G-max Centiskorch attack.\\nTraps foes in flames."
+  ],
+  [
+    "MOVE_G_MAX_SMITE",
+    "G-max Hatterene attack.\\nConfuses opponents."
+  ],
+  [
+    "MOVE_G_MAX_SNOOZE",
+    "G-max Grimmsnarl attack.\\nLulls foes into sleep."
+  ],
+  [
+    "MOVE_G_MAX_FINALE",
+    "G-max Alcremie attack.\\nHeals ally HP."
+  ],
+  [
+    "MOVE_G_MAX_STEELSURGE",
+    "G-max Copperajah attack.\\nScatters sharp spikes."
+  ],
+  [
+    "MOVE_G_MAX_DEPLETION",
+    "G-max Duraludon attack.\\nReduces target's PP."
+  ]
+]

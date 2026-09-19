@@ -1,0 +1,914 @@
+[
+  [
+    "ABILITY_ROUGH_SKIN",
+    "Previene el sueño."
+  ],
+  [
+    "ABILITY_HUGE_POWER",
+    "Previene las quemaduras."
+  ],
+  [
+    "ABILITY_HEATPROOF",
+    "Heat and burn protection."
+  ],
+  [
+    "ABILITY_SIMPLE",
+    "Prone to wild stat changes."
+  ],
+  [
+    "ABILITY_DRY_SKIN",
+    "Prefers moisture to heat."
+  ],
+  [
+    "ABILITY_DOWNLOAD",
+    "Adjusts power favorably."
+  ],
+  [
+    "ABILITY_IRON_FIST",
+    "Boosts punching moves."
+  ],
+  [
+    "ABILITY_POISON_HEAL",
+    "Restores HP if poisoned."
+  ],
+  [
+    "ABILITY_ADAPTABILITY",
+    "Boosts same type attacks."
+  ],
+  [
+    "ABILITY_SKILL_LINK",
+    "Multi-hit moves hit 5 times."
+  ],
+  [
+    "ABILITY_HYDRATION",
+    "Cures status in rain."
+  ],
+  [
+    "ABILITY_SOLAR_POWER",
+    "Powers up in sunshine."
+  ],
+  [
+    "ABILITY_QUICK_FEET",
+    "Ups Speed if suffering."
+  ],
+  [
+    "ABILITY_NORMALIZE",
+    "Moves become Normal-type."
+  ],
+  [
+    "ABILITY_SNIPER",
+    "Boosts critical hits."
+  ],
+  [
+    "ABILITY_MAGIC_GUARD",
+    "Only damaged by attacks."
+  ],
+  [
+    "ABILITY_NO_GUARD",
+    "Ensures that all moves hit."
+  ],
+  [
+    "ABILITY_STALL",
+    "Always moves last."
+  ],
+  [
+    "ABILITY_TECHNICIAN",
+    "Boosts weaker moves."
+  ],
+  [
+    "ABILITY_LEAF_GUARD",
+    "Blocks status in sunshine."
+  ],
+  [
+    "ABILITY_KLUTZ",
+    "Can't use hold items."
+  ],
+  [
+    "ABILITY_MOLD_BREAKER",
+    "Moves hit through abilities."
+  ],
+  [
+    "ABILITY_SUPER_LUCK",
+    "Critical hits land often."
+  ],
+  [
+    "ABILITY_AFTERMATH",
+    "Fainting damages the foe."
+  ],
+  [
+    "ABILITY_ANTICIPATION",
+    "Senses dangerous moves."
+  ],
+  [
+    "ABILITY_FOREWARN",
+    "Determines a foe's move."
+  ],
+  [
+    "ABILITY_UNAWARE",
+    "Ignores stat changes."
+  ],
+  [
+    "ABILITY_TINTED_LENS",
+    "Ups “not very effective”."
+  ],
+  [
+    "ABILITY_FILTER",
+    "Weakens “supereffective”."
+  ],
+  [
+    "ABILITY_SLOW_START",
+    "Takes a while to get going."
+  ],
+  [
+    "ABILITY_SCRAPPY",
+    "Hits Ghost-type Pokémon."
+  ],
+  [
+    "ABILITY_STORM_DRAIN",
+    "Draws in Water moves."
+  ],
+  [
+    "ABILITY_ICE_BODY",
+    "HP recovery in Hail or Snow."
+  ],
+  [
+    "ABILITY_SOLID_ROCK",
+    "Weakens “supereffective”."
+  ],
+  [
+    "ABILITY_SNOW_WARNING",
+    "Summons snow in battle."
+  ],
+  [
+    "ABILITY_HONEY_GATHER",
+    "May gather Honey."
+  ],
+  [
+    "ABILITY_FRISK",
+    "Checks a foe's item."
+  ],
+  [
+    "ABILITY_RECKLESS",
+    "Boosts moves with recoil."
+  ],
+  [
+    "ABILITY_MULTITYPE",
+    "Changes type to its Plate."
+  ],
+  [
+    "ABILITY_FLOWER_GIFT",
+    "Allies power up in sunshine."
+  ],
+  [
+    "ABILITY_BAD_DREAMS",
+    "Damages sleeping Pokémon."
+  ],
+  [
+    "ABILITY_PICKPOCKET",
+    "Steals the foe's held item."
+  ],
+  [
+    "ABILITY_SHEER_FORCE",
+    "Trades effects for power."
+  ],
+  [
+    "ABILITY_CONTRARY",
+    "Inverts stat changes."
+  ],
+  [
+    "ABILITY_UNNERVE",
+    "Foes can't eat Berries."
+  ],
+  [
+    "ABILITY_DEFIANT",
+    "Lowered stats up Attack."
+  ],
+  [
+    "ABILITY_DEFEATIST",
+    "Gives up at half HP."
+  ],
+  [
+    "ABILITY_CURSED_BODY",
+    "Disables moves on contact."
+  ],
+  [
+    "ABILITY_HEALER",
+    "Heals partner Pokémon."
+  ],
+  [
+    "ABILITY_FRIEND_GUARD",
+    "Lowers damage to partner."
+  ],
+  [
+    "ABILITY_WEAK_ARMOR",
+    "Its stats change when hit."
+  ],
+  [
+    "ABILITY_HEAVY_METAL",
+    "Doubles weight."
+  ],
+  [
+    "ABILITY_LIGHT_METAL",
+    "Halves weight."
+  ],
+  [
+    "ABILITY_MULTISCALE",
+    "Halves damage at full HP."
+  ],
+  [
+    "ABILITY_TOXIC_BOOST",
+    "Ups Attack if poisoned."
+  ],
+  [
+    "ABILITY_FLARE_BOOST",
+    "Ups Sp. Atk if burned."
+  ],
+  [
+    "ABILITY_HARVEST",
+    "May recycle a used Berry."
+  ],
+  [
+    "ABILITY_TELEPATHY",
+    "Can't be damaged by an ally."
+  ],
+  [
+    "ABILITY_MOODY",
+    "Stats change gradually."
+  ],
+  [
+    "ABILITY_OVERCOAT",
+    "Blocks weather and powder."
+  ],
+  [
+    "ABILITY_POISON_TOUCH",
+    "Poisons foe on contact."
+  ],
+  [
+    "ABILITY_REGENERATOR",
+    "Heals upon switching out."
+  ],
+  [
+    "ABILITY_BIG_PECKS",
+    "Prevents Defense loss."
+  ],
+  [
+    "ABILITY_SAND_RUSH",
+    "Ups Speed in a sandstorm."
+  ],
+  [
+    "ABILITY_WONDER_SKIN",
+    "May avoid status problems."
+  ],
+  [
+    "ABILITY_ANALYTIC",
+    "Moving last boosts power."
+  ],
+  [
+    "ABILITY_ILLUSION",
+    "Appears as a partner."
+  ],
+  [
+    "ABILITY_IMPOSTER",
+    "Transforms into the foe."
+  ],
+  [
+    "ABILITY_INFILTRATOR",
+    "Passes through barriers."
+  ],
+  [
+    "ABILITY_MUMMY",
+    "Spreads with contact."
+  ],
+  [
+    "ABILITY_MOXIE",
+    "KOs raise Attack."
+  ],
+  [
+    "ABILITY_JUSTIFIED",
+    "Dark hits raise Attack."
+  ],
+  [
+    "ABILITY_RATTLED",
+    "Raises Speed when scared."
+  ],
+  [
+    "ABILITY_MAGIC_BOUNCE",
+    "Reflects status moves."
+  ],
+  [
+    "ABILITY_SAP_SIPPER",
+    "Grass increases Attack."
+  ],
+  [
+    "ABILITY_PRANKSTER",
+    "Status moves go first."
+  ],
+  [
+    "ABILITY_SAND_FORCE",
+    "Powers up in a sandstorm."
+  ],
+  [
+    "ABILITY_IRON_BARBS",
+    "Hurts to touch."
+  ],
+  [
+    "ABILITY_ZEN_MODE",
+    "Transforms at half HP."
+  ],
+  [
+    "ABILITY_VICTORY_STAR",
+    "Raises party accuracy."
+  ],
+  [
+    "ABILITY_TURBOBLAZE",
+    "Moves hit through abilities."
+  ],
+  [
+    "ABILITY_TERAVOLT",
+    "Moves hit through abilities."
+  ],
+  [
+    "ABILITY_AROMA_VEIL",
+    "Prevents limiting of moves."
+  ],
+  [
+    "ABILITY_FLOWER_VEIL",
+    "Protects Grass-types."
+  ],
+  [
+    "ABILITY_CHEEK_POUCH",
+    "Eating Berries restores HP."
+  ],
+  [
+    "ABILITY_PROTEAN",
+    "Changes type to used move."
+  ],
+  [
+    "ABILITY_FUR_COAT",
+    "Raises Defense."
+  ],
+  [
+    "ABILITY_MAGICIAN",
+    "Steals the foe's held item."
+  ],
+  [
+    "ABILITY_BULLETPROOF",
+    "Avoids some projectiles."
+  ],
+  [
+    "ABILITY_COMPETITIVE",
+    "Lowered stats up Sp. Atk."
+  ],
+  [
+    "ABILITY_STRONG_JAW",
+    "Boosts biting moves."
+  ],
+  [
+    "ABILITY_REFRIGERATE",
+    "Normal moves become Ice."
+  ],
+  [
+    "ABILITY_SWEET_VEIL",
+    "Prevents party from sleep."
+  ],
+  [
+    "ABILITY_STANCE_CHANGE",
+    "Transforms as it battles."
+  ],
+  [
+    "ABILITY_GALE_WINGS",
+    "Flying moves go first."
+  ],
+  [
+    "ABILITY_MEGA_LAUNCHER",
+    "Boosts pulse moves."
+  ],
+  [
+    "ABILITY_GRASS_PELT",
+    "Ups Defense in grass."
+  ],
+  [
+    "ABILITY_SYMBIOSIS",
+    "Passes its item to an ally."
+  ],
+  [
+    "ABILITY_TOUGH_CLAWS",
+    "Boosts contact moves."
+  ],
+  [
+    "ABILITY_PIXILATE",
+    "Normal moves become Fairy."
+  ],
+  [
+    "ABILITY_GOOEY",
+    "Lowers Speed on contact."
+  ],
+  [
+    "ABILITY_AERILATE",
+    "Normal moves become Flying."
+  ],
+  [
+    "ABILITY_PARENTAL_BOND",
+    "Moves hit twice."
+  ],
+  [
+    "ABILITY_DARK_AURA",
+    "Boosts Dark moves."
+  ],
+  [
+    "ABILITY_FAIRY_AURA",
+    "Boosts Fairy moves."
+  ],
+  [
+    "ABILITY_AURA_BREAK",
+    "Reverse aura abilities."
+  ],
+  [
+    "ABILITY_PRIMORDIAL_SEA",
+    "Summons heavy rain."
+  ],
+  [
+    "ABILITY_DESOLATE_LAND",
+    "Summons intense sunlight."
+  ],
+  [
+    "ABILITY_DELTA_STREAM",
+    "Summons strong winds."
+  ],
+  [
+    "ABILITY_STAMINA",
+    "Boosts Defense when hit."
+  ],
+  [
+    "ABILITY_WIMP_OUT",
+    "Flees at half HP."
+  ],
+  [
+    "ABILITY_EMERGENCY_EXIT",
+    "Flees at half HP."
+  ],
+  [
+    "ABILITY_WATER_COMPACTION",
+    "Water boosts Defense."
+  ],
+  [
+    "ABILITY_MERCILESS",
+    "Criticals poisoned foes."
+  ],
+  [
+    "ABILITY_SHIELDS_DOWN",
+    "Shell breaks at half HP."
+  ],
+  [
+    "ABILITY_STAKEOUT",
+    "Stronger as foes switch in."
+  ],
+  [
+    "ABILITY_WATER_BUBBLE",
+    "Guards from fire and burns."
+  ],
+  [
+    "ABILITY_STEELWORKER",
+    "Powers up Steel moves."
+  ],
+  [
+    "ABILITY_BERSERK",
+    "Boosts Sp. Atk at low HP."
+  ],
+  [
+    "ABILITY_SLUSH_RUSH",
+    "Raises Speed in Hail/Snow."
+  ],
+  [
+    "ABILITY_LONG_REACH",
+    "Never makes contact."
+  ],
+  [
+    "ABILITY_LIQUID_VOICE",
+    "Makes sound moves Water."
+  ],
+  [
+    "ABILITY_TRIAGE",
+    "Healing moves go first."
+  ],
+  [
+    "ABILITY_GALVANIZE",
+    "Normal moves turn Electric."
+  ],
+  [
+    "ABILITY_SURGE_SURFER",
+    "Faster on electricity."
+  ],
+  [
+    "ABILITY_SCHOOLING",
+    "Forms a school when strong."
+  ],
+  [
+    "ABILITY_DISGUISE",
+    "Decoy protects it once."
+  ],
+  [
+    "ABILITY_BATTLE_BOND",
+    "Changes form after a KO."
+  ],
+  [
+    "ABILITY_POWER_CONSTRUCT",
+    "Cells aid it when weakened."
+  ],
+  [
+    "ABILITY_CORROSION",
+    "Poisons any type."
+  ],
+  [
+    "ABILITY_COMATOSE",
+    "Always drowsing."
+  ],
+  [
+    "ABILITY_QUEENLY_MAJESTY",
+    "Protects from priority."
+  ],
+  [
+    "ABILITY_INNARDS_OUT",
+    "Hurts foe when defeated."
+  ],
+  [
+    "ABILITY_DANCER",
+    "Dances along with others."
+  ],
+  [
+    "ABILITY_BATTERY",
+    "Boosts ally's Sp. Atk."
+  ],
+  [
+    "ABILITY_FLUFFY",
+    "Tougher but flammable."
+  ],
+  [
+    "ABILITY_DAZZLING",
+    "Protects from priority."
+  ],
+  [
+    "ABILITY_SOUL_HEART",
+    "KOs raise Sp. Atk."
+  ],
+  [
+    "ABILITY_TANGLING_HAIR",
+    "Lowers Speed on contact."
+  ],
+  [
+    "ABILITY_RECEIVER",
+    "Copies ally's ability."
+  ],
+  [
+    "ABILITY_POWER_OF_ALCHEMY",
+    "Copies ally's ability."
+  ],
+  [
+    "ABILITY_BEAST_BOOST",
+    "KOs boost best stat."
+  ],
+  [
+    "ABILITY_RKS_SYSTEM",
+    "Memories change its type."
+  ],
+  [
+    "ABILITY_ELECTRIC_SURGE",
+    "Field becomes Electric."
+  ],
+  [
+    "ABILITY_PSYCHIC_SURGE",
+    "Field becomes weird."
+  ],
+  [
+    "ABILITY_MISTY_SURGE",
+    "Field becomes misty."
+  ],
+  [
+    "ABILITY_GRASSY_SURGE",
+    "Field becomes grassy."
+  ],
+  [
+    "ABILITY_FULL_METAL_BODY",
+    "Prevents stat reduction."
+  ],
+  [
+    "ABILITY_SHADOW_SHIELD",
+    "Halves damage at full HP."
+  ],
+  [
+    "ABILITY_PRISM_ARMOR",
+    "Weakens “supereffective”."
+  ],
+  [
+    "ABILITY_NEUROFORCE",
+    "Ups “supereffective”."
+  ],
+  [
+    "ABILITY_INTREPID_SWORD",
+    "Ups Attack on entry."
+  ],
+  [
+    "ABILITY_DAUNTLESS_SHIELD",
+    "Ups Defense on entry."
+  ],
+  [
+    "ABILITY_LIBERO",
+    "Changes type to move's."
+  ],
+  [
+    "ABILITY_BALL_FETCH",
+    "Fetches failed Poké Ball."
+  ],
+  [
+    "ABILITY_COTTON_DOWN",
+    "Lower Speed of all when hit."
+  ],
+  [
+    "ABILITY_PROPELLER_TAIL",
+    "Ignores foe's redirection."
+  ],
+  [
+    "ABILITY_MIRROR_ARMOR",
+    "Reflect stat decreases."
+  ],
+  [
+    "ABILITY_GULP_MISSILE",
+    "If hit, spits prey from sea."
+  ],
+  [
+    "ABILITY_STALWART",
+    "Ignores foe's redirection."
+  ],
+  [
+    "ABILITY_STEAM_ENGINE",
+    "Fire or Water hits up Speed."
+  ],
+  [
+    "ABILITY_PUNK_ROCK",
+    "Ups and resists sound."
+  ],
+  [
+    "ABILITY_SAND_SPIT",
+    "Creates a sandstorm if hit."
+  ],
+  [
+    "ABILITY_ICE_SCALES",
+    "Halves special damage."
+  ],
+  [
+    "ABILITY_RIPEN",
+    "Doubles effect of Berries."
+  ],
+  [
+    "ABILITY_ICE_FACE",
+    "Hail or Snow renew free hit."
+  ],
+  [
+    "ABILITY_POWER_SPOT",
+    "Powers up ally moves."
+  ],
+  [
+    "ABILITY_MIMICRY",
+    "Changes type on terrain."
+  ],
+  [
+    "ABILITY_SCREEN_CLEANER",
+    "Removes walls of light."
+  ],
+  [
+    "ABILITY_STEELY_SPIRIT",
+    "Boosts ally's Steel moves."
+  ],
+  [
+    "ABILITY_PERISH_BODY",
+    "Foe faints in 3 turns if hit."
+  ],
+  [
+    "ABILITY_WANDERING_SPIRIT",
+    "Trade abilities on contact."
+  ],
+  [
+    "ABILITY_GORILLA_TACTICS",
+    "Ups Attack and locks move."
+  ],
+  [
+    "ABILITY_NEUTRALIZING_GAS",
+    "All Abilities are nullified."
+  ],
+  [
+    "ABILITY_PASTEL_VEIL",
+    "Protects team from poison."
+  ],
+  [
+    "ABILITY_HUNGER_SWITCH",
+    "Changes form each turn."
+  ],
+  [
+    "ABILITY_QUICK_DRAW",
+    "Moves first occasionally."
+  ],
+  [
+    "ABILITY_UNSEEN_FIST",
+    "Contact evades protection."
+  ],
+  [
+    "ABILITY_CURIOUS_MEDICINE",
+    "Remove ally's stat changes."
+  ],
+  [
+    "ABILITY_TRANSISTOR",
+    "Ups Electric-type moves."
+  ],
+  [
+    "ABILITY_DRAGONS_MAW",
+    "Ups Dragon-type moves."
+  ],
+  [
+    "ABILITY_CHILLING_NEIGH",
+    "KOs boost Attack stat."
+  ],
+  [
+    "ABILITY_GRIM_NEIGH",
+    "KOs boost Sp. Atk stat."
+  ],
+  [
+    "ABILITY_AS_ONE_ICE_RIDER",
+    "Unnerve and Chilling Neigh."
+  ],
+  [
+    "ABILITY_AS_ONE_SHADOW_RIDER",
+    "Unnerve and Grim Neigh."
+  ],
+  [
+    "ABILITY_LINGERING_AROMA",
+    "Spreads with contact."
+  ],
+  [
+    "ABILITY_SEED_SOWER",
+    "Affects terrain when hit."
+  ],
+  [
+    "ABILITY_THERMAL_EXCHANGE",
+    "Fire hits up Attack."
+  ],
+  [
+    "ABILITY_ANGER_SHELL",
+    "Gets angry at half HP."
+  ],
+  [
+    "ABILITY_PURIFYING_SALT",
+    "Protected by pure salts."
+  ],
+  [
+    "ABILITY_WELL_BAKED_BODY",
+    "Strengthened by Fire."
+  ],
+  [
+    "ABILITY_WIND_RIDER",
+    "Ups Attack if hit by wind."
+  ],
+  [
+    "ABILITY_GUARD_DOG",
+    "Cannot be intimidated."
+  ],
+  [
+    "ABILITY_ROCKY_PAYLOAD",
+    "Powers up Rock moves."
+  ],
+  [
+    "ABILITY_WIND_POWER",
+    "Gets charged by wind."
+  ],
+  [
+    "ABILITY_ZERO_TO_HERO",
+    "Changes form on switch out."
+  ],
+  [
+    "ABILITY_COMMANDER",
+    "Commands from Dondozo."
+  ],
+  [
+    "ABILITY_ELECTROMORPHOSIS",
+    "Gets Charged when hit."
+  ],
+  [
+    "ABILITY_PROTOSYNTHESIS",
+    "Sun boosts best stat."
+  ],
+  [
+    "ABILITY_QUARK_DRIVE",
+    "Elec. field ups best stat."
+  ],
+  [
+    "ABILITY_GOOD_AS_GOLD",
+    "Avoids status moves."
+  ],
+  [
+    "ABILITY_VESSEL_OF_RUIN",
+    "Lowers foes' sp. damage."
+  ],
+  [
+    "ABILITY_SWORD_OF_RUIN",
+    "Lowers foes' Defense."
+  ],
+  [
+    "ABILITY_TABLETS_OF_RUIN",
+    "Lowers foes' damage."
+  ],
+  [
+    "ABILITY_BEADS_OF_RUIN",
+    "Lowers foes' Sp. Defense."
+  ],
+  [
+    "ABILITY_ORICHALCUM_PULSE",
+    "Summons sunlight in battle."
+  ],
+  [
+    "ABILITY_HADRON_ENGINE",
+    "Field becomes Electric."
+  ],
+  [
+    "ABILITY_OPPORTUNIST",
+    "Copies foe's stat change."
+  ],
+  [
+    "ABILITY_CUD_CHEW",
+    "Eats a used berry again."
+  ],
+  [
+    "ABILITY_SHARPNESS",
+    "Strengthens slicing moves."
+  ],
+  [
+    "ABILITY_SUPREME_OVERLORD",
+    "Inherits fallen's strength."
+  ],
+  [
+    "ABILITY_COSTAR",
+    "Copies ally's stat changes."
+  ],
+  [
+    "ABILITY_TOXIC_DEBRIS",
+    "Throws poison spikes if hit."
+  ],
+  [
+    "ABILITY_ARMOR_TAIL",
+    "Protects from priority."
+  ],
+  [
+    "ABILITY_EARTH_EATER",
+    "Eats ground to heal HP."
+  ],
+  [
+    "ABILITY_MYCELIUM_MIGHT",
+    "Status moves never fail."
+  ],
+  [
+    "ABILITY_HOSPITALITY",
+    "Restores ally's HP."
+  ],
+  [
+    "ABILITY_MINDS_EYE",
+    "Keen Eye and Scrappy."
+  ],
+  [
+    "ABILITY_EMBODY_ASPECT_TEAL_MASK",
+    "Raises Speed."
+  ],
+  [
+    "ABILITY_EMBODY_ASPECT_HEARTHFLAME_MASK",
+    "Raises Attack."
+  ],
+  [
+    "ABILITY_EMBODY_ASPECT_WELLSPRING_MASK",
+    "Raises Sp. Def."
+  ],
+  [
+    "ABILITY_EMBODY_ASPECT_CORNERSTONE_MASK",
+    "Raises Defense."
+  ],
+  [
+    "ABILITY_TOXIC_CHAIN",
+    "Moves can poison."
+  ],
+  [
+    "ABILITY_SUPERSWEET_SYRUP",
+    "Lowers the foe's Evasion."
+  ],
+  [
+    "ABILITY_TERA_SHIFT",
+    "Terastallizes upon entry."
+  ],
+  [
+    "ABILITY_TERA_SHELL",
+    "Resists all at full HP."
+  ],
+  [
+    "ABILITY_TERAFORM_ZERO",
+    "Zeroes weather and terrain."
+  ],
+  [
+    "ABILITY_POISON_PUPPETEER",
+    "Confuses poisoned foes."
+  ]
+]

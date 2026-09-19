@@ -1,0 +1,1242 @@
+[
+  {
+    "id": "MOVE_SONIC_BOOM",
+    "name": "SONIC BOOM",
+    "desc": "Launches shock waves that\\nalways inflict 20 HP damage."
+  },
+  {
+    "id": "MOVE_HEAL_BLOCK",
+    "name": "Antiterapia",
+    "desc": "Prevents the foes from\\nrecovering HP for 5 turns."
+  },
+  {
+    "id": "MOVE_WRING_OUT",
+    "name": "Exprimir",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_POWER_TRICK",
+    "name": "Truco Potencia",
+    "desc": "The user swaps its Attack\\nand Defense stats."
+  },
+  {
+    "id": "MOVE_GASTRO_ACID",
+    "name": "Ácido Gástrico",
+    "desc": "Stomach acid suppresses\\nthe foe's Ability."
+  },
+  {
+    "id": "MOVE_LUCKY_CHANT",
+    "name": "Canto Suerte",
+    "desc": "Prevents the foe from\\nlanding critical hits."
+  },
+  {
+    "id": "MOVE_ME_FIRST",
+    "name": "Primero Yo",
+    "desc": "Executes the foe's attack\\nwith greater power."
+  },
+  {
+    "id": "MOVE_COPYCAT",
+    "name": "Imitador",
+    "desc": "The user mimics the last\\nmove used by a foe."
+  },
+  {
+    "id": "MOVE_POWER_SWAP",
+    "name": "Intercambia Fuerzas",
+    "desc": "Swaps changes to Attack\\nand Sp. Atk with the foe."
+  },
+  {
+    "id": "MOVE_GUARD_SWAP",
+    "name": "Intercambia Defensas",
+    "desc": "Swaps changes to Defense\\nand Sp. Def with the foe."
+  },
+  {
+    "id": "MOVE_PUNISHMENT",
+    "name": "Castigo",
+    "desc": "Does more damage the more\\nthe foe has powered up."
+  },
+  {
+    "id": "MOVE_LAST_RESORT",
+    "name": "Último Recurso",
+    "desc": "Can only be used if every\\nother move has been used."
+  },
+  {
+    "id": "MOVE_WORRY_SEED",
+    "name": "Semilla Inquietud",
+    "desc": "Plants a seed on the foe\\ngiving it Insomnia."
+  },
+  {
+    "id": "MOVE_SUCKER_PUNCH",
+    "name": "Punto Débil",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_TOXIC_SPIKES",
+    "name": "Clavo Venenoso",
+    "desc": "Sets spikes that poison a\\nfoe switching in."
+  },
+  {
+    "id": "MOVE_HEART_SWAP",
+    "name": "Intercambia Corazón",
+    "desc": "Swaps any stat changes\\nwith the foe."
+  },
+  {
+    "id": "MOVE_AQUA_RING",
+    "name": "Anillo Acuático",
+    "desc": "Forms a veil of water\\nthat restores HP."
+  },
+  {
+    "id": "MOVE_MAGNET_RISE",
+    "name": "Levitación Magnética",
+    "desc": "The user levitates with\\nelectromagnetism."
+  },
+  {
+    "id": "MOVE_FLARE_BLITZ",
+    "name": "Llamarada",
+    "desc": "A charge that may burn the\\nfoe. Also hurts the user."
+  },
+  {
+    "id": "MOVE_FORCE_PALM",
+    "name": "Golpe Fuerza",
+    "desc": "A shock wave attack that\\nmay paralyze the foe."
+  },
+  {
+    "id": "MOVE_AURA_SPHERE",
+    "name": "Esfera Aural",
+    "desc": "Attacks with an aura blast\\nthat cannot be evaded."
+  },
+  {
+    "id": "MOVE_ROCK_POLISH",
+    "name": "Pule Roca",
+    "desc": "Polishes the body to\\nsharply raise Speed."
+  },
+  {
+    "id": "MOVE_POISON_JAB",
+    "name": "Jab Veneno",
+    "desc": "A stabbing attack that\\nmay poison the foe."
+  },
+  {
+    "id": "MOVE_DARK_PULSE",
+    "name": "Pulso Umbrío",
+    "desc": "Attacks with a horrible\\naura. May cause flinching."
+  },
+  {
+    "id": "MOVE_NIGHT_SLASH",
+    "name": "Noche Cerrada",
+    "desc": "Hits as soon as possible.\\nHigh critical-hit ratio."
+  },
+  {
+    "id": "MOVE_AQUA_TAIL",
+    "name": "Acua Cola",
+    "desc": "The user swings its tail\\nlike a wave to attack."
+  },
+  {
+    "id": "MOVE_SEED_BOMB",
+    "name": "Semilla Bomba",
+    "desc": "A barrage of hard seeds\\nis fired at the foe."
+  },
+  {
+    "id": "MOVE_AIR_SLASH",
+    "name": "Tajo Aéreo",
+    "desc": "Attacks with a blade of\\nair. May cause flinching."
+  },
+  {
+    "id": "MOVE_X_SCISSOR",
+    "name": "Tijera X",
+    "desc": "Slashes the foe with crossed\\nscythes, claws, etc."
+  },
+  {
+    "id": "MOVE_BUG_BUZZ",
+    "name": "Zum Bicho",
+    "desc": "A damaging sound wave that\\nmay lower Sp. Def."
+  },
+  {
+    "id": "MOVE_DRAGON_PULSE",
+    "name": "Pulso Dragón",
+    "desc": "Generates a shock wave to\\ndamage the foe."
+  },
+  {
+    "id": "MOVE_DRAGON_RUSH",
+    "name": "Avalancha Dragón",
+    "desc": "Tackles the foe with menace.\\nMay cause flinching."
+  },
+  {
+    "id": "MOVE_POWER_GEM",
+    "name": "Gema Poder",
+    "desc": "Attacks with rays of light\\nthat sparkle like diamonds."
+  },
+  {
+    "id": "MOVE_DRAIN_PUNCH",
+    "name": "Drenado Puño",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_VACUUM_WAVE",
+    "name": "Ola Vacío",
+    "desc": "Whirls its fists to send\\na wave that strikes first."
+  },
+  {
+    "id": "MOVE_FOCUS_BLAST",
+    "name": "Defensa Bola",
+    "desc": "Attacks at full power.\\nMay lower Sp. Def."
+  },
+  {
+    "id": "MOVE_ENERGY_BALL",
+    "name": "Bola Energía",
+    "desc": "Draws power from nature to\\nattack. May lower Sp. Def."
+  },
+  {
+    "id": "MOVE_BRAVE_BIRD",
+    "name": "Pájaro Osado",
+    "desc": "A low altitude charge that\\nalso hurts the user."
+  },
+  {
+    "id": "MOVE_EARTH_POWER",
+    "name": "Poder Tierra",
+    "desc": "Makes the ground erupt with\\npower. May lower Sp. Def."
+  },
+  {
+    "id": "MOVE_SWITCHEROO",
+    "name": "Trapicheo",
+    "desc": "Swaps items with the foe\\nfaster than the eye can see."
+  },
+  {
+    "id": "MOVE_GIGA_IMPACT",
+    "name": "Giga Impacto",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_NASTY_PLOT",
+    "name": "Jugarreta",
+    "desc": "Thinks bad thoughts to\\nsharply boost Sp. Atk."
+  },
+  {
+    "id": "MOVE_BULLET_PUNCH",
+    "name": "Puño Bala",
+    "desc": "Punches as fast as a bul-\\nlet. It always hits first."
+  },
+  {
+    "id": "MOVE_AVALANCHE",
+    "name": "Avalancha",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_ICE_SHARD",
+    "name": "Nieve Velo",
+    "desc": "Hurls a chunk of ice that\\nalways strikes first."
+  },
+  {
+    "id": "MOVE_SHADOW_CLAW",
+    "name": "Garra Umbría",
+    "desc": "Strikes with a shadow claw.\\nHigh critical-hit ratio."
+  },
+  {
+    "id": "MOVE_THUNDER_FANG",
+    "name": "Colmillo Rayo",
+    "desc": "May cause flinching or\\nleave the foe paralyzed."
+  },
+  {
+    "id": "MOVE_ICE_FANG",
+    "name": "Colmillo Hielo",
+    "desc": "May cause flinching or\\nleave the foe with frostbite."
+  },
+  {
+    "id": "MOVE_FIRE_FANG",
+    "name": "Colmillo Ígneo",
+    "desc": "May cause flinching or\\nleave the foe with a burn."
+  },
+  {
+    "id": "MOVE_SHADOW_SNEAK",
+    "name": "Sombra Vil",
+    "desc": "Extends the user's shadow\\nto strike first."
+  },
+  {
+    "id": "MOVE_MUD_BOMB",
+    "name": "Bomba Barro",
+    "desc": "Throws a blob of mud to\\ndamage and cut accuracy."
+  },
+  {
+    "id": "MOVE_PSYCHO_CUT",
+    "name": "Psicocorte",
+    "desc": "Tears with psychic blades.\\nHigh critical-hit ratio."
+  },
+  {
+    "id": "MOVE_ZEN_HEADBUTT",
+    "name": "Zen Cabezazo",
+    "desc": "Hits with a strong head-\\nbutt. May cause flinching."
+  },
+  {
+    "id": "MOVE_MIRROR_SHOT",
+    "name": "Espejo Shot",
+    "desc": "Emits a flash of energy to\\ndamage and cut accuracy."
+  },
+  {
+    "id": "MOVE_FLASH_CANNON",
+    "name": "Cañón Flash",
+    "desc": "Releases a blast of light\\nthat may lower Sp. Def."
+  },
+  {
+    "id": "MOVE_ROCK_CLIMB",
+    "name": "Escalada",
+    "desc": "A charging attack that may\\nconfuse the foe."
+  },
+  {
+    "id": "MOVE_DEFOG",
+    "name": "Antivaho",
+    "desc": "Removes obstacles and\\nlowers evasion."
+  },
+  {
+    "id": "MOVE_TRICK_ROOM",
+    "name": "Sala Trampa",
+    "desc": "Slower Pokémon get to move\\nfirst for 5 turns."
+  },
+  {
+    "id": "MOVE_DRACO_METEOR",
+    "name": "Cometa Draco",
+    "desc": "Casts comets onto the foe.\\nHarshly lowers the Sp. Atk."
+  },
+  {
+    "id": "MOVE_DISCHARGE",
+    "name": "Descarga",
+    "desc": "Zaps all other {PKMN} with\\nelectricity. May paralyze."
+  },
+  {
+    "id": "MOVE_LAVA_PLUME",
+    "name": "Erupción Lava",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_LEAF_STORM",
+    "name": "Tormenta Floral",
+    "desc": "Whips up a storm of leaves.\\nHarshly lowers the Sp. Atk."
+  },
+  {
+    "id": "MOVE_POWER_WHIP",
+    "name": "Látigo Potencia",
+    "desc": "Violently lashes the foe\\nwith vines or tentacles."
+  },
+  {
+    "id": "MOVE_ROCK_WRECKER",
+    "name": "Roca Destructora",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_CROSS_POISON",
+    "name": "Cruz Venenosa",
+    "desc": "A slash that may poison a\\nfoe and do critical damage."
+  },
+  {
+    "id": "MOVE_GUNK_SHOT",
+    "name": "Lanzamiento Basura",
+    "desc": "Shoots filthy garbage at\\nthe foe. May also poison."
+  },
+  {
+    "id": "MOVE_IRON_HEAD",
+    "name": "Cabeza de Hierro",
+    "desc": "Slams the foe with a hard\\nhead. May cause flinching."
+  },
+  {
+    "id": "MOVE_MAGNET_BOMB",
+    "name": "Bomba Magnética",
+    "desc": "Launches a magnet that\\nstrikes without fail."
+  },
+  {
+    "id": "MOVE_STONE_EDGE",
+    "name": "Filo Roca",
+    "desc": "Stabs the foe with stones.\\nHigh critical-hit ratio."
+  },
+  {
+    "id": "MOVE_CAPTIVATE",
+    "name": "Hechizar",
+    "desc": "Makes the opposite gender\\nsharply reduce its Sp. Atk."
+  },
+  {
+    "id": "MOVE_STEALTH_ROCK",
+    "name": "Trampa Rocas",
+    "desc": "Sets floating stones that\\nhurt a foe switching in."
+  },
+  {
+    "id": "MOVE_GRASS_KNOT",
+    "name": "Hierba Lazo",
+    "desc": "A snare attack that does\\nmore damage to heavier foes."
+  },
+  {
+    "id": "MOVE_CHATTER",
+    "name": "Charla",
+    "desc": "Attacks with a sound wave\\nthat causes confusion."
+  },
+  {
+    "id": "MOVE_JUDGMENT",
+    "name": "Sentencia",
+    "desc": "The type varies with the\\nkind of Plate held."
+  },
+  {
+    "id": "MOVE_BUG_BITE",
+    "name": "Picadura",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_CHARGE_BEAM",
+    "name": "Rayo Carga",
+    "desc": "Fires a beam of electricity.\\nMay raise Sp. Atk."
+  },
+  {
+    "id": "MOVE_WOOD_HAMMER",
+    "name": "Martillo Madera",
+    "desc": "Slams the body into a foe.\\nThe user gets hurt too."
+  },
+  {
+    "id": "MOVE_AQUA_JET",
+    "name": "Aqua Jet",
+    "desc": "Strikes first by dashing\\nat the foe at a high speed."
+  },
+  {
+    "id": "MOVE_ATTACK_ORDER",
+    "name": "Orden Ataque",
+    "desc": "Underlings pummel the foe.\\nHigh critical-hit ratio."
+  },
+  {
+    "id": "MOVE_DEFEND_ORDER",
+    "name": "Orden Defensa",
+    "desc": "Raises Defense and Sp. Def\\nwith a living shield."
+  },
+  {
+    "id": "MOVE_HEAL_ORDER",
+    "name": "Orden Curación",
+    "desc": "The user's underlings show\\nup to heal half its max HP."
+  },
+  {
+    "id": "MOVE_HEAD_SMASH",
+    "name": "Golpe Cabeza",
+    "desc": "A life-risking headbutt that\\nseriously hurts the user."
+  },
+  {
+    "id": "MOVE_DOUBLE_HIT",
+    "name": "Doble Impacto",
+    "desc": "Slams the foe with a tail\\netc. Strikes twice."
+  },
+  {
+    "id": "MOVE_ROAR_OF_TIME",
+    "name": "Rugido Temporal",
+    "desc": "Powerful, but leaves the\\nuser immobile the next turn."
+  },
+  {
+    "id": "MOVE_SPACIAL_REND",
+    "name": "Corte Espacial",
+    "desc": "Tears the foe, and space.\\nHigh critical-hit ratio."
+  },
+  {
+    "id": "MOVE_LUNAR_DANCE",
+    "name": "Danza Lunar",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_CRUSH_GRIP",
+    "name": "Agarre Brutal",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_MAGMA_STORM",
+    "name": "Tormenta de Magma",
+    "desc": "Traps the foe in a vortex\\nof fire for  turns."
+  },
+  {
+    "id": "MOVE_DARK_VOID",
+    "name": "Oscuridad",
+    "desc": "Drags the foes into total\\ndarkness, inducing Sleep."
+  },
+  {
+    "id": "MOVE_SEED_FLARE",
+    "name": "Explosión Floral",
+    "desc": "Generates a shock wave that\\nsharply reduces Sp. Def."
+  },
+  {
+    "id": "MOVE_OMINOUS_WIND",
+    "name": "Viento Ominoso",
+    "desc": "A repulsive attack that may\\nraise all stats."
+  },
+  {
+    "id": "MOVE_SHADOW_FORCE",
+    "name": "Sombra Cruel",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_PSYSTRIKE",
+    "name": "Psicoimpacto",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_HOLD_BACK",
+    "name": "Frenar",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_ZIPPY_ZAP",
+    "name": "Electro Veloz",
+    "desc": "Electric bursts always go\\nfirst and land a critical hit."
+  },
+  {
+    "id": "MOVE_SPLISHY_SPLASH",
+    "name": "Salpicada",
+    "desc": "A huge electrified wave that\\nmay paralyze the foes."
+  },
+  {
+    "id": "MOVE_FLOATY_FALL",
+    "name": "Caída Flotante",
+    "desc": "Floats in air and dives at\\nangle. May cause flinching."
+  },
+  {
+    "id": "MOVE_PIKA_PAPOW",
+    "name": "Pika Papow",
+    "desc": "Pikachu's love increases its\\npower. It never misses."
+  },
+  {
+    "id": "MOVE_BOUNCY_BUBBLE",
+    "name": "Burbuja Rebote",
+    "desc": "Attack that absorbs\\nall the damage inflicted."
+  },
+  {
+    "id": "MOVE_BUZZY_BUZZ",
+    "name": "Zum Zum",
+    "desc": "Shoots a jolt of electricity\\nthat always paralyzes."
+  },
+  {
+    "id": "MOVE_SIZZLY_SLIDE",
+    "name": "Chirrido Ígneo",
+    "desc": "User cloaked in fire charges.\\nLeaves the foe with a burn."
+  },
+  {
+    "id": "MOVE_GLITZY_GLOW",
+    "name": "Brillante Glow",
+    "desc": "Telekinetic force that sets\\nwall, lowering Sp. Atk damage."
+  },
+  {
+    "id": "MOVE_BADDY_BAD",
+    "name": "Maldad Total",
+    "desc": "Acting badly, attacks. Sets\\nwall, lowering Attack damage."
+  },
+  {
+    "id": "MOVE_SAPPY_SEED",
+    "name": "Semilla Savia",
+    "desc": "Giant stalk scatters seeds\\nthat drain HP every turn."
+  },
+  {
+    "id": "MOVE_FREEZY_FROST",
+    "name": "Frost Helado",
+    "desc": "Crystal from cold haze hits.\\nEliminates all stat changes."
+  },
+  {
+    "id": "MOVE_SPARKLY_SWIRL",
+    "name": "Espiral Chispa",
+    "desc": "Wrap foe with whirlwind of\\nscent. Heals party's status."
+  },
+  {
+    "id": "MOVE_VEEVEE_VOLLEY",
+    "name": "Volea Eevee",
+    "desc": "Eevee's love increases its\\npower. It never misses."
+  },
+  {
+    "id": "MOVE_DOUBLE_IRON_BASH",
+    "name": "Doble Golpe Férreo",
+    "desc": "The user spins and hits with\\nits arms. May cause flinch."
+  },
+  {
+    "id": "MOVE_DIRE_CLAW",
+    "name": "Garra Terrible",
+    "desc": "High critical hit chance. May\\nparalyze, poison or drowse."
+  },
+  {
+    "id": "MOVE_PSYSHIELD_BASH",
+    "name": "Golpe Escudo Psíquico",
+    "desc": "Hits a foe with psychic\\nenergy. May raise Defense."
+  },
+  {
+    "id": "MOVE_POWER_SHIFT",
+    "name": "Cambio de Poder",
+    "desc": "The user swaps its Attack\\nand Defense stats."
+  },
+  {
+    "id": "MOVE_STONE_AXE",
+    "name": "Hacha de Piedra",
+    "desc": "Sets sharp rocks that hurt\\nthe foe."
+  },
+  {
+    "id": "MOVE_SPRINGTIDE_STORM",
+    "name": "Tormenta Primaveral",
+    "desc": "Wraps a foe in fierce winds.\\nVaries with the user's form."
+  },
+  {
+    "id": "MOVE_MYSTICAL_POWER",
+    "name": "Poder Místico",
+    "desc": "A mysterious power strikes,\\nraising the user's Sp. Atk."
+  },
+  {
+    "id": "MOVE_RAGING_FURY",
+    "name": "Furia Salvaje",
+    "desc": "A rampage of 2 to 3 turns\\nthat confuses the user."
+  },
+  {
+    "id": "MOVE_WAVE_CRASH",
+    "name": "Choque de Ola",
+    "desc": "A slam shrouded in water.\\nIt also hurts the user."
+  },
+  {
+    "id": "MOVE_CHLOROBLAST",
+    "name": "Cloroexplosión",
+    "desc": "A user-hurting blast of\\namassed chlorophyll."
+  },
+  {
+    "id": "MOVE_MOUNTAIN_GALE",
+    "name": "Ventarrón",
+    "desc": "Giant chunks of ice damage\\nthe foe. It may flinch."
+  },
+  {
+    "id": "MOVE_VICTORY_DANCE",
+    "name": "Danza Victoria",
+    "desc": "Dances to raise Attack,\\nDefense and Speed."
+  },
+  {
+    "id": "MOVE_HEADLONG_RUSH",
+    "name": "Arremetida",
+    "desc": "Hits with a full-body tackle.\\nLowers the users's defenses."
+  },
+  {
+    "id": "MOVE_BARB_BARRAGE",
+    "name": "Lluvia de Púas",
+    "desc": "Can poison on impact. Powers\\nup against poisoned foes."
+  },
+  {
+    "id": "MOVE_ESPER_WING",
+    "name": "Ala Esper",
+    "desc": "High critical hit ratio.\\nUps the user's Speed."
+  },
+  {
+    "id": "MOVE_BITTER_MALICE",
+    "name": "Malicia Amarga",
+    "desc": "A spine-chilling resentment.\\nLowers the foe's Attack."
+  },
+  {
+    "id": "MOVE_SHELTER",
+    "name": "Refugio",
+    "desc": "The user hardens their skin,\\nsharply raising its Defense."
+  },
+  {
+    "id": "MOVE_TRIPLE_ARROWS",
+    "name": "Triple Flecha",
+    "desc": "High critical hit ratio.\\nMay lower Defense or flinch."
+  },
+  {
+    "id": "MOVE_INFERNAL_PARADE",
+    "name": "Desfile Infernal",
+    "desc": "Hurts a foe harder if it has\\nan ailment. May leave a burn."
+  },
+  {
+    "id": "MOVE_CEASELESS_EDGE",
+    "name": "Filo Incesante",
+    "desc": "Sets Spikes that hurt the\\nfoe."
+  },
+  {
+    "id": "MOVE_BLEAKWIND_STORM",
+    "name": "Vendaval Desolador",
+    "desc": "Hits with brutal, cold winds.\\nMay lower the foe's Speed."
+  },
+  {
+    "id": "MOVE_WILDBOLT_STORM",
+    "name": "Tormenta Salvaje",
+    "desc": "Hits with a brutal tempest.\\nMay inflict paralysis."
+  },
+  {
+    "id": "MOVE_SANDSEAR_STORM",
+    "name": "Tormenta de Arena Abrasadora",
+    "desc": "Hits with brutally hot sand.\\nMay inflict a burn."
+  },
+  {
+    "id": "MOVE_LUNAR_BLESSING",
+    "name": "Bendición Lunar",
+    "desc": "The user heals and cures\\nitself and its ally."
+  },
+  {
+    "id": "MOVE_TAKE_HEART",
+    "name": "Cobrar Ánimo",
+    "desc": "The user lifts its spirits to\\nheal and strengthen itself."
+  },
+  {
+    "id": "MOVE_TERA_BLAST",
+    "name": "Teraexplosión",
+    "desc": "If the user's Terastallized,\\nit hits with its Tera type."
+  },
+  {
+    "id": "MOVE_SILK_TRAP",
+    "name": "Trampa de Seda",
+    "desc": "Protects itself, lowering\\nSpeed on contact."
+  },
+  {
+    "id": "MOVE_AXE_KICK",
+    "name": "Patada Hacha",
+    "desc": "May miss and hurt the kicker.\\nMay cause confusion."
+  },
+  {
+    "id": "MOVE_LAST_RESPECTS",
+    "name": "Último Respeto",
+    "desc": "This move deals more damage\\nfor each defeated ally."
+  },
+  {
+    "id": "MOVE_LUMINA_CRASH",
+    "name": "Estruendo Lumínico",
+    "desc": "A mind-affecting light\\nharshly lowers Sp. Def."
+  },
+  {
+    "id": "MOVE_ORDER_UP",
+    "name": "¡A sus órdenes!",
+    "desc": "Boosts a user's stats\\ndepending on Tatsugiri."
+  },
+  {
+    "id": "MOVE_JET_PUNCH",
+    "name": "Puño Cohete",
+    "desc": "A punch is thrown at blinding\\nspeed to strike first."
+  },
+  {
+    "id": "MOVE_SPICY_EXTRACT",
+    "name": "Esencia Picante",
+    "desc": "Sharply ups target's Attack,\\nharshly lowers its Defense."
+  },
+  {
+    "id": "MOVE_SPIN_OUT",
+    "name": "Derrape",
+    "desc": "Furiously strains its legs.\\nHarshly lowers user's Speed."
+  },
+  {
+    "id": "MOVE_POPULATION_BOMB",
+    "name": "Bomba Poblacional",
+    "desc": "The user's fellows hit one\\nto ten times in a row."
+  },
+  {
+    "id": "MOVE_ICE_SPINNER",
+    "name": "Peón de Hielo",
+    "desc": "Ice-covered feet hit a foe\\nand destroy the terrain."
+  },
+  {
+    "id": "MOVE_GLAIVE_RUSH",
+    "name": "Arremetida Espadón",
+    "desc": "Foe attacks next turn can't\\nmiss and do double damage."
+  },
+  {
+    "id": "MOVE_REVIVAL_BLESSING",
+    "name": "Bendición Revival",
+    "desc": "Revives a fainted party {PKMN}\\nand restores half of its HP."
+  },
+  {
+    "id": "MOVE_SALT_CURE",
+    "name": "Cura con Sal",
+    "desc": "Hurts foe every turn. Double\\ndamage to Steel and Water."
+  },
+  {
+    "id": "MOVE_TRIPLE_DIVE",
+    "name": "Triple Inmersión",
+    "desc": "Hits target with splashes\\nof water 3 times in a row."
+  },
+  {
+    "id": "MOVE_MORTAL_SPIN",
+    "name": "Giro Mortal",
+    "desc": "Erases trap moves and Leech\\nSeed. Poisons adjacent foes."
+  },
+  {
+    "id": "MOVE_DOODLE",
+    "name": "Garabato",
+    "desc": "Changes user's and ally's\\nAbility into the target's."
+  },
+  {
+    "id": "MOVE_FILLET_AWAY",
+    "name": "Autosacrificarse",
+    "desc": "Sharply boosts offenses and\\nSpeed by using its own HP."
+  },
+  {
+    "id": "MOVE_KOWTOW_CLEAVE",
+    "name": "Reverencia Filo",
+    "desc": "User slashes the foe after\\nkowtowing. It never misses."
+  },
+  {
+    "id": "MOVE_FLOWER_TRICK",
+    "name": "Truco Floral",
+    "desc": "Rigged bouquet. Always gets\\na critical hit, never missing."
+  },
+  {
+    "id": "MOVE_TORCH_SONG",
+    "name": "Canción de la Antorcha",
+    "desc": "Flames scorch the target.\\nBoosts the user's Sp. Atk."
+  },
+  {
+    "id": "MOVE_AQUA_STEP",
+    "name": "Paso Acuático",
+    "desc": "Hits with light, fluid dance\\nsteps. Ups the user's Speed."
+  },
+  {
+    "id": "MOVE_RAGING_BULL",
+    "name": "Toro Enfurecido",
+    "desc": "Tackle that breaks barriers.\\nUser's form determines type."
+  },
+  {
+    "id": "MOVE_MAKE_IT_RAIN",
+    "name": "Que Llueva",
+    "desc": "Lowers the user's Sp. Atk.\\nMoney is recovered after."
+  },
+  {
+    "id": "MOVE_RUINATION",
+    "name": "Ruina",
+    "desc": "Summons a ruinous disaster\\nand cuts half the foe's HP."
+  },
+  {
+    "id": "MOVE_COLLISION_COURSE",
+    "name": "Ruta de Colisión",
+    "desc": "Prehistoric explosion that's\\nstronger if super effective."
+  },
+  {
+    "id": "MOVE_ELECTRO_DRIFT",
+    "name": "Deriva Electro",
+    "desc": "Futuristic electricity. It's\\nstronger if super effective."
+  },
+  {
+    "id": "MOVE_SHED_TAIL",
+    "name": "Muda de Cola",
+    "desc": "Creates a Substitute for\\nitself before switching out."
+  },
+  {
+    "id": "MOVE_PSYBLADE",
+    "name": "PSYBLADE",
+    "desc": "This move's power increases\\nwhen on Electric Terrain."
+  },
+  {
+    "id": "MOVE_HYDRO_STEAM",
+    "name": "HYDRO STEAM",
+    "desc": "This move's power increases\\nunder harsh sunlight."
+  },
+  {
+    "id": "MOVE_BREAKNECK_BLITZ",
+    "name": "BREAKNECK BLITZ",
+    "desc": "Builds momentum and crashes\\ninto the foe. Power varies."
+  },
+  {
+    "id": "MOVE_ALL_OUT_PUMMELING",
+    "name": "ALL-OUT PUMMELING",
+    "desc": "Rams an energy orb into\\nthe target. Power varies."
+  },
+  {
+    "id": "MOVE_SUPERSONIC_SKYSTRIKE",
+    "name": "SUPERSONIC SKYSTRIKE",
+    "desc": "Soars up and plummets toward\\nthe target. Power varies."
+  },
+  {
+    "id": "MOVE_ACID_DOWNPOUR",
+    "name": "ACID DOWNPOUR",
+    "desc": "Sinks the target in a poison\\nswamp. Power varies."
+  },
+  {
+    "id": "MOVE_TECTONIC_RAGE",
+    "name": "TECTONIC RAGE",
+    "desc": "Burrows deep and slams into\\nthe target. Power varies."
+  },
+  {
+    "id": "MOVE_CONTINENTAL_CRUSH",
+    "name": "CONTINENTAL CRUSH",
+    "desc": "Drops a huge rock mountain\\non the foe. Power varies."
+  },
+  {
+    "id": "MOVE_SAVAGE_SPIN_OUT",
+    "name": "SAVAGE SPIN-OUT",
+    "desc": "Spits threads of silk to\\nbind the foe. Power varies."
+  },
+  {
+    "id": "MOVE_NEVER_ENDING_NIGHTMARE",
+    "name": "NEVER-ENDING NIGHTMARE",
+    "desc": "Deep-seated grudges trap\\nthe target. Power varies."
+  },
+  {
+    "id": "MOVE_CORKSCREW_CRASH",
+    "name": "CORKSCREW CRASH",
+    "desc": "Spins very fast and rams\\nthe target. Power varies."
+  },
+  {
+    "id": "MOVE_INFERNO_OVERDRIVE",
+    "name": "INFERNO OVERDRIVE",
+    "desc": "Breathes intense fire at\\nthe target. Power varies."
+  },
+  {
+    "id": "MOVE_HYDRO_VORTEX",
+    "name": "HYDRO VORTEX",
+    "desc": "A huge whirlpool swallows\\nthe target. Power varies."
+  },
+  {
+    "id": "MOVE_BLOOM_DOOM",
+    "name": "BLOOM DOOM",
+    "desc": "Uses plant energy to attack\\nthe target. Power varies."
+  },
+  {
+    "id": "MOVE_GIGAVOLT_HAVOC",
+    "name": "GIGAVOLT HAVOC",
+    "desc": "Hits the foe with powerful\\nelectricity. Power varies."
+  },
+  {
+    "id": "MOVE_SHATTERED_PSYCHE",
+    "name": "SHATTERED PSYCHE",
+    "desc": "Controls the target to\\nhurt it. Power varies."
+  },
+  {
+    "id": "MOVE_SUBZERO_SLAMMER",
+    "name": "SUBZERO SLAMMER",
+    "desc": "Drops the temp and freezes\\nthe target. Power varies."
+  },
+  {
+    "id": "MOVE_DEVASTATING_DRAKE",
+    "name": "DEVASTATING DRAKE",
+    "desc": "Develops aura and attacks\\nthe target. Power varies."
+  },
+  {
+    "id": "MOVE_BLACK_HOLE_ECLIPSE",
+    "name": "BLACK HOLE ECLIPSE",
+    "desc": "Sucks the target into dark\\nenergy. Power varies."
+  },
+  {
+    "id": "MOVE_TWINKLE_TACKLE",
+    "name": "TWINKLE TACKLE",
+    "desc": "Toys with the target in a\\ncharming space. Power varies."
+  },
+  {
+    "id": "MOVE_CATASTROPIKA",
+    "name": "CATASTROPIKA",
+    "desc": "Pikachu uses the max amount\\nof electricity and pounces."
+  },
+  {
+    "id": "MOVE_10000000_VOLT_THUNDERBOLT",
+    "name": "10,000,000 VOLT THUNDERBOLT",
+    "desc": "Cap Pikachu unleashes jolt.\\nHigh critical-hit ratio."
+  },
+  {
+    "id": "MOVE_STOKED_SPARKSURFER",
+    "name": "Surfeo Electrizante",
+    "desc": "Alolan Raichu attacks with\\nfull force. Causes paralysis."
+  },
+  {
+    "id": "MOVE_EXTREME_EVOBOOST",
+    "name": "Evolución Extrema",
+    "desc": "Eevee gets energy from\\nits friends. Boosts stats."
+  },
+  {
+    "id": "MOVE_PULVERIZING_PANCAKE",
+    "name": "Aplastamiento",
+    "desc": "Snorlax energetically moves\\nand attacks with full force."
+  },
+  {
+    "id": "MOVE_GENESIS_SUPERNOVA",
+    "name": "Supernova Génesis",
+    "desc": "Mew attacks with full force.\\nPsychically charges terrain."
+  },
+  {
+    "id": "MOVE_SINISTER_ARROW_RAID",
+    "name": "Flechas Siniestras",
+    "desc": "Decidueye shoots countless\\narrows with full force."
+  },
+  {
+    "id": "MOVE_MALICIOUS_MOONSAULT",
+    "name": "Mortal en Picado",
+    "desc": "Incineroar crashes into\\nthe target with full force."
+  },
+  {
+    "id": "MOVE_OCEANIC_OPERETTA",
+    "name": "Sinfonía Oceánica",
+    "desc": "Primarina summons a massive\\namount of water at the foe."
+  },
+  {
+    "id": "MOVE_SPLINTERED_STORMSHARDS",
+    "name": "Fragmentos de Tormenta",
+    "desc": "Lycanroc attacks with full\\nforce. Removes all terrain."
+  },
+  {
+    "id": "MOVE_LETS_SNUGGLE_FOREVER",
+    "name": "Acurrucados Para Siempre",
+    "desc": "Mimikyu punches the target\\nwith full force."
+  },
+  {
+    "id": "MOVE_GUARDIAN_OF_ALOLA",
+    "name": "Guardián de Alola",
+    "desc": "The Land Spirit Pokémon\\ngreatly reduces the foe's HP."
+  },
+  {
+    "id": "MOVE_SEARING_SUNRAZE_SMASH",
+    "name": "Machacamiento Solar",
+    "desc": "Solgaleo attacks with full\\nforce. Ignores abilities."
+  },
+  {
+    "id": "MOVE_MENACING_MOONRAZE_MAELSTROM",
+    "name": "Torbellino Lunar",
+    "desc": "Lunala attacks with full\\nforce. Ignores abilities."
+  },
+  {
+    "id": "MOVE_LIGHT_THAT_BURNS_THE_SKY",
+    "name": "Luz que Quema el Cielo",
+    "desc": "Uses Necrozma's highest\\nattack. Ignores abilities."
+  },
+  {
+    "id": "MOVE_SOUL_STEALING_7_STAR_STRIKE",
+    "name": "Ataque de Siete Astros",
+    "desc": "Marshadow punches and\\nkicks with full force."
+  },
+  {
+    "id": "MOVE_MAX_GUARD",
+    "name": "Máx. Guardia",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_MAX_FLARE",
+    "name": "MAX FLARE",
+    "desc": "Fire Dynamax attack.\\nIntensifies sun for 5 turns."
+  },
+  {
+    "id": "MOVE_MAX_FLUTTERBY",
+    "name": "MAX FLUTTERBY",
+    "desc": "Bug Dynamax attack.\\nLowers foe's Sp. Atk stat."
+  },
+  {
+    "id": "MOVE_MAX_LIGHTNING",
+    "name": "MAX LIGHTNING",
+    "desc": "Electric Dynamax attack.\\nTurns the terrain electric."
+  },
+  {
+    "id": "MOVE_MAX_STRIKE",
+    "name": "MAX STRIKE",
+    "desc": "Normal Dynamax attack.\\nLowers foe's Speed stat."
+  },
+  {
+    "id": "MOVE_MAX_KNUCKLE",
+    "name": "MAX KNUCKLE",
+    "desc": "Fighting Dynamax attack.\\nBoosts ally Attack stats."
+  },
+  {
+    "id": "MOVE_MAX_PHANTASM",
+    "name": "MAX PHANTASM",
+    "desc": "Ghost Dynamax attack.\\nLowers foe's Defense stat."
+  },
+  {
+    "id": "MOVE_MAX_HAILSTORM",
+    "name": "MAX HAILSTORM",
+    "desc": "Ice Dynamax attack.\\nSummons hail for 5 turns."
+  },
+  {
+    "id": "MOVE_MAX_OOZE",
+    "name": "MAX OOZE",
+    "desc": "Poison Dynamax attack.\\nBoosts ally Sp. Atk stats."
+  },
+  {
+    "id": "MOVE_MAX_GEYSER",
+    "name": "MAX GEYSER",
+    "desc": "Water Dynamax attack.\\nSummons rain for 5 turns."
+  },
+  {
+    "id": "MOVE_MAX_AIRSTREAM",
+    "name": "MAX AIRSTREAM",
+    "desc": "Flying Dynamax attack.\\nBoosts ally Speed stats."
+  },
+  {
+    "id": "MOVE_MAX_STARFALL",
+    "name": "MAX STARFALL",
+    "desc": "Fairy Dynamax attack.\\nTurns the terrain misty."
+  },
+  {
+    "id": "MOVE_MAX_WYRMWIND",
+    "name": "MAX WYRMWIND",
+    "desc": "Dragon Dynamax attack.\\nLowers foe's Attack stat."
+  },
+  {
+    "id": "MOVE_MAX_MINDSTORM",
+    "name": "MAX MINDSTORM",
+    "desc": "Psychic Dynamax attack.\\nTurns the terrain psychic."
+  },
+  {
+    "id": "MOVE_MAX_ROCKFALL",
+    "name": "MAX ROCKFALL",
+    "desc": "Rock Dynamax attack.\\nSummons a sandstorm."
+  },
+  {
+    "id": "MOVE_MAX_QUAKE",
+    "name": "MAX QUAKE",
+    "desc": "Ground Dynamax attack.\\nBoosts ally Sp. Def stats."
+  },
+  {
+    "id": "MOVE_MAX_DARKNESS",
+    "name": "MAX DARKNESS",
+    "desc": "Dark Dynamax attack.\\nLowers foe's Sp. Def stat."
+  },
+  {
+    "id": "MOVE_MAX_OVERGROWTH",
+    "name": "MAX OVERGROWTH",
+    "desc": "Grass Dynamax attack.\\nTurns the terrain grassy."
+  },
+  {
+    "id": "MOVE_MAX_STEELSPIKE",
+    "name": "MAX STEELSPIKE",
+    "desc": "Steel Dynamax attack.\\nBoosts ally Defense stats."
+  },
+  {
+    "id": "MOVE_G_MAX_VINE_LASH",
+    "name": "G-MAX VINE LASH",
+    "desc": "G-max Venusaur attack.\\nDamages for 4 turns."
+  },
+  {
+    "id": "MOVE_G_MAX_WILDFIRE",
+    "name": "G-MAX WILDFIRE",
+    "desc": "G-max Charizard attack.\\nDamages for 4 turns."
+  },
+  {
+    "id": "MOVE_G_MAX_CANNONADE",
+    "name": "G-MAX CANNONADE",
+    "desc": "G-max Blastoise attack.\\nDamages for 4 turns."
+  },
+  {
+    "id": "MOVE_G_MAX_BEFUDDLE",
+    "name": "G-MAX BEFUDDLE",
+    "desc": "G-max Butterfree attack.\\nPoison, paralysis, or sleep."
+  },
+  {
+    "id": "MOVE_G_MAX_VOLT_CRASH",
+    "name": "G-MAX VOLT CRASH",
+    "desc": "G-max Pikachu attack.\\nParalyzes opponents."
+  },
+  {
+    "id": "MOVE_G_MAX_GOLD_RUSH",
+    "name": "G-MAX GOLD RUSH",
+    "desc": "G-max Meowth attack.\\nConfuses and earns money."
+  },
+  {
+    "id": "MOVE_G_MAX_CHI_STRIKE",
+    "name": "G-MAX CHI STRIKE",
+    "desc": "G-max Machamp attack.\\nBoosts critical-hit ratio."
+  },
+  {
+    "id": "MOVE_G_MAX_TERROR",
+    "name": "G-MAX TERROR",
+    "desc": "G-max Gengar attack.\\nPrevents foes from escaping."
+  },
+  {
+    "id": "MOVE_G_MAX_FOAM_BURST",
+    "name": "G-MAX FOAM BURST",
+    "desc": "G-max Kingler attack.\\nHarshly lowers foe's Speed."
+  },
+  {
+    "id": "MOVE_G_MAX_RESONANCE",
+    "name": "G-MAX RESONANCE",
+    "desc": "G-max Lapras attack.\\nReduces damage for 5 turns."
+  },
+  {
+    "id": "MOVE_G_MAX_CUDDLE",
+    "name": "G-MAX CUDDLE",
+    "desc": "G-max Eevee attack.\\nInfatuates opponents."
+  },
+  {
+    "id": "MOVE_G_MAX_REPLENISH",
+    "name": "G-MAX REPLENISH",
+    "desc": "G-max Snorlax attack.\\nRestores eaten Berries."
+  },
+  {
+    "id": "MOVE_G_MAX_MALODOR",
+    "name": "G-MAX MALODOR",
+    "desc": "G-max Garbodor attack.\\nPoisons opponents."
+  },
+  {
+    "id": "MOVE_G_MAX_MELTDOWN",
+    "name": "G-MAX MELTDOWN",
+    "desc": "G-max Melmetal attack.\\nPrevents repeat move use."
+  },
+  {
+    "id": "MOVE_G_MAX_DRUM_SOLO",
+    "name": "G-MAX DRUM SOLO",
+    "desc": "G-max Rillaboom attack.\\nIgnores target's abilities."
+  },
+  {
+    "id": "MOVE_G_MAX_FIREBALL",
+    "name": "G-MAX FIREBALL",
+    "desc": "G-max Cinderace attack.\\nIgnores target's abilities."
+  },
+  {
+    "id": "MOVE_G_MAX_HYDROSNIPE",
+    "name": "G-MAX HYDROSNIPE",
+    "desc": "G-max Inteleon attack.\\nIgnores target's abilities."
+  },
+  {
+    "id": "MOVE_G_MAX_WIND_RAGE",
+    "name": "G-MAX WIND RAGE",
+    "desc": "G-max Corviknight attack.\\nRemoves opponent screens."
+  },
+  {
+    "id": "MOVE_G_MAX_GRAVITAS",
+    "name": "G-MAX GRAVITAS",
+    "desc": "G-max Orbeetle attack.\\nChanges gravity for 5 turns."
+  },
+  {
+    "id": "MOVE_G_MAX_STONESURGE",
+    "name": "G-MAX STONESURGE",
+    "desc": "G-max Drednaw attack.\\nScatters sharp rocks."
+  },
+  {
+    "id": "MOVE_G_MAX_VOLCALITH",
+    "name": "G-MAX VOLCALITH",
+    "desc": "G-max Coalossal attack.\\nDamages for 4 turns."
+  },
+  {
+    "id": "MOVE_G_MAX_TARTNESS",
+    "name": "G-MAX TARTNESS",
+    "desc": "G-max Flapple attack.\\nLowers foe's evasiveness."
+  },
+  {
+    "id": "MOVE_G_MAX_SWEETNESS",
+    "name": "G-MAX SWEETNESS",
+    "desc": "G-max Appletun attack.\\nHeals ally status conditions."
+  },
+  {
+    "id": "MOVE_G_MAX_SANDBLAST",
+    "name": "G-MAX SANDBLAST",
+    "desc": "G-max Sandaconda attack.\\nTraps foes in a sandstorm."
+  },
+  {
+    "id": "MOVE_G_MAX_STUN_SHOCK",
+    "name": "G-MAX STUN SHOCK",
+    "desc": "G-max Toxtricity attack.\\nPoisons or paralyzes foes."
+  },
+  {
+    "id": "MOVE_G_MAX_CENTIFERNO",
+    "name": "G-MAX CENTIFERNO",
+    "desc": "G-max Centiskorch attack.\\nTraps foes in flames."
+  },
+  {
+    "id": "MOVE_G_MAX_SMITE",
+    "name": "G-MAX SMITE",
+    "desc": "G-max Hatterene attack.\\nConfuses opponents."
+  },
+  {
+    "id": "MOVE_G_MAX_SNOOZE",
+    "name": "G-MAX SNOOZE",
+    "desc": "G-max Grimmsnarl attack.\\nLulls foes into sleep."
+  },
+  {
+    "id": "MOVE_G_MAX_FINALE",
+    "name": "G-MAX FINALE",
+    "desc": "G-max Alcremie attack.\\nHeals ally HP."
+  },
+  {
+    "id": "MOVE_G_MAX_STEELSURGE",
+    "name": "G-MAX STEELSURGE",
+    "desc": "G-max Copperajah attack.\\nScatters sharp spikes."
+  },
+  {
+    "id": "MOVE_G_MAX_DEPLETION",
+    "name": "G-MAX DEPLETION",
+    "desc": "G-max Duraludon attack.\\nReduces target's PP."
+  },
+  {
+    "id": "MOVE_G_MAX_ONE_BLOW",
+    "name": "G-MAX ONE BLOW",
+    "desc": ""
+  },
+  {
+    "id": "MOVE_G_MAX_RAPID_FLOW",
+    "name": "G-MAX RAPID FLOW",
+    "desc": ""
+  }
+]

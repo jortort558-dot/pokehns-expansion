@@ -1,0 +1,1552 @@
+[
+  {
+    "id": "ABILITY_STENCH",
+    "name": "Hedor",
+    "desc": "May cause a foe to flinch."
+  },
+  {
+    "id": "ABILITY_DRIZZLE",
+    "name": "Llovizna",
+    "desc": "Summons rain in battle."
+  },
+  {
+    "id": "ABILITY_SPEED_BOOST",
+    "name": "Motor Impulso",
+    "desc": "Gradually boosts Speed."
+  },
+  {
+    "id": "ABILITY_BATTLE_ARMOR",
+    "name": "Armadura Batalla",
+    "desc": "Blocks critical hits."
+  },
+  {
+    "id": "ABILITY_STURDY",
+    "name": "Robustez",
+    "desc": "Negates 1-hit KO attacks."
+  },
+  {
+    "id": "ABILITY_DAMP",
+    "name": "Humedad",
+    "desc": "Prevents self-destruction."
+  },
+  {
+    "id": "ABILITY_LIMBER",
+    "name": "Flexibilidad",
+    "desc": "Prevents paralysis."
+  },
+  {
+    "id": "ABILITY_SAND_VEIL",
+    "name": "Velo Arena",
+    "desc": "Ups evasion in a sandstorm."
+  },
+  {
+    "id": "ABILITY_STATIC",
+    "name": "Estática",
+    "desc": "Paralyzes on contact."
+  },
+  {
+    "id": "ABILITY_VOLT_ABSORB",
+    "name": "Absorbe Electr.",
+    "desc": "Turns electricity into HP."
+  },
+  {
+    "id": "ABILITY_WATER_ABSORB",
+    "name": "Absorbe Agua",
+    "desc": "Changes water into HP."
+  },
+  {
+    "id": "ABILITY_OBLIVIOUS",
+    "name": "Oblivio",
+    "desc": "Prevents attraction."
+  },
+  {
+    "id": "ABILITY_CLOUD_NINE",
+    "name": "Nublado",
+    "desc": "Negates weather effects."
+  },
+  {
+    "id": "ABILITY_COMPOUND_EYES",
+    "name": "Ojo Compuesto",
+    "desc": "Raises accuracy."
+  },
+  {
+    "id": "ABILITY_INSOMNIA",
+    "name": "Insomnio",
+    "desc": "Prevents sleep."
+  },
+  {
+    "id": "ABILITY_COLOR_CHANGE",
+    "name": "Cambio Color",
+    "desc": "Changes type to foe's move."
+  },
+  {
+    "id": "ABILITY_IMMUNITY",
+    "name": "Inmunidad",
+    "desc": "Prevents poisoning."
+  },
+  {
+    "id": "ABILITY_FLASH_FIRE",
+    "name": "Absorbefuego",
+    "desc": "Powers up if hit by fire."
+  },
+  {
+    "id": "ABILITY_SHIELD_DUST",
+    "name": "Polvo Escudo",
+    "desc": "Prevents added effects."
+  },
+  {
+    "id": "ABILITY_OWN_TEMPO",
+    "name": "Ritmo Propio",
+    "desc": "Prevents confusion."
+  },
+  {
+    "id": "ABILITY_SUCTION_CUPS",
+    "name": "Ventosas",
+    "desc": "Firmly anchors the body."
+  },
+  {
+    "id": "ABILITY_INTIMIDATE",
+    "name": "Intimidación",
+    "desc": "Lowers the foe's Attack."
+  },
+  {
+    "id": "ABILITY_SHADOW_TAG",
+    "name": "Sombra Trampa",
+    "desc": "Prevents the foe's escape."
+  },
+  {
+    "id": "ABILITY_ROUGH_SKIN",
+    "name": "Piel Tosca",
+    "desc": "Hurts to touch."
+  },
+  {
+    "id": "ABILITY_WONDER_GUARD",
+    "name": "Guardián",
+    "desc": "Only “Supereffective” hits."
+  },
+  {
+    "id": "ABILITY_LEVITATE",
+    "name": "Levitación",
+    "desc": "Not hit by Ground attacks."
+  },
+  {
+    "id": "ABILITY_EFFECT_SPORE",
+    "name": "Espora Efecto",
+    "desc": "Leaves spores on contact."
+  },
+  {
+    "id": "ABILITY_SYNCHRONIZE",
+    "name": "Sincronía",
+    "desc": "Passes on status problems."
+  },
+  {
+    "id": "ABILITY_CLEAR_BODY",
+    "name": "Cuerpo Puro",
+    "desc": "Prevents ability reduction."
+  },
+  {
+    "id": "ABILITY_NATURAL_CURE",
+    "name": "Curación Natural",
+    "desc": "Heals upon switching out."
+  },
+  {
+    "id": "ABILITY_LIGHTNING_ROD",
+    "name": "Pararrayos",
+    "desc": "Draws electrical moves."
+  },
+  {
+    "id": "ABILITY_SERENE_GRACE",
+    "name": "Don Serenidad",
+    "desc": "Promotes added effects."
+  },
+  {
+    "id": "ABILITY_SWIFT_SWIM",
+    "name": "Nado Rápido",
+    "desc": "Raises Speed in rain."
+  },
+  {
+    "id": "ABILITY_CHLOROPHYLL",
+    "name": "Clorofila",
+    "desc": "Raises Speed in sunshine."
+  },
+  {
+    "id": "ABILITY_ILLUMINATE",
+    "name": "Iluminar",
+    "desc": "Encounter rate increases."
+  },
+  {
+    "id": "ABILITY_TRACE",
+    "name": "Calcador",
+    "desc": "Copies special ability."
+  },
+  {
+    "id": "ABILITY_HUGE_POWER",
+    "name": "Gran Potencia",
+    "desc": "Raises Attack."
+  },
+  {
+    "id": "ABILITY_POISON_POINT",
+    "name": "Punto Venenoso",
+    "desc": "Poisons foe on contact."
+  },
+  {
+    "id": "ABILITY_INNER_FOCUS",
+    "name": "Foco Interno",
+    "desc": "Prevents flinching."
+  },
+  {
+    "id": "ABILITY_MAGMA_ARMOR",
+    "name": "Armadura Magma",
+    "desc": "Prevents freezing."
+  },
+  {
+    "id": "ABILITY_WATER_VEIL",
+    "name": "Velo Acuático",
+    "desc": "Prevents burns."
+  },
+  {
+    "id": "ABILITY_MAGNET_PULL",
+    "name": "Magnetismo",
+    "desc": "Traps Steel-type Pokémon."
+  },
+  {
+    "id": "ABILITY_SOUNDPROOF",
+    "name": "Insonorización",
+    "desc": "Avoids sound-based moves."
+  },
+  {
+    "id": "ABILITY_RAIN_DISH",
+    "name": "Coge Lluvia",
+    "desc": "Slight HP recovery in rain."
+  },
+  {
+    "id": "ABILITY_SAND_STREAM",
+    "name": "Torrearena",
+    "desc": "Summons a sandstorm."
+  },
+  {
+    "id": "ABILITY_PRESSURE",
+    "name": "Presión",
+    "desc": "Raises foe's PP usage."
+  },
+  {
+    "id": "ABILITY_THICK_FAT",
+    "name": "Grueso Gordo",
+    "desc": "Heat-and-cold protection."
+  },
+  {
+    "id": "ABILITY_EARLY_BIRD",
+    "name": "Madrugar",
+    "desc": "Awakens quickly from sleep."
+  },
+  {
+    "id": "ABILITY_FLAME_BODY",
+    "name": "Cuerpo Llama",
+    "desc": "Burns the foe on contact."
+  },
+  {
+    "id": "ABILITY_RUN_AWAY",
+    "name": "Fuga",
+    "desc": "Makes escaping easier."
+  },
+  {
+    "id": "ABILITY_KEEN_EYE",
+    "name": "Visión Lince",
+    "desc": "Prevents loss of accuracy."
+  },
+  {
+    "id": "ABILITY_HYPER_CUTTER",
+    "name": "Hipercorte",
+    "desc": "Prevents Attack reduction."
+  },
+  {
+    "id": "ABILITY_PICKUP",
+    "name": "Recoger",
+    "desc": "May pick up items."
+  },
+  {
+    "id": "ABILITY_TRUANT",
+    "name": "Holgazán",
+    "desc": "Moves only every two turns."
+  },
+  {
+    "id": "ABILITY_HUSTLE",
+    "name": "Entusiasmo",
+    "desc": "Trades accuracy for power."
+  },
+  {
+    "id": "ABILITY_CUTE_CHARM",
+    "name": "Encanto",
+    "desc": "Infatuates on contact."
+  },
+  {
+    "id": "ABILITY_PLUS",
+    "name": "Plus",
+    "desc": "Powers up with Minus."
+  },
+  {
+    "id": "ABILITY_MINUS",
+    "name": "Menos",
+    "desc": "Powers up with Plus."
+  },
+  {
+    "id": "ABILITY_FORECAST",
+    "name": "Predicción",
+    "desc": "Changes with the weather."
+  },
+  {
+    "id": "ABILITY_STICKY_HOLD",
+    "name": "Pegajoso",
+    "desc": "Prevents item theft."
+  },
+  {
+    "id": "ABILITY_SHED_SKIN",
+    "name": "Mudar",
+    "desc": "Heals the body by shedding."
+  },
+  {
+    "id": "ABILITY_GUTS",
+    "name": "Agallas",
+    "desc": "Ups Attack if suffering."
+  },
+  {
+    "id": "ABILITY_MARVEL_SCALE",
+    "name": "Escama Especial",
+    "desc": "Ups Defense if suffering."
+  },
+  {
+    "id": "ABILITY_LIQUID_OOZE",
+    "name": "Rezuma",
+    "desc": "Draining causes injury."
+  },
+  {
+    "id": "ABILITY_OVERGROW",
+    "name": "Espesura",
+    "desc": "Ups Grass moves in a pinch."
+  },
+  {
+    "id": "ABILITY_BLAZE",
+    "name": "Mar Llamas",
+    "desc": "Ups Fire moves in a pinch."
+  },
+  {
+    "id": "ABILITY_TORRENT",
+    "name": "Torrente",
+    "desc": "Ups Water moves in a pinch."
+  },
+  {
+    "id": "ABILITY_SWARM",
+    "name": "Enjambre",
+    "desc": "Ups Bug moves in a pinch."
+  },
+  {
+    "id": "ABILITY_ROCK_HEAD",
+    "name": "Roca Dura",
+    "desc": "Prevents recoil damage."
+  },
+  {
+    "id": "ABILITY_DROUGHT",
+    "name": "Sequía",
+    "desc": "Summons sunlight in battle."
+  },
+  {
+    "id": "ABILITY_ARENA_TRAP",
+    "name": "Trampa Arena",
+    "desc": "Prevents fleeing."
+  },
+  {
+    "id": "ABILITY_VITAL_SPIRIT",
+    "name": "Espíritu Vital",
+    "desc": "Prevents sleep."
+  },
+  {
+    "id": "ABILITY_WHITE_SMOKE",
+    "name": "Humo Blanco",
+    "desc": "Prevents ability reduction."
+  },
+  {
+    "id": "ABILITY_PURE_POWER",
+    "name": "Pura Potencia",
+    "desc": "Raises Attack."
+  },
+  {
+    "id": "ABILITY_SHELL_ARMOR",
+    "name": "Armadura Concha",
+    "desc": "Blocks critical hits."
+  },
+  {
+    "id": "ABILITY_AIR_LOCK",
+    "name": "Éter",
+    "desc": "Negates weather effects."
+  },
+  {
+    "id": "ABILITY_TANGLED_FEET",
+    "name": "Pies Largos",
+    "desc": "Ups evasion if confused."
+  },
+  {
+    "id": "ABILITY_MOTOR_DRIVE",
+    "name": "Motor Eléctrico",
+    "desc": "Electricity raises Speed."
+  },
+  {
+    "id": "ABILITY_RIVALRY",
+    "name": "Rivalidad",
+    "desc": "Powers up against rivals."
+  },
+  {
+    "id": "ABILITY_STEADFAST",
+    "name": "Constante",
+    "desc": "Flinching raises Speed."
+  },
+  {
+    "id": "ABILITY_SNOW_CLOAK",
+    "name": "Velo Nieve",
+    "desc": "Ups evasion in Hail or Snow."
+  },
+  {
+    "id": "ABILITY_GLUTTONY",
+    "name": "Gula",
+    "desc": "Eats Berries early."
+  },
+  {
+    "id": "ABILITY_ANGER_POINT",
+    "name": "Punto Ira",
+    "desc": "Critical hits raise Attack."
+  },
+  {
+    "id": "ABILITY_UNBURDEN",
+    "name": "Ligereza",
+    "desc": "Using a hold item ups Speed."
+  },
+  {
+    "id": "ABILITY_HEATPROOF",
+    "name": "Ignífugo",
+    "desc": "Heat and burn protection."
+  },
+  {
+    "id": "ABILITY_SIMPLE",
+    "name": "Simpleza",
+    "desc": "Prone to wild stat changes."
+  },
+  {
+    "id": "ABILITY_DRY_SKIN",
+    "name": "Piel Seca",
+    "desc": "Prefers moisture to heat."
+  },
+  {
+    "id": "ABILITY_DOWNLOAD",
+    "name": "Descarga",
+    "desc": "Adjusts power favorably."
+  },
+  {
+    "id": "ABILITY_IRON_FIST",
+    "name": "Puño Férreo",
+    "desc": "Boosts punching moves."
+  },
+  {
+    "id": "ABILITY_POISON_HEAL",
+    "name": "Cura Veneno",
+    "desc": "Restores HP if poisoned."
+  },
+  {
+    "id": "ABILITY_ADAPTABILITY",
+    "name": "Adaptable",
+    "desc": "Boosts same type attacks."
+  },
+  {
+    "id": "ABILITY_SKILL_LINK",
+    "name": "Enlace Destreza",
+    "desc": "Multi-hit moves hit 5 times."
+  },
+  {
+    "id": "ABILITY_HYDRATION",
+    "name": "Hidratación",
+    "desc": "Cures status in rain."
+  },
+  {
+    "id": "ABILITY_SOLAR_POWER",
+    "name": "Energía Solar",
+    "desc": "Powers up in sunshine."
+  },
+  {
+    "id": "ABILITY_QUICK_FEET",
+    "name": "Pies Rápidos",
+    "desc": "Ups Speed if suffering."
+  },
+  {
+    "id": "ABILITY_NORMALIZE",
+    "name": "Normalizador",
+    "desc": "Moves become Normal-type."
+  },
+  {
+    "id": "ABILITY_SNIPER",
+    "name": "Francotirador",
+    "desc": "Boosts critical hits."
+  },
+  {
+    "id": "ABILITY_MAGIC_GUARD",
+    "name": "Guardia Mágica",
+    "desc": "Only damaged by attacks."
+  },
+  {
+    "id": "ABILITY_NO_GUARD",
+    "name": "Sin Guardia",
+    "desc": "Ensures that all moves hit."
+  },
+  {
+    "id": "ABILITY_STALL",
+    "name": "Remolón",
+    "desc": "Always moves last."
+  },
+  {
+    "id": "ABILITY_TECHNICIAN",
+    "name": "Técnico",
+    "desc": "Boosts weaker moves."
+  },
+  {
+    "id": "ABILITY_LEAF_GUARD",
+    "name": "Guardia Hoja",
+    "desc": "Blocks status in sunshine."
+  },
+  {
+    "id": "ABILITY_KLUTZ",
+    "name": "Torpe",
+    "desc": "Can't use hold items."
+  },
+  {
+    "id": "ABILITY_MOLD_BREAKER",
+    "name": "Rompemoldes",
+    "desc": "Moves hit through abilities."
+  },
+  {
+    "id": "ABILITY_SUPER_LUCK",
+    "name": "Suerte",
+    "desc": "Critical hits land often."
+  },
+  {
+    "id": "ABILITY_AFTERMATH",
+    "name": "Consecuencias",
+    "desc": "Fainting damages the foe."
+  },
+  {
+    "id": "ABILITY_ANTICIPATION",
+    "name": "Anticipación",
+    "desc": "Senses dangerous moves."
+  },
+  {
+    "id": "ABILITY_FOREWARN",
+    "name": "Premonición",
+    "desc": "Determines a foe's move."
+  },
+  {
+    "id": "ABILITY_UNAWARE",
+    "name": "Ignorante",
+    "desc": "Ignores stat changes."
+  },
+  {
+    "id": "ABILITY_TINTED_LENS",
+    "name": "Lente de Color",
+    "desc": "Ups “not very effective”."
+  },
+  {
+    "id": "ABILITY_FILTER",
+    "name": "Filtro",
+    "desc": "Weakens “supereffective”."
+  },
+  {
+    "id": "ABILITY_SLOW_START",
+    "name": "Inicio Lento",
+    "desc": "Takes a while to get going."
+  },
+  {
+    "id": "ABILITY_SCRAPPY",
+    "name": "Revoltoso",
+    "desc": "Hits Ghost-type Pokémon."
+  },
+  {
+    "id": "ABILITY_STORM_DRAIN",
+    "name": "Imán Agua",
+    "desc": "Draws in Water moves."
+  },
+  {
+    "id": "ABILITY_ICE_BODY",
+    "name": "Cuerpo Hielo",
+    "desc": "HP recovery in Hail or Snow."
+  },
+  {
+    "id": "ABILITY_SOLID_ROCK",
+    "name": "Roca Sólida",
+    "desc": "Weakens “supereffective”."
+  },
+  {
+    "id": "ABILITY_SNOW_WARNING",
+    "name": "Granizo",
+    "desc": "Summons snow in battle."
+  },
+  {
+    "id": "ABILITY_HONEY_GATHER",
+    "name": "Colecta Miel",
+    "desc": "May gather Honey."
+  },
+  {
+    "id": "ABILITY_FRISK",
+    "name": "Cacheo",
+    "desc": "Checks a foe's item."
+  },
+  {
+    "id": "ABILITY_RECKLESS",
+    "name": "Temerario",
+    "desc": "Boosts moves with recoil."
+  },
+  {
+    "id": "ABILITY_MULTITYPE",
+    "name": "Multitipo",
+    "desc": "Changes type to its Plate."
+  },
+  {
+    "id": "ABILITY_FLOWER_GIFT",
+    "name": "Don Floral",
+    "desc": "Allies power up in sunshine."
+  },
+  {
+    "id": "ABILITY_BAD_DREAMS",
+    "name": "Mal Sueño",
+    "desc": "Damages sleeping Pokémon."
+  },
+  {
+    "id": "ABILITY_PICKPOCKET",
+    "name": "Carterista",
+    "desc": "Steals the foe's held item."
+  },
+  {
+    "id": "ABILITY_SHEER_FORCE",
+    "name": "Fuerza Bruta",
+    "desc": "Trades effects for power."
+  },
+  {
+    "id": "ABILITY_CONTRARY",
+    "name": "Contrario",
+    "desc": "Inverts stat changes."
+  },
+  {
+    "id": "ABILITY_UNNERVE",
+    "name": "Tensión",
+    "desc": "Foes can't eat Berries."
+  },
+  {
+    "id": "ABILITY_DEFIANT",
+    "name": "Desafío",
+    "desc": "Lowered stats up Attack."
+  },
+  {
+    "id": "ABILITY_DEFEATIST",
+    "name": "Derrotista",
+    "desc": "Gives up at half HP."
+  },
+  {
+    "id": "ABILITY_CURSED_BODY",
+    "name": "Cuerpo Maldito",
+    "desc": "Disables moves on contact."
+  },
+  {
+    "id": "ABILITY_HEALER",
+    "name": "Sanador",
+    "desc": "Heals partner Pokémon."
+  },
+  {
+    "id": "ABILITY_FRIEND_GUARD",
+    "name": "Guardia Amigo",
+    "desc": "Lowers damage to partner."
+  },
+  {
+    "id": "ABILITY_WEAK_ARMOR",
+    "name": "Armadura Frágil",
+    "desc": "Its stats change when hit."
+  },
+  {
+    "id": "ABILITY_HEAVY_METAL",
+    "name": "Metal Pesado",
+    "desc": "Doubles weight."
+  },
+  {
+    "id": "ABILITY_LIGHT_METAL",
+    "name": "Metal Ligero",
+    "desc": "Halves weight."
+  },
+  {
+    "id": "ABILITY_MULTISCALE",
+    "name": "Multiescama",
+    "desc": "Halves damage at full HP."
+  },
+  {
+    "id": "ABILITY_TOXIC_BOOST",
+    "name": "Potencia Tóxica",
+    "desc": "Ups Attack if poisoned."
+  },
+  {
+    "id": "ABILITY_FLARE_BOOST",
+    "name": "Impulso Ardiente",
+    "desc": "Ups Sp. Atk if burned."
+  },
+  {
+    "id": "ABILITY_HARVEST",
+    "name": "Cosecha",
+    "desc": "May recycle a used Berry."
+  },
+  {
+    "id": "ABILITY_TELEPATHY",
+    "name": "Telepatía",
+    "desc": "Can't be damaged by an ally."
+  },
+  {
+    "id": "ABILITY_MOODY",
+    "name": "Variable",
+    "desc": "Stats change gradually."
+  },
+  {
+    "id": "ABILITY_OVERCOAT",
+    "name": "Sobretodo",
+    "desc": "Blocks weather and powder."
+  },
+  {
+    "id": "ABILITY_POISON_TOUCH",
+    "name": "Toque Venenoso",
+    "desc": "Poisons foe on contact."
+  },
+  {
+    "id": "ABILITY_REGENERATOR",
+    "name": "Regeneración",
+    "desc": "Heals upon switching out."
+  },
+  {
+    "id": "ABILITY_BIG_PECKS",
+    "name": "Pectorales",
+    "desc": "Prevents Defense loss."
+  },
+  {
+    "id": "ABILITY_SAND_RUSH",
+    "name": "Ímpetu Arena",
+    "desc": "Ups Speed in a sandstorm."
+  },
+  {
+    "id": "ABILITY_WONDER_SKIN",
+    "name": "Piel Mística",
+    "desc": "May avoid status problems."
+  },
+  {
+    "id": "ABILITY_ANALYTIC",
+    "name": "Analítico",
+    "desc": "Moving last boosts power."
+  },
+  {
+    "id": "ABILITY_ILLUSION",
+    "name": "Ilusión",
+    "desc": "Appears as a partner."
+  },
+  {
+    "id": "ABILITY_IMPOSTER",
+    "name": "Impostor",
+    "desc": "Transforms into the foe."
+  },
+  {
+    "id": "ABILITY_INFILTRATOR",
+    "name": "Infiltrador",
+    "desc": "Passes through barriers."
+  },
+  {
+    "id": "ABILITY_MUMMY",
+    "name": "Momia",
+    "desc": "Spreads with contact."
+  },
+  {
+    "id": "ABILITY_MOXIE",
+    "name": "Agresividad",
+    "desc": "KOs raise Attack."
+  },
+  {
+    "id": "ABILITY_JUSTIFIED",
+    "name": "Templado",
+    "desc": "Dark hits raise Attack."
+  },
+  {
+    "id": "ABILITY_RATTLED",
+    "name": "Turbador",
+    "desc": "Raises Speed when scared."
+  },
+  {
+    "id": "ABILITY_MAGIC_BOUNCE",
+    "name": "Rebote Mágico",
+    "desc": "Reflects status moves."
+  },
+  {
+    "id": "ABILITY_SAP_SIPPER",
+    "name": "Come Hierba",
+    "desc": "Grass increases Attack."
+  },
+  {
+    "id": "ABILITY_PRANKSTER",
+    "name": "Bromista",
+    "desc": "Status moves go first."
+  },
+  {
+    "id": "ABILITY_SAND_FORCE",
+    "name": "Fuerza Arena",
+    "desc": "Powers up in a sandstorm."
+  },
+  {
+    "id": "ABILITY_IRON_BARBS",
+    "name": "Puas Hierro",
+    "desc": "Hurts to touch."
+  },
+  {
+    "id": "ABILITY_ZEN_MODE",
+    "name": "Modo Zen",
+    "desc": "Transforms at half HP."
+  },
+  {
+    "id": "ABILITY_VICTORY_STAR",
+    "name": "Estr. Victoria",
+    "desc": "Raises party accuracy."
+  },
+  {
+    "id": "ABILITY_TURBOBLAZE",
+    "name": "Turboflama",
+    "desc": "Moves hit through abilities."
+  },
+  {
+    "id": "ABILITY_TERAVOLT",
+    "name": "Teravoltio",
+    "desc": "Moves hit through abilities."
+  },
+  {
+    "id": "ABILITY_AROMA_VEIL",
+    "name": "Velo Aromático",
+    "desc": "Prevents limiting of moves."
+  },
+  {
+    "id": "ABILITY_FLOWER_VEIL",
+    "name": "Velo Floral",
+    "desc": "Protects Grass-types."
+  },
+  {
+    "id": "ABILITY_CHEEK_POUCH",
+    "name": "Bolsa Carrillo",
+    "desc": "Eating Berries restores HP."
+  },
+  {
+    "id": "ABILITY_PROTEAN",
+    "name": "Multicolor",
+    "desc": "Changes type to used move."
+  },
+  {
+    "id": "ABILITY_FUR_COAT",
+    "name": "Piel Peluda",
+    "desc": "Raises Defense."
+  },
+  {
+    "id": "ABILITY_MAGICIAN",
+    "name": "Mago",
+    "desc": "Steals the foe's held item."
+  },
+  {
+    "id": "ABILITY_BULLETPROOF",
+    "name": "Antibalas",
+    "desc": "Avoids some projectiles."
+  },
+  {
+    "id": "ABILITY_COMPETITIVE",
+    "name": "Competitivo",
+    "desc": "Lowered stats up Sp. Atk."
+  },
+  {
+    "id": "ABILITY_STRONG_JAW",
+    "name": "Mandíbula Fuerte",
+    "desc": "Boosts biting moves."
+  },
+  {
+    "id": "ABILITY_REFRIGERATE",
+    "name": "Frigorífico",
+    "desc": "Normal moves become Ice."
+  },
+  {
+    "id": "ABILITY_SWEET_VEIL",
+    "name": "Velo Dulce",
+    "desc": "Prevents party from sleep."
+  },
+  {
+    "id": "ABILITY_STANCE_CHANGE",
+    "name": "Cambio Forma",
+    "desc": "Transforms as it battles."
+  },
+  {
+    "id": "ABILITY_GALE_WINGS",
+    "name": "Alas Vendaval",
+    "desc": "Flying moves go first."
+  },
+  {
+    "id": "ABILITY_MEGA_LAUNCHER",
+    "name": "Megalanzador",
+    "desc": "Boosts pulse moves."
+  },
+  {
+    "id": "ABILITY_GRASS_PELT",
+    "name": "Piel Herbácea",
+    "desc": "Ups Defense in grass."
+  },
+  {
+    "id": "ABILITY_SYMBIOSIS",
+    "name": "Simbiosis",
+    "desc": "Passes its item to an ally."
+  },
+  {
+    "id": "ABILITY_TOUGH_CLAWS",
+    "name": "Garras Fuertes",
+    "desc": "Boosts contact moves."
+  },
+  {
+    "id": "ABILITY_PIXILATE",
+    "name": "Feérico",
+    "desc": "Normal moves become Fairy."
+  },
+  {
+    "id": "ABILITY_GOOEY",
+    "name": "Viscoso",
+    "desc": "Lowers Speed on contact."
+  },
+  {
+    "id": "ABILITY_AERILATE",
+    "name": "Viento",
+    "desc": "Normal moves become Flying."
+  },
+  {
+    "id": "ABILITY_PARENTAL_BOND",
+    "name": "Lazo Parental",
+    "desc": "Moves hit twice."
+  },
+  {
+    "id": "ABILITY_DARK_AURA",
+    "name": "Aura Oscura",
+    "desc": "Boosts Dark moves."
+  },
+  {
+    "id": "ABILITY_FAIRY_AURA",
+    "name": "Aura Feérica",
+    "desc": "Boosts Fairy moves."
+  },
+  {
+    "id": "ABILITY_AURA_BREAK",
+    "name": "Antiura",
+    "desc": "Reverse aura abilities."
+  },
+  {
+    "id": "ABILITY_PRIMORDIAL_SEA",
+    "name": "Mar Primigenio",
+    "desc": "Summons heavy rain."
+  },
+  {
+    "id": "ABILITY_DESOLATE_LAND",
+    "name": "Tierra Desolada",
+    "desc": "Summons intense sunlight."
+  },
+  {
+    "id": "ABILITY_DELTA_STREAM",
+    "name": "Delta Corriente",
+    "desc": "Summons strong winds."
+  },
+  {
+    "id": "ABILITY_STAMINA",
+    "name": "STAMINA",
+    "desc": "Boosts Defense when hit."
+  },
+  {
+    "id": "ABILITY_WIMP_OUT",
+    "name": "WIMP OUT",
+    "desc": "Flees at half HP."
+  },
+  {
+    "id": "ABILITY_EMERGENCY_EXIT",
+    "name": "EMERGENCY EXIT",
+    "desc": "Flees at half HP."
+  },
+  {
+    "id": "ABILITY_WATER_COMPACTION",
+    "name": "WATER COMPACTION",
+    "desc": "Water boosts Defense."
+  },
+  {
+    "id": "ABILITY_MERCILESS",
+    "name": "MERCILESS",
+    "desc": "Criticals poisoned foes."
+  },
+  {
+    "id": "ABILITY_SHIELDS_DOWN",
+    "name": "SHIELDS DOWN",
+    "desc": "Shell breaks at half HP."
+  },
+  {
+    "id": "ABILITY_STAKEOUT",
+    "name": "Acecho",
+    "desc": "Stronger as foes switch in."
+  },
+  {
+    "id": "ABILITY_WATER_BUBBLE",
+    "name": "Burbuja Agua",
+    "desc": "Guards from fire and burns."
+  },
+  {
+    "id": "ABILITY_STEELWORKER",
+    "name": "Metalúrgico",
+    "desc": "Powers up Steel moves."
+  },
+  {
+    "id": "ABILITY_BERSERK",
+    "name": "Berserker",
+    "desc": "Boosts Sp. Atk at low HP."
+  },
+  {
+    "id": "ABILITY_SLUSH_RUSH",
+    "name": "Ímpetu Nieve",
+    "desc": "Raises Speed in Hail/Snow."
+  },
+  {
+    "id": "ABILITY_LONG_REACH",
+    "name": "Largo Alcance",
+    "desc": "Never makes contact."
+  },
+  {
+    "id": "ABILITY_LIQUID_VOICE",
+    "name": "Voz Acuática",
+    "desc": "Makes sound moves Water."
+  },
+  {
+    "id": "ABILITY_TRIAGE",
+    "name": "Triaje",
+    "desc": "Healing moves go first."
+  },
+  {
+    "id": "ABILITY_GALVANIZE",
+    "name": "Galvanización",
+    "desc": "Normal moves turn Electric."
+  },
+  {
+    "id": "ABILITY_SURGE_SURFER",
+    "name": "Surf Eléctrico",
+    "desc": "Faster on electricity."
+  },
+  {
+    "id": "ABILITY_SCHOOLING",
+    "name": "Cardumen",
+    "desc": "Forms a school when strong."
+  },
+  {
+    "id": "ABILITY_DISGUISE",
+    "name": "Disfraz",
+    "desc": "Decoy protects it once."
+  },
+  {
+    "id": "ABILITY_BATTLE_BOND",
+    "name": "Lazo de Combate",
+    "desc": "Changes form after a KO."
+  },
+  {
+    "id": "ABILITY_POWER_CONSTRUCT",
+    "name": "Construir Fuerza",
+    "desc": "Cells aid it when weakened."
+  },
+  {
+    "id": "ABILITY_CORROSION",
+    "name": "Corrosión",
+    "desc": "Poisons any type."
+  },
+  {
+    "id": "ABILITY_COMATOSE",
+    "name": "Comatoso",
+    "desc": "Always drowsing."
+  },
+  {
+    "id": "ABILITY_QUEENLY_MAJESTY",
+    "name": "Majestad Regia",
+    "desc": "Protects from priority."
+  },
+  {
+    "id": "ABILITY_INNARDS_OUT",
+    "name": "Reflejar Daño",
+    "desc": "Hurts foe when defeated."
+  },
+  {
+    "id": "ABILITY_DANCER",
+    "name": "Bailarín",
+    "desc": "Dances along with others."
+  },
+  {
+    "id": "ABILITY_BATTERY",
+    "name": "Batería",
+    "desc": "Boosts ally's Sp. Atk."
+  },
+  {
+    "id": "ABILITY_FLUFFY",
+    "name": "Pelusa",
+    "desc": "Tougher but flammable."
+  },
+  {
+    "id": "ABILITY_DAZZLING",
+    "name": "Deslumbrante",
+    "desc": "Protects from priority."
+  },
+  {
+    "id": "ABILITY_SOUL_HEART",
+    "name": "Alma Corazón",
+    "desc": "KOs raise Sp. Atk."
+  },
+  {
+    "id": "ABILITY_TANGLING_HAIR",
+    "name": "Cabello Enredado",
+    "desc": "Lowers Speed on contact."
+  },
+  {
+    "id": "ABILITY_RECEIVER",
+    "name": "Receptor",
+    "desc": "Copies ally's ability."
+  },
+  {
+    "id": "ABILITY_POWER_OF_ALCHEMY",
+    "name": "Poder Alquimia",
+    "desc": "Copies ally's ability."
+  },
+  {
+    "id": "ABILITY_BEAST_BOOST",
+    "name": "Ultraimpulso",
+    "desc": "KOs boost best stat."
+  },
+  {
+    "id": "ABILITY_RKS_SYSTEM",
+    "name": "Sistema RKS",
+    "desc": "Memories change its type."
+  },
+  {
+    "id": "ABILITY_ELECTRIC_SURGE",
+    "name": "Electricidad",
+    "desc": "Field becomes Electric."
+  },
+  {
+    "id": "ABILITY_PSYCHIC_SURGE",
+    "name": "Psíquico",
+    "desc": "Field becomes weird."
+  },
+  {
+    "id": "ABILITY_MISTY_SURGE",
+    "name": "Niebla",
+    "desc": "Field becomes misty."
+  },
+  {
+    "id": "ABILITY_GRASSY_SURGE",
+    "name": "Hierba",
+    "desc": "Field becomes grassy."
+  },
+  {
+    "id": "ABILITY_FULL_METAL_BODY",
+    "name": "Cuerpo Férreo",
+    "desc": "Prevents stat reduction."
+  },
+  {
+    "id": "ABILITY_SHADOW_SHIELD",
+    "name": "Escudo Sombra",
+    "desc": "Halves damage at full HP."
+  },
+  {
+    "id": "ABILITY_PRISM_ARMOR",
+    "name": "Armadura Prisma",
+    "desc": "Weakens “supereffective”."
+  },
+  {
+    "id": "ABILITY_NEUROFORCE",
+    "name": "Neurofuerza",
+    "desc": "Ups “supereffective”."
+  },
+  {
+    "id": "ABILITY_INTREPID_SWORD",
+    "name": "Espada Valiente",
+    "desc": "Ups Attack on entry."
+  },
+  {
+    "id": "ABILITY_DAUNTLESS_SHIELD",
+    "name": "Escudo Constante",
+    "desc": "Ups Defense on entry."
+  },
+  {
+    "id": "ABILITY_LIBERO",
+    "name": "LIBERO",
+    "desc": "Changes type to move's."
+  },
+  {
+    "id": "ABILITY_BALL_FETCH",
+    "name": "Busca Bola",
+    "desc": "Fetches failed Poké Ball."
+  },
+  {
+    "id": "ABILITY_COTTON_DOWN",
+    "name": "Plumón Algodón",
+    "desc": "Lower Speed of all when hit."
+  },
+  {
+    "id": "ABILITY_PROPELLER_TAIL",
+    "name": "Cola Hélice",
+    "desc": "Ignores foe's redirection."
+  },
+  {
+    "id": "ABILITY_MIRROR_ARMOR",
+    "name": "Armadura Espejo",
+    "desc": "Reflect stat decreases."
+  },
+  {
+    "id": "ABILITY_GULP_MISSILE",
+    "name": "Misil Tragado",
+    "desc": "If hit, spits prey from sea."
+  },
+  {
+    "id": "ABILITY_STALWART",
+    "name": "Valiente",
+    "desc": "Ignores foe's redirection."
+  },
+  {
+    "id": "ABILITY_STEAM_ENGINE",
+    "name": "Motor Vapor",
+    "desc": "Fire or Water hits up Speed."
+  },
+  {
+    "id": "ABILITY_PUNK_ROCK",
+    "name": "Punk Rock",
+    "desc": "Ups and resists sound."
+  },
+  {
+    "id": "ABILITY_SAND_SPIT",
+    "name": "Escupir Arena",
+    "desc": "Creates a sandstorm if hit."
+  },
+  {
+    "id": "ABILITY_ICE_SCALES",
+    "name": "Escamas Hielo",
+    "desc": "Halves special damage."
+  },
+  {
+    "id": "ABILITY_RIPEN",
+    "name": "Madurar",
+    "desc": "Doubles effect of Berries."
+  },
+  {
+    "id": "ABILITY_ICE_FACE",
+    "name": "Cara Hielo",
+    "desc": "Hail or Snow renew free hit."
+  },
+  {
+    "id": "ABILITY_POWER_SPOT",
+    "name": "Punto Potencia",
+    "desc": "Powers up ally moves."
+  },
+  {
+    "id": "ABILITY_MIMICRY",
+    "name": "Mimetismo",
+    "desc": "Changes type on terrain."
+  },
+  {
+    "id": "ABILITY_SCREEN_CLEANER",
+    "name": "Rompe Pantallas",
+    "desc": "Removes walls of light."
+  },
+  {
+    "id": "ABILITY_STEELY_SPIRIT",
+    "name": "Espíritu Férreo",
+    "desc": "Boosts ally's Steel moves."
+  },
+  {
+    "id": "ABILITY_PERISH_BODY",
+    "name": "Cuerpo Mortal",
+    "desc": "Foe faints in 3 turns if hit."
+  },
+  {
+    "id": "ABILITY_WANDERING_SPIRIT",
+    "name": "Espíritu Errante",
+    "desc": "Trade abilities on contact."
+  },
+  {
+    "id": "ABILITY_GORILLA_TACTICS",
+    "name": "Tácticas Gorila",
+    "desc": "Ups Attack and locks move."
+  },
+  {
+    "id": "ABILITY_NEUTRALIZING_GAS",
+    "name": "Gas Neutraliz.",
+    "desc": "All Abilities are nullified."
+  },
+  {
+    "id": "ABILITY_PASTEL_VEIL",
+    "name": "Velo Pastel",
+    "desc": "Protects team from poison."
+  },
+  {
+    "id": "ABILITY_HUNGER_SWITCH",
+    "name": "Alternancia",
+    "desc": "Changes form each turn."
+  },
+  {
+    "id": "ABILITY_QUICK_DRAW",
+    "name": "Saque Rápido",
+    "desc": "Moves first occasionally."
+  },
+  {
+    "id": "ABILITY_UNSEEN_FIST",
+    "name": "Puño Invisible",
+    "desc": "Contact evades protection."
+  },
+  {
+    "id": "ABILITY_CURIOUS_MEDICINE",
+    "name": "Medicina Curiosa",
+    "desc": "Remove ally's stat changes."
+  },
+  {
+    "id": "ABILITY_TRANSISTOR",
+    "name": "Transistor",
+    "desc": "Ups Electric-type moves."
+  },
+  {
+    "id": "ABILITY_DRAGONS_MAW",
+    "name": "DRAGON'S MAW",
+    "desc": "Ups Dragon-type moves."
+  },
+  {
+    "id": "ABILITY_CHILLING_NEIGH",
+    "name": "Relincho Frío",
+    "desc": "KOs boost Attack stat."
+  },
+  {
+    "id": "ABILITY_GRIM_NEIGH",
+    "name": "Relincho Sombrío",
+    "desc": "KOs boost Sp. Atk stat."
+  },
+  {
+    "id": "ABILITY_AS_ONE_ICE_RIDER",
+    "name": "AS ONE",
+    "desc": "Unnerve and Chilling Neigh."
+  },
+  {
+    "id": "ABILITY_AS_ONE_SHADOW_RIDER",
+    "name": "AS ONE",
+    "desc": "Unnerve and Grim Neigh."
+  },
+  {
+    "id": "ABILITY_LINGERING_AROMA",
+    "name": "LINGERING AROMA",
+    "desc": "Spreads with contact."
+  },
+  {
+    "id": "ABILITY_SEED_SOWER",
+    "name": "SEED SOWER",
+    "desc": "Affects terrain when hit."
+  },
+  {
+    "id": "ABILITY_THERMAL_EXCHANGE",
+    "name": "THERMAL EXCHANGE",
+    "desc": "Fire hits up Attack."
+  },
+  {
+    "id": "ABILITY_ANGER_SHELL",
+    "name": "ANGER SHELL",
+    "desc": "Gets angry at half HP."
+  },
+  {
+    "id": "ABILITY_PURIFYING_SALT",
+    "name": "PURIFYING SALT",
+    "desc": "Protected by pure salts."
+  },
+  {
+    "id": "ABILITY_WELL_BAKED_BODY",
+    "name": "WELL-BAKED BODY",
+    "desc": "Strengthened by Fire."
+  },
+  {
+    "id": "ABILITY_WIND_RIDER",
+    "name": "Jinete Viento",
+    "desc": "Ups Attack if hit by wind."
+  },
+  {
+    "id": "ABILITY_GUARD_DOG",
+    "name": "Perro Guardián",
+    "desc": "Cannot be intimidated."
+  },
+  {
+    "id": "ABILITY_ROCKY_PAYLOAD",
+    "name": "Carga Rocosa",
+    "desc": "Powers up Rock moves."
+  },
+  {
+    "id": "ABILITY_WIND_POWER",
+    "name": "Poder del Viento",
+    "desc": "Gets charged by wind."
+  },
+  {
+    "id": "ABILITY_ZERO_TO_HERO",
+    "name": "De Cero a Héroe",
+    "desc": "Changes form on switch out."
+  },
+  {
+    "id": "ABILITY_COMMANDER",
+    "name": "Comandante",
+    "desc": "Commands from Dondozo."
+  },
+  {
+    "id": "ABILITY_ELECTROMORPHOSIS",
+    "name": "Electromorfosis",
+    "desc": "Gets Charged when hit."
+  },
+  {
+    "id": "ABILITY_PROTOSYNTHESIS",
+    "name": "Protoestasis",
+    "desc": "Sun boosts best stat."
+  },
+  {
+    "id": "ABILITY_QUARK_DRIVE",
+    "name": "Cuark Motor",
+    "desc": "Elec. field ups best stat."
+  },
+  {
+    "id": "ABILITY_GOOD_AS_GOLD",
+    "name": "Oro Puro",
+    "desc": "Avoids status moves."
+  },
+  {
+    "id": "ABILITY_VESSEL_OF_RUIN",
+    "name": "Vasija Ruinosa",
+    "desc": "Lowers foes' sp. damage."
+  },
+  {
+    "id": "ABILITY_SWORD_OF_RUIN",
+    "name": "Espada Ruinosa",
+    "desc": "Lowers foes' Defense."
+  },
+  {
+    "id": "ABILITY_TABLETS_OF_RUIN",
+    "name": "Tableta Ruinosa",
+    "desc": "Lowers foes' damage."
+  },
+  {
+    "id": "ABILITY_BEADS_OF_RUIN",
+    "name": "Cuentas Ruinosas",
+    "desc": "Lowers foes' Sp. Defense."
+  },
+  {
+    "id": "ABILITY_ORICHALCUM_PULSE",
+    "name": "Pulso Oricalco",
+    "desc": "Summons sunlight in battle."
+  },
+  {
+    "id": "ABILITY_HADRON_ENGINE",
+    "name": "Motor Hadrón",
+    "desc": "Field becomes Electric."
+  },
+  {
+    "id": "ABILITY_OPPORTUNIST",
+    "name": "Oportunista",
+    "desc": "Copies foe's stat change."
+  },
+  {
+    "id": "ABILITY_CUD_CHEW",
+    "name": "Rumia",
+    "desc": "Eats a used berry again."
+  },
+  {
+    "id": "ABILITY_SHARPNESS",
+    "name": "Filo",
+    "desc": "Strengthens slicing moves."
+  },
+  {
+    "id": "ABILITY_SUPREME_OVERLORD",
+    "name": "Sumo Señor",
+    "desc": "Inherits fallen's strength."
+  },
+  {
+    "id": "ABILITY_COSTAR",
+    "name": "Coestrella",
+    "desc": "Copies ally's stat changes."
+  },
+  {
+    "id": "ABILITY_TOXIC_DEBRIS",
+    "name": "Escombros Tox.",
+    "desc": "Throws poison spikes if hit."
+  },
+  {
+    "id": "ABILITY_ARMOR_TAIL",
+    "name": "Cola Blindada",
+    "desc": "Protects from priority."
+  },
+  {
+    "id": "ABILITY_EARTH_EATER",
+    "name": "Come Tierra",
+    "desc": "Eats ground to heal HP."
+  },
+  {
+    "id": "ABILITY_MYCELIUM_MIGHT",
+    "name": "MYCELIUM MIGHT",
+    "desc": "Status moves never fail."
+  },
+  {
+    "id": "ABILITY_HOSPITALITY",
+    "name": "HOSPITALITY",
+    "desc": "Restores ally's HP."
+  },
+  {
+    "id": "ABILITY_MINDS_EYE",
+    "name": "MIND'S EYE",
+    "desc": "Keen Eye and Scrappy."
+  },
+  {
+    "id": "ABILITY_EMBODY_ASPECT_TEAL_MASK",
+    "name": "EMBODY ASPECT",
+    "desc": "Raises Speed."
+  },
+  {
+    "id": "ABILITY_EMBODY_ASPECT_HEARTHFLAME_MASK",
+    "name": "EMBODY ASPECT",
+    "desc": "Raises Attack."
+  },
+  {
+    "id": "ABILITY_EMBODY_ASPECT_WELLSPRING_MASK",
+    "name": "EMBODY ASPECT",
+    "desc": "Raises Sp. Def."
+  },
+  {
+    "id": "ABILITY_EMBODY_ASPECT_CORNERSTONE_MASK",
+    "name": "EMBODY ASPECT",
+    "desc": "Raises Defense."
+  },
+  {
+    "id": "ABILITY_TOXIC_CHAIN",
+    "name": "TOXIC CHAIN",
+    "desc": "Moves can poison."
+  },
+  {
+    "id": "ABILITY_SUPERSWEET_SYRUP",
+    "name": "SUPERSWEET SYRUP",
+    "desc": "Lowers the foe's Evasion."
+  },
+  {
+    "id": "ABILITY_TERA_SHIFT",
+    "name": "Tera Cambio",
+    "desc": "Terastallizes upon entry."
+  },
+  {
+    "id": "ABILITY_TERA_SHELL",
+    "name": "Tera Caparazón",
+    "desc": "Resists all at full HP."
+  },
+  {
+    "id": "ABILITY_TERAFORM_ZERO",
+    "name": "Teraforma Cero",
+    "desc": "Zeroes weather and terrain."
+  },
+  {
+    "id": "ABILITY_POISON_PUPPETEER",
+    "name": "Titerero Veneno",
+    "desc": "Confuses poisoned foes."
+  }
+]

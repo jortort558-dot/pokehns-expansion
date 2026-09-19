@@ -1,0 +1,5414 @@
+[
+  {
+    "id": "ITEM_STRANGE_BALL",
+    "name": "Extraña Ball",
+    "desc": "An unusual Ball\\nwarped through\\nspace and time.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POKE_BALL",
+    "name": "POKé BALL",
+    "desc": "A tool used for\\ncatching wild\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GREAT_BALL",
+    "name": "Super Ball",
+    "desc": "A good Ball with a\\nhigher catch rate\\nthan a Poké Ball.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ULTRA_BALL",
+    "name": "Ultra Ball",
+    "desc": "A better Ball with\\na higher catch rate\\nthan a Great Ball.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MASTER_BALL",
+    "name": "Master Ball",
+    "desc": "The best Ball that\\ncatches a Pokémon\\nwithout fail.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PREMIER_BALL",
+    "name": "Honor Ball",
+    "desc": "A rare Ball made\\nin commemoration\\nof some event.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HEAL_BALL",
+    "name": "Cura Ball",
+    "desc": "A remedial Ball\\nthat restores\\ncaught Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_NET_BALL",
+    "name": "Red Ball",
+    "desc": "A Ball that works\\nwell on Water- and\\nBug-type Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_NEST_BALL",
+    "name": "Nido Ball",
+    "desc": "A Ball that works\\nbetter on weaker\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DIVE_BALL",
+    "name": "Buceo Ball",
+    "desc": "A Ball that works\\nbetter on Pokémon\\non the ocean floor.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DUSK_BALL",
+    "name": "Ocaso Ball",
+    "desc": "Works well if\\nused in a\\ndark place.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TIMER_BALL",
+    "name": "Tiempo Ball",
+    "desc": "A Ball that gains\\npower in battles\\ntaking many turns.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_QUICK_BALL",
+    "name": "Rapaz Ball",
+    "desc": "Works well if\\nused on the\\nfirst turn.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_REPEAT_BALL",
+    "name": "Repetición Ball",
+    "desc": "A Ball that works\\nbetter on Pokémon\\ncaught before.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LUXURY_BALL",
+    "name": "Lujo Ball",
+    "desc": "A cozy Ball that\\nmakes Pokémon\\nmore friendly.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LEVEL_BALL",
+    "name": "Level Ball",
+    "desc": "Good for NORMAL,\\nFLYING, ICE, and\\nlow level POKéMON.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LURE_BALL",
+    "name": "Señuelo Ball",
+    "desc": "Good for WATER,\\nDRAGON, and fished\\nup POKéMON.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MOON_BALL",
+    "name": "Luna Ball",
+    "desc": "Good for DARK,\\nGHOST, POISON, and\\nMOON STONE users.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FRIEND_BALL",
+    "name": "Amistad Ball",
+    "desc": "Good for BUG,\\nGRASS, and making\\nPOKéMON friendly.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LOVE_BALL",
+    "name": "Amor Ball",
+    "desc": "Good for PSYCHIC,\\nFAIRY, and the\\nopposite gender.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FAST_BALL",
+    "name": "Rápida Ball",
+    "desc": "Good for fast, FIRE,\\nELECTRIC, and\\nFIGHTING POKéMON.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HEAVY_BALL",
+    "name": "Peso Ball",
+    "desc": "Good for ROCK,\\nGROUND, STEEL, and\\nHeavy POKéMON.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DREAM_BALL",
+    "name": "Sueño Ball",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SAFARI_BALL",
+    "name": "Safari Ball",
+    "desc": "A special Ball that\\nis used only in the\\nSafari Zone.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SPORT_BALL",
+    "name": "Sport Ball",
+    "desc": "A special Ball\\nused in the Bug-\\nCatching Contest.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PARK_BALL",
+    "name": "Parque Ball",
+    "desc": "A special Ball for\\nthe Pal Park.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BEAST_BALL",
+    "name": "Ultra Ball",
+    "desc": "A Ball designed to\\ncatch Ultra Beasts.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHERISH_BALL",
+    "name": "Lazo Ball",
+    "desc": "A rare Ball made\\nin commemoration\\nof some event.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POTION",
+    "name": "Poción",
+    "desc": "Restores the HP of\\na Pokémon by\\n20 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SUPER_POTION",
+    "name": "Superpoción",
+    "desc": "Restores the HP of\\na Pokémon by\\n60 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HYPER_POTION",
+    "name": "Hiperpoción",
+    "desc": "Restores the HP of\\na Pokémon by\\n120 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAX_POTION",
+    "name": "Súper Poción",
+    "desc": "Fully restores the\\nHP of a Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FULL_RESTORE",
+    "name": "Restauración Total",
+    "desc": "Fully restores the\\nHP and status of a\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_REVIVE",
+    "name": "Revivir",
+    "desc": "Revives a fainted\\nPokémon with half\\nits HP.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAX_REVIVE",
+    "name": "Revivir Máx.",
+    "desc": "",
+    "sym": "sMaxReviveDesc"
+  },
+  {
+    "id": "ITEM_FRESH_WATER",
+    "name": "Agua Fresca",
+    "desc": "A mineral water\\nthat restores HP\\nby 30 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SODA_POP",
+    "name": "Refresco",
+    "desc": "A fizzy soda drink\\nthat restores HP\\nby 50 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LEMONADE",
+    "name": "Limonada",
+    "desc": "A very sweet drink\\nthat restores HP\\nby 70 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MOOMOO_MILK",
+    "name": "Leche MuMu",
+    "desc": "A nutritious milk\\nthat restores HP\\nby 100 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ENERGY_POWDER",
+    "name": "Polvo Energía",
+    "desc": "A bitter powder\\nthat restores HP\\nby 60 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ENERGY_ROOT",
+    "name": "Raíz Energía",
+    "desc": "A bitter root\\nthat restores HP\\nby 120 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HEAL_POWDER",
+    "name": "Polvo Curación",
+    "desc": "A bitter powder\\nthat heals all\\nstatus problems.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_REVIVAL_HERB",
+    "name": "Hierba Revivir",
+    "desc": "A very bitter herb\\nthat revives a\\nfainted Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ANTIDOTE",
+    "name": "Antídoto",
+    "desc": "Heals a poisoned\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PARALYZE_HEAL",
+    "name": "PARALYZE HEAL",
+    "desc": "Heals a paralyzed\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BURN_HEAL",
+    "name": "Cura Quemadura",
+    "desc": "Heals Pokémon\\nof a burn.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ICE_HEAL",
+    "name": "Cura Congelación",
+    "desc": "Defrosts a frozen\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AWAKENING",
+    "name": "Despertar",
+    "desc": "Awakens a sleeping\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FULL_HEAL",
+    "name": "Cura Total",
+    "desc": "",
+    "sym": "sFullHealDesc"
+  },
+  {
+    "id": "ITEM_ETHER",
+    "name": "Éter",
+    "desc": "Restores the PP\\nof a selected move\\nby 10.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAX_ETHER",
+    "name": "Éter Máx.",
+    "desc": "Fully restores the\\nPP of a selected\\nmove.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ELIXIR",
+    "name": "Elixir",
+    "desc": "Restores the PP\\nof all moves by 10.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAX_ELIXIR",
+    "name": "Elixir Máx.",
+    "desc": "Fully restores the\\nPP of a Pokémon's\\nmoves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BERRY_JUICE",
+    "name": "Zumo Baya",
+    "desc": "A 100% pure juice\\nthat restores HP\\nby 20 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SACRED_ASH",
+    "name": "Ceniza Sagrada",
+    "desc": "Fully revives and\\nrestores all\\nfainted Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SWEET_HEART",
+    "name": "SWEET HEART",
+    "desc": "A sweet chocolate\\nthat restores HP\\nby 20 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAX_HONEY",
+    "name": "MAX HONEY",
+    "desc": "",
+    "sym": "sMaxReviveDesc"
+  },
+  {
+    "id": "ITEM_PEWTER_CRUNCHIES",
+    "name": "PEWTER CRUNCHIES",
+    "desc": "",
+    "sym": "sFullHealDesc"
+  },
+  {
+    "id": "ITEM_RAGE_CANDY_BAR",
+    "name": "RAGE CANDY BAR",
+    "desc": "",
+    "sym": "sFullHealDesc"
+  },
+  {
+    "id": "ITEM_LAVA_COOKIE",
+    "name": "Galleta Lava",
+    "desc": "A local specialty\\nthat heals all\\nstatus problems.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_OLD_GATEAU",
+    "name": "OLD GATEAU",
+    "desc": "",
+    "sym": "sFullHealDesc"
+  },
+  {
+    "id": "ITEM_CASTELIACONE",
+    "name": "CASTELIACONE",
+    "desc": "",
+    "sym": "sFullHealDesc"
+  },
+  {
+    "id": "ITEM_LUMIOSE_GALETTE",
+    "name": "LUMIOSE GALETTE",
+    "desc": "",
+    "sym": "sFullHealDesc"
+  },
+  {
+    "id": "ITEM_SHALOUR_SABLE",
+    "name": "SHALOUR SABLE",
+    "desc": "",
+    "sym": "sFullHealDesc"
+  },
+  {
+    "id": "ITEM_BIG_MALASADA",
+    "name": "BIG MALASADA",
+    "desc": "",
+    "sym": "sFullHealDesc"
+  },
+  {
+    "id": "ITEM_HP_UP",
+    "name": "Vitamina PS",
+    "desc": "Raises the base HP\\nof one Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PROTEIN",
+    "name": "Proteína",
+    "desc": "Raises the base\\nAttack stat of one\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_IRON",
+    "name": "Hierro",
+    "desc": "Raises the base\\nDefense stat of\\none Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CALCIUM",
+    "name": "Calcio",
+    "desc": "Raises the base\\nSp. Atk stat of one\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ZINC",
+    "name": "Zinc",
+    "desc": "Raises the base\\nSp. Def stat of one\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CARBOS",
+    "name": "Carbono",
+    "desc": "Raises the base\\nSpeed stat of one\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PP_UP",
+    "name": "PP Plus",
+    "desc": "Raises the maximum\\nPP of a selected\\nmove.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PP_MAX",
+    "name": "PP Máx.",
+    "desc": "Raises the PP of a\\nmove to its maximum\\npoints.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HEALTH_FEATHER",
+    "name": "HEALTH FEATHER",
+    "desc": "",
+    "sym": "sHealthFeatherDesc"
+  },
+  {
+    "id": "ITEM_MUSCLE_FEATHER",
+    "name": "MUSCLE FEATHER",
+    "desc": "",
+    "sym": "sMuscleFeatherDesc"
+  },
+  {
+    "id": "ITEM_RESIST_FEATHER",
+    "name": "RESIST FEATHER",
+    "desc": "",
+    "sym": "sResistFeatherDesc"
+  },
+  {
+    "id": "ITEM_GENIUS_FEATHER",
+    "name": "GENIUS FEATHER",
+    "desc": "",
+    "sym": "sGeniusFeatherDesc"
+  },
+  {
+    "id": "ITEM_CLEVER_FEATHER",
+    "name": "CLEVER FEATHER",
+    "desc": "",
+    "sym": "sCleverFeatherDesc"
+  },
+  {
+    "id": "ITEM_SWIFT_FEATHER",
+    "name": "SWIFT FEATHER",
+    "desc": "",
+    "sym": "sSwiftFeatherDesc"
+  },
+  {
+    "id": "ITEM_ABILITY_CAPSULE",
+    "name": "ABILITY CAPSULE",
+    "desc": "Switches a Poké-\\nmon's ability.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ABILITY_PATCH",
+    "name": "ABILITY PATCH",
+    "desc": "Turns the ability\\nof a Pokémon into\\na rare ability.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LONELY_MINT",
+    "name": "LONELY MINT",
+    "desc": "Can be smelled. It\\nups Attack, but\\nreduces Defense.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ADAMANT_MINT",
+    "name": "ADAMANT MINT",
+    "desc": "Can be smelled. It\\nups Attack, but\\nreduces Sp. Atk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_NAUGHTY_MINT",
+    "name": "NAUGHTY MINT",
+    "desc": "Can be smelled. It\\nups Attack, but\\nreduces Sp. Def.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BRAVE_MINT",
+    "name": "BRAVE MINT",
+    "desc": "Can be smelled. It\\nups Attack, but\\nreduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BOLD_MINT",
+    "name": "BOLD MINT",
+    "desc": "Can be smelled. It\\nups Defense, but\\nreduces Attack.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_IMPISH_MINT",
+    "name": "IMPISH MINT",
+    "desc": "Can be smelled. It\\nups Defense, but\\nreduces Sp. Atk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LAX_MINT",
+    "name": "LAX MINT",
+    "desc": "Can be smelled. It\\nups Defense, but\\nreduces Sp. Def.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RELAXED_MINT",
+    "name": "RELAXED MINT",
+    "desc": "Can be smelled. It\\nups Defense, but\\nreduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MODEST_MINT",
+    "name": "MODEST MINT",
+    "desc": "Can be smelled. It\\nups Sp. Atk, but\\nreduces Attack.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MILD_MINT",
+    "name": "MILD MINT",
+    "desc": "Can be smelled. It\\nups Sp. Atk, but\\nreduces Defense.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RASH_MINT",
+    "name": "RASH MINT",
+    "desc": "Can be smelled. It\\nups Sp. Atk, but\\nreduces Sp. Def.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_QUIET_MINT",
+    "name": "QUIET MINT",
+    "desc": "Can be smelled. It\\nups Sp. Atk, but\\nreduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CALM_MINT",
+    "name": "CALM MINT",
+    "desc": "Can be smelled. It\\nups Sp. Def, but\\nreduces Attack.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GENTLE_MINT",
+    "name": "GENTLE MINT",
+    "desc": "Can be smelled. It\\nups Sp. Def, but\\nreduces Defense.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CAREFUL_MINT",
+    "name": "CAREFUL MINT",
+    "desc": "Can be smelled. It\\nups Sp. Def, but\\nreduces Sp. Atk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SASSY_MINT",
+    "name": "SASSY MINT",
+    "desc": "Can be smelled. It\\nups Sp. Def, but\\nreduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TIMID_MINT",
+    "name": "TIMID MINT",
+    "desc": "Can be smelled. It\\nups Speed, but\\nreduces Attack.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HASTY_MINT",
+    "name": "HASTY MINT",
+    "desc": "Can be smelled. It\\nups Speed, but\\nreduces Defense.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_JOLLY_MINT",
+    "name": "JOLLY MINT",
+    "desc": "Can be smelled. It\\nups Speed, but\\nreduces Sp. Atk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_NAIVE_MINT",
+    "name": "NAIVE MINT",
+    "desc": "Can be smelled. It\\nups Speed, but\\nreduces Sp. Def.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SERIOUS_MINT",
+    "name": "SERIOUS MINT",
+    "desc": "Can be smelled. It\\nmakes each stat\\ngrow equally.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RARE_CANDY",
+    "name": "Caramelo Raro",
+    "desc": "Raises the level\\nof a Pokémon by\\none.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EXP_CANDY_XS",
+    "name": "EXP. CANDY XS",
+    "desc": "Gives a very small\\namount of Exp. to\\na single Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EXP_CANDY_S",
+    "name": "EXP. CANDY S",
+    "desc": "Gives a small\\namount of Exp. to\\na single Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EXP_CANDY_M",
+    "name": "EXP. CANDY M",
+    "desc": "Gives a moderate\\namount of Exp. to\\na single Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EXP_CANDY_L",
+    "name": "EXP. CANDY L",
+    "desc": "Gives a large\\namount of Exp. to\\na single Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EXP_CANDY_XL",
+    "name": "EXP. CANDY XL",
+    "desc": "Gives a very large\\namount of Exp. to\\na single Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DYNAMAX_CANDY",
+    "name": "DYNAMAX CANDY",
+    "desc": "Raises the Dynamax\\nLevel of a single\\nPokémon by one.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLUE_FLUTE",
+    "name": "BLUE FLUTE",
+    "desc": "A glass flute that\\nawakens sleeping\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_YELLOW_FLUTE",
+    "name": "YELLOW FLUTE",
+    "desc": "A glass flute that\\nsnaps Pokémon\\nout of confusion.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RED_FLUTE",
+    "name": "RED FLUTE",
+    "desc": "A glass flute that\\nsnaps Pokémon\\nout of attraction.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLACK_FLUTE",
+    "name": "BLACK FLUTE",
+    "desc": "A glass flute that\\nkeeps away wild\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WHITE_FLUTE",
+    "name": "WHITE FLUTE",
+    "desc": "A glass flute that\\nlures wild Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_REPEL",
+    "name": "REPEL",
+    "desc": "Repels weak wild\\nPokémon for 100\\nsteps.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SUPER_REPEL",
+    "name": "SUPER REPEL",
+    "desc": "Repels weak wild\\nPokémon for 200\\nsteps.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAX_REPEL",
+    "name": "MAX REPEL",
+    "desc": "Repels weak wild\\nPokémon for 250\\nsteps.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LURE",
+    "name": "LURE",
+    "desc": "Makes Pokémon more\\nlikely to appear\\nfor 100 steps.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SUPER_LURE",
+    "name": "SUPER LURE",
+    "desc": "Makes Pokémon more\\nlikely to appear\\nfor 200 steps.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAX_LURE",
+    "name": "MAX LURE",
+    "desc": "Makes Pokémon more\\nlikely to appear\\nfor 250 steps.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ESCAPE_ROPE",
+    "name": "ESCAPE ROPE",
+    "desc": "Use to escape\\ninstantly from a\\ncave or a dungeon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_X_ATTACK",
+    "name": "X ATTACK",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_X_DEFENSE",
+    "name": "X DEFENSE",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_X_SP_ATK",
+    "name": "X SP. ATK",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_X_SP_DEF",
+    "name": "X SP. DEF",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_X_SPEED",
+    "name": "X SPEED",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_X_ACCURACY",
+    "name": "X ACCURACY",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DIRE_HIT",
+    "name": "DIRE HIT",
+    "desc": "Raises the\\ncritical-hit ratio\\nduring one battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GUARD_SPEC",
+    "name": "GUARD SPEC.",
+    "desc": "Prevents stat\\nreduction when\\nused in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POKE_DOLL",
+    "name": "POKé DOLL",
+    "desc": "",
+    "sym": "sPokeDollDesc"
+  },
+  {
+    "id": "ITEM_FLUFFY_TAIL",
+    "name": "FLUFFY TAIL",
+    "desc": "",
+    "sym": "sPokeDollDesc"
+  },
+  {
+    "id": "ITEM_POKE_TOY",
+    "name": "POKé TOY",
+    "desc": "",
+    "sym": "sPokeDollDesc"
+  },
+  {
+    "id": "ITEM_MAX_MUSHROOMS",
+    "name": "MAX MUSHROOMS",
+    "desc": "Raises every stat\\nduring one battle\\nby one stage.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BOTTLE_CAP",
+    "name": "BOTTLE CAP",
+    "desc": "A beautiful bottle\\ncap that gives off\\na silver gleam.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GOLD_BOTTLE_CAP",
+    "name": "GOLD BOTTLE CAP",
+    "desc": "A beautiful bottle\\ncap that gives off\\na golden gleam.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_NUGGET",
+    "name": "NUGGET",
+    "desc": "A nugget of pure\\ngold. Can be sold at\\na high price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BIG_NUGGET",
+    "name": "BIG NUGGET",
+    "desc": "A big nugget made\\nof gold, sellable\\nat a high price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TINY_MUSHROOM",
+    "name": "TINY MUSHROOM",
+    "desc": "A plain mushroom\\nthat would sell\\nat a cheap price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BIG_MUSHROOM",
+    "name": "BIG MUSHROOM",
+    "desc": "",
+    "sym": "sBigMushroomDesc"
+  },
+  {
+    "id": "ITEM_BALM_MUSHROOM",
+    "name": "BALM MUSHROOM",
+    "desc": "",
+    "sym": "sBigMushroomDesc"
+  },
+  {
+    "id": "ITEM_PEARL",
+    "name": "PEARL",
+    "desc": "A pretty pearl\\nthat would sell at a\\ncheap price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BIG_PEARL",
+    "name": "BIG PEARL",
+    "desc": "A lovely large pearl\\nthat would sell at a\\nhigh price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PEARL_STRING",
+    "name": "PEARL STRING",
+    "desc": "Very large pearls\\nthat would sell at a\\nhigh price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STARDUST",
+    "name": "STARDUST",
+    "desc": "Beautiful red sand.\\nCan be sold at a\\nhigh price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STAR_PIECE",
+    "name": "STAR PIECE",
+    "desc": "A red gem shard.\\nIt would sell for a\\nvery high price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_COMET_SHARD",
+    "name": "COMET SHARD",
+    "desc": "A comet's shard.\\nIt would sell for a\\nhigh price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SHOAL_SALT",
+    "name": "SHOAL SALT",
+    "desc": "Salt obtained from\\ndeep inside the\\nShoal Cave.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SHOAL_SHELL",
+    "name": "SHOAL SHELL",
+    "desc": "A seashell found\\ndeep inside the\\nShoal Cave.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RED_SHARD",
+    "name": "RED SHARD",
+    "desc": "",
+    "sym": "sShardsDesc"
+  },
+  {
+    "id": "ITEM_BLUE_SHARD",
+    "name": "BLUE SHARD",
+    "desc": "",
+    "sym": "sShardsDesc"
+  },
+  {
+    "id": "ITEM_YELLOW_SHARD",
+    "name": "YELLOW SHARD",
+    "desc": "",
+    "sym": "sShardsDesc"
+  },
+  {
+    "id": "ITEM_GREEN_SHARD",
+    "name": "GREEN SHARD",
+    "desc": "",
+    "sym": "sShardsDesc"
+  },
+  {
+    "id": "ITEM_HEART_SCALE",
+    "name": "HEART SCALE",
+    "desc": "A lovely scale.\\nIt is coveted by\\ncollectors.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HONEY",
+    "name": "HONEY",
+    "desc": "Sweet honey that\\nattracts wild\\nPokémon when used.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RARE_BONE",
+    "name": "RARE BONE",
+    "desc": "A very rare bone.\\nIt can be sold at\\na high price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ODD_KEYSTONE",
+    "name": "ODD KEYSTONE",
+    "desc": "Voices can be heard\\nfrom this odd stone\\noccasionally.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PRETTY_FEATHER",
+    "name": "PRETTY FEATHER",
+    "desc": "A beautiful yet\\nplain feather that\\ndoes nothing.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RELIC_COPPER",
+    "name": "RELIC COPPER",
+    "desc": "A copper coin used\\nlong ago. It sells\\nat a high price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RELIC_SILVER",
+    "name": "RELIC SILVER",
+    "desc": "A silver coin used\\nlong ago. It sells\\nat a high price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RELIC_GOLD",
+    "name": "RELIC GOLD",
+    "desc": "A gold coin used\\nlong ago. It sells\\nat a high price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RELIC_VASE",
+    "name": "RELIC VASE",
+    "desc": "A vase made long\\nago. It sells at\\na high price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RELIC_BAND",
+    "name": "RELIC BAND",
+    "desc": "An old bracelet.\\nIt sells at a\\nhigh price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RELIC_STATUE",
+    "name": "RELIC STATUE",
+    "desc": "An old statue.\\nIt sells at a\\nhigh price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RELIC_CROWN",
+    "name": "RELIC CROWN",
+    "desc": "An old crown.\\nIt sells at a\\nhigh price.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STRANGE_SOUVENIR",
+    "name": "STRANGE SOUVENIR",
+    "desc": "An ornament that\\ndepicts a Pokémon\\nfrom ALOLA.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HELIX_FOSSIL",
+    "name": "HELIX FOSSIL",
+    "desc": "A piece of an\\nancient marine\\nPokémon's seashell.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DOME_FOSSIL",
+    "name": "DOME FOSSIL",
+    "desc": "A piece of an\\nancient marine\\nPokémon's shell.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_OLD_AMBER",
+    "name": "OLD AMBER",
+    "desc": "A stone containing\\nthe genes of an\\nancient Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROOT_FOSSIL",
+    "name": "ROOT FOSSIL",
+    "desc": "",
+    "sym": "sRootFossilDesc"
+  },
+  {
+    "id": "ITEM_CLAW_FOSSIL",
+    "name": "CLAW FOSSIL",
+    "desc": "",
+    "sym": "sRootFossilDesc"
+  },
+  {
+    "id": "ITEM_ARMOR_FOSSIL",
+    "name": "ARMOR FOSSIL",
+    "desc": "A piece of a\\nprehistoric Poké-\\nmon's head.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SKULL_FOSSIL",
+    "name": "SKULL FOSSIL",
+    "desc": "A piece of a\\nprehistoric Poké-\\nmon's collar.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_COVER_FOSSIL",
+    "name": "COVER FOSSIL",
+    "desc": "A piece of a\\nprehistoric Poké-\\nmon's back.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PLUME_FOSSIL",
+    "name": "PLUME FOSSIL",
+    "desc": "A piece of a\\nprehistoric Poké-\\nmon's wing.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_JAW_FOSSIL",
+    "name": "JAW FOSSIL",
+    "desc": "A piece of a\\nprehistoric Poké-\\nmon's large jaw.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SAIL_FOSSIL",
+    "name": "SAIL FOSSIL",
+    "desc": "A piece of a\\nprehistoric Poké-\\nmon's skin sail.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FOSSILIZED_BIRD",
+    "name": "FOSSILIZED BIRD",
+    "desc": "A fossil of an\\nancient, sky-\\nsoaring Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FOSSILIZED_FISH",
+    "name": "FOSSILIZED FISH",
+    "desc": "",
+    "sym": "sFossilizedFishDesc"
+  },
+  {
+    "id": "ITEM_FOSSILIZED_DRAKE",
+    "name": "FOSSILIZED DRAKE",
+    "desc": "A fossil of an\\nancient, land-\\nroaming Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FOSSILIZED_DINO",
+    "name": "FOSSILIZED DINO",
+    "desc": "",
+    "sym": "sFossilizedFishDesc"
+  },
+  {
+    "id": "ITEM_GROWTH_MULCH",
+    "name": "GROWTH MULCH",
+    "desc": "A fertilizer that\\naccelerates the\\ngrowth of Berries.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DAMP_MULCH",
+    "name": "DAMP MULCH",
+    "desc": "A fertilizer that\\ndecelerates the\\ngrowth of Berries.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STABLE_MULCH",
+    "name": "STABLE MULCH",
+    "desc": "A fertilizer that\\nups the life time\\nof Berry trees.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GOOEY_MULCH",
+    "name": "GOOEY MULCH",
+    "desc": "A fertilizer that\\nmakes more Berries\\nregrow after fall.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RICH_MULCH",
+    "name": "RICH MULCH",
+    "desc": "A fertilizer that\\nups the number of\\nBerries harvested.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SURPRISE_MULCH",
+    "name": "SURPRISE MULCH",
+    "desc": "A fertilizer that\\nups the chance of\\nBerry mutations.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BOOST_MULCH",
+    "name": "BOOST MULCH",
+    "desc": "A fertilizer that\\nups the dry speed\\nof soft soil.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AMAZE_MULCH",
+    "name": "AMAZE MULCH",
+    "desc": "A fertilizer Rich\\nSurprising and\\nBoosting as well.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RED_APRICORN",
+    "name": "RED APRICORN",
+    "desc": "A red apricorn.\\nIt assails your\\nnostrils.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLUE_APRICORN",
+    "name": "BLUE APRICORN",
+    "desc": "A blue apricorn.\\nIt smells a bit\\nlike grass.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_YELLOW_APRICORN",
+    "name": "YELLOW APRICORN",
+    "desc": "A yellow apricorn.\\nIt has an invigor-\\nating scent.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GREEN_APRICORN",
+    "name": "GREEN APRICORN",
+    "desc": "A green apricorn.\\nIt has a strange,\\naromatic scent.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PINK_APRICORN",
+    "name": "PINK APRICORN",
+    "desc": "A pink apricorn.\\nIt has a nice,\\nsweet scent.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WHITE_APRICORN",
+    "name": "WHITE APRICORN",
+    "desc": "A white apricorn.\\nIt doesn't smell\\nlike anything.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLACK_APRICORN",
+    "name": "BLACK APRICORN",
+    "desc": "A black apricorn.\\nIt has an inde-\\nscribable scent.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WISHING_PIECE",
+    "name": "WISHING PIECE",
+    "desc": "Throw into a\\n{PKMN} Den to attract\\nDynamax Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GALARICA_TWIG",
+    "name": "GALARICA TWIG",
+    "desc": "A twig from a tree\\nin Galar called\\nGalarica.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ARMORITE_ORE",
+    "name": "ARMORITE ORE",
+    "desc": "A rare ore. Can be\\nfound in the Isle\\nof Armor at Galar.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DYNITE_ORE",
+    "name": "DYNITE ORE",
+    "desc": "A mysterious ore.\\nIt can be found in\\nGalar's Max Lair.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ORANGE_MAIL",
+    "name": "ORANGE MAIL",
+    "desc": "A Zigzagoon-print\\nMail to be held by\\na Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HARBOR_MAIL",
+    "name": "HARBOR MAIL",
+    "desc": "A Wingull-print\\nMail to be held by\\na Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GLITTER_MAIL",
+    "name": "GLITTER MAIL",
+    "desc": "A Pikachu-print\\nMail to be held by\\na Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MECH_MAIL",
+    "name": "MECH MAIL",
+    "desc": "A Magnemite-print\\nMail to be held by\\na Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WOOD_MAIL",
+    "name": "WOOD MAIL",
+    "desc": "A Slakoth-print\\nMail to be held by\\na Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WAVE_MAIL",
+    "name": "WAVE MAIL",
+    "desc": "A Wailmer-print\\nMail to be held by\\na Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BEAD_MAIL",
+    "name": "BEAD MAIL",
+    "desc": "",
+    "sym": "sBeadMailDesc"
+  },
+  {
+    "id": "ITEM_SHADOW_MAIL",
+    "name": "SHADOW MAIL",
+    "desc": "A Duskull-print\\nMail to be held by\\na Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TROPIC_MAIL",
+    "name": "TROPIC MAIL",
+    "desc": "A Bellossom-print\\nMail to be held by\\na Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DREAM_MAIL",
+    "name": "DREAM MAIL",
+    "desc": "",
+    "sym": "sBeadMailDesc"
+  },
+  {
+    "id": "ITEM_FAB_MAIL",
+    "name": "FAB MAIL",
+    "desc": "A gorgeous-print\\nMail to be held\\nby a Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RETRO_MAIL",
+    "name": "RETRO MAIL",
+    "desc": "Mail featuring the\\ndrawings of three\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FIRE_STONE",
+    "name": "Piedra Fuego",
+    "desc": "",
+    "sym": "sEvolutionStoneDesc"
+  },
+  {
+    "id": "ITEM_WATER_STONE",
+    "name": "Piedra Agua",
+    "desc": "",
+    "sym": "sEvolutionStoneDesc"
+  },
+  {
+    "id": "ITEM_THUNDER_STONE",
+    "name": "Piedra Trueno",
+    "desc": "",
+    "sym": "sEvolutionStoneDesc"
+  },
+  {
+    "id": "ITEM_LEAF_STONE",
+    "name": "Piedra Hoja",
+    "desc": "",
+    "sym": "sEvolutionStoneDesc"
+  },
+  {
+    "id": "ITEM_ICE_STONE",
+    "name": "Piedra Hielo",
+    "desc": "",
+    "sym": "sEvolutionStoneDesc"
+  },
+  {
+    "id": "ITEM_SUN_STONE",
+    "name": "Piedra Solar",
+    "desc": "",
+    "sym": "sEvolutionStoneDesc"
+  },
+  {
+    "id": "ITEM_MOON_STONE",
+    "name": "Piedra Lunar",
+    "desc": "",
+    "sym": "sEvolutionStoneDesc"
+  },
+  {
+    "id": "ITEM_SHINY_STONE",
+    "name": "Piedra Brillante",
+    "desc": "",
+    "sym": "sEvolutionStoneDesc"
+  },
+  {
+    "id": "ITEM_DUSK_STONE",
+    "name": "Piedra Noche",
+    "desc": "",
+    "sym": "sEvolutionStoneDesc"
+  },
+  {
+    "id": "ITEM_DAWN_STONE",
+    "name": "Piedra Alba",
+    "desc": "",
+    "sym": "sEvolutionStoneDesc"
+  },
+  {
+    "id": "ITEM_SWEET_APPLE",
+    "name": "SWEET APPLE",
+    "desc": "A very sweet apple\\nthat makes certain\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TART_APPLE",
+    "name": "TART APPLE",
+    "desc": "A very tart apple\\nthat makes certain\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CRACKED_POT",
+    "name": "CRACKED POT",
+    "desc": "A cracked teapot\\nthat makes certain\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHIPPED_POT",
+    "name": "CHIPPED POT",
+    "desc": "A chipped teapot\\nthat makes certain\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GALARICA_CUFF",
+    "name": "GALARICA CUFF",
+    "desc": "A cuff from Galar\\nthat makes certain\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GALARICA_WREATH",
+    "name": "GALARICA WREATH",
+    "desc": "A wreath made in\\nGalar. Makes some\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DRAGON_SCALE",
+    "name": "Escama Dragón",
+    "desc": "A strange scale\\nheld by Dragon-\\ntype Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_UPGRADE",
+    "name": "Mejora",
+    "desc": "A peculiar box made\\nby Silph Co.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PROTECTOR",
+    "name": "Protector",
+    "desc": "Loved by a certain\\nPokémon. It's stiff\\nand heavy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ELECTIRIZER",
+    "name": "Electrizador",
+    "desc": "Loved by a certain\\nPokémon. It's full\\nof electric energy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAGMARIZER",
+    "name": "Magmarizador",
+    "desc": "Loved by a certain\\nPokémon. It's full\\nof magma energy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DUBIOUS_DISC",
+    "name": "Disco Raro",
+    "desc": "A clear device\\noverflowing with\\ndubious data.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_REAPER_CLOTH",
+    "name": "Tela Segadora",
+    "desc": "Loved by a certain\\nPokémon. Imbued\\nwith spirit energy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PRISM_SCALE",
+    "name": "PRISM SCALE",
+    "desc": "A mysterious scale\\nthat evolves a\\ncertain Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WHIPPED_DREAM",
+    "name": "Sueño Batido",
+    "desc": "A soft and sweet\\ntreat loved by\\na certain Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SACHET",
+    "name": "Saquito",
+    "desc": "A sachet of strong\\nperfumes, loved by\\na certain Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_OVAL_STONE",
+    "name": "Piedra Oval",
+    "desc": "Peculiar stone\\nthat evolves a\\ncertain Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STRAWBERRY_SWEET",
+    "name": "STRAWBERRY SWEET",
+    "desc": "Strawberry-shaped\\nsweet loved by\\nMilcery.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LOVE_SWEET",
+    "name": "LOVE SWEET",
+    "desc": "A heart-shaped\\nsweet loved by\\nMilcery.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BERRY_SWEET",
+    "name": "BERRY SWEET",
+    "desc": "A berry-shaped\\nsweet loved by\\nMilcery.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CLOVER_SWEET",
+    "name": "CLOVER SWEET",
+    "desc": "A clover-shaped\\nsweet loved by\\nMilcery.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FLOWER_SWEET",
+    "name": "FLOWER SWEET",
+    "desc": "A flower-shaped\\nsweet loved by\\nMilcery.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STAR_SWEET",
+    "name": "STAR SWEET",
+    "desc": "A star-shaped\\nsweet loved by\\nMilcery.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RIBBON_SWEET",
+    "name": "RIBBON SWEET",
+    "desc": "A ribbon-shaped\\nsweet loved by\\nMilcery.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EVERSTONE",
+    "name": "EVERSTONE",
+    "desc": "A wondrous hold\\nitem that prevents\\nevolution.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RED_NECTAR",
+    "name": "RED NECTAR",
+    "desc": "",
+    "sym": "sNectarDesc"
+  },
+  {
+    "id": "ITEM_YELLOW_NECTAR",
+    "name": "YELLOW NECTAR",
+    "desc": "",
+    "sym": "sNectarDesc"
+  },
+  {
+    "id": "ITEM_PINK_NECTAR",
+    "name": "PINK NECTAR",
+    "desc": "",
+    "sym": "sNectarDesc"
+  },
+  {
+    "id": "ITEM_PURPLE_NECTAR",
+    "name": "PURPLE NECTAR",
+    "desc": "",
+    "sym": "sNectarDesc"
+  },
+  {
+    "id": "ITEM_FLAME_PLATE",
+    "name": "FLAME PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nFire-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SPLASH_PLATE",
+    "name": "SPLASH PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nWater-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ZAP_PLATE",
+    "name": "ZAP PLATE",
+    "desc": "A tablet that ups\\nthe power of Elec-\\ntric-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MEADOW_PLATE",
+    "name": "MEADOW PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nGrass-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ICICLE_PLATE",
+    "name": "ICICLE PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nIce-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FIST_PLATE",
+    "name": "FIST PLATE",
+    "desc": "A tablet that ups\\nthe power of Fight-\\ning-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TOXIC_PLATE",
+    "name": "TOXIC PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nPoison-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EARTH_PLATE",
+    "name": "EARTH PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nGround-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SKY_PLATE",
+    "name": "SKY PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nFlying-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MIND_PLATE",
+    "name": "MIND PLATE",
+    "desc": "A tablet that ups\\nthe power of Psy\\nchic-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_INSECT_PLATE",
+    "name": "INSECT PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nBug-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STONE_PLATE",
+    "name": "STONE PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nRock-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SPOOKY_PLATE",
+    "name": "SPOOKY PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nGhost-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DRACO_PLATE",
+    "name": "DRACO PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nDragon-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DREAD_PLATE",
+    "name": "DREAD PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nDark-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_IRON_PLATE",
+    "name": "IRON PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nSteel-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PIXIE_PLATE",
+    "name": "PIXIE PLATE",
+    "desc": "A tablet that ups\\nthe power of\\nFairy-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DOUSE_DRIVE",
+    "name": "DOUSE DRIVE",
+    "desc": "Changes Genesect's\\nTechno Blast to\\nWater-type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SHOCK_DRIVE",
+    "name": "SHOCK DRIVE",
+    "desc": "Changes Genesect's\\nTechno Blast to\\nElectric-type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BURN_DRIVE",
+    "name": "BURN DRIVE",
+    "desc": "Changes Genesect's\\nTechno Blast to\\nFire-type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHILL_DRIVE",
+    "name": "CHILL DRIVE",
+    "desc": "Changes Genesect's\\nTechno Blast to\\nIce-type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FIRE_MEMORY",
+    "name": "FIRE MEMORY",
+    "desc": "A disc with Fire\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WATER_MEMORY",
+    "name": "WATER MEMORY",
+    "desc": "A disc with Water\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ELECTRIC_MEMORY",
+    "name": "ELECTRIC MEMORY",
+    "desc": "A disc with Electric\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GRASS_MEMORY",
+    "name": "GRASS MEMORY",
+    "desc": "A disc with Grass\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ICE_MEMORY",
+    "name": "ICE MEMORY",
+    "desc": "A disc with Ice\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FIGHTING_MEMORY",
+    "name": "FIGHTING MEMORY",
+    "desc": "Disc with Fighting\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POISON_MEMORY",
+    "name": "POISON MEMORY",
+    "desc": "A disc with Poison\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GROUND_MEMORY",
+    "name": "GROUND MEMORY",
+    "desc": "A disc with Ground\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FLYING_MEMORY",
+    "name": "FLYING MEMORY",
+    "desc": "A disc with Flying\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PSYCHIC_MEMORY",
+    "name": "PSYCHIC MEMORY",
+    "desc": "A disc with Psychic\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BUG_MEMORY",
+    "name": "BUG MEMORY",
+    "desc": "A disc with Bug\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROCK_MEMORY",
+    "name": "ROCK MEMORY",
+    "desc": "A disc with Rock\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GHOST_MEMORY",
+    "name": "GHOST MEMORY",
+    "desc": "A disc with Ghost\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DRAGON_MEMORY",
+    "name": "DRAGON MEMORY",
+    "desc": "A disc with Dragon\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DARK_MEMORY",
+    "name": "DARK MEMORY",
+    "desc": "A disc with Dark\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STEEL_MEMORY",
+    "name": "STEEL MEMORY",
+    "desc": "A disc with Steel\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FAIRY_MEMORY",
+    "name": "FAIRY MEMORY",
+    "desc": "A disc with Fairy\\ntype data. It swaps\\nSilvally's type.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RUSTED_SWORD",
+    "name": "RUSTED SWORD",
+    "desc": "A rusty sword. A\\nhero used it to\\nhalt a disaster.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RUSTED_SHIELD",
+    "name": "RUSTED SHIELD",
+    "desc": "A rusty shield. A\\nhero used it to\\nhalt a disaster.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RED_ORB",
+    "name": "RED ORB",
+    "desc": "A red, glowing orb\\nsaid to contain an\\nancient power.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLUE_ORB",
+    "name": "BLUE ORB",
+    "desc": "A blue, glowing orb\\nsaid to contain an\\nancient power.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_VENUSAURITE",
+    "name": "VENUSAURITE",
+    "desc": "This stone enables\\nVenusaur to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHARIZARDITE_X",
+    "name": "CHARIZARDITE X",
+    "desc": "",
+    "sym": "sCharizarditeDesc"
+  },
+  {
+    "id": "ITEM_CHARIZARDITE_Y",
+    "name": "CHARIZARDITE Y",
+    "desc": "",
+    "sym": "sCharizarditeDesc"
+  },
+  {
+    "id": "ITEM_BLASTOISINITE",
+    "name": "BLASTOISINITE",
+    "desc": "This stone enables\\nBlastoise to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BEEDRILLITE",
+    "name": "BEEDRILLITE",
+    "desc": "This stone enables\\nBeedrill to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PIDGEOTITE",
+    "name": "PIDGEOTITE",
+    "desc": "This stone enables\\nPidgeot to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ALAKAZITE",
+    "name": "ALAKAZITE",
+    "desc": "This stone enables\\nAlakazam to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SLOWBRONITE",
+    "name": "SLOWBRONITE",
+    "desc": "This stone enables\\nSlowbro to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GENGARITE",
+    "name": "GENGARITE",
+    "desc": "This stone enables\\nGengar to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_KANGASKHANITE",
+    "name": "KANGASKHANITE",
+    "desc": "This stone enables\\nKangaskhan to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PINSIRITE",
+    "name": "PINSIRITE",
+    "desc": "This stone enables\\nPinsir to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GYARADOSITE",
+    "name": "GYARADOSITE",
+    "desc": "This stone enables\\nGyarados to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AERODACTYLITE",
+    "name": "AERODACTYLITE",
+    "desc": "This stone enables\\nAerodactyl to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MEWTWONITE_X",
+    "name": "MEWTWONITE X",
+    "desc": "",
+    "sym": "sMewtwoniteDesc"
+  },
+  {
+    "id": "ITEM_MEWTWONITE_Y",
+    "name": "MEWTWONITE Y",
+    "desc": "",
+    "sym": "sMewtwoniteDesc"
+  },
+  {
+    "id": "ITEM_AMPHAROSITE",
+    "name": "AMPHAROSITE",
+    "desc": "This stone enables\\nAmpharos to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STEELIXITE",
+    "name": "STEELIXITE",
+    "desc": "This stone enables\\nSteelix to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SCIZORITE",
+    "name": "SCIZORITE",
+    "desc": "This stone enables\\nScizor to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HERACRONITE",
+    "name": "HERACRONITE",
+    "desc": "This stone enables\\nHeracross to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HOUNDOOMINITE",
+    "name": "HOUNDOOMINITE",
+    "desc": "This stone enables\\nHoundoom to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TYRANITARITE",
+    "name": "TYRANITARITE",
+    "desc": "This stone enables\\nTyranitar to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SCEPTILITE",
+    "name": "SCEPTILITE",
+    "desc": "This stone enables\\nSceptile to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLAZIKENITE",
+    "name": "BLAZIKENITE",
+    "desc": "This stone enables\\nBlaziken to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SWAMPERTITE",
+    "name": "SWAMPERTITE",
+    "desc": "This stone enables\\nSwampert to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GARDEVOIRITE",
+    "name": "GARDEVOIRITE",
+    "desc": "This stone enables\\nGardevoir to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SABLENITE",
+    "name": "SABLENITE",
+    "desc": "This stone enables\\nSableye to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAWILITE",
+    "name": "MAWILITE",
+    "desc": "This stone enables\\nMawile to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AGGRONITE",
+    "name": "AGGRONITE",
+    "desc": "This stone enables\\nAggron to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MEDICHAMITE",
+    "name": "MEDICHAMITE",
+    "desc": "This stone enables\\nMedicham to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MANECTITE",
+    "name": "MANECTITE",
+    "desc": "This stone enables\\nManectric to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SHARPEDONITE",
+    "name": "SHARPEDONITE",
+    "desc": "This stone enables\\nSharpedo to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CAMERUPTITE",
+    "name": "CAMERUPTITE",
+    "desc": "This stone enables\\nCamerupt to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ALTARIANITE",
+    "name": "ALTARIANITE",
+    "desc": "This stone enables\\nAltaria to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BANETTITE",
+    "name": "BANETTITE",
+    "desc": "This stone enables\\nBanette to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ABSOLITE",
+    "name": "ABSOLITE",
+    "desc": "",
+    "sym": "sAbsoliteDesc"
+  },
+  {
+    "id": "ITEM_GLALITITE",
+    "name": "GLALITITE",
+    "desc": "This stone enables\\nGlalie to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SALAMENCITE",
+    "name": "SALAMENCITE",
+    "desc": "This stone enables\\nSalamence to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_METAGROSSITE",
+    "name": "METAGROSSITE",
+    "desc": "This stone enables\\nMetagross to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LATIASITE",
+    "name": "LATIASITE",
+    "desc": "This stone enables\\nLatias to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LATIOSITE",
+    "name": "LATIOSITE",
+    "desc": "This stone enables\\nLatios to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LOPUNNITE",
+    "name": "LOPUNNITE",
+    "desc": "This stone enables\\nLopunny to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GARCHOMPITE",
+    "name": "GARCHOMPITE",
+    "desc": "",
+    "sym": "sGarchompiteDesc"
+  },
+  {
+    "id": "ITEM_LUCARIONITE",
+    "name": "LUCARIONITE",
+    "desc": "",
+    "sym": "sLucarioniteDesc"
+  },
+  {
+    "id": "ITEM_ABOMASITE",
+    "name": "ABOMASITE",
+    "desc": "This stone enables\\nAbomasnow to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GALLADITE",
+    "name": "GALLADITE",
+    "desc": "This stone enables\\nGallade to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AUDINITE",
+    "name": "AUDINITE",
+    "desc": "This stone enables\\nAudino to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DIANCITE",
+    "name": "DIANCITE",
+    "desc": "This stone enables\\nDiancie to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CLEFABLITE",
+    "name": "CLEFABLITE",
+    "desc": "This stone enables\\nClefable to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_VICTREEBELITE",
+    "name": "VICTREEBELITE",
+    "desc": "This stone enables\\nVictreebel to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STARMINITE",
+    "name": "STARMINITE",
+    "desc": "This stone enables\\nStarmie to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DRAGONINITE",
+    "name": "DRAGONINITE",
+    "desc": "This stone enables\\nDragonite to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MEGANIUMITE",
+    "name": "MEGANIUMITE",
+    "desc": "This stone enables\\nMeganium to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FERALIGITE",
+    "name": "FERALIGITE",
+    "desc": "This stone enables\\nFeraligatr to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SKARMORITE",
+    "name": "SKARMORITE",
+    "desc": "This stone enables\\nSkarmory to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FROSLASSITE",
+    "name": "FROSLASSITE",
+    "desc": "This stone enables\\nFroslass to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EMBOARITE",
+    "name": "EMBOARITE",
+    "desc": "This stone enables\\nEmboar to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EXCADRITE",
+    "name": "EXCADRITE",
+    "desc": "This stone enables\\nExcadrill to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SCOLIPITE",
+    "name": "SCOLIPITE",
+    "desc": "This stone enables\\nScolipede to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SCRAFTINITE",
+    "name": "SCRAFTINITE",
+    "desc": "This stone enables\\nScrafty to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EELEKTROSSITE",
+    "name": "EELEKTROSSITE",
+    "desc": "This stone enables\\nEelektross to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHANDELURITE",
+    "name": "CHANDELURITE",
+    "desc": "This stone enables\\nChandelure to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHESNAUGHTITE",
+    "name": "CHESNAUGHTITE",
+    "desc": "This stone enables\\nChesnaught to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DELPHOXITE",
+    "name": "DELPHOXITE",
+    "desc": "This stone enables\\nDelphox to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GRENINJITE",
+    "name": "GRENINJITE",
+    "desc": "This stone enables\\nGreninja to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PYROARITE",
+    "name": "PYROARITE",
+    "desc": "This stone enables\\nPyroar to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FLOETTITE",
+    "name": "FLOETTITE",
+    "desc": "This stone enables\\nFloette to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MALAMARITE",
+    "name": "MALAMARITE",
+    "desc": "This stone enables\\nMalamar to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BARBARACITE",
+    "name": "BARBARACITE",
+    "desc": "This stone enables\\nBarbaracle to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DRAGALGITE",
+    "name": "DRAGALGITE",
+    "desc": "This stone enables\\nDragalge to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HAWLUCHANITE",
+    "name": "HAWLUCHANITE",
+    "desc": "This stone enables\\nHawlucha to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ZYGARDITE",
+    "name": "ZYGARDITE",
+    "desc": "This stone enables\\nZygarde to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DRAMPANITE",
+    "name": "DRAMPANITE",
+    "desc": "This stone enables\\nDrampa to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FALINKSITE",
+    "name": "FALINKSITE",
+    "desc": "This stone enables\\nFalinks to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HEATRANITE",
+    "name": "HEATRANITE",
+    "desc": "This stone enables\\nHeatran to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DARKRANITE",
+    "name": "DARKRANITE",
+    "desc": "This stone enables\\nDarkrai to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ZERAORITE",
+    "name": "ZERAORITE",
+    "desc": "This stone enables\\nZeraora to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RAICHUNITE_X",
+    "name": "RAICHUNITE X",
+    "desc": "",
+    "sym": "sRaichuniteDesc"
+  },
+  {
+    "id": "ITEM_RAICHUNITE_Y",
+    "name": "RAICHUNITE Y",
+    "desc": "",
+    "sym": "sRaichuniteDesc"
+  },
+  {
+    "id": "ITEM_CHIMECHITE",
+    "name": "CHIMECHITE",
+    "desc": "This stone enables\\nChimecho to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ABSOLITE_Z",
+    "name": "ABSOLITE Z",
+    "desc": "",
+    "sym": "sAbsoliteDesc"
+  },
+  {
+    "id": "ITEM_STARAPTITE",
+    "name": "STARAPTITE",
+    "desc": "This stone enables\\nStaraptor to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GARCHOMPITE_Z",
+    "name": "GARCHOMPITE Z",
+    "desc": "",
+    "sym": "sGarchompiteDesc"
+  },
+  {
+    "id": "ITEM_LUCARIONITE_Z",
+    "name": "LUCARIONITE Z",
+    "desc": "",
+    "sym": "sLucarioniteDesc"
+  },
+  {
+    "id": "ITEM_GOLURKITE",
+    "name": "GOLURKITE",
+    "desc": "This stone enables\\nGolurk to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MEOWSTICITE",
+    "name": "MEOWSTICITE",
+    "desc": "This stone enables\\nMeowstic to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CRABOMINITE",
+    "name": "CRABOMINITE",
+    "desc": "This stone enables\\nCrabominable to\\nMega in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GOLISOPITE",
+    "name": "GOLISOPITE",
+    "desc": "This stone enables\\nGolisopod to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAGEARNITE",
+    "name": "MAGEARNITE",
+    "desc": "This stone enables\\nMagearna to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SCOVILLAINITE",
+    "name": "SCOVILLAINITE",
+    "desc": "This stone enables\\nScovillain to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BAXCALIBRITE",
+    "name": "BAXCALIBRITE",
+    "desc": "This stone enables\\nBaxcalibur to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TATSUGIRINITE",
+    "name": "TATSUGIRINITE",
+    "desc": "This stone enables\\nTatsugiri to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GLIMMORANITE",
+    "name": "GLIMMORANITE",
+    "desc": "This stone enables\\nGlimmora to Mega\\nEvolve in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GB_PLAYER",
+    "name": "GB PLAYER",
+    "desc": "A device that plays\\nmusic from the old\\nPokémon games.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_NORMAL_GEM",
+    "name": "NORMAL GEM",
+    "desc": "Increases the\\npower of Normal\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FIRE_GEM",
+    "name": "FIRE GEM",
+    "desc": "Increases the\\npower of Fire\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WATER_GEM",
+    "name": "WATER GEM",
+    "desc": "Increases the\\npower of Water\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ELECTRIC_GEM",
+    "name": "ELECTRIC GEM",
+    "desc": "Increases the\\npower of Electric\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GRASS_GEM",
+    "name": "GRASS GEM",
+    "desc": "Increases the\\npower of Grass\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ICE_GEM",
+    "name": "ICE GEM",
+    "desc": "Increases the\\npower of Ice\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FIGHTING_GEM",
+    "name": "FIGHTING GEM",
+    "desc": "Increases the\\npower of Fighting\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POISON_GEM",
+    "name": "POISON GEM",
+    "desc": "Increases the\\npower of Poison\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GROUND_GEM",
+    "name": "GROUND GEM",
+    "desc": "Increases the\\npower of Ground\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FLYING_GEM",
+    "name": "FLYING GEM",
+    "desc": "Increases the\\npower of Flying\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PSYCHIC_GEM",
+    "name": "PSYCHIC GEM",
+    "desc": "Increases the\\npower of Psychic\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BUG_GEM",
+    "name": "BUG GEM",
+    "desc": "Increases the\\npower of Bug\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROCK_GEM",
+    "name": "ROCK GEM",
+    "desc": "Increases the\\npower of Rock\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GHOST_GEM",
+    "name": "GHOST GEM",
+    "desc": "Increases the\\npower of Ghost\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DRAGON_GEM",
+    "name": "DRAGON GEM",
+    "desc": "Increases the\\npower of Dragon\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DARK_GEM",
+    "name": "DARK GEM",
+    "desc": "Increases the\\npower of Dark\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STEEL_GEM",
+    "name": "STEEL GEM",
+    "desc": "Increases the\\npower of Steel\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FAIRY_GEM",
+    "name": "FAIRY GEM",
+    "desc": "Increases the\\npower of Fairy\\nType moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_NORMALIUM_Z",
+    "name": "NORMALIUM Z",
+    "desc": "Upgrade Normal-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FIRIUM_Z",
+    "name": "FIRIUM Z",
+    "desc": "Upgrade Fire-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WATERIUM_Z",
+    "name": "WATERIUM Z",
+    "desc": "Upgrade Water-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ELECTRIUM_Z",
+    "name": "ELECTRIUM Z",
+    "desc": "Upgrade Electric-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GRASSIUM_Z",
+    "name": "GRASSIUM Z",
+    "desc": "Upgrade Grass-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ICIUM_Z",
+    "name": "ICIUM Z",
+    "desc": "Upgrade Ice-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FIGHTINIUM_Z",
+    "name": "FIGHTINIUM Z",
+    "desc": "Upgrade Fighting-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POISONIUM_Z",
+    "name": "POISONIUM Z",
+    "desc": "Upgrade Poison-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GROUNDIUM_Z",
+    "name": "GROUNDIUM Z",
+    "desc": "Upgrade Ground-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FLYINIUM_Z",
+    "name": "FLYINIUM Z",
+    "desc": "Upgrade Flying-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PSYCHIUM_Z",
+    "name": "PSYCHIUM Z",
+    "desc": "Upgrade Psychic-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BUGINIUM_Z",
+    "name": "BUGINIUM Z",
+    "desc": "Upgrade Bug-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROCKIUM_Z",
+    "name": "ROCKIUM Z",
+    "desc": "Upgrade Rock-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GHOSTIUM_Z",
+    "name": "GHOSTIUM Z",
+    "desc": "Upgrade Ghost-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DRAGONIUM_Z",
+    "name": "DRAGONIUM Z",
+    "desc": "Upgrade Dragon-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DARKINIUM_Z",
+    "name": "DARKINIUM Z",
+    "desc": "Upgrade Dark-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STEELIUM_Z",
+    "name": "STEELIUM Z",
+    "desc": "Upgrade Steel-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FAIRIUM_Z",
+    "name": "FAIRIUM Z",
+    "desc": "Upgrade Fairy-\\ntype moves into\\nZ-Moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PIKANIUM_Z",
+    "name": "PIKANIUM Z",
+    "desc": "Upgrade Pikachu's\\nVolt Tackle\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EEVIUM_Z",
+    "name": "EEVIUM Z",
+    "desc": "Upgrade Eevee's\\nLast Resort\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SNORLIUM_Z",
+    "name": "SNORLIUM Z",
+    "desc": "Upgrade Snorlax's\\nGiga Impact\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MEWNIUM_Z",
+    "name": "MEWNIUM Z",
+    "desc": "Upgrade Mew's\\nPsychic into\\na Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DECIDIUM_Z",
+    "name": "DECIDIUM Z",
+    "desc": "Upgrade Decidu-\\neye's Spirit Sha-\\nckle into a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_INCINIUM_Z",
+    "name": "INCINIUM Z",
+    "desc": "Upgrade Incine-\\nroar's Darkest La-\\nriat into a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PRIMARIUM_Z",
+    "name": "PRIMARIUM Z",
+    "desc": "Upgrade Primarina's\\nSparkling Aria\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LYCANIUM_Z",
+    "name": "LYCANIUM Z",
+    "desc": "Upgrade Lycanroc's\\nStone Edge\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MIMIKIUM_Z",
+    "name": "MIMIKIUM Z",
+    "desc": "Upgrade Mimikyu's\\nPlay Rough\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_KOMMONIUM_Z",
+    "name": "KOMMONIUM Z",
+    "desc": "Upgrade Kommo-o's\\nClanging Scales\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TAPUNIUM_Z",
+    "name": "TAPUNIUM Z",
+    "desc": "Upgrade the tapus'\\nNature's Madness\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SOLGANIUM_Z",
+    "name": "SOLGANIUM Z",
+    "desc": "Upgrade Solgaleo's\\nSunsteel Strike\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LUNALIUM_Z",
+    "name": "LUNALIUM Z",
+    "desc": "Upgrade Lunala's\\nMoongeist Beam\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MARSHADIUM_Z",
+    "name": "MARSHADIUM Z",
+    "desc": "Upgrade Marsha-\\ndow's Spectral Thi-\\nef into a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ALORAICHIUM_Z",
+    "name": "ALORAICHIUM Z",
+    "desc": "Upgrade Alolan\\nRaichu's Thunder-\\nbolt into a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PIKASHUNIUM_Z",
+    "name": "PIKASHUNIUM Z",
+    "desc": "Upgrade Pikachu w/\\na cap's Thunderbolt\\ninto a Z-Move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ULTRANECROZIUM_Z",
+    "name": "ULTRANECROZIUM Z",
+    "desc": "A crystal to turn\\nfused Necrozma\\ninto a new form.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LIGHT_BALL",
+    "name": "Bola Luz",
+    "desc": "A hold item that\\nraises the Atk and\\nSp. Atk of Pikachu.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LEEK",
+    "name": "LEEK",
+    "desc": "A hold item that\\nraises Farfetch'd's\\ncritical-hit ratio.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_THICK_CLUB",
+    "name": "Porra Pesada",
+    "desc": "A hold item that \\nraises Cubone or\\nMarowak's Attack.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LUCKY_PUNCH",
+    "name": "Puño Suerte",
+    "desc": "A hold item that\\nraises Chansey's\\ncritical-hit rate.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_METAL_POWDER",
+    "name": "METAL POWDER",
+    "desc": "A hold item that\\nraises Ditto's\\nDefense.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_QUICK_POWDER",
+    "name": "QUICK POWDER",
+    "desc": "A hold item that\\nraises the Speed\\nof Ditto.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DEEP_SEA_SCALE",
+    "name": "DEEP SEA SCALE",
+    "desc": "A hold item that\\nraises the Sp. Def\\nof Clamperl.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DEEP_SEA_TOOTH",
+    "name": "DEEP SEA TOOTH",
+    "desc": "A hold item that\\nraises the Sp. Atk\\nof Clamperl.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SOUL_DEW",
+    "name": "SOUL DEW",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ADAMANT_ORB",
+    "name": "ADAMANT ORB",
+    "desc": "Powers up Dialga's\\nDragon and Steel-\\ntype moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LUSTROUS_ORB",
+    "name": "LUSTROUS ORB",
+    "desc": "Powers up Palkia's\\nDragon and Water-\\ntype moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GRISEOUS_ORB",
+    "name": "GRISEOUS ORB",
+    "desc": "Boosts Giratina's\\nDragon and Ghost-\\ntype moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SEA_INCENSE",
+    "name": "SEA INCENSE",
+    "desc": "",
+    "sym": "sSeaIncenseDesc"
+  },
+  {
+    "id": "ITEM_LAX_INCENSE",
+    "name": "LAX INCENSE",
+    "desc": "A hold item that\\nlowers the\\nfoe's accuracy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ODD_INCENSE",
+    "name": "ODD INCENSE",
+    "desc": "",
+    "sym": "sOddIncenseDesc"
+  },
+  {
+    "id": "ITEM_ROCK_INCENSE",
+    "name": "ROCK INCENSE",
+    "desc": "",
+    "sym": "sRockIncenseDesc"
+  },
+  {
+    "id": "ITEM_FULL_INCENSE",
+    "name": "FULL INCENSE",
+    "desc": "",
+    "sym": "sFullIncenseDesc"
+  },
+  {
+    "id": "ITEM_WAVE_INCENSE",
+    "name": "WAVE INCENSE",
+    "desc": "",
+    "sym": "sSeaIncenseDesc"
+  },
+  {
+    "id": "ITEM_ROSE_INCENSE",
+    "name": "ROSE INCENSE",
+    "desc": "",
+    "sym": "sRoseIncenseDesc"
+  },
+  {
+    "id": "ITEM_LUCK_INCENSE",
+    "name": "LUCK INCENSE",
+    "desc": "",
+    "sym": "sLuckIncenseDesc"
+  },
+  {
+    "id": "ITEM_PURE_INCENSE",
+    "name": "PURE INCENSE",
+    "desc": "",
+    "sym": "sPureIncenseDesc"
+  },
+  {
+    "id": "ITEM_RED_SCARF",
+    "name": "RED SCARF",
+    "desc": "A hold item that\\nraises Cool in\\nContests.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLUE_SCARF",
+    "name": "BLUE SCARF",
+    "desc": "A hold item that\\nraises Beauty in\\nContests.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PINK_SCARF",
+    "name": "PINK SCARF",
+    "desc": "A hold item that\\nraises Cute in\\nContests.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GREEN_SCARF",
+    "name": "GREEN SCARF",
+    "desc": "A hold item that\\nraises Smart in\\nContests.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_YELLOW_SCARF",
+    "name": "YELLOW SCARF",
+    "desc": "A hold item that\\nraises Tough in\\nContests.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MACHO_BRACE",
+    "name": "Pulsera Fuerte",
+    "desc": "A hold item that\\npromotes growth,\\nbut reduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POWER_WEIGHT",
+    "name": "Peso Potencia",
+    "desc": "A hold item that\\npromotes HP gain,\\nbut reduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POWER_BRACER",
+    "name": "Brazal Potencia",
+    "desc": "A hold item that\\npromotes Atk gain,\\nbut reduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POWER_BELT",
+    "name": "Cinturón Potencia",
+    "desc": "A hold item that\\npromotes Def gain,\\nbut reduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POWER_LENS",
+    "name": "Lente Potencia",
+    "desc": "Hold item that pro-\\nmotes Sp. Atk gain,\\nbut reduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POWER_BAND",
+    "name": "Banda Potencia",
+    "desc": "Hold item that pro-\\nmotes Sp. Def gain,\\nbut reduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POWER_ANKLET",
+    "name": "Tobillera Potencia",
+    "desc": "A hold item that\\npromotes Spd gain,\\nbut reduces Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SILK_SCARF",
+    "name": "Pañuelo Seda",
+    "desc": "A hold item that\\nraises the power of\\nNormal-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHARCOAL",
+    "name": "Carbón",
+    "desc": "A hold item that\\nraises the power of\\nFire-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MYSTIC_WATER",
+    "name": "Agua Mística",
+    "desc": "A hold item that\\nraises the power of\\nWater-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAGNET",
+    "name": "Imán",
+    "desc": "A hold item that\\nboosts Electric-\\ntype moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MIRACLE_SEED",
+    "name": "Semilla Milagro",
+    "desc": "",
+    "sym": "sRoseIncenseDesc"
+  },
+  {
+    "id": "ITEM_NEVER_MELT_ICE",
+    "name": "Hielo Eterno",
+    "desc": "A hold item that\\nraises the power of\\nIce-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLACK_BELT",
+    "name": "Cinturón Negro",
+    "desc": "A hold item that\\nboosts Fighting-\\ntype moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POISON_BARB",
+    "name": "Púa Venenosa",
+    "desc": "A hold item that\\nraises the power of\\nPoison-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SOFT_SAND",
+    "name": "Arena Fina",
+    "desc": "A hold item that\\nraises the power of\\nGround-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SHARP_BEAK",
+    "name": "Pico Agudo",
+    "desc": "A hold item that\\nraises the power of\\nFlying-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TWISTED_SPOON",
+    "name": "Cuchara Torcida",
+    "desc": "",
+    "sym": "sOddIncenseDesc"
+  },
+  {
+    "id": "ITEM_SILVER_POWDER",
+    "name": "Polvo Plata",
+    "desc": "A hold item that\\nraises the power of\\nBug-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HARD_STONE",
+    "name": "Roca Dura",
+    "desc": "",
+    "sym": "sRockIncenseDesc"
+  },
+  {
+    "id": "ITEM_SPELL_TAG",
+    "name": "Etiqueta Hechizo",
+    "desc": "A hold item that\\nraises the power of\\nGhost-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DRAGON_FANG",
+    "name": "Colmillo Dragón",
+    "desc": "A hold item that\\nraises the power of\\nDragon-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLACK_GLASSES",
+    "name": "Gafas Negras",
+    "desc": "A hold item that\\nraises the power of\\nDark-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_METAL_COAT",
+    "name": "Revestido Metal",
+    "desc": "A hold item that\\nraises the power of\\nSteel-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHOICE_BAND",
+    "name": "Banda Elegida",
+    "desc": "Boosts Attack, but\\nallows the use of\\nonly one move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHOICE_SPECS",
+    "name": "Gafas Elegidas",
+    "desc": "Boosts Sp. Atk, but\\nallows the use of\\nonly one move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHOICE_SCARF",
+    "name": "Pañuelo Elegido",
+    "desc": "Boosts Speed, but\\nallows the use of\\nonly one move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FLAME_ORB",
+    "name": "Orbe Llama",
+    "desc": "A bizarre orb that\\ninflicts a burn on\\nholder in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TOXIC_ORB",
+    "name": "Orbe Tóxico",
+    "desc": "A bizarre orb that\\nbadly poisons the\\nholder in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DAMP_ROCK",
+    "name": "DAMP ROCK",
+    "desc": "Extends the length\\nof Rain Dance if\\nused by the holder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HEAT_ROCK",
+    "name": "HEAT ROCK",
+    "desc": "Extends the length\\nof Sunny Day if\\nused by the holder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SMOOTH_ROCK",
+    "name": "SMOOTH ROCK",
+    "desc": "Extends the length\\nof Sandstorm if\\nused by the holder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ICY_ROCK",
+    "name": "ICY ROCK",
+    "desc": "Extends the length\\nof the move Hail\\nused by the holder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ELECTRIC_SEED",
+    "name": "ELECTRIC SEED",
+    "desc": "Boosts Defense on\\nElectric Terrain,\\nbut only one time.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PSYCHIC_SEED",
+    "name": "PSYCHIC SEED",
+    "desc": "Boosts Sp. Def. on\\nPsychic Terrain,\\nbut only one time.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MISTY_SEED",
+    "name": "MISTY SEED",
+    "desc": "Boosts Sp. Def. on\\nMisty Terrain,\\nbut only one time.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GRASSY_SEED",
+    "name": "GRASSY SEED",
+    "desc": "Boosts Defense on\\nGrassy Terrain,\\nbut only one time.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ABSORB_BULB",
+    "name": "ABSORB BULB",
+    "desc": "Raises Sp. Atk if\\nthe holder is hit by\\na Water-type move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CELL_BATTERY",
+    "name": "CELL BATTERY",
+    "desc": "Raises Attack if\\nthe holder is hit by\\nan Electric move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LUMINOUS_MOSS",
+    "name": "LUMINOUS MOSS",
+    "desc": "Raises Sp. Def if\\nthe holder is hit by\\na Water-type move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SNOWBALL",
+    "name": "SNOWBALL",
+    "desc": "Raises Atk if its\\nholder is hit by an\\nIce-type move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BRIGHT_POWDER",
+    "name": "BRIGHT POWDER",
+    "desc": "A hold item that\\ncasts a glare to\\nreduce accuracy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WHITE_HERB",
+    "name": "Hierba Blanca",
+    "desc": "A hold item that\\nrestores any\\nlowered stat.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EXP_SHARE",
+    "name": "Repartir Exp.",
+    "desc": "This device gives\\nexp. to other\\nparty members.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_QUICK_CLAW",
+    "name": "QUICK CLAW",
+    "desc": "A hold item that\\noccasionally allows\\nthe first strike.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SOOTHE_BELL",
+    "name": "Campana Amistad",
+    "desc": "A hold item that\\ncalms spirits and\\nfosters friendship.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MENTAL_HERB",
+    "name": "Hierba Mental",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_KINGS_ROCK",
+    "name": "KING'S ROCK",
+    "desc": "",
+    "sym": "sKingsRockDesc"
+  },
+  {
+    "id": "ITEM_AMULET_COIN",
+    "name": "Moneda Amuleto",
+    "desc": "",
+    "sym": "sLuckIncenseDesc"
+  },
+  {
+    "id": "ITEM_CLEANSE_TAG",
+    "name": "Etiqueta Pura",
+    "desc": "",
+    "sym": "sPureIncenseDesc"
+  },
+  {
+    "id": "ITEM_SMOKE_BALL",
+    "name": "Bola de Humo",
+    "desc": "A hold item that\\nassures fleeing\\nfrom wild Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FOCUS_BAND",
+    "name": "FOCUS BAND",
+    "desc": "A hold item that\\noccasionally\\nprevents fainting.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LUCKY_EGG",
+    "name": "Huevo Suerte",
+    "desc": "A hold item that\\nboosts Exp. points\\nearned in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SCOPE_LENS",
+    "name": "Lupa Ámbito",
+    "desc": "A hold item that\\nimproves the\\ncritical-hit rate.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LEFTOVERS",
+    "name": "Sobras",
+    "desc": "A hold item that\\ngradually restores\\nHP in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SHELL_BELL",
+    "name": "Concha Amulet",
+    "desc": "A hold item that\\nrestores HP upon\\nstriking the foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WIDE_LENS",
+    "name": "Lupa Amplia",
+    "desc": "A magnifying lens\\nthat boosts the\\naccuracy of moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MUSCLE_BAND",
+    "name": "Banda Músculo",
+    "desc": "A headband that\\nboosts the power\\nof physical moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WISE_GLASSES",
+    "name": "Gafas Sabias",
+    "desc": "A pair of glasses\\nthat ups the power\\nof special moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EXPERT_BELT",
+    "name": "Cinturón Experto",
+    "desc": "A belt that boosts\\nthe power of super\\neffective moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LIGHT_CLAY",
+    "name": "LIGHT CLAY",
+    "desc": "Extends the length\\nof barrier moves\\nused by the holder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LIFE_ORB",
+    "name": "Orbe Vida",
+    "desc": "Boosts move power\\nbut holder loses HP\\nwith each attack.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POWER_HERB",
+    "name": "Hierba Potencia",
+    "desc": "Allows immediate\\nuse of a move that\\ncharges first.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FOCUS_SASH",
+    "name": "Cinto Fuerza",
+    "desc": "If the holder has\\nfull HP, it endures\\nKO hits with 1 HP.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ZOOM_LENS",
+    "name": "Lente de Aumento",
+    "desc": "If the holder moves\\nafter the foe, it'll\\nboost accuracy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_METRONOME",
+    "name": "Metrónomo",
+    "desc": "A held item that\\nboosts a move used\\nconsecutively.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_IRON_BALL",
+    "name": "IRON BALL",
+    "desc": "Cuts Speed and\\nbecomes vulnerable\\nto Ground moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LAGGING_TAIL",
+    "name": "LAGGING TAIL",
+    "desc": "",
+    "sym": "sFullIncenseDesc"
+  },
+  {
+    "id": "ITEM_DESTINY_KNOT",
+    "name": "DESTINY KNOT",
+    "desc": "If the holder falls\\nin love, the foe\\ndoes too.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLACK_SLUDGE",
+    "name": "BLACK SLUDGE",
+    "desc": "Restores HP for\\nPoison-types.\\nDamages all others.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GRIP_CLAW",
+    "name": "GRIP CLAW",
+    "desc": "A held item that\\nextends binding\\nmoves like Wrap.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STICKY_BARB",
+    "name": "STICKY BARB",
+    "desc": "Damages the holder\\neach turn. May\\nlatch on to foes.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SHED_SHELL",
+    "name": "SHED SHELL",
+    "desc": "Allows the holder\\nto switch out\\nwithout fail.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BIG_ROOT",
+    "name": "Raíz Grande",
+    "desc": "A held item that\\nups the power of\\nHP-stealing moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RAZOR_CLAW",
+    "name": "RAZOR CLAW",
+    "desc": "A hooked claw that\\nups the holder's\\ncritical-hit ratio.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RAZOR_FANG",
+    "name": "RAZOR FANG",
+    "desc": "",
+    "sym": "sKingsRockDesc"
+  },
+  {
+    "id": "ITEM_EVIOLITE",
+    "name": "Evolucionita",
+    "desc": "Raises the Def and\\nSp. Def of Pokémon\\nthat can evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FLOAT_STONE",
+    "name": "FLOAT STONE",
+    "desc": "It's so light that\\nwhen held, it halves\\na Pokémon's weight.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROCKY_HELMET",
+    "name": "Casco Rocoso",
+    "desc": "Hurts the foe if\\nthey touch its\\nholder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AIR_BALLOON",
+    "name": "AIR BALLOON",
+    "desc": "Makes the holder\\nfloat but bursts\\nif hit by Attack.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RED_CARD",
+    "name": "RED CARD",
+    "desc": "Switches out the\\nfoe if they hit the\\nholder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RING_TARGET",
+    "name": "RING TARGET",
+    "desc": "Moves that usually\\nhave no effect will\\nhit the holder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BINDING_BAND",
+    "name": "BINDING BAND",
+    "desc": "Increases the\\npower of binding\\nmoves when held.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EJECT_BUTTON",
+    "name": "EJECT BUTTON",
+    "desc": "Switches out the\\nuser if they're hit\\nby the foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WEAKNESS_POLICY",
+    "name": "WEAKNESS POLICY",
+    "desc": "If hit by a super-\\neffective move,\\nups Atk and Sp. Atk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ASSAULT_VEST",
+    "name": "Chaleco Asalto",
+    "desc": "Raises Sp. Def but\\nprevents the use\\nof status moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SAFETY_GOGGLES",
+    "name": "SAFETY GOGGLES",
+    "desc": "Protect from\\nweather damage and\\npowder moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ADRENALINE_ORB",
+    "name": "ADRENALINE ORB",
+    "desc": "This orb boosts\\nSpeed if the holder\\nis intimidated.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TERRAIN_EXTENDER",
+    "name": "Extens. Terreno",
+    "desc": "Extends the length\\nof the active\\nbattle terrain.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PROTECTIVE_PADS",
+    "name": "Almohadillas",
+    "desc": "Guard the holder\\nfrom contact move\\neffects.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_THROAT_SPRAY",
+    "name": "THROAT SPRAY",
+    "desc": "Raises Sp. Atk. if\\nthe holder uses a\\nsound-based move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EJECT_PACK",
+    "name": "EJECT PACK",
+    "desc": "Forces the user to\\nswitch if its stats\\nare lowered.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HEAVY_DUTY_BOOTS",
+    "name": "Botas Pesadas",
+    "desc": "Boots that prevent\\neffects of traps\\nset in the field.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLUNDER_POLICY",
+    "name": "BLUNDER POLICY",
+    "desc": "Raises Speed if\\nthe user misses\\ndue to Accuracy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROOM_SERVICE",
+    "name": "Servicio Habitación",
+    "desc": "Lowers Speed if\\nTrick Room is\\nactive.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_UTILITY_UMBRELLA",
+    "name": "UTILITY UMBRELLA",
+    "desc": "An umbrella that\\nprotects from\\nweather effects.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHERI_BERRY",
+    "name": "Baya Cheri",
+    "desc": "A hold item that\\nheals paralysis\\nin battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHESTO_BERRY",
+    "name": "Baya Zidra",
+    "desc": "A hold item that\\nawakens Pokémon\\nin battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PECHA_BERRY",
+    "name": "Baya Melon",
+    "desc": "A hold item that\\nheals poisoning\\nin battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RAWST_BERRY",
+    "name": "Baya Rawst",
+    "desc": "A hold item that\\nheals a burn in\\nbattle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ASPEAR_BERRY",
+    "name": "Baya Aspear",
+    "desc": "A hold item that\\ndefrosts Pokémon\\nin battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LEPPA_BERRY",
+    "name": "Baya Leppa",
+    "desc": "A hold item that\\nrestores 10 PP in\\nbattle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ORAN_BERRY",
+    "name": "Baya Oran",
+    "desc": "A hold item that\\nrestores 10 HP in\\nbattle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PERSIM_BERRY",
+    "name": "Baya Persim",
+    "desc": "A hold item that\\nheals confusion\\nin battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LUM_BERRY",
+    "name": "Baya Lum",
+    "desc": "A hold item that\\nheals any status\\nproblem in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SITRUS_BERRY",
+    "name": "Baya Zidra",
+    "desc": "A hold item that\\nrestores the user's\\nHP a little.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FIGY_BERRY",
+    "name": "Baya Figy",
+    "desc": "",
+    "sym": "sFigyBerryDesc"
+  },
+  {
+    "id": "ITEM_WIKI_BERRY",
+    "name": "Baya Wiki",
+    "desc": "",
+    "sym": "sFigyBerryDesc"
+  },
+  {
+    "id": "ITEM_MAGO_BERRY",
+    "name": "Baya Mago",
+    "desc": "",
+    "sym": "sFigyBerryDesc"
+  },
+  {
+    "id": "ITEM_AGUAV_BERRY",
+    "name": "Baya Aguav",
+    "desc": "",
+    "sym": "sFigyBerryDesc"
+  },
+  {
+    "id": "ITEM_IAPAPA_BERRY",
+    "name": "Baya Iapapa",
+    "desc": "",
+    "sym": "sFigyBerryDesc"
+  },
+  {
+    "id": "ITEM_RAZZ_BERRY",
+    "name": "Baya Frambu",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Razz.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLUK_BERRY",
+    "name": "Baya Ment",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Bluk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_NANAB_BERRY",
+    "name": "Baya Nanab",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Nanab.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WEPEAR_BERRY",
+    "name": "Baya Peral",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Wepear.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PINAP_BERRY",
+    "name": "Baya Piña",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Pinap.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POMEG_BERRY",
+    "name": "Baya Grana",
+    "desc": "Makes a Pokémon\\nfriendly but lowers\\nbase HP.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_KELPSY_BERRY",
+    "name": "Baya Kelpsy",
+    "desc": "Makes a Pokémon\\nfriendly but lowers\\nbase Attack.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_QUALOT_BERRY",
+    "name": "Baya Qualot",
+    "desc": "Makes a Pokémon\\nfriendly but lowers\\nbase Defense.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HONDEW_BERRY",
+    "name": "Baya Hondew",
+    "desc": "Makes a Pokémon\\nfriendly but lowers\\nbase Sp. Atk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GREPA_BERRY",
+    "name": "Baya Grepa",
+    "desc": "Makes a Pokémon\\nfriendly but lowers\\nbase Sp. Def.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TAMATO_BERRY",
+    "name": "Baya Tamato",
+    "desc": "Makes a Pokémon\\nfriendly but lowers\\nbase Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CORNN_BERRY",
+    "name": "Baya Maizal",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Cornn.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAGOST_BERRY",
+    "name": "Baya Magost",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Magost.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RABUTA_BERRY",
+    "name": "Baya Rabuta",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Rabuta.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_NOMEL_BERRY",
+    "name": "Baya Nomel",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Nomel.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SPELON_BERRY",
+    "name": "Baya Spelon",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Spelon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PAMTRE_BERRY",
+    "name": "Baya Pamtre",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Pamtre.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WATMEL_BERRY",
+    "name": "Baya Sandía",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Watmel.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DURIN_BERRY",
+    "name": "Baya Durin",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Durin.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BELUE_BERRY",
+    "name": "Baya Belue",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow Belue.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHILAN_BERRY",
+    "name": "Baya Chilan",
+    "desc": "A hold item that\\nweakens a Normal\\nmove.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_OCCA_BERRY",
+    "name": "Baya Occa",
+    "desc": "A hold item that\\nweakens a Fire\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PASSHO_BERRY",
+    "name": "Baya Passho",
+    "desc": "A hold item that\\nweakens a Water\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WACAN_BERRY",
+    "name": "Baya Wacan",
+    "desc": "A hold item that\\nweakens a Electric\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RINDO_BERRY",
+    "name": "Baya Rindo",
+    "desc": "A hold item that\\nweakens a Grass\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_YACHE_BERRY",
+    "name": "Baya Yache",
+    "desc": "A hold item that\\nweakens a Ice\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHOPLE_BERRY",
+    "name": "Baya Chople",
+    "desc": "A hold item that\\nweakens a Fighting\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_KEBIA_BERRY",
+    "name": "Baya Kebia",
+    "desc": "A hold item that\\nweakens a Poison\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SHUCA_BERRY",
+    "name": "Baya Shuca",
+    "desc": "A hold item that\\nweakens a Ground\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_COBA_BERRY",
+    "name": "Baya Coba",
+    "desc": "A hold item that\\nweakens a Flying\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PAYAPA_BERRY",
+    "name": "Baya Payapa",
+    "desc": "A hold item that\\nweakens a Psychic\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TANGA_BERRY",
+    "name": "Baya Tanga",
+    "desc": "A hold item that\\nweakens a Bug\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHARTI_BERRY",
+    "name": "Baya Charti",
+    "desc": "A hold item that\\nweakens a Rock\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_KASIB_BERRY",
+    "name": "Baya Kasib",
+    "desc": "A hold item that\\nweakens a Ghost\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HABAN_BERRY",
+    "name": "Baya Haban",
+    "desc": "A hold item that\\nweakens a Dragon\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_COLBUR_BERRY",
+    "name": "Baya Colbur",
+    "desc": "A hold item that\\nweakens a Dark\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BABIRI_BERRY",
+    "name": "Baya Babiri",
+    "desc": "A hold item that\\nweakens a Steel\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROSELI_BERRY",
+    "name": "Baya Roseli",
+    "desc": "A hold item that\\nweakens a Fairy\\nmove if weak to it.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LIECHI_BERRY",
+    "name": "Baya Liechi",
+    "desc": "A hold item that\\nraises Attack in\\na pinch.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GANLON_BERRY",
+    "name": "Baya Ganlon",
+    "desc": "A hold item that\\nraises Defense in\\na pinch.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SALAC_BERRY",
+    "name": "Baya Salac",
+    "desc": "A hold item that\\nraises Speed in\\na pinch.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PETAYA_BERRY",
+    "name": "Baya Petaya",
+    "desc": "A hold item that\\nraises Sp. Atk in\\na pinch.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_APICOT_BERRY",
+    "name": "Baya Apicot",
+    "desc": "A hold item that\\nraises Sp. Def in\\na pinch.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LANSAT_BERRY",
+    "name": "Baya Lansat",
+    "desc": "A hold item that\\nups the critical-\\nhit rate in a pinch.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STARF_BERRY",
+    "name": "Baya Starf",
+    "desc": "A hold item that\\nsharply boosts a\\nstat in a pinch.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ENIGMA_BERRY",
+    "name": "Baya Enigma",
+    "desc": "A hold item that\\nheals from super\\neffective moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MICLE_BERRY",
+    "name": "Baya Micle",
+    "desc": "When held, it ups\\nthe Accuracy of a\\nmove in a pinch.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CUSTAP_BERRY",
+    "name": "Baya Custap",
+    "desc": "It allows a Pokémon\\nin a pinch to move\\nfirst just once.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_JABOCA_BERRY",
+    "name": "Baya Jaboca",
+    "desc": "If hit by a physical\\nmove, it will hurt\\nthe attacker a bit.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROWAP_BERRY",
+    "name": "Baya Rowap",
+    "desc": "If hit by a special\\nmove, it will hurt\\nthe attacker a bit.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_KEE_BERRY",
+    "name": "Baya Kee",
+    "desc": "If hit by a physical\\nmove, it raises the\\nDefense a bit.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MARANGA_BERRY",
+    "name": "Baya Maranga",
+    "desc": "If hit by a special\\nmove, it raises the\\nSp. Def. a bit.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ENIGMA_BERRY_E_READER",
+    "name": "Baya Enigma",
+    "desc": "{POKEBLOCK} ingredient.\\nPlant in loamy soil\\nto grow a mystery.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_FOCUS_PUNCH",
+    "name": "MT01",
+    "desc": "Powerful, but makes\\nthe user flinch if\\nhit by the foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_DRAGON_CLAW",
+    "name": "MT02",
+    "desc": "Hooks and slashes\\nthe foe with long,\\nsharp claws.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_WATER_PULSE",
+    "name": "MT03",
+    "desc": "Generates an\\nultrasonic wave\\nthat may confuse.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_CALM_MIND",
+    "name": "MT04",
+    "desc": "Raises Sp. Atk and\\nSp. Def by focusing\\nthe mind.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_ROAR",
+    "name": "MT05",
+    "desc": "A savage roar that\\nmakes the foe flee \\nto end the battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_TOXIC",
+    "name": "MT06",
+    "desc": "Poisons the foe\\nwith a toxin that\\ngradually worsens.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_HAIL",
+    "name": "MT07",
+    "desc": "Raises the Defense\\nof Ice type {PKMN}\\nfor 5 turns.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_BULK_UP",
+    "name": "MT08",
+    "desc": "Bulks up the body\\nto boost both\\nAttack & Defense.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_BULLET_SEED",
+    "name": "MT09",
+    "desc": "Shoots 2 to 5 seeds\\nin a row to strike\\nthe foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_HIDDEN_POWER",
+    "name": "MT10",
+    "desc": "The attack power\\nvaries among\\ndifferent Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_SUNNY_DAY",
+    "name": "MT11",
+    "desc": "Raises the power of\\nFire-type moves\\nfor 5 turns.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_TAUNT",
+    "name": "MT12",
+    "desc": "Enrages the foe so\\nit can only use\\nattack moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_ICE_BEAM",
+    "name": "MT13",
+    "desc": "Fires an icy cold\\nbeam that may\\ninflict frostbite.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_BLIZZARD",
+    "name": "MT14",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_HYPER_BEAM",
+    "name": "MT15",
+    "desc": "Powerful, but needs\\nrecharging the\\nnext turn.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_LIGHT_SCREEN",
+    "name": "MT16",
+    "desc": "Creates a wall of\\nlight that lowers\\nSp. Atk damage.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_PROTECT",
+    "name": "MT17",
+    "desc": "Negates all damage,\\nbut may fail if used\\nin succession.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_RAIN_DANCE",
+    "name": "MT18",
+    "desc": "Raises the power of\\nWater-type moves\\nfor 5 turns.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_GIGA_DRAIN",
+    "name": "MT19",
+    "desc": "Recovers half the\\nHP of the damage \\nthis move inflicts.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_SAFEGUARD",
+    "name": "MT20",
+    "desc": "Prevents status\\nabnormality with a\\nmystical power.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_FRUSTRATION",
+    "name": "MT21",
+    "desc": "The less the user\\nlikes you, the more\\npowerful this move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_SOLAR_BEAM",
+    "name": "MT22",
+    "desc": "Absorbs sunlight in\\nthe 1st turn, then\\nattacks next turn.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_IRON_TAIL",
+    "name": "MT23",
+    "desc": "Slams the foe with\\na hard tail. It may\\nlower Defense.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_THUNDERBOLT",
+    "name": "MT24",
+    "desc": "A powerful electric\\nattack that may\\ncause paralysis.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_THUNDER",
+    "name": "MT25",
+    "desc": "Strikes the foe\\nwith a thunderbolt.\\nIt may paralyze.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_EARTHQUAKE",
+    "name": "MT26",
+    "desc": "Causes a quake\\nthat has no effect\\non flying foes.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_RETURN",
+    "name": "MT27",
+    "desc": "The more the user\\nlikes you, the more\\npowerful this move.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_DIG",
+    "name": "MT28",
+    "desc": "Digs underground\\nthe 1st turn, then\\nstrikes next turn.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_PSYCHIC",
+    "name": "MT29",
+    "desc": "A powerful psychic\\nattack that may\\nlower Sp. Def.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_SHADOW_BALL",
+    "name": "MT30",
+    "desc": "Hurls a dark lump\\nat the foe. It may\\nlower Sp. Def.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_BRICK_BREAK",
+    "name": "MT31",
+    "desc": "Destroys barriers\\nlike Light Screen\\nand causes damage.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_DOUBLE_TEAM",
+    "name": "MT32",
+    "desc": "Creates illusory\\ncopies to enhance\\nelusiveness.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_REFLECT",
+    "name": "MT33",
+    "desc": "Creates a wall of\\nlight that weakens\\nphysical attacks.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_SHOCK_WAVE",
+    "name": "MT34",
+    "desc": "Zaps the foe with a\\njolt of electricity\\nthat never misses.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_FLAMETHROWER",
+    "name": "MT35",
+    "desc": "Looses a stream of\\nfire that may burn\\nthe foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_SLUDGE_BOMB",
+    "name": "MT36",
+    "desc": "Hurls sludge at the\\nfoe. It may poison\\nthe foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_SANDSTORM",
+    "name": "MT37",
+    "desc": "Causes a sandstorm\\nthat hits the foe\\nover several turns.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_FIRE_BLAST",
+    "name": "MT38",
+    "desc": "A powerful fire\\nattack that may\\nburn the foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_ROCK_TOMB",
+    "name": "MT39",
+    "desc": "Stops the foe from\\nmoving with rocks.\\nMay lower Speed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_AERIAL_ACE",
+    "name": "MT40",
+    "desc": "An extremely fast\\nattack that can't\\nbe avoided.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_TORMENT",
+    "name": "MT41",
+    "desc": "Prevents the foe\\nfrom using the same\\nmove in a row.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_FACADE",
+    "name": "MT42",
+    "desc": "Raises Attack when\\npoisoned, burned,\\nor paralyzed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_SECRET_POWER",
+    "name": "MT43",
+    "desc": "Adds an effect to\\nattack depending\\non the location.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_REST",
+    "name": "MT44",
+    "desc": "The user sleeps for\\n2 turns to restore\\nhealth and status.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_ATTRACT",
+    "name": "MT45",
+    "desc": "Makes it tough to\\nattack a foe of the\\nopposite gender.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_THIEF",
+    "name": "MT46",
+    "desc": "While attacking,\\nit may steal the\\nfoe's held item.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_STEEL_WING",
+    "name": "MT47",
+    "desc": "Spreads hard-\\nedged wings and\\nslams into the foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_SKILL_SWAP",
+    "name": "MT48",
+    "desc": "Switches abilities\\nwith the foe on the\\nturn this is used.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_SNATCH",
+    "name": "MT49",
+    "desc": "Steals the effects\\nof the move the foe\\nis trying to use.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_OVERHEAT",
+    "name": "MT50",
+    "desc": "Enables full-power\\nattack, but sharply\\nlowers Sp. Atk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM51",
+    "name": "MT51",
+    "desc": "Restores the user's\\nHP by half of its\\nmax HP.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM52",
+    "name": "MT52",
+    "desc": "Attacks at full\\npower. May lower\\nthe foe's Sp. Def.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM53",
+    "name": "MT53",
+    "desc": "Draws power from\\nnature to attack.\\nMay lower Sp. Def.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM54",
+    "name": "MT54",
+    "desc": "Attack that leaves\\nthe foe with at\\nleast 1 HP.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM55",
+    "name": "MT55",
+    "desc": "Does double damage\\nto foes with half\\nHP or less.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM56",
+    "name": "MT56",
+    "desc": "The effectiveness\\nvaries with the\\nheld item.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM57",
+    "name": "MT57",
+    "desc": "Fires a beam of\\nelectricity. May\\nraise Sp. Atk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM58",
+    "name": "MT58",
+    "desc": "Endures any attack\\nfor 1 turn, leaving\\nat least 1 HP.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM59",
+    "name": "MT59",
+    "desc": "Generates a shock\\nwave to damage\\nthe foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM60",
+    "name": "MT60",
+    "desc": "Attack that\\nabsorbs half the\\ndamage inflicted.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM61",
+    "name": "MT61",
+    "desc": "Inflicts a burn on\\nthe foe with\\nintense fire.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM62",
+    "name": "MT62",
+    "desc": "A powdery attack\\nthat may raise\\nall abilities.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM63",
+    "name": "MT63",
+    "desc": "Prevents the foe\\nfrom using any\\nitems.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM64",
+    "name": "MT64",
+    "desc": "Inflicts severe\\ndamage but makes\\nthe user faint.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM65",
+    "name": "MT65",
+    "desc": "Strikes with a\\nshadow claw. High\\ncritical-hit ratio.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM66",
+    "name": "MT66",
+    "desc": "Attack that gains\\npower if the user\\nmoves last.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM67",
+    "name": "MT67",
+    "desc": "Recycles a used item\\nfor one more use.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM68",
+    "name": "MT68",
+    "desc": "Powerful, but leaves\\nthe user immobile\\nthe next turn.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM69",
+    "name": "MT69",
+    "desc": "Polishes the body\\nto sharply raise\\nSpeed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM70",
+    "name": "MT70",
+    "desc": "An all-out charge\\nattack that may\\nconfuse the foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM70",
+    "name": "MT70",
+    "desc": "Looses a powerful\\nblast of light that\\ncuts accuracy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM71",
+    "name": "MT71",
+    "desc": "Stabs the foe with\\nstones. High\\ncritical-hit ratio.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM72",
+    "name": "MT72",
+    "desc": "Attack that moves\\nlast and gains\\npower if hit.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM73",
+    "name": "MT73",
+    "desc": "A weak jolt of\\nelectricity that\\nparalyzes the foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM74",
+    "name": "MT74",
+    "desc": "A rapid spin that\\ndoes more damage\\nto faster foes.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM75",
+    "name": "MT75",
+    "desc": "A fighting dance\\nthat sharply raises\\nAttack.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM76",
+    "name": "MT76",
+    "desc": "Floating stones\\nthat hurt a foe\\nswitching in.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM77",
+    "name": "MT77",
+    "desc": "Copies the foe's\\nstat changes and\\ngives to the user.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM78",
+    "name": "MT78",
+    "desc": "Makes the opposite\\ngender sharply cut\\nits Sp. Atk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM79",
+    "name": "MT79",
+    "desc": "Attacks with a\\nhorrible aura. May\\ncause flinching.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM80",
+    "name": "MT80",
+    "desc": "Large boulders are\\nhurled. May cause\\nflinching.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM81",
+    "name": "MT81",
+    "desc": "Slashes the foe with\\ncrossed scythes,\\nclaws, etc.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM82",
+    "name": "MT82",
+    "desc": "Uses an available\\nmove randomly while\\nasleep.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM83",
+    "name": "MT83",
+    "desc": "The effectiveness\\nvaries with the\\nheld Berry.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM84",
+    "name": "MT84",
+    "desc": "A stabbing attack\\nthat may poison\\nthe foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM85",
+    "name": "MT85",
+    "desc": "Takes one half the\\ndamage inflicted on\\na sleeping foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM86",
+    "name": "MT86",
+    "desc": "A snare attack that\\ndoes more damage to\\nheavier foes.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM87",
+    "name": "MT87",
+    "desc": "Confuses the foe,\\nbut also sharply\\nraises its Attack.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM88",
+    "name": "MT88",
+    "desc": "Eats the foe's held\\nBerry, gaining its\\neffect.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM89",
+    "name": "MT89",
+    "desc": "Does damage then\\nswitches out the\\nuser.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM90",
+    "name": "MT90",
+    "desc": "Creates a decoy\\nusing 1/4 of the\\nuser's maximum HP.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM91",
+    "name": "MT91",
+    "desc": "Releases a blast of\\nlight that may lower\\nSp. Def.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM92",
+    "name": "MT92",
+    "desc": "Slower Pokémon get\\nto move first for\\n5 turns.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM93",
+    "name": "MT93",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_TM94",
+    "name": "MT94",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_TM95",
+    "name": "MT95",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_TM96",
+    "name": "MT96",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_TM97",
+    "name": "MT97",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_TM98",
+    "name": "MT98",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_TM99",
+    "name": "MT99",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_TM100",
+    "name": "MT100",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_HM_CUT",
+    "name": "MO01",
+    "desc": "Attacks the foe\\nwith sharp blades\\nor claws.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HM_FLY",
+    "name": "MO02",
+    "desc": "Flies up on the\\nfirst turn, then\\nattacks next turn.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HM_SURF",
+    "name": "MO03",
+    "desc": "Creates a huge\\nwave, then crashes\\nit down on the foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HM_STRENGTH",
+    "name": "MO04",
+    "desc": "Builds enormous\\npower, then slams\\nthe foe.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HM_FLASH",
+    "name": "MO05",
+    "desc": "Looses a powerful\\nblast of light that\\nreduces accuracy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HM_ROCK_SMASH",
+    "name": "MO06",
+    "desc": "A rock-crushingly\\ntough attack that\\nmay lower Defense.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HM_WATERFALL",
+    "name": "MO07",
+    "desc": "Attacks the foe\\nwith enough power\\nto climb waterfalls.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HM_WHIRLPOOL",
+    "name": "MO08",
+    "desc": "Traps the foe in a\\nviolent swirling\\nwhirlpool.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HM_DIVE",
+    "name": "MO08",
+    "desc": "Dives underwater\\nthe 1st turn, then\\nattacks next turn.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_OVAL_CHARM",
+    "name": "OVAL CHARM",
+    "desc": "Raises the chance\\nof finding eggs\\nat the daycare.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SHINY_CHARM",
+    "name": "SHINY CHARM",
+    "desc": "A charm that will\\nraise the chance\\nof Shiny Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CATCHING_CHARM",
+    "name": "CATCHING CHARM",
+    "desc": "A charm that raises\\nthe chance of\\nCritical Captures.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EXP_CHARM",
+    "name": "EXP. CHARM",
+    "desc": "A charm that raises\\nthe amount of Exp.\\nearned in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROTOM_CATALOG",
+    "name": "ROTOM CATALOG",
+    "desc": "A catalog full of\\ndevices liked by\\nRotom.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GRACIDEA",
+    "name": "GRACIDEA",
+    "desc": "Bouquets made with\\nit are offered as a\\ntoken of gratitude.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_REVEAL_GLASS",
+    "name": "REVEAL GLASS",
+    "desc": "This glass returns\\na Pokémon back to\\nits original form.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DNA_SPLICERS",
+    "name": "DNA SPLICERS",
+    "desc": "Splicer that fuses\\nKyurem and a\\ncertain Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ZYGARDE_CUBE",
+    "name": "ZYGARDE CUBE",
+    "desc": "An item to store\\nZygarde Cores and\\nCells.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PRISON_BOTTLE",
+    "name": "PRISON BOTTLE",
+    "desc": "A bottle used to\\nseal a certain\\nPokémon long ago.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_N_SOLARIZER",
+    "name": "N-SOLARIZER",
+    "desc": "A device to fuse\\nand split Necrozma\\nusing a Solgaleo.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_N_LUNARIZER",
+    "name": "N-LUNARIZER",
+    "desc": "A device to fuse\\nand split Necrozma\\nusing a Lunala.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_REINS_OF_UNITY",
+    "name": "REINS OF UNITY",
+    "desc": "Reins that unite\\nCalyrex with its\\nbeloved steed.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MEGA_RING",
+    "name": "MEGA RING",
+    "desc": "Enables {PKMN} holding\\ntheir Mega Stone to\\nMega Evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_Z_POWER_RING",
+    "name": "Z-POWER RING",
+    "desc": "A strange ring\\nthat enables\\nZ-Move usage.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DYNAMAX_BAND",
+    "name": "DYNAMAX BAND",
+    "desc": "A band carrying a\\nWishing Star that\\nallows Dynamaxing.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BICYCLE",
+    "name": "BIKE",
+    "desc": "A folding bicycle.\\nPress R while still\\nto change speeds.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MACH_BIKE",
+    "name": "MACH BIKE",
+    "desc": "A folding bicycle\\nthat doubles your\\nspeed or better.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ACRO_BIKE",
+    "name": "ACRO BIKE",
+    "desc": "A folding bicycle\\ncapable of jumps\\nand wheelies.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_OLD_ROD",
+    "name": "OLD ROD",
+    "desc": "Use by any body of\\nwater to fish for\\nwild Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GOOD_ROD",
+    "name": "GOOD ROD",
+    "desc": "A decent fishing\\nrod for catching\\nwild Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SUPER_ROD",
+    "name": "SUPER ROD",
+    "desc": "The best fishing\\nrod for catching\\nwild Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DOWSING_MACHINE",
+    "name": "DOWSING MACHINE",
+    "desc": "A device that\\nsignals an invisible\\nitem by sound.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TOWN_MAP",
+    "name": "TOWN MAP",
+    "desc": "Can be viewed\\nanytime. Shows your\\npresent location.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_VS_SEEKER",
+    "name": "VS. SEEKER",
+    "desc": "A rechargeable unit\\nthat flags battle-\\nready Trainers.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TM_CASE",
+    "name": "TM CASE",
+    "desc": "A convenient case\\nthat holds TMs and\\nHMs.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BERRY_POUCH",
+    "name": "BERRY POUCH",
+    "desc": "A convenient\\ncontainer that\\nholds Berries.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POKEMON_BOX_LINK",
+    "name": "{PKMN} BOX LINK",
+    "desc": "This device grants\\naccess to the {PKMN}\\nStorage System.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_COIN_CASE",
+    "name": "COIN CASE",
+    "desc": "A case that holds\\nup to 9,999 Coins.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POWDER_JAR",
+    "name": "POWDER JAR",
+    "desc": "Stores Berry\\nPowder made using\\na Berry Crusher.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WAILMER_PAIL",
+    "name": "WAILMER PAIL",
+    "desc": "A tool used for\\nwatering Berries\\nand plants.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POKE_RADAR",
+    "name": "POKé RADAR",
+    "desc": "A tool used to\\nsearch out Pokémon\\nhiding in grass.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POKEBLOCK_CASE",
+    "name": "{POKEBLOCK} CASE",
+    "desc": "A case for holding\\n{POKEBLOCK}s made with\\na Berry Blender.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SOOT_SACK",
+    "name": "SOOT SACK",
+    "desc": "A sack used to\\ngather and hold\\nvolcanic ash.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_POKE_FLUTE",
+    "name": "POKé FLUTE",
+    "desc": "A sweet-sounding\\nflute that awakens\\nPokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FAME_CHECKER",
+    "name": "FAME CHECKER",
+    "desc": "Stores information\\non famous people\\nfor instant recall.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TEACHY_TV",
+    "name": "TEACHY TV",
+    "desc": "A TV set tuned to\\nan advice program\\nfor Trainers.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SS_TICKET",
+    "name": "S.S. TICKET",
+    "desc": "The ticket required\\nfor sailing on a\\nferry.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EON_TICKET",
+    "name": "EON TICKET",
+    "desc": "The ticket for a\\nferry to a distant\\nsouthern island.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MYSTIC_TICKET",
+    "name": "MYSTIC TICKET",
+    "desc": "A ticket required\\nto board the ship\\nto Navel Rock.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AURORA_TICKET",
+    "name": "AURORA TICKET",
+    "desc": "A ticket required\\nto board the ship\\nto Birth Island.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_OLD_SEA_MAP",
+    "name": "OLD SEA MAP",
+    "desc": "A faded sea chart\\nthat shows the way\\nto a certain island.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LETTER",
+    "name": "LETTER",
+    "desc": "A letter to Steven\\nfrom the President\\nof the Devon Corp.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DEVON_PARTS",
+    "name": "DEVON PARTS",
+    "desc": "A package that\\ncontains Devon's\\nmachine parts.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GO_GOGGLES",
+    "name": "GO-GOGGLES",
+    "desc": "Nifty goggles that\\nprotect eyes from\\ndesert sandstorms.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_DEVON_SCOPE",
+    "name": "DEVON SCOPE",
+    "desc": "A device by Devon\\nthat signals any\\nunseeable Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BASEMENT_KEY",
+    "name": "BASEMENT KEY",
+    "desc": "The key for the\\nGOLDENROD\\nUNDERGROUND.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SCANNER",
+    "name": "SCANNER",
+    "desc": "A device found\\ninside the\\nAbandoned Ship.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STORAGE_KEY",
+    "name": "STORAGE KEY",
+    "desc": "The key to the\\nstorage inside the\\nAbandoned Ship.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_KEY_TO_ROOM_1",
+    "name": "KEY TO ROOM 1",
+    "desc": "",
+    "sym": "sKeyToRoomDesc"
+  },
+  {
+    "id": "ITEM_KEY_TO_ROOM_2",
+    "name": "KEY TO ROOM 2",
+    "desc": "",
+    "sym": "sKeyToRoomDesc"
+  },
+  {
+    "id": "ITEM_KEY_TO_ROOM_4",
+    "name": "KEY TO ROOM 4",
+    "desc": "",
+    "sym": "sKeyToRoomDesc"
+  },
+  {
+    "id": "ITEM_KEY_TO_ROOM_6",
+    "name": "KEY TO ROOM 6",
+    "desc": "",
+    "sym": "sKeyToRoomDesc"
+  },
+  {
+    "id": "ITEM_METEORITE",
+    "name": "METEORITE",
+    "desc": "A meteorite found\\nat Birth Island.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MAGMA_EMBLEM",
+    "name": "MAGMA EMBLEM",
+    "desc": "A medal-like item in\\nthe same shape as\\nTeam Magma's mark.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CONTEST_PASS",
+    "name": "CONTEST PASS",
+    "desc": "The pass required\\nfor entering\\nPokémon Contests.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PARCEL",
+    "name": "PARCEL",
+    "desc": "A parcel for Prof.\\nOak from a Pokémon\\nMart's clerk.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SECRET_KEY",
+    "name": "SECRET KEY",
+    "desc": "The key to the\\nCinnabar Island\\nGym's entrance.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BIKE_VOUCHER",
+    "name": "BIKE VOUCHER",
+    "desc": "A voucher for\\nobtaining a bicycle\\nfrom the Bike Shop.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GOLD_TEETH",
+    "name": "GOLD TEETH",
+    "desc": "Gold dentures lost\\nby the Safari\\nZone's Warden.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CARD_KEY",
+    "name": "CARD KEY",
+    "desc": "A card-type door\\nkey used in RADIO\\nTOWER.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LIFT_KEY",
+    "name": "LIFT KEY",
+    "desc": "An elevator key\\nused in Team\\nRocket's Hideout.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SILPH_SCOPE",
+    "name": "SILPH SCOPE",
+    "desc": "Silph Co's scope\\nmakes unseeable\\nPOKéMON visible.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TRI_PASS",
+    "name": "TRI-PASS",
+    "desc": "A pass for ferries\\nbetween One, Two,\\nand Three Island.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RAINBOW_PASS",
+    "name": "RAINBOW PASS",
+    "desc": "For ferries serving\\nVermilion and the\\nSevii Islands.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TEA",
+    "name": "TEA",
+    "desc": "A thirst-quenching\\ntea prepared by an\\nold lady.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RUBY",
+    "name": "RUBY",
+    "desc": "An exquisite, red-\\nglowing gem that\\nsymbolizes passion.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SAPPHIRE",
+    "name": "SAPPHIRE",
+    "desc": "A brilliant blue gem\\nthat symbolizes\\nhonesty.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ABILITY_SHIELD",
+    "name": "ABILITY SHIELD",
+    "desc": "Ability changes are\\nprevented for this\\nitems's holder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CLEAR_AMULET",
+    "name": "Amuleto Puro",
+    "desc": "Stat lowering is\\nprevented for this\\nitems's holder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PUNCHING_GLOVE",
+    "name": "Guante de Boxeo",
+    "desc": "Powers up punching\\nmoves and removes\\ntheir contact.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_COVERT_CLOAK",
+    "name": "Capa Encubierta",
+    "desc": "Protects holder\\nfrom additional\\neffects of moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LOADED_DICE",
+    "name": "Dado Cargado",
+    "desc": "Rolls high numbers.\\nMultihit strikes\\nhit more times.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AUSPICIOUS_ARMOR",
+    "name": "AUSPICIOUS ARMOR",
+    "desc": "Armor inhabited by\\nauspicious wishes.\\nCauses evolution.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BOOSTER_ENERGY",
+    "name": "Energía Plus",
+    "desc": "Encapsuled energy\\nups Pokémon with\\ncertain Abilities.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BIG_BAMBOO_SHOOT",
+    "name": "BIG BAMBOO SHOOT",
+    "desc": "A large and rare\\nbamboo shoot. Best\\nsold to gourmands.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GIMMIGHOUL_COIN",
+    "name": "GIMMIGHOUL COIN",
+    "desc": "Gimmighoul hoard\\nand treasure these\\ncurious coins.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LEADERS_CREST",
+    "name": "LEADER'S CREST",
+    "desc": "A shard of an old\\nblade of some sort.\\nHeld by Bisharp.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MALICIOUS_ARMOR",
+    "name": "MALICIOUS ARMOR",
+    "desc": "Armor inhabited by\\nmalicious will.\\nCauses evolution.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MIRROR_HERB",
+    "name": "Hierba Espejo",
+    "desc": "Mirrors an enemy's\\nstat increases\\nbut only once.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SCROLL_OF_DARKNESS",
+    "name": "SCROLL OF DARKNESS",
+    "desc": "A peculiar scroll\\nwith secrets of\\nthe dark path.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SCROLL_OF_WATERS",
+    "name": "SCROLL OF WATERS",
+    "desc": "A peculiar scroll\\nwith secrets of\\nthe water path.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TERA_ORB",
+    "name": "TERA ORB",
+    "desc": "Energy charges can\\nbe used to cause\\nTerastallization.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TINY_BAMBOO_SHOOT",
+    "name": "TINY BAMBOO SHOOT",
+    "desc": "A small and rare\\nbamboo shoot. Best\\nsold to gourmands.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BUG_TERA_SHARD",
+    "name": "BUG TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_DARK_TERA_SHARD",
+    "name": "DARK TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_DRAGON_TERA_SHARD",
+    "name": "DRAGON TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_ELECTRIC_TERA_SHARD",
+    "name": "ELECTRIC TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_FAIRY_TERA_SHARD",
+    "name": "FAIRY TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_FIGHTING_TERA_SHARD",
+    "name": "FIGHTING TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_FIRE_TERA_SHARD",
+    "name": "FIRE TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_FLYING_TERA_SHARD",
+    "name": "FLYING TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_GHOST_TERA_SHARD",
+    "name": "GHOST TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_GRASS_TERA_SHARD",
+    "name": "GRASS TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_GROUND_TERA_SHARD",
+    "name": "GROUND TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_ICE_TERA_SHARD",
+    "name": "ICE TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_NORMAL_TERA_SHARD",
+    "name": "NORMAL TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_POISON_TERA_SHARD",
+    "name": "POISON TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_PSYCHIC_TERA_SHARD",
+    "name": "PSYCHIC TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_ROCK_TERA_SHARD",
+    "name": "ROCK TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_STEEL_TERA_SHARD",
+    "name": "STEEL TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_WATER_TERA_SHARD",
+    "name": "WATER TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_ADAMANT_CRYSTAL",
+    "name": "ADAMANT CRYSTAL",
+    "desc": "A large, glowing gem\\nthat lets Dialga\\nchange form.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GRISEOUS_CORE",
+    "name": "GRISEOUS CORE",
+    "desc": "A large, glowing gem\\nthat lets Giratina\\nchange form.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LUSTROUS_GLOBE",
+    "name": "LUSTROUS GLOBE",
+    "desc": "A large, glowing gem\\nthat lets Palkia\\nchange form.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BLACK_AUGURITE",
+    "name": "BLACK AUGURITE",
+    "desc": "A black stone that\\nmakes some Pokémon\\nevolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LINKING_CORD",
+    "name": "LINKING CORD",
+    "desc": "A mysterious string\\nthat makes some\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PEAT_BLOCK",
+    "name": "PEAT BLOCK",
+    "desc": "A block of material\\nthat makes some\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_BERSERK_GENE",
+    "name": "BERSERK GENE",
+    "desc": "Sharply boosts\\nAttack, but causes\\nlasting confusion.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FAIRY_FEATHER",
+    "name": "FAIRY FEATHER",
+    "desc": "A hold item that\\nraises the power of\\nFairy-type moves.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SYRUPY_APPLE",
+    "name": "SYRUPY APPLE",
+    "desc": "A very syrupy apple\\nthat makes certain\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_UNREMARKABLE_TEACUP",
+    "name": "UNREMARKABLE TEACUP",
+    "desc": "A cracked teacup\\nthat makes certain\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MASTERPIECE_TEACUP",
+    "name": "MASTERPIECE TEACUP",
+    "desc": "A chipped teacup\\nthat makes certain\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CORNERSTONE_MASK",
+    "name": "CORNERSTONE MASK",
+    "desc": "Allows Ogerpon to\\nwield the Rock-\\ntype in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_WELLSPRING_MASK",
+    "name": "WELLSPRING MASK",
+    "desc": "Allows Ogerpon to\\nwield the Water-\\ntype in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HEARTHFLAME_MASK",
+    "name": "HEARTHFLAME MASK",
+    "desc": "Allows Ogerpon to\\nwield the Fire-\\ntype in battle.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HEALTH_MOCHI",
+    "name": "HEALTH MOCHI",
+    "desc": "",
+    "sym": "sHealthFeatherDesc"
+  },
+  {
+    "id": "ITEM_MUSCLE_MOCHI",
+    "name": "MUSCLE MOCHI",
+    "desc": "",
+    "sym": "sMuscleFeatherDesc"
+  },
+  {
+    "id": "ITEM_RESIST_MOCHI",
+    "name": "RESIST MOCHI",
+    "desc": "",
+    "sym": "sResistFeatherDesc"
+  },
+  {
+    "id": "ITEM_GENIUS_MOCHI",
+    "name": "GENIUS MOCHI",
+    "desc": "",
+    "sym": "sGeniusFeatherDesc"
+  },
+  {
+    "id": "ITEM_CLEVER_MOCHI",
+    "name": "CLEVER MOCHI",
+    "desc": "",
+    "sym": "sCleverFeatherDesc"
+  },
+  {
+    "id": "ITEM_SWIFT_MOCHI",
+    "name": "SWIFT MOCHI",
+    "desc": "",
+    "sym": "sSwiftFeatherDesc"
+  },
+  {
+    "id": "ITEM_FRESH_START_MOCHI",
+    "name": "FRESH-START MOCHI",
+    "desc": "An item that resets\\nall base points of\\na Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GLIMMERING_CHARM",
+    "name": "GLIMMERING CHARM",
+    "desc": "A charm that will\\nraise the shards\\nfrom Tera Raids.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_METAL_ALLOY",
+    "name": "METAL ALLOY",
+    "desc": "A peculiar metal\\nthat makes certain\\nPokémon evolve.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_STELLAR_TERA_SHARD",
+    "name": "STELLAR TERA SHARD",
+    "desc": "",
+    "sym": "sTeraShardDesc"
+  },
+  {
+    "id": "ITEM_JUBILIFE_MUFFIN",
+    "name": "JUBILIFE MUFFIN",
+    "desc": "",
+    "sym": "sFullHealDesc"
+  },
+  {
+    "id": "ITEM_REMEDY",
+    "name": "REMEDY",
+    "desc": "A bitter powder\\nthat restores HP\\nby 20 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FINE_REMEDY",
+    "name": "FINE REMEDY",
+    "desc": "A bitter powder\\nthat restores HP\\nby 60 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SUPERB_REMEDY",
+    "name": "SUPERB REMEDY",
+    "desc": "A bitter powder\\nthat restores HP\\nby 120 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AUX_EVASION",
+    "name": "AUX EVASION",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AUX_GUARD",
+    "name": "AUX GUARD",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AUX_POWER",
+    "name": "AUX POWER",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AUX_POWERGUARD",
+    "name": "AUX POWERGUARD",
+    "desc": "",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CHOICE_DUMPLING",
+    "name": "CHOICE DUMPLING",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_SWAP_SNACK",
+    "name": "SWAP SNACK",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_TWICE_SPICED_RADISH",
+    "name": "TWICE-SPICED RADISH",
+    "desc": "",
+    "sym": "sQuestionMarksDesc"
+  },
+  {
+    "id": "ITEM_POKESHI_DOLL",
+    "name": "POKéSHI DOLL",
+    "desc": "A wooden toy\\nresembling a Poké-\\nmon. Can be sold.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_GS_BALL",
+    "name": "GS BALL",
+    "desc": "A strange Poké Ball\\nwith a gold and\\nsilver design.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_FERTILIZER",
+    "name": "GROWTH MULCH",
+    "desc": "A fertilizer that\\naccelerates the\\ngrowth of Berries.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_EXP_SHARE_SMALL",
+    "name": "EXP. SHARE S",
+    "desc": "A held item that\\ngets Exp. Points\\nfrom battles.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_HEALING_HEART",
+    "name": "HEALING HEART",
+    "desc": "A heart that heals\\nyour party when\\nused in the field.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_INFINITE_REPEL",
+    "name": "INFIN. REPEL",
+    "desc": "An item that repels\\nweak Pokémon\\npermanently.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_INFINITE_RARE_CANDIES",
+    "name": "RARECANDY BOX",
+    "desc": "A box of Rare Candy\\nthat never runs\\nout.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_CLEAR_BELL",
+    "name": "CLEAR BELL",
+    "desc": "A bell that makes a\\nclear, pure sound.\\nIt calms Pokémon.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_LOST_ITEM",
+    "name": "LOST ITEM",
+    "desc": "An item lost by a\\ngirl in Saffron\\nCity.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MACHINE_PART",
+    "name": "MACHINE PART",
+    "desc": "A part needed to\\nrepair the Power\\nPlant generator.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_MYSTERY_EGG",
+    "name": "MYSTERY EGG",
+    "desc": "An Egg obtained\\nfrom Mr. Pokémon.\\nGive it to Elm.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_PASS",
+    "name": "PASS",
+    "desc": "A pass for the\\nMagnet Train between\\nGoldenrod and Saffron.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RAINBOW_WING",
+    "name": "RAINBOW WING",
+    "desc": "A mystical feather\\nof rainbow colors.\\nIt is sacred.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RED_SCALE",
+    "name": "RED SCALE",
+    "desc": "A scale from the\\nred Gyarados at\\nthe Lake of Rage.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SECRET_POTION",
+    "name": "SECRETPOTION",
+    "desc": "A secret medicine\\nmade in Cianwood\\nCity pharmacy.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SILVER_WING",
+    "name": "SILVER WING",
+    "desc": "A mystical silver\\nfeather. It is said\\nto summon Lugia.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_TIDAL_BELL",
+    "name": "TIDAL BELL",
+    "desc": "Bell that produces\\nan echoing sound\\nthat calls Lugia.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_RADIO",
+    "name": "RADIO",
+    "desc": "A portable radio\\nthat picks up\\nvarious channels.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_SQUIRT_BOTTLE",
+    "name": "SQUIRTBOTTLE",
+    "desc": "A bottle for\\nwatering plants\\nand Sudowoodo.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROOM_1_KEY",
+    "name": "RM. 1 KEY",
+    "desc": "A key to a room\\nin the Underground\\nWarehouse.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROOM_2_KEY",
+    "name": "RM. 2 KEY",
+    "desc": "A key to a room\\nin the Underground\\nWarehouse.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROOM_4_KEY",
+    "name": "RM. 4 KEY",
+    "desc": "A key to a room\\nin the Underground\\nWarehouse.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_ROOM_6_KEY",
+    "name": "RM. 6 KEY",
+    "desc": "A key to a room\\nin the Underground\\nWarehouse.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_UNUSED_BERRY_1",
+    "name": "Baya Zidra",
+    "desc": "A hold item. Restores\\nthe holder's HP by\\n30 points.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_UNUSED_BERRY_2",
+    "name": "????????",
+    "desc": "An unused item\\nplaceholder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_UNUSED_BERRY_3",
+    "name": "????????",
+    "desc": "An unused item\\nplaceholder.",
+    "sym": ""
+  },
+  {
+    "id": "ITEM_AZURE_FLUTE",
+    "name": "AZURE FLUTE",
+    "desc": "A flute that puts\\nout a mystifying\\nsound.",
+    "sym": ""
+  }
+]

@@ -1,0 +1,4392 @@
+[
+  [
+    "MOVE_POUND",
+    "Destructor",
+    "Pounds the foe with\\nforelegs or tail."
+  ],
+  [
+    "MOVE_KARATE_CHOP",
+    "Golpe Karate",
+    "A chopping attack with a\\nhigh critical-hit ratio."
+  ],
+  [
+    "MOVE_DOUBLE_SLAP",
+    "Doble Bofetón",
+    "Repeatedly slaps the foe\\n2 to 5 times."
+  ],
+  [
+    "MOVE_COMET_PUNCH",
+    "Puñetazo Cometa",
+    "Repeatedly punches the foe\\n2 to 5 times."
+  ],
+  [
+    "MOVE_MEGA_PUNCH",
+    "Megapuñetazo",
+    "A strong punch thrown with\\nincredible power."
+  ],
+  [
+    "MOVE_PAY_DAY",
+    "Día de Pago",
+    "Throws coins at the foe.\\nMoney is recovered after."
+  ],
+  [
+    "MOVE_FIRE_PUNCH",
+    "Puñopuego",
+    "A fiery punch that may burn\\nthe foe."
+  ],
+  [
+    "MOVE_ICE_PUNCH",
+    "Puñohielo",
+    "An icy punch that may\\nleave the foe with frostbite."
+  ],
+  [
+    "MOVE_THUNDER_PUNCH",
+    "Puñotrón",
+    "An electrified punch that\\nmay paralyze the foe."
+  ],
+  [
+    "MOVE_SCRATCH",
+    "Arañazo",
+    "Scratches the foe with\\nsharp claws."
+  ],
+  [
+    "MOVE_VISE_GRIP",
+    "Agarre",
+    "Grips the foe with large and\\npowerful pincers."
+  ],
+  [
+    "MOVE_GUILLOTINE",
+    "Guillotina",
+    "A powerful pincer attack\\nthat KOs if it hits."
+  ],
+  [
+    "MOVE_RAZOR_WIND",
+    "Viento Cortante",
+    "A 2-turn move that strikes\\nthe foe on the 2nd turn."
+  ],
+  [
+    "MOVE_SWORDS_DANCE",
+    "Danza Espada",
+    "A fighting dance that\\nsharply raises Attack."
+  ],
+  [
+    "MOVE_CUT",
+    "Corte",
+    "Cuts the foe with sharp\\nscythes, claws, etc."
+  ],
+  [
+    "MOVE_GUST",
+    "Torbellino",
+    "Strikes the foe with a gust\\nof wind whipped up by wings."
+  ],
+  [
+    "MOVE_WING_ATTACK",
+    "Ataque Ala",
+    "Strikes the foe with wings\\nspread wide."
+  ],
+  [
+    "MOVE_WHIRLWIND",
+    "Vendaval",
+    "Blows away the foe, switches\\nit out or ends wild battle."
+  ],
+  [
+    "MOVE_FLY",
+    "Vuelo",
+    "Flies up on the first turn,\\nthen strikes the next turn."
+  ],
+  [
+    "MOVE_BIND",
+    "Constricción",
+    "Binds and squeezes the foe\\nfor  turns."
+  ],
+  [
+    "MOVE_SLAM",
+    "Golpe",
+    "Slams the foe with a long\\ntail, vine, etc."
+  ],
+  [
+    "MOVE_VINE_WHIP",
+    "Látigo Cepa",
+    "Strikes the foe with\\nslender, whiplike vines."
+  ],
+  [
+    "MOVE_STOMP",
+    "Pisotón",
+    "Stomps the enemy with a big\\nfoot. May cause flinching."
+  ],
+  [
+    "MOVE_DOUBLE_KICK",
+    "Doble Patada",
+    "A double-kicking attack\\nthat strikes the foe twice."
+  ],
+  [
+    "MOVE_MEGA_KICK",
+    "Megapatada",
+    "An extremely powerful kick\\nwith intense force."
+  ],
+  [
+    "MOVE_JUMP_KICK",
+    "Salto Patada",
+    "A strong jumping kick. May\\nmiss and hurt the kicker."
+  ],
+  [
+    "MOVE_ROLLING_KICK",
+    "Patada Giro",
+    "A fast kick delivered from\\na rapid spin. May flinch."
+  ],
+  [
+    "MOVE_SAND_ATTACK",
+    "Arenisca",
+    "Reduces the foe's accuracy\\nby hurling sand in its face."
+  ],
+  [
+    "MOVE_HEADBUTT",
+    "Cabezazo",
+    "A ramming attack that may\\ncause flinching."
+  ],
+  [
+    "MOVE_HORN_ATTACK",
+    "Cornada",
+    "Jabs the foe with sharp\\nhorns."
+  ],
+  [
+    "MOVE_FURY_ATTACK",
+    "Furia",
+    "Jabs the foe 2 to 5 times\\nwith sharp horns, etc."
+  ],
+  [
+    "MOVE_HORN_DRILL",
+    "Taladrador",
+    "A one-hit KO attack that\\nuses a horn like a drill."
+  ],
+  [
+    "MOVE_TACKLE",
+    "Placaje",
+    "Charges the foe with a full-\\nbody tackle."
+  ],
+  [
+    "MOVE_BODY_SLAM",
+    "Golpe Cuerpo",
+    "A full-body slam that may\\ncause paralysis."
+  ],
+  [
+    "MOVE_WRAP",
+    "Envoltura",
+    "Wraps and squeezes the foe\\n times with vines, etc."
+  ],
+  [
+    "MOVE_TAKE_DOWN",
+    "Derribo",
+    "A reckless charge attack\\nthat also hurts the user."
+  ],
+  [
+    "MOVE_THRASH",
+    "Pataleta",
+    "A rampage of 2 to 3 turns\\nthat confuses the user."
+  ],
+  [
+    "MOVE_DOUBLE_EDGE",
+    "Doble Filo",
+    "A life-risking tackle that\\nalso hurts the user."
+  ],
+  [
+    "MOVE_TAIL_WHIP",
+    "Látigo",
+    "Wags the tail to lower the\\nfoe's Defense."
+  ],
+  [
+    "MOVE_POISON_STING",
+    "Púas Venenosas",
+    "A toxic attack with barbs,\\netc., that may poison."
+  ],
+  [
+    "MOVE_TWINEEDLE",
+    "Biaguijón",
+    "Foreleg stingers jab foe\\ntwice. May poison."
+  ],
+  [
+    "MOVE_PIN_MISSILE",
+    "Lanzadera",
+    "Sharp pins are fired to\\nstrike 2 to 5 times."
+  ],
+  [
+    "MOVE_LEER",
+    "Mal de Ojo",
+    "Frightens the foes with a\\nleer to lower Defense."
+  ],
+  [
+    "MOVE_BITE",
+    "Mordisco",
+    "Bites with vicious fangs.\\nMay cause flinching."
+  ],
+  [
+    "MOVE_GROWL",
+    "Gruñido",
+    "Growls cutely to reduce the\\nfoe's Attack."
+  ],
+  [
+    "MOVE_ROAR",
+    "Rugido",
+    "Switches the foe out\\nor ends wild battle."
+  ],
+  [
+    "MOVE_SING",
+    "Canto",
+    "A soothing song lulls the\\nfoe into a deep slumber."
+  ],
+  [
+    "MOVE_SUPERSONIC",
+    "Supersónico",
+    "Emits bizarre sound waves\\nthat may confuse the foe."
+  ],
+  [
+    "MOVE_SONIC_BOOM",
+    "SONIC BOOM",
+    "Launches shock waves that\\nalways inflict 20 HP damage."
+  ],
+  [
+    "MOVE_ACID",
+    "Ácido",
+    "Sprays a hide-melting acid.\\nMay lower Sp. Def."
+  ],
+  [
+    "MOVE_EMBER",
+    "Ascuas",
+    "A weak fire attack that may\\ninflict a burn."
+  ],
+  [
+    "MOVE_FLAMETHROWER",
+    "Lanzallamas",
+    "A powerful fire attack that\\nmay inflict a burn."
+  ],
+  [
+    "MOVE_MIST",
+    "Niebla",
+    "Creates a mist that stops\\nreduction of stats."
+  ],
+  [
+    "MOVE_WATER_GUN",
+    "Pistola Agua",
+    "Squirts water to attack\\nthe foe."
+  ],
+  [
+    "MOVE_HYDRO_PUMP",
+    "Hidrobomba",
+    "Blasts water at high power\\nto strike the foe."
+  ],
+  [
+    "MOVE_SURF",
+    "Surf",
+    "Creates a huge wave, then\\ncrashes it down on the field."
+  ],
+  [
+    "MOVE_ICE_BEAM",
+    "Rayo Hielo",
+    "Blasts the foe with an icy\\nbeam. May cause frostbite."
+  ],
+  [
+    "MOVE_BLIZZARD",
+    "Ventisca",
+    "Hits the foes with an icy\\nstorm. May cause frostbite."
+  ],
+  [
+    "MOVE_PSYBEAM",
+    "Psicoataque",
+    "Fires a peculiar ray that\\nmay confuse the foe."
+  ],
+  [
+    "MOVE_BUBBLE_BEAM",
+    "Burbuja",
+    "Forcefully sprays bubbles\\nthat may lower Speed."
+  ],
+  [
+    "MOVE_AURORA_BEAM",
+    "Rayo Aurora",
+    "Fires a rainbow-colored\\nbeam that may lower Attack."
+  ],
+  [
+    "MOVE_PECK",
+    "Picotazo",
+    "Attacks the foe with a\\njabbing beak, etc."
+  ],
+  [
+    "MOVE_DRILL_PECK",
+    "Pico Taladro",
+    "A corkscrewing attack with\\nthe beak acting as a drill."
+  ],
+  [
+    "MOVE_SUBMISSION",
+    "Llave Total",
+    "A reckless body slam that\\nalso hurts the user."
+  ],
+  [
+    "MOVE_LOW_KICK",
+    "Patada Baja",
+    "A kick that inflicts more\\ndamage on heavier foes."
+  ],
+  [
+    "MOVE_COUNTER",
+    "Contraataque",
+    "Retaliates any physical hit\\nwith double the power."
+  ],
+  [
+    "MOVE_SEISMIC_TOSS",
+    "Seísmo",
+    "Inflicts damage identical\\nto the user's level."
+  ],
+  [
+    "MOVE_STRENGTH",
+    "Fuerza",
+    "Builds enormous power,\\nthen slams the foe."
+  ],
+  [
+    "MOVE_ABSORB",
+    "Absorber",
+    "Attack that absorbs\\nhalf the damage inflicted."
+  ],
+  [
+    "MOVE_LEECH_SEED",
+    "Drenadoras",
+    "Plants a seed on the foe to\\nsteal HP on every turn."
+  ],
+  [
+    "MOVE_RAZOR_LEAF",
+    "Hoja Aguda",
+    "Cuts enemies with leaves.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_SOLAR_BEAM",
+    "Rayo Solar",
+    "Absorbs light in one turn,\\nthen attacks next turn."
+  ],
+  [
+    "MOVE_POISON_POWDER",
+    "Polvo Veneno",
+    "Scatters a toxic powder\\nthat may poison the foe."
+  ],
+  [
+    "MOVE_STUN_SPORE",
+    "Espora Ardor",
+    "Scatters a powder that may\\nparalyze the foe."
+  ],
+  [
+    "MOVE_SLEEP_POWDER",
+    "Somnífero",
+    "Scatters a powder that may\\ncause the foe to sleep."
+  ],
+  [
+    "MOVE_PETAL_DANCE",
+    "Danza Pétalo",
+    "A rampage of 2 to 3 turns\\nthat confuses the user."
+  ],
+  [
+    "MOVE_STRING_SHOT",
+    "Disparo Furia",
+    "Binds the foe with string\\nto reduce its Speed."
+  ],
+  [
+    "MOVE_DRAGON_RAGE",
+    "Ira Dragón",
+    "Launches shock waves that\\nalways inflict 40 HP damage."
+  ],
+  [
+    "MOVE_FIRE_SPIN",
+    "Llamarada",
+    "Traps the foe in a ring of\\nfire for  turns."
+  ],
+  [
+    "MOVE_THUNDER_SHOCK",
+    "Impactrueno",
+    "An electrical attack that\\nmay paralyze the foe."
+  ],
+  [
+    "MOVE_THUNDERBOLT",
+    "Rayo",
+    "A strong electrical attack\\nthat may paralyze the foe."
+  ],
+  [
+    "MOVE_THUNDER_WAVE",
+    "Onda Trueno",
+    "A weak jolt of electricity\\nthat paralyzes the foe."
+  ],
+  [
+    "MOVE_THUNDER",
+    "Trueno",
+    "A lightning attack that may\\ncause paralysis."
+  ],
+  [
+    "MOVE_ROCK_THROW",
+    "Lanzarrocas",
+    "Throws small rocks to\\nstrike the foe."
+  ],
+  [
+    "MOVE_EARTHQUAKE",
+    "Terremoto",
+    "A powerful quake that\\nhits all other POKéMON."
+  ],
+  [
+    "MOVE_FISSURE",
+    "Fisura",
+    "A one-hit KO move that\\ndrops the foe in a fissure."
+  ],
+  [
+    "MOVE_DIG",
+    "Excavar",
+    "Digs underground the first\\nturn and strikes next turn."
+  ],
+  [
+    "MOVE_TOXIC",
+    "Tóxico",
+    "Poisons the foe with an\\nintensifying toxin."
+  ],
+  [
+    "MOVE_CONFUSION",
+    "Confusión",
+    "A psychic attack that may\\ncause confusion."
+  ],
+  [
+    "MOVE_PSYCHIC",
+    "Psíquico",
+    "A powerful psychic attack\\nthat may lower Sp. Def."
+  ],
+  [
+    "MOVE_HYPNOSIS",
+    "Hipnosis",
+    "A hypnotizing move that\\nmay induce sleep."
+  ],
+  [
+    "MOVE_MEDITATE",
+    "Meditación",
+    "Meditates in a peaceful\\nfashion to raise Attack."
+  ],
+  [
+    "MOVE_AGILITY",
+    "Agilidad",
+    "Relaxes the body to sharply\\nboost Speed."
+  ],
+  [
+    "MOVE_QUICK_ATTACK",
+    "Ataque Rápido",
+    "An extremely fast attack\\nthat always strikes first."
+  ],
+  [
+    "MOVE_RAGE",
+    "Enfado",
+    "Raises the user's Attack\\nevery time it is hit."
+  ],
+  [
+    "MOVE_TELEPORT",
+    "Teletransporte",
+    "Switches the user out last.\\nFlees when used by wild {PKMN}."
+  ],
+  [
+    "MOVE_NIGHT_SHADE",
+    "Sombra Noche",
+    "Inflicts damage identical\\nto the user's level."
+  ],
+  [
+    "MOVE_MIMIC",
+    "Mímica",
+    "Copies last move used by the\\nfoe during one battle."
+  ],
+  [
+    "MOVE_SCREECH",
+    "Chirrido",
+    "Emits a screech to sharply\\nreduce the foe's Defense."
+  ],
+  [
+    "MOVE_DOUBLE_TEAM",
+    "Doble Equipo",
+    "Creates illusory copies to\\nraise evasiveness."
+  ],
+  [
+    "MOVE_RECOVER",
+    "Recuperación",
+    "Recovers up to half the\\nuser's maximum HP."
+  ],
+  [
+    "MOVE_HARDEN",
+    "Fortaleza",
+    "Stiffens the body's \\nmuscles to raise Defense."
+  ],
+  [
+    "MOVE_MINIMIZE",
+    "Reducción",
+    "Minimizes the user's size to\\nsharply raise evasiveness."
+  ],
+  [
+    "MOVE_SMOKESCREEN",
+    "Pantalla Humo",
+    "Lowers the foe's accuracy\\nusing smoke, ink, etc."
+  ],
+  [
+    "MOVE_CONFUSE_RAY",
+    "Rayo Confuso",
+    "A sinister ray that\\nconfuses the foe."
+  ],
+  [
+    "MOVE_WITHDRAW",
+    "Refugio",
+    "Withdraws the body into its\\nhard shell to raise Defense."
+  ],
+  [
+    "MOVE_DEFENSE_CURL",
+    "Rizo Defensa",
+    "Curls up to conceal weak\\nspots and raise Defense."
+  ],
+  [
+    "MOVE_BARRIER",
+    "Barrera",
+    "Creates a barrier that\\nsharply raises Defense."
+  ],
+  [
+    "MOVE_LIGHT_SCREEN",
+    "Pantalla de Luz",
+    "Wall of light cuts special\\ndamage for 5 turns."
+  ],
+  [
+    "MOVE_HAZE",
+    "Bruma",
+    "Creates a black haze that\\neliminates all stat changes."
+  ],
+  [
+    "MOVE_REFLECT",
+    "Reflejo",
+    "Wall of light cuts physical\\ndamage for 5 turns."
+  ],
+  [
+    "MOVE_FOCUS_ENERGY",
+    "Concentración",
+    "Focuses power to raise the\\ncritical-hit ratio."
+  ],
+  [
+    "MOVE_BIDE",
+    "Aguante",
+    "Endures attack for 2\\nturns to retaliate double."
+  ],
+  [
+    "MOVE_METRONOME",
+    "Metrónomo",
+    "Waggles a finger to use any\\nPokémon move at random."
+  ],
+  [
+    "MOVE_MIRROR_MOVE",
+    "Espejo",
+    "Counters the foe's attack\\nwith the same move."
+  ],
+  [
+    "MOVE_SELF_DESTRUCT",
+    "Autodestrucción",
+    "Inflicts severe damage but\\nmakes the user faint."
+  ],
+  [
+    "MOVE_EGG_BOMB",
+    "Bomba Huevo",
+    "An egg is forcibly hurled at\\nthe foe."
+  ],
+  [
+    "MOVE_LICK",
+    "Lengüetazo",
+    "Licks with a long tongue to\\ninjure. May also paralyze."
+  ],
+  [
+    "MOVE_SMOG",
+    "Polución",
+    "An exhaust-gas attack\\nthat may also poison."
+  ],
+  [
+    "MOVE_SLUDGE",
+    "Fango",
+    "Sludge is hurled to inflict\\ndamage. May also poison."
+  ],
+  [
+    "MOVE_BONE_CLUB",
+    "Golpe Hueso",
+    "Clubs the foe with a bone.\\nMay cause flinching."
+  ],
+  [
+    "MOVE_FIRE_BLAST",
+    "Deflagración",
+    "Incinerates everything it\\nstrikes. May cause a burn."
+  ],
+  [
+    "MOVE_WATERFALL",
+    "Cascada",
+    "Charges with speed to climb\\nwaterfalls. May flinch."
+  ],
+  [
+    "MOVE_CLAMP",
+    "Mordaza",
+    "Traps and squeezes the\\nfoe for  turns."
+  ],
+  [
+    "MOVE_SWIFT",
+    "Rapidez",
+    "Sprays star-shaped rays\\nthat never miss."
+  ],
+  [
+    "MOVE_SKULL_BASH",
+    "Cabeza Zinc",
+    "Tucks in the head, then\\nattacks on the next turn."
+  ],
+  [
+    "MOVE_SPIKE_CANNON",
+    "Cañón Pua",
+    "Launches sharp spikes that\\nstrike 2 to 5 times."
+  ],
+  [
+    "MOVE_CONSTRICT",
+    "Constricción",
+    "Constricts to inflict pain.\\nMay lower Speed."
+  ],
+  [
+    "MOVE_AMNESIA",
+    "Amnesia",
+    "Forgets about something\\nand sharply raises Sp. Def."
+  ],
+  [
+    "MOVE_KINESIS",
+    "Kinesis",
+    "Distracts the foe.\\nMay lower accuracy."
+  ],
+  [
+    "MOVE_SOFT_BOILED",
+    "Curación",
+    "Recovers up to half the\\nuser's maximum HP."
+  ],
+  [
+    "MOVE_HIGH_JUMP_KICK",
+    "Gran Salto Patada",
+    "A jumping knee kick. If it\\nmisses, the user is hurt."
+  ],
+  [
+    "MOVE_GLARE",
+    "Mirada Letal",
+    "Intimidates and frightens\\nthe foe into paralysis."
+  ],
+  [
+    "MOVE_DREAM_EATER",
+    "Come Sueños",
+    "Takes one half the damage\\ninflicted on a sleeping foe."
+  ],
+  [
+    "MOVE_BARRAGE",
+    "Avalancha",
+    "Hurls round objects at the\\nfoe 2 to 5 times."
+  ],
+  [
+    "MOVE_LEECH_LIFE",
+    "Vampiabsorber",
+    "Attack that steals half\\nthe damage inflicted."
+  ],
+  [
+    "MOVE_LOVELY_KISS",
+    "Dulce Beso",
+    "Demands a kiss with a scary\\nface that induces sleep."
+  ],
+  [
+    "MOVE_SKY_ATTACK",
+    "Ataque Aéreo",
+    "2-turn attack. High critical\\nhit ratio, and may flinch."
+  ],
+  [
+    "MOVE_TRANSFORM",
+    "Transformación",
+    "Alters the user's cells to\\nbecome a copy of the foe."
+  ],
+  [
+    "MOVE_BUBBLE",
+    "Burbuja",
+    "Attack using bubbles.\\nMay lower the foe's Speed."
+  ],
+  [
+    "MOVE_DIZZY_PUNCH",
+    "Puño Matraca",
+    "A rhythmic punch that may\\nconfuse the target."
+  ],
+  [
+    "MOVE_SPORE",
+    "Espora",
+    "Scatters a cloud of spores\\nthat always induce sleep."
+  ],
+  [
+    "MOVE_FLASH",
+    "Destello",
+    "Looses a powerful blast of\\nlight that cuts accuracy."
+  ],
+  [
+    "MOVE_PSYWAVE",
+    "Psicoonda",
+    "Attacks with a psychic\\nwave of varying intensity."
+  ],
+  [
+    "MOVE_SPLASH",
+    "Salpicar",
+    "It's just a splash...\\nHas no effect whatsoever."
+  ],
+  [
+    "MOVE_ACID_ARMOR",
+    "Armadura Ácida",
+    "Liquifies the user's body\\nto sharply raise Defense."
+  ],
+  [
+    "MOVE_CRABHAMMER",
+    "Martillazo",
+    "Hammers with a pincer. Has a\\nhigh critical-hit ratio."
+  ],
+  [
+    "MOVE_EXPLOSION",
+    "Explosión",
+    "Inflicts severe damage but\\nmakes the user faint."
+  ],
+  [
+    "MOVE_FURY_SWIPES",
+    "Garras Furia",
+    "Rakes the foe with sharp\\nclaws, etc., 2 to 5 times."
+  ],
+  [
+    "MOVE_BONEMERANG",
+    "Bumerhueso",
+    "Throws a bone boomerang\\nthat strikes twice."
+  ],
+  [
+    "MOVE_REST",
+    "Descanso",
+    "The user sleeps for 2 turns,\\nrestoring HP and status."
+  ],
+  [
+    "MOVE_ROCK_SLIDE",
+    "Avalancha",
+    "Large boulders are hurled.\\nMay cause flinching."
+  ],
+  [
+    "MOVE_HYPER_FANG",
+    "Hiperfauce",
+    "Attacks with sharp fangs.\\nMay cause flinching."
+  ],
+  [
+    "MOVE_SHARPEN",
+    "Afilado",
+    "Reduces the polygon count\\nand raises Attack."
+  ],
+  [
+    "MOVE_CONVERSION",
+    "Transformación",
+    "Changes the user's type\\ninto first known move's type."
+  ],
+  [
+    "MOVE_TRI_ATTACK",
+    "Triataque",
+    "Fires three types of beams.\\nMay burn/para/frostbite."
+  ],
+  [
+    "MOVE_SUPER_FANG",
+    "Superfauce",
+    "Attacks with sharp fangs\\nand cuts half the foe's HP."
+  ],
+  [
+    "MOVE_SLASH",
+    "Cuchillada",
+    "Slashes with claws, etc. Has\\na high critical-hit ratio."
+  ],
+  [
+    "MOVE_SUBSTITUTE",
+    "Sustituto",
+    "Creates a decoy using 1/4\\nof the user's maximum HP."
+  ],
+  [
+    "MOVE_STRUGGLE",
+    "Forcejeo",
+    "Used only if all PP are gone.\\nAlso hurts the user a little."
+  ],
+  [
+    "MOVE_SKETCH",
+    "Croquis",
+    "Copies the foe's last move\\npermanently."
+  ],
+  [
+    "MOVE_TRIPLE_KICK",
+    "Triple Patada",
+    "Kicks the foe 3 times in a\\nrow with rising intensity."
+  ],
+  [
+    "MOVE_THIEF",
+    "Ladrón",
+    "While attacking, it may\\nsteal the foe's held item."
+  ],
+  [
+    "MOVE_SPIDER_WEB",
+    "Tela Araña",
+    "Ensnares the foe to stop it\\nfrom fleeing or switching."
+  ],
+  [
+    "MOVE_MIND_READER",
+    "Lectura Mental",
+    "Senses the foe's action to\\nensure the next move's hit."
+  ],
+  [
+    "MOVE_NIGHTMARE",
+    "Pesadilla",
+    "Inflicts 1/4 damage on a\\nsleeping foe every turn."
+  ],
+  [
+    "MOVE_FLAME_WHEEL",
+    "Rueda Fuego",
+    "A fiery charge attack that\\nmay inflict a burn."
+  ],
+  [
+    "MOVE_SNORE",
+    "Ronquido",
+    "A loud attack that can only\\nbe used asleep. May flinch."
+  ],
+  [
+    "MOVE_CURSE",
+    "Maldición",
+    "A move that functions\\ndifferently for GHOSTS."
+  ],
+  [
+    "MOVE_FLAIL",
+    "Languidez",
+    "Inflicts more damage when\\nthe user's HP is down."
+  ],
+  [
+    "MOVE_CONVERSION_2",
+    "Metamorfosis 2",
+    "Makes the user resistant\\nto the last attack's type."
+  ],
+  [
+    "MOVE_AEROBLAST",
+    "Aeroataque",
+    "Launches a vacuumed blast.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_REVERSAL",
+    "Inversión",
+    "Inflicts more damage when\\nthe user's HP is down."
+  ],
+  [
+    "MOVE_SPITE",
+    "Rencor",
+    "Spitefully cuts the PP\\nof the foe's last move by 4."
+  ],
+  [
+    "MOVE_POWDER_SNOW",
+    "Nieve Polvo",
+    "Blasts the foes with a snowy\\ngust. May cause frostbite."
+  ],
+  [
+    "MOVE_MACH_PUNCH",
+    "Puño Bala",
+    "A punch is thrown at wicked\\nspeed to strike first."
+  ],
+  [
+    "MOVE_SCARY_FACE",
+    "Cara Susto",
+    "Frightens with a scary face\\nto sharply reduce Speed."
+  ],
+  [
+    "MOVE_FEINT_ATTACK",
+    "Golpe Bajo",
+    "Draws the foe close, then\\nstrikes without fail."
+  ],
+  [
+    "MOVE_SWEET_KISS",
+    "Beso Dulce",
+    "Demands a kiss with a cute\\nlook. May cause confusion."
+  ],
+  [
+    "MOVE_BELLY_DRUM",
+    "Tamborileo",
+    "Maximizes Attack while\\nsacrificing half of max HP."
+  ],
+  [
+    "MOVE_SLUDGE_BOMB",
+    "Bomba Fango",
+    "Sludge is hurled to inflict\\ndamage. May also poison."
+  ],
+  [
+    "MOVE_MUD_SLAP",
+    "Fangada",
+    "Hurls mud in the foe's face\\nto reduce its accuracy."
+  ],
+  [
+    "MOVE_OCTAZOOKA",
+    "Octalanzador",
+    "Fires a lump of ink to\\ndamage and cut accuracy."
+  ],
+  [
+    "MOVE_SPIKES",
+    "Trampa Rocas",
+    "Sets spikes that hurt a \\nfoe switching in."
+  ],
+  [
+    "MOVE_ZAP_CANNON",
+    "Cañón Eléc",
+    "Powerful and sure to cause\\nparalysis, but inaccurate."
+  ],
+  [
+    "MOVE_FORESIGHT",
+    "Presciencia",
+    "Negates the foe's efforts\\nto heighten evasiveness."
+  ],
+  [
+    "MOVE_DESTINY_BOND",
+    "Lazo Destino",
+    "If the user faints, the foe\\nis also made to faint."
+  ],
+  [
+    "MOVE_PERISH_SONG",
+    "Canto Mortal",
+    "Any Pokémon hearing this\\nsong faints in 3 turns."
+  ],
+  [
+    "MOVE_ICY_WIND",
+    "Viento Hielo",
+    "A chilling attack that\\nlowers the foe's Speed."
+  ],
+  [
+    "MOVE_BONE_RUSH",
+    "Hueso Danza",
+    "Strikes the foe with a bone\\nin hand 2 to 5 times."
+  ],
+  [
+    "MOVE_LOCK_ON",
+    "Fijar Blanco",
+    "Locks on to the foe to\\nensure the next move hits."
+  ],
+  [
+    "MOVE_OUTRAGE",
+    "Enfurecimiento",
+    "A rampage of 2 to 3 turns\\nthat confuses the user."
+  ],
+  [
+    "MOVE_SANDSTORM",
+    "Tormenta Arena",
+    "Causes a sandstorm that\\nrages for several turns."
+  ],
+  [
+    "MOVE_GIGA_DRAIN",
+    "Gigaagotar",
+    "Attack that steals half\\nthe damage inflicted."
+  ],
+  [
+    "MOVE_ENDURE",
+    "Aguante",
+    "Endures any attack for\\n1 turn, leaving at least 1HP."
+  ],
+  [
+    "MOVE_CHARM",
+    "Encanto",
+    "Charms the foe and sharply\\nreduces its Attack."
+  ],
+  [
+    "MOVE_ROLLOUT",
+    "Rugido",
+    "Attack lasting 5 turns\\nwith rising intensity."
+  ],
+  [
+    "MOVE_SWAGGER",
+    "Fanfarronada",
+    "Confuses the foe, but also\\nsharply raises its Attack."
+  ],
+  [
+    "MOVE_MILK_DRINK",
+    "Leche Cura",
+    "Recovers up to half the\\nuser's maximum HP."
+  ],
+  [
+    "MOVE_SPARK",
+    "Chispa",
+    "An electrified tackle that\\nmay paralyze the foe."
+  ],
+  [
+    "MOVE_FURY_CUTTER",
+    "Corte Furia",
+    "Attack that intensifies\\non each successive hit."
+  ],
+  [
+    "MOVE_STEEL_WING",
+    "Ala Acero",
+    "Strikes the foe with hard\\nwings spread wide."
+  ],
+  [
+    "MOVE_MEAN_LOOK",
+    "Cara Rara",
+    "Fixes the foe with a mean\\nlook that prevents escape."
+  ],
+  [
+    "MOVE_ATTRACT",
+    "Seducción",
+    "Makes the opposite gender\\nless likely to attack."
+  ],
+  [
+    "MOVE_SLEEP_TALK",
+    "Soñoliloquio",
+    "Uses an available move\\nrandomly while asleep."
+  ],
+  [
+    "MOVE_HEAL_BELL",
+    "Campana Cura",
+    "Chimes soothingly to heal\\nall status abnormalities."
+  ],
+  [
+    "MOVE_RETURN",
+    "Retribución",
+    "Attack that increases\\nin power with friendship."
+  ],
+  [
+    "MOVE_PRESENT",
+    "Regalo",
+    "A gift in the form of a\\nbomb. May restore HP."
+  ],
+  [
+    "MOVE_FRUSTRATION",
+    "Frustración",
+    "Attack that is stronger\\nif the Trainer is disliked."
+  ],
+  [
+    "MOVE_SAFEGUARD",
+    "Pantalla Mágica",
+    "Protects allies from status\\nproblems for 5 turns."
+  ],
+  [
+    "MOVE_PAIN_SPLIT",
+    "Divide Dolor",
+    "Adds the user and foe's HP,\\nthen shares them equally."
+  ],
+  [
+    "MOVE_SACRED_FIRE",
+    "Fuego Sagrado",
+    "A mystical fire attack that\\nmay inflict a burn."
+  ],
+  [
+    "MOVE_MAGNITUDE",
+    "Magnitud",
+    "A ground-shaking attack\\nof random intensity."
+  ],
+  [
+    "MOVE_DYNAMIC_PUNCH",
+    "Dinamopuño",
+    "Powerful and sure to cause\\nconfusion, but inaccurate."
+  ],
+  [
+    "MOVE_MEGAHORN",
+    "Megacuerno",
+    "A brutal ramming attack\\nusing out-thrust horns."
+  ],
+  [
+    "MOVE_DRAGON_BREATH",
+    "Aliento Dragón",
+    "Strikes the foe with a blast\\nof breath. May paralyze."
+  ],
+  [
+    "MOVE_BATON_PASS",
+    "Cambio Testigo",
+    "Switches out the user while\\nkeeping effects in play."
+  ],
+  [
+    "MOVE_ENCORE",
+    "Fin de Fiesta",
+    "Makes the foe repeat its\\nlast move over 3 turns."
+  ],
+  [
+    "MOVE_PURSUIT",
+    "Persecución",
+    "Inflicts bad damage if used\\non a foe switching out."
+  ],
+  [
+    "MOVE_RAPID_SPIN",
+    "Giro Rápido",
+    "User spins and removes some\\neffects, while upping speed."
+  ],
+  [
+    "MOVE_IRON_TAIL",
+    "Cola Férrea",
+    "Attacks with a rock-hard\\ntail. May lower Defense."
+  ],
+  [
+    "MOVE_METAL_CLAW",
+    "Garra Metal",
+    "A claw attack that may\\nraise the user's Attack."
+  ],
+  [
+    "MOVE_VITAL_THROW",
+    "Lanzamiento",
+    "Makes the user's move last,\\nbut it never misses."
+  ],
+  [
+    "MOVE_MORNING_SUN",
+    "Sol Matutino",
+    "Restores HP. The amount\\nvaries with the weather."
+  ],
+  [
+    "MOVE_SYNTHESIS",
+    "Síntesis",
+    "Restores HP. The amount\\nvaries with the weather."
+  ],
+  [
+    "MOVE_MOONLIGHT",
+    "Luz Lunar",
+    "Restores HP. The amount\\nvaries with the weather."
+  ],
+  [
+    "MOVE_CROSS_CHOP",
+    "Cruz Navaja",
+    "A double-chopping attack.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_TWISTER",
+    "Torbellino",
+    "Whips up a vicious twister\\nto tear at foes. May flinch."
+  ],
+  [
+    "MOVE_RAIN_DANCE",
+    "Lluvia Danza",
+    "Boosts the power of Water-\\ntype moves for 5 turns."
+  ],
+  [
+    "MOVE_SUNNY_DAY",
+    "Día Soleado",
+    "Boosts the power of Fire-\\ntype moves for 5 turns."
+  ],
+  [
+    "MOVE_CRUNCH",
+    "Triturar",
+    "Crunches with sharp fangs.\\nMay lower Defense."
+  ],
+  [
+    "MOVE_MIRROR_COAT",
+    "Espejo Coat",
+    "Counters the foe's special\\nattack at double the power."
+  ],
+  [
+    "MOVE_PSYCH_UP",
+    "Análisis",
+    "Copies foe's stat changes\\nand gives to the user."
+  ],
+  [
+    "MOVE_EXTREME_SPEED",
+    "Velocidad Extrema",
+    "An extremely fast and\\npowerful attack."
+  ],
+  [
+    "MOVE_ANCIENT_POWER",
+    "Poder Ancestral",
+    "Attack that may raise\\nall stats."
+  ],
+  [
+    "MOVE_SHADOW_BALL",
+    "Bola Sombra",
+    "Hurls a black blob that may\\nlower the foe's Sp. Def."
+  ],
+  [
+    "MOVE_FUTURE_SIGHT",
+    "Visión Futura",
+    "Heightens inner power to\\nstrike 2 turns later."
+  ],
+  [
+    "MOVE_ROCK_SMASH",
+    "Golpe Roca",
+    "A rock-crushing attack\\nthat may lower Defense."
+  ],
+  [
+    "MOVE_WHIRLPOOL",
+    "Remolino",
+    "Traps and hurts the foe in\\na whirlpool for  turns."
+  ],
+  [
+    "MOVE_BEAT_UP",
+    "Paliza",
+    "Summons party Pokémon to\\njoin in the attack."
+  ],
+  [
+    "MOVE_FAKE_OUT",
+    "Sorpresa",
+    "Moves 1st and flinches. Only\\nworks on user's 1st turn."
+  ],
+  [
+    "MOVE_STOCKPILE",
+    "Reserva",
+    "Charges up power for up to\\n3 turns."
+  ],
+  [
+    "MOVE_SPIT_UP",
+    "Escupir",
+    "Releases stockpiled power\\n(the more the better)."
+  ],
+  [
+    "MOVE_SWALLOW",
+    "Tragar",
+    "Absorbs stockpiled power\\nand restores HP."
+  ],
+  [
+    "MOVE_HEAT_WAVE",
+    "Calor",
+    "Exhales a hot breath on the\\nfoes. May inflict a burn."
+  ],
+  [
+    "MOVE_HAIL",
+    "Granizo",
+    "Summons a snowstorm that\\nlasts for five turns."
+  ],
+  [
+    "MOVE_TORMENT",
+    "Tormento",
+    "Torments the foe and stops\\nsuccessive use of a move."
+  ],
+  [
+    "MOVE_FLATTER",
+    "Lisonja",
+    "Confuses the foe, but\\nraises its Sp. Atk."
+  ],
+  [
+    "MOVE_WILL_O_WISP",
+    "Fuego Fatuo",
+    "Inflicts a burn on the foe\\nwith intense fire."
+  ],
+  [
+    "MOVE_MEMENTO",
+    "Memento",
+    "The user faints and harshly\\nlowers foes Atk and Sp.Atk."
+  ],
+  [
+    "MOVE_FACADE",
+    "Fachada",
+    "Boosts power when burned,\\nparalyzed, or poisoned."
+  ],
+  [
+    "MOVE_FOCUS_PUNCH",
+    "Puño Certero",
+    "Powerful attack, moves last.\\nThe user flinches if hit."
+  ],
+  [
+    "MOVE_SMELLING_SALTS",
+    "Sales",
+    "Powerful against paralyzed\\nfoes, but also heals them."
+  ],
+  [
+    "MOVE_FOLLOW_ME",
+    "Sígueme",
+    "Draws attention to make\\nfoes attack only the user."
+  ],
+  [
+    "MOVE_NATURE_POWER",
+    "Poder Natural",
+    "The type of attack varies\\ndepending on the location."
+  ],
+  [
+    "MOVE_CHARGE",
+    "Carga",
+    "Charges power to boost the\\nElectric move used next."
+  ],
+  [
+    "MOVE_TAUNT",
+    "Provocación",
+    "Taunts the foe into only\\nusing attack moves."
+  ],
+  [
+    "MOVE_HELPING_HAND",
+    "Ayuda",
+    "Boosts the power of ally\\nrecipient's moves."
+  ],
+  [
+    "MOVE_TRICK",
+    "Truco",
+    "Tricks the foe into trading\\nheld items."
+  ],
+  [
+    "MOVE_ROLE_PLAY",
+    "Papelón",
+    "Mimics the target and\\ncopies its Ability."
+  ],
+  [
+    "MOVE_WISH",
+    "Deseo",
+    "A wish that restores HP.\\nIt takes time to work."
+  ],
+  [
+    "MOVE_ASSIST",
+    "Auxilio",
+    "Attacks randomly with one\\nof the partner's moves."
+  ],
+  [
+    "MOVE_INGRAIN",
+    "Arraigo",
+    "Lays roots that restore HP.\\nThe user can't switch out."
+  ],
+  [
+    "MOVE_SUPERPOWER",
+    "Superpotencia",
+    "Boosts strength sharply,\\nbut lowers abilities."
+  ],
+  [
+    "MOVE_MAGIC_COAT",
+    "Manto Mágico",
+    "Reflects special effects\\nback to the attacker."
+  ],
+  [
+    "MOVE_RECYCLE",
+    "Reciclaje",
+    "Recycles a used item for\\none more use."
+  ],
+  [
+    "MOVE_BRICK_BREAK",
+    "Rompe Pantalla",
+    "Destroys barriers such as\\nREFLECT and causes damage."
+  ],
+  [
+    "MOVE_YAWN",
+    "Bostezo",
+    "Lulls the foe into yawning,\\nthen sleeping next turn."
+  ],
+  [
+    "MOVE_KNOCK_OFF",
+    "Golpe Bajo",
+    "Knocks down the foe's held\\nitem to prevent its use."
+  ],
+  [
+    "MOVE_ENDEAVOR",
+    "Igualador",
+    "Cuts foe's HP to equal\\nuser's HP."
+  ],
+  [
+    "MOVE_ERUPTION",
+    "Erupción",
+    "The higher the user's HP,\\nthe more damage caused."
+  ],
+  [
+    "MOVE_SKILL_SWAP",
+    "Intercambio",
+    "The user swaps special\\nabilities with the target."
+  ],
+  [
+    "MOVE_IMPRISON",
+    "Sellado",
+    "Prevents foes from using\\nmoves known by the user."
+  ],
+  [
+    "MOVE_REFRESH",
+    "Refresco",
+    "Heals poisoning, paralysis,\\nor a burn."
+  ],
+  [
+    "MOVE_GRUDGE",
+    "Rencilla",
+    "If the user faints, deletes\\nall PP of foe's last move."
+  ],
+  [
+    "MOVE_SNATCH",
+    "Arrebato",
+    "Steals the effects of the\\nmove the target uses next."
+  ],
+  [
+    "MOVE_SECRET_POWER",
+    "Poder Secreto",
+    "Attack with effects\\nthat vary by location."
+  ],
+  [
+    "MOVE_DIVE",
+    "Buceo",
+    "Dives underwater the first\\nturn and strikes next turn."
+  ],
+  [
+    "MOVE_ARM_THRUST",
+    "Puñada Doble",
+    "Straight-arm punches that\\nstrike the foe 2 to 5 times."
+  ],
+  [
+    "MOVE_CAMOUFLAGE",
+    "Camuflaje",
+    "Alters the Pokémon's type\\ndepending on the location."
+  ],
+  [
+    "MOVE_LUSTER_PURGE",
+    "Brillo Pureza",
+    "Attacks with a burst of\\nlight. May lower Sp. Def."
+  ],
+  [
+    "MOVE_MIST_BALL",
+    "Bola Niebla",
+    "Attacks with a flurry of\\ndown. May lower Sp. Atk."
+  ],
+  [
+    "MOVE_FEATHER_DANCE",
+    "Plumas Danza",
+    "Envelops the foe with down\\nto sharply reduce Attack."
+  ],
+  [
+    "MOVE_TEETER_DANCE",
+    "Danza Zigzag",
+    "Confuses all Pokémon on\\nthe scene."
+  ],
+  [
+    "MOVE_BLAZE_KICK",
+    "Patada Ígnea",
+    "A kick with a high critical-\\nhit ratio. May cause a burn."
+  ],
+  [
+    "MOVE_MUD_SPORT",
+    "Fango Activo",
+    "Covers the user in mud to\\nweaken all Electric moves."
+  ],
+  [
+    "MOVE_ICE_BALL",
+    "Bola Hielo",
+    "A 5-turn attack that gains\\npower on successive hits."
+  ],
+  [
+    "MOVE_NEEDLE_ARM",
+    "Brazo Garfio",
+    "Attacks with thorny arms.\\nMay cause flinching."
+  ],
+  [
+    "MOVE_SLACK_OFF",
+    "Escaqueo",
+    "Slacks off and restores\\nhalf the maximum HP."
+  ],
+  [
+    "MOVE_HYPER_VOICE",
+    "Hiper Voz",
+    "A loud attack that uses\\nsound waves to injure."
+  ],
+  [
+    "MOVE_POISON_FANG",
+    "Colmillo Venenoso",
+    "A sharp-fanged attack.\\nMay badly poison the foe."
+  ],
+  [
+    "MOVE_CRUSH_CLAW",
+    "Garra Brutal",
+    "Tears at the foe with sharp\\nclaws. May lower Defense."
+  ],
+  [
+    "MOVE_BLAST_BURN",
+    "Anillo Ígneo",
+    "Powerful, but leaves the\\nuser immobile the next turn."
+  ],
+  [
+    "MOVE_HYDRO_CANNON",
+    "Hidrocometa",
+    "Powerful, but leaves the\\nuser immobile the next turn."
+  ],
+  [
+    "MOVE_METEOR_MASH",
+    "Golpe Meteoro",
+    "Fires a meteor-like punch.\\nMay raise Attack."
+  ],
+  [
+    "MOVE_ASTONISH",
+    "Asombro",
+    "Attack that may shock\\nthe foe into flinching."
+  ],
+  [
+    "MOVE_WEATHER_BALL",
+    "Bola Tiempo",
+    "The move's type and power\\nchange with the weather."
+  ],
+  [
+    "MOVE_AROMATHERAPY",
+    "Aromaterapia",
+    "Heals all status problems\\nwith a soothing scent."
+  ],
+  [
+    "MOVE_FAKE_TEARS",
+    "Falso Llanto",
+    "Feigns crying to sharply\\nlower the foe's Sp. Def."
+  ],
+  [
+    "MOVE_AIR_CUTTER",
+    "Cuchillo Aéreo",
+    "Hacks with razorlike wind.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_OVERHEAT",
+    "Sofoco",
+    "Allows a full-power attack,\\nbut sharply lowers Sp. Atk."
+  ],
+  [
+    "MOVE_ODOR_SLEUTH",
+    "Olfateo",
+    "Negate evasiveness and\\nGhost type's immunities."
+  ],
+  [
+    "MOVE_ROCK_TOMB",
+    "Tumba Roca",
+    "Stops the foe from moving\\nwith rocks and cuts Speed."
+  ],
+  [
+    "MOVE_SILVER_WIND",
+    "Viento Plata",
+    "A powdery attack that may\\nraise abilities."
+  ],
+  [
+    "MOVE_METAL_SOUND",
+    "Ruido Metal",
+    "Emits a horrible screech\\nthat sharply lowers Sp. Def."
+  ],
+  [
+    "MOVE_GRASS_WHISTLE",
+    "Silbato Yerba",
+    "Lulls the foe into sleep\\nwith a pleasant melody."
+  ],
+  [
+    "MOVE_TICKLE",
+    "Cosquillas",
+    "Makes the foe laugh to\\nlower Attack and Defense."
+  ],
+  [
+    "MOVE_COSMIC_POWER",
+    "Poder Cósmico",
+    "Raises Defense and Sp. Def\\nwith a mystic power."
+  ],
+  [
+    "MOVE_WATER_SPOUT",
+    "Chorro Agua",
+    "Inflicts more damage if the\\nuser's HP is high."
+  ],
+  [
+    "MOVE_SIGNAL_BEAM",
+    "Señal Luminosa",
+    "A strange beam attack that\\nmay confuse the foe."
+  ],
+  [
+    "MOVE_SHADOW_PUNCH",
+    "Puño Sombra",
+    "An unavoidable punch that\\nis thrown from shadows."
+  ],
+  [
+    "MOVE_EXTRASENSORY",
+    "Supersensorial",
+    "Attacks with a peculiar\\npower. May cause flinching."
+  ],
+  [
+    "MOVE_SKY_UPPERCUT",
+    "Gancho Alto",
+    "An uppercut thrown as if\\nleaping into the sky."
+  ],
+  [
+    "MOVE_SAND_TOMB",
+    "Trampa Arena",
+    "Traps and hurts the foe in\\nquicksand for  turns."
+  ],
+  [
+    "MOVE_SHEER_COLD",
+    "Frío Polar",
+    "A chilling attack that\\ncauses fainting if it hits."
+  ],
+  [
+    "MOVE_MUDDY_WATER",
+    "Agua Lodosa",
+    "Attacks with muddy water.\\nMay lower accuracy."
+  ],
+  [
+    "MOVE_BULLET_SEED",
+    "Semilla Bala",
+    "Shoots 2 to 5 seeds in a row\\nto strike the foe."
+  ],
+  [
+    "MOVE_AERIAL_ACE",
+    "Acróbata",
+    "An extremely speedy and\\nunavoidable attack."
+  ],
+  [
+    "MOVE_ICICLE_SPEAR",
+    "Carámbano",
+    "Attacks the foe by firing\\n2 to 5 icicles in a row."
+  ],
+  [
+    "MOVE_IRON_DEFENSE",
+    "Defensa Acerada",
+    "Hardens the body's surface\\nto sharply raise Defense."
+  ],
+  [
+    "MOVE_BLOCK",
+    "Bloqueo",
+    "Blocks the foe's way and\\nprevents escape."
+  ],
+  [
+    "MOVE_HOWL",
+    "Alarido",
+    "Howls to raise the spirit\\nand boosts Attack."
+  ],
+  [
+    "MOVE_DRAGON_CLAW",
+    "Garra Dragón",
+    "Slashes the foe with sharp\\nclaws."
+  ],
+  [
+    "MOVE_FRENZY_PLANT",
+    "Caña Furia",
+    "Powerful, but leaves the\\nuser immobile the next turn."
+  ],
+  [
+    "MOVE_BULK_UP",
+    "Corpulencia",
+    "Bulks up the body to boost\\nboth Attack and Defense."
+  ],
+  [
+    "MOVE_BOUNCE",
+    "Rebote",
+    "Bounces up, then down the\\nnext turn. May paralyze."
+  ],
+  [
+    "MOVE_MUD_SHOT",
+    "Lanzafango",
+    "Hurls mud at the foe and\\nreduces Speed."
+  ],
+  [
+    "MOVE_POISON_TAIL",
+    "Cola Venenosa",
+    "Has a high critical-hit\\nratio. May also poison."
+  ],
+  [
+    "MOVE_COVET",
+    "Codicia",
+    "Cutely begs to obtain an\\nitem held by the foe."
+  ],
+  [
+    "MOVE_VOLT_TACKLE",
+    "Voltio Cruel",
+    "A life-risking tackle that\\nhurts the user. May paralyze."
+  ],
+  [
+    "MOVE_MAGICAL_LEAF",
+    "Hoja Mágica",
+    "Attacks with a strange leaf\\nthat cannot be evaded."
+  ],
+  [
+    "MOVE_WATER_SPORT",
+    "Acuaplaning",
+    "The user becomes soaked to\\nweaken all Fire moves."
+  ],
+  [
+    "MOVE_CALM_MIND",
+    "Mente Serena",
+    "Raises Sp. Atk and Sp. Def\\nby focusing the mind."
+  ],
+  [
+    "MOVE_LEAF_BLADE",
+    "Hoja Aguda",
+    "Slashes with a sharp leaf.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_DRAGON_DANCE",
+    "Danza Dragón",
+    "A mystical dance that ups\\nAttack and Speed."
+  ],
+  [
+    "MOVE_ROCK_BLAST",
+    "Roca Afilada",
+    "Hurls boulders at the foe\\n2 to 5 times in a row."
+  ],
+  [
+    "MOVE_SHOCK_WAVE",
+    "Onda Voltio",
+    "A fast and unavoidable\\nelectric attack."
+  ],
+  [
+    "MOVE_WATER_PULSE",
+    "Pulso Agua",
+    "Attacks with ultrasonic\\nwaves. May confuse the foe."
+  ],
+  [
+    "MOVE_DOOM_DESIRE",
+    "Deseo Fúnebre",
+    "Summons strong light to\\nattack 2 turns later."
+  ],
+  [
+    "MOVE_PSYCHO_BOOST",
+    "Psicosalva",
+    "Allows a full-power attack,\\nbut sharply lowers Sp. Atk."
+  ],
+  [
+    "MOVE_ROOST",
+    "Alas Descanso",
+    "Restores the user's HP by\\nhalf of its max HP."
+  ],
+  [
+    "MOVE_GRAVITY",
+    "Gravedad",
+    "Gravity is intensified\\nnegating levitation."
+  ],
+  [
+    "MOVE_MIRACLE_EYE",
+    "Ojo Mágico",
+    "Negate evasiveness and\\nDark type's immunities."
+  ],
+  [
+    "MOVE_WAKE_UP_SLAP",
+    "Bofetón",
+    "Powerful against sleeping\\nfoes, but also wakes them."
+  ],
+  [
+    "MOVE_HAMMER_ARM",
+    "Brazo Martillo",
+    "A swinging fist attack\\nthat also lowers Speed."
+  ],
+  [
+    "MOVE_GYRO_BALL",
+    "Giro Bola",
+    "A high-speed spin that does\\nmore damage to faster foes."
+  ],
+  [
+    "MOVE_BRINE",
+    "Salmuera",
+    "Does double damage to foes\\nwith half HP or less."
+  ],
+  [
+    "MOVE_NATURAL_GIFT",
+    "Don Natural",
+    "The effectiveness varies\\nwith the held Berry."
+  ],
+  [
+    "MOVE_TAILWIND",
+    "Viento Afín",
+    "Whips up a breeze, doubling\\nally Speed for 4 turns."
+  ],
+  [
+    "MOVE_ACUPRESSURE",
+    "Acupresión",
+    "The user sharply raises\\none of its stats."
+  ],
+  [
+    "MOVE_METAL_BURST",
+    "Contraataque Férreo",
+    "Retaliates any hit with\\ngreater power."
+  ],
+  [
+    "MOVE_PAYBACK",
+    "Represalia",
+    "Attack that gains power\\nif the user moves last."
+  ],
+  [
+    "MOVE_ASSURANCE",
+    "Seguridad",
+    "Attack that gains power\\nif the foe has been hurt."
+  ],
+  [
+    "MOVE_EMBARGO",
+    "Embargo",
+    "Prevents the foe from\\nusing any items."
+  ],
+  [
+    "MOVE_FLING",
+    "Lanzamiento",
+    "The effectiveness varies\\nwith the held item."
+  ],
+  [
+    "MOVE_PSYCHO_SHIFT",
+    "Turno Psíquico",
+    "Transfers status problems\\nto the foe."
+  ],
+  [
+    "MOVE_TRUMP_CARD",
+    "Triunfo",
+    "The less PP the move has\\nthe more damage it does."
+  ],
+  [
+    "MOVE_HEAL_BLOCK",
+    "Antiterapia",
+    "Prevents the foes from\\nrecovering HP for 5 turns."
+  ],
+  [
+    "MOVE_POWER_TRICK",
+    "Truco Potencia",
+    "The user swaps its Attack\\nand Defense stats."
+  ],
+  [
+    "MOVE_GASTRO_ACID",
+    "Ácido Gástrico",
+    "Stomach acid suppresses\\nthe foe's Ability."
+  ],
+  [
+    "MOVE_LUCKY_CHANT",
+    "Canto Suerte",
+    "Prevents the foe from\\nlanding critical hits."
+  ],
+  [
+    "MOVE_ME_FIRST",
+    "Primero Yo",
+    "Executes the foe's attack\\nwith greater power."
+  ],
+  [
+    "MOVE_COPYCAT",
+    "Imitador",
+    "The user mimics the last\\nmove used by a foe."
+  ],
+  [
+    "MOVE_POWER_SWAP",
+    "Intercambia Fuerzas",
+    "Swaps changes to Attack\\nand Sp. Atk with the foe."
+  ],
+  [
+    "MOVE_GUARD_SWAP",
+    "Intercambia Defensas",
+    "Swaps changes to Defense\\nand Sp. Def with the foe."
+  ],
+  [
+    "MOVE_PUNISHMENT",
+    "Castigo",
+    "Does more damage the more\\nthe foe has powered up."
+  ],
+  [
+    "MOVE_LAST_RESORT",
+    "Último Recurso",
+    "Can only be used if every\\nother move has been used."
+  ],
+  [
+    "MOVE_WORRY_SEED",
+    "Semilla Inquietud",
+    "Plants a seed on the foe\\ngiving it Insomnia."
+  ],
+  [
+    "MOVE_TOXIC_SPIKES",
+    "Clavo Venenoso",
+    "Sets spikes that poison a\\nfoe switching in."
+  ],
+  [
+    "MOVE_HEART_SWAP",
+    "Intercambia Corazón",
+    "Swaps any stat changes\\nwith the foe."
+  ],
+  [
+    "MOVE_AQUA_RING",
+    "Anillo Acuático",
+    "Forms a veil of water\\nthat restores HP."
+  ],
+  [
+    "MOVE_MAGNET_RISE",
+    "Levitación Magnética",
+    "The user levitates with\\nelectromagnetism."
+  ],
+  [
+    "MOVE_FLARE_BLITZ",
+    "Llamarada",
+    "A charge that may burn the\\nfoe. Also hurts the user."
+  ],
+  [
+    "MOVE_FORCE_PALM",
+    "Golpe Fuerza",
+    "A shock wave attack that\\nmay paralyze the foe."
+  ],
+  [
+    "MOVE_AURA_SPHERE",
+    "Esfera Aural",
+    "Attacks with an aura blast\\nthat cannot be evaded."
+  ],
+  [
+    "MOVE_ROCK_POLISH",
+    "Pule Roca",
+    "Polishes the body to\\nsharply raise Speed."
+  ],
+  [
+    "MOVE_POISON_JAB",
+    "Jab Veneno",
+    "A stabbing attack that\\nmay poison the foe."
+  ],
+  [
+    "MOVE_DARK_PULSE",
+    "Pulso Umbrío",
+    "Attacks with a horrible\\naura. May cause flinching."
+  ],
+  [
+    "MOVE_NIGHT_SLASH",
+    "Noche Cerrada",
+    "Hits as soon as possible.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_AQUA_TAIL",
+    "Acua Cola",
+    "The user swings its tail\\nlike a wave to attack."
+  ],
+  [
+    "MOVE_SEED_BOMB",
+    "Semilla Bomba",
+    "A barrage of hard seeds\\nis fired at the foe."
+  ],
+  [
+    "MOVE_AIR_SLASH",
+    "Tajo Aéreo",
+    "Attacks with a blade of\\nair. May cause flinching."
+  ],
+  [
+    "MOVE_X_SCISSOR",
+    "Tijera X",
+    "Slashes the foe with crossed\\nscythes, claws, etc."
+  ],
+  [
+    "MOVE_BUG_BUZZ",
+    "Zum Bicho",
+    "A damaging sound wave that\\nmay lower Sp. Def."
+  ],
+  [
+    "MOVE_DRAGON_PULSE",
+    "Pulso Dragón",
+    "Generates a shock wave to\\ndamage the foe."
+  ],
+  [
+    "MOVE_DRAGON_RUSH",
+    "Avalancha Dragón",
+    "Tackles the foe with menace.\\nMay cause flinching."
+  ],
+  [
+    "MOVE_POWER_GEM",
+    "Gema Poder",
+    "Attacks with rays of light\\nthat sparkle like diamonds."
+  ],
+  [
+    "MOVE_VACUUM_WAVE",
+    "Ola Vacío",
+    "Whirls its fists to send\\na wave that strikes first."
+  ],
+  [
+    "MOVE_FOCUS_BLAST",
+    "Defensa Bola",
+    "Attacks at full power.\\nMay lower Sp. Def."
+  ],
+  [
+    "MOVE_ENERGY_BALL",
+    "Bola Energía",
+    "Draws power from nature to\\nattack. May lower Sp. Def."
+  ],
+  [
+    "MOVE_BRAVE_BIRD",
+    "Pájaro Osado",
+    "A low altitude charge that\\nalso hurts the user."
+  ],
+  [
+    "MOVE_EARTH_POWER",
+    "Poder Tierra",
+    "Makes the ground erupt with\\npower. May lower Sp. Def."
+  ],
+  [
+    "MOVE_SWITCHEROO",
+    "Trapicheo",
+    "Swaps items with the foe\\nfaster than the eye can see."
+  ],
+  [
+    "MOVE_NASTY_PLOT",
+    "Jugarreta",
+    "Thinks bad thoughts to\\nsharply boost Sp. Atk."
+  ],
+  [
+    "MOVE_BULLET_PUNCH",
+    "Puño Bala",
+    "Punches as fast as a bul-\\nlet. It always hits first."
+  ],
+  [
+    "MOVE_ICE_SHARD",
+    "Nieve Velo",
+    "Hurls a chunk of ice that\\nalways strikes first."
+  ],
+  [
+    "MOVE_SHADOW_CLAW",
+    "Garra Umbría",
+    "Strikes with a shadow claw.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_THUNDER_FANG",
+    "Colmillo Rayo",
+    "May cause flinching or\\nleave the foe paralyzed."
+  ],
+  [
+    "MOVE_ICE_FANG",
+    "Colmillo Hielo",
+    "May cause flinching or\\nleave the foe with frostbite."
+  ],
+  [
+    "MOVE_FIRE_FANG",
+    "Colmillo Ígneo",
+    "May cause flinching or\\nleave the foe with a burn."
+  ],
+  [
+    "MOVE_SHADOW_SNEAK",
+    "Sombra Vil",
+    "Extends the user's shadow\\nto strike first."
+  ],
+  [
+    "MOVE_MUD_BOMB",
+    "Bomba Barro",
+    "Throws a blob of mud to\\ndamage and cut accuracy."
+  ],
+  [
+    "MOVE_PSYCHO_CUT",
+    "Psicocorte",
+    "Tears with psychic blades.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_ZEN_HEADBUTT",
+    "Zen Cabezazo",
+    "Hits with a strong head-\\nbutt. May cause flinching."
+  ],
+  [
+    "MOVE_MIRROR_SHOT",
+    "Espejo Shot",
+    "Emits a flash of energy to\\ndamage and cut accuracy."
+  ],
+  [
+    "MOVE_FLASH_CANNON",
+    "Cañón Flash",
+    "Releases a blast of light\\nthat may lower Sp. Def."
+  ],
+  [
+    "MOVE_ROCK_CLIMB",
+    "Escalada",
+    "A charging attack that may\\nconfuse the foe."
+  ],
+  [
+    "MOVE_DEFOG",
+    "Antivaho",
+    "Removes obstacles and\\nlowers evasion."
+  ],
+  [
+    "MOVE_TRICK_ROOM",
+    "Sala Trampa",
+    "Slower Pokémon get to move\\nfirst for 5 turns."
+  ],
+  [
+    "MOVE_DRACO_METEOR",
+    "Cometa Draco",
+    "Casts comets onto the foe.\\nHarshly lowers the Sp. Atk."
+  ],
+  [
+    "MOVE_DISCHARGE",
+    "Descarga",
+    "Zaps all other {PKMN} with\\nelectricity. May paralyze."
+  ],
+  [
+    "MOVE_LEAF_STORM",
+    "Tormenta Floral",
+    "Whips up a storm of leaves.\\nHarshly lowers the Sp. Atk."
+  ],
+  [
+    "MOVE_POWER_WHIP",
+    "Látigo Potencia",
+    "Violently lashes the foe\\nwith vines or tentacles."
+  ],
+  [
+    "MOVE_CROSS_POISON",
+    "Cruz Venenosa",
+    "A slash that may poison a\\nfoe and do critical damage."
+  ],
+  [
+    "MOVE_GUNK_SHOT",
+    "Lanzamiento Basura",
+    "Shoots filthy garbage at\\nthe foe. May also poison."
+  ],
+  [
+    "MOVE_IRON_HEAD",
+    "Cabeza de Hierro",
+    "Slams the foe with a hard\\nhead. May cause flinching."
+  ],
+  [
+    "MOVE_MAGNET_BOMB",
+    "Bomba Magnética",
+    "Launches a magnet that\\nstrikes without fail."
+  ],
+  [
+    "MOVE_STONE_EDGE",
+    "Filo Roca",
+    "Stabs the foe with stones.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_CAPTIVATE",
+    "Hechizar",
+    "Makes the opposite gender\\nsharply reduce its Sp. Atk."
+  ],
+  [
+    "MOVE_STEALTH_ROCK",
+    "Trampa Rocas",
+    "Sets floating stones that\\nhurt a foe switching in."
+  ],
+  [
+    "MOVE_GRASS_KNOT",
+    "Hierba Lazo",
+    "A snare attack that does\\nmore damage to heavier foes."
+  ],
+  [
+    "MOVE_CHATTER",
+    "Charla",
+    "Attacks with a sound wave\\nthat causes confusion."
+  ],
+  [
+    "MOVE_JUDGMENT",
+    "Sentencia",
+    "The type varies with the\\nkind of Plate held."
+  ],
+  [
+    "MOVE_CHARGE_BEAM",
+    "Rayo Carga",
+    "Fires a beam of electricity.\\nMay raise Sp. Atk."
+  ],
+  [
+    "MOVE_WOOD_HAMMER",
+    "Martillo Madera",
+    "Slams the body into a foe.\\nThe user gets hurt too."
+  ],
+  [
+    "MOVE_AQUA_JET",
+    "Aqua Jet",
+    "Strikes first by dashing\\nat the foe at a high speed."
+  ],
+  [
+    "MOVE_ATTACK_ORDER",
+    "Orden Ataque",
+    "Underlings pummel the foe.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_DEFEND_ORDER",
+    "Orden Defensa",
+    "Raises Defense and Sp. Def\\nwith a living shield."
+  ],
+  [
+    "MOVE_HEAL_ORDER",
+    "Orden Curación",
+    "The user's underlings show\\nup to heal half its max HP."
+  ],
+  [
+    "MOVE_HEAD_SMASH",
+    "Golpe Cabeza",
+    "A life-risking headbutt that\\nseriously hurts the user."
+  ],
+  [
+    "MOVE_DOUBLE_HIT",
+    "Doble Impacto",
+    "Slams the foe with a tail\\netc. Strikes twice."
+  ],
+  [
+    "MOVE_ROAR_OF_TIME",
+    "Rugido Temporal",
+    "Powerful, but leaves the\\nuser immobile the next turn."
+  ],
+  [
+    "MOVE_SPACIAL_REND",
+    "Corte Espacial",
+    "Tears the foe, and space.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_MAGMA_STORM",
+    "Tormenta de Magma",
+    "Traps the foe in a vortex\\nof fire for  turns."
+  ],
+  [
+    "MOVE_DARK_VOID",
+    "Oscuridad",
+    "Drags the foes into total\\ndarkness, inducing Sleep."
+  ],
+  [
+    "MOVE_SEED_FLARE",
+    "Explosión Floral",
+    "Generates a shock wave that\\nsharply reduces Sp. Def."
+  ],
+  [
+    "MOVE_OMINOUS_WIND",
+    "Viento Ominoso",
+    "A repulsive attack that may\\nraise all stats."
+  ],
+  [
+    "MOVE_HONE_CLAWS",
+    "Afilar Garras",
+    "Sharpens its claws to raise\\nAttack and Accuracy."
+  ],
+  [
+    "MOVE_WIDE_GUARD",
+    "Guardia Amplia",
+    "Evades wide-ranging attacks\\nfor one turn."
+  ],
+  [
+    "MOVE_GUARD_SPLIT",
+    "Repartir Defensa",
+    "Averages changes to Defense\\nand Sp. Def with the foe."
+  ],
+  [
+    "MOVE_POWER_SPLIT",
+    "Repartir Fuerza",
+    "Averages changes to Attack\\nand Sp. Atk with the foe."
+  ],
+  [
+    "MOVE_WONDER_ROOM",
+    "Sala Mística",
+    "Defense and Sp. Def stats\\nare swapped for 5 turns."
+  ],
+  [
+    "MOVE_VENOSHOCK",
+    "Venoshock",
+    "Does double damage if the\\nfoe is poisoned."
+  ],
+  [
+    "MOVE_AUTOTOMIZE",
+    "Autotomización",
+    "Sheds additional weight to\\nsharply boost Speed."
+  ],
+  [
+    "MOVE_RAGE_POWDER",
+    "Polvo Ira",
+    "Scatters powder to make\\nfoes attack only the user."
+  ],
+  [
+    "MOVE_TELEKINESIS",
+    "Telequinesis",
+    "Makes the foe float. It is\\neasier to hit for 3 turns."
+  ],
+  [
+    "MOVE_MAGIC_ROOM",
+    "Sala Mágica",
+    "Hold items lose their\\neffects for 5 turns."
+  ],
+  [
+    "MOVE_SMACK_DOWN",
+    "Derribo",
+    "Throws a rock to knock the\\nfoe down to the ground."
+  ],
+  [
+    "MOVE_FLAME_BURST",
+    "Llamarada",
+    "A bursting flame that does\\ndamage to all foes."
+  ],
+  [
+    "MOVE_SLUDGE_WAVE",
+    "Ola Fango",
+    "Swamps all others with a wave\\nof sludge. May also poison."
+  ],
+  [
+    "MOVE_QUIVER_DANCE",
+    "Danza Aleteo",
+    "Dances to raise Sp. Atk\\nSp. Def and Speed."
+  ],
+  [
+    "MOVE_SYNCHRONOISE",
+    "Sincrorruido",
+    "An odd shock wave that only\\ndamages same-type {PKMN}."
+  ],
+  [
+    "MOVE_ELECTRO_BALL",
+    "Bola Electro",
+    "Hurls an orb that does more\\ndamage to slower foes."
+  ],
+  [
+    "MOVE_SOAK",
+    "Empapar",
+    "Sprays water at the foe,\\nchanging it to Water type."
+  ],
+  [
+    "MOVE_FLAME_CHARGE",
+    "Carga Ígnea",
+    "Attacks in a cloak of\\nflames. Raises Speed."
+  ],
+  [
+    "MOVE_COIL",
+    "Enrollar",
+    "Coils up to raise Attack,\\nDefense and Accuracy."
+  ],
+  [
+    "MOVE_LOW_SWEEP",
+    "Barrido Bajo",
+    "Attacks the foe's legs\\nlowering its Speed."
+  ],
+  [
+    "MOVE_ACID_SPRAY",
+    "Spray Ácido",
+    "Sprays a hide-melting acid.\\nSharply reduces Sp. Def."
+  ],
+  [
+    "MOVE_FOUL_PLAY",
+    "Juego Sucio",
+    "The higher the foe's Attack\\nthe more damage caused."
+  ],
+  [
+    "MOVE_SIMPLE_BEAM",
+    "Haz Simple",
+    "A beam that changes the\\nfoe's Ability to Simple."
+  ],
+  [
+    "MOVE_ENTRAINMENT",
+    "Arrastre",
+    "Makes the foe mimic the\\nuser, gaining its Ability."
+  ],
+  [
+    "MOVE_AFTER_YOU",
+    "Después de Ti",
+    "Helps out the target, letting\\nit move next."
+  ],
+  [
+    "MOVE_ROUND",
+    "Ronda",
+    "A song that inflicts damage.\\nOthers can join in too."
+  ],
+  [
+    "MOVE_ECHOED_VOICE",
+    "Voz Eco",
+    "Does more damage every turn\\nit is used."
+  ],
+  [
+    "MOVE_CLEAR_SMOG",
+    "Niebla Despejada",
+    "Attacks with white haze that\\neliminates all stat changes."
+  ],
+  [
+    "MOVE_STORED_POWER",
+    "Poder Almacenado",
+    "The higher the user's stats\\nthe more damage caused."
+  ],
+  [
+    "MOVE_QUICK_GUARD",
+    "Guardia Rápida",
+    "Evades priority attacks\\nfor one turn."
+  ],
+  [
+    "MOVE_ALLY_SWITCH",
+    "Cambio Aliado",
+    "The user switches places\\nwith its partner."
+  ],
+  [
+    "MOVE_SCALD",
+    "Escaldar",
+    "Shoots boiling water at the\\nfoe. May inflict a burn."
+  ],
+  [
+    "MOVE_SHELL_SMASH",
+    "Rompe Caparazón",
+    "Sharply raises Atk/Sp.Atk/\\nSpeed, but drops Def/Sp.Def."
+  ],
+  [
+    "MOVE_HEAL_PULSE",
+    "Pulso Cura",
+    "Recovers up to half the\\ntarget's maximum HP."
+  ],
+  [
+    "MOVE_HEX",
+    "Maleficio",
+    "Does double damage if the\\nfoe has a status problem."
+  ],
+  [
+    "MOVE_SKY_DROP",
+    "Caída Aérea",
+    "Takes the foe into the sky\\nthen drops it the next turn."
+  ],
+  [
+    "MOVE_SHIFT_GEAR",
+    "Acelerar",
+    "Rotates its gears to raise\\nAttack and Speed."
+  ],
+  [
+    "MOVE_INCINERATE",
+    "Incineración",
+    "Burns up Berries and Gems\\npreventing their use."
+  ],
+  [
+    "MOVE_QUASH",
+    "Rezagar",
+    "Suppresses the foe, making\\nit move last."
+  ],
+  [
+    "MOVE_ACROBATICS",
+    "Acrobacia",
+    "Does double damage if the\\nuser has no item."
+  ],
+  [
+    "MOVE_REFLECT_TYPE",
+    "Reflejo Tipo",
+    "The user reflects the foe's\\ntype, copying it."
+  ],
+  [
+    "MOVE_RETALIATE",
+    "Represalia",
+    "Attack that does more\\ndamage if an ally fainted."
+  ],
+  [
+    "MOVE_FINAL_GAMBIT",
+    "Golpe Postrero",
+    "The user faints to damage\\nthe foe equal to its HP."
+  ],
+  [
+    "MOVE_BESTOW",
+    "Conceder",
+    "The user gives its held\\nitem to the foe."
+  ],
+  [
+    "MOVE_INFERNO",
+    "Infierno",
+    "Powerful and sure to inflict\\na burn, but inaccurate."
+  ],
+  [
+    "MOVE_WATER_PLEDGE",
+    "Promesa Agua",
+    "Attacks with a column of\\nwater. May make a rainbow."
+  ],
+  [
+    "MOVE_FIRE_PLEDGE",
+    "Promesa Fuego",
+    "Attacks with a column of\\nfire. May burn the grass."
+  ],
+  [
+    "MOVE_GRASS_PLEDGE",
+    "Promesa Planta",
+    "Attacks with a column of\\ngrass. May create a swamp."
+  ],
+  [
+    "MOVE_STRUGGLE_BUG",
+    "Fuerza Bicho",
+    "Resisting, the user attacks\\nthe foes. Lowers Sp. Atk."
+  ],
+  [
+    "MOVE_BULLDOZE",
+    "Apisonar",
+    "Stomps down on the ground.\\nHits all and lowers Speed."
+  ],
+  [
+    "MOVE_WORK_UP",
+    "Preparación",
+    "The user is roused.\\nUps Attack and Sp. Atk."
+  ],
+  [
+    "MOVE_ELECTROWEB",
+    "Telaraña Eléctrica",
+    "Snares the foes with an\\nelectric net. Lowers Speed."
+  ],
+  [
+    "MOVE_WILD_CHARGE",
+    "Voltio Salvaje",
+    "An electrical tackle that\\nalso hurts the user."
+  ],
+  [
+    "MOVE_DRILL_RUN",
+    "Taladradora",
+    "Spins its body like a drill.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_DUAL_CHOP",
+    "Doble Tajo",
+    "Attacks with brutal hits\\nthat strike twice."
+  ],
+  [
+    "MOVE_HEART_STAMP",
+    "Sello Corazón",
+    "A sudden blow after a cute\\nact. May cause flinching."
+  ],
+  [
+    "MOVE_RAZOR_SHELL",
+    "Concha Filo",
+    "Tears at the foe with sharp\\nshells. May lower Defense."
+  ],
+  [
+    "MOVE_LEAF_TORNADO",
+    "Tornado Hoja",
+    "Circles the foe with leaves\\nto damage and cut accuracy."
+  ],
+  [
+    "MOVE_STEAMROLLER",
+    "Apisonadora",
+    "Crushes the foe with its\\nbody. May cause flinching."
+  ],
+  [
+    "MOVE_COTTON_GUARD",
+    "Escudo Algodón",
+    "Wraps its body in cotton.\\nDrastically raises Defense."
+  ],
+  [
+    "MOVE_NIGHT_DAZE",
+    "Noche Oscura",
+    "Looses a pitch-black shock\\nwave. May lower accuracy."
+  ],
+  [
+    "MOVE_TAIL_SLAP",
+    "Coletazo",
+    "Strikes the foe with its\\ntail 2 to 5 times."
+  ],
+  [
+    "MOVE_HURRICANE",
+    "Huracán",
+    "Traps the foe in a fierce\\nwind. May cause confusion."
+  ],
+  [
+    "MOVE_HEAD_CHARGE",
+    "Carga Brutal",
+    "A charge using guard hair.\\nIt hurts the user a little."
+  ],
+  [
+    "MOVE_GEAR_GRIND",
+    "Muela Piñón",
+    "Throws two steel gears\\nthat strike twice."
+  ],
+  [
+    "MOVE_TECHNO_BLAST",
+    "Tecno Disparo",
+    "The type varies with the\\nkind of Drive held."
+  ],
+  [
+    "MOVE_RELIC_SONG",
+    "Canto Ancestral",
+    "Attacks with an ancient\\nsong. May induce sleep."
+  ],
+  [
+    "MOVE_SECRET_SWORD",
+    "Espada Secreta",
+    "Cuts with a long horn that\\ndoes physical damage."
+  ],
+  [
+    "MOVE_GLACIATE",
+    "Glaciación",
+    "Blows very cold air at the\\nfoes. It lowers their Speed."
+  ],
+  [
+    "MOVE_BOLT_STRIKE",
+    "Rayo Fulgor",
+    "Strikes with a great amount\\nof lightning. May paralyze."
+  ],
+  [
+    "MOVE_BLUE_FLARE",
+    "Llama Azul",
+    "Engulfs the foe in a blue\\nflame. May inflict a burn."
+  ],
+  [
+    "MOVE_FIERY_DANCE",
+    "Danza Ígnea",
+    "Dances cloaked in flames.\\nMay raise Sp. Atk."
+  ],
+  [
+    "MOVE_FREEZE_SHOCK",
+    "Impacto Gélido",
+    "A powerful 2-turn move that\\nmay paralyze the foe."
+  ],
+  [
+    "MOVE_ICE_BURN",
+    "Quemadura Polar",
+    "A powerful 2-turn move that\\nmay inflict a burn."
+  ],
+  [
+    "MOVE_SNARL",
+    "Rugido Vil",
+    "Yells and rants at the foe\\nlowering its Sp. Atk."
+  ],
+  [
+    "MOVE_ICICLE_CRASH",
+    "Carámbano Brutal",
+    "Drops large icicles on the\\nfoe. May cause flinching."
+  ],
+  [
+    "MOVE_V_CREATE",
+    "Chispa V",
+    "Very powerful, but lowers\\nDefense, Sp. Def and Speed."
+  ],
+  [
+    "MOVE_FUSION_FLARE",
+    "Destello Fusión",
+    "Summons a fireball. Works\\nwell with a thunderbolt."
+  ],
+  [
+    "MOVE_FUSION_BOLT",
+    "Rayo Fusión",
+    "Summons a thunderbolt.\\nWorks well with a fireball."
+  ],
+  [
+    "MOVE_FLYING_PRESS",
+    "Presión Aérea",
+    "This attack does Fighting\\nand Flying-type damage."
+  ],
+  [
+    "MOVE_MAT_BLOCK",
+    "Tatami",
+    "Evades damaging moves.\\nOnly works on 1st turn."
+  ],
+  [
+    "MOVE_BELCH",
+    "Eructo",
+    "Lets out a loud belch.\\nMust eat a Berry to use it."
+  ],
+  [
+    "MOVE_ROTOTILLER",
+    "Rotatiller",
+    "Ups the Attack and Sp. Atk\\nof Grass-type Pokémon."
+  ],
+  [
+    "MOVE_STICKY_WEB",
+    "Tela Pegajosa",
+    "Weaves a sticky net that\\nslows foes switching in."
+  ],
+  [
+    "MOVE_FELL_STINGER",
+    "Aguijón Mortal",
+    "If it knocks out a foe\\nthe Attack stat is raised."
+  ],
+  [
+    "MOVE_TRICK_OR_TREAT",
+    "Truco o Trato",
+    "Goes trick-or-treating,\\nadding Ghost type to foe."
+  ],
+  [
+    "MOVE_NOBLE_ROAR",
+    "Rugido Noble",
+    "Intimidates the foe, to cut\\nAttack and Sp. Atk."
+  ],
+  [
+    "MOVE_ION_DELUGE",
+    "Diluvio Iónico",
+    "Electrifies Normal-type\\nmoves with charged atoms."
+  ],
+  [
+    "MOVE_PARABOLIC_CHARGE",
+    "Carga Parabólica",
+    "Damages adjacent Pokémon\\nand heals up by half of it."
+  ],
+  [
+    "MOVE_FORESTS_CURSE",
+    "Maldición del Bosque",
+    "Puts a curse on the foe,\\nadding the Grass type."
+  ],
+  [
+    "MOVE_PETAL_BLIZZARD",
+    "Tormenta de Pétalos",
+    "Stirs up a violent storm\\nof petals to attack all."
+  ],
+  [
+    "MOVE_FREEZE_DRY",
+    "Ultrafrío",
+    "Super effective on Water-\\ntypes. May cause frostbite."
+  ],
+  [
+    "MOVE_DISARMING_VOICE",
+    "Voz Cautivadora",
+    "Lets out a charming cry\\nthat cannot be evaded."
+  ],
+  [
+    "MOVE_PARTING_SHOT",
+    "Tiro de Salida",
+    "Lowers the foe's Attack and\\nSp. Atk, then switches out."
+  ],
+  [
+    "MOVE_TOPSY_TURVY",
+    "Cambio Total",
+    "Swaps all stat changes that\\naffect the target."
+  ],
+  [
+    "MOVE_CRAFTY_SHIELD",
+    "Escudo Astuto",
+    "Evades status moves for\\none turn."
+  ],
+  [
+    "MOVE_FLOWER_SHIELD",
+    "Escudo Floral",
+    "Raises the Defense of\\nGrass-type Pokémon."
+  ],
+  [
+    "MOVE_GRASSY_TERRAIN",
+    "Terreno de Hierba",
+    "The ground turns to grass\\nfor 5 turns. Restores HP."
+  ],
+  [
+    "MOVE_MISTY_TERRAIN",
+    "Terreno de Niebla",
+    "Covers the ground with mist\\nfor 5 turns. Blocks status."
+  ],
+  [
+    "MOVE_ELECTRIFY",
+    "Electrificar",
+    "Electrifies the foe, making\\nits next move Electric-type."
+  ],
+  [
+    "MOVE_PLAY_ROUGH",
+    "Juego Brusco",
+    "Plays rough with the foe.\\nMay lower Attack."
+  ],
+  [
+    "MOVE_FAIRY_WIND",
+    "Viento Feérico",
+    "Stirs up a fairy wind to\\nstrike the foe."
+  ],
+  [
+    "MOVE_MOONBLAST",
+    "Explosion Lunar",
+    "Attacks with the power of\\nthe moon. May lower Sp. Atk."
+  ],
+  [
+    "MOVE_BOOMBURST",
+    "Explosión Sonora",
+    "Attacks everything with a\\ndestructive sound wave."
+  ],
+  [
+    "MOVE_FAIRY_LOCK",
+    "Cerradura Feérica",
+    "Locks down the battlefield\\npreventing escape next turn."
+  ],
+  [
+    "MOVE_KINGS_SHIELD",
+    "Escudo Real",
+    "Evades damage, and sharply\\nreduces Attack if struck."
+  ],
+  [
+    "MOVE_PLAY_NICE",
+    "Juego Limpio",
+    "Befriend the foe, lowering\\nits Attack without fail."
+  ],
+  [
+    "MOVE_CONFIDE",
+    "Confidencia",
+    "Shares a secret with the\\nfoe, lowering Sp. Atk."
+  ],
+  [
+    "MOVE_DIAMOND_STORM",
+    "Tormenta de Diamante",
+    "Whips up a storm of\\ndiamonds. May up Defense."
+  ],
+  [
+    "MOVE_STEAM_ERUPTION",
+    "Erupción Vapor",
+    "Immerses the foe in heated\\nsteam. May inflict a burn."
+  ],
+  [
+    "MOVE_WATER_SHURIKEN",
+    "Shuriken de Agua",
+    "Throws 2 to 5 stars that\\nare sure to strike first."
+  ],
+  [
+    "MOVE_MYSTICAL_FIRE",
+    "Fuego Místico",
+    "Breathes a special, hot\\nfire. Lowers Sp. Atk."
+  ],
+  [
+    "MOVE_SPIKY_SHIELD",
+    "Escudo de Pinchos",
+    "Evades attack, and damages\\nthe foe if struck."
+  ],
+  [
+    "MOVE_AROMATIC_MIST",
+    "Niebla Aromática",
+    "Raises the Sp. Def of a\\npartner Pokémon."
+  ],
+  [
+    "MOVE_EERIE_IMPULSE",
+    "Impulso Eerie",
+    "Exposes the foe to a pulse\\nthat sharply cuts Sp. Atk."
+  ],
+  [
+    "MOVE_VENOM_DRENCH",
+    "Ducha Veneno",
+    "Lowers the Attack, Sp. Atk\\nand Speed of poisoned foes."
+  ],
+  [
+    "MOVE_POWDER",
+    "Polvo",
+    "Damages the foe if it uses\\na Fire-type move."
+  ],
+  [
+    "MOVE_GEOMANCY",
+    "Geomancia",
+    "Raises Sp. Atk, Sp. Def and\\nSpeed on the 2nd turn."
+  ],
+  [
+    "MOVE_MAGNETIC_FLUX",
+    "Flujo Magnético",
+    "Boosts the defenses of\\nthose with Plus or Minus."
+  ],
+  [
+    "MOVE_HAPPY_HOUR",
+    "Hora Feliz",
+    "Doubles the amount of\\nPrize Money received."
+  ],
+  [
+    "MOVE_ELECTRIC_TERRAIN",
+    "Terreno Eléctrico",
+    "Electrifies the ground for\\n5 turns. Prevents sleep."
+  ],
+  [
+    "MOVE_DAZZLING_GLEAM",
+    "Flash Cañón",
+    "Damages foes by emitting\\na bright flash."
+  ],
+  [
+    "MOVE_CELEBRATE",
+    "Celebración",
+    "Congratulates you on your\\nspecial day."
+  ],
+  [
+    "MOVE_HOLD_HANDS",
+    "Coger la Mano",
+    "The user and ally hold hands\\nmaking them happy."
+  ],
+  [
+    "MOVE_BABY_DOLL_EYES",
+    "Ojos de Muñeca",
+    "Lowers the foe's Attack\\nbefore it can move."
+  ],
+  [
+    "MOVE_NUZZLE",
+    "Carantona",
+    "Rubs its cheeks against\\nthe foe, paralyzing it."
+  ],
+  [
+    "MOVE_INFESTATION",
+    "Infestación",
+    "The foe is infested and\\nattacked for  turns."
+  ],
+  [
+    "MOVE_POWER_UP_PUNCH",
+    "Puño Poder",
+    "A hard punch that raises\\nthe user's Attack."
+  ],
+  [
+    "MOVE_THOUSAND_ARROWS",
+    "Mil Flechas",
+    "Can hit Flying foes, then\\nknocks them to the ground."
+  ],
+  [
+    "MOVE_THOUSAND_WAVES",
+    "Mil Olas",
+    "Those hit by the wave can\\nno longer escape."
+  ],
+  [
+    "MOVE_LANDS_WRATH",
+    "LAND'S WRATH",
+    "Gathers the energy of the\\nland to attack every foe."
+  ],
+  [
+    "MOVE_LIGHT_OF_RUIN",
+    "Luz Devastadora",
+    "Fires a great beam of light\\nthat also hurts the user."
+  ],
+  [
+    "MOVE_ORIGIN_PULSE",
+    "Pulso Primigenio",
+    "Beams of glowing blue light\\nblast both foes."
+  ],
+  [
+    "MOVE_PRECIPICE_BLADES",
+    "Hojas Abismales",
+    "Fearsome blades of stone\\nattack both foes."
+  ],
+  [
+    "MOVE_SHORE_UP",
+    "Sedimentar",
+    "Restores the user's HP.\\nMore HP in a sandstorm."
+  ],
+  [
+    "MOVE_FIRST_IMPRESSION",
+    "Primera Impresión",
+    "Hits hard and first.\\nOnly works first turn."
+  ],
+  [
+    "MOVE_BANEFUL_BUNKER",
+    "Búnker Tóxico",
+    "Protects user and poisons\\nfoes on contact."
+  ],
+  [
+    "MOVE_SPIRIT_SHACKLE",
+    "Grillete Espiritual",
+    "After being hit, foes can\\nno longer escape."
+  ],
+  [
+    "MOVE_DARKEST_LARIAT",
+    "Lazo Oscuro",
+    "Swings the arms to strike\\nIt ignores stat changes."
+  ],
+  [
+    "MOVE_SPARKLING_ARIA",
+    "Aria Centelleante",
+    "Sings with bubbles. Cures\\nburns on contact."
+  ],
+  [
+    "MOVE_ICE_HAMMER",
+    "Martillo Hielo",
+    "Swings the fist to strike.\\nLowers the user's Speed."
+  ],
+  [
+    "MOVE_FLORAL_HEALING",
+    "Cura Floral",
+    "Restores an ally's HP.\\nHeals more on grass."
+  ],
+  [
+    "MOVE_HIGH_HORSEPOWER",
+    "Pura Potencia",
+    "Slams hard into the foe with\\nits entire body."
+  ],
+  [
+    "MOVE_STRENGTH_SAP",
+    "Zumo Fuerza",
+    "Saps the foe's Attack to\\nheal HP, then drops Attack."
+  ],
+  [
+    "MOVE_SOLAR_BLADE",
+    "Hoja Solar",
+    "Charges first turn, then\\nchops with a blade of light."
+  ],
+  [
+    "MOVE_LEAFAGE",
+    "Hojas",
+    "Attacks with a flurry of\\nsmall leaves."
+  ],
+  [
+    "MOVE_SPOTLIGHT",
+    "Foco de Luz",
+    "Makes the foe attack the\\nspotlighted Pokémon."
+  ],
+  [
+    "MOVE_TOXIC_THREAD",
+    "Hilo Tóxico",
+    "Attacks with a thread that\\npoisons and drops Speed."
+  ],
+  [
+    "MOVE_LASER_FOCUS",
+    "Enfoque Láser",
+    "Guarantees the next move\\nwill be a critical hit."
+  ],
+  [
+    "MOVE_GEAR_UP",
+    "Engranar",
+    "Boosts the attacks of\\nthose with Plus or Minus."
+  ],
+  [
+    "MOVE_THROAT_CHOP",
+    "Garganta Golpe",
+    "Chops the throat to disable\\nsound moves for 2 turns."
+  ],
+  [
+    "MOVE_POLLEN_PUFF",
+    "Pompón Polen",
+    "Explodes on foes, but\\nrestores ally's HP."
+  ],
+  [
+    "MOVE_ANCHOR_SHOT",
+    "Disparo Ancla",
+    "Strangles the foe with a\\nchain. The foe can't escape."
+  ],
+  [
+    "MOVE_PSYCHIC_TERRAIN",
+    "Terreno Psíquico",
+    "The ground turns weird for\\n5 turns. Blocks priority."
+  ],
+  [
+    "MOVE_LUNGE",
+    "Abalanzarse",
+    "Lunges at the foe to lower\\nits Attack stat."
+  ],
+  [
+    "MOVE_FIRE_LASH",
+    "Látigo Ígneo",
+    "Whips the foe with fire\\nlowering its Defense."
+  ],
+  [
+    "MOVE_POWER_TRIP",
+    "Viaje Poder",
+    "It hits harder the more\\nstat boosts the user has."
+  ],
+  [
+    "MOVE_BURN_UP",
+    "Quema Total",
+    "Burns out the user fully\\nremoving the Fire type."
+  ],
+  [
+    "MOVE_SPEED_SWAP",
+    "Cambio Velocidad",
+    "Swaps user's Speed with\\nthe target's."
+  ],
+  [
+    "MOVE_SMART_STRIKE",
+    "Golpe Certero",
+    "Hits with an accurate\\nhorn that never misses."
+  ],
+  [
+    "MOVE_PURIFY",
+    "Purificación",
+    "Cures the foe's status\\nto restore HP."
+  ],
+  [
+    "MOVE_REVELATION_DANCE",
+    "Danza Revelación",
+    "Dances with mystical power.\\nMatches user's first type."
+  ],
+  [
+    "MOVE_CORE_ENFORCER",
+    "Extintor de Habilidad",
+    "Hits with a ray that\\nnullifies the foe's Ability."
+  ],
+  [
+    "MOVE_TROP_KICK",
+    "Patada Tropical",
+    "An intense kick from the\\ntropics. Lowers Attack."
+  ],
+  [
+    "MOVE_INSTRUCT",
+    "Instrucción",
+    "Orders the target to use\\nits last move again."
+  ],
+  [
+    "MOVE_BEAK_BLAST",
+    "Pico Explosivo",
+    "Heats beak to attack last.\\nBurns foe on contact."
+  ],
+  [
+    "MOVE_CLANGING_SCALES",
+    "Escamas Resonantes",
+    "Makes a big noise with\\nits scales. Drops Defense."
+  ],
+  [
+    "MOVE_DRAGON_HAMMER",
+    "Martillo Dragón",
+    "Swings its whole body\\nlike a hammer to damage."
+  ],
+  [
+    "MOVE_BRUTAL_SWING",
+    "Golpe Brutal",
+    "Violently swings around\\nto hurt everyone nearby."
+  ],
+  [
+    "MOVE_AURORA_VEIL",
+    "Velo Aurora",
+    "Weakens all attacks, but\\nonly usable with snow."
+  ],
+  [
+    "MOVE_SHELL_TRAP",
+    "SHELL TRAP",
+    "Sets a shell trap that\\ndamages on contact."
+  ],
+  [
+    "MOVE_FLEUR_CANNON",
+    "FLEUR CANNON",
+    "A strong ray that harshly\\nlowers Sp. Attack."
+  ],
+  [
+    "MOVE_PSYCHIC_FANGS",
+    "PSYCHIC FANGS",
+    "Chomps with psychic fangs.\\nDestroys any barriers."
+  ],
+  [
+    "MOVE_STOMPING_TANTRUM",
+    "STOMPING TANTRUM",
+    "Stomps around angrily.\\nStronger after a failure."
+  ],
+  [
+    "MOVE_SHADOW_BONE",
+    "SHADOW BONE",
+    "Strikes with a haunted\\nbone. Might drop Defense."
+  ],
+  [
+    "MOVE_ACCELEROCK",
+    "ACCELEROCK",
+    "Hits with a high-speed\\nrock that always goes first."
+  ],
+  [
+    "MOVE_LIQUIDATION",
+    "LIQUIDATION",
+    "Slams the foe with water.\\nCan lower Defense."
+  ],
+  [
+    "MOVE_PRISMATIC_LASER",
+    "PRISMATIC LASER",
+    "A high power laser that\\nforces recharge next turn."
+  ],
+  [
+    "MOVE_SPECTRAL_THIEF",
+    "SPECTRAL THIEF",
+    "Steals the target's stat\\nboosts, then attacks."
+  ],
+  [
+    "MOVE_SUNSTEEL_STRIKE",
+    "SUNSTEEL STRIKE",
+    "A sun-fueled strike that\\nignores abilities."
+  ],
+  [
+    "MOVE_MOONGEIST_BEAM",
+    "MOONGEIST BEAM",
+    "A moon-powered beam that\\nignores abilities."
+  ],
+  [
+    "MOVE_TEARFUL_LOOK",
+    "TEARFUL LOOK",
+    "The user tears up, dropping\\nAttack and Sp. Attack."
+  ],
+  [
+    "MOVE_ZING_ZAP",
+    "ZING ZAP",
+    "An electrified impact that\\ncan cause flinching."
+  ],
+  [
+    "MOVE_NATURES_MADNESS",
+    "NATURE'S MADNESS",
+    "Halves the foe's HP with\\nthe power of nature."
+  ],
+  [
+    "MOVE_MULTI_ATTACK",
+    "MULTI-ATTACK",
+    "Attack that changes\\nwith Memories."
+  ],
+  [
+    "MOVE_MIND_BLOWN",
+    "Explosión Mental",
+    "It explodes the user's head\\nto damage everything around."
+  ],
+  [
+    "MOVE_PLASMA_FISTS",
+    "Puños de Plasma",
+    "Hits with electrical fists.\\nNormal moves turn Electric."
+  ],
+  [
+    "MOVE_PHOTON_GEYSER",
+    "Géiser Fotónico",
+    "User's highest attack stat\\ndetermines its category."
+  ],
+  [
+    "MOVE_ZIPPY_ZAP",
+    "Electro Veloz",
+    "Electric bursts always go\\nfirst and land a critical hit."
+  ],
+  [
+    "MOVE_SPLISHY_SPLASH",
+    "Salpicada",
+    "A huge electrified wave that\\nmay paralyze the foes."
+  ],
+  [
+    "MOVE_FLOATY_FALL",
+    "Caída Flotante",
+    "Floats in air and dives at\\nangle. May cause flinching."
+  ],
+  [
+    "MOVE_PIKA_PAPOW",
+    "Pika Papow",
+    "Pikachu's love increases its\\npower. It never misses."
+  ],
+  [
+    "MOVE_BOUNCY_BUBBLE",
+    "Burbuja Rebote",
+    "Attack that absorbs\\nall the damage inflicted."
+  ],
+  [
+    "MOVE_BUZZY_BUZZ",
+    "Zum Zum",
+    "Shoots a jolt of electricity\\nthat always paralyzes."
+  ],
+  [
+    "MOVE_SIZZLY_SLIDE",
+    "Chirrido Ígneo",
+    "User cloaked in fire charges.\\nLeaves the foe with a burn."
+  ],
+  [
+    "MOVE_GLITZY_GLOW",
+    "Brillante Glow",
+    "Telekinetic force that sets\\nwall, lowering Sp. Atk damage."
+  ],
+  [
+    "MOVE_BADDY_BAD",
+    "Maldad Total",
+    "Acting badly, attacks. Sets\\nwall, lowering Attack damage."
+  ],
+  [
+    "MOVE_SAPPY_SEED",
+    "Semilla Savia",
+    "Giant stalk scatters seeds\\nthat drain HP every turn."
+  ],
+  [
+    "MOVE_FREEZY_FROST",
+    "Frost Helado",
+    "Crystal from cold haze hits.\\nEliminates all stat changes."
+  ],
+  [
+    "MOVE_SPARKLY_SWIRL",
+    "Espiral Chispa",
+    "Wrap foe with whirlwind of\\nscent. Heals party's status."
+  ],
+  [
+    "MOVE_VEEVEE_VOLLEY",
+    "Volea Eevee",
+    "Eevee's love increases its\\npower. It never misses."
+  ],
+  [
+    "MOVE_DOUBLE_IRON_BASH",
+    "Doble Golpe Férreo",
+    "The user spins and hits with\\nits arms. May cause flinch."
+  ],
+  [
+    "MOVE_DYNAMAX_CANNON",
+    "Cañón Dinamax",
+    "Unleashes core energy.\\n2x against Dynamaxed foes."
+  ],
+  [
+    "MOVE_SNIPE_SHOT",
+    "Disparo Preciso",
+    "The user ignores effects\\nthat draw in moves."
+  ],
+  [
+    "MOVE_JAW_LOCK",
+    "Mandíbula Letal",
+    "Prevents the user and\\nthe target from escaping."
+  ],
+  [
+    "MOVE_STUFF_CHEEKS",
+    "Atracar Mejillas",
+    "Consumes the user's Berry,\\nthen sharply raises Def."
+  ],
+  [
+    "MOVE_NO_RETREAT",
+    "Sin Retirada",
+    "Raises all of the user's\\nstats but prevents escape."
+  ],
+  [
+    "MOVE_TAR_SHOT",
+    "Disparo Alquitrán",
+    "Lowers the foe's Speed and\\nmakes it weak to Fire."
+  ],
+  [
+    "MOVE_MAGIC_POWDER",
+    "Polvo Mágico",
+    "Magic powder changes the\\ntarget into a Psychic type."
+  ],
+  [
+    "MOVE_DRAGON_DARTS",
+    "Dardos Dragón",
+    "The user attacks twice. Two\\ntargets are hit once each."
+  ],
+  [
+    "MOVE_TEATIME",
+    "Hora del Té",
+    "All Pokémon have teatime\\nand eat their Berries."
+  ],
+  [
+    "MOVE_OCTOLOCK",
+    "Octocerrojo",
+    "Traps the foe to lower Def\\nand Sp. Def each turn."
+  ],
+  [
+    "MOVE_BOLT_BEAK",
+    "Pico Rayo",
+    "Double power if the user\\nmoves before the target."
+  ],
+  [
+    "MOVE_FISHIOUS_REND",
+    "Dentellada",
+    "Double power if the user\\nmoves before the target."
+  ],
+  [
+    "MOVE_COURT_CHANGE",
+    "Cambio de Campo",
+    "The user swaps effects on\\neither side of the field."
+  ],
+  [
+    "MOVE_CLANGOROUS_SOUL",
+    "Alma Resonante",
+    "The user uses some of its\\nHP to raise all its stats."
+  ],
+  [
+    "MOVE_BODY_PRESS",
+    "Golpe Cuerpo",
+    "Does more damage the\\nhigher the user's Def."
+  ],
+  [
+    "MOVE_DECORATE",
+    "Decorar",
+    "The user sharply raises\\nthe target's Atk and Sp.Atk."
+  ],
+  [
+    "MOVE_DRUM_BEATING",
+    "Redoble",
+    "Plays a drum to attack.\\nThe foe's Speed is lowered."
+  ],
+  [
+    "MOVE_SNAP_TRAP",
+    "Trampa Boca",
+    "Snares the target in a snap\\ntrap for four to five turns."
+  ],
+  [
+    "MOVE_PYRO_BALL",
+    "Bola de Fuego",
+    "Launches a fiery ball at the\\ntarget. It may cause a burn."
+  ],
+  [
+    "MOVE_BEHEMOTH_BLADE",
+    "Espada Gigante",
+    "Strikes as a sword. Deals 2x\\ndamage to Dynamaxed foes."
+  ],
+  [
+    "MOVE_BEHEMOTH_BASH",
+    "Golpe Gigante",
+    "Attacks as a shield. Deals 2x\\ndamage to Dynamaxed foes."
+  ],
+  [
+    "MOVE_AURA_WHEEL",
+    "Rueda Aural",
+    "Raises Speed to attack. The\\nType is based on its form."
+  ],
+  [
+    "MOVE_BREAKING_SWIPE",
+    "Golpe Demoledor",
+    "Swings its tail to attack.\\nLowers the Atk of those hit."
+  ],
+  [
+    "MOVE_BRANCH_POKE",
+    "Golpe Rama",
+    "The user pokes the target\\nwith a pointed branch."
+  ],
+  [
+    "MOVE_OVERDRIVE",
+    "Sobredrive",
+    "The user twangs its guitar,\\ncausing strong vibrations."
+  ],
+  [
+    "MOVE_APPLE_ACID",
+    "Ácido Manzana",
+    "Attacks with tart apple acid\\nto lower the foe's Sp. Def."
+  ],
+  [
+    "MOVE_GRAV_APPLE",
+    "Manzana Pesada",
+    "Drops an apple from above.\\nLowers the foe's Defense."
+  ],
+  [
+    "MOVE_SPIRIT_BREAK",
+    "Rompe Espíritu",
+    "Attacks with spirit-breaking\\nforce. Lowers Sp. Atk."
+  ],
+  [
+    "MOVE_STRANGE_STEAM",
+    "Vapor Extraño",
+    "Emits a strange steam to\\npotentially confuse the foe."
+  ],
+  [
+    "MOVE_LIFE_DEW",
+    "Rocío Vital",
+    "Scatters water to restore\\nthe HP of itself and allies."
+  ],
+  [
+    "MOVE_OBSTRUCT",
+    "Obstrucción",
+    "Protects itself, harshly\\nlowering Def on contact."
+  ],
+  [
+    "MOVE_FALSE_SURRENDER",
+    "Falsa Rendición",
+    "Bows to stab the foe\\nwith hair. It never misses."
+  ],
+  [
+    "MOVE_METEOR_ASSAULT",
+    "Asalto Meteorito",
+    "Attacks with a thick leek.\\nThe user must then rest."
+  ],
+  [
+    "MOVE_ETERNABEAM",
+    "Haz Eterno",
+    "Eternatus' strongest move.\\nThe user rests next turn."
+  ],
+  [
+    "MOVE_STEEL_BEAM",
+    "Rayo de Acero",
+    "Fires a beam of steel from\\nits body. It hurts the user."
+  ],
+  [
+    "MOVE_EXPANDING_FORCE",
+    "Fuerza Expansiva",
+    "Power goes up and damages\\nall foes on Psychic Terrain."
+  ],
+  [
+    "MOVE_STEEL_ROLLER",
+    "Rodillo Acero",
+    "Destroys terrain. Fails if\\nground isn't terrain."
+  ],
+  [
+    "MOVE_SCALE_SHOT",
+    "Escamas Bala",
+    "Shoots scales 2 to 5 times.\\nUps Speed, lowers defense."
+  ],
+  [
+    "MOVE_METEOR_BEAM",
+    "Rayo Meteoro",
+    "A 2-turn move that raises\\nSp. Attack before attacking."
+  ],
+  [
+    "MOVE_SHELL_SIDE_ARM",
+    "Caña Venenosa",
+    "Deals better of physical and\\nspecial damage. May poison."
+  ],
+  [
+    "MOVE_MISTY_EXPLOSION",
+    "Explosión Brumosa",
+    "Hit everything and faint.\\nPowers up on Misty Terrain."
+  ],
+  [
+    "MOVE_GRASSY_GLIDE",
+    "Deslizamiento Grassy",
+    "Gliding on ground, hits. Goes\\nfirst on Grassy Terrain."
+  ],
+  [
+    "MOVE_RISING_VOLTAGE",
+    "Voltaje Creciente",
+    "This move's power doubles\\nwhen on Electric Terrain."
+  ],
+  [
+    "MOVE_TERRAIN_PULSE",
+    "Pulso Terrestre",
+    "Type and power changes\\ndepending on the terrain."
+  ],
+  [
+    "MOVE_SKITTER_SMACK",
+    "Tarascada",
+    "User skitters behind foe to\\nattack. Lowers foe's Sp. Atk."
+  ],
+  [
+    "MOVE_BURNING_JEALOUSY",
+    "Envidia Ardiente",
+    "Foes that have stats upped\\nduring the turn get burned."
+  ],
+  [
+    "MOVE_LASH_OUT",
+    "Desahogo",
+    "If user's stats were lowered\\nthis turn, power is doubled."
+  ],
+  [
+    "MOVE_POLTERGEIST",
+    "Poltergeist",
+    "Control foe's item to attack.\\nFails if foe has no item."
+  ],
+  [
+    "MOVE_CORROSIVE_GAS",
+    "Gas Corrosivo",
+    "Highly acidic gas melts items\\nheld by surrounding Pokémon."
+  ],
+  [
+    "MOVE_COACHING",
+    "Entrenamiento",
+    "Properly coaches allies to\\nup their Attack and Defense."
+  ],
+  [
+    "MOVE_FLIP_TURN",
+    "Viraje",
+    "Attacks and rushes back to\\nswitch with a party Pokémon."
+  ],
+  [
+    "MOVE_TRIPLE_AXEL",
+    "Triple Axel",
+    "A 3-kick attack that gets\\nmore powerful with each hit."
+  ],
+  [
+    "MOVE_DUAL_WINGBEAT",
+    "Doble Aleteo",
+    "User slams the target with\\nwings and hits twice in a row."
+  ],
+  [
+    "MOVE_SCORCHING_SANDS",
+    "Arenas Ardientes",
+    "Throws scorching sand at\\nthe target. May leave a burn."
+  ],
+  [
+    "MOVE_JUNGLE_HEALING",
+    "Cura Selva",
+    "Heals HP and status of\\nitself and allies in battle."
+  ],
+  [
+    "MOVE_WICKED_BLOW",
+    "Golpe Pérfido",
+    "Mastering the Dark style,\\nstrikes with a critical hit."
+  ],
+  [
+    "MOVE_SURGING_STRIKES",
+    "Marejada de Golpes",
+    "Mastering the Water style,\\nstrikes with 3 critical hits."
+  ],
+  [
+    "MOVE_THUNDER_CAGE",
+    "Jaula Eléctrica",
+    "Traps the foe in a cage of\\nelectricity for  turns."
+  ],
+  [
+    "MOVE_DRAGON_ENERGY",
+    "Energía Dragón",
+    "The higher the user's HP\\nthe more damage caused."
+  ],
+  [
+    "MOVE_FREEZING_GLARE",
+    "Mirada Gélida",
+    "Shoots psychic power from\\nthe eyes. May frostbite."
+  ],
+  [
+    "MOVE_FIERY_WRATH",
+    "Ira Ígnea",
+    "Attack fueled by your\\nwrath. May cause flinching."
+  ],
+  [
+    "MOVE_THUNDEROUS_KICK",
+    "Patada Tronante",
+    "Uses a lightning-like kick\\nto hit. Lowers foe's Defense."
+  ],
+  [
+    "MOVE_GLACIAL_LANCE",
+    "Lanza Glacial",
+    "Hurls a blizzard-cloaked\\nicicle lance at foes."
+  ],
+  [
+    "MOVE_ASTRAL_BARRAGE",
+    "Lluvia Astral",
+    "Sends a frightful amount\\nof small ghosts at foes."
+  ],
+  [
+    "MOVE_EERIE_SPELL",
+    "Hechizo Eerie",
+    "Attacks with psychic power.\\nFoe's last move has 3 PP cut."
+  ],
+  [
+    "MOVE_DIRE_CLAW",
+    "Garra Terrible",
+    "High critical hit chance. May\\nparalyze, poison or drowse."
+  ],
+  [
+    "MOVE_PSYSHIELD_BASH",
+    "Golpe Escudo Psíquico",
+    "Hits a foe with psychic\\nenergy. May raise Defense."
+  ],
+  [
+    "MOVE_POWER_SHIFT",
+    "Cambio de Poder",
+    "The user swaps its Attack\\nand Defense stats."
+  ],
+  [
+    "MOVE_STONE_AXE",
+    "Hacha de Piedra",
+    "Sets sharp rocks that hurt\\nthe foe."
+  ],
+  [
+    "MOVE_SPRINGTIDE_STORM",
+    "Tormenta Primaveral",
+    "Wraps a foe in fierce winds.\\nVaries with the user's form."
+  ],
+  [
+    "MOVE_MYSTICAL_POWER",
+    "Poder Místico",
+    "A mysterious power strikes,\\nraising the user's Sp. Atk."
+  ],
+  [
+    "MOVE_RAGING_FURY",
+    "Furia Salvaje",
+    "A rampage of 2 to 3 turns\\nthat confuses the user."
+  ],
+  [
+    "MOVE_WAVE_CRASH",
+    "Choque de Ola",
+    "A slam shrouded in water.\\nIt also hurts the user."
+  ],
+  [
+    "MOVE_CHLOROBLAST",
+    "Cloroexplosión",
+    "A user-hurting blast of\\namassed chlorophyll."
+  ],
+  [
+    "MOVE_MOUNTAIN_GALE",
+    "Ventarrón",
+    "Giant chunks of ice damage\\nthe foe. It may flinch."
+  ],
+  [
+    "MOVE_VICTORY_DANCE",
+    "Danza Victoria",
+    "Dances to raise Attack,\\nDefense and Speed."
+  ],
+  [
+    "MOVE_HEADLONG_RUSH",
+    "Arremetida",
+    "Hits with a full-body tackle.\\nLowers the users's defenses."
+  ],
+  [
+    "MOVE_BARB_BARRAGE",
+    "Lluvia de Púas",
+    "Can poison on impact. Powers\\nup against poisoned foes."
+  ],
+  [
+    "MOVE_ESPER_WING",
+    "Ala Esper",
+    "High critical hit ratio.\\nUps the user's Speed."
+  ],
+  [
+    "MOVE_BITTER_MALICE",
+    "Malicia Amarga",
+    "A spine-chilling resentment.\\nLowers the foe's Attack."
+  ],
+  [
+    "MOVE_SHELTER",
+    "Refugio",
+    "The user hardens their skin,\\nsharply raising its Defense."
+  ],
+  [
+    "MOVE_TRIPLE_ARROWS",
+    "Triple Flecha",
+    "High critical hit ratio.\\nMay lower Defense or flinch."
+  ],
+  [
+    "MOVE_INFERNAL_PARADE",
+    "Desfile Infernal",
+    "Hurts a foe harder if it has\\nan ailment. May leave a burn."
+  ],
+  [
+    "MOVE_CEASELESS_EDGE",
+    "Filo Incesante",
+    "Sets Spikes that hurt the\\nfoe."
+  ],
+  [
+    "MOVE_BLEAKWIND_STORM",
+    "Vendaval Desolador",
+    "Hits with brutal, cold winds.\\nMay lower the foe's Speed."
+  ],
+  [
+    "MOVE_WILDBOLT_STORM",
+    "Tormenta Salvaje",
+    "Hits with a brutal tempest.\\nMay inflict paralysis."
+  ],
+  [
+    "MOVE_SANDSEAR_STORM",
+    "Tormenta de Arena Abrasadora",
+    "Hits with brutally hot sand.\\nMay inflict a burn."
+  ],
+  [
+    "MOVE_LUNAR_BLESSING",
+    "Bendición Lunar",
+    "The user heals and cures\\nitself and its ally."
+  ],
+  [
+    "MOVE_TAKE_HEART",
+    "Cobrar Ánimo",
+    "The user lifts its spirits to\\nheal and strengthen itself."
+  ],
+  [
+    "MOVE_TERA_BLAST",
+    "Teraexplosión",
+    "If the user's Terastallized,\\nit hits with its Tera type."
+  ],
+  [
+    "MOVE_SILK_TRAP",
+    "Trampa de Seda",
+    "Protects itself, lowering\\nSpeed on contact."
+  ],
+  [
+    "MOVE_AXE_KICK",
+    "Patada Hacha",
+    "May miss and hurt the kicker.\\nMay cause confusion."
+  ],
+  [
+    "MOVE_LAST_RESPECTS",
+    "Último Respeto",
+    "This move deals more damage\\nfor each defeated ally."
+  ],
+  [
+    "MOVE_LUMINA_CRASH",
+    "Estruendo Lumínico",
+    "A mind-affecting light\\nharshly lowers Sp. Def."
+  ],
+  [
+    "MOVE_ORDER_UP",
+    "¡A sus órdenes!",
+    "Boosts a user's stats\\ndepending on Tatsugiri."
+  ],
+  [
+    "MOVE_JET_PUNCH",
+    "Puño Cohete",
+    "A punch is thrown at blinding\\nspeed to strike first."
+  ],
+  [
+    "MOVE_SPICY_EXTRACT",
+    "Esencia Picante",
+    "Sharply ups target's Attack,\\nharshly lowers its Defense."
+  ],
+  [
+    "MOVE_SPIN_OUT",
+    "Derrape",
+    "Furiously strains its legs.\\nHarshly lowers user's Speed."
+  ],
+  [
+    "MOVE_POPULATION_BOMB",
+    "Bomba Poblacional",
+    "The user's fellows hit one\\nto ten times in a row."
+  ],
+  [
+    "MOVE_ICE_SPINNER",
+    "Peón de Hielo",
+    "Ice-covered feet hit a foe\\nand destroy the terrain."
+  ],
+  [
+    "MOVE_GLAIVE_RUSH",
+    "Arremetida Espadón",
+    "Foe attacks next turn can't\\nmiss and do double damage."
+  ],
+  [
+    "MOVE_REVIVAL_BLESSING",
+    "Bendición Revival",
+    "Revives a fainted party {PKMN}\\nand restores half of its HP."
+  ],
+  [
+    "MOVE_SALT_CURE",
+    "Cura con Sal",
+    "Hurts foe every turn. Double\\ndamage to Steel and Water."
+  ],
+  [
+    "MOVE_TRIPLE_DIVE",
+    "Triple Inmersión",
+    "Hits target with splashes\\nof water 3 times in a row."
+  ],
+  [
+    "MOVE_MORTAL_SPIN",
+    "Giro Mortal",
+    "Erases trap moves and Leech\\nSeed. Poisons adjacent foes."
+  ],
+  [
+    "MOVE_DOODLE",
+    "Garabato",
+    "Changes user's and ally's\\nAbility into the target's."
+  ],
+  [
+    "MOVE_FILLET_AWAY",
+    "Autosacrificarse",
+    "Sharply boosts offenses and\\nSpeed by using its own HP."
+  ],
+  [
+    "MOVE_KOWTOW_CLEAVE",
+    "Reverencia Filo",
+    "User slashes the foe after\\nkowtowing. It never misses."
+  ],
+  [
+    "MOVE_FLOWER_TRICK",
+    "Truco Floral",
+    "Rigged bouquet. Always gets\\na critical hit, never missing."
+  ],
+  [
+    "MOVE_TORCH_SONG",
+    "Canción de la Antorcha",
+    "Flames scorch the target.\\nBoosts the user's Sp. Atk."
+  ],
+  [
+    "MOVE_AQUA_STEP",
+    "Paso Acuático",
+    "Hits with light, fluid dance\\nsteps. Ups the user's Speed."
+  ],
+  [
+    "MOVE_RAGING_BULL",
+    "Toro Enfurecido",
+    "Tackle that breaks barriers.\\nUser's form determines type."
+  ],
+  [
+    "MOVE_MAKE_IT_RAIN",
+    "Que Llueva",
+    "Lowers the user's Sp. Atk.\\nMoney is recovered after."
+  ],
+  [
+    "MOVE_RUINATION",
+    "Ruina",
+    "Summons a ruinous disaster\\nand cuts half the foe's HP."
+  ],
+  [
+    "MOVE_COLLISION_COURSE",
+    "Ruta de Colisión",
+    "Prehistoric explosion that's\\nstronger if super effective."
+  ],
+  [
+    "MOVE_ELECTRO_DRIFT",
+    "Deriva Electro",
+    "Futuristic electricity. It's\\nstronger if super effective."
+  ],
+  [
+    "MOVE_SHED_TAIL",
+    "Muda de Cola",
+    "Creates a Substitute for\\nitself before switching out."
+  ],
+  [
+    "MOVE_CHILLY_RECEPTION",
+    "Recibimiento Gélido",
+    "Bad joke summons hailstorm.\\nThe user also switches out."
+  ],
+  [
+    "MOVE_TIDY_UP",
+    "Limpiar",
+    "User tidies up hazards and\\nraises its Attack and Speed."
+  ],
+  [
+    "MOVE_SNOWSCAPE",
+    "Ventisca",
+    "Summons a hailstorm that\\nstrikes every turn."
+  ],
+  [
+    "MOVE_POUNCE",
+    "Saltar",
+    "The user pounces on the foe,\\nlowering its Speed."
+  ],
+  [
+    "MOVE_TRAILBLAZE",
+    "Desbrozar",
+    "The user attacks suddenly,\\nraising its Speed."
+  ],
+  [
+    "MOVE_CHILLING_WATER",
+    "Agua Helada",
+    "A shower with ice-cold water\\nlowers the target's Attack."
+  ],
+  [
+    "MOVE_HYPER_DRILL",
+    "Hipertaladradora",
+    "A spinning pointed part\\nbypasses a foe's Protect."
+  ],
+  [
+    "MOVE_TWIN_BEAM",
+    "Haz Doble",
+    "Mystical eye-beams that hit\\nthe target twice in a row."
+  ],
+  [
+    "MOVE_RAGE_FIST",
+    "Puño Rabioso",
+    "The more the user has been\\nhit, the stronger the move."
+  ],
+  [
+    "MOVE_ARMOR_CANNON",
+    "Cañón Armadura",
+    "A strong attack but lowers\\nthe defensive stats."
+  ],
+  [
+    "MOVE_BITTER_BLADE",
+    "Filo Amargo",
+    "Attack that absorbs\\nhalf the damage inflicted."
+  ],
+  [
+    "MOVE_DOUBLE_SHOCK",
+    "Doble Descarga",
+    "Discharges all electricity,\\nlosing the Electric type."
+  ],
+  [
+    "MOVE_GIGATON_HAMMER",
+    "Martillo Gigatón",
+    "Swings a huge hammer. Can't\\nbe used twice in a row."
+  ],
+  [
+    "MOVE_COMEUPPANCE",
+    "Merecido",
+    "Retaliates strongly against\\nwho last hurt the user."
+  ],
+  [
+    "MOVE_AQUA_CUTTER",
+    "Cortador Acuático",
+    "Pressurized water cut with a\\nhigh critical-hit ratio."
+  ],
+  [
+    "MOVE_BLAZING_TORQUE",
+    "Par Motor Ígneo",
+    "---"
+  ],
+  [
+    "MOVE_WICKED_TORQUE",
+    "Par Motor Siniestro",
+    "---"
+  ],
+  [
+    "MOVE_NOXIOUS_TORQUE",
+    "Par Motor Tóxico",
+    "---"
+  ],
+  [
+    "MOVE_COMBAT_TORQUE",
+    "Par Motor Combate",
+    "---"
+  ],
+  [
+    "MOVE_MAGICAL_TORQUE",
+    "Par Motor Mágico",
+    "---"
+  ],
+  [
+    "MOVE_PSYBLADE",
+    "PSYBLADE",
+    "This move's power increases\\nwhen on Electric Terrain."
+  ],
+  [
+    "MOVE_HYDRO_STEAM",
+    "HYDRO STEAM",
+    "This move's power increases\\nunder harsh sunlight."
+  ],
+  [
+    "MOVE_BLOOD_MOON",
+    "Luna Sangre",
+    "Unleashes the blood moon.\\nCan't be used twice in a row."
+  ],
+  [
+    "MOVE_MATCHA_GOTCHA",
+    "Matcha Gotcha",
+    "Absorbs half the damage\\ninflicted. May cause a burn."
+  ],
+  [
+    "MOVE_SYRUP_BOMB",
+    "Bomba de Jarabe",
+    "Lowers the foe's speed\\neach turn for 3 turns."
+  ],
+  [
+    "MOVE_IVY_CUDGEL",
+    "Garrote de Hiedra",
+    "Type changes with held mask.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_ELECTRO_SHOT",
+    "Tiro Electro",
+    "Gathers electricity, then\\nfires a high-voltage shot."
+  ],
+  [
+    "MOVE_TERA_STARSTORM",
+    "Tormenta Estelar Tera",
+    "In Terapagos's Stellar\\nForm, it hits all foes."
+  ],
+  [
+    "MOVE_FICKLE_BEAM",
+    "Haz Caprichoso",
+    "Shoots a beam of light.\\nSometimes twice as strong."
+  ],
+  [
+    "MOVE_BURNING_BULWARK",
+    "Baluarte Ardiente",
+    "Evades attack, and burns\\nthe foe if struck."
+  ],
+  [
+    "MOVE_TACHYON_CUTTER",
+    "Taquión Cuchilla",
+    "Launches particle blades at\\nthe target. Strikes twice."
+  ],
+  [
+    "MOVE_DRAGON_CHEER",
+    "Ánimo Dragón",
+    "Increases allies' critical hit\\nratio, especially if Dragons."
+  ],
+  [
+    "MOVE_ALLURING_VOICE",
+    "Voz Seductora",
+    "Confuses foe if its stats\\nwere boosted this turn."
+  ],
+  [
+    "MOVE_TEMPER_FLARE",
+    "Destello de Rabia",
+    "A desperation attack. Power\\ndoubles if last move failed."
+  ],
+  [
+    "MOVE_SUPERCELL_SLAM",
+    "Golpe Supercélula",
+    "An electrified slam. If it\\nmisses, the user is hurt."
+  ],
+  [
+    "MOVE_PSYCHIC_NOISE",
+    "Ruido Psíquico",
+    "Sound waves that damage and\\nprevent healing for 2 turns."
+  ],
+  [
+    "MOVE_UPPER_HAND",
+    "Mano Alta",
+    "Makes the target flinch if\\nreadying a priority move."
+  ],
+  [
+    "MOVE_MALIGNANT_CHAIN",
+    "Cadena Maligna",
+    "A corrosive chain attack\\nthat may badly poison."
+  ],
+  [
+    "MOVE_BREAKNECK_BLITZ",
+    "BREAKNECK BLITZ",
+    "Builds momentum and crashes\\ninto the foe. Power varies."
+  ],
+  [
+    "MOVE_ALL_OUT_PUMMELING",
+    "ALL-OUT PUMMELING",
+    "Rams an energy orb into\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_SUPERSONIC_SKYSTRIKE",
+    "SUPERSONIC SKYSTRIKE",
+    "Soars up and plummets toward\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_ACID_DOWNPOUR",
+    "ACID DOWNPOUR",
+    "Sinks the target in a poison\\nswamp. Power varies."
+  ],
+  [
+    "MOVE_TECTONIC_RAGE",
+    "TECTONIC RAGE",
+    "Burrows deep and slams into\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_CONTINENTAL_CRUSH",
+    "CONTINENTAL CRUSH",
+    "Drops a huge rock mountain\\non the foe. Power varies."
+  ],
+  [
+    "MOVE_SAVAGE_SPIN_OUT",
+    "SAVAGE SPIN-OUT",
+    "Spits threads of silk to\\nbind the foe. Power varies."
+  ],
+  [
+    "MOVE_NEVER_ENDING_NIGHTMARE",
+    "NEVER-ENDING NIGHTMARE",
+    "Deep-seated grudges trap\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_CORKSCREW_CRASH",
+    "CORKSCREW CRASH",
+    "Spins very fast and rams\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_INFERNO_OVERDRIVE",
+    "INFERNO OVERDRIVE",
+    "Breathes intense fire at\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_HYDRO_VORTEX",
+    "HYDRO VORTEX",
+    "A huge whirlpool swallows\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_BLOOM_DOOM",
+    "BLOOM DOOM",
+    "Uses plant energy to attack\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_GIGAVOLT_HAVOC",
+    "GIGAVOLT HAVOC",
+    "Hits the foe with powerful\\nelectricity. Power varies."
+  ],
+  [
+    "MOVE_SHATTERED_PSYCHE",
+    "SHATTERED PSYCHE",
+    "Controls the target to\\nhurt it. Power varies."
+  ],
+  [
+    "MOVE_SUBZERO_SLAMMER",
+    "SUBZERO SLAMMER",
+    "Drops the temp and freezes\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_DEVASTATING_DRAKE",
+    "DEVASTATING DRAKE",
+    "Develops aura and attacks\\nthe target. Power varies."
+  ],
+  [
+    "MOVE_BLACK_HOLE_ECLIPSE",
+    "BLACK HOLE ECLIPSE",
+    "Sucks the target into dark\\nenergy. Power varies."
+  ],
+  [
+    "MOVE_TWINKLE_TACKLE",
+    "TWINKLE TACKLE",
+    "Toys with the target in a\\ncharming space. Power varies."
+  ],
+  [
+    "MOVE_CATASTROPIKA",
+    "CATASTROPIKA",
+    "Pikachu uses the max amount\\nof electricity and pounces."
+  ],
+  [
+    "MOVE_10000000_VOLT_THUNDERBOLT",
+    "10,000,000 VOLT THUNDERBOLT",
+    "Cap Pikachu unleashes jolt.\\nHigh critical-hit ratio."
+  ],
+  [
+    "MOVE_STOKED_SPARKSURFER",
+    "Surfeo Electrizante",
+    "Alolan Raichu attacks with\\nfull force. Causes paralysis."
+  ],
+  [
+    "MOVE_EXTREME_EVOBOOST",
+    "Evolución Extrema",
+    "Eevee gets energy from\\nits friends. Boosts stats."
+  ],
+  [
+    "MOVE_PULVERIZING_PANCAKE",
+    "Aplastamiento",
+    "Snorlax energetically moves\\nand attacks with full force."
+  ],
+  [
+    "MOVE_GENESIS_SUPERNOVA",
+    "Supernova Génesis",
+    "Mew attacks with full force.\\nPsychically charges terrain."
+  ],
+  [
+    "MOVE_SINISTER_ARROW_RAID",
+    "Flechas Siniestras",
+    "Decidueye shoots countless\\narrows with full force."
+  ],
+  [
+    "MOVE_MALICIOUS_MOONSAULT",
+    "Mortal en Picado",
+    "Incineroar crashes into\\nthe target with full force."
+  ],
+  [
+    "MOVE_OCEANIC_OPERETTA",
+    "Sinfonía Oceánica",
+    "Primarina summons a massive\\namount of water at the foe."
+  ],
+  [
+    "MOVE_SPLINTERED_STORMSHARDS",
+    "Fragmentos de Tormenta",
+    "Lycanroc attacks with full\\nforce. Removes all terrain."
+  ],
+  [
+    "MOVE_LETS_SNUGGLE_FOREVER",
+    "Acurrucados Para Siempre",
+    "Mimikyu punches the target\\nwith full force."
+  ],
+  [
+    "MOVE_CLANGOROUS_SOULBLAZE",
+    "Llamarada Resonante",
+    "Kommo-o attacks with full\\nforce. Boosts all stats."
+  ],
+  [
+    "MOVE_GUARDIAN_OF_ALOLA",
+    "Guardián de Alola",
+    "The Land Spirit Pokémon\\ngreatly reduces the foe's HP."
+  ],
+  [
+    "MOVE_SEARING_SUNRAZE_SMASH",
+    "Machacamiento Solar",
+    "Solgaleo attacks with full\\nforce. Ignores abilities."
+  ],
+  [
+    "MOVE_MENACING_MOONRAZE_MAELSTROM",
+    "Torbellino Lunar",
+    "Lunala attacks with full\\nforce. Ignores abilities."
+  ],
+  [
+    "MOVE_LIGHT_THAT_BURNS_THE_SKY",
+    "Luz que Quema el Cielo",
+    "Uses Necrozma's highest\\nattack. Ignores abilities."
+  ],
+  [
+    "MOVE_SOUL_STEALING_7_STAR_STRIKE",
+    "Ataque de Siete Astros",
+    "Marshadow punches and\\nkicks with full force."
+  ],
+  [
+    "MOVE_MAX_FLARE",
+    "MAX FLARE",
+    "Fire Dynamax attack.\\nIntensifies sun for 5 turns."
+  ],
+  [
+    "MOVE_MAX_FLUTTERBY",
+    "MAX FLUTTERBY",
+    "Bug Dynamax attack.\\nLowers foe's Sp. Atk stat."
+  ],
+  [
+    "MOVE_MAX_LIGHTNING",
+    "MAX LIGHTNING",
+    "Electric Dynamax attack.\\nTurns the terrain electric."
+  ],
+  [
+    "MOVE_MAX_STRIKE",
+    "MAX STRIKE",
+    "Normal Dynamax attack.\\nLowers foe's Speed stat."
+  ],
+  [
+    "MOVE_MAX_KNUCKLE",
+    "MAX KNUCKLE",
+    "Fighting Dynamax attack.\\nBoosts ally Attack stats."
+  ],
+  [
+    "MOVE_MAX_PHANTASM",
+    "MAX PHANTASM",
+    "Ghost Dynamax attack.\\nLowers foe's Defense stat."
+  ],
+  [
+    "MOVE_MAX_HAILSTORM",
+    "MAX HAILSTORM",
+    "Ice Dynamax attack.\\nSummons hail for 5 turns."
+  ],
+  [
+    "MOVE_MAX_OOZE",
+    "MAX OOZE",
+    "Poison Dynamax attack.\\nBoosts ally Sp. Atk stats."
+  ],
+  [
+    "MOVE_MAX_GEYSER",
+    "MAX GEYSER",
+    "Water Dynamax attack.\\nSummons rain for 5 turns."
+  ],
+  [
+    "MOVE_MAX_AIRSTREAM",
+    "MAX AIRSTREAM",
+    "Flying Dynamax attack.\\nBoosts ally Speed stats."
+  ],
+  [
+    "MOVE_MAX_STARFALL",
+    "MAX STARFALL",
+    "Fairy Dynamax attack.\\nTurns the terrain misty."
+  ],
+  [
+    "MOVE_MAX_WYRMWIND",
+    "MAX WYRMWIND",
+    "Dragon Dynamax attack.\\nLowers foe's Attack stat."
+  ],
+  [
+    "MOVE_MAX_MINDSTORM",
+    "MAX MINDSTORM",
+    "Psychic Dynamax attack.\\nTurns the terrain psychic."
+  ],
+  [
+    "MOVE_MAX_ROCKFALL",
+    "MAX ROCKFALL",
+    "Rock Dynamax attack.\\nSummons a sandstorm."
+  ],
+  [
+    "MOVE_MAX_QUAKE",
+    "MAX QUAKE",
+    "Ground Dynamax attack.\\nBoosts ally Sp. Def stats."
+  ],
+  [
+    "MOVE_MAX_DARKNESS",
+    "MAX DARKNESS",
+    "Dark Dynamax attack.\\nLowers foe's Sp. Def stat."
+  ],
+  [
+    "MOVE_MAX_OVERGROWTH",
+    "MAX OVERGROWTH",
+    "Grass Dynamax attack.\\nTurns the terrain grassy."
+  ],
+  [
+    "MOVE_MAX_STEELSPIKE",
+    "MAX STEELSPIKE",
+    "Steel Dynamax attack.\\nBoosts ally Defense stats."
+  ],
+  [
+    "MOVE_G_MAX_VINE_LASH",
+    "G-MAX VINE LASH",
+    "G-max Venusaur attack.\\nDamages for 4 turns."
+  ],
+  [
+    "MOVE_G_MAX_WILDFIRE",
+    "G-MAX WILDFIRE",
+    "G-max Charizard attack.\\nDamages for 4 turns."
+  ],
+  [
+    "MOVE_G_MAX_CANNONADE",
+    "G-MAX CANNONADE",
+    "G-max Blastoise attack.\\nDamages for 4 turns."
+  ],
+  [
+    "MOVE_G_MAX_BEFUDDLE",
+    "G-MAX BEFUDDLE",
+    "G-max Butterfree attack.\\nPoison, paralysis, or sleep."
+  ],
+  [
+    "MOVE_G_MAX_VOLT_CRASH",
+    "G-MAX VOLT CRASH",
+    "G-max Pikachu attack.\\nParalyzes opponents."
+  ],
+  [
+    "MOVE_G_MAX_GOLD_RUSH",
+    "G-MAX GOLD RUSH",
+    "G-max Meowth attack.\\nConfuses and earns money."
+  ],
+  [
+    "MOVE_G_MAX_CHI_STRIKE",
+    "G-MAX CHI STRIKE",
+    "G-max Machamp attack.\\nBoosts critical-hit ratio."
+  ],
+  [
+    "MOVE_G_MAX_TERROR",
+    "G-MAX TERROR",
+    "G-max Gengar attack.\\nPrevents foes from escaping."
+  ],
+  [
+    "MOVE_G_MAX_FOAM_BURST",
+    "G-MAX FOAM BURST",
+    "G-max Kingler attack.\\nHarshly lowers foe's Speed."
+  ],
+  [
+    "MOVE_G_MAX_RESONANCE",
+    "G-MAX RESONANCE",
+    "G-max Lapras attack.\\nReduces damage for 5 turns."
+  ],
+  [
+    "MOVE_G_MAX_CUDDLE",
+    "G-MAX CUDDLE",
+    "G-max Eevee attack.\\nInfatuates opponents."
+  ],
+  [
+    "MOVE_G_MAX_REPLENISH",
+    "G-MAX REPLENISH",
+    "G-max Snorlax attack.\\nRestores eaten Berries."
+  ],
+  [
+    "MOVE_G_MAX_MALODOR",
+    "G-MAX MALODOR",
+    "G-max Garbodor attack.\\nPoisons opponents."
+  ],
+  [
+    "MOVE_G_MAX_MELTDOWN",
+    "G-MAX MELTDOWN",
+    "G-max Melmetal attack.\\nPrevents repeat move use."
+  ],
+  [
+    "MOVE_G_MAX_DRUM_SOLO",
+    "G-MAX DRUM SOLO",
+    "G-max Rillaboom attack.\\nIgnores target's abilities."
+  ],
+  [
+    "MOVE_G_MAX_FIREBALL",
+    "G-MAX FIREBALL",
+    "G-max Cinderace attack.\\nIgnores target's abilities."
+  ],
+  [
+    "MOVE_G_MAX_HYDROSNIPE",
+    "G-MAX HYDROSNIPE",
+    "G-max Inteleon attack.\\nIgnores target's abilities."
+  ],
+  [
+    "MOVE_G_MAX_WIND_RAGE",
+    "G-MAX WIND RAGE",
+    "G-max Corviknight attack.\\nRemoves opponent screens."
+  ],
+  [
+    "MOVE_G_MAX_GRAVITAS",
+    "G-MAX GRAVITAS",
+    "G-max Orbeetle attack.\\nChanges gravity for 5 turns."
+  ],
+  [
+    "MOVE_G_MAX_STONESURGE",
+    "G-MAX STONESURGE",
+    "G-max Drednaw attack.\\nScatters sharp rocks."
+  ],
+  [
+    "MOVE_G_MAX_VOLCALITH",
+    "G-MAX VOLCALITH",
+    "G-max Coalossal attack.\\nDamages for 4 turns."
+  ],
+  [
+    "MOVE_G_MAX_TARTNESS",
+    "G-MAX TARTNESS",
+    "G-max Flapple attack.\\nLowers foe's evasiveness."
+  ],
+  [
+    "MOVE_G_MAX_SWEETNESS",
+    "G-MAX SWEETNESS",
+    "G-max Appletun attack.\\nHeals ally status conditions."
+  ],
+  [
+    "MOVE_G_MAX_SANDBLAST",
+    "G-MAX SANDBLAST",
+    "G-max Sandaconda attack.\\nTraps foes in a sandstorm."
+  ],
+  [
+    "MOVE_G_MAX_STUN_SHOCK",
+    "G-MAX STUN SHOCK",
+    "G-max Toxtricity attack.\\nPoisons or paralyzes foes."
+  ],
+  [
+    "MOVE_G_MAX_CENTIFERNO",
+    "G-MAX CENTIFERNO",
+    "G-max Centiskorch attack.\\nTraps foes in flames."
+  ],
+  [
+    "MOVE_G_MAX_SMITE",
+    "G-MAX SMITE",
+    "G-max Hatterene attack.\\nConfuses opponents."
+  ],
+  [
+    "MOVE_G_MAX_SNOOZE",
+    "G-MAX SNOOZE",
+    "G-max Grimmsnarl attack.\\nLulls foes into sleep."
+  ],
+  [
+    "MOVE_G_MAX_FINALE",
+    "G-MAX FINALE",
+    "G-max Alcremie attack.\\nHeals ally HP."
+  ],
+  [
+    "MOVE_G_MAX_STEELSURGE",
+    "G-MAX STEELSURGE",
+    "G-max Copperajah attack.\\nScatters sharp spikes."
+  ],
+  [
+    "MOVE_G_MAX_DEPLETION",
+    "G-MAX DEPLETION",
+    "G-max Duraludon attack.\\nReduces target's PP."
+  ]
+]
