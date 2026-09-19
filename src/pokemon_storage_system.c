@@ -871,11 +871,11 @@ struct {
     const u8 *desc;
 } static const sMainMenuTexts[OPTIONS_COUNT] =
 {
-    [OPTION_WITHDRAW]   = {COMPOUND_STRING("WITHDRAW POKéMON"), COMPOUND_STRING("Move POKéMON stored in BOXES to\nyour party.")},
-    [OPTION_DEPOSIT]    = {COMPOUND_STRING("DEPOSIT POKéMON"),  COMPOUND_STRING("Store POKéMON in your party in BOXES.")},
-    [OPTION_MOVE_MONS]  = {COMPOUND_STRING("MOVE POKéMON"),     COMPOUND_STRING("Organize the POKéMON in BOXES and\nin your party.")},
-    [OPTION_MOVE_ITEMS] = {COMPOUND_STRING("MOVE ITEMS"),       COMPOUND_STRING("Move items held by any POKéMON\nin a BOX or your party.")},
-    [OPTION_EXIT]       = {COMPOUND_STRING("SEE YA!"),          COMPOUND_STRING("Return to the previous menu.")}
+    [OPTION_WITHDRAW]   = {COMPOUND_STRING("SACAR POKéMON"),   COMPOUND_STRING("Mueve POKéMON de las CAJAS a\ntu equipo.")},
+    [OPTION_DEPOSIT]    = {COMPOUND_STRING("DEPOSITAR POKéMON"),COMPOUND_STRING("Guarda POKéMON de tu equipo en\nlas CAJAS.")},
+    [OPTION_MOVE_MONS]  = {COMPOUND_STRING("MOVER POKéMON"),    COMPOUND_STRING("Organiza los POKéMON en las CAJAS\ny en tu equipo.")},
+    [OPTION_MOVE_ITEMS] = {COMPOUND_STRING("MOVER OBJETOS"),    COMPOUND_STRING("Mueve objetos equipados de POKéMON\nen las CAJAS o en tu equipo.")},
+    [OPTION_EXIT]       = {COMPOUND_STRING("¡HASTA LUEGO!"),   COMPOUND_STRING("Regresa al menú anterior.")}
 };
 
 static const struct WindowTemplate sWindowTemplate_MainMenu =
@@ -8209,23 +8209,23 @@ static const u8 gPCText_Give[] = _("GIVE");
 
 static const u8 *const sMenuTexts[] =
 {
-    [MENU_CANCEL]     = COMPOUND_STRING("CANCEL"),
-    [MENU_STORE]      = COMPOUND_STRING("STORE"),
-    [MENU_WITHDRAW]   = COMPOUND_STRING("WITHDRAW"),
-    [MENU_MOVE]       = COMPOUND_STRING("MOVE"),
-    [MENU_SHIFT]      = COMPOUND_STRING("SHIFT"),
-    [MENU_PLACE]      = COMPOUND_STRING("PLACE"),
-    [MENU_SUMMARY]    = COMPOUND_STRING("SUMMARY"),
-    [MENU_RELEASE]    = COMPOUND_STRING("RELEASE"),
-    [MENU_MARK]       = COMPOUND_STRING("MARK"),
-    [MENU_JUMP]       = COMPOUND_STRING("JUMP"),
-    [MENU_WALLPAPER]  = COMPOUND_STRING("WALLPAPER"),
-    [MENU_NAME]       = COMPOUND_STRING("NAME"),
-    [MENU_TAKE]       = COMPOUND_STRING("TAKE"),
+    [MENU_CANCEL]     = COMPOUND_STRING("SALIR"),
+    [MENU_STORE]      = COMPOUND_STRING("DEPOSITAR"),
+    [MENU_WITHDRAW]   = COMPOUND_STRING("SACAR"),
+    [MENU_MOVE]       = COMPOUND_STRING("MOVER"),
+    [MENU_SHIFT]      = COMPOUND_STRING("CAMBIAR"),
+    [MENU_PLACE]      = COMPOUND_STRING("COLOCAR"),
+    [MENU_SUMMARY]    = COMPOUND_STRING("DATOS"),
+    [MENU_RELEASE]    = COMPOUND_STRING("SOLTAR"),
+    [MENU_MARK]       = COMPOUND_STRING("MARCAR"),
+    [MENU_JUMP]       = COMPOUND_STRING("SALTAR"),
+    [MENU_WALLPAPER]  = COMPOUND_STRING("FONDO"),
+    [MENU_NAME]       = COMPOUND_STRING("NOMBRE"),
+    [MENU_TAKE]       = COMPOUND_STRING("QUITAR"),
     [MENU_GIVE]       = gPCText_Give,
     [MENU_GIVE_2]     = gPCText_Give,
-    [MENU_SWITCH]     = COMPOUND_STRING("SWITCH"),
-    [MENU_BAG]        = COMPOUND_STRING("BAG"),
+    [MENU_SWITCH]     = COMPOUND_STRING("CAMBIAR"),
+    [MENU_BAG]        = COMPOUND_STRING("MOCHILA"),
     [MENU_INFO]       = COMPOUND_STRING("INFO"),
     [MENU_SCENERY_1]  = COMPOUND_STRING("SCENERY 1"),
     [MENU_SCENERY_2]  = COMPOUND_STRING("SCENERY 2"),

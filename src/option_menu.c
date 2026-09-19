@@ -200,18 +200,18 @@ static const u16 sTextPal[] = INCBIN_U16("graphics/interface/option_menu_text_cu
 // =============================================================================
 
 static const u8 *const sChoices_OnOff[] = {
-    COMPOUND_STRING("ON"),
-    COMPOUND_STRING("OFF"),
+    COMPOUND_STRING("SÍ"),
+    COMPOUND_STRING("NO"),
 };
 
 static const u8 *const sChoices_ShiftSet[] = {
-    COMPOUND_STRING("SHIFT"),
-    COMPOUND_STRING("SET"),
+    COMPOUND_STRING("CAMBIO"),
+    COMPOUND_STRING("MANTENER"),
 };
 
 static const u8 *const sChoices_MonoStereo[] = {
     COMPOUND_STRING("MONO"),
-    COMPOUND_STRING("STEREO"),
+    COMPOUND_STRING("ESTÉREO"),
 };
 
 static const u8 *const sChoices_ButtonMode[] = {
@@ -221,20 +221,20 @@ static const u8 *const sChoices_ButtonMode[] = {
 };
 
 static const u8 *const sChoices_TextSpeed[] = {
-    COMPOUND_STRING("SLOW"),
-    COMPOUND_STRING("MID"),
-    COMPOUND_STRING("FAST"),
-    COMPOUND_STRING("FASTER"),
+    COMPOUND_STRING("LENTA"),
+    COMPOUND_STRING("MEDIA"),
+    COMPOUND_STRING("RÁPIDA"),
+    COMPOUND_STRING("MÁS RÁP."),
 };
 
 static const u8 *const sChoices_MetricImperial[] = {
-    COMPOUND_STRING("METRIC"),
+    COMPOUND_STRING("MÉTRICO"),
     COMPOUND_STRING("IMPERIAL"),
 };
 
 static const u8 *const sChoices_OldModern[] = {
-    COMPOUND_STRING("OLD"),
-    COMPOUND_STRING("MODERN"),
+    COMPOUND_STRING("CLÁSICO"),
+    COMPOUND_STRING("MODERNO"),
 };
 
 static const u8 *const sChoices_Gen3Gen4[] = {
