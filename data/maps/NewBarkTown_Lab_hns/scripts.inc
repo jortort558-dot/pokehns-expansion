@@ -1004,7 +1004,7 @@ NewBarkTown_Lab_Text_Officer2:
 	.string "¡Gracias por ayudar en mi investigación!$"
 
 NewBarkTown_Lab_Text_OfficerNo:
-	.string "¡¿Seguro que no conseguiste su nombre?!"$
+	.string "¡¿Seguro que no conseguiste su nombre?!$"
 
 NewBarkTown_Lab_Text_Elm_CallMe:
 	.string "¡Ah, {PLAYER}!\p"
