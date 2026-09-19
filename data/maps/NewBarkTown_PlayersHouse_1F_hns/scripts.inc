@@ -321,37 +321,37 @@ NewBarkTown_PlayersHouse_1F_Text_ExplainPokeGear:
 	.string "¿A que es muy cómodo?$"
 
 NewBarkTown_PlayersHouse_1F_Text_WearTheseRunningShoes:
-	.string "Oh, and don't forget your\n"
-	.string "RUNNING SHOES!$"
+	.string "¡Ah, y no olvides tus\n"
+	.string "ZAPATILLAS DE DEPORTE!$"
 
 NewBarkTown_PlayersHouse_1F_Text_SwitchShoesWithRunningShoes:
-	.string "{PLAYER} switched shoes with the\n"
-	.string "RUNNING SHOES.$"
+	.string "¡{PLAYER} se puso las\n"
+	.string "ZAPATILLAS DE DEPORTE!$"
 
 NewBarkTown_PlayersHouse_1F_Text_ExplainRunningShoes:
-	.string "MOM: {PLAYER}, press the B Button\n"
-	.string "while wearing these to run fast!$"
+	.string "MAMÁ: {PLAYER}, ¡mantén pulsado el\n"
+	.string "Botón B para correr rápido!$"
 
 NewBarkTown_PlayersHouse_1F_Text_MomHurryUpElmIsWaiting:
-	.string "MOM: PROF.ELM is waiting for you.\p"
-	.string "Hurry up, baby!$"
+	.string "MAMÁ: El PROF. ELM te está esperando.\p"
+	.string "¡Date prisa, cielo!$"
 
 NewBarkTown_PlayersHouse_1F_Text_MomsFriend:
-	.string "Hi, {PLAYER}!\p"
-	.string "I'm visiting!\p"
-	.string "Have you heard?\p"
-	.string "My daughter is adamant about\n"
-	.string "becoming PROF.ELM's assistant.\p"
-	.string "She really loves POKéMON!$"
+	.string "¡Hola, {PLAYER}!\p"
+	.string "¡He venido de visita!\p"
+	.string "¿Te has enterado?\p"
+	.string "Mi hija está empeñada en convertirse\n"
+	.string "en la ayudante del PROF. ELM.\p"
+	.string "¡Le chiflan los POKéMON!$"
 
 NewBarkTown_PlayersHouse_1F_Text_MomLeaving:
-	.string "MOM: Wow, that's a cute POKéMON.\n"
-	.string "Where did you get it?\p"
+	.string "MAMÁ: ¡Vaya, qué POKéMON tan lindo!\n"
+	.string "¿De dónde lo has sacado?\p"
 	.string "…\p"
-	.string "So, you're leaving on an adventure...\n"
-	.string "That does sound challenging...\p"
-	.string "Just be careful.\p"
-	.string "POKéMON are your friends.\n"
-	.string "You need to work as a team.\p"
-	.string "Now, go on!\n"
-	.string "I'm behind you all the way!$"
+	.string "Así que te vas de aventura…\n"
+	.string "Seguro que será todo un desafío…\p"
+	.string "Ten mucho cuidado.\p"
+	.string "Los POKéMON son tus amigos.\n"
+	.string "Tenéis que trabajar en equipo.\p"
+	.string "¡Venga, marcha ya!\n"
+	.string "¡Te apoyaré desde aquí!$"
