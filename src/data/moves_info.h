@@ -17651,7 +17651,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Foco"),
         .description = COMPOUND_STRING(
-            "Reduce los PS del rival\\n"
+            "Reduce los PS del rival\n"
         "a la mitad con el poder nat."),
         .effect = EFFECT_FIXED_PERCENT_DAMAGE,
         .power = 1,
