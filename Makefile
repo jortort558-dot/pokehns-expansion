@@ -391,6 +391,23 @@ ifeq ($(COMPARE),1)
 	@$(SHA1) rom.sha1
 endif
 
+# Versioned snapshot: copies the built ROM to releases/ with semver + date + git hash
+# Usage: make snapshot   or   make build (compiles + snapshot in one step)
+RELEASES_DIR   := releases
+SNAP_VERSION   ?= 0.1.0
+SNAP_DATE      := $(shell date +%Y%m%d)
+SNAP_HASH      := $(shell git rev-parse --short HEAD 2>/dev/null || echo nogit)
+SNAP_LABEL     := es
+SNAP_NAME      := pokehns-$(SNAP_VERSION)-$(SNAP_DATE)-$(SNAP_HASH)-$(SNAP_LABEL).gba
+
+snapshot: $(ROM)
+	@mkdir -p $(RELEASES_DIR)
+	@cp $(ROM_NAME) $(RELEASES_DIR)/$(SNAP_NAME)
+	@echo ">>> Snapshot guardado: $(RELEASES_DIR)/$(SNAP_NAME)"
+
+# Compila + guarda snapshot en un solo paso
+build: rom snapshot
+
 syms: $(SYM)
 
 clean: tidy clean-tools clean-check-tools clean-generated clean-assets
