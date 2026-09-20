@@ -799,6 +799,8 @@ static inline const u8 *GetMoveBattleScript(enum Move moveId)
 
 static inline const bool32 GetMoveRandomizerInvalid(enum Move moveId)
 {
+    if (moveId == MOVE_NONE || moveId >= MOVES_COUNT_GEN9 || moveId > MOVE_MALIGNANT_CHAIN)
+        return TRUE;
     return gMovesInfo[SanitizeMoveId(moveId)].randomizerInvalid;
 }
 

@@ -1240,8 +1240,8 @@ u16 RandomizeMove(u16 move, u16 species)
 
     do
     {
-        result = RandomizerNextRange(&state, MOVES_COUNT - 1) + 1;
-    } while (result >= MOVES_COUNT || GetMoveRandomizerInvalid(result));
+        result = RandomizerNextRange(&state, MOVES_COUNT_GEN9 - 1) + 1;
+    } while (result >= MOVES_COUNT_GEN9 || result > MOVE_MALIGNANT_CHAIN || GetMoveRandomizerInvalid(result));
 
     return result;
 }
