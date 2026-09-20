@@ -31,24 +31,24 @@ AzaleaPokeCenter_EventScript_PokefanF::
 	end
 
 AzaleaPokecenter_Text_Gentleman:
-	.string "Do your POKéMON know HM moves?\p"
-	.string "Those moves can be used even if\n"
-	.string "your POKéMON has fainted.$"
+	.string "¿Tus POKéMON conocen movimientos MO?\p"
+	.string "Esos movimientos pueden usarse fuera\n"
+	.string "incluso si el POKéMON está debilitado.$"
 
 AzaleaPokecenter_Text_UnusedPCExplanation:
-	.string "This BILL guy created the system\n"
-	.string "for storing POKéMON in a PC.\p"
-	.string "BILL's PC can store up to 30\n"
-	.string "POKéMON per BOX.$"
+	.string "Un tal BILL inventó el sistema para\n"
+	.string "guardar POKéMON en el PC.\p"
+	.string "¡El PC DE BILL almacena hasta 30\n"
+	.string "POKéMON por cada CAJA!$"
 
 AzaleaPokecenter_Text_FishingGuru:
-	.string "BILL's PC can store up to 30\n"
-	.string "POKéMON per BOX.$"
+	.string "¡El PC DE BILL almacena hasta 30\n"
+	.string "POKéMON por cada CAJA!$"
 
 AzaleaPokecenter_Text_PokefanF:
-	.string "Do you know about BERRIES?\p"
-	.string "Crack one open, hollow it out and\n"
-	.string "fit it with a special device.\p"
-	.string "Then you can catch POKéMON with it.\p"
-	.string "Before POKé BALLS were invented,\n"
-	.string "everyone used BERRIES.$"
+	.string "¿Sabes de las BAYAS y CÉSAR?\p"
+	.string "Las vacía con cuidado y les instala\n"
+	.string "un dispositivo especial.\p"
+	.string "¡Así puedes atrapar POKéMON!\p"
+	.string "Antes de inventarse las Poké Balls,\n"
+	.string "todo el mundo usaba frutos y bayas.$"

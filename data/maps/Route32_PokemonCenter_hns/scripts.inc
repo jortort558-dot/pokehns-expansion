@@ -41,28 +41,28 @@ Route32_PokemonCenter_EventScript_FishingGuru3::
 
 
 Route32_Pokecenter_Text_FishingGuruQuestion:
-	.string "This is a great fishing spot.\p"
-	.string "You saw people fishing?\n"
-	.string "How about you?\p"
-	.string "Would you like one of my RODS?$"
+	.string "Este es un rincón de pesca ideal.\p"
+	.string "¿Viste a gente pescando fuera?\n"
+	.string "¿Y tú?\p"
+	.string "¿Te gustaría tener una de mis CAÑAS?$"
 
 Route32_Pokecenter_Text_FishingGuruYes:
-	.string "Heh, that's good to hear.\p"
-	.string "Now you're an angler too!$"
+	.string "¡Je, je, me alegra oír eso!\p"
+	.string "¡Desde hoy ya eres pescador!$"
 
 Route32_Pokecenter_Text_FishingGuruGiveRod:
-	.string "Fishing is great!\p"
-	.string "If there's water, be it the sea or\n"
-	.string "a stream, try out your ROD.$"
+	.string "¡Pescar es genial!\p"
+	.string "Donde haya agua, ya sea en mar o\n"
+	.string "río, ¡prueba a usar tu CAÑA!$"
 
 Route32_Pokecenter_Text_FishingGuruNo:
-	.string "Oh. That's rather disappointing…$"
+	.string "Vaya, qué decepción… Tú te lo pierdes.$"
 
 Route32_Pokecenter_Text_FishingGuruAfter:
-	.string "Yo, kid. How are they biting?$"
+	.string "¡Hola! ¿Pican o no pican esos peces?$"
 
 Route32_Pokecenter_Text_CooltrainerF:
-	.string "What should I make my POKéMON hold?\p"
-	.string "Maybe an item that increases\n"
-	.string "ATTACK power…$"
+	.string "¿Qué objeto debería equipar a mi\n"
+	.string "POKéMON?\p"
+	.string "Quizá uno que potencie su ATAQUE…$"
 

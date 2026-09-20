@@ -411,131 +411,122 @@ Route32_Text_RefusedSlowpokeTail:
 	.string "¡Pues aire, pringao! ¡Largo!$"
 
 Route32_Text_FisherJustin_Seen:
-	.string "Whoa!\p"
-	.string "You made me lose that fish!$"
+	.string "¡Hala!\p"
+	.string "¡Por tu culpa se me escapó el pez!$"
 
 Route32_Text_FisherJustin_Beaten:
-	.string "Sploosh!$"
+	.string "¡Chof!$"
 
 Route32_Text_FisherJustin_After:
-	.string "Calm, collected… The essence of\n"
-	.string "fishing and POKéMON is the same.$"
+	.string "Calma y sosiego… La pesca y los\n"
+	.string "POKéMON requieren la misma\npaciencia.$"
 
 Route32_Text_FisherRalph1_Seen:
-	.string "I'm really good at both\n"
-	.string "fishing and POKéMON.\p"
-	.string "I'm not about to lose to any kid!$"
+	.string "Se me da de fábula pescar y criar\n"
+	.string "POKéMON.\p"
+	.string "¡No pienso perder contra un crío!$"
 
 Route32_Text_FisherRalph1_Beaten:
-	.string "Tch! I tried to rush\n"
-	.string "things…$"
+	.string "¡Rayos! Me apresuré demasiado…$"
 
 Route32_Text_FisherRalph1_After:
-	.string "Fishing is a lifelong\n"
-	.string "passion.\p"
-	.string "POKéMON are lifelong friends!$"
+	.string "La pesca es una pasión eterna.\p"
+	.string "¡Y los POKéMON, amigos para\nsiempre!$"
 
 Route32_Text_RalphRegister:
-	.string "Fishing is a lifelong\n"
-	.string "passion.\p"
-	.string "POKéMON are lifelong friends!$"
+	.string "La pesca es una pasión eterna.\p"
+	.string "¡Y los POKéMON, amigos para\nsiempre!$"
 
 Route32_Text_RalphRematchIntro:
-	.string "I'm really good at both\n"
-	.string "fishing and POKéMON.\p"
-	.string "I'm not about to lose to any kid!$"
+	.string "Se me da de fábula pescar y criar\n"
+	.string "POKéMON.\p"
+	.string "¡No pienso perder contra un crío!$"
 
 Route32_Text_RalphRematchDefeat:
-	.string "Tch! I tried to rush\n"
-	.string "things…$"
+	.string "¡Rayos! Me apresuré demasiado…$"
 
 Route32_Text_RalphPostRematch:
-	.string "Fishing is a lifelong\n"
-	.string "passion.\p"
-	.string "POKéMON are lifelong friends!$"
+	.string "La pesca es una pasión eterna.\p"
+	.string "¡Y los POKéMON, amigos para\nsiempre!$"
 
 Route32_Text_FisherHenry_Seen:
-	.string "My POKéMON? Freshly caught!$"
+	.string "¿Mis POKéMON? ¡Recién pescados!$"
 
 Route32_Text_FisherHenry_Beaten:
-	.string "SPLASH?$"
+	.string "¿SALPICADURA?$"
 
 Route32_Text_FisherHenry_After:
-	.string "Freshly caught POKéMON are\n"
-	.string "no match for properly raised ones.$"
+	.string "Los recién pescados no pueden\nrivalizar"
+	.string "contra un equipo bien entrenado.$"
 
 Route32_Text_YoungsterAlbert_Seen:
-	.string "I haven't seen you around before.\n"
-	.string "So you think you are pretty tough?$"
+	.string "No te había visto antes por aquí.\n"
+	.string "¿Te crees muy duro o qué?$"
 
 Route32_Text_YoungsterAlbert_Beaten:
-	.string "You're strong!$"
+	.string "¡Eres increíblemente fuerte!$"
 
 Route32_Text_YoungsterAlbert_After:
-	.string "I'm going to try to be the\n"
-	.string "best with my favorites.\p"
-	.string "I'm not using the same tough\n"
-	.string "POKéMON as everyone else.$"
+	.string "Quiero llegar a lo más alto con mis\n"
+	.string "favoritos, sin copiar al resto.$"
 
 Route32_Text_YoungsterGordon_Seen:
-	.string "I found some good POKéMON\n"
-	.string "in the grass!\p"
-	.string "I think they'll do it for me!$"
+	.string "¡Encontré buenos POKéMON entre la\n"
+	.string "hierba!\p"
+	.string "¡Con ellos ganaré seguro!$"
 
 Route32_Text_YoungsterGordon_Beaten:
-	.string "Darn. I thought I could win.$"
+	.string "Vaya. Estaba seguro de ganar.$"
 
 Route32_Text_YoungsterGordon_After:
-	.string "The grass is full of\n"
-	.string "clingy things.$"
+	.string "La hierba está llena de semillas\n"
+	.string "y cosas pegajosas.$"
 
 Route32_Text_CamperRoland_Seen:
-	.string "That glance… It's intriguing.$"
+	.string "Esa mirada… ¡Desafío a la vista!$"
 
 Route32_Text_CamperRoland_Beaten:
-	.string "Hmmm. This is disappointing.$"
+	.string "Mmm… Qué decepción conmigo mismo.$"
 
 Route32_Text_CamperRoland_After:
-	.string "If you don't want to battle,\n"
-	.string "just avoid eye contact.$"
+	.string "Si no quieres luchar, no mires a\n"
+	.string "los ojos a otros entrenadores.$"
 
 Route32_Text_PicnickerLiz1_Seen:
-	.string "Uh-huh. Yeah, and you know…\p"
-	.string "Pardon? Battle? I'm on the phone.\n"
-	.string "Oh, all right. But make it fast.$"
+	.string "Sí, sí, ya sabes…\p"
+	.string "¿Eh? ¿Un combate? Estoy al\nteléfono."
+	.string "Bueno, vale, pero que sea rápido.$"
 
 Route32_Text_PicnickerLiz1_Beaten:
-	.string "Oh! I've got to relieve\n"
-	.string "my anger!$"
+	.string "¡Vaya! ¡Qué rabia me da perder!$"
 
 Route32_Text_PicnickerLiz1_After:
-	.string "I was having a nice chat too.$"
+	.string "Con lo a gusto que estaba hablando…$"
 
 Route32_Text_LizRegister:
-	.string "I was having a nice chat too.$"
+	.string "Con lo a gusto que estaba hablando…$"
 
 Route32_Text_LizRematchIntro:
-	.string "Uh-huh. Yeah, and you know…\p"
-	.string "Pardon? Battle? I'm on the phone.\n"
-	.string "Oh, all right. But make it fast.$"
+	.string "Sí, sí, ya sabes…\p"
+	.string "¿Eh? ¿Un combate? Estoy al\nteléfono."
+	.string "Bueno, vale, pero que sea rápido.$"
 
 Route32_Text_LizRematchDefeat:
-	.string "Oh! I've got to relieve\n"
-	.string "my anger!$"
+	.string "¡Vaya! ¡Qué rabia me da perder!$"
 
 Route32_Text_LizPostRematch:
-	.string "I was having a nice chat too.$"
+	.string "Con lo a gusto que estaba hablando…$"
 
 Route32_Text_BirdKeeperPeter_Seen:
-	.string "That BADGE! It's from VIOLET CITY!\n"
-	.string "You beat FALKNER?$"
+	.string "¡Esa MEDALLA! ¡Es de CIUDAD MALVA!\n"
+	.string "¿Derrotaste a PEGASO?$"
 
 Route32_Text_BirdKeeperPeter_Beaten:
-	.string "I know what my weaknesses are.$"
+	.string "Ya sé cuáles son mis puntos\ndébiles.$"
 
 Route32_Text_BirdKeeperPeter_After:
-	.string "I should train again at the\n"
-	.string "GYM in VIOLET CITY.$"
+	.string "Debería volver a entrenar en el\n"
+	.string "GIMNASIO de CIUDAD MALVA.$"
 
 Route32_Text_RoarIntro:
 	.string "¡¡¡GROOOAAAR!!! ¡LA GENTE SALE\nCORRIENDO\l"
@@ -572,7 +563,7 @@ Route32_Text_FriedaFriday:
 	.string "¿A que a ti también te parece\ngenial?$"
 
 Route32_Text_FriedaNope:
-	.string "FRIEDA: Not that one!$"
+	.string "VIKI: ¡Ese no es! ¡Frío, frío!$"
 
 Route32_Text_Sign1:
 	.string "RUTA 32\p"

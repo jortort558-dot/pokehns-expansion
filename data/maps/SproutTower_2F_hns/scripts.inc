@@ -28,15 +28,15 @@ SproutTower_2F_EventScript_Xdefend::
 	end
 
 SproutTower_Text_SageNico_Seen:
-	.string "However hard we battle,\n"
-	.string "the TOWER will stand strong.$"
+	.string "Por muy dura que sea la batalla,\n"
+	.string "esta TORRE se mantendrá en pie.$"
 
 SproutTower_Text_SageNico_Beaten:
 	.string "Luché con entrega, pero no bastó…$"
 
 SproutTower_Text_SageNico_AfterBattle:
-	.string "The flexible pillar protects the\n"
-	.string "TOWER, even from earthquakes.$"
+	.string "El pilar flexible protege la TORRE\n"
+	.string "incluso de los terremotos.$"
 
 SproutTower_Text_SageEdmond_Seen:
 	.string "… Mézclate como hojas en el viento…$"
@@ -45,10 +45,10 @@ SproutTower_Text_SageEdmond_Beaten:
 	.string "¡Ay, qué débil soy!$"
 
 SproutTower_Text_SageEdmond_AfterBattle:
-	.string "I tried to copy BELLSPROUT's\n"
-	.string "gentle movements for battle…\p"
-	.string "But I didn't train well enough.$"
+	.string "Intenté imitar el suave vaivén de\n"
+	.string "BELLSPROUT al combatir…\p"
+	.string "Pero aún me falta entrenamiento.$"
 
 SproutTower_Text_2F_Statue:
-	.string "A POKéMON statue…\p"
-	.string "It looks very distinguished.$"
+	.string "Una estatua de un POKéMON…\p"
+	.string "Se ve muy elegante y solemne.$"

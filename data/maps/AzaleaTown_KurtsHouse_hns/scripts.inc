@@ -211,7 +211,7 @@ AzaleaTown_KurtsHouse_EventScript_KurtGsBall3::
 	release
 	end
 KurtsHouse_Text_BallAnyway:
-	.string "Anyway, can I make you some BALLS?$"
+	.string "Bueno, ¿quieres que te fabrique\nalguna Poké Ball?$"
 
 AzaleaTown_KurtsHouse_EventScript_OakPhoto::
 	msgbox KurtsHouse_Text_OakPhoto, MSGBOX_SIGN
@@ -264,43 +264,44 @@ KurtsHouse_Text_KurtGetStarted:
 	.string "KURT: I'll get started right now!$"
 
 KurtsHouse_Text_KurtMakingBallsMustWait:
-	.string "Hm? Who are you?\p"
-	.string "{PLAYER}, eh? You want me to make\n"
-	.string "some BALLS?\p"
-	.string "Sorry, but that'll have to wait.\p"
-	.string "Do you know TEAM ROCKET?\n"
-	.string "Ah, don't worry.\p"
-	.string "I'll tell you anyhow.\p"
-	.string "TEAM ROCKET's an evil gang that\n"
-	.string "uses POKéMON for their dirty work.\p"
-	.string "They're supposed to have disbanded\n"
-	.string "three years ago.\p"
-	.string "Anyway, they're at the WELL,\n"
-	.string "cutting off SLOWPOKETAILS to sell!\p"
-	.string "So I'm going to go give them a\n"
-	.string "lesson in pain!\p"
-	.string "Hang on, SLOWPOKE! Old KURT\n"
-	.string "is on his way!$"
+	.string "¿Mmm? ¿Quién eres tú?\p"
+	.string "¿{PLAYER}? ¿Quieres que te fabrique\n"
+	.string "alguna Poké Ball?\p"
+	.string "Lo siento, pero eso tendrá que\n"
+	.string "esperar un poco.\p"
+	.string "¿Conoces al TEAM ROCKET?\n"
+	.string "Bueno, da igual, ¡te lo cuento ya!\p"
+	.string "El TEAM ROCKET es una banda de\n"
+	.string "maleantes que explota a los\nPOKéMON.\p"
+	.string "Se suponía que se disolvieron hace\n"
+	.string "tres años…\p"
+	.string "¡Pero están en el POZO cortando las\n"
+	.string "COLASLOWPOKE para comerciar!\p"
+	.string "¡Voy a darles una lección que no\nvan"
+	.string "a olvidar en su vida!\p"
+	.string "¡Aguantad, SLOWPOKE! ¡El viejo\nCÉSAR"
+	.string "va de camino!$"
 
 KurtsHouse_Text_KurtHonoredToMakeBalls:
-	.string "KURT: Hi, {PLAYER}!\p"
-	.string "You handled yourself like a\n"
-	.string "real hero at the WELL.\p"
-	.string "I like your style!\p"
-	.string "I would be honored to make\n"
-	.string "BALLS for a trainer like you.\p"
-	.string "This is all I have now, \n"
-	.string "but take it.$"
+	.string "CÉSAR: ¡Hola, {PLAYER}!\p"
+	.string "¡Te portaste como un auténtico\n"
+	.string "héroe en el POZO!\p"
+	.string "¡Me gusta tu temple!\p"
+	.string "Será todo un honor fabricar Poké\n"
+	.string "Balls para alguien como tú.\p"
+	.string "Esto es todo lo que tengo a mano,\n"
+	.string "¡pero acéptalo de corazón!$"
 
 KurtsHouse_Text_KurtBallsFromApricorns:
-	.string "KURT: I make BALLS from BERRIES.\p"
-	.string "Collect them from trees and bring\n"
-	.string "'em to me.\p"
-	.string "I'll make POKé BALLS out of them.$"
+	.string "CÉSAR: Fabrico Poké Balls a partir\n"
+	.string "de BAYAS.\p"
+	.string "Recógelas de los árboles y\ntráemelas."
+	.string "¡Las convertiré en magníficas\nBalls!$"
 
 KurtsHouse_Text_KurtAskYouHaveAnApricorn:
-	.string "KURT: You have BERRIES for me?\p"
-	.string "Fine! I'll turn them into POKé\nBALLS.$"
+	.string "CÉSAR: ¿Traes BAYAS para mí?\p"
+	.string "¡Perfecto! Las convertiré en Poké\n"
+	.string "Balls artesanas.$"
 
 KurtsHouse_Text_KurtThatsALetdown:
 	.string "KURT: I don't see any {STR_VAR_1}s!$"
@@ -322,8 +323,8 @@ KurtsHouse_Text_KurtObtainedSingular:
 	.string "the {STR_VAR_1}!$"
 
 KurtsHouse_Text_KurtTurnedOutGreat:
-	.string "KURT: That turned out great.\p"
-	.string "Try catching POKéMON with it.$"
+	.string "CÉSAR: ¡Ha quedado impresionante!\p"
+	.string "¡Prueba a capturar POKéMON con\nella!$"
 
 KurtsHouse_Text_KurtWhatIsThat:
 	.string "Wh-what is that?\p"
@@ -339,18 +340,18 @@ KurtsHouse_Text_KurtAhHaISee:
 	.string "Ah-ha! I see! So…$"
 
 KurtsHouse_Text_KurtThisBallStartedToShake:
-	.string "{PLAYER}!\p"
-	.string "This BALL started to shake\n"
-	.string "while I was checking it.\p"
-	.string "There must be something to this!$"
+	.string "¡{PLAYER}!\p"
+	.string "¡Esta Ball empezó a vibrar mientras\n"
+	.string "la estaba examinando!\p"
+	.string "¡Sin duda encierra algo insólito!$"
 
 KurtsHouse_Text_Kurt_Whatwasthat:
-	.string "What was that sound?!\p"
-	.string "Let's go outside to investigate!$"
+	.string "¿¡Qué ha sido ese estruendo!?\p"
+	.string "¡Salgamos fuera a investigar!$"
 
 KurtsHouse_Text_GranddaughterSlowpokeGone:
-	.string "The SLOWPOKE are gone… \n"
-	.string "Were they taken away by bad people?$"
+	.string "Los SLOWPOKE han desaparecido…\n"
+	.string "¿Se los llevaron personas malas?$"
 
 KurtsHouse_Text_GranddaughterLonely:
 	.string "Grandpa's gone… I'm so lonely…$"
@@ -360,10 +361,10 @@ KurtsHouse_Text_GranddaughterSlowpokeBack:
 	.string "Its TAIL is growing back too!$"
 
 KurtsHouse_Text_GranddaughterDad:
-	.string "Dad works at SILPH where\n"
-	.string "he studies POKé BALLS.\p"
-	.string "I have to stay home\n"
-	.string "with Grandpa and SLOWPOKE.$"
+	.string "Papá trabaja en SILPH investigando\n"
+	.string "las Poké Balls.\p"
+	.string "Yo me quedo aquí en casita con el\n"
+	.string "abuelo y SLOWPOKE.$"
 
 KurtsHouse_Text_GranddaughterHelp:
 	.string "I get to help Grandpa now!\p"
@@ -374,12 +375,11 @@ KurtsHouse_Text_GranddaughterFun:
 	.string "It's fun to make BALLS!$"
 
 KurtsHouse_Text_GranddaughterSound:
-	.string "Did that sound come from\n"
-	.string "ILEX FOREST????$"
+	.string "¿Vino ese ruido del ENCINAR?$"
 
 KurtsHouse_Text_Forest:
-	.string "Did you check ILEX FOREST yet?\n"
-	.string "It sounds very restless.$"
+	.string "¿Has ido ya al ENCINAR?\n"
+	.string "Se percibe un gran desasosiego.$"
 
 KurtsHouse_Text_Slowpoke:
 	.string "SLOWPOKE: … Yawn?$"
@@ -388,5 +388,5 @@ KurtsHouse_Text_OakPhoto:
 	.string "…A young PROF. OAK?$"
 
 KurtsHouse_Text_CelebiStatue:
-	.string "It's a statue of the forest's\n"
-	.string "protector.$"
+	.string "Es una estatua del protector del\n"
+	.string "bosque.$"

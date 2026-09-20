@@ -384,33 +384,34 @@ AzaleaTown_Text_Rocket1:
 	.string "¿A que soy todo un buen samaritano?$"
 
 AzaleaTown_Text_Rocket2:
-	.string "Do you know about SLOWPOKETAIL?\n"
-	.string "I heard it's tasty!\p"
-	.string "Aren't you glad I told you that?$"
+	.string "¿Conoces la COLASLOWPOKE?\n"
+	.string "¡Dicen que es un manjar exquisito!\p"
+	.string "¿A que te alegra haber hablado\nconmigo?$"
 
 AzaleaTown_Text_GrampsBefore:
-	.string "The SLOWPOKE have disappeared\n"
-	.string "from town…\p"
-	.string "I heard their TAILS are being\n"
-	.string "sold somewhere.$"
+	.string "Los SLOWPOKE han desaparecido\n"
+	.string "del pueblo…\p"
+	.string "Dicen que alguien está vendiendo\n"
+	.string "sus colas por ahí.$"
 
 AzaleaTown_Text_GrampsAfter:
-	.string "The SLOWPOKE have returned.\p"
-	.string "Knowing them, they could've just\n"
-	.string "been goofing off somewhere.$"
+	.string "Los SLOWPOKE han regresado.\p"
+	.string "Conociéndolos, ¡seguro que solo\n"
+	.string "estaban holgazaneando por ahí!$"
 
 AzaleaTown_Text_Teacher:
-	.string "Did you come to get KURT to make\n"
-	.string "some BALLS?\p"
-	.string "A lot of people do just that.$"
+	.string "¿Vienes a que CÉSAR te fabrique\n"
+	.string "algunas Poké Balls?\p"
+	.string "¡Muchísimos entrenadores vienen\n"
+	.string "exclusivamente para eso!$"
 
 AzaleaTown_Text_Youngster:
-	.string "Cut through AZALEA and you'll be\n"
-	.string "in ILEX FOREST.\p"
-	.string "But these skinny trees make it\n"
-	.string "impossible to get through.\p"
-	.string "The CHARCOAL MAN's POKéMON\n"
-	.string "can CUT down trees.$"
+	.string "Si cruzas AZALEA llegarás al\n"
+	.string "ENCINAR.\p"
+	.string "Pero esos arbolitos finos hacen\n"
+	.string "imposible avanzar a pie.\p"
+	.string "El POKéMON del CARBONERO sabe usar\n"
+	.string "CORTE para despejar la senda.$"
 
 AzaleaTown_Text_Slowpoke1:
 	.string "SLOWPOKE:..........\p"
@@ -424,8 +425,8 @@ AzaleaTown_Text_Kurt2:
 	.string "{PLAYER}, here's your GS BALL back!$"
 
 AzaleaTown_Text_Kurt3:
-	.string "Could you go see why ILEX FOREST\n"
-	.string "is so restless?$"
+	.string "¿Podrías ir a comprobar por qué el\n"
+	.string "ENCINAR está tan agitado?$"
 
 AzaleaTown_Text_Sign:
 	.string "PUEBLO AZALEA\n"
@@ -453,5 +454,5 @@ AzaleaTown_Text_CharcoalKilnSign:
 	.string "CARBONERÍA DE AZALEA$"
 
 AzaleaTown_Text_IlexForestSign:
-	.string "ILEX FOREST\p"
-	.string "Enter through the gate.$"
+	.string "ENCINAR\p"
+	.string "Entrada por la caseta.$"
