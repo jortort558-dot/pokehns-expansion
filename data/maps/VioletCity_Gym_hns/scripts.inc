@@ -98,17 +98,17 @@ VioletGym_Text_Falkner_AfterFight:
 	.string "ser el maestro de las aves\ndefinitivo!$"
 
 VioletGym_Text_Falkner_Rematch:
-	.string "Congratulations on defeating\n"
-	.string "the ELITE 4!\p"
-	.string "I've been training my\n"
-	.string "FLYING-type POKéMON even harder.\p"
-	.string "Think you can take on the power\n"
-	.string "of the skies again?$"
+	.string "¡Enhorabuena por derrotar al\n"
+	.string "ALTO MANDO!\p"
+	.string "He estado entrenando a mis POKéMON\n"
+	.string "voladores aún más duro.\p"
+	.string "¿Crees que podrás resistir de nuevo\n"
+	.string "el poder de los cielos?$"
 
 VioletGym_Text_Falkner_RematchLoss:
-	.string "Wow… You beat me again.\p"
-	.string "I'm going to train harder to\n"
-	.string "become the greatest bird master!$"
+	.string "Guau… Me has vuelto a vencer.\p"
+	.string "¡Seguiré entrenando duro para ser\n"
+	.string "el mayor maestro de las aves!$"
 
 VioletGym_Text_BirdKeeperRod_Seen:
 	.string "¡La clave es tener agallas!\p"

@@ -188,9 +188,9 @@ Route31_Text_Youngster:
 	.string "Encontré un buen POKéMON dentro de\n"
 	.string "la CUEVA OSCURA.\p"
 	.string "Voy a entrenarlo a tope para vencer\n"
-	.string "a PEGABLO.\p"
-	.string "Es el LÍDER de GIMNASIO de\n"
-	.string "CIUDAD MALVA.$"
+	.string "a PEGASO.\p"
+	.string "¡Es el LÍDER de GIMNASIO de\n"
+	.string "CIUDAD MALVA!$"
 
 Route31_Text_Sign:
 	.string "RUTA 31\p"

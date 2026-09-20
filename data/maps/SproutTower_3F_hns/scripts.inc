@@ -217,40 +217,40 @@ SproutTower_Text_SageLi_AfterBattle:
 	.string "este gran viaje.$"
 
 SproutTower_Text_SageJin_Seen:
-	.string "I train to find enlightenment\n"
-	.string "in POKéMON!$"
+	.string "¡Entreno para hallar la iluminación\n"
+	.string "junto a los POKéMON!$"
 
 SproutTower_Text_SageJin_Beaten:
-	.string "My training is incomplete…$"
+	.string "Mi disciplina es aún imperfecta…$"
 
 SproutTower_Text_SageJin_AfterBattle:
-	.string "As POKéMON grow stronger,\n"
-	.string "so does the trainer.\p"
-	.string "No, wait. As the trainer\n"
-	.string "grows stronger, so do the\l"
-	.string "POKéMON.$"
+	.string "Cuando los POKéMON se hacen\nfuertes,"
+	.string "su entrenador también madura.\p"
+	.string "O tal vez sea al revés: al crecer\n"
+	.string "el entrenador, ¡los POKéMON ganan\l"
+	.string "fuerza a su lado!$"
 
 SproutTower_Text_SageTroy_Seen:
-	.string "Let me see how much you trust\n"
-	.string "your POKéMON.$"
+	.string "Permíteme comprobar cuánta\nconfianza"
+	.string "depositas en tus POKéMON.$"
 
 SproutTower_Text_SageTroy_Beaten:
-	.string "Yes, your trust is real!$"
+	.string "¡Ciertamente! ¡Vuestra unión es\nreal!$"
 
 SproutTower_Text_SageTroy_AfterBattle:
 	.string "El ANCIANO te aguarda unos pasos\nadelante.$"
 
 SproutTower_Text_SageNeal_Seen:
-	.string "The ELDER's HM lights even\n"
-	.string "pitch-black darkness.$"
+	.string "La MO del ANCIANO ilumina hasta la\n"
+	.string "más profunda oscuridad.$"
 
 SproutTower_Text_SageNeal_Beaten:
-	.string "It is my head that is bright!$"
+	.string "¡Pero es mi coronilla la que\nbrilla!$"
 
 SproutTower_Text_SageNeal_AfterBattle:
-	.string "Let there be light on your\n"
-	.string "journey.$"
+	.string "Que la luz ilumine cada paso\n"
+	.string "de tu viaje.$"
 
 SproutTower_Text_3F_Painting:
-	.string "It's a powerful painting of a\n"
-	.string "BELLSPROUT.$"
+	.string "Es una majestuosa pintura de\n"
+	.string "un gran BELLSPROUT.$"

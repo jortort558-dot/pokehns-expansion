@@ -391,29 +391,28 @@ VioletCity_EventScript_GymSign::
 	end
 
 VioletCity_Text_LiquidJustice:
-	.string "Look around!\p"
-	.string "It's easy to see what POKéMON\n"
-	.string "you can catch in an area without\l"
-	.string "having to run around in tall\l"
-	.string "grass all day!$"
+	.string "¡Mira a tu alrededor!\p"
+	.string "Es facilísimo ver qué POKéMON hay\n"
+	.string "en la zona sin pasarte el día dando\l"
+	.string "vueltas por la hierba alta.$"
 
 VioletCity_Text_EarlAsksIfYouBeatFalkner:
-	.string "Hello!\n"
-	.string "You are trainer?\p"
-	.string "Battle GYM LEADER,\n"
-	.string "win you did?$"
+	.string "¡Hola!\n"
+	.string "¿Entrenador ser tú?\p"
+	.string "¿Luchar contra LÍDER DE GIMNASIO\n"
+	.string "y ganar tú lograste?$"
 
 VioletCity_Text_VeryNiceIndeed:
-	.string "Ooh, la la!\n"
-	.string "Very indeed nice!$"
+	.string "¡Ooh, la la!\n"
+	.string "¡Maravilloso ser de verdad!$"
 
 VioletCity_Text_FollowEarl:
-	.string "Is that so? Then study shall\n"
-	.string "you! Follow me!$"
+	.string "¿Eso ser verdad? ¡Entonces estudiar\n"
+	.string "deberás! ¡Seguirme a mí!$"
 
 VioletCity_Text_HereTeacherIAm:
-	.string "Here, teacher I am.\n"
-	.string "Good it is you study here!$"
+	.string "Aquí, profesor ser yo.\n"
+	.string "¡Muy bueno ser que estudies aquí!$"
 
 VioletCity_Text_Lass:
 	.string "Hay rumores de que aparecen\nfantasmas en\l"

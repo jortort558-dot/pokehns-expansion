@@ -116,12 +116,12 @@ VioletCity_PokeCenter_Text_ElmsAideFavor:
 	.string "¿Te harías cargo de este HUEVO\nPOKéMON?$"
 
 VioletCity_PokeCenter_Text_ElmsAideNoRoom:
-	.string "{PLAYER}, long time, no see.\p"
-	.string "PROF.ELM asked me to find you.\p"
-	.string "He has another favor to ask.\p"
-	.string "Would you take the POKéMON EGG?\p"
-	.string "Oh, wait... You need to make room\n"
-	.string "in your party first.$"
+	.string "¡{PLAYER}, dichosos los ojos!\p"
+	.string "El PROF. ELM me envió a buscarte.\p"
+	.string "Tiene otro gran favor que pedirte.\p"
+	.string "¿Te harías cargo de este HUEVO?\p"
+	.string "Ah, espera... Primero necesitas\n"
+	.string "hacer hueco en tu equipo.$"
 
 VioletCity_PokeCenter_Text_ElmsAideGiveEgg:
 	.string "Descubrimos que el POKéMON no\nnacerá\l"
@@ -140,10 +140,10 @@ VioletCity_PokeCenter_Text_ElmsAideFullParty:
 	.string "en tu equipo para el HUEVO.$"
 
 VioletCity_PokeCenter_Text_ElmsAideEggToPC:
-	.string "Oh, but you can't carry any more\n"
-	.string "POKéMON with you.\p"
-	.string "Don't worry--I sent the EGG to\n"
-	.string "BILL'S PC for you.$"
+	.string "Vaya, no puedes llevar más\n"
+	.string "POKéMON contigo.\p"
+	.string "No te preocupes: ¡he enviado el\n"
+	.string "HUEVO al PC DE BILL por ti!$"
 
 VioletCity_PokeCenter_Text_ElmsAideRefuse:
 	.string "P-pero… Si el PROF. ELM insistió en\nti…$"
@@ -153,11 +153,10 @@ VioletCity_PokeCenter_Text_BooksAreGreat:
 	.string "me encanta sumergirme en un buen\nlibro.$"
 
 VioletCity_PokeCenter_Text_MobileAdapter:
-	.string "I just battled a friend in\n"
-	.string "CIANWOOD over a link.\p"
-	.string "If you connect a MOBILE ADAPTER,\n"
-	.string "you can link with a friend far\l"
-	.string "away.$"
+	.string "¡Acabo de luchar contra un amigo de\n"
+	.string "ORQUÍDEA mediante conexión!\p"
+	.string "¡Es alucinante poder conectarse con\n"
+	.string "alguien que está lejísimos!$"
 
 VioletCity_PokeCenter_Text_GameboyKid:
 	.string "Un genio llamado BILL inventó el\nsistema\l"

@@ -27,7 +27,7 @@ Gate_RuinsOfAlph_Route36_EventScript_Youngster::
 
 Gate_RuinsOfAlph_Route36_Text_Officer:
 	.string "RUINAS ALFA\p"
-	.string "Un lugar turístico para ver y tocar.\p"
+	.string "Un lugar turístico para investigar.\p"
 	.string "¡Prueba a mover los paneles\n"
 	.string "deslizantes de piedra!$"
 
