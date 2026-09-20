@@ -81,124 +81,60 @@ Route43_EventScript_Item_Max_Ether::
 	end
 
 Route43_Text_PokemaniacBenSeen:
-    .string "I love POKéMON!\p"
-    .string "That's why I started--and why I'll\n"
-    .string "keep on collecting POKéMON!$"
-
+	.string "¡Me vuelven loco los POKéMON!\pPor eso empecé a coleccionarlos, ¡y\npor\leso nunca voy a parar!$"
 Route43_Text_PokemaniacBenBeaten:
-    .string "How could you do this to me?$"
-
+	.string "¿Cómo has podido hacerme esto?$"
 Route43_Text_PokemaniacBenAfter:
-    .string "What else do I like besides\n"
-    .string "POKéMON?\p"
-    .string "MARY on the radio. I bet she's\n"
-    .string "cute!$"
-
+	.string "¿Qué más me gusta aparte de los\nPOKéMON?\lROSA, la locutora de radio.\l¡Seguro que es un bombón en\lpersona!$"
 Route43_Text_PokemaniacBrentSeen:
-    .string "Hey! Do you have any rare\n"
-    .string "POKéMON?$"
-
+	.string "¡Ey! ¿Tienes algún POKéMON raro?$"
 Route43_Text_PokemaniacBrentBeaten:
-    .string "Oh, my poor POKéMON! Darlings!$"
-
+	.string "¡Ay, mis pobres POKéMON!\n¡Tesoritos!$"
 Route43_Text_PokemaniacBrentAfter:
-    .string "I'd be happy just to own a single\n"
-    .string "rare POKéMON.$"
-
+	.string "Sería la persona más feliz del\nmundo con\ltener un solo POKéMON raro.$"
 Route43_Text_BrentRegister:
-    .string "I'd be happy just to own a single\n"
-    .string "rare POKéMON.$"
-
+	.string "Sería la persona más feliz del\nmundo con\ltener un solo POKéMON raro.$"
 Route43_Text_BrentRematchIntro:
-    .string "Hey! Do you have any rare\n"
-    .string "POKéMON?$"
-
+	.string "¡Ey! ¿Tienes algún POKéMON raro?$"
 Route43_Text_BrentRematchDefeat:
-    .string "Oh, my poor POKéMON! Darlings!$"
-
+	.string "¡Ay, mis pobres POKéMON!\n¡Tesoritos!$"
 Route43_Text_BrentPostRematch:
-    .string "I'd be happy just to own a single\n"
-    .string "rare POKéMON.$"
-
+	.string "Sería la persona más feliz del\nmundo con\ltener un solo POKéMON raro.$"
 Route43_Text_PokemaniacRonSeen:
-    .string "Would you get this?\p"
-    .string "Some {RIVAL} guy made fun of my\n"
-    .string "POKéMON!\p"
-    .string "Darn it! My POKéMON's great!$"
-
+	.string "¿Te puedes creer esto?\p¡Un tal {RIVAL} se ha burlado con\ndescaro\lde mis POKéMON!\l¡Maldito niñato! ¡Mis POKéMON son\lgeniales!$"
 Route43_Text_PokemaniacRonBeaten:
-    .string "My NIDOKING did pretty right on!$"
-
+	.string "¡Mi NIDOKING lo ha hecho de\ncategoría!$"
 Route43_Text_PokemaniacRonAfter:
-    .string "It's okay for people to like\n"
-    .string "different types of POKéMON.\p"
-    .string "POKéMON isn't just about having the\n"
-    .string "most powerful one.$"
-
+	.string "Está bien que a cada cual le gusten\ndistintos tipos de POKéMON.\pEsto no va solo de tener al más\nchetado.$"
 Route43_Text_FisherMarvinSeen:
-    .string "I'm in a slump.\p"
-    .string "Maybe it's the gear I'm using.\p"
-    .string "Let's battle for a change of pace!$"
-
+	.string "Estoy en mala racha.\nIgual es por culpa de la caña que\luso.\l¡Echemos un combate para cambiar\llos aires!$"
 Route43_Text_FisherMarvinBeaten:
-    .string "I lost, but I feel better anyway.$"
-
+	.string "He perdido, pero al menos me he\ndesfogado.$"
 Route43_Text_FisherMarvinAfter:
-    .string "KURT's LURE BALL is the best for\n"
-    .string "catching hooked POKéMON.\p"
-    .string "It's much more effective than a\n"
-    .string "ULTRA BALL.$"
-
+	.string "La CEBO BALL de CÉSAR es\ninsuperable\lpara atrapar POKéMON picando del\lanzuelo.\pEs muchísimo más eficaz que una\nULTRA BALL.$"
 Route43_Text_CamperSpencerSeen:
-    .string "I can do so much with my\n"
-    .string "POKéMON--it's super-fun!$"
-
+	.string "Puedo hacer un montón de cosas con\nmis\lPOKéMON. ¡Es divertidísimo!$"
 Route43_Text_CamperSpencerBeaten:
-    .string "Losing isn't fun at all…$"
-
+	.string "Perder no tiene ninguna gracia…$"
 Route43_Text_CamperSpencerAfter:
-    .string "What is going on at LAKE OF RAGE?\p"
-    .string "We were planning to camp there.$"
-
+	.string "¿Qué demonios pasa en el LAGO DE LA\nFURIA?\nTeníamos pensado acampar allí.$"
 Route43_Text_PicnickerTiffanySeen:
-    .string "Are you going to LAKE OF RAGE too?\p"
-    .string "Let's play for a little while!$"
-
+	.string "¿Tú también vas al LAGO DE LA\nFURIA?\l¡Juguemos un rato antes!$"
 Route43_Text_PicnickerTiffanyBeaten:
-    .string "I played too much!$"
-
+	.string "¡He jugado de más!$"
 Route43_Text_PicnickerTiffanyWantsPicnic:
-    .string "I'm having a picnic with POKéMON.\p"
-    .string "Won't you join us?$"
-
+	.string "Estoy de pícnic con mis POKéMON.\n¿Te apuntas con nosotros?$"
 Route43_Text_TiffanyRegister:
-    .string "I'm having a picnic with POKéMON.\p"
-    .string "Won't you join us?$"
-
+	.string "Estoy de pícnic con mis POKéMON.\n¿Te apuntas con nosotros?$"
 Route43_Text_TiffanyRematchIntro:
-    .string "Are you going to LAKE OF RAGE too?\p"
-    .string "Let's play for a little while!$"
-
+	.string "¿Tú también vas al LAGO DE LA\nFURIA?\l¡Juguemos un rato antes!$"
 Route43_Text_TiffanyRematchDefeat:
-    .string "I played too much!$"
-
+	.string "¡He jugado de más!$"
 Route43_Text_TiffanyPostRematch:
-    .string "I'm having a picnic with POKéMON.\p"
-    .string "Won't you join us?$"
-
+	.string "Estoy de pícnic con mis POKéMON.\n¿Te apuntas con nosotros?$"
 Route43_Sign1:
-    .string "ROUTE 43\p"
-    .string "LAKE OF RAGE - MAHOGANY TOWN$"
-
+	.string "RUTA 43\pLAGO DE LA FURIA - PUEBLO CAOBA$"
 Route43_Sign2:
-    .string "ROUTE 43\p"
-    .string "LAKE OF RAGE - MAHOGANY TOWN$"
-
+	.string "RUTA 43\pLAGO DE LA FURIA - PUEBLO CAOBA$"
 Route43_TrainerTips:
-    .string "TRAINER TIPS\p"
-    .string "All POKéMON have pros and cons\n"
-    .string "depending on their types.\p"
-    .string "If their types differ, a higher-\n"
-    .string "level POKéMON may lose in battle.\p"
-    .string "Learn which types are strong and\n"
-    .string "weak against your POKéMON's type.$"
+	.string "PISTAS PARA ENTRENADORES\pTodos los POKéMON tienen ventajas y\ndesventajas según sus tipos.\pPor disparidad de tipos, un POKéMON\nde\lmayor nivel puede caer derrotado.\l¡Aprende las debilidades y\lfortalezas!$"

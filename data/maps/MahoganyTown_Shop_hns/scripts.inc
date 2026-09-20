@@ -228,36 +228,18 @@ MahoganyTown_Pokemart:
 	end
 
 MahoganyTown_Shop_Text_Granny:
-	.string "Please come back another time.\n"
-	.string "The store is... closed\l"
-	.string "right now.$"
-
+	.string "Vuelve en otro momento, por favor.\nLa tienda está... cerrada por\lahora.$"
 MahoganyMart1F_Text_Pharmacist_Lance:
-    .string "ROCKETS have hijacked my basement!$"
-
+	.string "¡El TEAM ROCKET ha secuestrado mi\nsótano!$"
 MahoganyMart1F_Text_BlackBelt:
-    .string "Heheh! The experi- ment worked like\n"
-    .string "a charm.\p"
-    .string "MAGIKARP are just worthless, but\n"
-    .string "GYARADOS are big moneymakers.$"
-
+	.string "¡Je, je! El experimento ha salido a\nlas\lmil maravillas.\pLos MAGIKARP no valen un pimiento,\npero\llos GYARADOS dan una pasta gansa.$"
 MahoganyMart1F_Text_BlackBelt_Lance:
-    .string "Urrgh…\p"
-    .string "That guy's POKéMON are tough…$"
-
+	.string "Urrrgh…\nLos POKéMON de ese tío son de\lpiedra…$"
 MahoganyMart1F_Text_Lance_HyperBeam:
-    .string "LANCE: DRAGONITE, HYPER BEAM.$"
-
+	.string "LANCE: DRAGONITE, ¡HIPERRAYO!$"
 MahoganyMart1F_Text_Lance_Radio:
-    .string "What took you, {PLAYER}?\p"
-    .string "Just as we thought, that strange\n"
-    .string "radio signal is coming from here.$"
-
+	.string "¿Qué te ha entretenido, {PLAYER}?\pTal y como sospechábamos, esa\nextraña\lseñal de radio procede de aquí\labajo.$"
 MahoganyMart1F_Text_Lance_Stairs:
-    .string "Excellent work finding the stairs,\n"
-	.string "DRAGONITE!$"
-
+	.string "¡Trabajo impecable encontrando las\nescaleras secretas, DRAGONITE!$"
 MahoganyMart1F_Text_Lance_SplitUp:
-    .string "LANCE: {PLAYER}, we should split up\n"
-    .string "to check this place.\p"
-    .string "I'll go first.$"
+	.string "LANCE: {PLAYER}, deberíamos separarnos\npara inspeccionar este lugar.\pEntraré yo primero.$"

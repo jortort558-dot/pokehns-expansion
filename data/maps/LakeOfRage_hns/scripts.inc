@@ -44,11 +44,7 @@ LakeOfRage_EventScript_Pryce::
     end
 
 LakeOfRage_Text_Pryce:
-    .string "{PLAYER}.\p"
-	.string "Even here, the cold keeps me sharp.\p"
-	.string "If you wish to battle again, come\n"
-	.string "to the FIGHTING DOJO.$"
-
+	.string "{PLAYER}.\pIncluso aquí, el frío mantiene mi\nmente\ldespejada.\pSi deseas volver a combatir,\nbúscame en el\lDOJO de COMBATE.$"
 LakeOfRage_EventScript_Gramps::
 	goto_if_ge VAR_MAHOGANY_TOWN_STATE, 14, LakeOfRage_EventScript_Gramps2
 	msgbox LakeOfRage_Text_Gramps, MSGBOX_NPC
@@ -239,127 +235,55 @@ LakeOfRage_Movement_DragoniteLeave:
 	step_end
 
 LakeOfRage_Text_Dragonite:
-	.string "DRAGONITE: Gyafooha!$"
-
+	.string "DRAGONITE: ¡Giafuuuu!$"
 LakeOfRage_Text_LanceForcedToEvolve:
-    .string "This lake is full of GYARADOS\n"
-    .string "but nothing else…\p"
-    .string "So the MAGIKARP are being forced\n"
-    .string "to evolve…$"
-
+	.string "Este lago está atestado de GYARADOS\ny de\lnada más…\pAsí que los MAGIKARP están siendo\nforzados\la evolucionar…$"
 LakeOfRage_Text_LanceIntro1:
-    .string "Did you come here because of\n"
-    .string "the rumors?\p"
-    .string "You're {PLAYER}? I'm LANCE, a\n"
-    .string "trainer like you.$"
-
+	.string "¿Has venido por los rumores?\p¿Eres {PLAYER}? Yo me llamo LANCE, y\nsoy\lun Entrenador igual que tú.$"
 LakeOfRage_Text_LanceIntro2:
-    .string "This man here informed me of\n"
-    .string "some rumors.\p"
-    .string "So we came to investigate…$"
-
+	.string "Este hombre de aquí me puso al\ntanto de\lciertos rumores extraños.\pAsí que vinimos a investigar…$"
 LakeOfRage_Text_LanceIntro3:
-    .string "I saw the way you battled\n"
-    .string "earlier, {PLAYER}.\p"
-    .string "I can tell that you're a trainer\n"
-    .string "with considerable skill.\p"
-    .string "If you don't mind, could you help\n"
-    .string "us investigate?$"
-
+	.string "Vi cómo luchaste antes, {PLAYER}.\pSe nota a leguas que eres un\nEntrenador\lde enorme destreza.\pSi no te importa, ¿podrías\nayudarnos a\linvestigar este misterio?$"
 LakeOfRage_Text_LanceRadioSignal:
-    .string "LANCE: Excellent!\p"
-    .string "It seems that the LAKE's MAGIKARP\n"
-    .string "are being forced to evolve.\p"
-    .string "A mysterious radio broadcast\n"
-    .string "coming from MAHOGANY is the cause.\p"
-    .string "We'll be waiting for you,\n"
-    .string "{PLAYER}.$"
-
+	.string "LANCE: ¡Excelente!\pTodo apunta a que los MAGIKARP del\nLAGO\lestán siendo obligados a\levolucionar.\pLa culpable es una misteriosa\nemisión de\lradio que procede de CAOBA.\p¡Te estaremos esperando allí, {PLAYER}!$"
 LakeOfRage_Text_LanceRefused:
-    .string "Oh… Well, if you change your mind,\n"
-    .string "please help us.$"
-
+	.string "Vaya… Bueno, si cambias de parecer,\npor favor ven a echarnos una mano.$"
 LakeOfRage_Text_LanceAskHelp:
-    .string "LANCE: Hm? Are you going to help\n"
-    .string "us?$"
-
+	.string "LANCE: ¿Mmm? ¿Te decides a\nayudarnos?$"
 LakeOfRage_Text_GyaradosCry:
-    .string "GYARADOS: Gyashaa!$"
-
+	.string "GYARADOS: ¡Giaaash!$"
 LakeOfRage_Text_Gramps:
-    .string "The GYARADOS are angry!\p"
-    .string "It's a bad omen!$"
-
+	.string "¡Los GYARADOS están enfurecidos!\p¡Esto es un mal presagio!$"
 LakeOfRage_Text_GrampsCleared:
-    .string "Hahah! The MAGIKARP are biting!$"
-
+	.string "¡Jajaja! ¡Los MAGIKARP vuelven a\npicar!$"
 LakeOfRage_Text_SuperNerd:
-    .string "I heard this lake was made by\n"
-    .string "rampaging GYARADOS.\p"
-    .string "I wonder if there is any\n"
-    .string "connection to their mass outbreak\l"
-    .string "now?$"
-
+	.string "Dicen que este lago fue creado por\nuna\lestampida de GYARADOS enfurecidos.\p¿Tendrá relación con este brote\nmasivo que\lhay ahora?$"
 LakeOfRage_Text_CooltrainerF:
-    .string "Did my eyes deceive me? I saw a\n"
-    .string "red GYARADOS in the LAKE…\p"
-    .string "But I thought GYARADOS were\n"
-    .string "usually blue?$"
-
-
+	.string "¿Me engañan los ojos o vi a un\nGYARADOS\lrojo en el LAGO?\pPero si los GYARADOS son azules de\ntoda\lla vida…$"
 LakeOfRage_Text_FisherAndreSeen:
-    .string "Let me battle with the POKéMON I\n"
-    .string "just caught!$"
-
+	.string "¡Déjame luchar con el POKéMON que\nacabo\lde pescar!$"
 LakeOfRage_Text_FisherAndreBeaten:
-    .string "I might be an expert angler, but\n"
-    .string "I stink as a POKéMON trainer…$"
-
+	.string "Seré un hacha con la caña, pero\ncomo\lEntrenador doy bastante pena…$"
 LakeOfRage_Text_FisherAndreAfter:
-    .string "I won't lose as an angler! I catch\n"
-    .string "POKéMON all day.$"
-
-
+	.string "¡Pescando no me gana nadie! Me paso\nel día\lentero sacando POKéMON del agua.$"
 LakeOfRage_Text_FisherRaymondSeen:
-    .string "No matter what I do, all I catch\n"
-    .string "are the same POKéMON…$"
-
+	.string "Haga lo que haga, ¡solo pesco los\nmismos\lPOKéMON una y otra vez!$"
 LakeOfRage_Text_FisherRaymondBeaten:
-    .string "My line's all tangled up…$"
-
+	.string "Se me ha enredado todo el sedal…$"
 LakeOfRage_Text_FisherRaymondAfter:
-    .string "Why can't I catch any good\n"
-    .string "POKéMON?$"
-
+	.string "¿Por qué no logro pescar ningún\nPOKéMON en\lcondiciones?$"
 LakeOfRage_Text_CooltrainermAaronSeen:
-    .string "If a trainer spots another trainer,\n"
-    .string "he has to make a challenge.\p"
-    .string "That is our destiny.$"
-
+	.string "Si un Entrenador cruza la mirada\ncon otro,\lel desafío es inevitable.\pEse es nuestro destino.$"
 LakeOfRage_Text_CooltrainermAaronBeaten:
-    .string "Whew… Good battle.$"
-
+	.string "Uf… Magnífico combate.$"
 LakeOfRage_Text_CooltrainermAaronAfter:
-    .string "POKéMON and their trainer become\n"
-    .string "powerful through constant battling.$"
-
+	.string "Los POKéMON y sus Entrenadores se\nhacen\lfuertes a base de batirse el cobre.$"
 LakeOfRage_Text_CooltrainerfLoisSeen:
-    .string "What happened to the red\n"
-    .string "GYARADOS?\p"
-    .string "It's gone?\p"
-    .string "Oh, darn. I came here for\n"
-    .string "nothing?\p"
-    .string "I know--let's battle!$"
-
+	.string "¿Qué le ha pasado al GYARADOS rojo?\n¿Ya no está?\n¡Maldición! ¿He venido para nada?\n¡Pues mira, echemos un combate!$"
 LakeOfRage_Text_CooltrainerfLoisBeaten:
-    .string "Good going!$"
-
+	.string "¡Bien jugado!$"
 LakeOfRage_Text_CooltrainerfLoisAfter:
-    .string "Come to think of it, I've seen a\n"
-    .string "pink BUTTERFREE.$"
-
-
-
+	.string "Ahora que me acuerdo, una vez vi un\nBUTTERFREE de color rosa.$"
 LakeOfRage_EventScript_Wesley::
 	lock
 	faceplayer
@@ -405,27 +329,15 @@ LakeOfRage_EventScript_WesleyCompleted::
 	end
 
 LakeOfRage_Text_MeetWesley:
-    .string "WESLEY: Well, how do you do?\p"
-    .string "I'm a member of the WEEKDAY family!\n"
-	.string "Can you guess my favorite day?$"
-
+	.string "MIO: Hola, ¿cómo estás?\p¡Soy de los HERMANOS DE LOS DÍAS!\n¿Adivinas cuál es mi día preferido?$"
 LakeOfRage_Text_WesleyGivesGift:
-    .string "Pleased to meet you. Please take a\n"
-    .string "souvenir.$"
-
+	.string "Encantado de conocerte.\nQuédate con este recuerdo.$"
 LakeOfRage_Text_WesleyGaveGift:
-    .string "WESLEY: BLACK BELT beefs up the\n"
-    .string "power of fighting moves.$"
-
+	.string "MIO: El CINTURÓN NEGRO potencia los\ngolpes\lde tipo LUCHA.$"
 LakeOfRage_Text_WesleyWednesday:
-    .string "WESLEY: Since you found me, you\n"
-    .string "must have met my brothers and\l"
-    .string "sisters.\p"
-    .string "Or did you just get lucky?$"
-
+	.string "MIO: Si me has encontrado, seguro\nque ya\lhas visto a mis hermanos y\lhermanas.\p¿O ha sido pura chiripa?$"
 LakeOfRage_Text_WesleyNotWednesday:
-    .string "WESLEY: Not exactly...$"
-
+	.string "MIO: Pues va a ser que no...$"
 LakeOfRage_EventScript_Sign1::
 	msgbox LakeOfRage_Text_Sign, MSGBOX_SIGN
 	end
@@ -435,8 +347,6 @@ LakeOfRage_EventScript_Sign2::
 	end
 
 LakeOfRage_Text_Sign:
-    .string "LAKE OF RAGE,\n"
-    .string "also known as GYARADOS LAKE.$"
-
+	.string "LAGO DE LA FURIA,\ntambién conocido como LAGO\lGYARADOS.$"
 LakeOfRage_Text_FishingGuruSign:
-    .string "FISHING GURU'S HOUSE$"
+	.string "CASA DEL GURÚ DE LA PESCA$"

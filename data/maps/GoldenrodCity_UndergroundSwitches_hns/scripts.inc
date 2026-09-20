@@ -54,10 +54,7 @@ GoldenrodCity_UndergroundSwitches_EventScript_AntiSoftLock_TP::
 	end
 
 GoldenrodCity_UndergroundSwitches_EventScript_AntiSoftLock_Text::
-	.string "You may be stuck.\p"
-	.string "Go back to the entrance\n"
-	.string "and reset switches?$"
-
+	.string "Puede que te hayas quedado\natascado.\p¿Volver a la entrada y reiniciar\nlos\linterruptores?$"
 @ 3->2->1
 
 @==============================================================================================================================================
@@ -565,93 +562,50 @@ GoldenrodUnderground_Text_SilverLoss:
     .string "fantasma ese de LANCE.$"
 
 GoldenrodUnderground_Text_GruntM11Seen:
-    .string "Open one shutter, another closes.\p"
-    .string "Bet you can't get where you want!$"
-
+	.string "Abres una compuerta y se cierra\notra.\l¡A que no logras llegar a donde\lquieres!$"
 GoldenrodUnderground_Text_GruntM11Beaten:
-    .string "Drat! I was sunk by indecision!$"
-
+	.string "¡Mierda! ¡La indecisión me ha\nhundido!$"
 GoldenrodUnderground_Text_GruntM11After:
-    .string "I'm confused too… The switch on the\n"
-    .string "end is the one to press first, but…$"
-
+	.string "Yo también me hago un lío… El\ninterruptor\ldel fondo es el primero que hay que\lpulsar,\lpero…$"
 GoldenrodUnderground_Text_GruntM25Seen:
-    .string "Kwahaha!\p"
-    .string "Confounded by the shutters, are we?\p"
-    .string "I'll let you in on a secret if you\n"
-    .string "can beat me!$"
-
+	.string "¡Jajajaja!\n¿Desesperado con las compuertas?\l¡Te soltaré un secreto si consigues\lvencerme!$"
 GoldenrodUnderground_Text_GruntM25Beaten:
-    .string "Uwww… I blew it.$"
-
+	.string "Uffff… He metido la pata.$"
 GoldenrodUnderground_Text_GruntM25After:
-    .string "All right. A hint!\p"
-    .string "Change the order of switching.\p"
-    .string "That'll change the ways the\nshutters\l"
-    .string "open and close.$"
-
+	.string "De acuerdo. ¡Una pista!\nCambia el orden de los\linterruptores.\lEso alterará cómo abren y cierran\llas\lcompuertas.$"
 GoldenrodUnderground_Text_BurglarDuncanSeen:
-    .string "Fork over your goodies!$"
-
+	.string "¡Suelto todo lo que lleves de\nvalor!$"
 GoldenrodUnderground_Text_BurglarDuncanBeaten:
-    .string "Mercy!$"
-
+	.string "¡Piedad!$"
 GoldenrodUnderground_Text_BurglarDuncanAfter:
-    .string "Steal and sell! That's basic in\n"
-    .string "crime, kid!$"
-
+	.string "¡Robar y vender! ¡Eso es lo básico\ndel\lcrimen, renacuajo!$"
 GoldenrodUnderground_Text_BurglarEddieSeen:
-    .string "They ditched this project before\nthey\l"
-    .string "finished.\p"
-    .string "I'm searching for leftover loot.$"
-
+	.string "Abandonaron este proyecto antes de\nterminarlo.\lAndo buscando si dejaron algún\lbotín.$"
 GoldenrodUnderground_Text_BurglarEddieBeaten:
-    .string "Over the top!$"
-
+	.string "¡Por encima de mis posibilidades!$"
 GoldenrodUnderground_Text_BurglarEddieAfter:
-    .string "UNDERGROUND WAREHOUSE?\p"
-    .string "What do you want to go there for?\p"
-    .string "There's nothing down there.$"
-
+	.string "¿ALMACENES SUBTERRÁNEOS?\n¿Para qué demonios quieres ir allí?\nNo hay un pimiento ahí abajo.$"
 GoldenrodUnderground_Text_GruntM13Seen:
-    .string "I don't care if you're lost.\p"
-    .string "You show up here, you're nothing\nbut\l"
-    .string "a victim!$"
-
+	.string "Me da igual que te hayas perdido.\n¡Si apareces por aquí, no eres más\lque una\lvíctima!$"
 GoldenrodUnderground_Text_GruntM13Beaten:
-    .string "Urk! Yeah, think you're cool, huh?$"
-
+	.string "¡Urg! Sí, te crees muy chulito,\n¿eh?$"
 GoldenrodUnderground_Text_GruntM13After:
-    .string "You must have ice in your veins to\n"
-    .string "diss TEAM ROCKET.$"
-
+	.string "Hay que tener horchata en las venas\npara\ltocarle las narices al TEAM ROCKET.$"
 GoldenrodUnderground_Text_GruntF3Seen:
-    .string "Are you lost? No, you can't be.\p"
-    .string "You don't have that scared look.\p"
-    .string "I'll give you something to be\n"
-    .string "scared about!$"
-
+	.string "¿Te has perdido? No, no lo parece.\nNo tienes cara de asustado.\l¡Pues te daré un buen motivo para\ltemblar!$"
 GoldenrodUnderground_Text_GruntF3Beaten:
-    .string "How could you?$"
-
+	.string "¿Pero cómo has podido?$"
 GoldenrodUnderground_Text_GruntF3After:
-    .string "Go wherever you'd like! Get lost!\n"
-    .string "See if I care!$"
-
+	.string "¡Vete a donde te plazca! ¡Lárgate!\n¡A ver si te crees que me importa!$"
 GoldenrodUnderground_Text_Switch1:
-    .string "SWITCH 1 activated.$"
-
+	.string "INTERRUPTOR 1 accionado.$"
 GoldenrodUnderground_Text_Switch2:
-    .string "SWITCH 2 activated.$"
-
+	.string "INTERRUPTOR 2 accionado.$"
 GoldenrodUnderground_Text_Switch3:
-    .string "SWITCH 3 activated.$"
-
+	.string "INTERRUPTOR 3 accionado.$"
 GoldenrodUnderground_Text_Switch1Off:
-    .string "SWITCH 1 deactivated.$"
-
+	.string "INTERRUPTOR 1 desactivado.$"
 GoldenrodUnderground_Text_Switch2Off:
-    .string "SWITCH 2 deactivated.$"
-
+	.string "INTERRUPTOR 2 desactivado.$"
 GoldenrodUnderground_Text_Switch3Off:
-    .string "SWITCH 3 deactivated.$"
+	.string "INTERRUPTOR 3 desactivado.$"

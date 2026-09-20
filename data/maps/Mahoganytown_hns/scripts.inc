@@ -248,72 +248,28 @@ MahoganyTown_Movement_PlayerMerchant2:
 	step_end
 
 MahoganyTown_Text_RageCandyBarMerchantTryOne:
-	.string "Hiya, kid!\p"
-	.string "I see you're new in MAHOGANY TOWN.\p"
-	.string "Since you're new, you should try a\n"
-	.string "yummy RAGECANDYBAR!\p"
-	.string "Right now, it can be yours for just\n"
-	.string "¥300! Want one?$"
-
+	.string "¡Ey, renacuajo!\pVeo que eres nuevo en PUEBLO CAOBA.\pY si eres nuevo, ¡tienes que probar\nun\ldelicioso CARAMELO FURIA!\p¡Ahora mismo puede ser tuyo por\nsolo\l300¥! ¿Te hace uno?$"
 MahoganyTown_Text_RageCandyBarMerchantSavorIt:
-    .string "Good! Savor it!$"
-
+	.string "¡De perlas! ¡Saboréalo bien!$"
 MahoganyTown_Text_RageCandyBarMerchantNotEnoughMoney:
-    .string "You don't have enough money.$"
-
+	.string "No tienes bastante pasta encima.$"
 MahoganyTown_Text_RageCandyBarMerchantRefused:
-    .string "Oh, fine then…$"
-
+	.string "Pues nada, tú te lo pierdes…$"
 MahoganyTown_Text_RageCandyBarMerchantSoldOut:
-    .string "RAGECANDYBAR's sold out.\p"
-    .string "I'm packing up. Don't bother me,\n"
-    .string "kiddo.$"
-
+	.string "Los CARAMELOS FURIA se han agotado.\pEstoy recogiendo los bártulos.\nNo molestes, crío.$"
 MahoganyTown_Text_Gramps:
-    .string "Are you off to see the GYARADOS\n"
-    .string "rampage at the LAKE?$"
-
+	.string "¿Vas de camino a ver la furia de\nlos\lGYARADOS en el LAGO?$"
 MahoganyTown_Text_GrampsClearedRocketHideout:
-    .string "MAGIKARP have returned to LAKE\n"
-    .string "OF RAGE.\p"
-    .string "That should be good news for the\n"
-    .string "anglers there.$"
-
+	.string "Los MAGIKARP han vuelto a las aguas\ndel LAGO DE LA FURIA.\pEso seguro que alegra a los\npescadores\lde la zona.$"
 MahoganyTown_Text_Fisher:
-    .string "Since you came this far, take the\n"
-    .string "time to do some sightseeing.\p"
-    .string "You should head north and check\n"
-    .string "out LAKE OF RAGE right now.$"
-
+	.string "Ya que has llegado hasta aquí,\naprovecha\lpara hacer un poco de turismo.\pDeberías subir al norte y\ncontemplar el\lLAGO DE LA FURIA ahora mismo.$"
 MahoganyTown_Text_Lass:
-    .string "Visit Grandma's shop. She sells\n"
-    .string "stuff that nobody else has.$"
-
+	.string "Pásate por la tienda de la abuela.\nVende cosas que nadie más tiene.$"
 MahoganyTown_Text_Sign:
-    .string "MAHOGANY TOWN\p"
-    .string "Welcome to the Home of the Ninja$"
-
+	.string "PUEBLO CAOBA\pBienvenidos al hogar de los ninjas.$"
 MahoganyTown_Text_RagecandybarSign:
-    .string "While visiting MAHOGANY TOWN, try\n"
-    .string "a RAGECANDYBAR!$"
-
+	.string "¡Si visitas PUEBLO CAOBA, no dejes\nde\lprobar el CARAMELO FURIA!$"
 MahoganyTown_Text_GymSign:
-    .string "MAHOGANY TOWN POKéMON GYM\p"
-    .string "LEADER: PRYCE\p"
-    .string "The Teacher of Winter's Harshness$"
-
+	.string "GIMNASIO POKéMON DE PUEBLO CAOBA\nLÍDER: FREDO\pEl maestro del duro invierno.$"
 ElmPhoneRadioTowerRocketTakeoverText:
-	.string "PROF.ELM: {PLAYER}, how are\n"
-	.string "things going?\p"
-	.string "I called because something weird\n"
-	.string "is happening with the radio\l"
-	.string "broadcasts.\p"
-	.string "They were talking about TEAM\n"
-	.string "ROCKET.\p"
-	.string "{PLAYER}, do you know anything\n"
-	.string "about it?\p"
-	.string "Maybe TEAM ROCKET has returned.\n"
-	.string "No, that just can't be true.\p"
-	.string "Sorry to bug you.\n"
-	.string "Take care!$"
-
+	.string "PROF. ELM: ¡{PLAYER}! ¿Cómo te va?\pTe llamo porque está ocurriendo\nalgo muy\lextraño con las emisiones de radio.\pEstaban hablando sobre el TEAM\nROCKET.\p{PLAYER}, ¿tú sabes algo del tema?\p¿Habrá regresado el TEAM ROCKET?\nNo, no puede ser verdad...\pSiento molestarte con esto.\n¡Cuídate mucho!$"
