@@ -1,5 +1,5 @@
 Route32_PokemonCenter_hns_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route32_PokemonCenter_OnTransition	
+	map_script MAP_SCRIPT_ON_TRANSITION, Route32_PokemonCenter_OnTransition
 	.byte 0
 
 Route32_PokemonCenter_OnTransition::
@@ -44,7 +44,7 @@ Route32_Pokecenter_Text_FishingGuruQuestion:
 	.string "Este es un rincón de pesca ideal.\p"
 	.string "¿Viste a gente pescando fuera?\n"
 	.string "¿Y tú?\p"
-	.string "¿Te gustaría tener una de mis CAÑAS?$"
+	.string "¿Quieres una de mis CAÑAS?$"
 
 Route32_Pokecenter_Text_FishingGuruYes:
 	.string "¡Je, je, me alegra oír eso!\p"
@@ -56,10 +56,10 @@ Route32_Pokecenter_Text_FishingGuruGiveRod:
 	.string "río, ¡prueba a usar tu CAÑA!$"
 
 Route32_Pokecenter_Text_FishingGuruNo:
-	.string "Vaya, qué decepción… Tú te lo pierdes.$"
+	.string "Qué decepción… Tú te lo pierdes.$"
 
 Route32_Pokecenter_Text_FishingGuruAfter:
-	.string "¡Hola! ¿Pican o no pican esos peces?$"
+	.string "¡Hola! ¿Están picando los peces?$"
 
 Route32_Pokecenter_Text_CooltrainerF:
 	.string "¿Qué objeto debería equipar a mi\n"

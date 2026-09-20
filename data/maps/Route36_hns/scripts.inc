@@ -272,7 +272,7 @@ Route36_Text_Lass1:
 	.string "¡Mucho ojo por las noches en esta\n"
 	.string "ruta!\p"
 	.string "Vi a un POKéMON parecido a\n"
-	.string "GROWLITHE, pero con un aura que\ndaba\l"
+	.string "GROWLITHE, pero con un aura que\ldaba\l"
 	.string "auténtico pavor.$"
 
 Route36_Text_Lass2_ClearedSudowoodo:

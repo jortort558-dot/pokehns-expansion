@@ -27,21 +27,21 @@ BlackthornCity_House2_EventScript_TradeCompleted::
 	end
 
 BlackthornCity_House2_Text_YouWillTradeWontYou:
-	.string "I collect POKéMON!\n"
-	.string "Do you have a {STR_VAR_1}?\p"
-	.string "Want to trade it for my\n"
+	.string "¡Colecciono POKéMON!\n"
+	.string "¿Tienes un {STR_VAR_1}?\p"
+	.string "¿Quieres cambiarlo por mi\n"
 	.string "{STR_VAR_2}?$"
 
 BlackthornCity_House2_Text_MonYouTakeCare:
-	.string "Yay! I got myself {STR_VAR_1}!\p"
-	.string "{STR_VAR_2}, you take care!$"
+	.string "¡Bien! ¡Ya tengo a {STR_VAR_1}!\p"
+	.string "¡Cuida bien de {STR_VAR_2}!$"
 
 BlackthornCity_House2_Text_ThisIsntAMon:
-	.string "Uh, no, I don't think so.\n"
-	.string "That isn't a {STR_VAR_1}.$"
+	.string "Mmm, creo que no.\n"
+	.string "Eso no es un {STR_VAR_1}.$"
 
 BlackthornCity_House2_Text_YouWontTradeMe:
-	.string "You don't want to trade? Aww...$"
+	.string "¿No quieres cambiarlo? Vaya…$"
 
 BlackthornCity_House2_Text_After:
-	.string "Hi, how's my old MR MIME doing?$"
+	.string "¿Qué tal está mi antiguo MR. MIME?$"

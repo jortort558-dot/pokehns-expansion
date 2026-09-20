@@ -613,9 +613,9 @@ RuinsOfAlph_Lab_EventScript_WorkOnNext::
 	end
 
 RuinsOfAlph_Lab_Text_DeviceForTalkingToPokemon:
-	.string "We're developing a device for\ntalking\l"
-	.string "with POKéMON.\p"
-	.string "But we haven't had much success…$"
+	.string "Estamos desarrollando un aparato\n"
+	.string "para hablar con los POKéMON.\p"
+	.string "Pero aún no hemos tenido éxito…$"
 
 RuinsOfAlph_Lab_Text_DevelopingNewBalls:
 	.string "Estoy diseñando nuevos tipos de\n"
@@ -628,14 +628,14 @@ RuinsOfAlph_Lab_Text_WeFinallyMadeNewBalls:
 	.string "POKéMON que ya poseas.\p"
 	.string "La TURNO BALL mejora cuanto más se\n"
 	.string "alargue el combate.\p"
-	.string "¡Ambas desarrolladas con orgullo\npor"
-	.string "la prestigiosa CORPORACIÓN SILPH!\p"
+	.string "¡La prestigiosa CORPORACIÓN SILPH\n"
+	.string "las ha desarrollado con orgullo!\p"
 	.string "¡Pruébalas en tu viaje!$"
 
 RuinsOfAlph_Lab_Text_IMadePokenav:
 	.string "¡Yo inventé el POKéNAV!\p"
-	.string "Como ingeniero, ¡es un orgullo\nhaber"
-	.string "creado un dispositivo tan genial!$"
+	.string "Como ingeniero, me enorgullece\n"
+	.string "haber creado algo tan genial!$"
 
 RuinsOfAlph_Lab_Text_WowThatsAPokenav:
 	.string "¡Oh, caramba!\n"
@@ -677,8 +677,8 @@ RuinsOfAlph_Lab_Text_OhIsThatSo2:
 RuinsOfAlph_Lab_Text_TwoFossilsPickOne:
 	.string "¡Vaya sorpresa!\n"
 	.string "¿Tienes más de un fósil?\p"
-	.string "Por desgracia, mi máquina solo\npuede"
-	.string "revivir un POKéMON a la vez.\p"
+	.string "Mi máquina solo puede revivir un\n"
+	.string "POKéMON a la vez.\p"
 	.string "¿Qué fósil deseas que reviva?$"
 
 RuinsOfAlph_Lab_Text_HandedFossilToResearcher:
@@ -719,8 +719,8 @@ RuinsOfAlph_Lab_Text_DevelopNewPokenavFeature:
 RuinsOfAlph_Lab_Text_WhatToWorkOnNext:
 	.string "¿En qué debería ponerme a trabajar\n"
 	.string "ahora?\p"
-	.string "Nuestra empresa nos da libertad\npara"
-	.string "hacer realidad nuestras ideas.\p"
+	.string "Nuestra empresa nos da libertad\n"
+	.string "para hacer realidad nuestras ideas.\p"
 	.string "¡Es el paraíso para un ingeniero!$"
 
 

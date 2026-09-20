@@ -347,8 +347,8 @@ AzaleaTown_Text_RivalBefore:
 	.string "basurilla esa del TEAM ROCKET?\p"
 	.string "¿Qué? ¿Que te los has cargado tú?\n"
 	.string "¡Venga ya, fantasma de pacotilla!\p"
-	.string "¿Que no estás de coña?\n"
-	.string "¡Pues a ver si tienes huevos de\n"
+	.string "¿Que no estás de coña?\p"
+	.string "¡Pues a ver si tienes agallas de\n"
 	.string "ponerte chulo conmigo, que te voy\l"
 	.string "a crujir!$"
 
@@ -367,12 +367,12 @@ AzaleaTown_Text_RivalAfter:
 	.string "¡Voy a hacerme el más chungo de\n"
 	.string "todos y voy a reventar a cualquier\l"
 	.string "flojo!\p"
-	.string "Y eso va por el TEAM ROCKET\ntambién.\p"
+	.string "Y eso va por el TEAM ROCKET\n"
+	.string "también.\p"
 	.string "Van de gallitos en manada, pero de\n"
-	.string "uno en uno no valen ni pa' tomar\l"
-	.string "por culo.\p"
-	.string "¡Quítate de mi vista, estorbo,\nantes\l"
-	.string "de que te dé dos hostias bien\ndadas!$"
+	.string "uno en uno no valen una mierda.\p"
+	.string "¡Quítate de mi vista, estorbo,\n"
+	.string "antes de que te dé un viaje!$"
 
 AzaleaTown_Text_RivalLoss:
 	.string "…¡Ja! ¡Ya sabía yo que eras un\n"
@@ -415,14 +415,14 @@ AzaleaTown_Text_Youngster:
 
 AzaleaTown_Text_Slowpoke1:
 	.string "SLOWPOKE:..........\p"
-	.string "...............YAWN?$"
+	.string "...............¿Bostezo?$"
 
 AzaleaTown_Text_Kurt1:
-	.string "ILEX FOREST is restless!\p"
-	.string "What is going on?$"
+	.string "¡El ENCINAR está muy agitado!\p"
+	.string "¿Qué estará ocurriendo?$"
 
 AzaleaTown_Text_Kurt2:
-	.string "{PLAYER}, here's your GS BALL back!$"
+	.string "{PLAYER}, ¡aquí tienes tu GS BALL!$"
 
 AzaleaTown_Text_Kurt3:
 	.string "¿Podrías ir a comprobar por qué el\n"

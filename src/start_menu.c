@@ -161,12 +161,14 @@ static const struct WindowTemplate sWindowTemplate_SafariBalls = {
     .baseBlock = 0x8
 };
 
+#include "nuzlocke.h"
+
 static const struct WindowTemplate sWindowTemplate_StartClock = {
     .bg = 0,
     .tilemapLeft = 1,
     .tilemapTop = 1,
-    .width = 6,
-    .height = 2,
+    .width = 8,
+    .height = 4,
     .paletteNum = 15,
     .baseBlock = 0x30
 };
@@ -501,6 +503,8 @@ static void ShowPyramidFloorWindow(void)
 
 static const u8 sText_AM[] = _("AM");
 static const u8 sText_PM[] = _("PM");
+static const u8 sText_NuzlockeAreaCaught[] = COMPOUND_STRING("{COLOR RED}ZONA: GASTADA");
+static const u8 sText_NuzlockeAreaFree[]   = COMPOUND_STRING("{COLOR GREEN}ZONA: LIBRE");
 
 static void ShowTimeWindow(void)
 {
@@ -531,6 +535,18 @@ static void ShowTimeWindow(void)
 
     AddTextPrinterParameterized(sStartClockWindowId, FONT_NORMAL, suffix,
         GetStringWidth(FONT_NORMAL, gStringVar4, 0) + 3, 1, 0xFF, NULL);
+
+    if (IsNuzlockeActive() && IsNuzlockeEncounterArea(gMapHeader.regionMapSectionId))
+    {
+        if (NuzlockeFlagGet(gMapHeader.regionMapSectionId))
+        {
+            AddTextPrinterParameterized(sStartClockWindowId, FONT_SMALL, sText_NuzlockeAreaCaught, 0, 16, 0xFF, NULL);
+        }
+        else
+        {
+            AddTextPrinterParameterized(sStartClockWindowId, FONT_SMALL, sText_NuzlockeAreaFree, 0, 16, 0xFF, NULL);
+        }
+    }
 
     CopyWindowToVram(sStartClockWindowId, COPYWIN_GFX);
 }

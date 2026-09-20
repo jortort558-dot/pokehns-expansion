@@ -224,14 +224,14 @@ SproutTower_Text_SageJin_Beaten:
 	.string "Mi disciplina es aún imperfecta…$"
 
 SproutTower_Text_SageJin_AfterBattle:
-	.string "Cuando los POKéMON se hacen\nfuertes,"
-	.string "su entrenador también madura.\p"
-	.string "O tal vez sea al revés: al crecer\n"
-	.string "el entrenador, ¡los POKéMON ganan\l"
-	.string "fuerza a su lado!$"
+	.string "Cuando los POKéMON se hacen\n"
+	.string "fuertes, su entrenador madura.\p"
+	.string "O quizá sea al revés: al crecer\n"
+	.string "el entrenador, ¡sus POKéMON se\l"
+	.string "fortalecen junto a él!$"
 
 SproutTower_Text_SageTroy_Seen:
-	.string "Permíteme comprobar cuánta\nconfianza"
+	.string "Quiero comprobar la confianza que\n"
 	.string "depositas en tus POKéMON.$"
 
 SproutTower_Text_SageTroy_Beaten:

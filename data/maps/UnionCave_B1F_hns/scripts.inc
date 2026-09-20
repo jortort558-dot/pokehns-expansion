@@ -30,51 +30,50 @@ UnionCave_B1F_EventScript_Item_Xdefend::
 	end
 
 UnionCave_B1F_Text_HikerPhillipSeen:
-	.string "It's been a while since I last saw\n"
-	.string "another person.\p"
-	.string "Don't be shy. Let's battle!$"
+	.string "Hace mucho que no veía\n"
+	.string "a otra persona.\p"
+	.string "No seas tímido. ¡Combatamos!$"
 
 UnionCave_B1F_Text_HikerPhillipBeaten:
 	.string "Uurggh…$"
 
 UnionCave_B1F_Text_HikerPhillipAfter:
-	.string "I've been lost for a long time…\p"
-	.string "I don't mind it here, but I am\n"
-	.string "soooo hungry!$"
+	.string "Llevo perdido mucho tiempo…\p"
+	.string "No estoy mal aquí, pero tengo\n"
+	.string "¡muchííísima hambre!$"
 
 UnionCave_B1F_Text_HikerLeonardSeen:
-	.string "What do you know! A visitor!$"
+	.string "¡Vaya! ¡Una visita!$"
 
 UnionCave_B1F_Text_HikerLeonardBeaten:
-	.string "Wahahah! You're a feisty one!$"
+	.string "¡Ja, ja! ¡Tienes mucho carácter!$"
 
 UnionCave_B1F_Text_HikerLeonardAfter:
-	.string "I live down here.\p"
-	.string "You can, too, if you'd like.\p"
-	.string "There's plenty of room, you see.$"
+	.string "Vivo aquí abajo.\p"
+	.string "Tú también puedes, si quieres.\p"
+	.string "Como ves, hay sitio de sobra.$"
 
 UnionCave_B1F_Text_PokemaniacAndrewSeen:
-	.string "Who's there?\p"
-	.string "Leave me and my POKéMON alone!$"
+	.string "¿Quién anda ahí?\p"
+	.string "¡Déjanos en paz a mí y mis POKéMON!$"
 
 UnionCave_B1F_Text_PokemaniacAndrewBeaten:
-	.string "Go… Go away!$"
+	.string "¡Vete…! ¡Déjame en paz!$"
 
 UnionCave_B1F_Text_PokemaniacAndrewAfter:
-	.string "Just me and my POKéMON. I'm de-\n"
-	.string "lirious with joy.$"
+	.string "Solo estamos mis POKéMON y yo.\n"
+	.string "¡No podría ser más feliz!$"
 
 UnionCave_B1F_Text_PokemaniacCalvinSeen:
-	.string "I came all the way here to conduct\n"
-	.string "my POKéMON research.\p"
-	.string "Let me demonstrate my findings in a\n"
-	.string "real battle!$"
+	.string "He venido a investigar los POKéMON.\p"
+	.string "¡Déjame mostrarte mis hallazgos en\n"
+	.string "un combate de verdad!$"
 
 UnionCave_B1F_Text_PokemaniacCalvinBeaten:
-	.string "You demonstrated on me!$"
+	.string "¡Me has usado de experimento!$"
 
 UnionCave_B1F_Text_PokemaniacCalvinAfter:
-	.string "I should compile and announce my\n"
-	.string "study findings.\p"
-	.string "I might even become famous like\n"
-	.string "PROF.ELM.$"
+	.string "Debería recopilar y publicar los\n"
+	.string "resultados de mi estudio.\p"
+	.string "Quizá llegue a ser famoso como el\n"
+	.string "PROF. ELM.$"

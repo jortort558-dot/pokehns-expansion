@@ -456,8 +456,8 @@ Route32_Text_FisherHenry_Beaten:
 	.string "¿SALPICADURA?$"
 
 Route32_Text_FisherHenry_After:
-	.string "Los recién pescados no pueden\nrivalizar"
-	.string "contra un equipo bien entrenado.$"
+	.string "Un equipo recién pescado no puede\n"
+	.string "rivalizar con uno bien entrenado.$"
 
 Route32_Text_YoungsterAlbert_Seen:
 	.string "No te había visto antes por aquí.\n"
@@ -494,7 +494,8 @@ Route32_Text_CamperRoland_After:
 
 Route32_Text_PicnickerLiz1_Seen:
 	.string "Sí, sí, ya sabes…\p"
-	.string "¿Eh? ¿Un combate? Estoy al\nteléfono."
+	.string "¿Eh? ¿Un combate? Estoy al\n"
+	.string "teléfono.\p"
 	.string "Bueno, vale, pero que sea rápido.$"
 
 Route32_Text_PicnickerLiz1_Beaten:
@@ -508,7 +509,8 @@ Route32_Text_LizRegister:
 
 Route32_Text_LizRematchIntro:
 	.string "Sí, sí, ya sabes…\p"
-	.string "¿Eh? ¿Un combate? Estoy al\nteléfono."
+	.string "¿Eh? ¿Un combate? Estoy al\n"
+	.string "teléfono.\p"
 	.string "Bueno, vale, pero que sea rápido.$"
 
 Route32_Text_LizRematchDefeat:

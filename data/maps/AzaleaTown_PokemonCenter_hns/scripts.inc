@@ -31,9 +31,9 @@ AzaleaPokeCenter_EventScript_PokefanF::
 	end
 
 AzaleaPokecenter_Text_Gentleman:
-	.string "¿Tus POKéMON conocen movimientos MO?\p"
-	.string "Esos movimientos pueden usarse fuera\n"
-	.string "incluso si el POKéMON está debilitado.$"
+	.string "¿Tus POKéMON conocen alguna MO?\p"
+	.string "Puedes usarlas fuera de combate\n"
+	.string "aunque el POKéMON esté debilitado.$"
 
 AzaleaPokecenter_Text_UnusedPCExplanation:
 	.string "Un tal BILL inventó el sistema para\n"
@@ -46,9 +46,9 @@ AzaleaPokecenter_Text_FishingGuru:
 	.string "POKéMON por cada CAJA!$"
 
 AzaleaPokecenter_Text_PokefanF:
-	.string "¿Sabes de las BAYAS y CÉSAR?\p"
-	.string "Las vacía con cuidado y les instala\n"
+	.string "¿Conoces los BONGURIS y a CÉSAR?\p"
+	.string "Los vacía con cuidado y les instala\n"
 	.string "un dispositivo especial.\p"
 	.string "¡Así puedes atrapar POKéMON!\p"
-	.string "Antes de inventarse las Poké Balls,\n"
-	.string "todo el mundo usaba frutos y bayas.$"
+	.string "Antes de inventar las Poké Balls,\n"
+	.string "todo el mundo usaba BONGURIS.$"

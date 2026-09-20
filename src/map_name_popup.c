@@ -9,6 +9,7 @@
 #include "main.h"
 #include "menu.h"
 #include "map_name_popup.h"
+#include "nuzlocke.h"
 #include "palette.h"
 #include "region_map.h"
 #include "rtc.h"
@@ -513,6 +514,7 @@ static const u8 sText_PyramidFloor5[] = _("PYRAMID FLOOR 5");
 static const u8 sText_PyramidFloor6[] = _("PYRAMID FLOOR 6");
 static const u8 sText_PyramidFloor7[] = _("PYRAMID FLOOR 7");
 static const u8 sText_Pyramid[] = _("PYRAMID");
+static const u8 sNuzlockeCaughtBall_Gfx[] = INCBIN_U8("graphics/pokedex/caught_ball.4bpp");
 
 static const u8 *const sBattlePyramid_MapHeaderStrings[FRONTIER_STAGES_PER_CHALLENGE + 1] =
 {

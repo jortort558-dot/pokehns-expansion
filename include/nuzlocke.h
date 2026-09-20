@@ -14,6 +14,7 @@ bool8 IsNuzlockeNicknamingActive(void);
 u8 NuzlockeFlagSet(u16 mapsec);
 u8 NuzlockeFlagClear(u16 mapsec);
 u8 NuzlockeFlagGet(u16 mapsec);
+bool8 IsNuzlockeEncounterArea(u16 mapsec);
 
 void NuzlockeDeletePartyMon(u8 position);
 void NuzlockeDeletePartyMonOption(u8 position);

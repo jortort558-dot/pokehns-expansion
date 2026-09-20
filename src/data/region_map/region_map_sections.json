@@ -98,7 +98,7 @@
     },
     {
       "id": "MAPSEC_LILYCOVE_CITY",
-      "name": "LILYCOVE CITY",
+      "name": "CIUDAD CALAGUA",
       "x": 18,
       "y": 3,
       "width": 2,
@@ -493,7 +493,7 @@
     },
     {
       "id": "MAPSEC_ABANDONED_SHIP",
-      "name": "ABANDONED SHIP",
+      "name": "NAVE ABANDONADA",
       "x": 6,
       "y": 14,
       "width": 1,
@@ -591,7 +591,7 @@
     },
     {
       "id": "MAPSEC_SOUTHERN_ISLAND",
-      "name": "SOUTHERN ISLAND",
+      "name": "ISLA DEL SUR",
       "x": 12,
       "y": 14,
       "width": 1,
@@ -1047,7 +1047,7 @@
     },
     {
       "id": "MAPSEC_MT_MOON",
-      "name": "MT. MOON",
+      "name": "MONTE MOON",
       "x": 9,
       "y": 3,
       "width": 1,
@@ -1097,7 +1097,7 @@
     },
     {
       "id": "MAPSEC_ROCKET_HIDEOUT",
-      "name": "ROCKET HIDEOUT",
+      "name": "GUARIDA ROCKET",
       "x": 11,
       "y": 6,
       "width": 1,
@@ -1502,7 +1502,7 @@
     },
     {
       "id": "MAPSEC_BIRTH_ISLAND_FRLG",
-      "name": "BIRTH ISLAND",
+      "name": "ISLA ORIGEN",
       "x": 18,
       "y": 13,
       "width": 1,
@@ -1598,12 +1598,12 @@
     },
     {
       "id": "MAPSEC_BIRTH_ISLAND",
-      "name": "BIRTH ISLAND",
+      "name": "ISLA ORIGEN",
       "in_hns": true
     },
     {
       "id": "MAPSEC_FARAWAY_ISLAND",
-      "name": "FARAWAY ISLAND",
+      "name": "ISLA LEJANA",
       "in_hns": true
     },
     {
@@ -1672,23 +1672,23 @@
     },
     {
       "id": "MAPSEC_MELEMELE_ISLAND",
-      "name": "MELEMELE ISLE",
+      "name": "ISLA MELEMELE",
       "in_hns": true,
       "region": "REGION_ALOLA"
     },
     {
       "id": "MAPSEC_AKALA_ISLAND",
-      "name": "AKALA ISLE",
+      "name": "ISLA AKALA",
       "in_hns": true
     },
     {
       "id": "MAPSEC_ULAULA_ISLAND",
-      "name": "ULA'ULA ISLE",
+      "name": "ISLA ULA-ULA",
       "in_hns": true
     },
     {
       "id": "MAPSEC_PONI_ISLAND",
-      "name": "PONI ISLE",
+      "name": "ISLA PONI",
       "in_hns": true
     },
     {
@@ -1698,32 +1698,32 @@
     },
     {
       "id": "MAPSEC_AKALA_CAVE",
-      "name": "AKALA CAVE",
+      "name": "CUEVA AKALA",
       "in_hns": true
     },
     {
       "id": "MAPSEC_AKALA_FOREST",
-      "name": "AKALA FOREST",
+      "name": "BOSQUE AKALA",
       "in_hns": true
     },
     {
       "id": "MAPSEC_PONI_CAVE",
-      "name": "PONI CAVE",
+      "name": "CUEVA PONI",
       "in_hns": true
     },
     {
       "id": "MAPSEC_ULAULA_CAVE",
-      "name": "MT. LANIKALA",
+      "name": "MONTE LANAKILA",
       "in_hns": true
     },
     {
       "id": "MAPSEC_ULAULA_CAVE_2",
-      "name": "ULA'ULA CAVE",
+      "name": "CUEVA ULA-ULA",
       "in_hns": true
     },
     {
       "id": "MAPSEC_TRAINER_HILL",
-      "name": "TRAINER HILL",
+      "name": "COLINA DESAFÍO",
       "x": 8,
       "y": 4,
       "width": 1,
@@ -1735,7 +1735,7 @@
     {
       "height": 1,
       "id": "MAPSEC_ABANDONED_SHIP",
-      "name": "ABANDONED SHIP",
+      "name": "NAVE ABANDONADA",
       "width": 1,
       "x": 6,
       "y": 14
@@ -1751,7 +1751,7 @@
     {
       "height": 1,
       "id": "MAPSEC_BIRTH_ISLAND",
-      "name": "BIRTH ISLAND",
+      "name": "ISLA ORIGEN",
       "width": 1,
       "x": 0,
       "y": 0
@@ -1759,7 +1759,7 @@
     {
       "height": 1,
       "id": "MAPSEC_FARAWAY_ISLAND",
-      "name": "FARAWAY ISLAND",
+      "name": "ISLA LEJANA",
       "width": 1,
       "x": 0,
       "y": 0
@@ -1767,7 +1767,7 @@
     {
       "height": 1,
       "id": "MAPSEC_LILYCOVE_CITY",
-      "name": "LILYCOVE CITY",
+      "name": "CIUDAD CALAGUA",
       "width": 2,
       "x": 18,
       "y": 3
@@ -1783,7 +1783,7 @@
     {
       "height": 1,
       "id": "MAPSEC_SOUTHERN_ISLAND",
-      "name": "SOUTHERN ISLAND",
+      "name": "ISLA DEL SUR",
       "width": 1,
       "x": 12,
       "y": 14
@@ -1791,51 +1791,51 @@
     {
       "height": 1,
       "id": "MAPSEC_TRAINER_HILL",
-      "name": "TRAINER HILL",
+      "name": "COLINA DESAFÍO",
       "width": 1,
       "x": 5,
       "y": 3
     },
     {
       "id": "MAPSEC_MELEMELE_ISLAND",
-      "name": "MELEMELE ISLE",
+      "name": "ISLA MELEMELE",
       "region": "REGION_ALOLA"
     },
     {
       "id": "MAPSEC_AKALA_ISLAND",
-      "name": "AKALA ISLE"
+      "name": "ISLA AKALA"
     },
     {
       "id": "MAPSEC_ULAULA_ISLAND",
-      "name": "ULA'ULA ISLE"
+      "name": "ISLA ULA-ULA"
     },
     {
       "id": "MAPSEC_PONI_ISLAND",
-      "name": "PONI ISLE"
+      "name": "ISLA PONI"
     },
     {
       "id": "MAPSEC_ALOLA_OCEAN",
-      "name": "MELEMELE SEA"
+      "name": "MAR MELEMELE"
     },
     {
       "id": "MAPSEC_AKALA_CAVE",
-      "name": "AKALA CAVE"
+      "name": "CUEVA AKALA"
     },
     {
       "id": "MAPSEC_AKALA_FOREST",
-      "name": "AKALA FOREST"
+      "name": "BOSQUE AKALA"
     },
     {
       "id": "MAPSEC_PONI_CAVE",
-      "name": "PONI CAVE"
+      "name": "CUEVA PONI"
     },
     {
       "id": "MAPSEC_ULAULA_CAVE",
-      "name": "MT. LANIKALA"
+      "name": "MONTE LANAKILA"
     },
     {
       "id": "MAPSEC_ULAULA_CAVE_2",
-      "name": "ULA'ULA CAVE"
+      "name": "CUEVA ULA-ULA"
     },
     {
       "height": 1,
@@ -2136,7 +2136,7 @@
     {
       "height": 1,
       "id": "MAPSEC_MT_MOON",
-      "name": "MT. MOON",
+      "name": "MONTE MOON",
       "width": 1,
       "x": 9,
       "y": 3
@@ -2152,7 +2152,7 @@
     {
       "height": 1,
       "id": "MAPSEC_ROCKET_HIDEOUT",
-      "name": "ROCKET HIDEOUT",
+      "name": "GUARIDA ROCKET",
       "width": 1,
       "x": 15,
       "y": 2
@@ -2464,7 +2464,7 @@
     {
       "height": 1,
       "id": "MAPSEC_CLIFF_CAVE",
-      "name": "CLIFF CAVE",
+      "name": "CUEVA ACANTILADO",
       "width": 1,
       "x": 3,
       "y": 11
@@ -2488,7 +2488,7 @@
     {
       "height": 2,
       "id": "MAPSEC_EMBEDDED_TOWER",
-      "name": "EMBEDDED TOWER",
+      "name": "TORRE OCULTA",
       "width": 1,
       "x": 1,
       "y": 10
@@ -2512,7 +2512,7 @@
     {
       "height": 1,
       "id": "MAPSEC_LAKE_OF_RAGE",
-      "name": "LAKE OF RAGE",
+      "name": "LAGO DE LA FURIA",
       "width": 1,
       "x": 15,
       "y": 0
@@ -2528,7 +2528,7 @@
     {
       "height": 1,
       "id": "MAPSEC_ROCKET_HIDEOUT_HNS",
-      "name": "ROCKET HIDEOUT",
+      "name": "GUARIDA ROCKET",
       "width": 1,
       "x": 15,
       "y": 2
@@ -2560,7 +2560,7 @@
     {
       "height": 1,
       "id": "MAPSEC_SNOWSWEPT_CAVERN",
-      "name": "SNOWSWEPT CAVERN",
+      "name": "CUEVA NEVADA",
       "width": 1,
       "x": 20,
       "y": 3
@@ -2584,7 +2584,7 @@
     {
       "height": 1,
       "id": "MAPSEC_NEW_SINJOH",
-      "name": "NEW SINJOH",
+      "name": "NUEVO SINJOH",
       "width": 1,
       "x": 20,
       "y": 3
@@ -2592,7 +2592,7 @@
     {
       "height": 1,
       "id": "MAPSEC_SINJOH_RUINS",
-      "name": "SINJOH RUINS",
+      "name": "RUINAS SINJOH",
       "width": 1,
       "x": 20,
       "y": 3
@@ -2608,7 +2608,7 @@
     {
       "height": 1,
       "id": "MAPSEC_OLIVINE_LIGHTHOUSE",
-      "name": "OLIVINE LIGHTHOUSE",
+      "name": "FARO DE OLIVO",
       "width": 1,
       "x": 7,
       "y": 4
@@ -2664,7 +2664,7 @@
     {
       "height": 1,
       "id": "MAPSEC_TOHJO_FALLS",
-      "name": "TOHJO FALLS",
+      "name": "CASCADA TOHJO",
       "width": 1,
       "x": 20,
       "y": 9

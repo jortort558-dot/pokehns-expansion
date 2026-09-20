@@ -659,29 +659,29 @@ AzaleaTown_Gym_EventScript_Statue2::
 	end
 
 AzaleaTown_Gym_Text_GymStatue:
-	.string "AZALEA POKéMON GYM$"
+	.string "GIMNASIO POKéMON DE AZALEA$"
 
 AzaleaTown_Gym_Text_GymStatueCertified:
-	.string "AZALEA TOWN POKéMON GYM\p"
-	.string "BUGSY'S CERTIFIED TRAINERS:\n"
-	.string "{PLAYER}$"
+	.string "GIMNASIO POKéMON DE AZALEA\p"
+	.string "ENTRENADORES CERTIFICADOS:\n"
+	.string "ANTÓN Y {PLAYER}$"
 
 AzaleaTown_Gym_Text_BugsyIntro:
 	.string "¡Soy ANTÓN!\p"
-	.string "¡Nadie me supera en lo que respecta\n"
+	.string "¡Nadie me supera en lo que toca\n"
 	.string "a los POKéMON bicho!\p"
-	.string "¡Mis estudios me convertirán en la\nmayor\l"
-	.string "autoridad mundial de este tipo!\p"
-	.string "¡Deja que te demuestre todo lo que\n"
-	.string "he descubierto en mis\ninvestigaciones!$"
+	.string "¡Mis estudios me convertirán en la\n"
+	.string "mayor autoridad de este tipo!\p"
+	.string "¡Deja que te demuestre todo lo\n"
+	.string "que he descubierto en mis viajes!$"
 
 AzaleaTown_Gym_Text_BugsyBeaten:
-	.string "¡Guau, increíble! ¡Eres un\nauténtico\l"
-	.string "as de los combates POKéMON!\p"
-	.string "Parece que a mi investigación aún\nle\l"
+	.string "¡Guau, increíble!\p"
+	.string "¡Eres un as de los combates POKéMON!\p"
+	.string "Parece que a mis estudios aún les\n"
 	.string "queda un largo camino…\p"
-	.string "De acuerdo, tú ganas. ¡Toma esta\n"
-	.string "MEDALLA!$"
+	.string "De acuerdo, tú ganas.\n"
+	.string "¡Toma esta MEDALLA!$"
 
 AzaleaTown_Gym_Text_ReceivedHiveBadge:
 	.string "¡{PLAYER} recibió la MEDALLA COLMENA!$"
@@ -689,24 +689,25 @@ AzaleaTown_Gym_Text_ReceivedHiveBadge:
 AzaleaTown_Gym_Text_HiveBadgeSpeech:
 	.string "¿Conoces las ventajas de poseer\n"
 	.string "la MEDALLA COLMENA?\p"
-	.string "Con ella, los POKéMON hasta el\nNivel 30\l"
-	.string "te obedecerán sin vacilar, incluso\nlos\l"
-	.string "recibidos por intercambio.\p"
-	.string "Además, podrás usar el movimiento\nCORTE\l"
-	.string "fuera de los combates cuando\nquieras.\p"
-	.string "¡Toma, también quiero regalarte\nesto!$"
+	.string "Con ella, los POKéMON hasta el\n"
+	.string "Nivel 30 te obedecerán sin chistar,\l"
+	.string "incluso si son de intercambio.\p"
+	.string "Además, podrás usar CORTE fuera\n"
+	.string "de los combates cuando quieras.\p"
+	.string "¡Toma, quiero que te lleves esto!$"
 
 AzaleaTown_Gym_Text_FuryCutterSpeech:
 	.string "¡La MT89 contiene IDA Y VUELTA!\p"
-	.string "¡IDA Y VUELTA asesta un golpe al\nrival\l"
-	.string "y te permite cambiar de POKéMON en\nel\l"
+	.string "¡Asesta un fuerte golpe y te\n"
+	.string "permite cambiar de POKéMON en el\l"
 	.string "mismo turno!\p"
-	.string "¿A que es genial? ¡Es mi gran\ntáctica!$"
+	.string "¿A que mola? ¡Es mi gran táctica!$"
 
 AzaleaTown_Gym_Text_BugsyAdvice:
-	.string "Los POKéMON bicho son fascinantes.\nAún\l"
-	.string "quedan muchos misterios por\ndescubrir.\p"
-	.string "¡Entrena a tus favoritos con\npasión!$"
+	.string "Los POKéMON bicho son fascinantes.\n"
+	.string "Aún guardan muchos misterios.\p"
+	.string "¡Entrena a tus favoritos con\n"
+	.string "mucha pasión!$"
 
 AzaleaTown_Gym_Text_BugsyRematch:
 	.string "¡Vaya, ahora eres CAMPEÓN de JOHTO!\p"
@@ -716,7 +717,7 @@ AzaleaTown_Gym_Text_BugsyRematch:
 	.string "¿Quieres echar la revancha conmigo?$"
 
 AzaleaTown_Gym_Text_BugsyRematchDefeat:
-	.string "¡Eres todo un maestro de los\ncombates!"
+	.string "¡Dominas los combates como nadie!\p"
 	.string "Aún debo seguir investigando más…$"
 
 AzaleaTown_Gym_Text_BugCatcherBennySeen:
@@ -739,8 +740,8 @@ AzaleaTown_Gym_Text_BugCatcherAlBeaten:
 	.string "El que demostró ser duro fuiste tú…$"
 
 AzaleaTown_Gym_Text_BugCatcherAlAfter:
-	.string "Son fascinantes, pero a casi\nninguna"
-	.string "chica le gustan los bichos.\p"
+	.string "Son fascinantes, pero a casi\n"
+	.string "ninguna chica le gustan los bichos.\p"
 	.string "¡No entiendo por qué!$"
 
 AzaleaTown_Gym_Text_BugCatcherJoshSeen:
@@ -795,7 +796,7 @@ AzaleaTown_Gym_Text_GymGuide:
 	.string "¡Mucha suerte!$"
 
 AzaleaTown_Gym_Text_GymGuideWin:
-	.string "¡Enhorabuena! Fue un auténtico\nduelo"
+	.string "¡Enhorabuena! Ha sido un duelo\n"
 	.string "entre dos jóvenes promesas.\p"
 	.string "¡Con entrenadores así, el futuro de\n"
 	.string "los POKéMON brilla con fuerza!$"

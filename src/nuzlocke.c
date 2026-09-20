@@ -341,6 +341,17 @@ u8 NuzlockeFlagGet(u16 mapsec)
     return 1;
 }
 
+bool8 IsNuzlockeEncounterArea(u16 mapsec)
+{
+    if (mapsec >= ARRAY_COUNT(sNuzlockeLUT))
+        return FALSE;
+#if IS_HNS
+    return mapsec == MAPSEC_ROUTE_1 || sNuzlockeLUT[mapsec] != 0;
+#else
+    return mapsec == MAPSEC_ROUTE_101 || sNuzlockeLUT[mapsec] != 0;
+#endif
+}
+
 void NuzlockeDeletePartyMon(u8 position)
 {
     struct ChallengeSettings *cs = &gSaveBlock3Ptr->challengeSettings;

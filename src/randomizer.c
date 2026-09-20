@@ -15,6 +15,7 @@
 #include "constants/pokedex.h"
 #include "data/randomizer/ability_whitelist.h"
 #include "move.h"
+#include "nuzlocke.h"
 
 const u16 gStarterAndGiftMonTable[STARTER_AND_GIFT_MON_COUNT] =
 {
@@ -1241,6 +1242,8 @@ u16 RandomizeMove(u16 move, u16 species)
     do
     {
         result = RandomizerNextRange(&state, MOVES_COUNT_GEN9 - 1) + 1;
+        if (IsNuzlockeActive() && (result == MOVE_GUILLOTINE || result == MOVE_HORN_DRILL || result == MOVE_FISSURE || result == MOVE_SHEER_COLD))
+            continue;
     } while (result >= MOVES_COUNT_GEN9 || result > MOVE_MALIGNANT_CHAIN || GetMoveRandomizerInvalid(result));
 
     return result;

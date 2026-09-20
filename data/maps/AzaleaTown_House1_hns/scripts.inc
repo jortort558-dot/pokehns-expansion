@@ -88,8 +88,8 @@ CharcoalKiln_Text_Boss2:
 
 CharcoalKiln_Text_Boss3:
 	.string "Los SLOWPOKE han vuelto…\p"
-	.string "¡Pero mi APRENDIZ aún no regresa del\n"
-	.string "ENCINAR!\p"
+	.string "¡Pero mi APRENDIZ aún no ha vuelto\n"
+	.string "del ENCINAR!\p"
 	.string "¿Dónde se habrá metido ese vago?$"
 
 CharcoalKiln_Text_Boss4:
@@ -99,11 +99,12 @@ CharcoalKiln_Text_Boss4:
 	.string "¡Ven a entrenar con nosotros!$"
 
 CharcoalKiln_Text_Apprentice1:
-	.string "¿A dónde se habrán ido los SLOWPOKE?\p"
+	.string "¿Dónde se habrán metido\n"
+	.string "los SLOWPOKE?\p"
 	.string "¿Estarán jugando en algún sitio?$"
 
 CharcoalKiln_Text_Apprentice2:
-	.string "The SLOWPOKE came back!$"
+	.string "¡Los SLOWPOKE han vuelto!$"
 
 CharcoalKiln_Text_Apprentice3:
 	.string "Perdón, ¡se me olvidó darte las\n"

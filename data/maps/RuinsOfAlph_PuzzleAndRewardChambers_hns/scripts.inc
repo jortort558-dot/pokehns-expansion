@@ -370,12 +370,12 @@ RuinsOfAlph_PuzzleAndRewardChambers_EventScript_RewardGotten::
 	end
 
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Reward:
-	.string "The chamber reacts!\n"
-	.string "The way is open.$"
+	.string "¡La cámara ha reaccionado!\n"
+	.string "¡El camino se ha abierto!$"
 
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Mon:
-	.string "Some kind of ancient sensor.\n"
-	.string "What is it looking for?$"
+	.string "Parece un antiguo sensor.\n"
+	.string "¿Qué estará buscando?$"
 
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Solved:
 	.string "El camino ha quedado abierto.$"
@@ -383,7 +383,7 @@ RuinsOfAlph_PuzzleAndRewardChambers_Text_Solved:
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Receptionist1:
 	.string "Te damos la bienvenida a la cámara.\p"
 	.string "Hay paneles deslizantes que forman\n"
-	.string "un POKéMON dibujado en la antigüedad.\p"
+	.string "un POKéMON de la antigüedad.\p"
 	.string "Mueve los paneles para completar la\n"
 	.string "ilustración.\p"
 	.string "A la izquierda tienes pistas sobre\n"
@@ -392,7 +392,8 @@ RuinsOfAlph_PuzzleAndRewardChambers_Text_Receptionist1:
 	.string "investigan nuevos patrones.$"
 
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Receptionist2:
-	.string "¡Se ha abierto un agujero en el suelo!\n"
+	.string "¡Se ha abierto un agujero en el\n"
+	.string "suelo!\p"
 	.string "¡Iré a avisar a los demás!$"
 
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Receptionist3:
@@ -416,8 +417,9 @@ RuinsOfAlph_PuzzleAndRewardChambers_Text_Aerodactyl:
 	.string "sus presas con colmillos de sierra.$"
 
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Omanyte:
-	.string "POKéMON marino que nadaba con soltura\n"
-	.string "gracias a sus diez tentáculos.$"
+	.string "POKéMON marino que nadaba con\n"
+	.string "soltura gracias a sus diez\l"
+	.string "tentáculos.$"
 
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Hooh:
 	.string "POKéMON que surcaba el firmamento\n"

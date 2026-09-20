@@ -36,44 +36,42 @@ Route33_EventScript_Lass::
 	end
 
 Route33_Text_HikerAnthony2Seen:
-	.string "I came through the tunnel,\n"
-	.string "but I still have plenty\l"
-	.string "of energy left.$"
+	.string "Vengo de atravesar el túnel,\n"
+	.string "¡pero aún me quedan energías!$"
 
 Route33_Text_HikerAnthony2Beaten:
-	.string "Whoa! You've got more zip\n"
-	.string "than me!$"
+	.string "¡Vaya! ¡Tienes más energía\n"
+	.string "que yo!$"
 
 Route33_Text_HikerAnthony2After:
-	.string "We HIKERS are at our best\n"
-	.string "in the mountains.$"
+	.string "Los MONTAÑEROS damos lo mejor\n"
+	.string "en las montañas.$"
 
 Route33_Text_AnthonyRegister:
-	.string "We HIKERS are at our best\n"
-	.string "in the mountains.$"
+	.string "Los MONTAÑEROS damos lo mejor\n"
+	.string "en las montañas.$"
 
 Route33_Text_AnthonyRematchIntro:
-	.string "I came through the tunnel,\n"
-	.string "but I still have plenty\l"
-	.string "of energy left.$"
+	.string "Vengo de atravesar el túnel,\n"
+	.string "¡pero aún me quedan energías!$"
 
 Route33_Text_AnthonyRematchDefeat:
-	.string "Whoa! You've got more zip\n"
-	.string "than me!$"
+	.string "¡Vaya! ¡Tienes más energía\n"
+	.string "que yo!$"
 
 Route33_Text_AnthonyPostRematch:
-	.string "We HIKERS are at our best\n"
-	.string "in the mountains.$"
+	.string "Los MONTAÑEROS damos lo mejor\n"
+	.string "en las montañas.$"
 
 Route33_Text_HikerAnthonyDunsparce:
-	.string "Hey, did you get a DUNSPARCE?\p"
-	.string "I caught one too.\p"
-	.string "Take a look at it in the light.\n"
-	.string "It's got a funny face!$"
+	.string "Oye, ¿has atrapado un DUNSPARCE?\p"
+	.string "Yo también atrapé uno.\p"
+	.string "Mírale bien la cara.\n"
+	.string "¡Es graciosísima!$"
 
 Route33_Text_Lass:
-	.string "Pant, pant…\p"
-	.string "That cave was bigger than\n"
-	.string "I'd expected.\p"
-	.string "I got too tired exploring\n"
-	.string "for MARILL, so I came outside.$"
+	.string "Uf, uf…\p"
+	.string "Esa cueva era más grande de lo\n"
+	.string "que esperaba.\p"
+	.string "Me cansé de buscar a MARILL,\n"
+	.string "así que salí a descansar.$"

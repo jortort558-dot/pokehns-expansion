@@ -23,11 +23,11 @@ AzaleaMart_Text_CooltrainerM:
 	.string "¡Dicen que hay más surtido a medida\n"
 	.string "que ganas MEDALLAS DE GIMNASIO!\p"
 	.string "Ojalá CÉSAR me hiciera alguna de\n"
-	.string "sus Balls especiales.$"
+	.string "sus Poké Balls especiales.$"
 
 AzaleaMart_Text_BugCatcher:
 	.string "La SÚPER BALL atrapa mejor que una\n"
 	.string "Poké Ball corriente.\p"
-	.string "¡Pero las Balls de CÉSAR son mucho\n"
+	.string "¡Pero las de CÉSAR son mucho\n"
 	.string "mejores en ciertas ocasiones!$"
 
