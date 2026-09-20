@@ -89,33 +89,15 @@ CianwoodCity_EventScript_ChucksWifeAlreadyHasFly::
 	end
 
 CianwoodCity_Text_ChucksWifeEasierToFly:
-	.string "You crossed the sea to get here?\p"
-	.string "That must have been hard.\p"
-	.string "It would be much easier if your\n"
-	.string "POKéMON knew how to FLY...$"
-
+	.string "¿Cruzaste todo el mar a nado?\pDebió de ser agotador.\pSería muchísimo más cómodo si tu\nPOKéMON\lsupiera usar VUELO...$"
 CianwoodCity_Text_ChucksWifeBeatChuck:
-	.string "But you can't use FLY without this\n"
-	.string "city's GYM BADGE.\p"
-	.string "If you beat the GYM LEADER here,\n"
-	.string "come see me.\p"
-	.string "I'll have a nice gift for you.$"
-
+	.string "Pero no puedes usar VUELO sin la\nMEDALLA\ldel GIMNASIO de esta ciudad.\pSi derrotas al LÍDER, ven a verme.\nTendré un bonito regalo para ti.$"
 CianwoodCity_Text_ChucksWifeGiveHM:
-	.string "That's CIANWOOD's GYM BADGE!\p"
-	.string "Then you should take this HM.$"
-
+	.string "¡Esa es la MEDALLA de ORQUÍDEA!\pEntonces deberías quedarte con esta\nMO.$"
 CianwoodCity_Text_ChucksWifeFlySpeech:
-	.string "Teach FLY to your POKéMON.\p"
-	.string "You will be able to FLY instantly\n"
-	.string "to anywhere you have visited.$"
-
+	.string "Enséñale VUELO a tus POKéMON.\pPodrás VOLAR al instante a\ncualquier sitio\lque ya hayas visitado.$"
 CianwoodCity_Text_ChucksWifeChubby:
-	.string "My husband lost to you, so he needs\n"
-	.string "to train harder.\p"
-	.string "That's good, since he was getting\n"
-	.string "a little chubby.$"
-
+	.string "Mi marido ha perdido contigo, así\nque le\ltoca entrenar aún más duro.\pMejor, porque se me estaba poniendo\nun\lpoco fondón.$"
 CianwoodCity_EventScript_Youngster::
 	lock
 	faceplayer
@@ -125,9 +107,7 @@ CianwoodCity_EventScript_Youngster::
 	end
 
 CianwoodCity_Text_Youngster:
-	.string "If you use FLY, you can get back\n"
-	.string "to OLIVINE instantly.$"
-
+	.string "Si usas VUELO, puedes volver a\nCIUDAD\lOLIVO en un abrir y cerrar de ojos.$"
 CianwoodCity_EventScript_PokefanM::
 	lock
 	faceplayer
@@ -137,12 +117,7 @@ CianwoodCity_EventScript_PokefanM::
 	end
 
 CianwoodCity_Text_PokefanM:
-	.string "Boulders to the north of town can\n"
-	.string "be crushed.\p"
-	.string "They may be hiding something.\p"
-	.string "Your POKéMON could use ROCK SMASH\n"
-	.string "to break them.$"
-
+	.string "Las rocas al norte del pueblo se\npueden\lpartir.\pPodrían estar ocultando algo\ninteresante.\pTus POKéMON pueden usar GOLPE ROCA\npara romperlas.$"
 CianwoodCity_EventScript_Lass::
 	lock
 	faceplayer
@@ -152,9 +127,7 @@ CianwoodCity_EventScript_Lass::
 	end
 
 CianwoodCity_Text_Lass:
-	.string "CHUCK, the GYM LEADER, spars with\n"
-	.string "his fighting POKéMON.$"
-
+	.string "ANÍBAL, el LÍDER de GIMNASIO,\nentrena\lmano a mano contra sus POKéMON de\llucha.$"
 CianwoodCity_EventScript_SuicuneTrigger::
 	lock
 	hidefollower 1
@@ -271,33 +244,11 @@ CianwoodCity_Movement_Eusine3:
 	step_end
 
 CianwoodCity_Text_EusineSuicune:
-	.string "EUSINE: Yo, {PLAYER}.\p"
-	.string "Wasn't that SUICUNE just now?\p"
-	.string "I only caught a quick glimpse, but\n"
-	.string "I thought I saw SUICUNE running on\l"
-	.string "the waves.\p"
-	.string "SUICUNE is beautiful and grand.\p"
-	.string "And it races through towns and\n"
-	.string "roads at simply awesome speeds.\p"
-	.string "It's wonderful…\p"
-	.string "I want to see SUICUNE up close…\p"
-	.string "I've decided.\p"
-	.string "I'll battle you as a trainer to\n"
-	.string "earn SUICUNE's respect!\p"
-	.string "Come on, {PLAYER}. Let's battle now!$"
-
+	.string "EUSINE: ¡Ey, {PLAYER}!\p¿No era ése SUICUNE hace un\nmomento?\pSolo lo he visto de refilón, pero\nme ha\lparecido ver a SUICUNE corriendo\lsobre\llas olas.\pSUICUNE es majestuoso y grandioso.\pY recorre pueblos y caminos a una\nvelocidad absolutamente pasmosa.\pEs maravilloso…\pDeseo con toda mi alma ver a\nSUICUNE\lde cerca…\pLo he decidido.\p¡Combatiré contra ti como\nEntrenador\lpara ganarme el respeto de SUICUNE!\p¡Adelante, {PLAYER}! ¡Luchemos ahora!$"
 CianwoodCity_Text_EusineBeaten:
-	.string "I hate to admit it, but you win.$"
-
+	.string "Me fastidia admitirlo, pero tú\nganas.$"
 CianwoodCity_Text_EusineAfter:
-	.string "You're amazing, {PLAYER}!\p"
-	.string "No wonder POKéMON gravitate to you.\p"
-	.string "I get it now.\p"
-	.string "I'm going to keep searching for\n"
-	.string "SUICUNE.\p"
-	.string "I'm sure we'll see each other again.\p"
-	.string "See you around!$"
-
+	.string "¡Eres increíble, {PLAYER}!\pNo me extraña que los POKéMON se\nsientan atraídos por ti.\pAhora lo comprendo todo.\pSeguiré buscando a SUICUNE sin\ndescanso.\lEstoy seguro de que nos volveremos\la cruzar.\l¡Nos vemos pronto!$"
 CianwoodCity_EventScript_CitySign::
 	lock
 	msgbox CianwoodCity_Text_Sign, MSGBOX_SIGN
@@ -306,9 +257,7 @@ CianwoodCity_EventScript_CitySign::
 	end
 
 CianwoodCity_Text_Sign:
-	.string "CIANWOOD CITY\p"
-	.string "A Port Surrounded by Rough Seas$"
-
+	.string "CIUDAD ORQUÍDEA\pUn puerto azotado por aguas bravas.$"
 CianwoodCity_EventScript_GymSign::
 	lock
 	msgbox CianwoodCity_Text_GymSign, MSGBOX_SIGN
@@ -317,10 +266,7 @@ CianwoodCity_EventScript_GymSign::
 	end
 
 CianwoodCity_Text_GymSign:
-	.string "CIANWOOD CITY POKéMON GYM\p"
-	.string "LEADER: CHUCK\p"
-	.string "His Roaring Fists Do the Talking$"
-
+	.string "GIMNASIO POKéMON DE CIUDAD ORQUÍDEA\nLÍDER: ANÍBAL\pSus puños rugientes hablan por él.$"
 CianwoodCity_EventScript_Pharmacy::
 	lock
 	msgbox CianwoodCity_Text_PharmacySign, MSGBOX_SIGN
@@ -329,10 +275,7 @@ CianwoodCity_EventScript_Pharmacy::
 	end
 
 CianwoodCity_Text_PharmacySign:
-	.string "500 Years of Tradition\p"
-	.string "CIANWOOD CITY PHARMACY\p"
-	.string "We Await Your Medicinal Queries$"
-
+	.string "500 años de tradición\nFARMACIA DE CIUDAD ORQUÍDEA\pEsperamos sus consultas médicas.$"
 CianwoodCity_EventScript_CaveSign::
 	lock
 	msgbox CianwoodCity_Text_Safari, MSGBOX_SIGN
@@ -349,10 +292,6 @@ CianwoodCity_EventScript_Engineer::
 	end
 
 CianwoodCity_Text_Safari:
-	.string "CLIFF EDGE CAVE\n"
-	.string "Road to the SAFARI ZONE.$"
-
+	.string "CUEVA ACANTILADO\nCamino hacia la ZONA SAFARI.$"
 CianwoodCity_Text_Engineer:
-	.string "This path is under construction.\n"
-	.string "We're getting the new SAFARI ZONE\l"
-	.string "up and running!$"
+	.string "Este sendero está en obras.\n¡Estamos ultimando la nueva ZONA\lSAFARI\lpara ponerla en marcha!$"

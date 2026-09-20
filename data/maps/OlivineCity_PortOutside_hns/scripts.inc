@@ -38,9 +38,6 @@ OlivineCity_PortOutside_EventScript_Fisherman2::
 	end
 
 OlivineCity_PortOutside_Text_PortFisherman1:
-	.string "FAST SHIP S.S.AQUA used to sail to\n"
-	.string "KANTO on Mondays and Fridays. But\l"
-	.string "now, it sails almost constantly!$"
-
+	.string "El FERRY S.S. AQUA solía zarpar\nhacia\lKANTO los lunes y viernes. ¡Pero\lahora\lsale prácticamente a todas horas!$"
 OlivineCity_PortOutside_Text_Fisherman2:
-	.string "Aw yeah, I'm fishin'.$"
+	.string "¡Olé ahí, cómo mola pescar!$"

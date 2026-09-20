@@ -63,31 +63,13 @@ OlivineCity_PortInside_Movement_OakLeave:
 	step_end
 
 OlivineCity_PortInside_Text_Nationaldex1:
-	.string "PROF.OAK: Hello!\n"
-	.string "You are starting to have the\l"
-	.string "attitude of a CHAMPION, {PLAYER}!\p"
-	.string "It's time for your POKéDEX to\n"
-	.string "match who you are.\p"
-	.string "Let me see your POKéDEX for a\n"
-	.string "second.\p"
-	.string "I'll upgrade your POKéDEX with the\n"
-	.string "NATIONAL MODE.$"
+	.string "PROF. OAK: ¡Hola!\n¡Empiezas a tener la presencia de\lun\lverdadero CAMPEÓN, {PLAYER}!\pEs momento de que tu POKéDEX esté\na la altura de quien eres.\pDéjame ver tu POKéDEX un segundo.\pVoy a actualizarla con el MODO\nNACIONAL.$"
 OlivineCity_PortInside_Text_Nationaldex2:
-	.string "{PLAYER}'s POKéDEX was upgraded\n"
-	.string "with the NATIONAL MODE!$"
+	.string "¡La POKéDEX de {PLAYER} se actualizó\ncon el MODO NACIONAL!$"
 OlivineCity_PortInside_Text_Nationaldex3:
-	.string "PROF.OAK: It won't be easy to\n"
-	.string "complete the NATIONAL POKéDEX...\p"
-	.string "However, I'm sure you will make\n"
-	.string "honest attempt on our behalf!$"
+	.string "PROF. OAK: No será fácil completar\nla POKéDEX NACIONAL...\pSin embargo, ¡sé que harás todo lo\nposible en nombre de la ciencia!$"
 OlivineCity_PortInside_Text_Nationaldex4:
-	.string "Oh, time flies!\p"
-	.string "I have a radio show to record at\n"
-	.string "GOLDENROD RADIO TOWER.\p"
-	.string "You must be heading for KANTO.\p"
-	.string "If you come near PALLET TOWN, do\n"
-	.string "drop by my POKéMON RESEARCH LAB!$"
-
+	.string "¡Vaya, cómo vuela el tiempo!\pTengo que ir a grabar mi programa\na la TORRE RADIO de CIUDAD TRIGAL.\pSeguro que te diriges hacia KANTO.\p¡Si pasas cerca de PUEBLO PALETA,\nno dudes en visitarme en mi\lLABORATORIO!$"
 OlivinePort_EventScript_CooltrainerF::
 	msgbox OlivinePort_Text_CooltrainerF, MSGBOX_NPC
 	end

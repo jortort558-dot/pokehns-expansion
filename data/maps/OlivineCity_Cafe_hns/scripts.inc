@@ -15,16 +15,7 @@ OlivineCity_Cafe_EventScript_Jasmine::
 	end
 
 OlivineCity_Cafe_Text_Jasmine:
-	.string "Oh... Hello, {PLAYER}.\p"
-	.string "These dishes in front of me are\n"
-	.string "not all mine...\p"
-	.string "Uh...\p"
-	.string "Actually, the person who sat here\n"
-	.string "before me ate a lot...\p"
-	.string "If you'd like to battle again,\n"
-	.string "please visit me at the FIGHTING\l"
-	.string "DOJO in SAFFRON CITY.$"
-
+	.string "Ah... Hola, {PLAYER}.\pTodos estos platos que ves aquí no\nson\lsolo míos...\pEsto...\pEn realidad, quien estaba sentado\nantes\lque yo comió una barbaridad...\pSi quieres que luchemos otra vez,\nvisítame en el DOJO de COMBATE en\lCIUDAD AZAFRÁN.$"
 OlivineCity_EventScript_SailorA::
 	lock
 	faceplayer
@@ -55,27 +46,10 @@ OlivineCity_EventScript_SailorB::
 	end
 
 OlivineCity_Text_CafeSailorStrength:
-	.string "Hah! Your POKéMON sure look like\n"
-	.string "lightweights!\p"
-	.string "They don't have the power to\n"
-	.string "move boulders aside.\p"
-	.string "Here, use this and teach them\n"
-	.string "STRENGTH!$"
-
+	.string "¡Ja! ¡Tus POKéMON tienen pinta de\nser\lmás bien flacuchos!\pSeguro que no tienen fuelle ni para\nmover una roca.\p¡Anda, toma esto y enséñales\nFUERZA!$"
 OlivineCity_Text_CafeSailorGotStrength:
-	.string "On the sea, the only thing you\n"
-	.string "can count on is your own self!\p"
-	.string "I'm so proud of my buff bod!\n"
-	.string "You should train like me!$"
-
+	.string "En alta mar, ¡lo único con lo que\npuedes contar es con tu propio\lcuerpo!\p¡Mírame qué brazos tengo!\n¡Deberías entrenar tan duro como\lyo!$"
 OlivineCity_Text_CafeFishingGuru:
-	.string "OLIVINE CAFE's menu is packed\n"
-	.string "with hearty fare for beefy\l"
-	.string "SAILORS like me!$"
-
+	.string "¡El menú del CAFÉ DE OLIVO está\nlleno\lde manjares para MARINEROS de buena\lplanta como yo!$"
 OlivineCity_Text_CafeSailor:
-	.string "Whenever I roll into this town,\n"
-	.string "I always visit the OLIVINE CAFE.\p"
-	.string "Everything on the menu makes me\n"
-	.string "feel stronger. I can't stop eating!$"
-
+	.string "Cada vez que atraco en este pueblo,\nme vengo directo al CAFÉ DE OLIVO.\pTodo lo de la carta te llena de\nfuerza.\l¡Es imposible parar de zampar!$"
