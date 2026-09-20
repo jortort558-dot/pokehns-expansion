@@ -21,7 +21,7 @@ NewBarkTown_House1_Text_NeighborsDaughter:
 	.string "PIKACHU es un POKéMON evolucionado.\p"
 	.string "Me asombraron los hallazgos del\n"
 	.string "PROF. ELM.\p"
-	.string "Es muy famoso por sus investigaciones\n"
+	.string "Es muy famoso por sus\ninvestigaciones\l"
 	.string "sobre la evolución POKéMON.\p"
 	.string "… Suspiro…\p"
 	.string "Ojalá pudiera ser una investigadora\n"

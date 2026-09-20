@@ -126,30 +126,30 @@ RuinsOfAlph_Outside_Text_PsychicNathan_After:
 	.string "I like thinking here.$"
 
 RuinsOfAlph_Outside_Text_MysteryChamberSign:
-	.string "MYSTERY STONE PANEL CHAMBER$"
+	.string "CÁMARA DEL PANEL DE PIEDRA\nMISTERIOSO$"
 
 RuinsOfAlph_Outside_Text_MainSign:
-	.string "RUINS OF ALPH\n"
-	.string "VISITORS WELCOME$"
+	.string "RUINAS ALFA\n"
+	.string "BIENVENIDOS VISITANTES$"
 
 RuinsOfAlph_Outside_Text_ResearchSign:
-	.string "RUINS OF ALPH RESEARCH CENTER\p"
-	.string "THE AUTHORITY ON THE\n"
-	.string "RUINS OF ALPH$"
+	.string "CENTRO DE INVESTIGACIÓN DE RUINAS\nALFA\p"
+	.string "LA MÁXIMA AUTORIDAD EN EL ESTUDIO\n"
+	.string "DE LAS RUINAS ALFA$"
 
 RuinsOfAlph_Outside_Text_Fisher1:
-	.string "While exploring the RUINS, we\n"
-	.string "suddenly noticed an odd presence.\p"
-	.string "We all got scared and ran away.\n"
-	.string "You should be careful too.$"
+	.string "Mientras explorábamos las RUINAS,\nde\l"
+	.string "repente sentimos una extraña\npresencia…\p"
+	.string "¡Nos pegamos un susto de muerte y\nsalimos\l"
+	.string "corriendo! ¡Ten mucho cuidado!$"
 
 RuinsOfAlph_Outside_Text_Fisher2:
 	.string "The RUINS hide a huge secret!\p"
 	.string "…I think…$"
 
 RuinsOfAlph_Outside_Text_Youngster1:
-	.string "There are many kinds of UNOWN, so\n"
-	.string "we use them for our secret codes.$"
+	.string "Hay tantas formas de UNOWN que las\n"
+	.string "usamos para crear mensajes\nsecretos.$"
 
 RuinsOfAlph_Outside_Text_Youngster2:
 	.string "A… H… E… A… D… Hmm…\p"

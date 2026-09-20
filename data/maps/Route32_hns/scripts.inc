@@ -357,58 +357,58 @@ Route32_Movement_SlowpokeRight::
 	step_end
 
 Route32_Text_CooltrainerM_WhatsTheHurry:
-	.string "Wait up!\n"
-	.string "What's the hurry?$"
+	.string "¡Espera un momento!\n"
+	.string "¿A dónde vas con tantas prisas?$"
 
 Route32_Text_CooltrainerM_AideIsWaiting:
-	.string "{PLAYER}, right?\n"
-	.string "Some guy wearing glasses\p"
-	.string "was looking for you.\p"
-	.string "See for yourself. He's waiting for\n"
-	.string "you at the POKéMON CENTER.$"
+	.string "¿Eres {PLAYER}, verdad?\n"
+	.string "Un señor con gafas\p"
+	.string "te estaba buscando.\p"
+	.string "Ve a comprobarlo tú mismo. Te está\n"
+	.string "esperando en el CENTRO POKéMON.$"
 
 Route32_Text_CooltrainerM_SproutTower:
-	.string "Have you gone to SPROUT TOWER?\n"
-	.string "If you ever visit VIOLET CITY,\p"
-	.string "they'll expect you to train there.\n"
-	.string "That's basic for trainers.\p"
-	.string "Go to SPROUT TOWER!$"
+	.string "¿Ya has visitado la TORRE\nBELLSPROUT?\l"
+	.string "Si pasas por CIUDAD MALVA,\p"
+	.string "se espera que entrenes allí\nprimero.\l"
+	.string "Es lo básico para cualquier\nentrenador.\p"
+	.string "¡Pásate por la TORRE BELLSPROUT!$"
 
 Route32_Text_CooltrainerM_VioletGym:
-	.string "Have you gone to the POKéMON GYM?\n"
-	.string "You can test your POKéMON and\p"
-	.string "yourself there.\n"
-	.string "It's a rite of passage for all\p"
-	.string "trainers!$"
+	.string "¿Has ido ya al GIMNASIO POKéMON?\n"
+	.string "Allí podrás poner a prueba a tus\p"
+	.string "POKéMON y tu propia valía.\n"
+	.string "¡Es el rito de iniciación para\p"
+	.string "cualquier entrenador!$"
 
 Route32_Text_CooltrainerM_HaveThisSeed:
-	.string "You have some good POKéMON there.\n"
-	.string "It must be from the training you\p"
-	.string "gave them around VIOLET CITY.\n"
-	.string "The training at the GYM must have\p"
-	.string "been especially helpful. As a\n"
-	.string "souvenir of VIOLET CITY, take this.\p"
-	.string "It increases the power of GRASS-\n"
-	.string "type moves.$"
+	.string "¡Llevas unos POKéMON muy bien\ncuidados!\l"
+	.string "Se nota que has entrenado duro por\nlos\p"
+	.string "alrededores de CIUDAD MALVA.\n"
+	.string "El combate del GIMNASIO debió de\nser\p"
+	.string "de gran ayuda. Como recuerdo de\nMALVA,\l"
+	.string "¡quédate con esto!\p"
+	.string "Potencia los movimientos de\n"
+	.string "tipo PLANTA.$"
 
 Route32_Text_CooltrainerM_Experiences:
-	.string "Your experiences in VIOLET CITY\n"
-	.string "should be useful for your journey.$"
+	.string "Lo vivido en CIUDAD MALVA te\nservirá\l"
+	.string "de mucho a lo largo de tu viaje.$"
 
 Route32_Text_SlowpokeTailOffer:
-	.string "How would you like to have this\n"
-	.string "tasty, nutritious SLOWPOKETAIL?\p"
-	.string "For you right now, just\n"
-	.string "¥1,000,000!\p"
-	.string "You'll want this!$"
+	.string "¿Te hace una rica y nutritiva\n"
+	.string "COLASLOWPOKE recién cortada?\p"
+	.string "¡Para ti ahora mismo por solo\n"
+	.string "1.000.000 ¥!\p"
+	.string "¡Seguro que la quieres!$"
 
 Route32_Text_ThoughtKidsLoaded:
-	.string "Tch! I thought kids\n"
-	.string "these days were loaded…$"
+	.string "¡Tch! ¡Creía que los mocosos de hoy\n"
+	.string "en día estaban forrados!$"
 
 Route32_Text_RefusedSlowpokeTail:
-	.string "You don't want it?\n"
-	.string "Then scram. Shoo!$"
+	.string "¿No la quieres?\n"
+	.string "¡Pues aire, pringao! ¡Largo!$"
 
 Route32_Text_FisherJustin_Seen:
 	.string "Whoa!\p"
@@ -538,51 +538,50 @@ Route32_Text_BirdKeeperPeter_After:
 	.string "GYM in VIOLET CITY.$"
 
 Route32_Text_RoarIntro:
-	.string "WROOOOAR! PEOPLE RUN WHEN I\n"
-	.string "ROAR! BUT YOU CAME LOOKING!\p"
-	.string "THAT PLEASES ME! NOW TAKE THIS!$"
+	.string "¡¡¡GROOOAAAR!!! ¡LA GENTE SALE\nCORRIENDO\l"
+	.string "CUANDO RUJO! ¡PERO TÚ TE HAS\nACERCADO!\p"
+	.string "¡ESO ME MOLA! ¡TOMA ESTO!$"
 
 Route32_Text_RoarOutro:
-	.string "WROOOOAR! IT'S ROAR!\p"
-	.string "EVEN POKéMON RUN FROM A GOOD\n"
-	.string "ROAR!$"
+	.string "¡¡¡GROOOAAAR!!! ¡ES RUGIDO!\p"
+	.string "¡HASTA LOS POKéMON SALEN POR PATAS\n"
+	.string "CON UN BUEN RUGIDO!$"
 
 Route32_Text_MeetFrieda:
-	.string "FRIEDA: Yahoo!\p"
-	.string "I'm FRIEDA of the WEEKDAY FAMILY!\n"
-	.string "Nice to meet you!\p"
-	.string "If you can guess my favorite day,\n"
-	.string "I'll give you a reward.$"
+	.string "VIKI: ¡Yujuuu!\p"
+	.string "¡Soy VIKI, de la FAMILIA SEMANAL!\n"
+	.string "¡Encantada de conocerte!\p"
+	.string "Si adivinas mi día favorito,\n"
+	.string "¡te daré un buen regalito!$"
 
 Route32_Text_FriedaGivesGift:
-	.string "Here's a POISON BARB for you!$"
+	.string "¡Toma esta FLECHA VENENOSA!$"
 
 Route32_Text_FriedaGaveGift:
-	.string "FRIEDA: Give it to a POKéMON\n"
-	.string "that has POISON-type moves.\p"
-	.string "Oh!\p"
-	.string "It's wicked!\p"
-	.string "You'll be shocked how good it\n"
-	.string "makes poison moves!$"
+	.string "VIKI: ¡Dásela a un POKéMON que use\n"
+	.string "ataques de tipo VENENO!\p"
+	.string "¡Oh!\p"
+	.string "¡Es una pasada!\p"
+	.string "¡Te sorprenderá lo mucho que\npotencia\l"
+	.string "los movimientos venenosos!$"
 
 Route32_Text_FriedaFriday:
-	.string "FRIEDA: Hiya! What day do\n"
-	.string "you like?\p"
-	.string "I love Friday. No doubt about\n"
-	.string "it!\p"
-	.string "Don't you think it's great too?$"
+	.string "VIKI: ¡Buenas! ¿Cuál es tu día\n"
+	.string "preferido?\p"
+	.string "A mí me flipa el viernes. ¡Sin\nduda!\p"
+	.string "¿A que a ti también te parece\ngenial?$"
 
 Route32_Text_FriedaNope:
 	.string "FRIEDA: Not that one!$"
 
 Route32_Text_Sign1:
-	.string "ROUTE 32\p"
-	.string "VIOLET CITY - AZALEA TOWN$"
+	.string "RUTA 32\p"
+	.string "CIUDAD MALVA - PUEBLO AZALEA$"
 
 Route32_Text_Sign2:
-	.string "RUINS OF ALPH\n"
-	.string "EAST ENTRANCE$"
+	.string "RUINAS ALFA\n"
+	.string "ENTRADA ESTE$"
 
 Route32_Text_Sign3:
-	.string "UNION CAVE\n"
-	.string "AHEAD$"
+	.string "CUEVA UNIÓN\n"
+	.string "MÁS ADELANTE$"

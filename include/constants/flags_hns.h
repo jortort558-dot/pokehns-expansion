@@ -3390,7 +3390,7 @@
 #define FLAG_UNUSED_0x4ED                                       0
 #define FLAG_UNUSED_0x4EE                                       0
 #define FLAG_UNUSED_0x4EF                                       0
-#define FLAG_UNUSED_0x4F9                                       0
+#define FLAG_RECEIVED_OLDALE_VAGRANT_POTION                     0x4F9
 #define FLAG_UNUSED_0x4FA                                       0
 #define FLAG_UNUSED_0x4FF                                       0
 #define FLAG_UNUSED_0x863                                       0

@@ -334,12 +334,12 @@ PlayersHouse_1F_Text_DidYouMeetProfBirch:
 	.string "PROF. BIRCH?$"
 
 PlayersHouse_1F_Text_YouShouldRestABit:
-	.string "MOM: How are you doing, {PLAYER}?\n"
-	.string "You look a little tired.\p"
-	.string "I think you should rest a bit.$"
+	.string "MADRE: ¿Cómo estás, {PLAYER}?\n"
+	.string "Pareces un poco cansado.\p"
+	.string "Deberías descansar un poco.$"
 
 PlayersHouse_1F_Text_TakeCareHoney:
-	.string "MOM: Take care, honey!$"
+	.string "MADRE: ¡Cuídate mucho!$"
 
 PlayersHouse_1F_Text_GotDadsBadgeHeresSomethingFromMom:
 	.string "MOM: Oh? Did DAD give you that BADGE?\p"
@@ -372,10 +372,10 @@ PlayersHouse_1F_Text_ReportFromPetalburgGym:
 	.string "report from in front of PETALBURG GYM.$"
 
 PlayersHouse_1F_Text_TheresAMovieOnTV:
-	.string "There is a movie on TV.\p"
-	.string "Two men are dancing on a big piano\n"
-	.string "keyboard.\p"
-	.string "Better get going!$"
+	.string "Están echando una peli en la tele.\p"
+	.string "Dos hombres bailan sobre el teclado\n"
+	.string "de un piano gigante.\p"
+	.string "¡Será mejor ponerse en marcha!$"
 
 PlayersHouse_1F_Text_RunningShoesManual:
 	.string "It's the instruction booklet for the\n"

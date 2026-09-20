@@ -33,15 +33,15 @@ DarkCave2_EventScript_BlackGlassesGot::
 	end
 
 DarkCave2_Text_Nerd:
-    .string "Whoa! You startled me there!\p"
-    .string "I had my BLACK-GLASSES on, so I\n"
-    .string "didn't notice you at all.\p"
-    .string "What am I doing here?\p"
-    .string "Hey, don't you worry about it.\p"
-    .string "I'll give you a pair of BLACK-\n"
-    .string "GLASSES, so forget you saw me,\n"
-    .string "OK?$"
+    .string "¡Uala! ¡Qué susto me has pegao!\p"
+    .string "Llevaba puestas mis GAFAS DE SOL y\n"
+    .string "no te he visto ni venir.\p"
+    .string "¿Que qué hago aquí metido?\p"
+    .string "Oye, a ti qué te importa.\p"
+    .string "Te doy unas GAFAS DE SOL y tú te\n"
+    .string "olvidas de que me has visto aquí,\n"
+    .string "¿hace?$"
 
 DarkCave2_Text_Nerd2:
-    .string "BLACK-GLASSES ups the power of\n"
-    .string "DARK-type moves.$"
+    .string "Las GAFAS DE SOL potencian los\nataques\l"
+    .string "de tipo SINIESTRO.$"

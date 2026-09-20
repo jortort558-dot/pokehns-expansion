@@ -1460,9 +1460,9 @@ gText_PokemonCenterSign::
 	.string "POKéMON CENTER$"
 
 gText_MomOrDadMightLikeThisProgram::
-	.string "{STR_VAR_1} might like this program.\n"
+	.string "A {STR_VAR_1} podría gustarle este programa.\n"
 	.string "… … … … … … … … … … … … … … … …\p"
-	.string "Better get going!$"
+	.string "¡Mejor ponerse en marcha!$"
 
 gText_WhichFloorWouldYouLike::
 	.string "Welcome to LILYCOVE DEPARTMENT STORE.\p"
@@ -1547,12 +1547,12 @@ gText_MomExplainHPGetPotions::
 
 #if IS_HNS
 gText_RegisteredTrainerinPokeNav::
-	.string "Registered {STR_VAR_1} {STR_VAR_2}\n"
-	.string "in the POKéGEAR.$"
+	.string "Se registró a {STR_VAR_1} {STR_VAR_2}\n"
+	.string "en el POKéGEAR.$"
 #else
 gText_RegisteredTrainerinPokeNav::
-	.string "Registered {STR_VAR_1} {STR_VAR_2}\n"
-	.string "in the POKéNAV.$"
+	.string "Se registró a {STR_VAR_1} {STR_VAR_2}\n"
+	.string "en el POKéNAV.$"
 #endif
 
 gText_ComeBackWithSecretPower::

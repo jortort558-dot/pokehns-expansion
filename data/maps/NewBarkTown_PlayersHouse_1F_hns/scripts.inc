@@ -316,7 +316,7 @@ NewBarkTown_PlayersHouse_1F_Text_ObtainedPokeGear:
 NewBarkTown_PlayersHouse_1F_Text_ExplainPokeGear:
 	.string "MADRE: Los números de teléfono se\n"
 	.string "guardan en la memoria.\p"
-	.string "Solo tienes que elegir a quién llamar.\n"
+	.string "Solo tienes que elegir a quién\nllamar.\l"
 	.string "Yo ya he registrado mi número.\p"
 	.string "¿A que es muy cómodo?$"
 
@@ -333,14 +333,14 @@ NewBarkTown_PlayersHouse_1F_Text_ExplainRunningShoes:
 	.string "Botón B para correr rápido!$"
 
 NewBarkTown_PlayersHouse_1F_Text_MomHurryUpElmIsWaiting:
-	.string "MAMÁ: El PROF. ELM te está esperando.\p"
+	.string "MAMÁ: El PROF. ELM te está\nesperando.\p"
 	.string "¡Date prisa, cielo!$"
 
 NewBarkTown_PlayersHouse_1F_Text_MomsFriend:
 	.string "¡Hola, {PLAYER}!\p"
 	.string "¡He venido de visita!\p"
 	.string "¿Te has enterado?\p"
-	.string "Mi hija está empeñada en convertirse\n"
+	.string "Mi hija está empeñada en\nconvertirse\l"
 	.string "en la ayudante del PROF. ELM.\p"
 	.string "¡Le chiflan los POKéMON!$"
 

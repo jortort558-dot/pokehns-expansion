@@ -18,10 +18,10 @@ Gate_Route31_VioletCity_EventScript_CooltrainerF::
 	end
 
 Gate_Route31_VioletCity_Text_Policeman:
-	.string "Hi there! Did you visit\n"
-	.string "SPROUT TOWER?$"
+	.string "¡Hola! ¿Has visitado ya la\n"
+	.string "TORRE BELLSPROUT?$"
 
 Gate_Route31_VioletCity_Text_CooltrainerF:
-	.string "I saw the cutest POKéMON out\n"
-	.string "there.\p"
-	.string "It looked a lot like PIKACHU!$"
+	.string "He visto un POKéMON monísimo\n"
+	.string "ahí fuera.\p"
+	.string "¡Se parecía un montón a PIKACHU!$"

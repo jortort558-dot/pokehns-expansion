@@ -50,17 +50,17 @@ Cherrygrove_Pokemart_Pokemart:
 	end
 
 Cherrygrove_Pokemart_Text_CooltrainerM:
-	.string "They're fresh out of POKé BALLS!\p"
-	.string "When will they get more of them?$"
+	.string "¡Se han quedado sin POKé BALLS!\p"
+	.string "¿Cuándo les llegará otra remesa?$"
 
 Cherrygrove_Pokemart_Text_CooltrainerM_PokeBallsInStock:
-	.string "POKé BALLS are in stock!\n"
-	.string "Now I can catch POKéMON!$"
+	.string "¡Ya tienen POKé BALLS!\n"
+	.string "¡Por fin podré atrapar POKéMON!$"
 
 Cherrygrove_Pokemart_Text_Youngster:
-	.string "When I was walking in the grass, a\n"
-	.string "bug POKéMON poisoned my POKéMON!\p"
-	.string "I just kept going, but then my\n"
-	.string "POKéMON fainted.\p"
-	.string "You should keep an ANTIDOTE\n"
-	.string "with you.$"
+	.string "Paseando por la hierba, ¡un POKéMON\nbicho\l"
+	.string "envenenó al mío!\p"
+	.string "Seguí caminando como si nada y mi\nPOKéMON\l"
+	.string "se debilitó.\p"
+	.string "Deberías llevar siempre un ANTÍDOTO\n"
+	.string "encima.$"

@@ -16,13 +16,13 @@ const struct HelpWindow gHelpWindowInfo[] =
     },
     [HELP_GAMESTART_WINDOW] =
     {
-        .header = COMPOUND_STRING("Information: More Options"),
-        .desc = COMPOUND_STRING("The clock can be changed from any\n"
-                                "POKéMON CENTER with no penalty.\n"
-                                "Make sure to check your BAG's KEY ITEMS\n"
-                                "and your OPTIONS MENU for even more\n"
-                                "ways to customize your experience.\n"
-                                "Enjoy!"
+        .header = COMPOUND_STRING("Información: Opciones"),
+        .desc = COMPOUND_STRING("Puedes cambiar la hora en cualquier\n"
+                                "CENTRO POKéMON sin ninguna penalización.\n"
+                                "Revisa los OBJETOS CLAVE de tu MOCHILA\n"
+                                "y el MENÚ DE OPCIONES para personalizar\n"
+                                "aún más tu experiencia de juego.\n"
+                                "¡Que lo disfrutes!"
                             ),
         .headerFont = FONT_NORMAL,
         .descFont = FONT_NORMAL,

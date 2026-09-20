@@ -48,7 +48,7 @@ SproutTower_Text_SageChow_Seen:
 	.string "to honor all POKéMON.$"
 
 SproutTower_Text_SageChow_Beaten:
-	.string "Th-Thank you!$"
+	.string "¡G-gracias!$"
 
 SproutTower_Text_SageChow_AfterBattle:
 	.string "All living beings coexist\n"

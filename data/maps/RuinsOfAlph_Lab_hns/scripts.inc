@@ -613,7 +613,7 @@ RuinsOfAlph_Lab_EventScript_WorkOnNext::
 	end
 
 RuinsOfAlph_Lab_Text_DeviceForTalkingToPokemon:
-	.string "We're developing a device for talking\n"
+	.string "We're developing a device for\ntalking\l"
 	.string "with POKéMON.\p"
 	.string "But we haven't had much success…$"
 
@@ -627,7 +627,7 @@ RuinsOfAlph_Lab_Text_WeFinallyMadeNewBalls:
 	.string "POKé BALLS!\p"
 	.string "The REPEAT BALL makes it easier to\n"
 	.string "catch POKéMON you've caught before.\p"
-	.string "The TIMER BALL gets better at catching\n"
+	.string "The TIMER BALL gets better at\ncatching\l"
 	.string "POKéMON the longer a battle runs.\p"
 	.string "Both are proudly developed by\n"
 	.string "the DEVON CORPORATION.\p"
@@ -635,7 +635,7 @@ RuinsOfAlph_Lab_Text_WeFinallyMadeNewBalls:
 
 RuinsOfAlph_Lab_Text_IMadePokenav:
 	.string "I made the POKéNAV!\p"
-	.string "As an engineer, I feel blessed to have\n"
+	.string "As an engineer, I feel blessed to\nhave\l"
 	.string "made something so great!$"
 
 RuinsOfAlph_Lab_Text_WowThatsAPokenav:
@@ -646,7 +646,7 @@ RuinsOfAlph_Lab_Text_WowThatsAPokenav:
 	.string "the feelings of POKéMON.\p"
 	.string "Would you like me to describe its\n"
 	.string "features in detail?\p"
-	.string "No, no. I think you'll find out just by\n"
+	.string "No, no. I think you'll find out\njust by\l"
 	.string "trying the POKéNAV out.$"
 
 RuinsOfAlph_Lab_Text_DeviceToVisualizePokemonDreams:
@@ -656,14 +656,14 @@ RuinsOfAlph_Lab_Text_DeviceToVisualizePokemonDreams:
 	.string "But it's not going well.$"
 
 RuinsOfAlph_Lab_Text_DevelopDeviceToResurrectFossils:
-	.string "I've been trying to develop a device\n"
-	.string "that resurrects POKéMON from fossils…\p"
+	.string "I've been trying to develop a\ndevice\l"
+	.string "that resurrects POKéMON from\nfossils…\p"
 	.string "And, it's working!$"
 
 RuinsOfAlph_Lab_Text_WantToBringFossilBackToLife:
 	.string "Wait! That thing you have there…\n"
 	.string "Is that a POKéMON fossil?\p"
-	.string "Would you like to bring that POKéMON\n"
+	.string "Would you like to bring that\nPOKéMON\l"
 	.string "back to life?\p"
 	.string "I can with my newly developed\n"
 	.string "FOSSIL REGENERATOR.$"
@@ -692,11 +692,11 @@ RuinsOfAlph_Lab_Text_HandedFossilToResearcher:
 	.string "the RUINS RESEARCHER.$"
 
 RuinsOfAlph_Lab_Text_FossilRegeneratorTakesTime:
-	.string "The FOSSIL REGENERATOR, which I made,\n"
+	.string "The FOSSIL REGENERATOR, which I\nmade,\l"
 	.string "is incredible.\p"
 	.string "But it has one drawback--it takes\n"
 	.string "a long time to work.\p"
-	.string "So, uh… How about you go for a stroll\n"
+	.string "So, uh… How about you go for a\nstroll\l"
 	.string "and look around for a while?$"
 
 RuinsOfAlph_Lab_Text_FossilizedMonBroughtBackToLife:

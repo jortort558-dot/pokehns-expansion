@@ -300,7 +300,7 @@ KurtsHouse_Text_KurtBallsFromApricorns:
 
 KurtsHouse_Text_KurtAskYouHaveAnApricorn:
 	.string "KURT: You have BERRIES for me?\p"
-	.string "Fine! I'll turn them into POKé BALLS.$"
+	.string "Fine! I'll turn them into POKé\nBALLS.$"
 
 KurtsHouse_Text_KurtThatsALetdown:
 	.string "KURT: I don't see any {STR_VAR_1}s!$"
@@ -356,7 +356,7 @@ KurtsHouse_Text_GranddaughterLonely:
 	.string "Grandpa's gone… I'm so lonely…$"
 
 KurtsHouse_Text_GranddaughterSlowpokeBack:
-	.string "The SLOWPOKE my dad gave me came back!\p"
+	.string "The SLOWPOKE my dad gave me came\nback!\p"
 	.string "Its TAIL is growing back too!$"
 
 KurtsHouse_Text_GranddaughterDad:

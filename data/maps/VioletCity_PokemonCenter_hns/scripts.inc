@@ -110,10 +110,10 @@ VioletCity_PokemonCenter_Text_BookshelfWoman::
 
 
 VioletCity_PokeCenter_Text_ElmsAideFavor:
-	.string "{PLAYER}, long time, no see.\p"
-	.string "PROF.ELM asked me to find you.\p"
-	.string "He has another favor to ask.\p"
-	.string "Would you take the POKéMON EGG?$"
+	.string "¡{PLAYER}, dichosos los ojos!\p"
+	.string "El PROF. ELM me envió a buscarte.\p"
+	.string "Tiene otro gran favor que pedirte.\p"
+	.string "¿Te harías cargo de este HUEVO\nPOKéMON?$"
 
 VioletCity_PokeCenter_Text_ElmsAideNoRoom:
 	.string "{PLAYER}, long time, no see.\p"
@@ -124,21 +124,20 @@ VioletCity_PokeCenter_Text_ElmsAideNoRoom:
 	.string "in your party first.$"
 
 VioletCity_PokeCenter_Text_ElmsAideGiveEgg:
-	.string "We discovered that a POKéMON won't\n"
-	.string "hatch until it grows in the EGG.\p"
-	.string "It also has to be with other\n"
-	.string "active POKéMON to hatch.\p"
-	.string "{PLAYER}, you're the only person\n"
-	.string "we can rely on.$"
+	.string "Descubrimos que el POKéMON no\nnacerá\l"
+	.string "si no viaja junto a un entrenador.\p"
+	.string "Necesita sentir la energía de otros\n"
+	.string "POKéMON activos a su lado para\neclosionar.\p"
+	.string "¡{PLAYER}, eres la única persona en la\n"
+	.string "que podemos confiar!$"
 
 VioletCity_PokeCenter_Text_ElmsAideGiveItem:
-	.string "Oh, and this might help when it hatches.$"
+	.string "¡Ah! Y esto te vendrá de lujo\ncuando nazca.$"
 
 VioletCity_PokeCenter_Text_ElmsAideFullParty:
-	.string "Oh, no. You can't carry any more\n"
-	.string "POKéMON with you.\p"
-	.string "I'll wait here while you make\n"
-	.string "room for the EGG.$"
+	.string "Vaya, llevas el equipo completo.\p"
+	.string "Te espero aquí mientras haces un\nhueco\l"
+	.string "en tu equipo para el HUEVO.$"
 
 VioletCity_PokeCenter_Text_ElmsAideEggToPC:
 	.string "Oh, but you can't carry any more\n"
@@ -147,11 +146,11 @@ VioletCity_PokeCenter_Text_ElmsAideEggToPC:
 	.string "BILL'S PC for you.$"
 
 VioletCity_PokeCenter_Text_ElmsAideRefuse:
-	.string "B-but… PROF.ELM asked for you…$"
+	.string "P-pero… Si el PROF. ELM insistió en\nti…$"
 
 VioletCity_PokeCenter_Text_BooksAreGreat:
-	.string "While my POKéMON are recovering\n"
-	.string "I love to read a good book.$"
+	.string "Mientras mis POKéMON se recuperan,\n"
+	.string "me encanta sumergirme en un buen\nlibro.$"
 
 VioletCity_PokeCenter_Text_MobileAdapter:
 	.string "I just battled a friend in\n"
@@ -161,18 +160,18 @@ VioletCity_PokeCenter_Text_MobileAdapter:
 	.string "away.$"
 
 VioletCity_PokeCenter_Text_GameboyKid:
-	.string "A guy named BILL made the\n"
-	.string "POKéMON PC storage system.$"
+	.string "Un genio llamado BILL inventó el\nsistema\l"
+	.string "de almacenamiento de POKéMON en el\nPC.$"
 
 VioletCity_PokeCenter_Text_Gentleman:
-	.string "It was around three years ago.\p"
-	.string "TEAM ROCKET was up to no good\n"
-	.string "with POKéMON.\p"
-	.string "But justice prevailed--a young\n"
-	.string "kid broke 'em up.$"
+	.string "Ocurrió hace unos tres años.\p"
+	.string "El TEAM ROCKET hacía de las suyas\ncon\l"
+	.string "los POKéMON.\p"
+	.string "Pero la justicia se impuso: un\njoven\l"
+	.string "chaval acabó con todos ellos.$"
 
 VioletCity_PokeCenter_Text_Youngster:
-	.string "POKéMON are smart. They won't\n"
-	.string "obey a trainer they don't respect.\p"
-	.string "Without the right GYM BADGES,\n"
-	.string "they will just do as they please.$"
+	.string "Los POKéMON son muy listos. No\nobedecen a\l"
+	.string "un entrenador si no se ha ganado su\nrespeto.\p"
+	.string "¡Sin las MEDALLAS adecuadas, harán\nlo que\l"
+	.string "les dé la real gana!$"

@@ -294,7 +294,7 @@ static const struct ListMenuTemplate sItemListMenu =
     .cursorKind = CURSOR_BLACK_ARROW
 };
 
-static const u8 sText_NothingToSort[] = _("There's nothing to sort!");
+static const u8 sText_NothingToSort[] = _("¡No hay nada que ordenar!");
 static const struct MenuAction sItemMenuActions[] = {
     [ACTION_USE]               = {gMenuText_Use,                {ItemMenu_UseOutOfBattle}},
     [ACTION_TOSS]              = {gMenuText_Toss,               {ItemMenu_Toss}},
@@ -302,18 +302,18 @@ static const struct MenuAction sItemMenuActions[] = {
     [ACTION_GIVE]              = {gMenuText_Give,               {ItemMenu_Give}},
     [ACTION_CANCEL]            = {gText_Cancel2,                {ItemMenu_Cancel}},
     [ACTION_BATTLE_USE]        = {gMenuText_Use,                {ItemMenu_UseInBattle}},
-    [ACTION_CHECK]             = {COMPOUND_STRING("CHECK"),     {ItemMenu_UseOutOfBattle}},
-    [ACTION_WALK]              = {COMPOUND_STRING("WALK"),      {ItemMenu_UseOutOfBattle}},
-    [ACTION_DESELECT]          = {COMPOUND_STRING("DESELECT"),  {ItemMenu_CheckWhichRegister}},
-    [ACTION_CHECK_TAG]         = {COMPOUND_STRING("CHECK TAG"), {ItemMenu_CheckTag}},
+    [ACTION_CHECK]             = {COMPOUND_STRING("LEER"),     {ItemMenu_UseOutOfBattle}},
+    [ACTION_WALK]              = {COMPOUND_STRING("BAJAR"),      {ItemMenu_UseOutOfBattle}},
+    [ACTION_DESELECT]          = {COMPOUND_STRING("DESELECC."),  {ItemMenu_CheckWhichRegister}},
+    [ACTION_CHECK_TAG]         = {COMPOUND_STRING("FICHA"), {ItemMenu_CheckTag}},
     [ACTION_CONFIRM]           = {gMenuText_Confirm,            {Task_FadeAndCloseBagMenu}},
-    [ACTION_SHOW]              = {COMPOUND_STRING("SHOW"),      {ItemMenu_Show}},
+    [ACTION_SHOW]              = {COMPOUND_STRING("MOSTRAR"),      {ItemMenu_Show}},
     [ACTION_GIVE_FAVOR_LADY]   = {gMenuText_Give2,              {ItemMenu_GiveFavorLady}},
     [ACTION_CONFIRM_QUIZ_LADY] = {gMenuText_Confirm,            {ItemMenu_ConfirmQuizLady}},
-    [ACTION_BY_NAME]           = {COMPOUND_STRING("NAME"),      {ItemMenu_SortByName}},
-    [ACTION_BY_TYPE]           = {COMPOUND_STRING("TYPE"),      {ItemMenu_SortByType}},
-    [ACTION_BY_AMOUNT]         = {COMPOUND_STRING("AMOUNT"),    {ItemMenu_SortByAmount}},
-    [ACTION_BY_INDEX]          = {COMPOUND_STRING("INDEX"),     {ItemMenu_SortByIndex}},
+    [ACTION_BY_NAME]           = {COMPOUND_STRING("NOMBRE"),      {ItemMenu_SortByName}},
+    [ACTION_BY_TYPE]           = {COMPOUND_STRING("TIPO"),      {ItemMenu_SortByType}},
+    [ACTION_BY_AMOUNT]         = {COMPOUND_STRING("CANTIDAD"),    {ItemMenu_SortByAmount}},
+    [ACTION_BY_INDEX]          = {COMPOUND_STRING("NÚMERO"),     {ItemMenu_SortByIndex}},
     [ACTION_REGISTER_TAP]      = {COMPOUND_STRING("TAP"),      {ItemMenu_Register}},
     [ACTION_REGISTER_HOLD]     = {COMPOUND_STRING("HOLD"),     {ItemMenu_RegisterHold}},
     [ACTION_DUMMY]             = {gText_EmptyString2, {NULL}}
@@ -1324,7 +1324,7 @@ static void Task_BagMenu_HandleInput(u8 taskId)
             {
                 if ((gBagMenu->numItemStacks[gBagPosition.pocket] - 1) <= 1) //can't sort with 0 or 1 item in bag
                 {
-                    static const u8 sText_NothingToSort[] = _("There's nothing to sort!");
+                    static const u8 sText_NothingToSort[] = _("¡No hay nada que ordenar!");
                     PlaySE(SE_FAILURE);
                     DisplayItemMessage(taskId, 1, sText_NothingToSort, HandleErrorMessage);
                     break;
@@ -2842,14 +2842,14 @@ static void PrintTMHMMoveData(enum Item itemId)
     }
 }
 
-static const u8 sText_SortItemsHow[] = _("Sort items how?");
-static const u8 sText_ItemsSorted[] = _("Items sorted by {STR_VAR_1}!");
+static const u8 sText_SortItemsHow[] = _("¿Cómo deseas ordenar?");
+static const u8 sText_ItemsSorted[] = _("¡Objetos ordenados por {STR_VAR_1}!");
 static const u8 *const sSortTypeStrings[] =
 {
-    [SORT_ALPHABETICALLY] = COMPOUND_STRING("NAME"),
-    [SORT_BY_TYPE] = COMPOUND_STRING("TYPE"),
-    [SORT_BY_AMOUNT] = COMPOUND_STRING("AMOUNT"),
-    [SORT_BY_INDEX] = COMPOUND_STRING("INDEX")
+    [SORT_ALPHABETICALLY] = COMPOUND_STRING("NOMBRE"),
+    [SORT_BY_TYPE] = COMPOUND_STRING("TIPO"),
+    [SORT_BY_AMOUNT] = COMPOUND_STRING("CANTIDAD"),
+    [SORT_BY_INDEX] = COMPOUND_STRING("NÚMERO")
 };
 
 static const u8 sBagMenuSortItems[] =

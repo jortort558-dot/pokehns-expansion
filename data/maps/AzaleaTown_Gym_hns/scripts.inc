@@ -667,48 +667,46 @@ AzaleaTown_Gym_Text_GymStatueCertified:
 	.string "{PLAYER}$"
 
 AzaleaTown_Gym_Text_BugsyIntro:
-	.string "I'm BUGSY!\p"
-	.string "I never lose when it comes\n"
-	.string "to bug POKéMON.\p"
-	.string "My research is going to make me the\n"
-	.string "authority on bug POKéMON!\p"
-	.string "Let me demonstrate all I've\n"
-	.string "learned from my studies.$"
+	.string "¡Soy ANTÓN!\p"
+	.string "¡Nadie me supera en lo que respecta\n"
+	.string "a los POKéMON bicho!\p"
+	.string "¡Mis estudios me convertirán en la\nmayor\l"
+	.string "autoridad mundial de este tipo!\p"
+	.string "¡Deja que te demuestre todo lo que\n"
+	.string "he descubierto en mis\ninvestigaciones!$"
 
 AzaleaTown_Gym_Text_BugsyBeaten:
-	.string "Whoa, amazing! You're an\n"
-	.string "expert on POKéMON!\p"
-	.string "My research isn't complete\n"
-	.string "yet.\p"
-	.string "OK, you win. Take this\n"
-	.string "BADGE.$"
+	.string "¡Guau, increíble! ¡Eres un\nauténtico\l"
+	.string "as de los combates POKéMON!\p"
+	.string "Parece que a mi investigación aún\nle\l"
+	.string "queda un largo camino…\p"
+	.string "De acuerdo, tú ganas. ¡Toma esta\n"
+	.string "MEDALLA!$"
 
 AzaleaTown_Gym_Text_ReceivedHiveBadge:
-	.string "{PLAYER} received HIVEBADGE.$"
+	.string "¡{PLAYER} recibió la MEDALLA COLMENA!$"
 
 AzaleaTown_Gym_Text_HiveBadgeSpeech:
-	.string "Do you know the benefits\n"
-	.string "of HIVEBADGE?\p"
-	.string "If you have it, POKéMON up\n"
-	.string "to L30 will obey you,\l"
-	.string "even traded ones.\p"
-	.string "POKéMON that know CUT will be able\n"
-	.string "to use it outside of battle too.\p"
-	.string "Here, I also want you to\n"
-	.string "have this.$"
+	.string "¿Conoces las ventajas de poseer\n"
+	.string "la MEDALLA COLMENA?\p"
+	.string "Con ella, los POKéMON hasta el\nNivel 30\l"
+	.string "te obedecerán sin vacilar, incluso\nlos\l"
+	.string "recibidos por intercambio.\p"
+	.string "Además, podrás usar el movimiento\nCORTE\l"
+	.string "fuera de los combates cuando\nquieras.\p"
+	.string "¡Toma, también quiero regalarte\nesto!$"
 
 AzaleaTown_Gym_Text_FuryCutterSpeech:
-	.string "TM89 contains U-TURN.\p"
-	.string "U-TURN lets you do damage and\n"
-	.string "switch your POKéMON in the same\l"
-	.string "turn!\p"
-	.string "Isn't that great?\n"
-	.string "I discovered it!$"
+	.string "¡La MT89 contiene IDA Y VUELTA!\p"
+	.string "¡IDA Y VUELTA asesta un golpe al\nrival\l"
+	.string "y te permite cambiar de POKéMON en\nel\l"
+	.string "mismo turno!\p"
+	.string "¿A que es genial? ¡Es mi gran\ntáctica!$"
 
 AzaleaTown_Gym_Text_BugsyAdvice:
-	.string "Bug POKéMON are deep. There are\n"
-	.string "many mysteries to be explored.\p"
-	.string "Study your favorites thoroughly.$"
+	.string "Los POKéMON bicho son fascinantes.\nAún\l"
+	.string "quedan muchos misterios por\ndescubrir.\p"
+	.string "¡Entrena a tus favoritos con\npasión!$"
 
 AzaleaTown_Gym_Text_BugsyRematch:
 	.string "Wow, you're the JOHTO CHAMPION now!\p"
@@ -791,16 +789,14 @@ AzaleaTown_Gym_Text_TwinsAmyMay2After:
 	.string "of ROCK-type POKéMON!$"
 
 AzaleaTown_Gym_Text_GymGuide:
-	.string "Yo, challenger!\p"
-	.string "BUGSY's young, but his knowledge\n"
-	.string "of bug POKéMON is for real.\p"
-	.string "It's going to be tough\n"
-	.string "without my advice.\p"
-	.string "Let's see… BUGSY's bagworm POKéMON\n"
-	.string "knows a move that covers its\l"
-	.string "ROCK-type weakness.\p"
-	.string "Oh, and don't forget about those\n"
-	.string "nasty critical hits! Good luck!$"
+	.string "¡Aupa, futuro campeón!\p"
+	.string "ANTÓN es joven, pero su dominio\n"
+	.string "de los POKéMON bicho es tremendo.\p"
+	.string "¡Lo pasarías fatal sin mis\nconsejos!\p"
+	.string "A ver… Su POKéMON oruga conoce un\n"
+	.string "ataque para cubrir su debilidad al\nROCA.\p"
+	.string "¡Y mucho ojo con los golpes\ncríticos!\l"
+	.string "¡Mucha suerte!$"
 
 AzaleaTown_Gym_Text_GymGuideWin:
 	.string "Well done! That was a great\n"
