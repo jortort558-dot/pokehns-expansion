@@ -53,6 +53,19 @@ void HealPlayerParty(void)
     // Recharge Tera Orb, if possible.
     if (B_FLAG_TERA_ORB_CHARGED != 0 && CheckBagHasItem(ITEM_TERA_ORB, 1))
         FlagSet(B_FLAG_TERA_ORB_CHARGED);
+
+    // Recargar PokéVial si el jugador lo posee
+    if (CheckBagHasItem(ITEM_POKE_VIAL, 1))
+    {
+        u8 badges = 0;
+        u16 badgeFlag;
+        for (badgeFlag = FLAG_BADGE01_GET; badgeFlag <= FLAG_BADGE08_GET; badgeFlag++)
+        {
+            if (FlagGet(badgeFlag))
+                badges++;
+        }
+        VarSet(VAR_POKEVIAL_CHARGES, 1 + (badges / 2));
+    }
 }
 
 static bool8 IsBoxMonDead(u8 boxId, u8 boxPosition)

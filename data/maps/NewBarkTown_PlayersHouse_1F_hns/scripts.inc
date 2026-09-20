@@ -223,6 +223,7 @@ NewBarkTown_PlayersHouse_1F_EventScript_MomsIntro::
 	msgbox NewBarkTown_PlayersHouse_1F_Text_ElmsLookingForYou, MSGBOX_DEFAULT
 	call NewBarkTown_PlayersHouse_1F_EventScript_GivePokeGear
 	call NewBarkTown_PlayersHouse_1F_EventScript_GiveRunningShoes
+	call NewBarkTown_PlayersHouse_1F_EventScript_GivePokeVial
 	applymovement LOCALID_MOM, NewBarkTown_PlayersHouse_1F_MomMovement_2
 	waitmovement 0
 	setvar VAR_NEWBARK_TOWN_STATE, 2
@@ -263,6 +264,15 @@ NewBarkTown_PlayersHouse_1F_EventScript_GiveRunningShoes::
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	setflag FLAG_SYS_B_DASH
 	msgbox NewBarkTown_PlayersHouse_1F_Text_ExplainRunningShoes, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	return
+
+NewBarkTown_PlayersHouse_1F_EventScript_GivePokeVial::
+	msgbox NewBarkTown_PlayersHouse_1F_Text_GivePokeVial, MSGBOX_DEFAULT
+	giveitem ITEM_POKE_VIAL
+	setvar VAR_POKEVIAL_CHARGES, 1
+	msgbox NewBarkTown_PlayersHouse_1F_Text_ExplainPokeVial, MSGBOX_DEFAULT
 	closemessage
 	delay 30
 	return
@@ -331,6 +341,17 @@ NewBarkTown_PlayersHouse_1F_Text_SwitchShoesWithRunningShoes:
 NewBarkTown_PlayersHouse_1F_Text_ExplainRunningShoes:
 	.string "MAMÁ: {PLAYER}, ¡mantén pulsado el\n"
 	.string "Botón B para correr rápido!$"
+
+NewBarkTown_PlayersHouse_1F_Text_GivePokeVial:
+	.string "MAMÁ: ¡Y toma esto también!\n"
+	.string "Te resultará de gran utilidad.$"
+
+NewBarkTown_PlayersHouse_1F_Text_ExplainPokeVial:
+	.string "MAMÁ: Es un POKéVIAL.\p"
+	.string "Restaura la salud de tus POKéMON\n"
+	.string "estén donde estén.\p"
+	.string "Puedes recargar sus usos al curar\n"
+	.string "en cualquier CENTRO POKéMON.$"
 
 NewBarkTown_PlayersHouse_1F_Text_MomHurryUpElmIsWaiting:
 	.string "MAMÁ: El PROF. ELM te está\nesperando.\p"

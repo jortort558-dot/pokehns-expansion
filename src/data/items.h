@@ -16431,18 +16431,20 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_QuestionMark,
     },
 
-    [ITEM_UNUSED_BERRY_2] =
+    [ITEM_POKE_VIAL] =
     {
-        .name = ITEM_NAME("????????"),
+        .name = ITEM_NAME("PokéVial"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "An unused item\n"
-            "placeholder."),
-        .pocket = POCKET_ITEMS,
+            "Cura los PS y estado\n"
+            "del equipo vivo. Se\n"
+            "recarga en el Centro."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .iconPic = gItemIcon_QuestionMark,
-        .iconPalette = gItemIconPalette_QuestionMark,
+        .fieldUseFunc = ItemUseOutOfBattle_PokeVial,
+        .iconPic = gItemIcon_SquirtBottle,
+        .iconPalette = gItemIconPalette_SquirtBottle,
     },
 
     [ITEM_UNUSED_BERRY_3] =

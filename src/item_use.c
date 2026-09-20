@@ -96,6 +96,9 @@ static const u8 sText_UsedVar2WildRepelled[] = _("{PLAYER} used the\n{STR_VAR_2}
 static const u8 sText_PlayedPokeFluteCatchy[] = _("Played the POKé FLUTE.\pNow, that's a catchy tune!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PlayedPokeFlute[] = _("Played the POKé FLUTE.");
 static const u8 sText_PokeFluteAwakenedMon[] = _("The POKé FLUTE awakened sleeping\nPOKéMON.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PokeVialHealed[] = _("¡El equipo se ha recuperado!\nCargas: {STR_VAR_1}/{STR_VAR_2}{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PokeVialEmpty[] = _("El PokéVial está vacío.\nRecárgalo en un Centro POKéMON.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PokeVialNoEffect[] = _("El equipo ya está sano.\nNo tendrá ningún efecto.{PAUSE_UNTIL_PRESS}");
 
 // EWRAM variables
 EWRAM_DATA static TaskFunc sItemUseOnFieldCB = NULL;
@@ -1751,6 +1754,85 @@ void ItemUseOutOfBattle_TownMap(u8 taskId)
     {
         gTasks[taskId].func = ItemUseOnFieldCB_TownMap;
     }
+}
+
+void ItemUseOutOfBattle_PokeVial(u8 taskId)
+{
+    u8 badges = 0;
+    u16 badgeFlag;
+    u16 maxCharges;
+    u16 curCharges;
+    u32 i;
+    bool32 healedAny = FALSE;
+    const u8 *msg;
+
+    for (badgeFlag = FLAG_BADGE01_GET; badgeFlag <= FLAG_BADGE08_GET; badgeFlag++)
+    {
+        if (FlagGet(badgeFlag))
+            badges++;
+    }
+    maxCharges = 1 + (badges / 2);
+
+    // Inicializar cargas si la variable nunca se inicializó
+    if (VarGet(VAR_POKEVIAL_CHARGES) == 0 && !FlagGet(FLAG_POKERUS_EXPLAINED))
+    {
+        // En partida ya en curso, si nunca se ha recargado, asignar el máximo actual
+        VarSet(VAR_POKEVIAL_CHARGES, maxCharges);
+    }
+
+    curCharges = VarGet(VAR_POKEVIAL_CHARGES);
+    if (curCharges > maxCharges)
+    {
+        curCharges = maxCharges;
+        VarSet(VAR_POKEVIAL_CHARGES, curCharges);
+    }
+
+    if (curCharges == 0)
+    {
+        msg = sText_PokeVialEmpty;
+    }
+    else
+    {
+        // Comprobar si algún miembro vivo necesita curación
+        for (i = 0; i < gPlayerPartyCount; i++)
+        {
+            struct Pokemon *mon = &gPlayerParty[i];
+            if (GetMonData(mon, MON_DATA_SPECIES) == SPECIES_NONE)
+                continue;
+            if (GetMonData(mon, MON_DATA_IS_EGG))
+                continue;
+            if (GetMonData(mon, MON_DATA_HP) == 0)
+                continue; // En Nuzlocke y por diseño del vial, los caídos no se curan
+
+            if (GetMonData(mon, MON_DATA_HP) < GetMonData(mon, MON_DATA_MAX_HP)
+             || GetMonData(mon, MON_DATA_STATUS) != STATUS1_NONE)
+            {
+                HealPokemon(mon);
+                healedAny = TRUE;
+            }
+        }
+
+        if (!healedAny)
+        {
+            msg = sText_PokeVialNoEffect;
+        }
+        else
+        {
+            curCharges--;
+            VarSet(VAR_POKEVIAL_CHARGES, curCharges);
+            PlaySE(SE_USE_ITEM);
+
+            ConvertIntToDecimalStringN(gStringVar1, curCharges, STR_CONV_MODE_LEFT_ALIGN, 2);
+            ConvertIntToDecimalStringN(gStringVar2, maxCharges, STR_CONV_MODE_LEFT_ALIGN, 2);
+            StringExpandPlaceholders(gStringVar4, sText_PokeVialHealed);
+            msg = gStringVar4;
+        }
+    }
+
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+        DisplayItemMessage(taskId, FONT_NORMAL, msg, CloseItemMessage);
+    else
+        DisplayItemMessageOnField(taskId, msg, Task_CloseCantUseKeyItemMessage);
 }
 
 #undef tUsingRegisteredKeyItem
