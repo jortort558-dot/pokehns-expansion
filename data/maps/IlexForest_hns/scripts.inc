@@ -650,117 +650,121 @@ IlexForest_Movement_Kurt2:
 	step_end
 
 IlexForest_Text_ApprenticeIntro:
-	.string "Oh, man… My boss is going to be\n"
-	.string "steaming…\p"
-	.string "The FARFETCH'D that CUTS trees\n"
-	.string "for charcoal took off on me.\p"
-	.string "I can't go looking for it here\n"
-	.string "in the ILEX FOREST.\p"
-	.string "It's too big, dark and scary\n"
-	.string "for me…$"
+	.string "¡Madre mía! Mi jefe se va a poner\n"
+	.string "hecho una furia…\p"
+	.string "El FARFETCH'D que CORTA leña para\n"
+	.string "hacer carbón se me ha escapado.\p"
+	.string "No me atrevo a buscarlo solo aquí\n"
+	.string "en el ENCINAR.\p"
+	.string "¡Es demasiado grande, oscuro y me\nda\l"
+	.string "un mal rollo tremendo…!$"
 
 IlexForest_Text_ApprenticeAfter:
-	.string "Wow! Thanks a whole bunch!\p"
-	.string "My boss' POKéMON won't obey me\n"
-	.string "because I don't have a BADGE.$"
+	.string "¡Uala! ¡Muchísimas gracias!\p"
+	.string "El POKéMON de mi jefe no me hacía\n"
+	.string "caso porque no tengo MEDALLAS.$"
 
 IlexForest_Text_ItsTheMissingPokemon:
-	.string "It's the missing POKéMON!$"
+	.string "¡Es el POKéMON desaparecido!$"
 
 IlexForest_Text_Kwaaaa:
-	.string "FARFETCH'D: Kwaa!$"
+	.string "FARFETCH'D: ¡Cuaaa!$"
 
 IlexForest_Text_CharcoalMasterIntro:
-	.string "Ah! My FARFETCH'D!\p"
-	.string "You found it for us, kid?\p"
-	.string "Without it, we wouldn't be able\n"
-	.string "to CUT trees for charcoal.\p"
-	.string "Thanks, kid!\p"
-	.string "Now, how can I thank you…\p"
-	.string "I know! Here, take this.$"
+	.string "¡Anda! ¡Mi FARFETCH'D!\p"
+	.string "¿Lo has encontrado tú, peque?\p"
+	.string "Sin él no podíamos CORTAR madera\n"
+	.string "para fabricar carbón vegetal.\p"
+	.string "¡Muchas gracias, de verdad!\p"
+	.string "A ver cómo te lo recompenso…\p"
+	.string "¡Ya sé! ¡Toma esto!$"
 
 IlexForest_Text_CharcoalMasterOutro:
-	.string "That's the CUT HM.\n"
-	.string "Teach that to a POKéMON to clear\l"
-	.string "small trees.\p"
-	.string "Of course, you have to have the\n"
-	.string "GYM BADGE from AZALEA to use it.$"
+	.string "¡Es la MO CORTE!\n"
+	.string "Enséñasela a un POKéMON para talar\l"
+	.string "arbolitos que bloqueen el camino.\p"
+	.string "Por supuesto, necesitarás la\nMEDALLA\l"
+	.string "del GIMNASIO de AZALEA para usarla.$"
 
 IlexForest_Text_CharcoalMasterTalkAfter:
-	.string "Do you want to apprentice as a\n"
-	.string "charcoal maker with me?\p"
-	.string "You'll be first-rate in ten years!$"
+	.string "¿Te gustaría ser mi aprendiz de\n"
+	.string "carbonero?\p"
+	.string "¡En diez añitos serás un maestro de\n"
+	.string "primera categoría!$"
 
 IlexForest_Text_Lass:
-	.string "Did something happen to the\n"
-	.string "forest's guardian?$"
+	.string "¿Le habrá pasado algo al guardián\n"
+	.string "del bosque?$"
 
 IlexForest_Text_Signpost:
-	.string "ILEX FOREST is so overgrown with\n"
-	.string "trees that you can't see the sky.\p"
-	.string "Please watch out for items that may\n"
-	.string "have been dropped.$"
+	.string "El ENCINAR es tan espeso que las\n"
+	.string "copas tapan el cielo por completo.\p"
+	.string "Mantén los ojos bien abiertos por\nsi\l"
+	.string "encuentras objetos en el suelo.$"
 
 IlexForest_Text_Shrine:
-	.string "ILEX FOREST SHRINE…\p"
-	.string "It's in honor of the forest's\n"
-	.string "protector…$"
+	.string "ALTAR DEL ENCINAR…\p"
+	.string "Construido en honor al protector\ndel\l"
+	.string "bosque…$"
 
 IlexForest_Text_ShrineCelebiEvent:
-	.string "ILEX FOREST SHRINE…\p"
-	.string "It's in honor of the forest's\n"
-	.string "protector…\p"
-	.string "Oh? What is this?\p"
-	.string "It's a hole.\n"
-	.string "It looks like the GS BALL would fit\l"
-	.string "inside it.\p"
-	.string "Want to put the GS BALL here?$"
+	.string "ALTAR DEL ENCINAR…\p"
+	.string "Construido en honor al protector\ndel\l"
+	.string "bosque…\p"
+	.string "¿Eh? ¿Qué es esto?\p"
+	.string "Hay una hendidura.\n"
+	.string "Parece que la GS BALL encajaría\l"
+	.string "justo dentro.\p"
+	.string "¿Quieres colocar la GS BALL aquí?$"
 
 IlexForest_Text_InsertGSBall:
-	.string "{PLAYER} put in the GS BALL.$"
+	.string "{PLAYER} colocó la GS BALL.$"
 
 IlexForest_Text_KurtCaughtCelebi:
-	.string "Whew, wasn't that something!\p"
-	.string "{PLAYER}, that was fantastic. Thanks!\p"
-	.string "The legends about that SHRINE were\n"
-	.string "real after all.\p"
-	.string "I feel inspired by what I just saw.\p"
-	.string "It motivates me to make better BALLS!\p"
-	.string "I'm going!$"
+	.string "¡Buf! ¡Menudo espectáculo!\p"
+	.string "¡{PLAYER}, ha sido alucinante!\p"
+	.string "Las leyendas sobre este ALTAR eran\n"
+	.string "ciertas después de todo.\p"
+	.string "Lo que acabo de ver me llena de\n"
+	.string "inspiración para fabricar BALLS aún\l"
+	.string "mejores.\p"
+	.string "¡Me vuelvo al taller!$"
 
 IlexForest_Text_BugCatcherWayneSeen:
-	.string "Don't sneak up on me like that!\p"
-	.string "You frightened a POKéMON away!$"
+	.string "¡No me des esos sustos por la\n"
+	.string "espalda!\p"
+	.string "¡Has espantado al POKéMON que\nestaba\l"
+	.string "ojeando!$"
 
 IlexForest_Text_BugCatcherWayneBeaten:
-	.string "I hadn't seen that POKéMON before…$"
+	.string "Jamás había visto a ese POKéMON…$"
 
 IlexForest_Text_BugCatcherWayneAfter:
-	.string "A POKéMON I've never seen before\n"
-	.string "fell out of the tree when I used\l"
-	.string "HEADBUTT.\p"
-	.string "I ought to use HEADBUTT in other\n"
-	.string "places too.$"
+	.string "Un POKéMON rarísimo cayó del árbol\nal\l"
+	.string "sacudirlo con GOLPE CABEZA.\p"
+	.string "¡Debería probar a usar GOLPE CABEZA\n"
+	.string "en otros árboles del bosque!$"
 
 IlexForest_Text_Kimono_Girl1:
-	.string "KIMONO GIRL, KIMONO GIRL, lost and\n"
-	.string "all alone. Poor girl lost in the\l"
-	.string "dark ILEX FOREST.$"
+	.string "CHICA KIMONO, sola y perdida en la\n"
+	.string "inmensidad del ENCINAR…\p"
+	.string "Pobre de mí, en este bosque tan\n"
+	.string "sombrío…$"
 
 IlexForest_Text_Kimono_Girl2:
-	.string "You remember me from VIOLET CITY?\n"
-	.string "You must be imagining.\p"
-	.string "Anyway, will you show me how to\n"
-	.string "get out of this forest?$"
+	.string "¿Que te acuerdas de mí de CIUDAD\n"
+	.string "MALVA? Serán imaginaciones tuyas.\p"
+	.string "En fin, ¿podrías indicarme cómo\nsalir\l"
+	.string "de este bosque?$"
 
 IlexForest_Text_Kimono_Girl3:
-	.string "Me oh my... You are lost yourself,\n"
-	.string "aren't you?$"
+	.string "Vaya, vaya… ¡Pero si estás tan\n"
+	.string "perdido como yo!$"
 
 IlexForest_Text_Kimono_Girl4:
-	.string "Wow! Are you going to show me how\n"
-	.string "to get out?\p"
-	.string "You are such a smart POKéMON!$"
+	.string "¡Hala! ¿Nos vas a guiar hasta la\n"
+	.string "salida?\p"
+	.string "¡Qué POKéMON tan listo y noble!$"
 
 IlexForest_Text_Kimono_Girl5:
-	.string "See you.$"
+	.string "¡Hasta la vista!$"

@@ -39,28 +39,30 @@ GoldenrodDeptStore1_EventScript_Directory::
 	end
 
 GoldenrodDeptStor1_Text_Receptionist:
-    .string "Welcome to GOLDENROD DEPT.STORE.$"
+    .string "¡Te damos la bienvenida al CENTRO\n"
+    .string "COMERCIAL DE CIUDAD TRIGAL!$"
 
 GoldenrodDeptStore1_Text_Gentleman:
-    .string "The DEPT.STORE has a decent\n"
-    .string "selection.\p"
-    .string "But some items are only available\n"
-    .string "as GAME CORNER prizes.$"
+    .string "El CENTRO COMERCIAL tiene un\nsurtido\l"
+    .string "impresionante.\p"
+    .string "Aunque algunos objetos exclusivos\nsolo\l"
+    .string "se consiguen de premio en el\nCASINO.$"
 
 GoldenrodDeptStore1_Text_PokefanF:
-    .string "I'm raring to shop again today!$"
+    .string "¡Hoy me he levantado con unas ganas\n"
+    .string "locas de gastar dinero!$"
 
 GoldenrodDeptStore1_Text_BugCatcher:
-    .string "Mom's good at bargain hunting.\p"
-    .string "She always buys stuff at lower\n"
-    .string "prices.$"
+    .string "A mi madre se le da de perlas cazar\n"
+    .string "gangas. ¡Siempre compra al mejor\l"
+    .string "precio!$"
 
 GoldenrodDeptStore1_Text_Directory:
-    .string "1F SERVICE COUNTER\n"
-	.string "YOU ARE HERE.\p"
-    .string "2F TRAINER'S MARKET\p"
-    .string "3F BATTLE COLLECTION\p"
-    .string "4F MEDICINE BOX\p"
-    .string "5F TM CORNER\p"
-    .string "6F TRANQUIL SQUARE\p"
-    .string "ROOFTOP LOOKOUT$"
+    .string "PB MOSTRADOR DE INFORMACIÓN\n"
+	.string "USTED ESTÁ AQUÍ.\p"
+    .string "1P BAZAR DEL ENTRENADOR\p"
+    .string "2P COLECCIÓN DE COMBATE\p"
+    .string "3P FARMACIA POKéMON\p"
+    .string "4P RINCÓN DE MTs\p"
+    .string "5P PLAZA TRANQUILA\p"
+    .string "AZOTEA Y MIRADOR$"

@@ -522,41 +522,47 @@ GoldenrodCity_UndergroundSwitches_EventScript_Item_SmokeBall::
 	end
 
 GoldenrodUnderground_Text_SilverBefore:
-    .string "Hold it!\p"
-    .string "I saw you, so I tailed you.\p"
-    .string "I don't need you underfoot while I\n"
-    .string "take care of TEAM ROCKET.\p"
-    .string "…Wait a second. You beat me before,\n"
-    .string "didn't you?\p"
-    .string "That was just a fluke.\p"
-    .string "I've been training my team and now\n"
-    .string "I will repay my debts!$"
+    .string "¡Para el carro ahí mismo!\p"
+    .string "Te he visto entrar y te he seguido\nel\l"
+    .string "rastro.\p"
+    .string "No quiero que me estorbes mientras\n"
+    .string "reviento al TEAM ROCKET yo solito.\p"
+    .string "…Espera un momento. Tú me ganaste\n"
+    .string "antes, ¿verdad?\p"
+    .string "¡Fue pura potra, payaso!\p"
+    .string "He entrenado a mi equipo a mala\nleche\l"
+    .string "¡y ahora te voy a cobrar la deuda\ncon\l"
+    .string "intereses!$"
 
 GoldenrodUnderground_Text_SilverWin:
-    .string "…Why… Why do I lose?\p"
-    .string "I've assembled the toughest POKéMON.\p"
-    .string "I didn't ease up on the gas.\p"
-    .string "So why do I lose?$"
+    .string "…¿Por qué? ¡¿Por qué cojones\npierdo?!\p"
+    .string "Tengo a los POKéMON más bestias.\p"
+    .string "He ido a degüello sin\ncontemplaciones.\p"
+    .string "¡¿Por qué coño no gano?!$"
 
 GoldenrodUnderground_Text_SilverAfter:
-    .string "…I don't understand…\p"
-    .string "Is what that LANCE guy said true?\p"
-    .string "That I don't treat POKéMON properly?\p"
-    .string "Love…\p"
-    .string "Trust…\p"
-    .string "Are they really what I lack?\p"
-    .string "Are they keeping me from winning?\p"
-    .string "I… I just don't understand.\p"
-    .string "But it's not going to end here.\p"
-    .string "Not now. Not because of this.\p"
-    .string "I won't give up my dream of becoming\n"
-    .string "the world's best POKéMON trainer!$"
+    .string "…No lo entiendo…\p"
+    .string "¿Va a tener razón el chulo ese de\n"
+    .string "LANCE?\p"
+    .string "¿De verdad no trato bien a mis\nbichos?\p"
+    .string "Cariño…\p"
+    .string "Confianza…\p"
+    .string "¿De verdad me falta esa ñoñería?\p"
+    .string "¿Es esa chorrada lo que me impide\n"
+    .string "ganar?\p"
+    .string "Yo… ¡Me cago en todo, no lo\nentiendo!\p"
+    .string "Pero esto no se va a quedar así.\p"
+    .string "Ni de coña me rindo por esto.\p"
+    .string "¡Voy a ser el puto amo y el mejor\n"
+    .string "entrenador del mundo, cueste lo que\l"
+    .string "cueste!$"
 
 GoldenrodUnderground_Text_SilverLoss:
-    .string "Humph. This is my real power, wimp.\p"
-    .string "I'll make TEAM ROCKET history.\p"
-    .string "And I'm going to grind that LANCE\n"
-    .string "under my heels.$"
+    .string "¡Ja! Este es mi auténtico poder,\n"
+    .string "pringao.\p"
+    .string "Voy a barrer al TEAM ROCKET del\nmapa.\p"
+    .string "Y luego le voy a pisar la cabeza al\n"
+    .string "fantasma ese de LANCE.$"
 
 GoldenrodUnderground_Text_GruntM11Seen:
     .string "Open one shutter, another closes.\p"
@@ -581,7 +587,7 @@ GoldenrodUnderground_Text_GruntM25Beaten:
 GoldenrodUnderground_Text_GruntM25After:
     .string "All right. A hint!\p"
     .string "Change the order of switching.\p"
-    .string "That'll change the ways the shutters\n"
+    .string "That'll change the ways the\nshutters\l"
     .string "open and close.$"
 
 GoldenrodUnderground_Text_BurglarDuncanSeen:
@@ -595,7 +601,7 @@ GoldenrodUnderground_Text_BurglarDuncanAfter:
     .string "crime, kid!$"
 
 GoldenrodUnderground_Text_BurglarEddieSeen:
-    .string "They ditched this project before they\n"
+    .string "They ditched this project before\nthey\l"
     .string "finished.\p"
     .string "I'm searching for leftover loot.$"
 
@@ -609,7 +615,7 @@ GoldenrodUnderground_Text_BurglarEddieAfter:
 
 GoldenrodUnderground_Text_GruntM13Seen:
     .string "I don't care if you're lost.\p"
-    .string "You show up here, you're nothing but\n"
+    .string "You show up here, you're nothing\nbut\l"
     .string "a victim!$"
 
 GoldenrodUnderground_Text_GruntM13Beaten:

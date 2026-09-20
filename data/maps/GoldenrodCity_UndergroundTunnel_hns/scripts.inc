@@ -111,13 +111,13 @@ GoldenrodCity_UndergroundTunnel_Movement_Kimono_Leave2:
 
 
 GoldenrodCity_UndergroundTunnel_Text_Kimono1:
-	.string "Team Rocket members in black suits\n"
-	.string "have been running around...\p"
-	.string "I was wondering what was going on.\n"
-	.string "So, you took on Team Rocket?\l"
-	.string "You are impressive!\p"
-	.string "You may be able to face the\n"
-	.string "legendary POKé...$"
+	.string "Miembros del TEAM ROCKET de negro\nhan\l"
+	.string "estado corriendo por aquí…\p"
+	.string "Me preguntaba qué estaba\nocurriendo.\l"
+	.string "¿Te has enfrentado tú al TEAM\nROCKET?\l"
+	.string "¡Qué valor tan admirable!\p"
+	.string "Puede que seas capaz de encarar al\n"
+	.string "legendario POKé…$"
 
 GoldenrodCity_UndergroundTunnel_Text_Kimono2:
 	.string "Hahaha! Never mind.\n"
@@ -378,7 +378,7 @@ GoldenrodUnderground_Text_OlderBrotherOnePerDay:
     .string "I'm done for today.$"
 
 GoldenrodUnderground_Text_SupernerdEricSeen:
-    .string "I got booted out of the GAME CORNER.\p"
+    .string "I got booted out of the GAME\nCORNER.\p"
     .string "I was trying to cheat using my\n"
     .string "POKéMON…$"
 
@@ -386,7 +386,7 @@ GoldenrodUnderground_Text_SupernerdEricBeaten:
     .string "…Grumble…$"
 
 GoldenrodUnderground_Text_SupernerdEricAfterBattle:
-    .string "I guess I have to do things fair and\n"
+    .string "I guess I have to do things fair\nand\l"
     .string "square…$"
 
 GoldenrodUnderground_Text_SupernerdTeruSeen:
@@ -429,7 +429,7 @@ GoldenrodUnderground_Text_PokemaniacDonaldAfterBattle:
 GoldenrodUnderground_Text_PokemaniacDonaldAfterBattleOld:
     .string "Are you making a POKéDEX? Here's a\n"
     .string "hot tip.\p"
-    .string "The HIKER on ROUTE 33, ANTHONY, is a\n"
+    .string "The HIKER on ROUTE 33, ANTHONY, is\na\l"
     .string "good guy.\p"
     .string "He'll phone you if he sees any rare\n"
     .string "POKéMON.$"

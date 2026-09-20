@@ -77,146 +77,52 @@ EcruteakCity_Gym_EventScript_Statue2::
 	end
 
 EcruteakCity_Gym_Text_GymStatue:
-	.string "ECRUTEAK CITY POKéMON GYM$"
-
+	.string "GIMNASIO POKéMON DE CIUDAD IRIS$"
 EcruteakCity_Gym_Text_GymStatueCertified:
-	.string "ECRUTEAK CITY POKéMON GYM\p"
-	.string "MORTY'S CERTIFIED TRAINERS:\n"
-	.string "{PLAYER}$"
-
+	.string "GIMNASIO POKéMON DE CIUDAD IRIS\pENTRENADORES CERTIFICADOS POR\nMORTI:\l{PLAYER}$"
 MortyIntroText:
-	.string "Good of you to have come.\p"
-	.string "Here in ECRUTEAK, POKéMON have\n"
-	.string "always been revered.\p"
-	.string "It's said that a rainbow-colored\n"
-	.string "POKéMON will come down to\l"
-	.string "appear before a true Trainer.\p"
-	.string "I believed that tale, so I've\n"
-	.string "trained here in secret.\p"
-	.string "As a result, I can now see what\n"
-	.string "others cannot.\p"
-	.string "Just a bit more...\p"
-	.string "With a little more, I could see\n"
-	.string "a future where I meet the\l"
-	.string "rainbow-colored POKéMON.\p"
-	.string "You're going to help me reach\n"
-	.string "that level!$"
-
+	.string "Has hecho bien en venir.\pAquí, en CIUDAD IRIS, siempre se ha\nvenerado a los POKéMON.\pDice la leyenda que un POKéMON con\nlos colores del arcoíris bajará\lpara\lmostrarse ante un verdadero\lEntrenador.\pYo creí en ese relato, así que he\nentrenado aquí en secreto.\pComo resultado, ahora puedo ver lo\nque otros no pueden.\pSolo un poco más...\pCon solo un poco más, podré ver el\nfuturo en el que me encuentro con\llos POKéMON arcoíris.\p¡Tú vas a ayudarme a alcanzar ese\nnivel!$"
 MortyWinLossText:
-	.string "I'm not good enough yet...\p"
-	.string "All right. This BADGE is yours.$"
-
+	.string "Aún no soy lo bastante bueno...\pDe acuerdo. Esta MEDALLA es tuya.$"
 Text_ReceivedFogBadge:
-	.string "{PLAYER} received the FOGBADGE.$"
-
+	.string "¡{PLAYER} recibió la MEDALLA NIEBLA!$"
 MortyText_FogBadgeSpeech:
-	.string "With the FOGBADGE, POKéMON up\n"
-	.string "to Level 50 will obey you.\p"
-	.string "Also, any POKéMON that knows\n"
-	.string "SURF will be able to use it\l"
-	.string "anytime.\p"
-	.string "I want you to have this too.$"
-
+	.string "Con la MEDALLA NIEBLA, los POKéMON\nhasta nivel 50 te obedecerán.\pAdemás, cualquier POKéMON que sepa\nSURF podrá usarlo cuando quieras\lfuera\ldel combate.\pQuiero que te lleves esto también.$"
 MortyText_ShadowBallSpeech:
-	.string "That's SHADOW BALL.\n"
-	.string "It causes damage and may\l"
-	.string "lower SP. DEF.\p"
-	.string "Use it if it suits you.$"
-
+	.string "Es BOLA SOMBRA.\nCausa daño y a veces reduce la\lDEF. ESP. del rival.\pÚsala si te parece conveniente.$"
 MortyFightDoneText:
-	.string "I see...\p"
-	.string "Your journey has taken you to\n"
-	.string "far-off places.\p"
-	.string "You've witnessed more than I\n"
-	.string "ever have.\p"
-	.string "I envy you for that...$"
-
+	.string "Ya veo...\pTu viaje te ha llevado a lugares\nmuy lejanos.\pHas presenciado muchas más cosas\nde las que yo jamás he visto.\pTe tengo cierta envidia por ello...$"
 MortyRematchText:
-	.string "Ah, the JOHTO CHAMPION!\n"
-	.string "Good of you to come.\p"
-	.string "You've shown strength and skill,\n"
-	.string "but have you grown since we\l"
-	.string "last battled?\p"
-	.string "I've trained with my GHOST-type\n"
-	.string "POKéMON ever since.\p"
-	.string "Let's see if you can overcome\n"
-	.string "the shadows again.\p"
-	.string "Want to have a rematch?$"
-
+	.string "¡Ah, el CAMPEÓN de JOHTO!\nHas hecho bien en venir.\pHas demostrado gran fuerza, pero...\n¿has crecido desde nuestro combate?\pHe entrenado con mis POKéMON de\ntipo FANTASMA sin descanso.\pVeamos si puedes volver a superar\nlas\lsombras.\p¿Quieres una revancha?$"
 Morty_RematchDefeatText:
-	.string "I'm not good enough yet...\p"
-	.string "You've witnessed more than I\n"
-	.string "ever have.\p"
-	.string "I envy you for that...$"
-
+	.string "Aún no soy lo bastante bueno...\pHas presenciado muchas más cosas\nde las que yo jamás he visto.\pTe tengo cierta envidia por ello...$"
 SageJeffreySeenText:
-	.string "I spent the spring with my\n"
-	.string "POKéMON.\p"
-	.string "Then summer, fall, and winter...\p"
-	.string "Then spring came again.\n"
-	.string "We've been together a long time.$"
-
+	.string "Pasé la primavera con mis POKéMON.\pLuego el verano, el otoño y el\ninvierno...\pY la primavera volvió a llegar.\n¡Llevamos juntos una eternidad!$"
 SageJeffreyBeatenText:
-	.string "Wins and losses--I've known\n"
-	.string "them both.$"
-
+	.string "Victorias y derrotas... He conocido\nambas caras.$"
 SageJeffreyAfterBattleText:
-	.string "Where did POKéMON come from?$"
-
+	.string "¿De dónde salieron los POKéMON?$"
 SagePingSeenText:
-	.string "Can you inflict any damage\n"
-	.string "on our POKéMON?$"
-
+	.string "¿Puedes causarle algún daño a\nnuestros POKéMON?$"
 SagePingBeatenText:
-	.string "Ah! Well done!$"
-
+	.string "¡Ah! ¡Bien hecho!$"
 SagePingAfterBattleText:
-	.string "We use GHOST-type POKéMON.\p"
-	.string "No NORMAL-type attacks can\n"
-	.string "harm them!$"
-
+	.string "Usamos POKéMON de tipo FANTASMA.\p¡Los ataques de tipo NORMAL no\npueden\lhacerles nada!$"
 MediumMarthaSeenText:
-	.string "I shall win!$"
-
+	.string "¡La victoria será mía!$"
 MediumMarthaBeatenText:
-	.string "I... I... I lost!$"
-
+	.string "¡P-pero si... he perdido!$"
 MediumMarthaAfterBattleText:
-	.string "The one who wants to win the\n"
-	.string "most is the one who will!$"
-
+	.string "¡El que más desea ganar es quien\nacaba\lalzándose con la victoria!$"
 MediumGraceSeenText:
-	.string "Stumped by our dark corridors?\n"
-	.string "Defeat me if you want a hint!$"
-
+	.string "¿Perdido en nuestros pasillos\noscuros?\l¡Vénceme si quieres una pista!$"
 MediumGraceBeatenText:
-	.string "Wha-what?$"
-
+	.string "¿C-cómo?$"
 MediumGraceAfterBattleText:
-	.string "Fine. I'll tell you the secret\n"
-	.string "of the shadows.\p"
-	.string "The path is right in front of\n"
-	.string "your eyes!$"
-
+	.string "Vale, te contaré el secreto de las\nsombras.\p¡El camino está justo delante de\ntus\lpropios ojos!$"
 EcruteakCity_GymGuideText:
-	.string "Hey CHAMP! You're almost\n"
-	.string "halfway there!\p"
-	.string "Trainers here use GHOST and\n"
-	.string "DARK-type POKéMON.\p"
-	.string "While MORTY is a GHOST-type\n"
-	.string "expert, be wary of his mystic\l"
-	.string "deer.\p"
-	.string "It's said to cause strange\n"
-	.string "nightmares...$"
-
+	.string "¡Ey, futuro CAMPEÓN! ¡Ya vas casi\npor la mitad del camino!\pAquí usan POKéMON de tipo FANTASMA\ny SINIESTRO.\pAunque MORTI es experto en\nFANTASMA,\lten mucho cuidado con su ciervo\lmístico.\p¡Dicen que provoca pesadillas muy\nchungas!$"
 EcruteakCity_GymGuideWinText:
-	.string "Whew, {PLAYER}. You did great!\p"
-	.string "I was cowering in the corner\n"
-	.string "out of pure terror!$"
-
+	.string "¡Uf, {PLAYER}! ¡Lo has bordado!\p¡Yo estaba acojonado en una esquina\ntemblando de puro miedo!$"
 EcruteakCity_GymClosedText:
-	.string "MORTY, the GYM LEADER, is\n"
-	.string "absent.\p"
-	.string "Sorry, but you'll have to\n"
-	.string "leave.\p"
-	.string "Hohohoho.$"
+	.string "MORTI, el LÍDER de GIMNASIO, no\nestá aquí ahora mismo.\pLo siento, pero tendrás que\nmarcharte.\pJojojojo.$"

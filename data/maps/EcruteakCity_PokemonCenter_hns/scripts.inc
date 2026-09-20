@@ -97,30 +97,11 @@ EcruteakCity_PokemonCenter_Movement_BillBot:
 
 
 EcruteakCity_PokemonCenter1F_Text_Bill1:
-	.string "Hi, I'm BILL. And who are you?\p"
-	.string "Hmm, {PLAYER}, huh?\n"
-	.string "You've come at the right time.$"
-
+	.string "¡Hola! Soy BILL. ¿Y tú quién eres?\pHmm, ¿{PLAYER}? Vaya,\nhas llegado en el momento justo.$"
 EcruteakCity_PokemonCenter1F_Text_Bill2:
-	.string "I just finished adjustments on my\n"
-	.string "POKéMON STORAGE SYSTEM.\p"
-	.string "You know that PC you use to store\n"
-	.string "all your POKéMON?\p"
-	.string "I developed that myself!\p"
-	.string "Now that I've installed this one,\n"
-	.string "my PC is running at all\l"
-	.string "POKéMON CENTERS in JOHTO and KANTO.\p"
-	.string "I have to hurry on back to\n"
-	.string "GOLDENROD and see my folks. Feel\l"
-	.string "free to visit anytime!\p"
-	.string "Buh-bye!$"
-
+	.string "Acabo de terminar de ajustar el\nSistema\lde Almacenamiento de POKéMON.\pComo estabas usando mi invento,\npensé\len venir a saludarte en persona.\pTengo que volver a mi casa en\nCIUDAD\lTRIGAL con mi familia.\p¡Nos vemos luego!$"
 EcruteakCity_PokemonCenter1F_Text_PokefanM:
-	.string "The way the KIMONO GIRLS dance is\n"
-	.string "marvelous.\p"
-	.string "Just like the way they use their\n"
-	.string "POKéMON.$"
-
+	.string "El camino hacia el GIMNASIO flota\nen la\loscuridad.\pDicen que si te desvías del\nsendero,\lte caes y vuelves a la entrada.$"
 EcruteakCity_PokemonCenter1F_Text_PokefanM_Mobile:
 	.string "You must be hoping to battle more\n"
 	.string "people, right?\p"
@@ -130,13 +111,6 @@ EcruteakCity_PokemonCenter1F_Text_PokefanM_Mobile:
 	.string "It's a little past OLIVINE CITY.$"
 
 EcruteakCity_PokemonCenter1F_Text_CooltrainerF:
-	.string "MORTY, the GYM LEADER, is soooo\n"
-	.string "cool.\p"
-	.string "His POKéMON are really tough too.$"
-
+	.string "MORTI, el LÍDER de GIMNASIO, es un\ntipo\lmisterioso y genial.\pSus POKéMON son súper fuertes, ¡me\ndejó\lalucinada en combate!$"
 EcruteakCity_PokemonCenter1F_Text_GymGuide:
-	.string "LAKE OF RAGE…\p"
-	.string "The appearance of a GYARADOS\n"
-	.string "swarm…\p"
-	.string "I smell a conspiracy. I know it!$"
-
+	.string "El LAGO DE LA FURIA...\pLa repentina aparición de una plaga\nde\lGYARADOS...\pAquí hay gato encerrado. ¡Huelo una\nconspiración fijo!$"

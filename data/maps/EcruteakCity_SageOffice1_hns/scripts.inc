@@ -15,9 +15,7 @@ EcruteakCity_SageOffice1_EventScript_Sign::
 	end
 
 EcruteakCity_SageOffice1_Text_Sign:
-	.string "The bell of tin rings clearly for\n"
-	.string "those under the tower's wing.$"
-
+	.string "La campana de hojalata tañe con\npureza\lpara quienes se cobijan bajo el ala\lde\lla torre.$"
 EcruteakCity_SageOffice2_EventScript_SageA::
 	lock
 	faceplayer
@@ -89,63 +87,22 @@ EcruteakCity_SageOffice2_Movement_StandAside:
 	step_end
 
 EcruteakTinTowerEntrance_Text_SageNoBadge:
-	.string "TIN TOWER is off limits to the\n"
-	.string "unworthy. Sorry but you'll have\l"
-	.string "to leave.$"
-
+	.string "La TORRE HOJALATA está restringida\na los\lno dignos. Lo siento, pero debes\lirte.$"
 EcruteakTinTowerEntrance_Text_SageWithBadge:
-	.string "TIN TOWER is off limits to anyone\n"
-	.string "without ECRUTEAK GYM's BADGE.\p"
-	.string "Ah!\p"
-	.string "ECRUTEAK's GYM BADGE! Please, go\n"
-	.string "right through.$"
-
+	.string "El paso a la TORRE HOJALATA\nrequiere la\lMEDALLA del GIMNASIO de CIUDAD\lIRIS.\p¡Ah!\n¡La MEDALLA de CIUDAD IRIS!\lAdelante,\lpuedes pasar sin problemas.$"
 EcruteakTinTowerEntrance_Text_SageNoClearBell:
-	.string "A momentous event has occurred.\p"
-	.string "I beg your pardon, but I must ask\n"
-	.string "you to leave.\p"
-	.string "…What soothes the soul…\p"
-	.string "The WISE TRIO say things that are\n"
-	.string "so very difficult to understand…$"
-
+	.string "Ha ocurrido un acontecimiento de\nenorme\ltrascendencia.\pTe ruego me disculpes, pero debo\npedirte\lque te marches.\p...Aquello que sosiega el alma...\pEl TRÍO SABIO dice cosas que\nresultan\ltan difíciles de comprender...$"
 EcruteakTinTowerEntrance_Text_SageHearsClearBell1:
-	.string "A momentous event has occurred.\p"
-	.string "I beg your pardon, but I must ask\n"
-	.string "you to leave.\p"
-	.string "..............................$"
+	.string "Ha ocurrido un hecho trascendental.\pDisculpa, pero debo pedirte que te\nmarches.\p..............................$"
 EcruteakTinTowerEntrance_Text_SageHearsClearBell2:
-	.string "Ah!\p"
-	.string "The sound of that CLEAR BELL!\p"
-	.string "It… It's sublime!\p"
-	.string "I've never heard so beautiful a\n"
-	.string "sound before!\p"
-	.string "That bell's chime is indicative of\n"
-	.string "the bearer's soul.\p"
-	.string "You…\p"
-	.string "You may be able to make it through\n"
-	.string "TIN TOWER.\p"
-	.string "Please, do go on.$"
-
+	.string "¡Ah!\n¡El sonido de esa CAMPANA CLARA!\p¡E-es sublime!\n¡Jamás en mi vida había oído un\lsonido\ltan hermoso!\pEl tañido de esa campana refleja la\npureza del alma de su portador.\pTú...\nQuizá tú seas capaz de cruzar la\lTORRE\lHOJALATA.\pPor favor, continúa adelante.$"
 EcruteakTinTowerEntrance_Text_SagePleaseDoGoOn:
-	.string "Please, do go on.$"
-
+	.string "Por favor, continúa adelante.$"
 EcruteakTinTowerEntrance_Text_SageDone:
-	.string "That bell's chime is indicative of\n"
-	.string "the bearer's soul.\p"
-	.string "You…\n"
-	.string "Truly are worthy.$"
-
+	.string "El tañido de esa campana refleja el\nalma\lde su portador.\pTú...\nVerdaderamente eres digno.$"
 EcruteakTinTowerEntrance_Text_WanderingSage:
-	.string "The TIN TOWER ahead is a nine-\n"
-	.string "tier tower of divine beauty.\p"
-	.string "It soothes the soul of all who\n"
-	.string "see it.$"
-
+	.string "La TORRE HOJALATA que ves delante\nes\luna torre de nueve pisos de belleza\ldivina.\pSosiega el alma de todo aquel que\nla\lcontempla.$"
 EcruteakTinTowerEntrance_Text_WanderingSageClearBell:
-	.string "The TIN TOWER shook! A POKéMON must\n"
-	.string "have returned to the top!$"
-
+	.string "¡La TORRE HOJALATA se estremeció!\n¡Un POKéMON legendario debe de\lhaber\lregresado a su cumbre!$"
 EcruteakTinTowerEntrance_Text_Gramps:
-	.string "Two towers… Two POKéMON…\p"
-	.string "But when one burned down, both\n"
-	.string "POKéMON flew away, never to return.$"
+	.string "Dos torres... Dos POKéMON...\pPero cuando una ardió, ambos\nPOKéMON se\lfueron volando para no volver\ljamás.$"

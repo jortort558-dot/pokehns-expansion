@@ -296,28 +296,29 @@ GoldenrodCity_TrainStation_Movement_SlideRight:
 	step_end
 
 GoldenrodMagnetTrainStation_Text_OfficerTrainHasntComeIn:
-    .string "The train hasn't come in…\p"
-    .string "I know! I'll carry the passengers\n"
-    .string "on my back!\p"
-    .string "That won't work.$"
+    .string "El tren sigue sin llegar…\p"
+    .string "¡Ya sé! ¡Llevaré a los viajeros a\n"
+    .string "cuestas hasta KANTO!\p"
+    .string "Va a ser que no funcionaría…$"
 
 GoldenrodMagnetTrainStation_Text_OfficerRightThisWay:
-    .string "May I see your rail PASS, please?\p"
-    .string "OK. Right this way, please.$"
+    .string "¿Me muestra su PASE DE TREN, por\nfavor?\p"
+    .string "¡Todo en regla! Pase al andén.$"
 
 GoldenrodMagnetTrainStation_Text_OfficerNoRailPass:
-    .string "Sorry. You don't have a rail PASS.$"
+    .string "Lo lamento. No lleva consigo un\nPASE\l"
+    .string "DE TREN válido.$"
 
 GoldenrodMagnetTrainStation_Text_GentlemanPresident:
-    .string "I'm the PRESIDENT.\p"
-    .string "My dream was to build a train that\n"
-    .string "is faster than any POKéMON.\p"
-    .string "It really brings JOHTO much closer\n"
-    .string "to KANTO.$"
+    .string "Soy el PRESIDENTE.\p"
+    .string "Mi gran sueño era crear un tren más\n"
+    .string "veloz que cualquier POKéMON.\p"
+    .string "¡Este MAGNETOTRÉN une JOHTO y KANTO\n"
+    .string "en un abrir y cerrar de ojos!$"
 
 GoldenrodCity_TrainStation_Text_Boy:
-	.string "You brought the MAGNET TRAIN PASS,\n"
-	.string "right?$"
+	.string "Llevas encima el PASE DEL\n"
+	.string "MAGNETOTRÉN, ¿a que sí?$"
 
 GoldenrodCity_TrainStation_Text_Psychic:
-	.string "I thought you had it!$"
+	.string "¡Pensaba que lo tenías!$"
