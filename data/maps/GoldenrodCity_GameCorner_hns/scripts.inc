@@ -1,6 +1,64 @@
 GoldenrodCity_GameCorner_hns_MapScripts::
 	.byte 0
 
+GoldenrodCity_GameCorner_EventScript_Knekro::
+	goto_if_defeated TRAINER_KNEKRO_HNS, GoldenrodCity_GameCorner_EventScript_KnekroPostBattle
+	checkitem ITEM_COIN_CASE
+	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_GameCorner_EventScript_KnekroNoCoinCase
+	checkcoins VAR_TEMP_1
+	goto_if_ge VAR_TEMP_1, (MAX_COINS + 1) - 3000, GoldenrodCity_GameCorner_EventScript_KnekroNoCoinSpace
+	trainerbattle_single TRAINER_KNEKRO_HNS, GoldenrodCity_GameCorner_Text_KnekroIntro, GoldenrodCity_GameCorner_Text_KnekroDefeat, GoldenrodCity_GameCorner_EventScript_KnekroReward
+	goto GoldenrodCity_GameCorner_EventScript_KnekroPostBattle
+
+GoldenrodCity_GameCorner_EventScript_KnekroReward::
+	showcoinsbox 1, 1
+	addcoins 3000
+	playfanfare MUS_LEVEL_UP
+	message GoldenrodCity_GameCorner_Text_KnekroReward
+	waitmessage
+	waitfanfare
+	updatecoinsbox 1, 1
+	hidecoinsbox 0, 0
+	release
+	end
+
+GoldenrodCity_GameCorner_EventScript_KnekroNoCoinCase::
+	msgbox GoldenrodCity_GameCorner_Text_KnekroNoCoinCase, MSGBOX_NPC
+	end
+
+GoldenrodCity_GameCorner_EventScript_KnekroNoCoinSpace::
+	msgbox GoldenrodCity_GameCorner_Text_KnekroNoCoinSpace, MSGBOX_NPC
+	end
+
+GoldenrodCity_GameCorner_EventScript_KnekroPostBattle::
+	msgbox GoldenrodCity_GameCorner_Text_KnekroPostBattle, MSGBOX_NPC
+	end
+
+GoldenrodCity_GameCorner_Text_KnekroIntro:
+	.string "KNEKRO: Esto no es azar.\n"
+	.string "Son gachas con una palanca.\p"
+	.string "Si me ganas, te doy 3.000 fichas.\n"
+	.string "A ver si tu equipo tiene buen pity.$"
+
+GoldenrodCity_GameCorner_Text_KnekroDefeat:
+	.string "¡Me ha salido el peor porcentaje!$"
+
+GoldenrodCity_GameCorner_Text_KnekroReward:
+	.string "KNEKRO: Un trato es un trato.\p"
+	.string "¡Has recibido 3.000 fichas!$"
+
+GoldenrodCity_GameCorner_Text_KnekroNoCoinCase:
+	.string "KNEKRO: Sin MONEDERO no hay premio.\n"
+	.string "Consigue uno y vuelve por aquí.$"
+
+GoldenrodCity_GameCorner_Text_KnekroNoCoinSpace:
+	.string "KNEKRO: No te caben 3.000 fichas.\n"
+	.string "Gasta algunas y vuelve luego.$"
+
+GoldenrodCity_GameCorner_Text_KnekroPostBattle:
+	.string "KNEKRO: Si una tirada parece\n"
+	.string "segura, ya han ganado ellos.$"
+
 GoldenrodCity_GameCorner_PrizeRoom_EventScript_PrizeClerkMons::
 	lock
 	faceplayer
