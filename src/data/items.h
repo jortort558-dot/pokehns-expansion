@@ -5725,13 +5725,13 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_BEEDRILLITE] =
     {
-        .name = ITEM_NAME("BEEDRILLITE"),
+        .name = ITEM_NAME("BEEDRILLITA"),
         .price = 0,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = COMPOUND_STRING(
-            "This stone enables\n"
-            "Beedrill to Mega\n"
-            "Evolve in battle."),
+            "Permite a Beedrill\n"
+            "megaevolucionar\n"
+            "durante el combate."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_BAG_MENU,
@@ -13977,13 +13977,13 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_MEGA_RING] =
     {
-        .name = ITEM_NAME("MEGA RING"),
+        .name = ITEM_NAME("MEGAARO"),
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "Enables {PKMN} holding\n"
-            "their Mega Stone to\n"
-            "Mega Evolve."),
+            "Permite megaevolucionar\n"
+            "a un {PKMN} que lleve\n"
+            "su megapiedra."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

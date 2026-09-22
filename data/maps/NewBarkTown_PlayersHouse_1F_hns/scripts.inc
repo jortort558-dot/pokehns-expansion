@@ -20,11 +20,18 @@ NewBarkTown_PlayersHouse_1F_SetMomStandingAtTable::
 NewBarkTown_PlayersHouse_1F_EventScript_Mom::
 	lock
 	faceplayer
+	checkitem ITEM_POKE_VIAL
+	goto_if_eq VAR_RESULT, FALSE, NewBarkTown_PlayersHouse_1F_EventScript_MomGivePokeVialRetro
 	goto_if_set FLAG_MOM_VISITED, NewBarkTown_PlayersHouse_1F_EventScript_Mom_Regular
 	goto_if_set FLAG_ADVENTURE_STARTED, NewBarkTown_PlayersHouse_1F_MomEventScript_GoodLuck
 	msgbox NewBarkTown_PlayersHouse_1F_Text_MomHurryUpElmIsWaiting, MSGBOX_DEFAULT
 	applymovement LOCALID_MOM, NewBarkTown_PlayersHouse_1F_MovementFaceLeft
 	waitmovement 0
+	release
+	end
+
+NewBarkTown_PlayersHouse_1F_EventScript_MomGivePokeVialRetro::
+	call NewBarkTown_PlayersHouse_1F_EventScript_GivePokeVial
 	release
 	end
 
@@ -157,45 +164,46 @@ NewBarkTown_PlayersHouse_1F_EventScript_ExitSavings::
 	return
 
 NewBarkTown_PlayersHouse_1F_Text_MomAnythingElse:
-	.string "Is there anything else I can\n"
-	.string "help you with, sweetie?$"
+	.string "¿Puedo ayudarte en algo más,\n"
+	.string "cariño?$"
 
 NewBarkTown_PlayersHouse_1F_Text_CurrentSavings:
-	.string "I'm holding {STR_VAR_2}\n"
-	.string "for you right now.$"
+	.string "Ahora mismo te guardo\n"
+	.string "{STR_VAR_2}.$"
 
 NewBarkTown_PlayersHouse_1F_Text_EnableSaving:
-	.string "Do you want me to save some of the\n"
-	.string "money you earn?$"
+	.string "¿Quieres que ahorre parte del\n"
+	.string "dinero que ganes?$"
 
 NewBarkTown_PlayersHouse_1F_Text_SavingEnabled:
-	.string "Okay! I'll save 25% of\n"
-	.string "the money you earn from battles.$"
+	.string "¡Muy bien! Ahorraré el 25 % del\n"
+	.string "dinero que ganes en combates.$"
 
 NewBarkTown_PlayersHouse_1F_Text_DisableSaving:
-	.string "Would you like me to stop\n"
-	.string "saving for you?$"
+	.string "¿Quieres que deje de guardar\n"
+	.string "dinero para ti?$"
 
 NewBarkTown_PlayersHouse_1F_Text_SavingDisabled:
-	.string "Okay, I'll stop saving for now.$"
+	.string "De acuerdo, dejaré de ahorrar\n"
+	.string "por ahora.$"
 
 NewBarkTown_PlayersHouse_1F_Text_Goodbye:
-	.string "Take care, sweetie!$"
+	.string "¡Cuídate mucho, cariño!$"
 
 NewBarkTown_PlayersHouse_1F_Text_DepositSuccess:
-	.string "MOM: Sounds good! I'll put that in\n"
-	.string "savings for you.$"
+	.string "MAMÁ: ¡Perfecto! Lo guardaré en\n"
+	.string "tus ahorros.$"
 
 NewBarkTown_PlayersHouse_1F_Text_WithdrawSuccess:
-	.string "MOM: Here you go!$"
+	.string "MAMÁ: ¡Aquí tienes!$"
 
 NewBarkTown_PlayersHouse_1F_Text_NoMoneyToDeposit:
-	.string "MOM: You don't have any money to\n"
-	.string "deposit right now, sweetie.$"
+	.string "MAMÁ: Ahora mismo no tienes\n"
+	.string "dinero que depositar, cariño.$"
 
 NewBarkTown_PlayersHouse_1F_Text_NoMoneyToWithdraw:
-	.string "MOM: I haven't saved any money\n"
-	.string "for you yet, honey.$"
+	.string "MAMÁ: Todavía no he ahorrado\n"
+	.string "dinero para ti, cielo.$"
 
 NewBarkTown_PlayersHouse_1F_EventScript_MomsIntroTrigger1::
 	lock
@@ -348,10 +356,12 @@ NewBarkTown_PlayersHouse_1F_Text_GivePokeVial:
 
 NewBarkTown_PlayersHouse_1F_Text_ExplainPokeVial:
 	.string "MAMÁ: Es un POKéVIAL.\p"
-	.string "Restaura la salud de tus POKéMON\n"
-	.string "estén donde estén.\p"
-	.string "Puedes recargar sus usos al curar\n"
-	.string "en cualquier CENTRO POKéMON.$"
+	.string "Cura los PS y estados del equipo,\n"
+	.string "pero no revive a los caídos.\p"
+	.string "Tiene una carga; ganarás otra por\n"
+	.string "cada dos medallas de JOHTO.\p"
+	.string "Se recarga al curar en cualquier\n"
+	.string "CENTRO POKéMON.$"
 
 NewBarkTown_PlayersHouse_1F_Text_MomHurryUpElmIsWaiting:
 	.string "MAMÁ: El PROF. ELM te está\nesperando.\p"

@@ -3418,7 +3418,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("SCOVILLAIN"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_SCOVILLAIN_MEGA,
+        .cryId = CRY_SCOVILLAIN,
     #else
         .cryId = CRY_SCOVILLAIN,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -4718,7 +4718,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("GLIMMORA"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_GLIMMORA_MEGA,
+        .cryId = CRY_GLIMMORA,
     #else
         .cryId = CRY_GLIMMORA,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -5440,7 +5440,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("TATSUGIRI"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_TATSUGIRI_MEGA,
+        .cryId = CRY_TATSUGIRI,
     #else
         .cryId = CRY_TATSUGIRI_CURLY,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -5498,7 +5498,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("TATSUGIRI"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_TATSUGIRI_MEGA,
+        .cryId = CRY_TATSUGIRI,
     #else
         .cryId = CRY_TATSUGIRI_DROOPY,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -5556,7 +5556,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("TATSUGIRI"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_TATSUGIRI_MEGA,
+        .cryId = CRY_TATSUGIRI,
     #else
         .cryId = CRY_TATSUGIRI_STRETCHY,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -6620,7 +6620,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("BAXCALIBUR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_BAXCALIBUR_MEGA,
+        .cryId = CRY_BAXCALIBUR,
     #else
         .cryId = CRY_BAXCALIBUR,
     #endif // P_MODIFIED_MEGA_CRIES

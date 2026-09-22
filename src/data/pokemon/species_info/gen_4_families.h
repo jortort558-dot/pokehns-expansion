@@ -969,7 +969,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("STARAPTOR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_STARAPTOR_MEGA,
+        .cryId = CRY_STARAPTOR,
     #else
         .cryId = CRY_STARAPTOR,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -3616,7 +3616,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("LOPUNNY"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_LOPUNNY_MEGA,
+        .cryId = CRY_LOPUNNY,
     #else
         .cryId = CRY_LOPUNNY,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -4545,7 +4545,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("GARCHOMP"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_GARCHOMP_MEGA,
+        .cryId = CRY_GARCHOMP,
     #else
         .cryId = CRY_GARCHOMP,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -4832,7 +4832,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("LUCARIO"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_LUCARIO_MEGA,
+        .cryId = CRY_LUCARIO,
     #else
         .cryId = CRY_LUCARIO,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -4909,7 +4909,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("LUCARIO"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_LUCARIO_MEGA_Z,
+        .cryId = CRY_LUCARIO,
     #else
         .cryId = CRY_LUCARIO,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -5895,7 +5895,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("ABOMASNOW"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_ABOMASNOW_MEGA,
+        .cryId = CRY_ABOMASNOW,
     #else
         .cryId = CRY_ABOMASNOW,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -7100,7 +7100,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("HEATRAN"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_HEATRAN_MEGA,
+        .cryId = CRY_HEATRAN,
     #else
         .cryId = CRY_HEATRAN,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -7733,7 +7733,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("DARKRAI"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_DARKRAI_MEGA,
+        .cryId = CRY_DARKRAI,
     #else
         .cryId = CRY_DARKRAI,
     #endif // P_MODIFIED_MEGA_CRIES

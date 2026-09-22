@@ -252,7 +252,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("MEGANIUM"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_MEGANIUM_MEGA,
+        .cryId = CRY_MEGANIUM,
     #else
         .cryId = CRY_MEGANIUM,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -832,7 +832,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("FERALIGATR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_FERALIGATR_MEGA,
+        .cryId = CRY_FERALIGATR,
     #else
         .cryId = CRY_FERALIGATR,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -2259,7 +2259,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("AMPHAROS"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_AMPHAROS_MEGA,
+        .cryId = CRY_AMPHAROS,
     #else
         .cryId = CRY_AMPHAROS,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -5575,7 +5575,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("HERACROSS"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_HERACROSS_MEGA,
+        .cryId = CRY_HERACROSS,
     #else
         .cryId = CRY_HERACROSS,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -7370,7 +7370,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("SKARMORY"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_SKARMORY_MEGA,
+        .cryId = CRY_SKARMORY,
     #else
         .cryId = CRY_SKARMORY,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -7582,7 +7582,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("HOUNDOOM"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_HOUNDOOM_MEGA,
+        .cryId = CRY_HOUNDOOM,
     #else
         .cryId = CRY_HOUNDOOM,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -8566,7 +8566,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("TYRANITAR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_TYRANITAR_MEGA,
+        .cryId = CRY_TYRANITAR,
     #else
         .cryId = CRY_TYRANITAR,
     #endif // P_MODIFIED_MEGA_CRIES

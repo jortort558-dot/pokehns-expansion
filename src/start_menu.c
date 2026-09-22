@@ -19,7 +19,9 @@
 #include "frontier_util.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
+#include "item.h"
 #include "item_menu.h"
+#include "item_use.h"
 #include "link.h"
 #include "load_save.h"
 #include "main.h"
@@ -53,6 +55,8 @@
 #include "constants/songs.h"
 #include "rtc.h"
 #include "constants/layouts.h"
+#include "constants/items.h"
+#include "constants/vars.h"
 
 // Menu actions
 enum
@@ -167,8 +171,8 @@ static const struct WindowTemplate sWindowTemplate_StartClock = {
     .bg = 0,
     .tilemapLeft = 1,
     .tilemapTop = 1,
-    .width = 8,
-    .height = 4,
+    .width = 10,
+    .height = 6,
     .paletteNum = 15,
     .baseBlock = 0x30
 };
@@ -505,12 +509,15 @@ static const u8 sText_AM[] = _("AM");
 static const u8 sText_PM[] = _("PM");
 static const u8 sText_NuzlockeAreaCaught[] = COMPOUND_STRING("{COLOR RED}ZONA: GASTADA");
 static const u8 sText_NuzlockeAreaFree[]   = COMPOUND_STRING("{COLOR GREEN}ZONA: LIBRE");
+static const u8 sText_PokeVialCharges[]    = COMPOUND_STRING("VIAL: {STR_VAR_1}/{STR_VAR_2}");
 
 static void ShowTimeWindow(void)
 {
     const u8 *suffix;
     u8 *ptr;
     u8 convertedHours;
+    u16 currentCharges;
+    u16 maxCharges;
 
     sStartClockWindowId = AddWindow(&sWindowTemplate_StartClock);
     PutWindowTilemap(sStartClockWindowId);
@@ -540,12 +547,24 @@ static void ShowTimeWindow(void)
     {
         if (NuzlockeFlagGet(gMapHeader.regionMapSectionId))
         {
-            AddTextPrinterParameterized(sStartClockWindowId, FONT_SMALL, sText_NuzlockeAreaCaught, 0, 16, 0xFF, NULL);
+            AddTextPrinterParameterized(sStartClockWindowId, FONT_SMALL, sText_NuzlockeAreaCaught, 0, 30, 0xFF, NULL);
         }
         else
         {
-            AddTextPrinterParameterized(sStartClockWindowId, FONT_SMALL, sText_NuzlockeAreaFree, 0, 16, 0xFF, NULL);
+            AddTextPrinterParameterized(sStartClockWindowId, FONT_SMALL, sText_NuzlockeAreaFree, 0, 30, 0xFF, NULL);
         }
+    }
+
+    if (CheckBagHasItem(ITEM_POKE_VIAL, 1))
+    {
+        maxCharges = GetPokeVialMaxCharges();
+        currentCharges = VarGet(VAR_POKEVIAL_CHARGES);
+        if (currentCharges > maxCharges)
+            currentCharges = maxCharges;
+        ConvertIntToDecimalStringN(gStringVar1, currentCharges, STR_CONV_MODE_LEFT_ALIGN, 1);
+        ConvertIntToDecimalStringN(gStringVar2, maxCharges, STR_CONV_MODE_LEFT_ALIGN, 1);
+        StringExpandPlaceholders(gStringVar4, sText_PokeVialCharges);
+        AddTextPrinterParameterized(sStartClockWindowId, FONT_SMALL, gStringVar4, 0, 16, 0xFF, NULL);
     }
 
     CopyWindowToVram(sStartClockWindowId, COPYWIN_GFX);

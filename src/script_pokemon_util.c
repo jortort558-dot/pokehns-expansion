@@ -54,18 +54,6 @@ void HealPlayerParty(void)
     if (B_FLAG_TERA_ORB_CHARGED != 0 && CheckBagHasItem(ITEM_TERA_ORB, 1))
         FlagSet(B_FLAG_TERA_ORB_CHARGED);
 
-    // Recargar PokéVial si el jugador lo posee
-    if (CheckBagHasItem(ITEM_POKE_VIAL, 1))
-    {
-        u8 badges = 0;
-        u16 badgeFlag;
-        for (badgeFlag = FLAG_BADGE01_GET; badgeFlag <= FLAG_BADGE08_GET; badgeFlag++)
-        {
-            if (FlagGet(badgeFlag))
-                badges++;
-        }
-        VarSet(VAR_POKEVIAL_CHARGES, 1 + (badges / 2));
-    }
 }
 
 static bool8 IsBoxMonDead(u8 boxId, u8 boxPosition)
@@ -662,6 +650,80 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, e
     }
     CopyMon(&gEnemyParty[slot], &mon, sizeof(struct Pokemon));
     return MON_GIVEN_TO_PARTY;
+}
+
+
+struct MegaGiftPair
+{
+    u16 species;
+    u16 item;
+};
+
+static const struct MegaGiftPair sMegaGiftPairs[] =
+{
+    {SPECIES_VENUSAUR, ITEM_VENUSAURITE},
+    {SPECIES_CHARIZARD, ITEM_CHARIZARDITE_X},
+    {SPECIES_CHARIZARD, ITEM_CHARIZARDITE_Y},
+    {SPECIES_BLASTOISE, ITEM_BLASTOISINITE},
+    {SPECIES_BEEDRILL, ITEM_BEEDRILLITE},
+    {SPECIES_PIDGEOT, ITEM_PIDGEOTITE},
+    {SPECIES_ALAKAZAM, ITEM_ALAKAZITE},
+    {SPECIES_SLOWBRO, ITEM_SLOWBRONITE},
+    {SPECIES_GENGAR, ITEM_GENGARITE},
+    {SPECIES_KANGASKHAN, ITEM_KANGASKHANITE},
+    {SPECIES_PINSIR, ITEM_PINSIRITE},
+    {SPECIES_GYARADOS, ITEM_GYARADOSITE},
+    {SPECIES_AERODACTYL, ITEM_AERODACTYLITE},
+    {SPECIES_AMPHAROS, ITEM_AMPHAROSITE},
+    {SPECIES_STEELIX, ITEM_STEELIXITE},
+    {SPECIES_SCIZOR, ITEM_SCIZORITE},
+    {SPECIES_HERACROSS, ITEM_HERACRONITE},
+    {SPECIES_HOUNDOOM, ITEM_HOUNDOOMINITE},
+    {SPECIES_TYRANITAR, ITEM_TYRANITARITE},
+    {SPECIES_SCEPTILE, ITEM_SCEPTILITE},
+    {SPECIES_BLAZIKEN, ITEM_BLAZIKENITE},
+    {SPECIES_SWAMPERT, ITEM_SWAMPERTITE},
+    {SPECIES_GARDEVOIR, ITEM_GARDEVOIRITE},
+    {SPECIES_SABLEYE, ITEM_SABLENITE},
+    {SPECIES_MAWILE, ITEM_MAWILITE},
+    {SPECIES_AGGRON, ITEM_AGGRONITE},
+    {SPECIES_MEDICHAM, ITEM_MEDICHAMITE},
+    {SPECIES_MANECTRIC, ITEM_MANECTITE},
+    {SPECIES_SHARPEDO, ITEM_SHARPEDONITE},
+    {SPECIES_CAMERUPT, ITEM_CAMERUPTITE},
+    {SPECIES_ALTARIA, ITEM_ALTARIANITE},
+    {SPECIES_BANETTE, ITEM_BANETTITE},
+    {SPECIES_ABSOL, ITEM_ABSOLITE},
+    {SPECIES_GLALIE, ITEM_GLALITITE},
+    {SPECIES_SALAMENCE, ITEM_SALAMENCITE},
+    {SPECIES_METAGROSS, ITEM_METAGROSSITE},
+    {SPECIES_LOPUNNY, ITEM_LOPUNNITE},
+    {SPECIES_GARCHOMP, ITEM_GARCHOMPITE},
+    {SPECIES_LUCARIO, ITEM_LUCARIONITE},
+    {SPECIES_ABOMASNOW, ITEM_ABOMASITE},
+    {SPECIES_GALLADE, ITEM_GALLADITE},
+    {SPECIES_AUDINO, ITEM_AUDINITE},
+};
+
+void GiveRandomMegaGift(void)
+{
+    const struct MegaGiftPair *pair = &sMegaGiftPairs[Random() % ARRAY_COUNT(sMegaGiftPairs)];
+    u16 evs[NUM_STATS] = {0};
+    u16 ivs[NUM_STATS];
+    enum Move moves[MAX_MON_MOVES] = {MOVE_DEFAULT, MOVE_DEFAULT, MOVE_DEFAULT, MOVE_DEFAULT};
+    u32 i;
+
+    Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
+    StringCopy(gStringVar1, GetSpeciesName(pair->species));
+    for (i = 0; i < NUM_STATS; i++)
+        ivs[i] = Random() % (MAX_PER_STAT_IVS + 1);
+
+    gSpecialVar_Result = ScriptGiveMonParameterized(
+        B_SIDE_PLAYER, PARTY_SIZE, pair->species, 15, pair->item, BALL_POKE,
+        GetSynchronizedNature(GIFTMON_ORIGIN, pair->species),
+        NUM_ABILITY_PERSONALITY,
+        GetSynchronizedGender(GIFTMON_ORIGIN, pair->species),
+        evs, ivs, moves, SHINY_MODE_RANDOM, FALSE, NUMBER_OF_MON_TYPES, 0);
 }
 
 u32 ScriptGiveMon(u16 species, u8 level, enum Item item)

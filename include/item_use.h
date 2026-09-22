@@ -39,6 +39,8 @@ void ItemUseOutOfBattle_Honey(u8 taskId);
 void ItemUseOutOfBattle_InfiniteRareCandies(u8 taskId);
 void ItemUseOutOfBattle_PokeBall(u8 taskId);
 void ItemUseOutOfBattle_PokeVial(u8 taskId);
+u16 GetPokeVialMaxCharges(void);
+void RechargePokeVial(void);
 void ItemUseOutOfBattle_CannotUse(u8 taskId);
 void ItemUseOutOfBattle_GBPlayer(u8 taskId);
 void ItemUseOutOfBattle_ExpShare(u8 taskId);

@@ -5309,7 +5309,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("FALINKS"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_FALINKS_MEGA,
+        .cryId = CRY_FALINKS,
     #else
         .cryId = CRY_FALINKS,
     #endif // P_MODIFIED_MEGA_CRIES

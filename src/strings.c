@@ -423,7 +423,6 @@ const u8 gText_EggWillTakeALongTime[] = _("Parece que a este HUEVO le\nllevará 
 const u8 gText_EggWillTakeSomeTime[] = _("¿Qué nacerá de esto?\nAún tardará un tiempo.");
 const u8 gText_EggWillHatchSoon[] = _("A veces se mueve.\nDebería nacer pronto.");
 const u8 gText_EggAboutToHatch[] = _("¡Hace ruidos!\n¡Está a punto de nacer!");
-const u8 gText_EggReadyToHatch_Nuzlocke[] = _("¡Listo para nacer, pero bloqueado\npor encuentro Nuzlocke!");
 const u8 gText_HMMovesCantBeForgotten2[] = _("Los mov. MO no se pueden\nolvidar por ahora.");
 const u8 gText_XNatureMetAtYZ[] = _("{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5}{DYNAMIC 6}{DYNAMIC 7},\nvisto en {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1},\nen {DYNAMIC 0}{DYNAMIC 4}{DYNAMIC 1}.");
 const u8 gText_XNatureHatchedAtYZ[] = _("{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5}{DYNAMIC 6}{DYNAMIC 7},\neclosionado en {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1},\nen {DYNAMIC 0}{DYNAMIC 4}{DYNAMIC 1}.");

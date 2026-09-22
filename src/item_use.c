@@ -1758,27 +1758,11 @@ void ItemUseOutOfBattle_TownMap(u8 taskId)
 
 void ItemUseOutOfBattle_PokeVial(u8 taskId)
 {
-    u8 badges = 0;
-    u16 badgeFlag;
-    u16 maxCharges;
+    u16 maxCharges = GetPokeVialMaxCharges();
     u16 curCharges;
     u32 i;
     bool32 healedAny = FALSE;
     const u8 *msg;
-
-    for (badgeFlag = FLAG_BADGE01_GET; badgeFlag <= FLAG_BADGE08_GET; badgeFlag++)
-    {
-        if (FlagGet(badgeFlag))
-            badges++;
-    }
-    maxCharges = 1 + (badges / 2);
-
-    // Inicializar cargas si la variable nunca se inicializó
-    if (VarGet(VAR_POKEVIAL_CHARGES) == 0 && !FlagGet(FLAG_POKERUS_EXPLAINED))
-    {
-        // En partida ya en curso, si nunca se ha recargado, asignar el máximo actual
-        VarSet(VAR_POKEVIAL_CHARGES, maxCharges);
-    }
 
     curCharges = VarGet(VAR_POKEVIAL_CHARGES);
     if (curCharges > maxCharges)
@@ -1833,6 +1817,26 @@ void ItemUseOutOfBattle_PokeVial(u8 taskId)
         DisplayItemMessage(taskId, FONT_NORMAL, msg, CloseItemMessage);
     else
         DisplayItemMessageOnField(taskId, msg, Task_CloseCantUseKeyItemMessage);
+}
+
+u16 GetPokeVialMaxCharges(void)
+{
+    u8 badges = 0;
+    u16 badgeFlag;
+
+    for (badgeFlag = FLAG_BADGE01_GET; badgeFlag <= FLAG_BADGE08_GET; badgeFlag++)
+    {
+        if (FlagGet(badgeFlag))
+            badges++;
+    }
+
+    return 1 + (badges / 2);
+}
+
+void RechargePokeVial(void)
+{
+    if (CheckBagHasItem(ITEM_POKE_VIAL, 1))
+        VarSet(VAR_POKEVIAL_CHARGES, GetPokeVialMaxCharges());
 }
 
 #undef tUsingRegisteredKeyItem

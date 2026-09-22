@@ -258,7 +258,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("VENUSAUR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_VENUSAUR_MEGA,
+        .cryId = CRY_VENUSAUR,
     #else
         .cryId = CRY_VENUSAUR,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -611,7 +611,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("CHARIZARD"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_CHARIZARD_MEGA_X,
+        .cryId = CRY_CHARIZARD,
     #else
         .cryId = CRY_CHARIZARD,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -683,7 +683,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("CHARIZARD"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_CHARIZARD_MEGA_Y,
+        .cryId = CRY_CHARIZARD,
     #else
         .cryId = CRY_CHARIZARD,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -1040,7 +1040,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("BLASTOISE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_BLASTOISE_MEGA,
+        .cryId = CRY_BLASTOISE,
     #else
         .cryId = CRY_BLASTOISE,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -1727,7 +1727,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("BEEDRILL"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_BEEDRILL_MEGA,
+        .cryId = CRY_BEEDRILL,
     #else
         .cryId = CRY_BEEDRILL,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -2035,7 +2035,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("PIDGEOT"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_PIDGEOT_MEGA,
+        .cryId = CRY_PIDGEOT,
     #else
         .cryId = CRY_PIDGEOT,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -4402,7 +4402,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("RAICHU"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_RAICHU_MEGA_X,
+        .cryId = CRY_RAICHU,
     #else
         .cryId = CRY_RAICHU,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -4463,7 +4463,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("RAICHU"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_RAICHU_MEGA_Y,
+        .cryId = CRY_RAICHU,
     #else
         .cryId = CRY_RAICHU,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -5532,7 +5532,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("CLEFABLE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_CLEFABLE_MEGA,
+        .cryId = CRY_CLEFABLE,
     #else
         .cryId = CRY_CLEFABLE,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -9232,7 +9232,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("ALAKAZAM"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_ALAKAZAM_MEGA,
+        .cryId = CRY_ALAKAZAM,
     #else
         .cryId = CRY_ALAKAZAM,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -9853,7 +9853,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .noFlip = TRUE,
         .speciesName = _("VICTREEBEL"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_VICTREEBEL_MEGA,
+        .cryId = CRY_VICTREEBEL,
     #else
         .cryId = CRY_VICTREEBEL,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -11055,7 +11055,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .abilities = { ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR },
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("SLOWBRO"),
-        .cryId = CRY_SLOWBRO_MEGA,
+        .cryId = CRY_SLOWBRO,
         .natDexNum = NATIONAL_DEX_SLOWBRO,
         .categoryName = _("Hermit Crab"),
         .height = 20,
@@ -12876,7 +12876,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("GENGAR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_GENGAR_MEGA,
+        .cryId = CRY_GENGAR,
     #else
         .cryId = CRY_GENGAR,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -13172,7 +13172,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("STEELIX"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_STEELIX_MEGA,
+        .cryId = CRY_STEELIX,
     #else
         .cryId = CRY_STEELIX,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -15898,7 +15898,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("KANGASKHAN"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_KANGASKHAN_MEGA,
+        .cryId = CRY_KANGASKHAN,
     #else
         .cryId = CRY_KANGASKHAN,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -16539,7 +16539,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("STARMIE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_STARMIE_MEGA,
+        .cryId = CRY_STARMIE,
     #else
         .cryId = CRY_STARMIE,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -17101,7 +17101,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("SCIZOR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_SCIZOR_MEGA,
+        .cryId = CRY_SCIZOR,
     #else
         .cryId = CRY_SCIZOR,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -17921,7 +17921,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("PINSIR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_PINSIR_MEGA,
+        .cryId = CRY_PINSIR,
     #else
         .cryId = CRY_PINSIR,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -18489,7 +18489,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("GYARADOS"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_GYARADOS_MEGA,
+        .cryId = CRY_GYARADOS,
     #else
         .cryId = CRY_GYARADOS,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -20191,7 +20191,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("AERODACTYL"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_AERODACTYL_MEGA,
+        .cryId = CRY_AERODACTYL,
     #else
         .cryId = CRY_AERODACTYL,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -21219,7 +21219,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("DRAGONITE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_DRAGONITE_MEGA,
+        .cryId = CRY_DRAGONITE,
     #else
         .cryId = CRY_DRAGONITE,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -21359,7 +21359,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("MEWTWO"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_MEWTWO_MEGA_X,
+        .cryId = CRY_MEWTWO,
     #else
         .cryId = CRY_MEWTWO,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -21435,7 +21435,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("MEWTWO"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_MEWTWO_MEGA_Y,
+        .cryId = CRY_MEWTWO,
     #else
         .cryId = CRY_MEWTWO,
     #endif // P_MODIFIED_MEGA_CRIES

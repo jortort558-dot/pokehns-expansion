@@ -236,7 +236,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("CHESNAUGHT"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_CHESNAUGHT_MEGA,
+        .cryId = CRY_CHESNAUGHT,
     #else
         .cryId = CRY_CHESNAUGHT,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -511,7 +511,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("DELPHOX"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_DELPHOX_MEGA,
+        .cryId = CRY_DELPHOX,
     #else
         .cryId = CRY_DELPHOX,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -911,7 +911,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .noFlip = TRUE,
         .speciesName = _("GRENINJA"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_GRENINJA_MEGA,
+        .cryId = CRY_GRENINJA,
     #else
         .cryId = CRY_GRENINJA,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -1929,7 +1929,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("PYROAR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_PYROAR_MEGA,
+        .cryId = CRY_PYROAR,
     #else
         .cryId = CRY_PYROAR,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -2364,7 +2364,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("FLOETTE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_FLOETTE_MEGA,
+        .cryId = CRY_FLOETTE,
     #else
         .cryId = CRY_FLOETTE,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -2989,7 +2989,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("MEOWSTIC"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_MEOWSTIC_MEGA,
+        .cryId = CRY_MEOWSTIC,
     #else
         .cryId = CRY_MEOWSTIC,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -3047,7 +3047,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("MEOWSTIC"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_MEOWSTIC_MEGA,
+        .cryId = CRY_MEOWSTIC,
     #else
         .cryId = CRY_MEOWSTIC,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -3827,7 +3827,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("MALAMAR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_MALAMAR_MEGA,
+        .cryId = CRY_MALAMAR,
     #else
         .cryId = CRY_MALAMAR,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -4030,7 +4030,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .noFlip = TRUE,
         .speciesName = _("BARBARACLE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_BARBARACLE_MEGA,
+        .cryId = CRY_BARBARACLE,
     #else
         .cryId = CRY_BARBARACLE,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -4234,7 +4234,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("DRAGALGE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_DRAGALGE_MEGA,
+        .cryId = CRY_DRAGALGE,
     #else
         .cryId = CRY_DRAGALGE,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -4940,7 +4940,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("HAWLUCHA"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_HAWLUCHA_MEGA,
+        .cryId = CRY_HAWLUCHA,
     #else
         .cryId = CRY_HAWLUCHA,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -7204,7 +7204,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .noFlip = TRUE,
         .speciesName = _("ZYGARDE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_ZYGARDE_MEGA,
+        .cryId = CRY_ZYGARDE,
     #else
         .cryId = CRY_ZYGARDE_COMPLETE,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -7342,7 +7342,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("DIANCIE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_DIANCIE_MEGA,
+        .cryId = CRY_DIANCIE,
     #else
         .cryId = CRY_DIANCIE,
     #endif // P_MODIFIED_MEGA_CRIES

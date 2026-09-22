@@ -47,6 +47,7 @@ EventScript_PkmnCenterNurse_HealPkmn::
 EventScript_PkmnCenterNurse_HealPkmnFast::
 	incrementgamestat GAME_STAT_USED_POKECENTER
 	special HealPlayerParty
+	special RechargePokeVial
 	@ SE_FASTER_JOY_HEAL is the same sound as SE_M_MORNING_SUN, under its own song ID
 	@ so the GB Player can remap this heal without altering the Morning Sun move.
 	playse SE_FASTER_JOY_HEAL
@@ -75,6 +76,7 @@ EventScript_PkmnCenterNurse_TakeAndHealPkmn::
 	applymovement VAR_0x800B, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	special HealPlayerParty
+	special RechargePokeVial
 	return
 
 EventScript_PkmnCenterNurse_CheckTrainerHillAndUnionRoom::

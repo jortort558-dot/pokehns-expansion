@@ -539,7 +539,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .noFlip = TRUE,
         .speciesName = _("EMBOAR"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_EMBOAR_MEGA,
+        .cryId = CRY_EMBOAR,
     #else
         .cryId = CRY_EMBOAR,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -2874,7 +2874,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .noFlip = TRUE,
         .speciesName = _("EXCADRILL"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_EXCADRILL_MEGA,
+        .cryId = CRY_EXCADRILL,
     #else
         .cryId = CRY_EXCADRILL,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -3010,7 +3010,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("AUDINO"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_AUDINO_MEGA,
+        .cryId = CRY_AUDINO,
     #else
         .cryId = CRY_AUDINO,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -4109,7 +4109,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("SCOLIPEDE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_SCOLIPEDE_MEGA,
+        .cryId = CRY_SCOLIPEDE,
     #else
         .cryId = CRY_SCOLIPEDE,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -5906,7 +5906,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("SCRAFTY"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_SCRAFTY_MEGA,
+        .cryId = CRY_SCRAFTY,
     #else
         .cryId = CRY_SCRAFTY,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -9955,7 +9955,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("EELEKTROSS"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_EELEKTROSS_MEGA,
+        .cryId = CRY_EELEKTROSS,
     #else
         .cryId = CRY_EELEKTROSS,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -10384,7 +10384,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .noFlip = TRUE,
         .speciesName = _("CHANDELURE"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_CHANDELURE_MEGA,
+        .cryId = CRY_CHANDELURE,
     #else
         .cryId = CRY_CHANDELURE,
     #endif // P_MODIFIED_MEGA_CRIES
@@ -11523,7 +11523,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .noFlip = TRUE,
         .speciesName = _("GOLURK"),
     #if P_MODIFIED_MEGA_CRIES
-        .cryId = CRY_GOLURK_MEGA,
+        .cryId = CRY_GOLURK,
     #else
         .cryId = CRY_GOLURK,
     #endif // P_MODIFIED_MEGA_CRIES
