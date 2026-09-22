@@ -46,7 +46,7 @@ GoldenrodDeptStore1_Text_Gentleman:
     .string "El CENTRO COMERCIAL tiene un\nsurtido\l"
     .string "impresionante.\p"
     .string "Aunque algunos objetos exclusivos\nsolo\l"
-    .string "se consiguen de premio en el\nCASINO.$"
+    .string "se consiguen de premio en el\lCASINO.$"
 
 GoldenrodDeptStore1_Text_PokefanF:
     .string "¡Hoy me he levantado con unas ganas\n"

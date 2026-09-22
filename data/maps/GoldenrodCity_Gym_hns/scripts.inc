@@ -148,11 +148,12 @@ GoldenrodCity_Gym_Text_WhitneyWhatDoYouWant:
     .string "Toma la MEDALLA PLANICIE.$"
 
 GoldenrodCity_Gym_Text_PlayerReceivedPlainBadge:
-    .string "{PLAYER} recibió la MEDALLA PLANICIE.$"
+    .string "¡{PLAYER} recibió la\n"
+    .string "MEDALLA PLANICIE!$"
 
 GoldenrodCity_Gym_Text_WhitneyPlainBadge:
     .string "La MEDALLA PLANICIE permite a tus\n"
-    .string "POKéMON usar FUERZA fuera del\ncombate.\p"
+    .string "POKéMON usar FUERZA fuera del\lcombate.\p"
     .string "También aumenta la DEFENSA de tus\n"
 	.string "POKéMON.\p"
     .string "¡Ah, quédate con esto también!$"
@@ -250,4 +251,3 @@ GoldenrodCity_Gym_Text_GymGuide:
 GoldenrodCity_Gym_Text_GymGuideWin:
     .string "¿Has ganado? ¡Bien hecho! Yo estaba\n"
     .string "aquí embobado con las chicas.$"
-

@@ -114,7 +114,7 @@ GoldenrodCity_UndergroundTunnel_Text_Kimono1:
 	.string "Miembros del TEAM ROCKET de negro\nhan\l"
 	.string "estado corriendo por aquí…\p"
 	.string "Me preguntaba qué estaba\nocurriendo.\l"
-	.string "¿Te has enfrentado tú al TEAM\nROCKET?\l"
+	.string "¿Te has enfrentado tú al TEAM\lROCKET?\l"
 	.string "¡Qué valor tan admirable!\p"
 	.string "Puede que seas capaz de encarar al\n"
 	.string "legendario POKé…$"

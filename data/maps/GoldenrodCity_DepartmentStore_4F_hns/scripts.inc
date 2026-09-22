@@ -35,27 +35,24 @@ GoldenrodDeptStore4_EventScript_Sign::
 	end
 
 GoldenrodDeptStore_Text_4FCooltrainerM:
-    .string "Hey. I love strong POKéMON.\p"
-    .string "I feed them PROTEIN to crank up\n"
-    .string "their ATTACK.$"
+    .string "Me encantan los POKéMON fuertes.\p"
+    .string "Les doy PROTEÍNAS para aumentar\n"
+    .string "su ATAQUE.$"
 
 GoldenrodDeptStore_Text_4FBugCatcher:
-    .string "IRON adds to your POKéMON's\n"
-    .string "DEFENSE.$"
+    .string "El HIERRO aumenta la DEFENSA\n"
+    .string "de tus POKéMON.$"
 
 GoldenrodDeptStore_Text_4FGameboyKid:
-    .string "There were rumours that some\n"
-    .string "POKéMON evolve only by\l"
-    .string "being traded via a Game Link\l"
-    .string "cable.\p"
-    .string "Pfft...\p"
-    .string "Such misinformation.\p"
-    .string "I know some of the rumoured\n"
-    .string "POKéMON:\l"
-    .string "MACHOKE, KADABRA, HAUNTER and,\l"
-    .string "um, GRAVELER,\l"
-    .string "but they all evolve through\l"
-    .string "level up.$"
+    .string "Se decía que ciertos POKéMON solo\n"
+    .string "evolucionaban al intercambiarlos\l"
+    .string "mediante un cable Game Link.\p"
+    .string "Pfff… ¡Menuda desinformación!\p"
+    .string "Conozco algunos de esos POKéMON:\n"
+    .string "MACHOKE, KADABRA, HAUNTER y…\l"
+    .string "GRAVELER.\p"
+    .string "Pero aquí todos evolucionan\n"
+    .string "al subir de nivel.$"
 
 GoldenrodDeptStore4_EventScript_Clerk::
 	lock
@@ -78,5 +75,5 @@ GoldenrodDeptStore4_Pokemart:
 	pokemartlistend
 
 GoldenrodDeptStore_Text_4FDirectory:
-    .string "Let Us Pump Up Your POKéMON!\p"
-    .string "4F MEDICINE BOX$"
+    .string "¡FORTALECE A TUS POKéMON!\p"
+    .string "4.ª PLANTA: BOTIQUÍN$"

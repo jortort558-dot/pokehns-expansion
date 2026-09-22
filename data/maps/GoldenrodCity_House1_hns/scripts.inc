@@ -133,18 +133,17 @@ GoldenrodCity_NameRatersHouse_Text_NameNoDifferentYetSuperior:
 	.string "¡Hecho! De ahora en adelante, ¡este\n"
 	.string "POKéMON se llamará {STR_VAR_1}!\p"
 	.string "Parece idéntico al de antes, pero…\n"
-	.string "¡en el fondo es inmensamente\nsuperior!\p"
+	.string "¡en el fondo es inmensamente\lsuperior!\p"
 	.string "¡Qué gran fortuna la tuya!$"
 
 GoldenrodCity_NameRatersHouse_Text_MagnificentName:
 	.string "Mmm… ¡{STR_VAR_1}!\p"
 	.string "¡Qué mote tan sensacional!\n"
-	.string "¡Es perfecto, no tiene tacha\nalguna!\p"
+	.string "¡Es perfecto, no tiene tacha\lalguna!\p"
 	.string "Cuida con muchísimo orgullo de tu\n"
 	.string "{STR_VAR_1} de ahora en adelante.$"
 
 GoldenrodCity_NameRatersHouse_Text_ThatIsMerelyAnEgg:
 	.string "¡Pero bueno!\n"
 	.string "¡Si eso es solo un HUEVO!$"
-
 

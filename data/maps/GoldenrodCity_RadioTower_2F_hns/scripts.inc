@@ -186,7 +186,7 @@ GoldenrodCity_RadioTower_2F_Text_GruntF2After:
 GoldenrodCity_RadioTower_2F_Text_BuenaShowPromo:
 	.string "BUENA: ¡Sintoniza mi SHOW DE LA\nCONTRASEÑA!\l¡Escúchalo para enterarte de la\lclave de hoy!$"
 GoldenrodCity_RadioTower_2F_Text_BuenaAskPassword:
-	.string "BUENA: ¡Hola, hola!\n¿Sabes ya la contraseña de hoy?\n¡Muy bien! ¿Cuál es?$"
+	.string "BUENA: ¡Hola, hola!\n¿Sabes ya la contraseña de hoy?\l¡Muy bien! ¿Cuál es?$"
 GoldenrodCity_RadioTower_2F_Text_BuenaCorrect:
 	.string "BUENA: ¡La has clavado!\n¡Toma este {STR_VAR_1} como premio!$"
 GoldenrodCity_RadioTower_2F_Text_BuenaWrong:

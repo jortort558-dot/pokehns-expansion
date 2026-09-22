@@ -123,8 +123,8 @@ Route37_Text_Sunny_Meet:
 	.string "daré un premio estupendo!$"
 
 Route37_Text_Sunny_GiveGift1:
-	.string "I was told to give you this if I\nsaw\l"
-	.string "you!$"
+	.string "¡Me dijeron que te entregara esto\n"
+	.string "en cuanto te viera!$"
 
 Route37_Text_Sunny_GiveGift2:
 	.string "¡Me dijeron que te entregara esto\nen\l"
@@ -138,7 +138,7 @@ Route37_Text_Sunny_GaveGift:
 	.string "Dáselo a un POKéMON con ataques\n"
 	.string "eléctricos.\p"
 	.string "¡Mi hermana MÓNICA dice que el IMÁN\n"
-	.string "potencia los ataques de tipo\nELÉCTRICO!$"
+	.string "potencia los ataques de tipo\lELÉCTRICO!$"
 
 Route37_Text_Sunny_Sunday:
 	.string "DOMINGO: Mis hermanos son MÓNICA,\n"
@@ -147,8 +147,8 @@ Route37_Text_Sunny_Sunday:
 	.string "¡Todos son mayores que yo!$"
 
 Route37_Text_Sunny_NotSunday:
-	.string "SUNNY: Isn't today Sunday?\n"
-	.string "Um… I forgot!$"
+	.string "DOMINGO: ¿Hoy no es domingo?\n"
+	.string "Mmm… ¡Se me había olvidado!$"
 
 Route37_Text_Sign:
 	.string "RUTA 37\n"

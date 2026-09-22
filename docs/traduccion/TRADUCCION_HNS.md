@@ -117,12 +117,12 @@ pie title Estado de Contenido Traducido
 
 ### Bloque 3: Tercera y Cuarta Medalla (Trigal e Iris)
 
-- [ ] **Encinar (Ilex Forest)** — revisión pendiente de los tutores compartidos:
+- [x] **Encinar (Ilex Forest)** — tutores compartidos revisados y traducidos:
   - Minijuego de persecución de los Farfetch'd perdidos del carbonero.
   - Entrega de la MO01 Corte por parte del aprendiz de carbonero.
   - Tutor de Cabezazo y Altar del Guardián del Bosque (Celebi).
-- [ ] **Ruta 34**: revisión pendiente de los responsables de la Guardería y las fichas de Pokémon bebé.
-- [ ] **Ciudad Trigal (Goldenrod City)**: revisión integral pendiente de NPC, Centro Comercial, Casino, Torre Radio y zona de conexión.
+- [x] **Ruta 34**: Guardería y fichas de Pokémon bebé revisadas y traducidas.
+- [x] **Ciudad Trigal (Goldenrod City)**: NPC, Centro Comercial, Casino, Torre Radio y zona de conexión revisados.
   - **Centro Comercial de Trigal**: Recepcionista y directorio.
   - **Torre Radio de Trigal**: Tarjeta de Radio (test de preguntas de 5 rondas), programa de radio y entrega de la tarjeta.
   - Floristería: Obtención de la Regadera Squirtbottle tras vencer en el gimnasio y florista de mentas.
@@ -133,9 +133,9 @@ pie title Estado de Contenido Traducido
   - **Gimnasio Trigal**: Entrenadoras, líder **Blanca** (Miltank Desenlace, Medalla Planicie + MT Atracción) y su berrinche al perder.
   - Terminal del Magnetotrén (bloqueado por falta de energía).
 
-> **Revisión pendiente 22/09/2026:** el porcentaje histórico no reflejaba varios
-> textos compartidos y secundarios que siguen en inglés. El inventario y las
-> propuestas se recogen en `docs/traduccion/propuestas_bloque3_textos.md`.
+> **Revisión 22/09/2026:** corregidos los textos compartidos y secundarios que
+> no reflejaba el porcentaje histórico. La auditoría conjunta de 67 archivos
+> del Bloque 3 terminó sin incidencias.
 - [x] **Ruta 35 y Parque Nacional**: Concurso de captura de bichos (martes, jueves y sábados con Parque Balls), Oficial con la carta de Spearow, dama con Garra Rápida y entrenadores.
 - [x] **Ruta 36**: Encuentro con el árbol bailarín **Sudowoodo** (uso de la Regadera), Karateka de MO Golpe Roca y Arturo del Jueves.
 - [x] **Ruta 37**: Bosque de Bonguris, Domingo con Imán y entrenadoras gemelas Ana y Anita.

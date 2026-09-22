@@ -1,257 +1,249 @@
 MoveTutor_Text_ThisMoveCanOnlyBeLearnedOnce:
-	.string "This move can be learned only\n"
-	.string "once. Is that okay?$"
+	.string "Este movimiento solo puede\n"
+	.string "aprenderse una vez. ¿De acuerdo?$"
 
 MoveTutor_Text_SwaggerTeach:
-	.string "Heh! My POKéMON totally rules!\n"
-	.string "It's cooler than any POKéMON!\p"
-	.string "I was lipping off with a swagger in\n"
-	.string "my step like that when the CHAIRMAN\l"
-	.string "chewed me out.\p"
-	.string "That took the swagger out of my step.\p"
-	.string "If you'd like, I'll teach the move\n"
-	.string "SWAGGER to a POKéMON of yours.$"
+	.string "¡Je! ¡Mi POKéMON es el mejor!\n"
+	.string "¡Mola más que ningún otro!\p"
+	.string "Iba presumiendo con mucho\n"
+	.string "CONTONEO cuando el PRESIDENTE me\l"
+	.string "echó una buena bronca.\p"
+	.string "Se me quitaron las ganas de fardar.\p"
+	.string "Si quieres, puedo enseñar\n"
+	.string "CONTONEO a uno de tus POKéMON.$"
 
 MoveTutor_Text_SwaggerDeclined:
-	.string "What, no? Can't you get into\n"
-	.string "the spirit of things?$"
+	.string "¿No? ¿No sabes entrar en ambiente?$"
 
 MoveTutor_Text_SwaggerWhichMon:
-	.string "All right, which POKéMON wants to\n"
-	.string "learn how to SWAGGER?$"
+	.string "Muy bien. ¿Qué POKéMON quiere\n"
+	.string "aprender CONTONEO?$"
 
 MoveTutor_Text_SwaggerTaught:
-	.string "I'll just praise my POKéMON from now\n"
-	.string "on without the swagger.$"
+	.string "A partir de ahora, alabaré a mi\n"
+	.string "POKéMON sin presumir.$"
 
 MoveTutor_Text_RolloutTeach:
-	.string "Did you know that you can go from\n"
-	.string "here a long way in that direction\l"
-	.string "without changing direction?\p"
-	.string "I might even be able to roll\n"
-	.string "that way.\p"
-	.string "Do you think your POKéMON will\n"
-	.string "want to roll, too?\p"
-	.string "I can teach one the move ROLLOUT\n"
-	.string "if you'd like.$"
+	.string "¿Sabías que puedes avanzar mucho\n"
+	.string "por ahí sin cambiar de dirección?\p"
+	.string "Hasta yo podría ir rodando.\p"
+	.string "¿Crees que tu POKéMON también\n"
+	.string "querrá rodar?\p"
+	.string "Puedo enseñarle DESENROLLAR,\n"
+	.string "si quieres.$"
 
 MoveTutor_Text_RolloutDeclined:
-	.string "You don't need to be shy about it.\n"
-	.string "Let's roll!$"
+	.string "No tienes por qué cortarte.\n"
+	.string "¡Vamos a rodar!$"
 
 MoveTutor_Text_RolloutWhichMon:
-	.string "Ehehe, sure thing! It'd be great if\n"
-	.string "the POKéMON looked like me.$"
+	.string "¡Je, je! ¡Perfecto! ¿A qué\n"
+	.string "POKéMON se lo enseño?$"
 
 MoveTutor_Text_RolloutTaught:
-	.string "Rolling around in the grass makes me\n"
-	.string "happy. Come on, let's roll!$"
+	.string "Rodar por la hierba me hace feliz.\n"
+	.string "¡Venga, vamos a rodar!$"
 
 MoveTutor_Text_FuryCutterTeach:
-	.string "There's a move that gets stronger\n"
-	.string "when you keep using it in a row.\p"
-	.string "It's a BUG-type move, and it is\n"
-	.string "wickedly cool.\p"
-	.string "It's called FURY CUTTER.\n"
-	.string "Want me to teach it to a POKéMON?$"
+	.string "Hay un movimiento que se vuelve\n"
+	.string "más fuerte si se usa seguido.\p"
+	.string "Es de tipo BICHO y mola un montón.\p"
+	.string "Se llama CORTEFURIA.\n"
+	.string "¿Quieres que se lo enseñe a uno?$"
 
 MoveTutor_Text_FuryCutterDeclined:
-	.string "We're not on the same wavelength.$"
+	.string "No estamos en la misma onda.$"
 
 MoveTutor_Text_FuryCutterWhichMon:
-	.string "Yay!\n"
-	.string "Show me which POKéMON I should teach.$"
+	.string "¡Bien!\n"
+	.string "¿A qué POKéMON se lo enseño?$"
 
 MoveTutor_Text_FuryCutterTaught:
-	.string "I get a thrill watching to see if\n"
-	.string "the move keeps hitting in succession!$"
+	.string "¡Me emociona ver si CORTEFURIA\n"
+	.string "sigue acertando una y otra vez!$"
 
 MoveTutor_MimicTeach:
-	.string "Ah, young one!\p"
-	.string "I am also a young one, but I mimic\n"
-	.string "the styles and speech of the elderly\l"
-	.string "folks of this town.\p"
-	.string "What do you say, young one?\n"
-	.string "Would you agree to it if I were to\l"
-	.string "offer to teach the move MIMIC?$"
+	.string "¡Ah, jovencito!\p"
+	.string "Yo también soy joven, pero imito\n"
+	.string "la forma de hablar y comportarse\l"
+	.string "de los ancianos del pueblo.\p"
+	.string "¿Qué me dices, jovencito?\n"
+	.string "¿Quieres que enseñe MIMÉTICO a\l"
+	.string "uno de tus POKéMON?$"
 
 MoveTutor_MimicDeclined:
-	.string "Oh, boo! I wanted to teach MIMIC\n"
-	.string "to your POKéMON!$"
+	.string "¡Oh, qué pena! ¡Quería enseñar\n"
+	.string "MIMÉTICO a tu POKéMON!$"
 
 MoveTutor_Text_MimicWhichMon:
-	.string "Fwofwo! And so I shall!\n"
-	.string "Let me see the POKéMON\l"
-	.string "you wish me to teach.$"
+	.string "¡Jo, jo! ¡Así se hará!\n"
+	.string "Enséñame el POKéMON elegido.$"
 
 MoveTutor_Text_MimicTaught:
-	.string "MIMIC is a move of great depth.\p"
-	.string "Could you execute it to perfection\n"
-	.string "as well as me…?$"
+	.string "MIMÉTICO es un movimiento profundo.\p"
+	.string "¿Podrás hacerlo tan bien como yo?$"
 
 MoveTutor_Text_MetronomeTeach:
-	.string "I want all sorts of things!\n"
-	.string "But I used up my allowance…\p"
-	.string "Wouldn't it be nice if there were\n"
-	.string "a spell that made money appear when\l"
-	.string "you waggle a finger?\p"
-	.string "If you want, I can teach your POKéMON\n"
-	.string "the move METRONOME.\p"
-	.string "Money won't appear, but your POKéMON\n"
-	.string "will waggle a finger. Yes?$"
+	.string "¡Quiero un montón de cosas!\n"
+	.string "Pero me he gastado la paga…\p"
+	.string "¿No sería genial un hechizo que\n"
+	.string "hiciera aparecer dinero al mover\l"
+	.string "un dedo?\p"
+	.string "Puedo enseñar METRÓNOMO a tu\n"
+	.string "POKéMON, si quieres.\p"
+	.string "No saldrá dinero, pero moverá\n"
+	.string "el dedo. ¿Qué me dices?$"
 
 MoveTutor_Text_MetronomeDeclined:
-	.string "Okay. I'll be here if you change\n"
-	.string "your mind.$"
+	.string "Vale. Aquí estaré si cambias\n"
+	.string "de opinión.$"
 
 MoveTutor_Text_MetronomeWhichMon:
-	.string "Okay! I'll teach it!\n"
-	.string "Which POKéMON should I teach?$"
+	.string "¡Vale, se lo enseñaré!\n"
+	.string "¿Qué POKéMON eliges?$"
 
 MoveTutor_Text_MetronomeTaught:
-	.string "When a POKéMON waggles its finger\n"
-	.string "like a METRONOME, all sorts of nice\l"
-	.string "things happen.\p"
-	.string "Wouldn't it be nice if we could\n"
-	.string "use it, too?$"
+	.string "Cuando un POKéMON mueve el dedo\n"
+	.string "como un METRÓNOMO, pueden ocurrir\l"
+	.string "cosas maravillosas.\p"
+	.string "¡Ojalá pudiéramos usarlo nosotros!$"
 
 MoveTutor_Text_SleepTalkTeach:
-	.string "Humph! My wife relies on HIDDEN\n"
-	.string "POWER to stay awake.\p"
-	.string "She should just take a nap like I do,\n"
-	.string "and SLEEP TALK.\p"
-	.string "I can teach your POKéMON how to\n"
-	.string "SLEEP TALK instead. Interested?$"
+	.string "¡Hum! Mi mujer usa PODER OCULTO\n"
+	.string "para mantenerse despierta.\p"
+	.string "Debería echarse una siesta como yo\n"
+	.string "y usar SONÁMBULO.\p"
+	.string "Puedo enseñar SONÁMBULO a tu\n"
+	.string "POKéMON. ¿Te interesa?$"
 
 MoveTutor_Text_SleepTalkDeclined:
-	.string "Oh, fine, fine. You want to stay awake\n"
-	.string "with HIDDEN POWER, too…$"
+	.string "Vale, vale. Tú también quieres\n"
+	.string "seguir despierto con PODER OCULTO…$"
 
 MoveTutor_Text_SleepTalkWhichMon:
-	.string "Ah, an appreciative child!\n"
-	.string "Which POKéMON should I teach?$"
+	.string "¡Ah, una criatura agradecida!\n"
+	.string "¿A qué POKéMON se lo enseño?$"
 
 MoveTutor_Text_SleepTalkTaught:
-	.string "I've never once gotten my wife's\n"
-	.string "coin trick right.\p"
-	.string "I would be happy if I got it right\n"
-	.string "even as I SLEEP TALK…$"
+	.string "Nunca me ha salido el truco de\n"
+	.string "la moneda de mi mujer.\p"
+	.string "Sería feliz si me saliera incluso\n"
+	.string "mientras uso SONÁMBULO…$"
 
 MoveTutor_Text_SubstituteTeach:
-	.string "When I see the wide world from up\n"
-	.string "here on the roof…\p"
-	.string "I think about how nice it would be\n"
-	.string "if there were more than just one me\l"
-	.string "so I could enjoy all sorts of lives.\p"
-	.string "Of course it's not possible.\n"
-	.string "Giggle…\p"
-	.string "I know! Would you be interested in\n"
-	.string "having a POKéMON learn SUBSTITUTE?$"
+	.string "Cuando contemplo el mundo desde\n"
+	.string "esta azotea…\p"
+	.string "Pienso que sería genial que hubiera\n"
+	.string "más de una como yo para vivir\l"
+	.string "muchas vidas distintas.\p"
+	.string "Claro que es imposible.\n"
+	.string "Je, je…\p"
+	.string "¡Ya sé! ¿Quieres que enseñe\n"
+	.string "SUSTITUTO a uno de tus POKéMON?$"
 
 MoveTutor_Text_SubstituteDeclined:
-	.string "Oh, no?\p"
-	.string "A POKéMON can make a copy of\n"
-	.string "itself using it, you know.$"
+	.string "¿No?\p"
+	.string "Con él, un POKéMON puede crear\n"
+	.string "una copia de sí mismo.$"
 
 MoveTutor_Text_SubstituteWhichMon:
-	.string "Giggle…\n"
-	.string "Which POKéMON do you want me to\l"
-	.string "teach SUBSTITUTE?$"
+	.string "Je, je…\n"
+	.string "¿Qué POKéMON aprenderá SUSTITUTO?$"
 
 MoveTutor_Text_SubstituteTaught:
-	.string "We human beings should enjoy our\n"
-	.string "own lives to the utmost!\p"
-	.string "I hope you'll get that way, too!$"
+	.string "¡Las personas debemos disfrutar\n"
+	.string "nuestra vida al máximo!\p"
+	.string "¡Espero que tú también lo hagas!$"
 
 MoveTutor_Text_DynamicPunchTeach:
-	.string "I can't do this anymore!\p"
-	.string "It's utterly hopeless!\p"
-	.string "I'm a FIGHTING-type TRAINER,\n"
-	.string "so I can't win at the GYM\l"
-	.string "no matter how hard I try!\p"
-	.string "Argh! Punch! Punch! Punch!\n"
-	.string "Punch! Punch! Punch!\p"
-	.string "What, don't look at me that way!\n"
-	.string "I'm only hitting the ground!\p"
-	.string "Or do you want me to teach your\n"
-	.string "POKéMON DYNAMICPUNCH?$"
+	.string "¡No puedo seguir así!\p"
+	.string "¡No tengo ninguna esperanza!\p"
+	.string "Soy un ENTRENADOR de tipo LUCHA,\n"
+	.string "así que nunca ganaré en este\l"
+	.string "GIMNASIO por mucho que lo intente.\p"
+	.string "¡Puño! ¡Puño! ¡Puño!\n"
+	.string "¡Puño! ¡Puño! ¡Puño!\p"
+	.string "¡Eh, no me mires así!\n"
+	.string "¡Solo estoy golpeando el suelo!\p"
+	.string "¿O quieres que enseñe PUÑO DINÁMICO\n"
+	.string "a uno de tus POKéMON?$"
 
 MoveTutor_Text_DynamicPunchDeclined:
-	.string "Darn! You're even making fun of me?\n"
-	.string "Punch! Punch! Punch!$"
+	.string "¡Maldición! ¿Tú también te burlas?\n"
+	.string "¡Puño! ¡Puño! ¡Puño!$"
 
 MoveTutor_Text_DynamicPunchWhichMon:
-	.string "What? You do? You're a good person!\n"
-	.string "Which POKéMON should I teach?$"
+	.string "¿En serio? ¡Eres buena persona!\n"
+	.string "¿A qué POKéMON se lo enseño?$"
 
 MoveTutor_Text_DynamicPunchTaught:
-	.string "I want you to win at the CERULEAN GYM\n"
-	.string "using that DYNAMICPUNCH!$"
+	.string "¡Gana en el GIMNASIO CELESTE usando\n"
+	.string "ese PUÑO DINÁMICO!$"
 
 MoveTutor_Text_DoubleEdgeTeach:
-	.string "Sigh…\p"
-	.string "The GYM LEADER is really\n"
-	.string "lovably admirable.\p"
-	.string "But that also means I have many\n"
-	.string "rivals for his attention.\p"
-	.string "He's got appeal with a DOUBLE-EDGE.\n"
-	.string "I couldn't even catch his eye.\p"
-	.string "Please, let me teach your POKéMON\n"
-	.string "the move DOUBLE-EDGE!$"
+	.string "Ay…\p"
+	.string "El LÍDER del GIMNASIO es realmente\n"
+	.string "encantador y admirable.\p"
+	.string "Pero eso también significa que\n"
+	.string "tengo muchas rivales.\p"
+	.string "Su encanto es de DOBLE FILO.\n"
+	.string "Ni siquiera logré que me mirara.\p"
+	.string "¡Deja que enseñe DOBLE FILO\n"
+	.string "a uno de tus POKéMON!$"
 
 MoveTutor_Text_DoubleEdgeDeclined:
 	.string "Oh…\n"
-	.string "Even you rejected me…$"
+	.string "Tú también me rechazas…$"
 
 MoveTutor_Text_DoubleEdgeWhichMon:
-	.string "Okay, which POKéMON should I teach\n"
-	.string "DOUBLE-EDGE?$"
+	.string "¿A qué POKéMON le enseño\n"
+	.string "DOBLE FILO?$"
 
 MoveTutor_Text_DoubleEdgeTaught:
-	.string "I won't live for love anymore!\n"
-	.string "I'll become tough!$"
+	.string "¡No volveré a vivir por amor!\n"
+	.string "¡Me haré más fuerte!$"
 
 MoveTutor_Text_ExplosionTeach:
-	.string "I don't intend to be going nowhere\n"
-	.string "fast in the sticks like this forever.\p"
-	.string "You watch me, I'll get out to the city\n"
-	.string "and become a huge hit.\p"
-	.string "Seriously, I'm going to cause\n"
-	.string "a huge EXPLOSION of popularity!\p"
-	.string "If you overheard that, I'll happily\n"
-	.string "teach EXPLOSION to your POKéMON!$"
+	.string "No pienso quedarme para siempre\n"
+	.string "estancado en este pueblucho.\p"
+	.string "Ya verás: iré a la ciudad y me\n"
+	.string "convertiré en todo un éxito.\p"
+	.string "¡Mi popularidad causará una\n"
+	.string "auténtica EXPLOSIÓN!\p"
+	.string "Ya que me has oído, enseñaré\n"
+	.string "EXPLOSIÓN a uno de tus POKéMON.$"
 
 MoveTutor_Text_ExplosionDeclined:
-	.string "Gaah! You're turning me down because\n"
-	.string "I live in the country?$"
+	.string "¡Aaah! ¿Me rechazas porque vivo\n"
+	.string "en el campo?$"
 
 MoveTutor_Text_ExplosionWhichMon:
-	.string "Fine! An EXPLOSION it is!\n"
-	.string "Which POKéMON wants to blow up?$"
+	.string "¡Bien! ¡Habrá una EXPLOSIÓN!\n"
+	.string "¿Qué POKéMON quiere explotar?$"
 
 MoveTutor_Text_ExplosionTaught:
-	.string "For a long time, I've taught POKéMON\n"
-	.string "how to use EXPLOSION, but I've yet\l"
-	.string "to ignite my own EXPLOSION…\p"
-	.string "Maybe it's because deep down,\n"
-	.string "I would rather stay here…$"
+	.string "Llevo mucho tiempo enseñando\n"
+	.string "EXPLOSIÓN a los POKéMON, pero aún\l"
+	.string "no he provocado la mía.\p"
+	.string "Quizá sea porque, en el fondo,\n"
+	.string "prefiero quedarme aquí…$"
 
 MoveTutor_Text_HeadbuttTeach:
-	.string "What am I doing?\p"
-	.string "I'm shaking trees using HEADBUTT.\p"
-	.string "Do you think your POKéMON will\n"
-	.string "want to HEADBUTT, too?\p"
-	.string "I can teach one the move HEADBUTT\n"
-	.string "if you'd like. It's fun!$"
-	
+	.string "¿Qué estoy haciendo?\p"
+	.string "Sacudo árboles con GOLPE CABEZA.\p"
+	.string "¿Tu POKéMON también querrá\n"
+	.string "dar cabezazos?\p"
+	.string "Puedo enseñarle GOLPE CABEZA.\n"
+	.string "¡Es divertido!$"
+
 MoveTutor_Text_HeadbuttWhichMon:
-	.string "Ehehe, sure thing! It'd be great if\n"
-	.string "the POKéMON looked like me.$"
+	.string "¡Je, je! ¿A qué POKéMON quieres\n"
+	.string "que se lo enseñe?$"
 
 MoveTutor_Text_HeadbuttDeclined:
-	.string "You don't need to be shy about it.\n"
-	.string "Let's butt heads!$"
+	.string "No seas tímido.\n"
+	.string "¡Vamos a darnos cabezazos!$"
 
 MoveTutor_Text_HeadbuttTaught:
-	.string "Rattle trees with HEADBUTT.\n"
-	.string "Sometimes, sleeping POKéMON fall out.$"
+	.string "Sacude árboles con GOLPE CABEZA.\n"
+	.string "A veces caerán POKéMON dormidos.$"

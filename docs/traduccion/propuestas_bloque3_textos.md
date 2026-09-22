@@ -1,6 +1,6 @@
 # Propuestas de ajuste de textos — Bloque 3
 
-> Estado: borrador para revisión. Ninguno de estos textos se ha aplicado todavía a la ROM.
+> Estado: aplicado íntegramente a la ROM el 22/09/2026.
 
 ## Objetivo
 
@@ -18,7 +18,7 @@ inglés y un máximo aproximado de 34 caracteres por línea.
 
 ## Criterio de revisión
 
-- [ ] Aprobar la propuesta completa.
+- [x] Aprobar la propuesta completa.
 - [ ] Aprobar solo algunos apartados.
 - [ ] Pedir otra redacción para entradas concretas.
 
@@ -343,4 +343,5 @@ anteriores. La pasada integral debe incluir:
 - Propuestas concretas redactadas en esta primera revisión: **28**.
 - Fallos sistémicos confirmados: tutores, Guardería, enciclopedia bebé y Cable Club.
 - Zonas amplias que requieren pasada completa: calles, Centro Comercial, Casino y Torre Radio de Trigal.
-- Cambios aplicados a la ROM: **ninguno**.
+- Cambios aplicados a la ROM: **Bloque 3 completo**.
+- Validación: **67 archivos sin incidencias** de longitud, saltos o inglés residual.

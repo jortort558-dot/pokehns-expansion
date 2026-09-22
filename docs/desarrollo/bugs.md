@@ -160,26 +160,29 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 
 - [x] **Cargas del PokéVial en START**: Ampliado el panel superior y añadido el contador visible VIAL: actual/máximo.
 
-Creo que hay algunos ataques que no están bien traducidos, como por ejemplo Campo Psíquico. No tiene sentido con su descripción asociada (la de inglés) que se supone que sí está bien.
+### Traducción general y aleatorizador — commits `c5e9635c5e` y `6dc957770b`
 
-Cambia la palabra MOCHILA por BOLSA porque da problemas de espacio.
+- [x] **Nombres de movimientos**: corregida la desalineación desde
+  `MOVE_SHORE_UP`; Campo Psíquico y otros 260 movimientos vuelven a corresponder
+  con su identificador y descripción.
+- [x] **BOLSA**: sustituido todo el texto visible `MOCHILA` por `BOLSA` para
+  evitar problemas de espacio.
+- [x] **Nombres de objetos**: traducidos los objetos estándar que seguían en
+  inglés, incluidos FulgoROM, Blanco, Disco Psíquico y Caña Vieja.
+- [x] **MT/MO aleatorias**: excluidas del aleatorizador de objetos de campo;
+  permanecen en sus ubicaciones originales y todas siguen siendo obtenibles.
+- [x] **Mejora del Bloque 1**: aplicadas las 31 propuestas y superada la
+  auditoría de longitud, saltos e inglés residual.
 
-Muchos nombres de objetos en inglés aún, como SHOCK DRIVE; RING TARGET, PHYSIC MEMORY, OLD ROD, etc etc
+- [x] **Bloque 3 — tutores de movimientos**: traducidos los once tutores y
+  todas sus ramas, incluidos Golpe Cabeza y Cortefuria.
+- [x] **Bloque 3 — Guardería**: traducidos el encargado, las ramas restantes
+  y las cuatro fichas de Pokémon bebé; el criador exterior ya estaba correcto.
+- [x] **Bloque 3 — conexión**: traducidos el Rincón de Conexión y el archivo
+  compartido `data/text/cable_club.inc` completo.
+- [x] **Bloque 3 — Ciudad Trigal**: revisados calles, Centro Pokémon, Centro
+  Comercial, Casino, Voltorb Flip, Torre Radio y subterráneo.
 
-Verificar cómo está montado el sistema de objetos aleatorios, porque las TM deberían seguir siendo TM o al menos poder conseguirte todas, ya que sino sería injusto para el jugador.
-
-Ejecutar plan de mejora de traduccion del Bloque 1(docs\traduccion\propuestas_bloque1_textos.md) y preparar un plan similar con las nuevas reglas para el Bloque 2.
-
-- [ ] **Bloque 3 — tutores de movimientos**: confirmado que
-  `data/text/move_tutors.inc` sigue íntegramente en inglés. Revisar todos los
-  tutores, incluidos Golpe Cabeza y Cortefuria.
-- [ ] **Bloque 3 — Guardería**: el criador exterior ya está traducido en el
-  código actual, pero el encargado y varias ramas de la Guardería siguen en
-  inglés. Las cuatro fichas de Pokémon bebé también están en inglés.
-- [ ] **Bloque 3 — conexión**: el Rincón de Conexión y el archivo compartido
-  `data/text/cable_club.inc` siguen sin traducir.
-- [ ] **Bloque 3 — Ciudad Trigal**: revisar calles, Centro Pokémon, Centro
-  Comercial, Casino y primera planta de la Torre Radio; contienen textos en
-  inglés o con formato incorrecto.
+Validación: auditoría de **67 archivos** del Bloque 3 sin incidencias.
 
 Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.

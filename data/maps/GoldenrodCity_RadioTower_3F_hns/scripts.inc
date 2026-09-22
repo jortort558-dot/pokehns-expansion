@@ -133,7 +133,8 @@ GoldenrodCity_RadioTower_3F_EventScript_Sign2::
 GoldenrodCity_RadioTower_3F_Text_CardKeySlot:
 	.string "Es la ranura para la LLAVE\nMAGNÉTICA.$"
 GoldenrodCity_RadioTower_3F_Text_InsertedCardKey:
-	.string "¡{PLAYER} introdujo la LLAVE MAGNÉTICA!$"
+	.string "¡{PLAYER} introdujo la\n"
+	.string "LLAVE MAGNÉTICA!$"
 GoldenrodCity_RadioTower_3F_Text_Open:
 	.string "La verja se ha abierto.$"
 GoldenrodCity_RadioTower_3F_Text_PersonnelSign:

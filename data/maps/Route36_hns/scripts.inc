@@ -336,45 +336,40 @@ Route36_Text_Sign_RuinsNorth:
 
 Route36_Text_Tips1:
 	.string "PISTAS PARA ENTRENADORES\n"
-	.string "Las estadísticas varían incluso\nentre\l"
+	.string "Las estadísticas varían incluso\lentre\l"
 	.string "POKéMON de la misma especie.\p"
 	.string "Al principio pueden parecer\niguales,\l"
-	.string "pero con el entrenamiento sus\ntalentos\l"
+	.string "pero con el entrenamiento sus\ltalentos\l"
 	.string "se diferencian con claridad.$"
 
 Route36_Text_Tips2:
-	.string "TRAINER TIPS\n"
-	.string "Use DIG to return to the entrance\nof\l"
-	.string "any place.\p"
-	.string "It is convenient for exploring\n"
-	.string "caves and other landmarks.$"
+	.string "PISTAS PARA ENTRENADORES\n"
+	.string "Usa EXCAVAR para volver a la\l"
+	.string "entrada de cualquier lugar.\p"
+	.string "Es muy útil para explorar cuevas.$"
 
 Route36_Text_AlanRegister:
-	.string "Darn. I study five hours a day too.\p"
-	.string "There's more to learning than just\n"
-	.string "reading books.$"
+	.string "Vaya. Estudio cinco horas al día.\p"
+	.string "Para aprender no basta con leer.$"
 
 Route36_Text_AlanRematchIntro:
-	.string "Thanks to my studies, I'm ready\n"
-	.string "for any POKéMON!$"
+	.string "¡Gracias a mis estudios, estoy\n"
+	.string "preparado para cualquier POKéMON!$"
 
 Route36_Text_AlanRematchDefeat:
-	.string "Oops! Computation error?$"
+	.string "¡Uy! ¿Error de cálculo?$"
 
 Route36_Text_AlanPostRematch:
-	.string "Darn. I study five hours a day too.\p"
-	.string "There's more to learning than just\n"
-	.string "reading books.$"
+	.string "Vaya. Estudio cinco horas al día.\p"
+	.string "Para aprender no basta con leer.$"
 
 Route36_Text_AlanHasItem:
-	.string "Hey! I found something\n"
-	.string "while studying!\p"
-	.string "Here, you can have it!$"
+	.string "¡He encontrado algo mientras\n"
+	.string "estudiaba! ¡Puedes quedártelo!$"
 
 Route36_Text_AlanGaveItem:
-	.string "I'll let you know if I find\n"
-	.string "anything else!$"
+	.string "¡Te avisaré si encuentro algo más!$"
 
 Route36_Text_AlanNoRoom:
-	.string "Hmm, your BAG is full.\p"
-	.string "Come back when you have room.$"
+	.string "Mmm, tienes la BOLSA llena.\p"
+	.string "Vuelve cuando tengas sitio.$"

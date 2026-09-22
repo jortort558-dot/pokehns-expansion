@@ -243,30 +243,30 @@ RadioTower1F_Text_Youngster:
     .string "voz por las ondas.$"
 
 RadioTower1F_Text_GruntM3Seen:
-    .string "We've finally taken over the\n"
-    .string "RADIO TOWER!\p"
-    .string "Now everyone will get to experience\n"
-    .string "the true terror of TEAM ROCKET!\p"
-    .string "We'll show you how scary we are!$"
+    .string "¡Por fin hemos tomado la TORRE\n"
+    .string "RADIO!\p"
+    .string "¡Ahora todos conocerán el auténtico\n"
+    .string "terror del TEAM ROCKET!\p"
+    .string "¡Verás lo peligrosos que somos!$"
 
 RadioTower1F_Text_GruntM3Beaten:
-    .string "Too strong! I'm sorry boss…$"
+    .string "¡Demasiado fuerte! Perdón, jefe…$"
 
 RadioTower1F_Text_GruntM3After:
-    .string "You're too strong.\p"
-    .string "Our plan could be ruined. I must\n"
-    .string "warn the others…$"
+    .string "Eres demasiado fuerte.\p"
+    .string "Nuestro plan corre peligro. Debo\n"
+    .string "avisar a los demás…$"
 
 RadioTower1F_Text_Directory:
-    .string "1F RECEPTION\n"
-    .string "2F SALES\p"
-    .string "3F PERSONNEL\n"
-    .string "4F PRODUCTION\p"
-    .string "5F DIRECTOR'S OFFICE$"
+    .string "P1 RECEPCIÓN\n"
+    .string "P2 VENTAS\p"
+    .string "P3 PERSONAL\n"
+    .string "P4 PRODUCCIÓN\p"
+    .string "P5 DESPACHO DEL DIRECTOR$"
 
 RadioTower1F_Text_GotRadio:
-	.string "{PLAYER} got the RADIO CARD\n"
-	.string "for the POKéGEAR!$"
+	.string "¡{PLAYER} recibió la TARJETA RADIO\n"
+	.string "para el POKéGEAR!$"
 
 GoldenrodCity_RadioTower_1F_EventScript_LotteryClerk::
 	lock
@@ -372,79 +372,78 @@ GoldenrodCity_RadioTower_1F_EventScript_GivePrizeFromEarlier::
 	end
 
 GoldenrodCity_RadioTower_1F_Text_LotteryCornerDrawTicket:
-	.string "This is the POKéMON LOTTERY CORNER.\p"
-	.string "If the LOTO TICKET's number matches\n"
-	.string "the ID number of any of your\nPOKéMON,\l"
-	.string "you will receive a fabulous gift.\p"
-	.string "Would you like to draw a POKéMON\n"
-	.string "LOTO TICKET?$"
+	.string "Este es el RINCÓN DE LA LOTERÍA.\p"
+	.string "Si el número del boleto coincide\n"
+	.string "con el ID de uno de tus POKéMON,\l"
+	.string "recibirás un regalo fabuloso.\p"
+	.string "¿Quieres sacar un boleto?$"
 
 GoldenrodCity_RadioTower_1F_Text_ComeBackTomorrow:
-	.string "Please come back tomorrow.$"
+	.string "Vuelve mañana, por favor.$"
 
 GoldenrodCity_RadioTower_1F_Text_PleaseVisitAgain:
-	.string "Please do visit again.$"
+	.string "¡Esperamos volver a verte!$"
 
 GoldenrodCity_RadioTower_1F_Text_PleasePickTicket:
-	.string "Please pick a LOTO TICKET.\n"
-	.string "…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}$"
+	.string "Elige un boleto de lotería.\n"
+	.string "…{PAUSE 0x0F}{PAUSE 0x0F}"
+	.string "{PAUSE 0x0F}{PAUSE 0x0F}…"
+	.string "{PAUSE 0x0F}{PAUSE 0x0F}"
+	.string "{PAUSE 0x0F}{PAUSE 0x0F}…"
+	.string "{PAUSE 0x0F}{PAUSE 0x0F}"
+	.string "{PAUSE 0x0F}{PAUSE 0x0F}$"
 
 GoldenrodCity_RadioTower_1F_Text_TicketNumberIsXPleaseWait:
-	.string "The LOTO TICKET number is {STR_VAR_1}.\p"
-	.string "I need to run a check on this\nnumber\l"
-	.string "to see if it matches any of your\l"
-	.string "POKéMON's ID numbers. Please wait.$"
+	.string "El boleto tiene el número\n"
+	.string "{STR_VAR_1}.\p"
+	.string "Comprobaré si coincide con el ID\n"
+	.string "de alguno de tus POKéMON. Espera.$"
 
 GoldenrodCity_RadioTower_1F_Text_TicketMatchesPartyMon:
-	.string "Congratulations!\p"
-	.string "The ID number of your team's\n"
-	.string "{STR_VAR_1} matches your\l"
-	.string "LOTO TICKET's number!$"
+	.string "¡Enhorabuena!\p"
+	.string "¡El ID de {STR_VAR_1}, que está en\n"
+	.string "tu equipo, coincide con el boleto!$"
 
 GoldenrodCity_RadioTower_1F_Text_TicketMatchesPCMon:
-	.string "Congratulations!\p"
-	.string "The ID number of your PC-boxed\n"
-	.string "{STR_VAR_1} matches your\l"
-	.string "LOTO TICKET's number!$"
+	.string "¡Enhorabuena!\p"
+	.string "¡El ID de {STR_VAR_1}, guardado en\n"
+	.string "el PC, coincide con el boleto!$"
 
 GoldenrodCity_RadioTower_1F_Text_NoNumbersMatched:
-	.string "I'm sorry.\n"
-	.string "None of the numbers matched.$"
+	.string "Lo siento.\n"
+	.string "No ha coincidido ningún número.$"
 
 GoldenrodCity_RadioTower_1F_Text_TwoDigitsMatched:
-	.string "Two digits matched, so you win the\n"
-	.string "third prize!\l"
-	.string "You've won the {STR_VAR_1}!$"
+	.string "¡Han coincidido dos cifras!\n"
+	.string "¡Ganas el tercer premio:\l"
+	.string "{STR_VAR_1}!$"
 
 GoldenrodCity_RadioTower_1F_Text_ThreeDigitsMatched:
-	.string "Three digits matched, so you win\nthe\l"
-	.string "second prize!\l"
-	.string "You've won the {STR_VAR_1}!$"
+	.string "¡Han coincidido tres cifras!\n"
+	.string "¡Ganas el segundo premio:\l"
+	.string "{STR_VAR_1}!$"
 
 GoldenrodCity_RadioTower_1F_Text_FourDigitsMatched:
-	.string "Four digits matched, so you win the\n"
-	.string "first prize!\l"
-	.string "You've won the {STR_VAR_1}!$"
+	.string "¡Han coincidido cuatro cifras!\n"
+	.string "¡Ganas el primer premio:\l"
+	.string "{STR_VAR_1}!$"
 
 GoldenrodCity_RadioTower_1F_Text_AllFiveDigitsMatched:
-	.string "Oh, my goodness, all five digits\n"
-	.string "matched!\p"
-	.string "You've won the jackpot prize!\n"
-	.string "You've won the {STR_VAR_1}!$"
+	.string "¡Madre mía! ¡Han coincidido las\n"
+	.string "cinco cifras!\p"
+	.string "¡Has ganado el premio gordo:\n"
+	.string "{STR_VAR_1}!$"
 
 GoldenrodCity_RadioTower_1F_Text_NoRoomForThis:
-	.string "Oh?\n"
-	.string "You seem to have no room for this.\p"
-	.string "Please make room in your BAG and\n"
-	.string "let me know.$"
+	.string "¿Eh?\n"
+	.string "Parece que no tienes sitio.\p"
+	.string "Haz hueco en la BOLSA y avísame.$"
 
 GoldenrodCity_RadioTower_1F_Text_PrizeWeveBeenHolding:
-	.string "{PLAYER}?\n"
-	.string "Yes, I've been expecting you.\p"
-	.string "This is the prize we've been\nholding\l"
-	.string "for you.$"
+	.string "¿{PLAYER}?\n"
+	.string "Sí, te estaba esperando.\p"
+	.string "Este es el premio que guardábamos\n"
+	.string "para ti.$"
 
 GoldenrodCity_RadioTower_1F_Text_PleaseVisitAgain2:
-	.string "Please do visit again.$"
-
-
+	.string "¡Esperamos volver a verte!$"

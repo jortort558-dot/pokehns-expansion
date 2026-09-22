@@ -289,15 +289,14 @@ GoldenrodCity_EventScript_Beauty::
 	end
 
 GoldenrodCity_Text_Beauty:
-	.string "This is the GOLDENROD GYM!\p"
-	.string "Our leader WHITNEY is not here\n"
-	.string "right now. She might be at the\l"
-	.string "RADIO TOWER.$"
+	.string "¡Este es el GIMNASIO de TRIGAL!\p"
+	.string "BLANCA no está ahora mismo.\n"
+	.string "Quizá esté en la TORRE RADIO.$"
 
 GoldenrodCity_Text_Woman:
-	.string "I used to train in WHITNEY's GYM,\n"
-	.string "but all her crying gave me a\l"
-	.string "headache.$"
+	.string "Antes entrenaba en el GIMNASIO\n"
+	.string "de BLANCA, pero tanto llanto me\l"
+	.string "daba dolor de cabeza.$"
 
 GoldenrodCity_Text_HikerDay:
 	.string "¡Cuando entré al CASINO era de\n"
@@ -327,7 +326,7 @@ GoldenrodCity_Text_ElmCall:
 
 GoldenrodCity_Text_PokefanM:
 	.string "Construyeron la nueva TORRE RADIO\n"
-	.string "para sustituir a la antigua torre\nde\l"
+	.string "para sustituir a la antigua torre\lde\l"
 	.string "madera carcomida.$"
 
 GoldenrodCity_Text_Youngster1:

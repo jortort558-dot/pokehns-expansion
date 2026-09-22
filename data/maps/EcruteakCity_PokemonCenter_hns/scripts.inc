@@ -103,12 +103,11 @@ EcruteakCity_PokemonCenter1F_Text_Bill2:
 EcruteakCity_PokemonCenter1F_Text_PokefanM:
 	.string "El camino hacia el GIMNASIO flota\nen la\loscuridad.\pDicen que si te desvías del\nsendero,\lte caes y vuelves a la entrada.$"
 EcruteakCity_PokemonCenter1F_Text_PokefanM_Mobile:
-	.string "You must be hoping to battle more\n"
-	.string "people, right?\p"
-	.string "There's apparently some place where\n"
-	.string "trainers gather.\p"
-	.string "Where, you ask?\p"
-	.string "It's a little past OLIVINE CITY.$"
+	.string "Quieres combatir con más gente,\n"
+	.string "¿verdad?\p"
+	.string "Dicen que hay un lugar donde se\n"
+	.string "reúnen muchos ENTRENADORES.\p"
+	.string "¿Dónde? Algo más allá de OLIVO.$"
 
 EcruteakCity_PokemonCenter1F_Text_CooltrainerF:
 	.string "MORTI, el LÍDER de GIMNASIO, es un\ntipo\lmisterioso y genial.\pSus POKéMON son súper fuertes, ¡me\ndejó\lalucinada en combate!$"

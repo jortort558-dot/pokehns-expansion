@@ -163,7 +163,7 @@ Route34_Text_ToddRegister:
 
 Route34_Text_ToddRematchIntro:
 	.string "¡Mis POKéMON han mejorado una\n"
-	.string "barbaridad! ¿Listo para la\nrevancha?$"
+	.string "barbaridad! ¿Listo para la\lrevancha?$"
 
 Route34_Text_ToddRematchDefeat:
 	.string "¿Otra vez he perdido?$"
@@ -174,7 +174,7 @@ Route34_Text_ToddPostRematch:
 
 Route34_Text_GinaRegister:
 	.string "¡Me encantaría volver a retarte en\n"
-	.string "cuanto mis POKéMON sean más\nfuertes!$"
+	.string "cuanto mis POKéMON sean más\lfuertes!$"
 
 Route34_Text_PicnickerGina_Seen:
 	.string "¿Eres entrenador?\p"

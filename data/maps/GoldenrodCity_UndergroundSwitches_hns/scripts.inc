@@ -528,7 +528,7 @@ GoldenrodUnderground_Text_SilverBefore:
     .string "antes, ¿verdad?\p"
     .string "¡Fue pura potra, payaso!\p"
     .string "He entrenado a mi equipo a mala\nleche\l"
-    .string "¡y ahora te voy a cobrar la deuda\ncon\l"
+    .string "¡y ahora te voy a cobrar la deuda\lcon\l"
     .string "intereses!$"
 
 GoldenrodUnderground_Text_SilverWin:
@@ -584,7 +584,7 @@ GoldenrodUnderground_Text_BurglarEddieSeen:
 GoldenrodUnderground_Text_BurglarEddieBeaten:
 	.string "¡Por encima de mis posibilidades!$"
 GoldenrodUnderground_Text_BurglarEddieAfter:
-	.string "¿ALMACENES SUBTERRÁNEOS?\n¿Para qué demonios quieres ir allí?\nNo hay un pimiento ahí abajo.$"
+	.string "¿ALMACENES SUBTERRÁNEOS?\n¿Para qué demonios quieres ir allí?\lNo hay un pimiento ahí abajo.$"
 GoldenrodUnderground_Text_GruntM13Seen:
 	.string "Me da igual que te hayas perdido.\n¡Si apareces por aquí, no eres más\lque una\lvíctima!$"
 GoldenrodUnderground_Text_GruntM13Beaten:

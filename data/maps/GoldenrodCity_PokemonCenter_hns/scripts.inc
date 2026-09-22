@@ -140,23 +140,23 @@ GoldenrodCity_PokemonCenter_EventScript_LinkNpc_End::
 	end
 
 GoldenrodCity_PokemonCenter_LinkNpc_Text_Intro:
-	.string "LINK CORNER\p"
-	.string "SELECT LINK TYPE.$"
+	.string "RINCÓN DE CONEXIÓN\p"
+	.string "ELIGE EL TIPO DE CONEXIÓN.$"
 
 GoldenrodCity_PokemonCenter_LinkNpc_Text_BattleMode:
-	.string "SELECT BATTLE TYPE.$"
+	.string "ELIGE EL TIPO DE COMBATE.$"
 
 GoldenrodCity_PokemonCenter_LinkNpc_Text_Goodbye:
-	.string "GOODBYE.$"
+	.string "HASTA PRONTO.$"
 
 GoldenrodCity_PokemonCenter_EventScript_LinkExplainerNpc::
 	msgbox GoldenrodCity_PokemonCenter_Text_LinkExplainer, MSGBOX_NPC
 	end
 
 GoldenrodCity_PokemonCenter_Text_LinkExplainer:
-	.string "You can use this machine to trade\n"
-	.string "or battle with other local players.\p"
-	.string "Isn't technology wonderful?$"
+	.string "Esta máquina permite intercambiar\n"
+	.string "o combatir con jugadores cercanos.\p"
+	.string "¡La tecnología es increíble!$"
 
 GoldenrodCity_PokemonCenter_EventScript_GbaKid1::
 	lock
@@ -200,8 +200,8 @@ GoldenrodCity_PokemonCenter_GameboyKidText1:
     .string "¡El tejado está hecho de oro!$"
 
 GoldenrodCity_PokemonCenter_GameboyKidText2:
-    .string "Le dije a mi hermano que el techo\nes\l"
-    .string "de oro puro. ¡Ese inocentón se\ntraga\l"
+    .string "Le dije a mi hermano que el techo\les\l"
+    .string "de oro puro. ¡Ese inocentón se\ltraga\l"
 	.string "lo que sea!$"
 
 GoldenrodCity_PokemonCenter_LassText:
@@ -213,14 +213,14 @@ GoldenrodCity_PokemonCenter_LassText:
     .string "rey indiscutible.$"
 
 GoldenrodPokeCenter_LinkReceptionistPleaseAcceptGSBallText:
-    .string "{PLAYER}, isn't it?\p"
-    .string "Congratulations!\p"
-    .string "As a special deal, a GS BALL has\n"
-    .string "been sent just for you!\p"
-    .string "Please accept it!$"
+    .string "Tú eres {PLAYER}, ¿verdad?\p"
+    .string "¡Enhorabuena!\p"
+    .string "Como regalo especial, han enviado\n"
+    .string "una GS BALL solo para ti.\p"
+    .string "¡Acéptala, por favor!$"
 
 GoldenrodPokeCenter_LinkReceptionistPleaseDoComeAgainText:
-    .string "Please do come again!$"
+    .string "¡Esperamos volver a verte!$"
 
 GoldenrodCity_PokemonCenter_PokefanFDoYouHaveEonMailText:
     .string "¡Cielo santo, qué BOLSA tan\npesada!\p"

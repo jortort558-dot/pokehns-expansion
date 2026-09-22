@@ -79,13 +79,14 @@ EcruteakCity_Gym_EventScript_Statue2::
 EcruteakCity_Gym_Text_GymStatue:
 	.string "GIMNASIO POKéMON DE CIUDAD IRIS$"
 EcruteakCity_Gym_Text_GymStatueCertified:
-	.string "GIMNASIO POKéMON DE CIUDAD IRIS\pENTRENADORES CERTIFICADOS POR\nMORTI:\l{PLAYER}$"
+	.string "GIMNASIO POKéMON DE CIUDAD IRIS\pENTRENADORES CERTIFICADOS\nPOR MORTI:\l{PLAYER}$"
 MortyIntroText:
 	.string "Has hecho bien en venir.\pAquí, en CIUDAD IRIS, siempre se ha\nvenerado a los POKéMON.\pDice la leyenda que un POKéMON con\nlos colores del arcoíris bajará\lpara\lmostrarse ante un verdadero\lEntrenador.\pYo creí en ese relato, así que he\nentrenado aquí en secreto.\pComo resultado, ahora puedo ver lo\nque otros no pueden.\pSolo un poco más...\pCon solo un poco más, podré ver el\nfuturo en el que me encuentro con\llos POKéMON arcoíris.\p¡Tú vas a ayudarme a alcanzar ese\nnivel!$"
 MortyWinLossText:
 	.string "Aún no soy lo bastante bueno...\pDe acuerdo. Esta MEDALLA es tuya.$"
 Text_ReceivedFogBadge:
-	.string "¡{PLAYER} recibió la MEDALLA NIEBLA!$"
+	.string "¡{PLAYER} recibió la\n"
+	.string "MEDALLA NIEBLA!$"
 MortyText_FogBadgeSpeech:
 	.string "Con la MEDALLA NIEBLA, los POKéMON\nhasta nivel 50 te obedecerán.\pAdemás, cualquier POKéMON que sepa\nSURF podrá usarlo cuando quieras\lfuera\ldel combate.\pQuiero que te lleves esto también.$"
 MortyText_ShadowBallSpeech:
