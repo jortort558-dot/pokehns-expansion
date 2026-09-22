@@ -196,3 +196,15 @@ Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
 - [x] **Recompensa segura**: entrega una sola vez 3.000 fichas del Casino y exige previamente el Monedero y espacio suficiente.
 - [x] **Casino de Trigal**: personaje situado entre las tragaperras con diálogos propios antes y después del combate.
 - [x] **Validación**: textos sin incidencias y build HnS completada correctamente.
+
+### Versión 0.18.0 (2026-09-22 - Prueba de Ficha Gimnasio)
+
+- **Commit**: `5812c5d5b3` (`feat: implementar prueba de ficha gimnasio`).
+- [x] **Recompensa de gimnasios**: las 16 medallas conceden una ficha en Nuzlocke, con máximo 3 y protección contra duplicados.
+- [x] **Segundo intento**: se registran encuentros fallidos y puede recuperarse una vez la zona fallida más antigua.
+- [x] **Intercambio misterioso**: selección desde equipo/PC y sustitución por una especie no legendaria de fuerza igual o superior.
+- [x] **Resurrección**: cura de un Pokémon muerto del PC por 2 fichas, sin permitir una segunda resurrección del mismo ejemplar.
+- [x] **NPC piloto**: los tres servicios se prueban en el Centro Pokémon de Ciudad Trigal.
+- [x] **Guardado**: estado añadido al final de `SaveBlock3` y migración a `SAVE_VERSION` 6.
+- [ ] **Interfaz definitiva**: selector de ruta, menú único y NPC en el resto de Centros Pokémon.
+- [ ] **Reglas avanzadas del intercambio**: OT propio, mediana/tope de nivel, dos IV perfectos y control por familias/cláusula de especie.
