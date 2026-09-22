@@ -117,12 +117,12 @@ pie title Estado de Contenido Traducido
 
 ### Bloque 3: Tercera y Cuarta Medalla (Trigal e Iris)
 
-- [x] **Encinar (Ilex Forest)**:
+- [ ] **Encinar (Ilex Forest)** — revisión pendiente de los tutores compartidos:
   - Minijuego de persecución de los Farfetch'd perdidos del carbonero.
   - Entrega de la MO01 Corte por parte del aprendiz de carbonero.
   - Tutor de Cabezazo y Altar del Guardián del Bosque (Celebi).
-- [x] **Ruta 34**: Guardería Pokémon (abuelo y abuela cuidando huevos, enciclopedia de cría), trillizas con Arena Fina y entrenadores.
-- [x] **Ciudad Trigal (Goldenrod City)**:
+- [ ] **Ruta 34**: revisión pendiente de los responsables de la Guardería y las fichas de Pokémon bebé.
+- [ ] **Ciudad Trigal (Goldenrod City)**: revisión integral pendiente de NPC, Centro Comercial, Casino, Torre Radio y zona de conexión.
   - **Centro Comercial de Trigal**: Recepcionista y directorio.
   - **Torre Radio de Trigal**: Tarjeta de Radio (test de preguntas de 5 rondas), programa de radio y entrega de la tarjeta.
   - Floristería: Obtención de la Regadera Squirtbottle tras vencer en el gimnasio y florista de mentas.
@@ -132,6 +132,10 @@ pie title Estado de Contenido Traducido
   - Tienda de Bicis: Préstamo de la bicicleta con selector de marchas.
   - **Gimnasio Trigal**: Entrenadoras, líder **Blanca** (Miltank Desenlace, Medalla Planicie + MT Atracción) y su berrinche al perder.
   - Terminal del Magnetotrén (bloqueado por falta de energía).
+
+> **Revisión pendiente 22/09/2026:** el porcentaje histórico no reflejaba varios
+> textos compartidos y secundarios que siguen en inglés. El inventario y las
+> propuestas se recogen en `docs/traduccion/propuestas_bloque3_textos.md`.
 - [x] **Ruta 35 y Parque Nacional**: Concurso de captura de bichos (martes, jueves y sábados con Parque Balls), Oficial con la carta de Spearow, dama con Garra Rápida y entrenadores.
 - [x] **Ruta 36**: Encuentro con el árbol bailarín **Sudowoodo** (uso de la Regadera), Karateka de MO Golpe Roca y Arturo del Jueves.
 - [x] **Ruta 37**: Bosque de Bonguris, Domingo con Imán y entrenadoras gemelas Ana y Anita.

@@ -159,3 +159,27 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ### PokéVial — commit `64acf3d547`
 
 - [x] **Cargas del PokéVial en START**: Ampliado el panel superior y añadido el contador visible VIAL: actual/máximo.
+
+Creo que hay algunos ataques que no están bien traducidos, como por ejemplo Campo Psíquico. No tiene sentido con su descripción asociada (la de inglés) que se supone que sí está bien.
+
+Cambia la palabra MOCHILA por BOLSA porque da problemas de espacio.
+
+Muchos nombres de objetos en inglés aún, como SHOCK DRIVE; RING TARGET, PHYSIC MEMORY, OLD ROD, etc etc
+
+Verificar cómo está montado el sistema de objetos aleatorios, porque las TM deberían seguir siendo TM o al menos poder conseguirte todas, ya que sino sería injusto para el jugador.
+
+Ejecutar plan de mejora de traduccion del Bloque 1(docs\traduccion\propuestas_bloque1_textos.md) y preparar un plan similar con las nuevas reglas para el Bloque 2.
+
+- [ ] **Bloque 3 — tutores de movimientos**: confirmado que
+  `data/text/move_tutors.inc` sigue íntegramente en inglés. Revisar todos los
+  tutores, incluidos Golpe Cabeza y Cortefuria.
+- [ ] **Bloque 3 — Guardería**: el criador exterior ya está traducido en el
+  código actual, pero el encargado y varias ramas de la Guardería siguen en
+  inglés. Las cuatro fichas de Pokémon bebé también están en inglés.
+- [ ] **Bloque 3 — conexión**: el Rincón de Conexión y el archivo compartido
+  `data/text/cable_club.inc` siguen sin traducir.
+- [ ] **Bloque 3 — Ciudad Trigal**: revisar calles, Centro Pokémon, Centro
+  Comercial, Casino y primera planta de la Torre Radio; contienen textos en
+  inglés o con formato incorrecto.
+
+Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
