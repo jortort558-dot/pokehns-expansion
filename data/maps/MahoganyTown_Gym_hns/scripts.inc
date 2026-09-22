@@ -76,7 +76,7 @@ MahoganyTown_Gym_EventScript_PryceVictory::
 	setflag FLAG_BADGE07_GET
 	setflag FLAG_DEFEATED_MAHOGANY_TOWN_GYM
     addvar VAR_NUM_BADGES, 1
-	special AwardGymToken
+	call GymToken_EventScript_Award
 	setvar VAR_0x8008, 7
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_HAIL

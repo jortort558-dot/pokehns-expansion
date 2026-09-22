@@ -1252,6 +1252,15 @@ static const struct MenuAction MultichoiceList_BattleModeHns[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_GymTokenServicesHns[] =
+{
+    {COMPOUND_STRING("2.º INTENTO")},
+    {COMPOUND_STRING("INTERCAMBIO")},
+    {COMPOUND_STRING("RESURRECCIÓN")},
+    {COMPOUND_STRING("EXPLICACIÓN")},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1443,6 +1452,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BATTLE_MODE_HNS]            = MULTICHOICE(MultichoiceList_BattleModeHns),
     [MULTI_FOSSIL_HNS]                = MULTICHOICE(MultichoiceList_FossilHns),
     [MULTI_GAME_CORNER_DOLLS2]         = MULTICHOICE(MultichoiceList_GameCornerDolls2),
+    [MULTI_GYM_TOKEN_SERVICES_HNS]     = MULTICHOICE(MultichoiceList_GymTokenServicesHns),
 };
 
 const u8 *const gStdStrings[] =

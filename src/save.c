@@ -14,6 +14,8 @@
 #include "constants/game_stat.h"
 #include "constants/rematches.h"
 #include "event_data.h"
+#include "gym_tokens.h"
+#include "nuzlocke.h"
 
 static u16 CalculateChecksum(void *, u16);
 static bool8 ReadFlashSector(u8, struct SaveSector *);
@@ -982,6 +984,31 @@ u8 LoadGameSave(u8 saveType)
     {
         CpuFill16(0, &gSaveBlock3Ptr->gymTokens, sizeof(gSaveBlock3Ptr->gymTokens));
         gSaveBlock1Ptr->saveVersion = 6;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 7)
+    {
+#if IS_HNS
+        static const u16 sGymBadgeFlags[] = {
+            FLAG_BADGE01_GET, FLAG_BADGE02_GET, FLAG_BADGE03_GET, FLAG_BADGE04_GET,
+            FLAG_BADGE05_GET, FLAG_BADGE06_GET, FLAG_BADGE07_GET, FLAG_BADGE08_GET,
+            FLAG_BADGE09_GET, FLAG_BADGE10_GET, FLAG_BADGE11_GET, FLAG_BADGE12_GET,
+            FLAG_BADGE13_GET, FLAG_BADGE14_GET, FLAG_BADGE15_GET, FLAG_BADGE16_GET,
+        };
+        u32 i;
+        u8 earned = 0;
+        gSaveBlock3Ptr->gymTokens.awardedBadgeMask = 0;
+        for (i = 0; i < ARRAY_COUNT(sGymBadgeFlags); i++)
+        {
+            if (FlagGet(sGymBadgeFlags[i]))
+            {
+                gSaveBlock3Ptr->gymTokens.awardedBadgeMask |= 1 << i;
+                earned++;
+            }
+        }
+        if ((IsNuzlockeActive() || IsNuzlockeEasyActive()) && gSaveBlock3Ptr->gymTokens.count == 0)
+            gSaveBlock3Ptr->gymTokens.count = min(earned, GYM_TOKEN_MAX);
+#endif
+        gSaveBlock1Ptr->saveVersion = 7;
     }
 
     // Add version migration steps here:

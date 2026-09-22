@@ -713,6 +713,8 @@ gSpecials::
 	def_special RechargePokeVial
 	def_special AwardGymToken
 	def_special GetGymTokenCount
-	def_special UseGymTokenRetry
+	def_special FindNextGymTokenRetry
+	def_special UseSelectedGymTokenRetry
 	def_special UseGymTokenTrade
 	def_special UseGymTokenRevive
+	def_special SaveGymTokenTransaction

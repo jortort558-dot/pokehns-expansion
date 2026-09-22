@@ -194,7 +194,7 @@ OlivineCity_Gym_EventScript_JasmineVictory::
 	setflag FLAG_BADGE06_GET
 	setflag FLAG_DEFEATED_OLIVINE_CITY_GYM
 	addvar VAR_NUM_BADGES, 1
-	special AwardGymToken
+	call GymToken_EventScript_Award
 	setvar VAR_0x8008, 6
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_IRON_TAIL

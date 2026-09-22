@@ -9,9 +9,11 @@ bool32 GymTokenCanTradeMon(struct BoxPokemon *boxMon);
 bool32 GymTokenCanReviveMon(struct BoxPokemon *boxMon);
 void AwardGymToken(void);
 void GetGymTokenCount(void);
-void UseGymTokenRetry(void);
+void FindNextGymTokenRetry(void);
+void UseSelectedGymTokenRetry(void);
 void UseGymTokenTrade(void);
 void UseGymTokenRevive(void);
+void SaveGymTokenTransaction(void);
 void GymTokenRecordFailedEncounter(u16 mapsec);
 
 #endif

@@ -261,7 +261,7 @@ VermilionCity_Gym_EventScript_Surge::
 	setflag FLAG_BADGE11_GET
 	setflag FLAG_DEFEATED_VERMILION_GYM
 	addvar VAR_NUM_BADGES, 1
-	special AwardGymToken
+	call GymToken_EventScript_Award
 	setvar VAR_0x8008, 11
 	call Common_EventScript_SetGymTrainers_hns
 	checkitem ITEM_TM_SHOCK_WAVE

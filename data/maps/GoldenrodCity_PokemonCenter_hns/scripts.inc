@@ -49,7 +49,7 @@ GoldenrodCity_PokemonCenter_EventScript_ChooseTrade::
 	delay 30
 	call CableClub_EventScript_CheckPartyTradeRequirements
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_LinkNpc_End
-	call Common_EventScript_SaveGame
+	special SaveGymTokenTransaction
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_LinkNpc_End
 	message gText_PleaseWaitForLink
 	waitmessage
@@ -104,7 +104,7 @@ GoldenrodCity_PokemonCenter_EventScript_NeedTwoMons::
 	end
 
 GoldenrodCity_PokemonCenter_EventScript_TryEnterColosseum::
-	call Common_EventScript_SaveGame
+	special SaveGymTokenTransaction
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_LinkNpc_End
 	message gText_PleaseWaitForLink
 	waitmessage
@@ -164,12 +164,16 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenClerk::
 	special GetGymTokenCount
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenIntro, MSGBOX_DEFAULT
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNone
-	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRetry, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry
-	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTrade, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, GoldenrodCity_PokemonCenter_EventScript_GymTokenTrade
-	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRevive, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, GoldenrodCity_PokemonCenter_EventScript_GymTokenRevive
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu::
+	multichoice 0, 0, MULTI_GYM_TOKEN_SERVICES_HNS, FALSE
+	switch VAR_RESULT
+	case 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry
+	case 1, GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeConfirm
+	case 2, GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveConfirm
+	case 3, GoldenrodCity_PokemonCenter_EventScript_GymTokenExplain
+	case 4, GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenNone::
@@ -177,14 +181,30 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenNone::
 	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry::
-	special UseGymTokenRetry
+	setvar VAR_0x8005, 0
+GoldenrodCity_PokemonCenter_EventScript_GymTokenRetryNext::
+	special FindNextGymTokenRetry
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRetryZone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_GymTokenRetrySkip
+	special UseSelectedGymTokenRetry
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry
+	special SaveGymTokenTransaction
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRetryDone, MSGBOX_DEFAULT
 	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 
+GoldenrodCity_PokemonCenter_EventScript_GymTokenRetrySkip::
+	setvar VAR_0x8005, 1
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenRetryNext
+
 GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry::
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenNoRetry, MSGBOX_DEFAULT
-	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeConfirm::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTrade, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenTrade
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenTrade::
 	chooseboxmon SELECT_PC_MON_GYM_TOKEN_TRADE
@@ -192,12 +212,18 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenTrade::
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 	special UseGymTokenTrade
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeFailed
+	call Common_EventScript_SaveGame
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTradeDone, MSGBOX_DEFAULT
 	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeFailed::
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTradeFailed, MSGBOX_DEFAULT
-	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveConfirm::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRevive, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenRevive
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenRevive::
 	chooseboxmon SELECT_PC_MON_GYM_TOKEN_REVIVE
@@ -205,11 +231,17 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenRevive::
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 	special UseGymTokenRevive
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveFailed
+	call Common_EventScript_SaveGame
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenReviveDone, MSGBOX_DEFAULT
 	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveFailed::
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenReviveFailed, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenExplain::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenExplain, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd::
 	release
@@ -227,6 +259,10 @@ GoldenrodCity_PokemonCenter_Text_GymTokenNone:
 GoldenrodCity_PokemonCenter_Text_GymTokenRetry:
 	.string "¿Canjear 1 FICHA por recuperar\n"
 	.string "el intento fallido más antiguo?$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenRetryZone:
+	.string "¿Recuperar el intento de\n"
+	.string "{STR_VAR_2} por 1 FICHA?$"
 
 GoldenrodCity_PokemonCenter_Text_GymTokenTrade:
 	.string "¿Prefieres un intercambio\n"
@@ -246,7 +282,7 @@ GoldenrodCity_PokemonCenter_Text_GymTokenNoRetry:
 
 GoldenrodCity_PokemonCenter_Text_GymTokenTradeDone:
 	.string "El intercambio se completó.\n"
-	.string "¡Has recibido a {STR_VAR_1}!$"
+	.string "¡Has recibido a {STR_VAR_3}!$"
 
 GoldenrodCity_PokemonCenter_Text_GymTokenTradeFailed:
 	.string "No puedo realizarlo. Solo se\n"
@@ -259,6 +295,34 @@ GoldenrodCity_PokemonCenter_Text_GymTokenReviveDone:
 GoldenrodCity_PokemonCenter_Text_GymTokenReviveFailed:
 	.string "Necesitas 2 FICHAS y un POKéMON\n"
 	.string "debilitado que no haya vuelto.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenExplain:
+	.string "Cada medalla da una FICHA.\p"
+	.string "Sirven para recuperar capturas,\n"
+	.string "intercambiar o resucitar.\p"
+	.string "Puedes guardar un máximo de 3.$"
+
+GymToken_EventScript_Award::
+	special AwardGymToken
+	goto_if_eq VAR_RESULT, 1, GymToken_EventScript_AwardReceived
+	goto_if_eq VAR_RESULT, 2, GymToken_EventScript_AwardFull
+	return
+
+GymToken_EventScript_AwardReceived::
+	msgbox GymToken_Text_AwardReceived, MSGBOX_DEFAULT
+	return
+
+GymToken_EventScript_AwardFull::
+	msgbox GymToken_Text_AwardFull, MSGBOX_DEFAULT
+	return
+
+GymToken_Text_AwardReceived:
+	.string "¡Has recibido una FICHA GIMNASIO!\n"
+	.string "Puedes canjearla en un CENTRO.$"
+
+GymToken_Text_AwardFull:
+	.string "Ya tienes 3 FICHAS GIMNASIO.\n"
+	.string "No puedes guardar esta recompensa.$"
 
 GoldenrodCity_PokemonCenter_EventScript_GbaKid1::
 	lock

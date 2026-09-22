@@ -263,7 +263,7 @@ DragonsDen_Shrine_EventScript_ClairEnter::
 	msgbox DragonsDen_Shrine_Text_RisingBadgeExplanation, MSGBOX_DEFAULT
 	setflag FLAG_BADGE08_GET
 	addvar VAR_NUM_BADGES, 1
-	special AwardGymToken
+	call GymToken_EventScript_Award
 
 	applymovement2 LOCALID_DRAGONSDEN3_ELDER, DragonsDen_Shrine_Movement_ElderReturnToPlayer
 	waitmovement 0

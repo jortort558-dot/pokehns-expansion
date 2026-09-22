@@ -5907,7 +5907,7 @@ static void HandleEndTurn_FinishBattle(void)
                                         | BATTLE_TYPE_TRAINER_HILL)))
                 NuzlockeDeleteFaintedPartyPokemon();
         }
-        if (IsNuzlockeActive())
+        if (IsNuzlockeActive() || IsNuzlockeEasyActive())
         {
             if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
                                         | BATTLE_TYPE_LINK_IN_BATTLE
