@@ -138,6 +138,10 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ## 🔴 BUGS PENDIENTES (EN COLA DE RESOLUCIÓN)
 
 - [ ] **Auditoría completa de expansión**: Todavía existen cadenas inglesas no reportadas en sistemas secundarios y mensajes modernos. Se tratarán por bloques para poder revisarlas dentro del juego.
+- [ ] **Tienda de MT de Ciudad Trigal**: al comprar solo aparece el número de la MT; estudiar cómo mostrar también el nombre del movimiento junto al número.
+- [ ] **Sprite overworld de Knekro desordenado**: dentro del Casino los tiles o frames no se dibujan en su posición correcta.
+
+  ![Knekro con el sprite desordenado](images/knekro_sprite_desordenado.png)
 
 ### Lote de sistemas auditados — commit `a70c7e43ee`
 
