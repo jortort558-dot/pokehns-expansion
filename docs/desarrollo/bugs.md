@@ -139,7 +139,7 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 
 - [ ] **Auditoría completa de expansión**: Todavía existen cadenas inglesas no reportadas en sistemas secundarios y mensajes modernos. Se tratarán por bloques para poder revisarlas dentro del juego.
 - [ ] **Tienda de MT de Ciudad Trigal**: al comprar solo aparece el número de la MT; estudiar cómo mostrar también el nombre del movimiento junto al número.
-- [ ] **Sprite overworld de Knekro desordenado**: dentro del Casino los tiles o frames no se dibujan en su posición correcta.
+- [x] **Sprite overworld de Knekro desordenado**: fijado el retrato frontal estable del NPC estacionario para impedir que las orientaciones seleccionen frames mal compuestos dentro del Casino.
 
   ![Knekro con el sprite desordenado](images/knekro_sprite_desordenado.png)
 
@@ -210,5 +210,16 @@ Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
 - [x] **Resurrección**: cura de un Pokémon muerto del PC por 2 fichas, sin permitir una segunda resurrección del mismo ejemplar.
 - [x] **NPC piloto**: los tres servicios se prueban en el Centro Pokémon de Ciudad Trigal.
 - [x] **Guardado**: estado añadido al final de `SaveBlock3` y migración a `SAVE_VERSION` 6.
-- [ ] **Interfaz definitiva**: selector de ruta, menú único y NPC en el resto de Centros Pokémon.
-- [ ] **Reglas avanzadas del intercambio**: OT propio, mediana/tope de nivel, dos IV perfectos y control por familias/cláusula de especie.
+- [x] **Interfaz definitiva**: completada en 0.19.0 con elección de ruta, menú único y NPC en los Centros principales.
+- [x] **Reglas avanzadas del intercambio**: completadas en 0.19.0 con OT propio, mediana/tope de nivel, dos IV perfectos y control por familias.
+
+### Versión 0.19.0 (2026-09-22 - Ficha Gimnasio completa)
+
+- **Commit**: `a5e7f0c7c4` (`feat: completar ficha gimnasio y corregir Knekro`).
+- [x] **Menú unificado**: segundo intento, intercambio, resurrección, explicación y salida.
+- [x] **Elección de zona**: el jugador recorre por nombre todas las rutas fallidas disponibles y elige cuál recuperar.
+- [x] **Centros principales**: encargado disponible en las ciudades de los 16 gimnasios.
+- [x] **Intercambio avanzado**: mediana y tope de nivel, OT propio, dos IV perfectos y exclusión de familias capturadas.
+- [x] **Transacciones persistentes**: guardado automático después de cada canje y antes de revelar el intercambio.
+- [x] **Migración retroactiva**: `SAVE_VERSION` 7 reconstruye las medallas y concede hasta 3 fichas en partidas Nuzlocke existentes.
+- [x] **Entrega visible**: cada gimnasio informa si concede la ficha o si el saldo máximo obliga a perderla.

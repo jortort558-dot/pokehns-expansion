@@ -2,15 +2,9 @@
 
 ## Estado actual
 
-Implementación jugable experimental incluida en la versión 0.18.0. El punto de
-prueba está en el Centro Pokémon de Ciudad Trigal. La entrega de fichas sí está
-conectada a los 16 gimnasios de Johto y Kanto.
-
-La prueba permite validar el guardado, el selector compartido de equipo/PC y las
-tres transacciones antes de extender el recepcionista a todos los Centros
-Pokémon. No debe confundirse este primer interfaz con el diseño final: el segundo
-intento recupera por ahora la zona fallida más antigua, sin mostrar aún una lista
-de rutas.
+Implementación completa desde la versión 0.19.0. La entrega está conectada a los
+16 gimnasios y el recepcionista aparece en los Centros Pokémon de las ciudades
+con gimnasio de Johto y Kanto.
 
 ## Reglas
 
@@ -23,16 +17,17 @@ de rutas.
 - Resurrección: 2 fichas y una sola vez por Pokémon.
 - Cancelar un selector o fallar una validación no consume fichas.
 
-## Cómo se usa en esta prueba
+## Cómo se usa
 
 1. Iniciar un reto Nuzlocke normal o fácil.
 2. Conseguir una medalla para recibir una ficha.
-3. Hablar con el caballero situado en el Centro Pokémon de Ciudad Trigal.
-4. El NPC muestra el saldo y pregunta en orden por los tres servicios.
+3. Hablar con el encargado de fichas de un Centro Pokémon principal.
+4. El NPC muestra el saldo y abre el menú de servicios.
 5. Intercambio y resurrección abren el selector conjunto del equipo y el PC.
 
-El NPC usa preguntas consecutivas durante la prueba. El menú definitivo tendrá
-las opciones visibles a la vez, explicación y salida.
+El menú contiene segundo intento, intercambio, resurrección, explicación y
+salida. Las opciones que modifican la partida piden confirmación y guardan el
+resultado automáticamente antes de devolver el control.
 
 ## Obtención y protección contra duplicados
 
@@ -52,8 +47,8 @@ como fallida. Se respetan las exclusiones existentes: cláusula de especie,
 monotipo, Safari, Concurso de Bichos, dobles, legendarios, errantes, enlaces y
 otros combates especiales no crean un derecho de reintento.
 
-Al pagar una ficha, la prueba busca la primera zona fallida que todavía no haya
-usado su segundo intento:
+Al pagar una ficha, el NPC recorre las zonas fallidas y muestra su nombre. El
+jugador puede aceptar una o pasar a la siguiente:
 
 1. marca permanentemente que esa zona ya reintentó;
 2. limpia el consumo y el fallo del primer encuentro;
@@ -62,13 +57,6 @@ usado su segundo intento:
 
 Si el segundo encuentro falla, la zona se registra otra vez como consumida y no
 puede comprarse un tercero. Si se captura, queda cerrada de la forma habitual.
-
-### Mejora pendiente del interfaz
-
-El estado ya distingue las 96 zonas, pero falta la lista dinámica con nombres
-legibles para que el jugador elija una concreta. Hasta incorporarla, el NPC de
-Trigal recupera el fallo más antiguo según el orden interno de zonas. Este límite
-es de interfaz, no del formato de guardado.
 
 ## Intercambio misterioso
 
@@ -82,8 +70,10 @@ La especie recibida:
 - no es legendaria, singular, Ultraente ni una forma temporal de combate;
 - tiene un total de estadísticas base entre el del Pokémon entregado y 80 puntos
   por encima;
-- conserva el nivel del Pokémon entregado;
+- usa la mediana del equipo vivo, con mínimo 5 y respetando el tope vigente;
 - se crea con personalidad, IV, naturaleza, sexo y habilidad legales al azar;
+- tiene como mínimo dos IV perfectos;
+- usa OT propio del servicio y una familia distinta no registrada como capturada;
 - llega con sus movimientos iniciales legales y sin objeto.
 
 El nuevo Pokémon sustituye al anterior en la misma posición, por lo que no hace
@@ -91,10 +81,8 @@ falta hueco adicional. Si estaba en el equipo se sustituyen sus datos completos;
 si estaba en el PC se reemplaza su `BoxPokemon`. El saldo y el contador del único
 intercambio permitido se actualizan en la misma operación.
 
-La prueba usa al jugador como OT, igual que la rutina estándar de creación. Para
-la versión definitiva quedan pendientes un OT propio del recepcionista, dos IV
-perfectos garantizados, nivel basado en la mediana del equipo y guardado forzado
-antes de revelar el resultado.
+La especie se revela después del guardado automático, de modo que reiniciar no
+permite conservar la ficha y repetir el resultado.
 
 ## Resurrección
 
@@ -128,10 +116,11 @@ u32 revivedPersonalities[8];
 u32 revivedOtIds[8];
 ```
 
-`SAVE_VERSION` pasa de 5 a 6. Al cargar una partida anterior se inicializa todo
-el estado a cero. Esta migración deliberadamente no concede fichas retroactivas:
-evita inferir recompensas o fallos que la versión anterior nunca registró. Las
-medallas futuras sí entregarán fichas normalmente.
+`SAVE_VERSION` es 7. La migración inicializa el estado nuevo y reconstruye la
+máscara leyendo las 16 banderas reales de medalla. Una partida Nuzlocke anterior
+recibe hasta 3 fichas retroactivas según sus medallas. Las zonas consumidas antes
+de existir el sistema permanecen cerradas porque no es posible saber si acabaron
+en captura o fallo.
 
 ## Archivos principales
 
@@ -140,7 +129,8 @@ medallas futuras sí entregarán fichas normalmente.
 - `src/save.c` e `include/save.h`: migración de versión.
 - `src/battle_main.c` y `src/nuzlocke.c`: resultado de encuentro y reapertura.
 - `src/chooseboxmon.c`: filtros de intercambio y resurrección.
-- `data/maps/GoldenrodCity_PokemonCenter_hns/`: NPC piloto y textos.
+- `data/maps/GoldenrodCity_PokemonCenter_hns/`: script común, menú y textos.
+- Centros Pokémon de las 16 ciudades de gimnasio: acceso al servicio.
 - scripts de los 16 gimnasios HnS: entrega de ficha.
 
 ## Prueba manual recomendada
@@ -155,15 +145,9 @@ medallas futuras sí entregarán fichas normalmente.
    que ya no es seleccionable.
 8. Alcanzar 3 fichas, obtener otra medalla y comprobar que el saldo no supera 3.
 
-## Trabajo restante antes de declararlo definitivo
+## Validación final
 
-- Selector dinámico de zonas fallidas con nombres legibles.
-- Menú único de servicios y despliegue del NPC en los Centros principales.
-- Aviso visible al recibir o perder una ficha tras cada medalla.
-- Guardado obligatorio dentro de cada transacción aleatoria.
-- Reglas avanzadas del intercambio: OT propio, mediana/tope de nivel, dos IV
-  perfectos, familias evolutivas y cláusula de especie.
-- Pruebas de migración con una partida real y pruebas manuales en emulador.
-
-Hasta completar esos puntos, el sistema se considera una prueba funcional y no
-una característica cerrada para una versión estable.
+La build, la auditoría automática y la migración estructural forman parte del
+cierre técnico. Continúa siendo recomendable recorrer en emulador los casos de
+la sección anterior antes de una publicación estable, especialmente una partida
+antigua con varias medallas y las tres cancelaciones de selector.
