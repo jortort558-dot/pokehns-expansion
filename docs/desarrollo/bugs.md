@@ -186,3 +186,13 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 Validación: auditoría de **67 archivos** del Bloque 3 sin incidencias.
 
 Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
+
+### Versión 0.17.0 (2026-09-22 - Knekro en el Casino de Ciudad Trigal)
+
+- **Commit**: `8581c016ba` (`feat: añadir combate de Knekro al casino`)
+- [x] **Sprite propio**: integrado el overworld animado de Knekro con su paleta.
+- [x] **Retrato de combate**: añadido el frontal personalizado de 64×64.
+- [x] **Combate único**: Knekro utiliza a Meowth, Voltorb y Porygon; la victoria queda registrada mediante su bandera de entrenador.
+- [x] **Recompensa segura**: entrega una sola vez 3.000 fichas del Casino y exige previamente el Monedero y espacio suficiente.
+- [x] **Casino de Trigal**: personaje situado entre las tragaperras con diálogos propios antes y después del combate.
+- [x] **Validación**: textos sin incidencias y build HnS completada correctamente.
