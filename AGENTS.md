@@ -20,6 +20,8 @@
 - Para lotes de diálogos, usar `docs/utilidades/auditar_textos_gba.ps1` antes de compilar.
 - No crear subagentes para tareas pequeñas o secuenciales. Usarlos solo si el trabajo puede dividirse en bloques independientes con un resultado claro.
 - En la entrega, resumir resultado, archivos modificados y validación; no narrar cada comando ejecutado.
+- Al terminar un lote de código o traducción: crear commit, subirlo a `origin/traduccion-es` y ejecutar `wsl.exe -e bash -lc 'cd /mnt/d/PROYECTOS/heartandsoul_esp/pokehns-expansion && make hns -j8'`.
+- No inspeccionar pasos adicionales después de la build salvo que falle. Los cambios exclusivamente documentales no requieren recompilar.
 
 ## Fuentes de verdad bajo demanda
 
