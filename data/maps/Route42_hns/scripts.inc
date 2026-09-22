@@ -239,4 +239,4 @@ Route42_Text_TullyHasItem:
 Route42_Text_TullyGaveItem:
 	.string "¡Te daré un toque al POKéGEAR si\npesco\lalguna otra rareza!$"
 Route42_Text_TullyNoRoom:
-	.string "Mmm, tienes la MOCHILA llena.\pVuelve cuando tengas algo de sitio.$"
+	.string "Mmm, tienes la BOLSA llena.\pVuelve cuando tengas algo de sitio.$"

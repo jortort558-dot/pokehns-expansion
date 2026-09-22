@@ -290,7 +290,7 @@ Route27_Text_JoseGaveItem:
     .string "¡Te avisaré si encuentro algo más!$"
 
 Route27_Text_JoseNoRoom:
-    .string "Mmm, tienes la MOCHILA llena.\p"
+    .string "Mmm, tienes la BOLSA llena.\p"
     .string "Vuelve cuando tengas sitio.$"
 
 TohjoFalls_Text_Sign:

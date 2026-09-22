@@ -1,6 +1,6 @@
 # Propuestas de ajuste de textos — Bloque 1
 
-> Estado: borrador para revisión. Ninguno de estos textos se ha aplicado todavía a la ROM.
+> Estado: aplicado íntegramente a la ROM el 22/09/2026.
 
 ## Objetivo
 
@@ -13,7 +13,7 @@ Reformular los diálogos del Bloque 1 para conservar la estructura visual ingles
 
 ## Criterio de revisión
 
-- [ ] Aprobar la propuesta completa.
+- [x] Aprobar la propuesta completa.
 - [ ] Aprobar solo algunas entradas.
 - [ ] Pedir otra redacción para entradas concretas.
 
@@ -404,7 +404,7 @@ La versión actual ocupa cinco líneas; esta conserva el golpe breve del origina
 .string "Si antes los debilitas,\n"
 .string "será más fácil atraparlos.\p"
 .string "¡Luego lánzales una BALL\n"
-.string "desde la MOCHILA!\p"
+.string "desde la BOLSA!\p"
 .string "Si quieres saber más,\n"
 .string "ve a la ACADEMIA de MALVA.\p"
 .string "Sus alumnos saben mucho\n"
@@ -535,8 +535,10 @@ Se elimina {PLAYER} para impedir que un nombre largo desborde la única línea d
 - Propuestas redactadas: **31**.
 - Líneas que superan 34 caracteres en este borrador: **0**.
 - Propuestas cuyo número de líneas difiere del inglés: **0**.
-- Cambios aplicados a los diálogos del Bloque 1: **ninguno**.
+- Cambios aplicados a los diálogos del Bloque 1: **31 de 31**.
 
-## Siguiente paso
+## Resultado
 
-Tras la aprobación, se aplicarán únicamente las entradas aceptadas, se ejecutará la auditoría de saltos y se compilará una ROM de prueba sin abrir el emulador.
+Las 31 propuestas se han aplicado por etiqueta a sus archivos correspondientes.
+El lote debe superar la auditoría de saltos, longitud e inglés residual antes de
+publicar la siguiente ROM.

@@ -88,7 +88,7 @@ Route39_Text_FarmerMGotMilk:
 Route39_Text_FarmerMNoMoney:
 	.string "Lo siento, colega.\n¡Sin pasta no hay leche!$"
 Route39_Text_FarmerMNoRoom:
-	.string "Me da a mí que tienes la MOCHILA\nllena hasta arriba.$"
+	.string "Me da a mí que tienes la BOLSA\nllena hasta arriba.$"
 Route39_Text_FarmerMNoSale:
 	.string "¿Que no la quieres?\n¡Pues vuelve cuando tengas sed!$"
 Route39FarmHouse_Text_WouldYouLikeAnother:

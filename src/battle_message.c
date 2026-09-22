@@ -886,7 +886,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_ZENMODETRIGGERED]                     = COMPOUND_STRING("{B_SCR_ABILITY} triggered!"),
     [STRINGID_ZENMODEENDED]                         = COMPOUND_STRING("¡{B_SCR_ABILITY} terminó!"),
     [STRINGID_WILDPKMNDROPPEDITEM]                  = COMPOUND_STRING("¡El Pokémon salvaje soltó\nsu {B_LAST_ITEM}!\p"),
-    [STRINGID_DROPPEDITEMBAGFULL]                   = COMPOUND_STRING("El Pokémon salvaje soltó un objeto,\n¡pero la MOCHILA está llena!\p"),
+    [STRINGID_DROPPEDITEMBAGFULL]                   = COMPOUND_STRING("El Pokémon salvaje soltó un objeto,\n¡pero la BOLSA está llena!\p"),
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1422,7 +1422,7 @@ const u8 gText_WhatWillPkmnDo[] = _("¿Qué debería hacer\n{B_BUFF1}?");
 const u8 gText_WhatWillPkmnDo2[] = _("¿Qué hará\n{B_PLAYER_NAME}?");
 const u8 gText_WhatWillWallyDo[] = _("¿Qué hará\nBLASO?");
 const u8 gText_LinkStandby[] = _("{PAUSE 16}Link standby…");
-const u8 gText_BattleMenu[] = _("LUCHA{CLEAR_TO 56}MOCHILA\nPOKéMON{CLEAR_TO 56}HUIR");
+const u8 gText_BattleMenu[] = _("LUCHA{CLEAR_TO 56}BOLSA\nPOKéMON{CLEAR_TO 56}HUIR");
 const u8 gText_SafariZoneMenu[] = _("Ball{CLEAR_TO 56}Pokécubo\n+ Cerca{CLEAR_TO 56}Huida");
 const u8 gText_SafariZoneMenuFrlg[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}BALL{CLEAR_TO 56}BAIT\nROCK{CLEAR_TO 56}RUN");
 const u8 gText_MoveInterfacePP[] = _("PP ");

@@ -343,4 +343,4 @@ Route39_Text_DerekHasItem:
 Route39_Text_DerekGaveItem:
 	.string "¡PIKACHU es lo más grande!\n¿A que estás de acuerdo?$"
 Route39_Text_DerekNoRoom:
-	.string "Vaya, tienes la MOCHILA a tope.\pVuelve cuando tengas espacio.$"
+	.string "Vaya, tienes la BOLSA a tope.\pVuelve cuando tengas espacio.$"

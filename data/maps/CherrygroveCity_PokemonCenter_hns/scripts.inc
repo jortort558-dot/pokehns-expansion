@@ -85,9 +85,9 @@ CherryGrove_Pokecenter_Text_Gentleman:
 	.string "PC libremente.$"
 
 CherryGrove_Pokecenter_Text_Lass:
-	.string "Dicen que el tiempo no pasa cuando\nesperas.\l"
-	.string "¡Pero viendo el reloj del CENTRO\nPOKéMON\l"
-	.string "el tiempo vuela!$"
+	.string "Dicen que mirar un reloj\n"
+	.string "ralentiza el tiempo; aquí\l"
+	.string "¡las horas pasan volando!$"
 
 CherryGrove_Pokecenter_Text_MegaResearcherIntro:
 	.string "¡Justo a tiempo! Necesito a alguien\n"
@@ -101,7 +101,7 @@ CherryGrove_Pokecenter_Text_MegaResearcherReceived:
 
 CherryGrove_Pokecenter_Text_MegaResearcherSentToPC:
 	.string "Tu equipo está lleno, así que\n"
-	.string "{STR_VAR_1} ha sido enviado al PC\n"
+	.string "{STR_VAR_1} ha sido enviado al PC\l"
 	.string "con su MEGAPIEDRA.$"
 
 CherryGrove_Pokecenter_Text_MegaResearcherInstructions:
@@ -114,7 +114,7 @@ CherryGrove_Pokecenter_Text_MegaResearcherInstructions:
 CherryGrove_Pokecenter_Text_MegaResearcherNoRoom:
 	.string "No queda espacio ni en tu equipo\n"
 	.string "ni en las cajas del PC.\p"
-	.string "Haz sitio y vuelve a hablar conmigo.$"
+	.string "Haz sitio y vuelve luego.$"
 
 CherryGrove_Pokecenter_Text_MegaResearcherReminder:
 	.string "El POKéMON que te di ya lleva\n"
@@ -189,4 +189,3 @@ CherryGrove_Pokecenter_Text_Vagrant5:
 CherryGrove_Pokecenter_Text_VagrantPotion:
 	.string "Toma esta POCIÓN.\p"
 	.string "La encontré debajo de un martes.$"
-

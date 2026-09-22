@@ -455,11 +455,6 @@ static inline bool32 IsItemTMHM(u16 itemId)
     return gItemsInfo[itemId].pocket == POCKET_TM_HM;
 }
 
-static inline bool32 IsItemHM(u16 itemId)
-{
-    return itemId >= ITEM_HM01 && IsItemTMHM(itemId);
-}
-
 static inline bool32 IsKeyItem(u16 itemId)
 {
     return gItemsInfo[itemId].pocket == POCKET_KEY_ITEMS;
@@ -470,7 +465,9 @@ static inline bool32 ShouldRandomizeItem(u16 itemId)
     // ITEM_GS_BALL sits in POCKET_POKE_BALLS rather than POCKET_KEY_ITEMS, so the key-item
     // check below doesn't cover it. It gates Kurt's Celebi chain (checkitem/removeitem in
     // AzaleaTown_KurtsHouse_hns), so rolling it into something else softlocks that quest.
-    return !(IsItemHM(itemId) || IsKeyItem(itemId) || itemId == ITEM_GS_BALL || itemId == ITEM_NONE);
+    // Keep every TM/HM in its original location. Randomizing TMs independently
+    // can create duplicates and make some moves unobtainable in a playthrough.
+    return !(IsItemTMHM(itemId) || IsKeyItem(itemId) || itemId == ITEM_GS_BALL || itemId == ITEM_NONE);
 }
 
 #include "data/randomizer/item_whitelist.h"
@@ -489,9 +486,6 @@ u16 RandomizeFoundItem(u16 itemId, u8 mapNum, u8 mapGroup, u8 localId)
     mapSeed |= localId;
 
     state = RandomizerRandSeed(RANDOMIZER_REASON_FIELD_ITEM, mapSeed, itemId);
-
-    if (IsItemTMHM(itemId))
-        return RandomizerNextRange(&state, RANDOMIZER_MAX_TM - ITEM_TM01 + 1) + ITEM_TM01;
 
     do {
         result = sRandomizerItemWhitelist[RandomizerNextRange(&state, ITEM_WHITELIST_SIZE)];

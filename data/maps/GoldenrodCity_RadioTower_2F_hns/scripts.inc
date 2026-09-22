@@ -196,7 +196,7 @@ GoldenrodCity_RadioTower_2F_Text_BuenaComeBack:
 GoldenrodCity_RadioTower_2F_Text_BuenaAlreadyPlayed:
 	.string "BUENA: ¡Ya acertaste la clave de\nhoy!\l¡Vuelve a sintonizarnos mañana!$"
 GoldenrodCity_RadioTower_2F_Text_BuenaBagFull:
-	.string "BUENA: ¡Has acertado, pero tienes\nla\lMOCHILA llena!\l¡Haz hueco y ven a hablarme otra\lvez!$"
+	.string "BUENA: ¡Has acertado, pero tienes\nla\lBOLSA llena!\l¡Haz hueco y ven a hablarme otra\lvez!$"
 GoldenrodCity_RadioTower_2F_Text_SalesSign:
 	.string "2P VENTAS$"
 GoldenrodCity_RadioTower_2F_Text_OakTalkSign:

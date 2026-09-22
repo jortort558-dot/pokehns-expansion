@@ -161,4 +161,4 @@ Route38_Text_DanaHasItem:
 Route38_Text_DanaGaveItem:
 	.string "¡Te avisaré si encuentro alguna\notra\lcosita!$"
 Route38_Text_DanaNoRoom:
-	.string "Vaya, tienes la MOCHILA llena.\pVuelve cuando tengas algo de hueco.$"
+	.string "Vaya, tienes la BOLSA llena.\pVuelve cuando tengas algo de hueco.$"

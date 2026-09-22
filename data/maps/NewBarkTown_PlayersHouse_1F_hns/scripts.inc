@@ -321,21 +321,21 @@ NewBarkTown_PlayersHouse_1F_MovementFaceLeft:
 	step_end
 
 NewBarkTown_PlayersHouse_1F_Text_ElmsLookingForYou:
-	.string "¡Oh, {PLAYER}…! Nuestro vecino,\n"
-	.string "el PROF. ELM, te estaba buscando.\p"
-	.string "Dijo que quería pedirte un favor.\p"
-	.string "¡Ah! ¡Casi lo olvido! Tu POKéGEAR\n"
+	.string "¡Ah, {PLAYER}! El PROF. ELM,\n"
+	.string "nuestro vecino, te está buscando.\p"
+	.string "Dice que necesita pedirte\n"
+	.string "un favor.\p"
+	.string "¡Casi lo olvido! Tu POKéGEAR\n"
 	.string "ya ha vuelto del taller.\p"
-	.string "¡Aquí lo tienes!$"
+	.string "¡Aquí tienes!$"
 
 NewBarkTown_PlayersHouse_1F_Text_ObtainedPokeGear:
 	.string "¡{PLAYER} obtuvo el POKéGEAR!$"
 
 NewBarkTown_PlayersHouse_1F_Text_ExplainPokeGear:
-	.string "MADRE: Los números de teléfono se\n"
-	.string "guardan en la memoria.\p"
-	.string "Solo tienes que elegir a quién\nllamar.\l"
-	.string "Yo ya he registrado mi número.\p"
+	.string "MAMÁ: Los números se guardan\n"
+	.string "en la memoria.\p"
+	.string "Elige a quién quieres llamar.\p"
 	.string "¿A que es muy cómodo?$"
 
 NewBarkTown_PlayersHouse_1F_Text_WearTheseRunningShoes:
@@ -371,18 +371,18 @@ NewBarkTown_PlayersHouse_1F_Text_MomsFriend:
 	.string "¡Hola, {PLAYER}!\p"
 	.string "¡He venido de visita!\p"
 	.string "¿Te has enterado?\p"
-	.string "Mi hija está empeñada en\nconvertirse\l"
-	.string "en la ayudante del PROF. ELM.\p"
-	.string "¡Le chiflan los POKéMON!$"
+	.string "Mi hija insiste en ser\n"
+	.string "ayudante del PROF. ELM.\p"
+	.string "¡Adora a los POKéMON!$"
 
 NewBarkTown_PlayersHouse_1F_Text_MomLeaving:
-	.string "MAMÁ: ¡Vaya, qué POKéMON tan lindo!\n"
-	.string "¿De dónde lo has sacado?\p"
+	.string "MAMÁ: ¡Qué POKéMON tan bonito!\n"
+	.string "¿Dónde lo has conseguido?\p"
 	.string "…\p"
 	.string "Así que te vas de aventura…\n"
-	.string "Seguro que será todo un desafío…\p"
+	.string "No va a ser nada fácil…\p"
 	.string "Ten mucho cuidado.\p"
 	.string "Los POKéMON son tus amigos.\n"
-	.string "Tenéis que trabajar en equipo.\p"
-	.string "¡Venga, marcha ya!\n"
-	.string "¡Te apoyaré desde aquí!$"
+	.string "Debéis trabajar en equipo.\p"
+	.string "¡Venga, adelante!\n"
+	.string "¡Siempre contarás conmigo!$"

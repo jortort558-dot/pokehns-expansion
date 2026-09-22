@@ -223,7 +223,7 @@ GoldenrodPokeCenter_LinkReceptionistPleaseDoComeAgainText:
     .string "Please do come again!$"
 
 GoldenrodCity_PokemonCenter_PokefanFDoYouHaveEonMailText:
-    .string "¡Cielo santo, qué MOCHILA tan\npesada!\p"
+    .string "¡Cielo santo, qué BOLSA tan\npesada!\p"
     .string "¡Oye! ¿Por casualidad tienes una\n"
     .string "CARTA EÓN?\p"
     .string "Mi hija está loca por conseguir\nuna.\p"

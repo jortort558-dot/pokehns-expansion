@@ -227,7 +227,7 @@ Route31_Text_WadeGaveItem:
 	.string "cosa!$"
 
 Route31_Text_WadeNoRoom:
-	.string "Mmm, parece que llevas la MOCHILA\n"
+	.string "Mmm, parece que llevas la BOLSA\n"
 	.string "a rebosar.\p"
 	.string "¡Vuelve cuando tengas sitio!$"
 

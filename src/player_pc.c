@@ -175,7 +175,7 @@ static const u8 sText_Mailbox[] = _("BUZÓN");
 
 static const u8 sText_WithdrawHowManyItems[] = _("¿Cuántos {STR_VAR_1}\nquieres sacar?");
 static const u8 sText_WithdrawXItems[] = _("Sacaste {STR_VAR_2}\n{STR_VAR_1}.");
-static const u8 sText_NoRoomInBag[] = _("No queda más espacio\nen la MOCHILA.");
+static const u8 sText_NoRoomInBag[] = _("No queda más espacio\nen la BOLSA.");
 static const u8 sText_TooImportantToToss[] = _("¡Eso es demasiado\nimportante como para\ntirarlo!");
 
 static const u8 *const sItemStorage_OptionDescriptions[] =
@@ -228,7 +228,7 @@ static const u16 sNewGamePCItems[][2] =
 const struct MenuAction gMailboxMailOptions[] =
 {
     { COMPOUND_STRING("LEER"),       {Mailbox_DoMailRead} },
-    { COMPOUND_STRING("A MOCHILA"),  {Mailbox_MoveToBag} },
+    { COMPOUND_STRING("A BOLSA"),  {Mailbox_MoveToBag} },
     { COMPOUND_STRING("DAR"),        {Mailbox_Give} },
     { gText_Cancel2,                  {Mailbox_Cancel} }
 };

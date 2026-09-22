@@ -17,17 +17,18 @@ Route30_House_EventScript_BaldMan2::
 	end
 
 Route30_BerryHouse_Text_MonEatBerries:
-	.string "Si sigues ese camino hacia el\nnorte, verás\l"
-	.string "la casa del SR. POKéMON.\p"
-	.string "Pero antes de que vayas, ¡déjame\nque te\l"
-	.string "hable sobre las BAYAS!\p"
-	.string "Los POKéMON recuperan salud\ncomiendo BAYAS.\p"
-	.string "Incluso pueden comerse la BAYA que\nlleven\l"
-	.string "equipada en pleno combate.\p"
-	.string "Además, CÉSAR de PUEBLO AZALEA\npuede\l"
-	.string "transformar las BAYAS en BALLS.\p"
-	.string "¡Toma, te regalo una para que la\npruebes!$"
+	.string "Siguiendo el camino al norte,\n"
+	.string "verás la casa del SR. POKéMON.\p"
+	.string "Pero antes déjame hablarte\n"
+	.string "de las BAYAS.\p"
+	.string "Los POKéMON recuperan salud\n"
+	.string "cuando comen BAYAS.\p"
+	.string "También pueden comer las que\n"
+	.string "lleven durante el combate.\p"
+	.string "CÉSAR fabrica BALLS con BAYAS\n"
+	.string "en PUEBLO AZALEA.\p"
+	.string "¡Toma, te regalo una!$"
 
 Route30_BerryHouse_Text_CheckTrees:
-	.string "Mira bien en los árboles para\nencontrar\l"
-	.string "BAYAS. Vuelven a crecer pasadas\nunas horas.$"
+	.string "Busca BAYAS en los árboles.\n"
+	.string "Vuelven a crecer en unas horas.$"
