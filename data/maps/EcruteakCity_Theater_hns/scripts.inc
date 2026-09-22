@@ -892,9 +892,9 @@ EcruteakCity_Theater_Text_GirlHooh:
 EcruteakCity_Theater_Text_GirlLugia:
 	.string "¡Hermanas! ¡Acabo de ver la enorme\nsombra de un POKéMON en las aguas\lde\l las ISLAS REMOLINO!\pPodría ser...$"
 EcruteakCity_Theater_Text_ZukiHooh:
-	.string "ZUKI: ¡{PLAYER}!\nEstaremos en la TORRE HOJALATA.\n¡Nos vemos allí!$"
+	.string "ZUKI: ¡{PLAYER}!\nEstaremos en la TORRE HOJALATA.\l¡Nos vemos allí!$"
 EcruteakCity_Theater_Text_ZukiLugia:
-	.string "ZUKI: ¡{PLAYER}!\nEstaremos en las ISLAS REMOLINO.\n¡Nos vemos allí!$"
+	.string "ZUKI: ¡{PLAYER}!\nEstaremos en las ISLAS REMOLINO.\l¡Nos vemos allí!$"
 EcruteakCity_Theater_Text_KimonoDone:
 	.string "Estamos ensayando nuestra danza.$"
 EcruteakCity_Theater_Text_ZukiAfterAll:

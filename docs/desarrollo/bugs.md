@@ -9,6 +9,7 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ### 📦 Versión `pokehns-0.9.0-20260920-bloque6-endrino-es.gba`
 
 - **Fecha**: 20/09/2026
+- **Commit**: `2552c7f702` (`feat: indicador nuzlocke en start menu, capturas, evolucion, veto OHKO y fixes Azalea`)
 
 **Contenido traducido en esta build:**
 
@@ -21,6 +22,7 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ### 📦 Versión `pokehns-0.8.1-20260920-bloque2-revision-es.gba`
 
 - **Fecha**: 20/09/2026
+- **Commit**: `2552c7f702` (incluye la revisión de mapas y el lote de Endrino)
 
 **Incidencias resueltas en esta build:**
 
@@ -33,6 +35,7 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ### 📦 Versión `pokehns-0.8.0-20260920-nuzlocke-ui-bugfix-es.gba`
 
 - **Fecha**: 20/09/2026
+- **Commit**: `2552c7f702`
 
 **Incidencias resueltas en esta build:**
 
@@ -119,6 +122,8 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 
 ### Versión 0.10.0 (2026-09-20 - Nuzlocke, Combates, Evolución y Ajustes Azalea)
 
+- **Commit**: `2552c7f702`
+
 - [x] **Indicador Nuzlocke en el menú START**: Retirada la Poké Ball del popup de mapa y añadido indicador de zona (`ZONA: LIBRE` en verde / `ZONA: GASTADA` en rojo) en la ventana superior del reloj al abrir el menú START.
 - [x] **Capturas y fallos de Poké Ball**: Traducido `¡Ya está! ¡{STR_VAR_1} atrapado!` (`GOTCHA!`), y mensajes de captura fallida (`¡Casi lo consigues!`, `¡Vaya! ¡El POKéMON se ha escapado!`, etc.).
 - [x] **Combates dobles traducidos**: Mensajes de salida simultánea al combate y retirada traducidos al castellano.
@@ -133,6 +138,9 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ## 🔴 BUGS PENDIENTES (EN COLA DE RESOLUCIÓN)
 
 - [ ] **Auditoría completa de expansión**: Todavía existen cadenas inglesas no reportadas en sistemas secundarios y mensajes modernos. Se tratarán por bloques para poder revisarlas dentro del juego.
+
+### Lote de sistemas auditados — commit `a70c7e43ee`
+
 - [x] **Mensajes de combate secundarios**: Auditadas y traducidas 475 cadenas de estadísticas, habilidades, climas, terrenos, objetos, mecánicas residuales y sistemas modernos.
 - [x] **Almacenamiento y flujo posterior de captura**: Traducidos el envío al PC, el cambio automático de CAJA, las CAJAS llenas y la elección entre equipo y PC.
 - [x] **Menú del Pokégear**: Rótulos gráficos sustituidos por MAPA y PERFIL POKéMON; ayudas, marcas, cintas y descripciones traducidas.
@@ -141,10 +149,13 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 - [x] **Alineación del menú de combate**: MOCHILA y HUIR desplazados cuatro píxeles a la izquierda para evitar el recorte.
 - [x] **Efectos de combate básicos**: Traducidos retroceso, Púas, Drenadoras, clima, objetos dañinos, congelación y Salazón.
 - [x] **Huevos y capturas Nuzlocke**: Eclosionar un huevo ya no consume la captura de la zona ni altera el indicador del menú.
-- [x] **Cargas del PokéVial en START**: Ampliado el panel superior y añadido el contador visible VIAL: actual/máximo.
 
 - [x] **Menú de combate — MOCHILA/HUIR**: Restaurada la separación original de la columna derecha para que el cursor no tape la H.
 - [x] **Madre del jugador**: Traducidos los diálogos del sistema de curación, ahorros, depósitos y retiradas.
 - [x] **PC del dormitorio**: Traducido el arranque del PC y las opciones restantes del buzón.
 - [x] **Orden del panel START**: POKéVIAL aparece encima del estado de captura de la zona; fuera de Nuzlocke ya no queda un hueco sobre el contador.
 - [x] **Controles de combate**: SELECT activa la Mega, START vuelve a mostrar la descripción del movimiento y se desactiva la reordenación de movimientos durante el combate.
+
+### PokéVial — commit `64acf3d547`
+
+- [x] **Cargas del PokéVial en START**: Ampliado el panel superior y añadido el contador visible VIAL: actual/máximo.

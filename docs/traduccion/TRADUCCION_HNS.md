@@ -32,8 +32,9 @@ pie title Estado de Contenido Traducido
     "Bloque 1 (Primavera & Cerezo)" : 100
     "Bloque 2 (Malva & Azalea)" : 100
     "Bloque 3 (Trigal & Iris)" : 100
-    "Resto de Johto (Gimnasios 5 a 8)" : 0
-    "Liga Pokémon & Kanto Postgame" : 0
+    "Resto de Johto (Gimnasios 5 a 8)" : 100
+    "Liga Pokémon" : 100
+    "Kanto Postgame" : 0
 ```
 
 ---
@@ -207,22 +208,29 @@ pie title Estado de Contenido Traducido
 
 > **Entrega 0.9.0 (20/09/2026):** completados y auditados Ruta 44, Ruta Helada, Ciudad Endrino, Gimnasio Endrino y Guarida Dragón. El Bloque 6 continúa con la invocación legendaria y el camino hacia la Liga.
 
-- [ ] **Invocación del Guardián Legendario**:
+- [x] **Invocación del Guardián Legendario**:
   - Regreso al Teatro de Danza de Iris: Combate consecutivo contra las 5 Chicas Kimono.
   - Evento en la Torre Hojalata (Ho-Oh) o Islas Remolino (Lugia) con cinemáticas y combate legendario.
-- [ ] **Rutas 45, 46 y 27 (Hacia la Liga)**:
+- [x] **Rutas 45, 46 y 27 (Hacia la Liga)**:
   - Cruce de las Cataratas Tohjo (Tojho Falls).
   - Rutas 26 y 27 con entrenadores de alto nivel y casa de descanso de la anciana que cura tu equipo.
   - Control de paso de las 8 medallas oficiales de Johto.
-- [ ] **Calle Victoria (Victory Road)**:
+- [x] **Calle Victoria (Victory Road)**:
   - Laberinto de rocas y túneles oscuros.
   - **Combate final contra el Rival Cani** justo antes de la salida al exterior.
-- [ ] **Meseta Añil (Indigo Plateau)**:
+- [x] **Meseta Añil (Indigo Plateau)**:
   - Tienda y Centro Pokémon de la Liga.
   - **Alto Mando Mento** (Psíquico: Xatu, Jynx, Slowbro).
   - **Alto Mando Koga** (Veneno: Ariados, Forretress, Muk, Crobat).
   - **Alto Mando Bruno** (Lucha: Hitmontop, Hitmonlee, Hitmonchan, Machamp).
   - **Alto Mando Karen** (Siniestro: Umbreon, Gengar, Murkrow, Houndoom).
+  - **Campeón Lance**, ceremonia posterior y registro en el Hall de la Fama.
+
+> **Entrega 0.11.0 (22/09/2026):** traducidos y auditados la invocación de
+> Ho-Oh/Lugia, Ruta 45, Ruta 46, Cataratas Tohjo, Rutas 27 y 26, control de
+> medallas, Calle Victoria, Meseta Añil, Alto Mando, Lance y Hall de la Fama.
+> Auditoría superada sin inglés residual detectado, segmentos de más de 35
+> caracteres ni uso duplicado de `\n` en el lote.
   - **Campeón Lance** (Dragones: Gyarados, Charizard, Aerodactyl y 3 Dragonite).
   - Sala de la Fama y créditos del juego.
 

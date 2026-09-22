@@ -170,144 +170,141 @@ Route27_EventScript_TohjoFallsSign::
     end
 
 Route27_Text_FisherHey:
-    .string "Hey!$"
+    .string "¡Eh!$"
 
 Route27_Text_FisherMessage:
-    .string "Do you know what you just did?\p"
-    .string "You've taken your first step into\n"
-    .string "KANTO.\p"
-    .string "Check your POKéGEAR MAP and see.$"
+    .string "¿Sabes lo que acabas de hacer?\p"
+    .string "Has dado tu primer paso en KANTO.\p"
+    .string "Comprueba el MAPA del POKéGEAR.$"
 
 Route27_Text_CooltrainermBlakeSeen:
-    .string "You look pretty strong.\n"
-    .string "Let me battle you!$"
+    .string "Pareces bastante fuerte.\n"
+    .string "¡Combate conmigo!$"
 
 Route27_Text_CooltrainermBlakeBeaten:
-    .string "Yow!$"
+    .string "¡Ay!$"
 
 Route27_Text_CooltrainermBlakeAfter:
-    .string "If you prevail on this harsh trek,\n"
-    .string "the truth will be revealed!\p"
-    .string "Heh, sorry, I just wanted to say\n"
-    .string "something cool.$"
+    .string "¡Si superas este duro camino,\n"
+    .string "la verdad te será revelada!\p"
+    .string "Je, perdona. Solo quería decir\n"
+    .string "algo que sonara guay.$"
 
 Route27_Text_CooltrainermBrianSeen:
-    .string "Hm? You're good, aren't you?$"
+    .string "¿Mmm? Eres bueno, ¿verdad?$"
 
 Route27_Text_CooltrainermBrianBeaten:
-    .string "Just as I thought!$"
+    .string "¡Tal como pensaba!$"
 
 Route27_Text_CooltrainermBrianAfter:
-    .string "A good trainer can recognize other\n"
-    .string "good trainers.$"
+    .string "Un buen Entrenador reconoce\n"
+    .string "a otros buenos Entrenadores.$"
 
 Route27_Text_CooltrainerfReenaSeen:
-    .string "You shouldn't underestimate the\n"
-    .string "wild POKéMON in these parts.$"
+    .string "No subestimes a los POKéMON\n"
+    .string "salvajes de esta zona.$"
 
 Route27_Text_CooltrainerfReenaBeaten:
-    .string "Oh! You're much too strong!$"
+    .string "¡Oh! ¡Eres demasiado fuerte!$"
 
 Route27_Text_CooltrainerfReenaAfter:
-    .string "You're just a kid, but you're not\n"
-    .string "to be underestimated either.$"
+    .string "Solo eres un crío, pero tampoco\n"
+    .string "se te puede subestimar.$"
 
 Route27_Text_ReenaRegister:
-    .string "You're just a kid, but you're not\n"
-    .string "to be underestimated either.$"
+    .string "Solo eres un crío, pero tampoco\n"
+    .string "se te puede subestimar.$"
 
 Route27_Text_ReenaRematchIntro:
-    .string "You shouldn't underestimate the\n"
-    .string "wild POKéMON in these parts.$"
+    .string "No subestimes a los POKéMON\n"
+    .string "salvajes de esta zona.$"
 
 Route27_Text_ReenaRematchDefeat:
-    .string "Oh! You're much too strong!$"
+    .string "¡Oh! ¡Eres demasiado fuerte!$"
 
 Route27_Text_ReenaPostRematch:
-    .string "You're just a kid, but you're not\n"
-    .string "to be underestimated either.$"
+    .string "Solo eres un crío, pero tampoco\n"
+    .string "se te puede subestimar.$"
 
 Route27_Text_CooltrainerfMeganSeen:
-    .string "It's rare to see anyone come here.\p"
-    .string "Are you training on your own?$"
+    .string "Es raro ver a alguien por aquí.\p"
+    .string "¿Estás entrenando por tu cuenta?$"
 
 Route27_Text_CooltrainerfMeganBeaten:
-    .string "Oh! You're really strong!$"
+    .string "¡Oh! ¡Eres realmente fuerte!$"
 
 Route27_Text_CooltrainerfMeganAfter:
-    .string "I'm checking out pre- and post-\n"
-    .string "evolution POKéMON.\p"
-    .string "Evolution really does make\n"
-    .string "POKéMON stronger.\p"
-    .string "But evolved forms also learn\n"
-    .string "moves later on.$"
+    .string "Estudio POKéMON antes y después\n"
+    .string "de evolucionar.\p"
+    .string "Evolucionar los vuelve más fuertes,\n"
+    .string "pero las formas evolucionadas\l"
+    .string "aprenden movimientos más tarde.$"
 
 Route27_Text_PsychicGilbertSeen:
-    .string "Don't say a thing!\p"
-    .string "Let me guess what you're thinking.\p"
+    .string "¡No digas nada!\p"
+    .string "Adivinaré lo que estás pensando.\p"
     .string "Mmmmmmm…\p"
-    .string "I got it! You're on the POKéMON\n"
-    .string "LEAGUE challenge!$"
+    .string "¡Ya lo tengo! ¡Vas a desafiar\n"
+    .string "a la LIGA POKéMON!$"
 
 Route27_Text_PsychicGilbertBeaten:
-    .string "You're too much!$"
+    .string "¡Eres demasiado!$"
 
 Route27_Text_PsychicGilbertAfter:
-    .string "With your skills, you'll do well at\n"
-    .string "the LEAGUE.\p"
-    .string "That's what my premonition says.$"
+    .string "Con tu habilidad, te irá bien\n"
+    .string "en la LIGA.\p"
+    .string "Eso dice mi premonición.$"
 
 Route27_Text_BirdKeeperJoseSeen:
-    .string "Tweet! Tweet! Tetweet!$"
+    .string "¡Pío! ¡Pío! ¡Pipipío!$"
 
 Route27_Text_BirdKeeperJoseBeaten:
-    .string "Tweet!$"
+    .string "¡Pío!$"
 
 Route27_Text_BirdKeeperJoseAfter:
-    .string "BIRD KEEPERS like me mimic bird\n"
-    .string "whistles to command POKéMON.$"
+    .string "Los ORNITÓLOGOS imitamos el canto\n"
+    .string "de las aves para dar órdenes.$"
 
 Route27_Text_JoseRegister:
-    .string "BIRD KEEPERS like me mimic bird\n"
-    .string "whistles to command POKéMON.$"
+    .string "Los ORNITÓLOGOS imitamos el canto\n"
+    .string "de las aves para dar órdenes.$"
 
 Route27_Text_JoseRematchIntro:
-    .string "Tweet! Tweet! Tetweet!$"
+    .string "¡Pío! ¡Pío! ¡Pipipío!$"
 
 Route27_Text_JoseRematchDefeat:
-    .string "Tweet!$"
+    .string "¡Pío!$"
 
 Route27_Text_JosePostRematch:
-    .string "BIRD KEEPERS like me mimic bird\n"
-    .string "whistles to command POKéMON.$"
+    .string "Los ORNITÓLOGOS imitamos el canto\n"
+    .string "de las aves para dar órdenes.$"
 
 Route27_Text_JoseHasItem:
-    .string "Hey! I found something\n"
-    .string "shiny while bird-watching!\p"
-    .string "Here, you can have it!$"
+    .string "¡Eh! Encontré algo brillante\n"
+    .string "mientras observaba aves.\p"
+    .string "¡Toma, puedes quedártelo!$"
 
 Route27_Text_JoseGaveItem:
-    .string "I find all sorts of things\n"
-    .string "out here on ROUTE 27.\p"
-    .string "I'll let you know if I find\n"
-    .string "anything else!$"
+    .string "Encuentro toda clase de cosas\n"
+    .string "por la RUTA 27.\p"
+    .string "¡Te avisaré si encuentro algo más!$"
 
 Route27_Text_JoseNoRoom:
-    .string "Hmm, your BAG is full.\p"
-    .string "Come back when you have room.$"
+    .string "Mmm, tienes la MOCHILA llena.\p"
+    .string "Vuelve cuando tengas sitio.$"
 
 TohjoFalls_Text_Sign:
-    .string "TOHJO FALLS\p"
-    .string "THE LINK BETWEEN KANTO AND JOHTO$"
+    .string "CATARATAS TOHJO\p"
+    .string "UNEN KANTO Y JOHTO$"
 
 Route27_Text_FisherScottSeen:
-    .string "I'm feeling great today!\p"
-    .string "I feel like I could boot even the\n"
-    .string "LEAGUE CHAMP!$"
+    .string "¡Hoy me siento genial!\p"
+    .string "¡Creo que podría tumbar hasta\n"
+    .string "al CAMPEÓN de la LIGA!$"
 
 Route27_Text_FisherScottBeaten:
-    .string "No! Not in this battle!$"
+    .string "¡No! ¡En este combate no!$"
 
 Route27_Text_FisherScottAfter:
-    .string "Just like in fishing, it's all over\n"
-    .string "in POKéMON if you give up.$"
+    .string "Como en la pesca, si te rindes\n"
+    .string "con los POKéMON, todo se acaba.$"

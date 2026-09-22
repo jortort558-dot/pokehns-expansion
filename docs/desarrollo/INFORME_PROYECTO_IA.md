@@ -1,5 +1,11 @@
 # INFORME TÉCNICO Y GUÍA DE RELEVO: POKÉMON HEART & SOUL (ESPAÑOL)
 
+> **Aviso (22/09/2026): documento histórico.** El proyecto se ha trasladado del NAS a
+> `D:\PROYECTOS\heartandsoul_esp`. Las rutas `Y:\` y el flujo de doble repositorio
+> NAS/WSL descritos aquí no deben asumirse vigentes. Para nuevas sesiones, empezar por
+> `AGENTS.md` y consultar `docs/desarrollo/GUIA_IA_EFICIENTE.md`. Usar este informe solo
+> como contexto funcional y contrastar estados con el árbol y los documentos actuales.
+
 Este informe está diseñado específicamente para que otra IA o desarrollador pueda entender de inmediato el funcionamiento, la arquitectura, el estado exacto del código y las tareas pendientes del proyecto.
 
 ---

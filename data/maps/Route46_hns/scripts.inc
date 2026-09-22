@@ -104,7 +104,7 @@ Route46_Text_ErinPostRematch:
 Route46_Text_PicnickerErin2Beaten:
 	.string "¡Ooh… no paro de perder contigo!\p"
 	.string "¡Tendré que esforzarme aún más!\n"
-	.string "En fin, gracias por combatir\n"
+	.string "En fin, gracias por combatir\l"
 	.string "conmigo tantas veces.\p"
 	.string "¡Toma este regalo que te prometí!$"
 
