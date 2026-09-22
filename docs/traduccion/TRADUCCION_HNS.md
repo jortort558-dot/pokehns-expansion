@@ -226,7 +226,7 @@ pie title Estado de Contenido Traducido
   - **Alto Mando Karen** (Siniestro: Umbreon, Gengar, Murkrow, Houndoom).
   - **Campeón Lance**, ceremonia posterior y registro en el Hall de la Fama.
 
-> **Entrega 0.11.0 (22/09/2026):** traducidos y auditados la invocación de
+> **Entrega 0.14.0 (22/09/2026):** traducidos y auditados la invocación de
 > Ho-Oh/Lugia, Ruta 45, Ruta 46, Cataratas Tohjo, Rutas 27 y 26, control de
 > medallas, Calle Victoria, Meseta Añil, Alto Mando, Lance y Hall de la Fama.
 > Auditoría superada sin inglés residual detectado, segmentos de más de 35
