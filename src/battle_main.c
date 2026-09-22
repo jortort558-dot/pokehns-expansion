@@ -48,6 +48,7 @@
 #include "random.h"
 #include "randomizer.h"
 #include "nuzlocke.h"
+#include "gym_tokens.h"
 #include "recorded_battle.h"
 #include "roamer.h"
 #include "safari_zone.h"
@@ -5939,7 +5940,11 @@ static void HandleEndTurn_FinishBattle(void)
                 // rule, so a catch there must not burn the zone either.
                 if (!NuzlockeIsSpeciesClauseActive && !OneTypeChallengeCaptureBlocked
                  && !IsNuzlockeCaptureSuspended())
+                {
+                    if (gBattleOutcome != B_OUTCOME_CAUGHT)
+                        GymTokenRecordFailedEncounter(NuzlockeGetCurrentRegionMapSectionId());
                     NuzlockeFlagSet(NuzlockeGetCurrentRegionMapSectionId());
+                }
             }
             NuzlockeIsCaptureBlocked = FALSE;
             NuzlockeIsSpeciesClauseActive = FALSE;

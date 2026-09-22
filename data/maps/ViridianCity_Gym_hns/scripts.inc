@@ -19,6 +19,7 @@ ViridianCity_Gym_EventScript_Blue::
 	setflag FLAG_BADGE16_GET
 	setflag FLAG_DEFEATED_VIRIDIAN_GYM
 	addvar VAR_NUM_BADGES, 1
+	special AwardGymToken
 	setvar VAR_0x8008, 16
 	call Common_EventScript_SetGymTrainers_hns
 	closemessage
@@ -146,4 +147,3 @@ ViridianCity_Gym_Text_GymStatuePlayerWon::
     .string "LEADER: BLUE\p"
     .string "WINNING TRAINERS:\n"
 	.string "BLUE, RED, {PLAYER}$"
-

@@ -358,6 +358,16 @@ struct SaveBlock3
 #endif
     struct ChallengeSettings challengeSettings;
     u16 registeredItemHold;
+    struct
+    {
+        u8 count;
+        u8 mysteryTrades;
+        u16 awardedBadgeMask;
+        u8 failedEncounterFlags[12];
+        u8 retriedEncounterFlags[12];
+        u32 revivedPersonalities[8];
+        u32 revivedOtIds[8];
+    } gymTokens;
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;

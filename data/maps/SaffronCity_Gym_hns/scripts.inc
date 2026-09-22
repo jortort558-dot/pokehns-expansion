@@ -46,6 +46,7 @@ SaffronCity_Gym_EventScript_Sabrina::
 	setflag FLAG_BADGE13_GET
 	setflag FLAG_DEFEATED_SAFFRON_GYM
 	addvar VAR_NUM_BADGES, 1
+	special AwardGymToken
 	setvar VAR_0x8008, 13
 	call Common_EventScript_SetGymTrainers_hns
 	closemessage

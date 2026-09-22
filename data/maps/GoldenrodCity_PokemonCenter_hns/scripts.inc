@@ -158,6 +158,108 @@ GoldenrodCity_PokemonCenter_Text_LinkExplainer:
 	.string "o combatir con jugadores cercanos.\p"
 	.string "¡La tecnología es increíble!$"
 
+GoldenrodCity_PokemonCenter_EventScript_GymTokenClerk::
+	lock
+	faceplayer
+	special GetGymTokenCount
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenIntro, MSGBOX_DEFAULT
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNone
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRetry, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTrade, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, GoldenrodCity_PokemonCenter_EventScript_GymTokenTrade
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRevive, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, GoldenrodCity_PokemonCenter_EventScript_GymTokenRevive
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenNone::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenNone, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry::
+	special UseGymTokenRetry
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRetryDone, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenNoRetry, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenTrade::
+	chooseboxmon SELECT_PC_MON_GYM_TOKEN_TRADE
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+	special UseGymTokenTrade
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeFailed
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTradeDone, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeFailed::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTradeFailed, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenRevive::
+	chooseboxmon SELECT_PC_MON_GYM_TOKEN_REVIVE
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+	special UseGymTokenRevive
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveFailed
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenReviveDone, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveFailed::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenReviveFailed, MSGBOX_DEFAULT
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd::
+	release
+	end
+
+GoldenrodCity_PokemonCenter_Text_GymTokenIntro:
+	.string "Soy el encargado de las\n"
+	.string "FICHAS GIMNASIO.\p"
+	.string "Ahora tienes {STR_VAR_1}.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenNone:
+	.string "Obtendrás una al superar un\n"
+	.string "GIMNASIO en un reto NUZLOCKE.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenRetry:
+	.string "¿Canjear 1 FICHA por recuperar\n"
+	.string "el intento fallido más antiguo?$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenTrade:
+	.string "¿Prefieres un intercambio\n"
+	.string "misterioso por 1 FICHA?$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenRevive:
+	.string "¿Resucitar un POKéMON por\n"
+	.string "2 FICHAS?$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenRetryDone:
+	.string "He recuperado ese intento.\n"
+	.string "¡Aprovéchalo bien!$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenNoRetry:
+	.string "No tienes intentos fallidos\n"
+	.string "que se puedan recuperar.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenTradeDone:
+	.string "El intercambio se completó.\n"
+	.string "¡Has recibido a {STR_VAR_1}!$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenTradeFailed:
+	.string "No puedo realizarlo. Solo se\n"
+	.string "permite uno y sin objeto equipado.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenReviveDone:
+	.string "Tu POKéMON vuelve a estar sano.\n"
+	.string "No podrá resucitar otra vez.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenReviveFailed:
+	.string "Necesitas 2 FICHAS y un POKéMON\n"
+	.string "debilitado que no haya vuelto.$"
+
 GoldenrodCity_PokemonCenter_EventScript_GbaKid1::
 	lock
 	faceplayer

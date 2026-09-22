@@ -341,6 +341,19 @@ u8 NuzlockeFlagGet(u16 mapsec)
     return 1;
 }
 
+u8 NuzlockeGetZoneId(u16 mapsec)
+{
+    if (mapsec >= ARRAY_COUNT(sNuzlockeLUT) || !IsNuzlockeEncounterArea(mapsec))
+        return NUZLOCKE_NUM_ZONES;
+    return sNuzlockeLUT[mapsec];
+}
+
+void NuzlockeFlagClearByZoneId(u8 zone)
+{
+    if (zone < NUZLOCKE_NUM_ZONES)
+        gSaveBlock3Ptr->challengeSettings.nuzlockeEncounterFlags[zone / 8] &= ~(1 << (zone & 7));
+}
+
 bool8 IsNuzlockeEncounterArea(u16 mapsec)
 {
     if (mapsec >= ARRAY_COUNT(sNuzlockeLUT))

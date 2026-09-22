@@ -38,6 +38,7 @@ VioletCity_Gym_EventScript_Falkner::
 	setflag FLAG_BADGE01_GET
 	setflag FLAG_DEFEATED_VIOLET_GYM
 	addvar VAR_NUM_BADGES, 1
+	special AwardGymToken
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_ROOST

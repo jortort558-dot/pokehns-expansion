@@ -19,6 +19,7 @@
 #include "constants/party_menu.h"
 #include "constants/songs.h"
 #include "nuzlocke.h"
+#include "gym_tokens.h"
 
 #define VALID_MON 0
 #define INVALID_MON 1
@@ -42,6 +43,8 @@ static u32 CanMonDeleteMove(struct BoxPokemon *boxmon);
 static u32 CanMonLearnMove(struct BoxPokemon *boxmon);
 static u32 CanMonLearnPLAMove(struct BoxPokemon *boxmon);
 static u32 CanRelearnMoves(struct BoxPokemon *boxmon);
+static u32 CanGymTokenTrade(struct BoxPokemon *boxmon);
+static u32 CanGymTokenRevive(struct BoxPokemon *boxmon);
 
 static const struct PcMonSelection sPcMonSelectionTypes[] =
 {
@@ -52,7 +55,19 @@ static const struct PcMonSelection sPcMonSelectionTypes[] =
     [SELECT_PC_MON_MOVE_DELETER] = {ChoosePartyMon, CanMonDeleteMove, NULL, FALSE},
     [SELECT_PC_MON_MOVE_RELEARNER] = {ChooseMonForMoveRelearner, CanRelearnMoves, NULL, FALSE},
     [SELECT_PC_MON_PLA_TUTOR] = {ChooseMonForMoveTutor, CanMonLearnPLAMove, MoveTutor_AfterChooseBoxMon, FALSE},
+    [SELECT_PC_MON_GYM_TOKEN_TRADE] = {ChoosePartyMon, CanGymTokenTrade, NULL, TRUE},
+    [SELECT_PC_MON_GYM_TOKEN_REVIVE] = {ChoosePartyMon, CanGymTokenRevive, NULL, TRUE},
 };
+
+static u32 CanGymTokenTrade(struct BoxPokemon *boxmon)
+{
+    return GymTokenCanTradeMon(boxmon) ? VALID_MON : INVALID_MON;
+}
+
+static u32 CanGymTokenRevive(struct BoxPokemon *boxmon)
+{
+    return GymTokenCanReviveMon(boxmon) ? VALID_MON : INVALID_MON;
+}
 
 static u32 NoFilter(struct BoxPokemon *boxmon)
 {
@@ -240,7 +255,10 @@ u32 IsBoxMonExcluded(struct BoxPokemon *boxmon)
     struct Pokemon mon = {0};
     BoxMonToMon(boxmon, &mon);
 
-    if ((IsNuzlockeActive() || IsNuzlockeEasyActive()) && GetMonData(&mon, MON_DATA_HP) == 0 && GetMonData(&mon, MON_DATA_IS_EGG) == FALSE)
+    if (sSelectionType != SELECT_PC_MON_GYM_TOKEN_REVIVE
+     && (IsNuzlockeActive() || IsNuzlockeEasyActive())
+     && GetMonData(&mon, MON_DATA_HP) == 0
+     && GetMonData(&mon, MON_DATA_IS_EGG) == FALSE)
         return TRUE;
 
     return sPcMonSelectionTypes[sSelectionType].isMonInvalid(boxmon);

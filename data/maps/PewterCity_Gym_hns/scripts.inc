@@ -23,6 +23,7 @@ PewterCity_Gym_EventScript_Brock::
 	setflag FLAG_BADGE09_GET
 	setflag FLAG_DEFEATED_PEWTER_GYM
 	addvar VAR_NUM_BADGES, 1
+	special AwardGymToken
 	setvar VAR_0x8008, 9
 	call Common_EventScript_SetGymTrainers_hns
 	clearflag FLAG_HIDE_DIGLETT_BROCK

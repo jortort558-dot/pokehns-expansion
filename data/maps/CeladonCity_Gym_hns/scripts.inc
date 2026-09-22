@@ -17,6 +17,7 @@ CeladonCity_Gym_EventScript_Erika::
 	setflag FLAG_BADGE12_GET
 	setflag FLAG_DEFEATED_CELADON_GYM
 	addvar VAR_NUM_BADGES, 1
+	special AwardGymToken
 	setvar VAR_0x8008, 12
 	call Common_EventScript_SetGymTrainers_hns
 	clearflag FLAG_HIDE_FOUNTAIN_ERIKA

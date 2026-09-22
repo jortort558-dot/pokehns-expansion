@@ -56,6 +56,7 @@ FuchsiaCity_Gym_EventScript_Janine::
 	setflag FLAG_BADGE14_GET
 	setflag FLAG_DEFEATED_FUCHSIA_GYM
 	addvar VAR_NUM_BADGES, 1
+	special AwardGymToken
 	setvar VAR_0x8008, 14
 	call Common_EventScript_SetGymTrainers_hns
 	removeobject LOCALID_FUCHSIAGYM_ALICE_J
@@ -297,4 +298,3 @@ FuchsiaCity_Gym_Text_Guide:
 FuchsiaCity_Gym_Text_GuideWin:
 	.string "That was a great battle, trainer\n"
 	.string "from JOHTO!$"
-

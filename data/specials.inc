@@ -711,3 +711,8 @@ gSpecials::
 	def_special GetMaxPartySize
 	def_special IsPartyLimitChallengeActive
 	def_special RechargePokeVial
+	def_special AwardGymToken
+	def_special GetGymTokenCount
+	def_special UseGymTokenRetry
+	def_special UseGymTokenTrade
+	def_special UseGymTokenRevive

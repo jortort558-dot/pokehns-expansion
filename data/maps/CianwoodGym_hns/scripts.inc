@@ -56,6 +56,7 @@ CianwoodGym_EventScript_ChuckVictory::
 	setflag FLAG_BADGE05_GET
 	setflag FLAG_DEFEATED_CIANWOOD_GYM
 	addvar VAR_NUM_BADGES, 1
+	special AwardGymToken
 	setvar VAR_0x8008, 5
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_FOCUS_PUNCH

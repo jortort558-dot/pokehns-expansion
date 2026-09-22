@@ -978,6 +978,11 @@ u8 LoadGameSave(u8 saveType)
         VarSet(VAR_ROUTE28_SCIENTIST, 0);
         gSaveBlock1Ptr->saveVersion = 5;
     }
+    if (gSaveBlock1Ptr->saveVersion < 6)
+    {
+        CpuFill16(0, &gSaveBlock3Ptr->gymTokens, sizeof(gSaveBlock3Ptr->gymTokens));
+        gSaveBlock1Ptr->saveVersion = 6;
+    }
 
     // Add version migration steps here:
     // if (gSaveBlock1Ptr->saveVersion < 1)

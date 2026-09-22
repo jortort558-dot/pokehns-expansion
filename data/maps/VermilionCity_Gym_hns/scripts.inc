@@ -261,6 +261,7 @@ VermilionCity_Gym_EventScript_Surge::
 	setflag FLAG_BADGE11_GET
 	setflag FLAG_DEFEATED_VERMILION_GYM
 	addvar VAR_NUM_BADGES, 1
+	special AwardGymToken
 	setvar VAR_0x8008, 11
 	call Common_EventScript_SetGymTrainers_hns
 	checkitem ITEM_TM_SHOCK_WAVE
@@ -433,4 +434,3 @@ VermilionCity_Gym_Text_OnlyTrashLocksWereReset::
     .string "There's only trash here.\p"
     .string "Hey!\n"
     .string "The electric locks were reset!$"
-

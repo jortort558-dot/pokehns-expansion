@@ -47,6 +47,7 @@ EcruteakCity_Gym_EventScript_Morty::
 	setflag FLAG_BADGE04_GET
 	setflag FLAG_DEFEATED_ECRUTEAK_CITY_GYM
 	addvar VAR_NUM_BADGES, 1
+	special AwardGymToken
 	setvar VAR_0x8008, 4
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_SHADOW_BALL
