@@ -158,8 +158,8 @@ void SetDefaultChallengeSettings(void)
     gSaveblock3.challengeSettings.tx_Nuzlocke_SpeciesClause  = 1;
     gSaveblock3.challengeSettings.tx_Nuzlocke_ShinyClause    = 1;
     gSaveblock3.challengeSettings.tx_Nuzlocke_Nicknaming     = 1;
-    gSaveblock3.challengeSettings.tx_Nuzlocke_PokeVial       = 1;
-    gSaveblock3.challengeSettings.tx_Nuzlocke_GymTokens      = 1;
+    gSaveblock3.challengeSettings.tx_Nuzlocke_PokeVial       = 0;
+    gSaveblock3.challengeSettings.tx_Nuzlocke_GymTokens      = 0;
 }
 
 static void ClearPokedexFlags(void)

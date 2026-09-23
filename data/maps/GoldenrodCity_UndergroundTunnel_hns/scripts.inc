@@ -5,6 +5,25 @@ GoldenrodCity_UndergroundTunnel_hns_MapScripts::
 GoldenrodCity_UndergroundTunnel_OnLoad::
 	goto GoldenrodCity_UndergroundTunnel_MapScript_TryOpenDoor
 	end
+
+GoldenrodUnderground_EventScript_HerbClerk::
+	lock
+	faceplayer
+	message GoldenrodUnderground_Text_HerbShopWelcome
+	waitmessage
+	pokemart GoldenrodUnderground_HerbShop_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+GoldenrodUnderground_HerbShop_Pokemart:
+	.2byte ITEM_ENERGY_POWDER
+	.2byte ITEM_ENERGY_ROOT
+	.2byte ITEM_HEAL_POWDER
+	.2byte ITEM_REVIVAL_HERB
+	.2byte ITEM_MIRROR_HERB
+	pokemartlistend
 	
 GoldenrodCity_UndergroundTunnel_EventScript_KimonoTriggerBot::
 	lock
@@ -320,6 +339,9 @@ GoldenrodCity_UndergroundTunnel_EventScript_Item_Antidote::
 
 GoldenrodUnderground_Text_YoungerBrotherOffer:
 	.string "¡Bienvenido a la PELUQUERÍA\nPOKéMON!\lSoy el menor y el más barato de los\ldos\lHERMANOS PELUQUEROS.\lDejaré niquelado a tu POKéMON por\lsolo 300¥.\l¿Qué te parece? ¿Te hace?$"
+GoldenrodUnderground_Text_HerbShopWelcome:
+	.string "¡Bienvenido a la HERBORISTERÍA!\p"
+	.string "¡Remedios eficaces y económicos!$"
 GoldenrodUnderground_Text_YoungerBrotherAskWhich:
 	.string "¡De acuerdo! ¿Con qué POKéMON me\npongo manos\la la obra?$"
 GoldenrodUnderground_Text_YoungerBrotherLookCool:

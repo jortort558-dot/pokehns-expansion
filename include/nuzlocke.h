@@ -3,7 +3,7 @@
 
 #include "global.h"
 
-#define NUZLOCKE_NUM_ZONES 96
+#define NUZLOCKE_NUM_ZONES 112
 #define NUZLOCKE_FLAG_BYTES ((NUZLOCKE_NUM_ZONES + 7) / 8)
 
 bool8 IsNuzlockeActive(void);

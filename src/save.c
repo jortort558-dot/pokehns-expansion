@@ -1018,6 +1018,14 @@ u8 LoadGameSave(u8 saveType)
         gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_GymTokens = TRUE;
         gSaveBlock1Ptr->saveVersion = 8;
     }
+    if (gSaveBlock1Ptr->saveVersion < 9)
+    {
+        memset(gSaveBlock3Ptr->gymTokens.failedEncounterFlagsExt, 0,
+               sizeof(gSaveBlock3Ptr->gymTokens.failedEncounterFlagsExt));
+        memset(gSaveBlock3Ptr->gymTokens.retriedEncounterFlagsExt, 0,
+               sizeof(gSaveBlock3Ptr->gymTokens.retriedEncounterFlagsExt));
+        gSaveBlock1Ptr->saveVersion = 9;
+    }
 
     // Add version migration steps here:
     // if (gSaveBlock1Ptr->saveVersion < 1)

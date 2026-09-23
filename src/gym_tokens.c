@@ -22,6 +22,28 @@
 static EWRAM_DATA u8 sSelectedRetryZone = 0;
 static EWRAM_DATA u8 sRetrySearchStart = 0;
 
+static u8 *GetGymTokenFailedFlagByte(u8 zone)
+{
+    if (zone < 96)
+        return &gSaveBlock3Ptr->gymTokens.failedEncounterFlags[zone / 8];
+    return &gSaveBlock3Ptr->gymTokens.failedEncounterFlagsExt[(zone - 96) / 8];
+}
+
+static u8 *GetGymTokenRetriedFlagByte(u8 zone)
+{
+    if (zone < 96)
+        return &gSaveBlock3Ptr->gymTokens.retriedEncounterFlags[zone / 8];
+    return &gSaveBlock3Ptr->gymTokens.retriedEncounterFlagsExt[(zone - 96) / 8];
+}
+
+static u16 GetBoxMonCurrentHp(struct BoxPokemon *boxMon)
+{
+    struct Pokemon mon = {0};
+
+    BoxMonToMon(boxMon, &mon);
+    return GetMonData(&mon, MON_DATA_HP);
+}
+
 bool32 IsGymTokenModeActive(void)
 {
     const struct ChallengeSettings *settings = &gSaveBlock3Ptr->challengeSettings;
@@ -75,7 +97,7 @@ bool32 GymTokenCanTradeMon(struct BoxPokemon *boxMon)
     return IsGymTokenModeActive()
         && GetBoxMonData(boxMon, MON_DATA_SPECIES) != SPECIES_NONE
         && !GetBoxMonData(boxMon, MON_DATA_IS_EGG)
-        && GetBoxMonData(boxMon, MON_DATA_HP) != 0;
+        && GetBoxMonCurrentHp(boxMon) != 0;
 }
 
 bool32 GymTokenCanReviveMon(struct BoxPokemon *boxMon)
@@ -83,7 +105,7 @@ bool32 GymTokenCanReviveMon(struct BoxPokemon *boxMon)
     return IsGymTokenModeActive()
         && GetBoxMonData(boxMon, MON_DATA_SPECIES) != SPECIES_NONE
         && !GetBoxMonData(boxMon, MON_DATA_IS_EGG)
-        && GetBoxMonData(boxMon, MON_DATA_HP) == 0
+        && GetBoxMonCurrentHp(boxMon) == 0
         && !WasRevived(boxMon);
 }
 
@@ -120,7 +142,7 @@ void GymTokenRecordFailedEncounter(u16 mapsec)
 {
     u8 zone = NuzlockeGetZoneId(mapsec);
     if (IsGymTokenModeActive() && zone < NUZLOCKE_NUM_ZONES)
-        gSaveBlock3Ptr->gymTokens.failedEncounterFlags[zone / 8] |= 1 << (zone & 7);
+        *GetGymTokenFailedFlagByte(zone) |= 1 << (zone & 7);
 }
 
 void FindNextGymTokenRetry(void)
@@ -137,10 +159,12 @@ void FindNextGymTokenRetry(void)
     for (zone = sRetrySearchStart; zone < NUZLOCKE_NUM_ZONES; zone++)
     {
         u8 bit = 1 << (zone & 7);
-        if ((gSaveBlock3Ptr->gymTokens.failedEncounterFlags[zone / 8] & bit)
-         && !(gSaveBlock3Ptr->gymTokens.retriedEncounterFlags[zone / 8] & bit))
+        if ((*GetGymTokenFailedFlagByte(zone) & bit)
+         && !(*GetGymTokenRetriedFlagByte(zone) & bit))
         {
             u16 mapsec = NuzlockeGetMapsecByZoneId(zone);
+            if (mapsec == MAPSEC_NONE)
+                continue;
             sSelectedRetryZone = zone;
             sRetrySearchStart = zone + 1;
             StringCopy(gStringVar2, gRegionMapEntries[mapsec].name);
@@ -158,12 +182,12 @@ void UseSelectedGymTokenRetry(void)
     if (!IsGymTokenModeActive() || gSaveBlock3Ptr->gymTokens.count == 0 || zone >= NUZLOCKE_NUM_ZONES)
         return;
     bit = 1 << (zone & 7);
-    if (!(gSaveBlock3Ptr->gymTokens.failedEncounterFlags[zone / 8] & bit)
-     || (gSaveBlock3Ptr->gymTokens.retriedEncounterFlags[zone / 8] & bit))
+    if (!(*GetGymTokenFailedFlagByte(zone) & bit)
+     || (*GetGymTokenRetriedFlagByte(zone) & bit))
         return;
     NuzlockeFlagClearByZoneId(zone);
-    gSaveBlock3Ptr->gymTokens.failedEncounterFlags[zone / 8] &= ~bit;
-    gSaveBlock3Ptr->gymTokens.retriedEncounterFlags[zone / 8] |= bit;
+    *GetGymTokenFailedFlagByte(zone) &= ~bit;
+    *GetGymTokenRetriedFlagByte(zone) |= bit;
     gSaveBlock3Ptr->gymTokens.count--;
     sSelectedRetryZone = NUZLOCKE_NUM_ZONES;
     gSpecialVar_Result = 1;

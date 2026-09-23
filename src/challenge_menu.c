@@ -1859,8 +1859,8 @@ static void ProcessLeftRight(void)
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_NICKNAMING)     = 0; // ON
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_DELETION)       = 0; // CEMETERY
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_RARE_CANDY)     = 1; // OFF
-            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_POKE_VIAL)      = 0; // ON
-            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_GYM_TOKENS)     = 0; // ON
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_POKE_VIAL)      = 1; // OFF
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_GYM_TOKENS)     = 1; // OFF
         }
 
         // If Fairy monotype challenge set, force "Add Fairy Type" on

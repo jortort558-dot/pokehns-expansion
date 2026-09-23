@@ -256,3 +256,12 @@ Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
 - [x] **Política durante la partida**: los extras se pueden apagar, pero no reactivar para evitar ventajas retroactivas.
 - [x] **Validación**: build HnS completa con código 0.
 - [x] **ROM**: publicada como `releases/pokehns-0.20.0-20260923-extras-nuzlocke-es.gba` y actualizada `pokehns_fase1.gba`.
+
+### Versión 0.20.1 (2026-09-23 - Correcciones de Trigal y Fichas Gimnasio)
+
+- [x] **Tiendas de MT**: las listas muestran el número de la MT seguido del nombre del movimiento, recortado de forma segura al ancho disponible.
+- [x] **Evaluadores de amistad**: traducidas la chica de Ciudad Trigal y la dependienta equivalente de Azulona; revisados también los evaluadores de Ruta 27, Ciudad Orquídea y el Evaluador de Motes.
+- [x] **Comercios de Trigal**: traducidos los diálogos de la herborista del Subsuelo y del mostrador de fichas y premios del Casino.
+- [x] **Segundo intento de captura**: ampliado el registro de 96 a las 112 zonas que usa HnS, conservando la disposición de las partidas existentes mediante campos anexos y migración a `SAVE_VERSION 9`.
+- [x] **Intercambio y resurrección con fichas**: la selección consulta correctamente los PS reconstruidos del Pokémon almacenado; los Pokémon vivos vuelven a poder elegirse para intercambio y los debilitados para resurrección.
+- [x] **Valores iniciales**: PokéVial y Fichas Gimnasio aparecen en `NO` al configurar una partida nueva y al restablecer las opciones de Nuzlocke.

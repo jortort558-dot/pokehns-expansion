@@ -369,6 +369,10 @@ struct SaveBlock3
         u8 retriedEncounterFlags[12];
         u32 revivedPersonalities[8];
         u32 revivedOtIds[8];
+        // Appended to preserve the layout of existing saves. Together with the
+        // original arrays these cover HnS zones 0x00-0x6F.
+        u8 failedEncounterFlagsExt[2];
+        u8 retriedEncounterFlagsExt[2];
     } gymTokens;
 }; /* max size 1624 bytes */
 

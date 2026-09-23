@@ -1211,7 +1211,18 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, enum Item item, u
         || sMartInfo.martType == MART_TYPE_KURT
         || sMartInfo.martType == MART_TYPE_BP
         || sMartInfo.martType == MART_TYPE_BP_ITEM)
+    {
         CopyItemName(item, name);
+        if (GetItemTMHMIndex(item) != 0)
+        {
+            u8 *dest = StringAppend(name, _(" "));
+            const u8 *moveName = GetMoveName(GetItemTMHMMoveId(item));
+
+            while (dest - name < ITEM_NAME_LENGTH && *moveName != EOS)
+                *dest++ = *moveName++;
+            *dest = EOS;
+        }
+    }
     else
         StringCopy(name, gDecorations[item].name);
 
