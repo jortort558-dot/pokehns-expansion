@@ -141,6 +141,8 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 - [ ] **Tienda de MT de Ciudad Trigal**: al comprar solo aparece el número de la MT; estudiar cómo mostrar también el nombre del movimiento junto al número.
 - [x] **Sprite overworld de Knekro desordenado**: corregido el empaquetado de la hoja horizontal con `-mwidth 2 -mheight 4`; restaurados los nueve frames y sus cuatro orientaciones. La solución anterior de repetir el frame frontal no corregía el `.4bpp` corrupto.
 - [x] **Combate de Knekro cargaba un montañero y datos inválidos**: la definición se había añadido por error a `src/data/trainers.party`, que no forma parte de la build HnS. Trasladada a `src/data/trainers_hns.party`, de modo que `TRAINER_KNEKRO_HNS` carga su sprite frontal y su equipo reales.
+- [x] **Knekro cambiaba de tamaño al girar**: los tres frames laterales ocupaban 25 píxeles de alto frente a los 20–21 de norte/sur. Compactados a 21 píxeles manteniendo los pies alineados y la paleta indexada de 16 colores.
+- [x] **Identidad y acceso al combate de Knekro**: exige la Medalla Planicie de Blanca, avisa de la dificultad y permite rechazar el reto. Su equipo pasa a representar su histórico competitivo con Jolteon, Starmie y Snorlax, acompañado de diálogos y bromas propios.
 
   ![Knekro con el sprite desordenado](images/knekro_sprite_desordenado.png)
 
@@ -233,3 +235,13 @@ Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
 - [x] **Documentación preventiva**: la guía explica tanto el empaquetado de hojas horizontales como la tabla de entrenadores que debe editarse.
 - [x] **Validación**: comprobados los frames `.4bpp`, la entrada generada `TRAINER_KNEKRO_HNS` y la build HnS completa con código 0.
 - [x] **ROM**: publicada como `releases/pokehns-0.19.1-20260923-knekro-fix-es.gba` y actualizada `pokehns_fase1.gba`.
+
+### Versión 0.19.2 (2026-09-23 - Rival histórico Knekro)
+
+- **Commit**: `57bb16e6e3` (`feat: convertir a Knekro en rival histórico`).
+- [x] **Escala del overworld**: los perfiles laterales se han igualado a 21 píxeles de altura sin mover los pies ni alterar los otros seis frames.
+- [x] **Acceso al reto**: exige haber derrotado a Blanca y obtenido la Medalla Planicie; después muestra una advertencia con elección Sí/No.
+- [x] **Equipo representativo**: Jolteon, Starmie y Snorlax sustituyen al equipo provisional y representan tres miembros de su equipo competitivo histórico.
+- [x] **Personalidad**: diálogo propio antes, durante y después del combate, incluida la entrada «¡TERCERO DEL MUNDOOO!».
+- [x] **Validación**: PNG indexado de 4 bits, nueve frames alineados, auditoría de textos sin incidencias y build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.19.2-20260923-knekro-historico-es.gba` y actualizada `pokehns_fase1.gba`.

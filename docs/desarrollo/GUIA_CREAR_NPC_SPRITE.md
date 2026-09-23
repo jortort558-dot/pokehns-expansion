@@ -551,6 +551,8 @@ Comprobar:
 
 - [ ] Nombre interno elegido y sin colisiones.
 - [ ] PNG indexado, dimensiones correctas y máximo 16 colores.
+- [ ] Siluetas con escala coherente entre direcciones; comparar la caja ocupada
+      por cada frame y mantener los pies en la misma fila.
 - [ ] Regla `.4bpp` con metatile igual al frame (`-mwidth 2 -mheight 4` para `16×32`).
 - [ ] Paleta válida o paleta existente elegida.
 - [ ] `object_event_graphics.h` actualizado.
