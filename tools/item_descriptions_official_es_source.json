@@ -1,0 +1,3422 @@
+{
+  "ITEM_POKE_BALL": {
+    "slug": "poke-ball",
+    "version_group_id": 20
+  },
+  "ITEM_GREAT_BALL": {
+    "slug": "great-ball",
+    "version_group_id": 20
+  },
+  "ITEM_ULTRA_BALL": {
+    "slug": "ultra-ball",
+    "version_group_id": 20
+  },
+  "ITEM_MASTER_BALL": {
+    "slug": "master-ball",
+    "version_group_id": 20
+  },
+  "ITEM_PREMIER_BALL": {
+    "slug": "premier-ball",
+    "version_group_id": 20
+  },
+  "ITEM_HEAL_BALL": {
+    "slug": "heal-ball",
+    "version_group_id": 20
+  },
+  "ITEM_NET_BALL": {
+    "slug": "net-ball",
+    "version_group_id": 20
+  },
+  "ITEM_NEST_BALL": {
+    "slug": "nest-ball",
+    "version_group_id": 20
+  },
+  "ITEM_DIVE_BALL": {
+    "slug": "dive-ball",
+    "version_group_id": 20
+  },
+  "ITEM_DUSK_BALL": {
+    "slug": "dusk-ball",
+    "version_group_id": 20
+  },
+  "ITEM_TIMER_BALL": {
+    "slug": "timer-ball",
+    "version_group_id": 20
+  },
+  "ITEM_QUICK_BALL": {
+    "slug": "quick-ball",
+    "version_group_id": 20
+  },
+  "ITEM_REPEAT_BALL": {
+    "slug": "repeat-ball",
+    "version_group_id": 20
+  },
+  "ITEM_LUXURY_BALL": {
+    "slug": "luxury-ball",
+    "version_group_id": 20
+  },
+  "ITEM_LEVEL_BALL": {
+    "slug": "level-ball",
+    "version_group_id": 20
+  },
+  "ITEM_LURE_BALL": {
+    "slug": "lure-ball",
+    "version_group_id": 20
+  },
+  "ITEM_MOON_BALL": {
+    "slug": "moon-ball",
+    "version_group_id": 20
+  },
+  "ITEM_FRIEND_BALL": {
+    "slug": "friend-ball",
+    "version_group_id": 20
+  },
+  "ITEM_LOVE_BALL": {
+    "slug": "love-ball",
+    "version_group_id": 20
+  },
+  "ITEM_FAST_BALL": {
+    "slug": "fast-ball",
+    "version_group_id": 20
+  },
+  "ITEM_HEAVY_BALL": {
+    "slug": "heavy-ball",
+    "version_group_id": 20
+  },
+  "ITEM_DREAM_BALL": {
+    "slug": "dream-ball",
+    "version_group_id": 20
+  },
+  "ITEM_SAFARI_BALL": {
+    "slug": "safari-ball",
+    "version_group_id": 20
+  },
+  "ITEM_SPORT_BALL": {
+    "slug": "sport-ball",
+    "version_group_id": 20
+  },
+  "ITEM_PARK_BALL": {
+    "slug": "park-ball",
+    "version_group_id": 20
+  },
+  "ITEM_BEAST_BALL": {
+    "slug": "beast-ball",
+    "version_group_id": 20
+  },
+  "ITEM_CHERISH_BALL": {
+    "slug": "cherish-ball",
+    "version_group_id": 20
+  },
+  "ITEM_POTION": {
+    "slug": "potion",
+    "version_group_id": 20
+  },
+  "ITEM_SUPER_POTION": {
+    "slug": "super-potion",
+    "version_group_id": 20
+  },
+  "ITEM_HYPER_POTION": {
+    "slug": "hyper-potion",
+    "version_group_id": 20
+  },
+  "ITEM_MAX_POTION": {
+    "slug": "max-potion",
+    "version_group_id": 20
+  },
+  "ITEM_FULL_RESTORE": {
+    "slug": "full-restore",
+    "version_group_id": 20
+  },
+  "ITEM_REVIVE": {
+    "slug": "revive",
+    "version_group_id": 20
+  },
+  "ITEM_MAX_REVIVE": {
+    "slug": "max-revive",
+    "version_group_id": 20
+  },
+  "ITEM_FRESH_WATER": {
+    "slug": "fresh-water",
+    "version_group_id": 20
+  },
+  "ITEM_SODA_POP": {
+    "slug": "soda-pop",
+    "version_group_id": 20
+  },
+  "ITEM_LEMONADE": {
+    "slug": "lemonade",
+    "version_group_id": 20
+  },
+  "ITEM_MOOMOO_MILK": {
+    "slug": "moomoo-milk",
+    "version_group_id": 20
+  },
+  "ITEM_ENERGY_POWDER": {
+    "slug": "energy-powder",
+    "version_group_id": 20
+  },
+  "ITEM_ENERGY_ROOT": {
+    "slug": "energy-root",
+    "version_group_id": 20
+  },
+  "ITEM_HEAL_POWDER": {
+    "slug": "heal-powder",
+    "version_group_id": 20
+  },
+  "ITEM_REVIVAL_HERB": {
+    "slug": "revival-herb",
+    "version_group_id": 20
+  },
+  "ITEM_ANTIDOTE": {
+    "slug": "antidote",
+    "version_group_id": 20
+  },
+  "ITEM_PARALYZE_HEAL": {
+    "slug": "paralyze-heal",
+    "version_group_id": 20
+  },
+  "ITEM_BURN_HEAL": {
+    "slug": "burn-heal",
+    "version_group_id": 20
+  },
+  "ITEM_ICE_HEAL": {
+    "slug": "ice-heal",
+    "version_group_id": 20
+  },
+  "ITEM_AWAKENING": {
+    "slug": "awakening",
+    "version_group_id": 20
+  },
+  "ITEM_FULL_HEAL": {
+    "slug": "full-heal",
+    "version_group_id": 20
+  },
+  "ITEM_ETHER": {
+    "slug": "ether",
+    "version_group_id": 20
+  },
+  "ITEM_MAX_ETHER": {
+    "slug": "max-ether",
+    "version_group_id": 20
+  },
+  "ITEM_ELIXIR": {
+    "slug": "elixir",
+    "version_group_id": 20
+  },
+  "ITEM_MAX_ELIXIR": {
+    "slug": "max-elixir",
+    "version_group_id": 20
+  },
+  "ITEM_BERRY_JUICE": {
+    "slug": "berry-juice",
+    "version_group_id": 20
+  },
+  "ITEM_SACRED_ASH": {
+    "slug": "sacred-ash",
+    "version_group_id": 20
+  },
+  "ITEM_SWEET_HEART": {
+    "slug": "sweet-heart",
+    "version_group_id": 20
+  },
+  "ITEM_MAX_HONEY": {
+    "slug": "max-honey",
+    "version_group_id": 20
+  },
+  "ITEM_PEWTER_CRUNCHIES": {
+    "slug": "pewter-crunchies",
+    "version_group_id": 20
+  },
+  "ITEM_RAGE_CANDY_BAR": {
+    "slug": "rage-candy-bar",
+    "version_group_id": 20
+  },
+  "ITEM_LAVA_COOKIE": {
+    "slug": "lava-cookie",
+    "version_group_id": 20
+  },
+  "ITEM_OLD_GATEAU": {
+    "slug": "old-gateau",
+    "version_group_id": 20
+  },
+  "ITEM_CASTELIACONE": {
+    "slug": "casteliacone",
+    "version_group_id": 20
+  },
+  "ITEM_LUMIOSE_GALETTE": {
+    "slug": "lumiose-galette",
+    "version_group_id": 20
+  },
+  "ITEM_SHALOUR_SABLE": {
+    "slug": "shalour-sable",
+    "version_group_id": 20
+  },
+  "ITEM_BIG_MALASADA": {
+    "slug": "big-malasada",
+    "version_group_id": 20
+  },
+  "ITEM_HP_UP": {
+    "slug": "hp-up",
+    "version_group_id": 20
+  },
+  "ITEM_PROTEIN": {
+    "slug": "protein",
+    "version_group_id": 20
+  },
+  "ITEM_IRON": {
+    "slug": "iron",
+    "version_group_id": 20
+  },
+  "ITEM_CALCIUM": {
+    "slug": "calcium",
+    "version_group_id": 20
+  },
+  "ITEM_ZINC": {
+    "slug": "zinc",
+    "version_group_id": 20
+  },
+  "ITEM_CARBOS": {
+    "slug": "carbos",
+    "version_group_id": 20
+  },
+  "ITEM_PP_UP": {
+    "slug": "pp-up",
+    "version_group_id": 20
+  },
+  "ITEM_PP_MAX": {
+    "slug": "pp-max",
+    "version_group_id": 20
+  },
+  "ITEM_HEALTH_FEATHER": {
+    "slug": "health-wing",
+    "version_group_id": 20
+  },
+  "ITEM_MUSCLE_FEATHER": {
+    "slug": "muscle-wing",
+    "version_group_id": 20
+  },
+  "ITEM_RESIST_FEATHER": {
+    "slug": "resist-wing",
+    "version_group_id": 20
+  },
+  "ITEM_GENIUS_FEATHER": {
+    "slug": "genius-wing",
+    "version_group_id": 20
+  },
+  "ITEM_CLEVER_FEATHER": {
+    "slug": "clever-wing",
+    "version_group_id": 20
+  },
+  "ITEM_SWIFT_FEATHER": {
+    "slug": "swift-wing",
+    "version_group_id": 20
+  },
+  "ITEM_ABILITY_CAPSULE": {
+    "slug": "ability-capsule",
+    "version_group_id": 20
+  },
+  "ITEM_ABILITY_PATCH": {
+    "slug": "ability-patch",
+    "version_group_id": 20
+  },
+  "ITEM_LONELY_MINT": {
+    "slug": "lonely-mint",
+    "version_group_id": 20
+  },
+  "ITEM_ADAMANT_MINT": {
+    "slug": "adamant-mint",
+    "version_group_id": 20
+  },
+  "ITEM_NAUGHTY_MINT": {
+    "slug": "naughty-mint",
+    "version_group_id": 20
+  },
+  "ITEM_BRAVE_MINT": {
+    "slug": "brave-mint",
+    "version_group_id": 20
+  },
+  "ITEM_BOLD_MINT": {
+    "slug": "bold-mint",
+    "version_group_id": 20
+  },
+  "ITEM_IMPISH_MINT": {
+    "slug": "impish-mint",
+    "version_group_id": 20
+  },
+  "ITEM_LAX_MINT": {
+    "slug": "lax-mint",
+    "version_group_id": 20
+  },
+  "ITEM_RELAXED_MINT": {
+    "slug": "relaxed-mint",
+    "version_group_id": 20
+  },
+  "ITEM_MODEST_MINT": {
+    "slug": "modest-mint",
+    "version_group_id": 20
+  },
+  "ITEM_MILD_MINT": {
+    "slug": "mild-mint",
+    "version_group_id": 20
+  },
+  "ITEM_RASH_MINT": {
+    "slug": "rash-mint",
+    "version_group_id": 20
+  },
+  "ITEM_QUIET_MINT": {
+    "slug": "quiet-mint",
+    "version_group_id": 20
+  },
+  "ITEM_CALM_MINT": {
+    "slug": "calm-mint",
+    "version_group_id": 20
+  },
+  "ITEM_GENTLE_MINT": {
+    "slug": "gentle-mint",
+    "version_group_id": 20
+  },
+  "ITEM_CAREFUL_MINT": {
+    "slug": "careful-mint",
+    "version_group_id": 20
+  },
+  "ITEM_SASSY_MINT": {
+    "slug": "sassy-mint",
+    "version_group_id": 20
+  },
+  "ITEM_TIMID_MINT": {
+    "slug": "timid-mint",
+    "version_group_id": 20
+  },
+  "ITEM_HASTY_MINT": {
+    "slug": "hasty-mint",
+    "version_group_id": 20
+  },
+  "ITEM_JOLLY_MINT": {
+    "slug": "jolly-mint",
+    "version_group_id": 20
+  },
+  "ITEM_NAIVE_MINT": {
+    "slug": "naive-mint",
+    "version_group_id": 20
+  },
+  "ITEM_SERIOUS_MINT": {
+    "slug": "serious-mint",
+    "version_group_id": 20
+  },
+  "ITEM_RARE_CANDY": {
+    "slug": "rare-candy",
+    "version_group_id": 20
+  },
+  "ITEM_EXP_CANDY_XS": {
+    "slug": "exp-candy-xs",
+    "version_group_id": 20
+  },
+  "ITEM_EXP_CANDY_S": {
+    "slug": "exp-candy-s",
+    "version_group_id": 20
+  },
+  "ITEM_EXP_CANDY_M": {
+    "slug": "exp-candy-m",
+    "version_group_id": 20
+  },
+  "ITEM_EXP_CANDY_L": {
+    "slug": "exp-candy-l",
+    "version_group_id": 20
+  },
+  "ITEM_EXP_CANDY_XL": {
+    "slug": "exp-candy-xl",
+    "version_group_id": 20
+  },
+  "ITEM_DYNAMAX_CANDY": {
+    "slug": "dynamax-candy",
+    "version_group_id": 20
+  },
+  "ITEM_BLUE_FLUTE": {
+    "slug": "blue-flute",
+    "version_group_id": 20
+  },
+  "ITEM_YELLOW_FLUTE": {
+    "slug": "yellow-flute",
+    "version_group_id": 20
+  },
+  "ITEM_RED_FLUTE": {
+    "slug": "red-flute",
+    "version_group_id": 20
+  },
+  "ITEM_BLACK_FLUTE": {
+    "slug": "black-flute",
+    "version_group_id": 20
+  },
+  "ITEM_WHITE_FLUTE": {
+    "slug": "white-flute",
+    "version_group_id": 20
+  },
+  "ITEM_REPEL": {
+    "slug": "repel",
+    "version_group_id": 20
+  },
+  "ITEM_SUPER_REPEL": {
+    "slug": "super-repel",
+    "version_group_id": 20
+  },
+  "ITEM_MAX_REPEL": {
+    "slug": "max-repel",
+    "version_group_id": 20
+  },
+  "ITEM_LURE": {
+    "slug": "lure",
+    "version_group_id": 20
+  },
+  "ITEM_SUPER_LURE": {
+    "slug": "super-lure",
+    "version_group_id": 20
+  },
+  "ITEM_MAX_LURE": {
+    "slug": "max-lure",
+    "version_group_id": 20
+  },
+  "ITEM_ESCAPE_ROPE": {
+    "slug": "escape-rope",
+    "version_group_id": 20
+  },
+  "ITEM_X_ATTACK": {
+    "slug": "x-attack",
+    "version_group_id": 20
+  },
+  "ITEM_X_DEFENSE": {
+    "slug": "x-defense",
+    "version_group_id": 20
+  },
+  "ITEM_X_SP_ATK": {
+    "slug": "x-sp-atk",
+    "version_group_id": 20
+  },
+  "ITEM_X_SP_DEF": {
+    "slug": "x-sp-def",
+    "version_group_id": 20
+  },
+  "ITEM_X_SPEED": {
+    "slug": "x-speed",
+    "version_group_id": 20
+  },
+  "ITEM_X_ACCURACY": {
+    "slug": "x-accuracy",
+    "version_group_id": 20
+  },
+  "ITEM_DIRE_HIT": {
+    "slug": "dire-hit",
+    "version_group_id": 20
+  },
+  "ITEM_GUARD_SPEC": {
+    "slug": "guard-spec",
+    "version_group_id": 20
+  },
+  "ITEM_POKE_DOLL": {
+    "slug": "poke-doll",
+    "version_group_id": 20
+  },
+  "ITEM_FLUFFY_TAIL": {
+    "slug": "fluffy-tail",
+    "version_group_id": 20
+  },
+  "ITEM_POKE_TOY": {
+    "slug": "poke-toy",
+    "version_group_id": 20
+  },
+  "ITEM_MAX_MUSHROOMS": {
+    "slug": "max-mushrooms",
+    "version_group_id": 20
+  },
+  "ITEM_BOTTLE_CAP": {
+    "slug": "bottle-cap",
+    "version_group_id": 20
+  },
+  "ITEM_GOLD_BOTTLE_CAP": {
+    "slug": "gold-bottle-cap",
+    "version_group_id": 20
+  },
+  "ITEM_NUGGET": {
+    "slug": "nugget",
+    "version_group_id": 20
+  },
+  "ITEM_BIG_NUGGET": {
+    "slug": "big-nugget",
+    "version_group_id": 20
+  },
+  "ITEM_TINY_MUSHROOM": {
+    "slug": "tiny-mushroom",
+    "version_group_id": 20
+  },
+  "ITEM_BIG_MUSHROOM": {
+    "slug": "big-mushroom",
+    "version_group_id": 20
+  },
+  "ITEM_BALM_MUSHROOM": {
+    "slug": "balm-mushroom",
+    "version_group_id": 20
+  },
+  "ITEM_PEARL": {
+    "slug": "pearl",
+    "version_group_id": 20
+  },
+  "ITEM_BIG_PEARL": {
+    "slug": "big-pearl",
+    "version_group_id": 20
+  },
+  "ITEM_PEARL_STRING": {
+    "slug": "pearl-string",
+    "version_group_id": 20
+  },
+  "ITEM_STARDUST": {
+    "slug": "stardust",
+    "version_group_id": 20
+  },
+  "ITEM_STAR_PIECE": {
+    "slug": "star-piece",
+    "version_group_id": 20
+  },
+  "ITEM_COMET_SHARD": {
+    "slug": "comet-shard",
+    "version_group_id": 20
+  },
+  "ITEM_SHOAL_SALT": {
+    "slug": "shoal-salt",
+    "version_group_id": 20
+  },
+  "ITEM_SHOAL_SHELL": {
+    "slug": "shoal-shell",
+    "version_group_id": 20
+  },
+  "ITEM_RED_SHARD": {
+    "slug": "red-shard",
+    "version_group_id": 20
+  },
+  "ITEM_BLUE_SHARD": {
+    "slug": "blue-shard",
+    "version_group_id": 20
+  },
+  "ITEM_YELLOW_SHARD": {
+    "slug": "yellow-shard",
+    "version_group_id": 20
+  },
+  "ITEM_GREEN_SHARD": {
+    "slug": "green-shard",
+    "version_group_id": 20
+  },
+  "ITEM_HEART_SCALE": {
+    "slug": "heart-scale",
+    "version_group_id": 20
+  },
+  "ITEM_HONEY": {
+    "slug": "honey",
+    "version_group_id": 20
+  },
+  "ITEM_RARE_BONE": {
+    "slug": "rare-bone",
+    "version_group_id": 20
+  },
+  "ITEM_ODD_KEYSTONE": {
+    "slug": "odd-keystone",
+    "version_group_id": 20
+  },
+  "ITEM_PRETTY_FEATHER": {
+    "slug": "pretty-wing",
+    "version_group_id": 20
+  },
+  "ITEM_RELIC_COPPER": {
+    "slug": "relic-copper",
+    "version_group_id": 20
+  },
+  "ITEM_RELIC_SILVER": {
+    "slug": "relic-silver",
+    "version_group_id": 20
+  },
+  "ITEM_RELIC_GOLD": {
+    "slug": "relic-gold",
+    "version_group_id": 20
+  },
+  "ITEM_RELIC_VASE": {
+    "slug": "relic-vase",
+    "version_group_id": 20
+  },
+  "ITEM_RELIC_BAND": {
+    "slug": "relic-band",
+    "version_group_id": 20
+  },
+  "ITEM_RELIC_STATUE": {
+    "slug": "relic-statue",
+    "version_group_id": 20
+  },
+  "ITEM_RELIC_CROWN": {
+    "slug": "relic-crown",
+    "version_group_id": 20
+  },
+  "ITEM_STRANGE_SOUVENIR": {
+    "slug": "strange-souvenir",
+    "version_group_id": 20
+  },
+  "ITEM_HELIX_FOSSIL": {
+    "slug": "helix-fossil",
+    "version_group_id": 20
+  },
+  "ITEM_DOME_FOSSIL": {
+    "slug": "dome-fossil",
+    "version_group_id": 20
+  },
+  "ITEM_OLD_AMBER": {
+    "slug": "old-amber",
+    "version_group_id": 20
+  },
+  "ITEM_ROOT_FOSSIL": {
+    "slug": "root-fossil",
+    "version_group_id": 20
+  },
+  "ITEM_CLAW_FOSSIL": {
+    "slug": "claw-fossil",
+    "version_group_id": 20
+  },
+  "ITEM_ARMOR_FOSSIL": {
+    "slug": "armor-fossil",
+    "version_group_id": 20
+  },
+  "ITEM_SKULL_FOSSIL": {
+    "slug": "skull-fossil",
+    "version_group_id": 20
+  },
+  "ITEM_COVER_FOSSIL": {
+    "slug": "cover-fossil",
+    "version_group_id": 20
+  },
+  "ITEM_PLUME_FOSSIL": {
+    "slug": "plume-fossil",
+    "version_group_id": 20
+  },
+  "ITEM_JAW_FOSSIL": {
+    "slug": "jaw-fossil",
+    "version_group_id": 20
+  },
+  "ITEM_SAIL_FOSSIL": {
+    "slug": "sail-fossil",
+    "version_group_id": 20
+  },
+  "ITEM_FOSSILIZED_BIRD": {
+    "slug": "fossilized-bird",
+    "version_group_id": 20
+  },
+  "ITEM_FOSSILIZED_FISH": {
+    "slug": "fossilized-fish",
+    "version_group_id": 20
+  },
+  "ITEM_FOSSILIZED_DRAKE": {
+    "slug": "fossilized-drake",
+    "version_group_id": 20
+  },
+  "ITEM_FOSSILIZED_DINO": {
+    "slug": "fossilized-dino",
+    "version_group_id": 20
+  },
+  "ITEM_GROWTH_MULCH": {
+    "slug": "growth-mulch",
+    "version_group_id": 20
+  },
+  "ITEM_DAMP_MULCH": {
+    "slug": "damp-mulch",
+    "version_group_id": 20
+  },
+  "ITEM_STABLE_MULCH": {
+    "slug": "stable-mulch",
+    "version_group_id": 20
+  },
+  "ITEM_GOOEY_MULCH": {
+    "slug": "gooey-mulch",
+    "version_group_id": 20
+  },
+  "ITEM_RICH_MULCH": {
+    "slug": "rich-mulch",
+    "version_group_id": 20
+  },
+  "ITEM_SURPRISE_MULCH": {
+    "slug": "surprise-mulch",
+    "version_group_id": 20
+  },
+  "ITEM_BOOST_MULCH": {
+    "slug": "boost-mulch",
+    "version_group_id": 20
+  },
+  "ITEM_AMAZE_MULCH": {
+    "slug": "amaze-mulch",
+    "version_group_id": 20
+  },
+  "ITEM_RED_APRICORN": {
+    "slug": "red-apricorn",
+    "version_group_id": 20
+  },
+  "ITEM_BLUE_APRICORN": {
+    "slug": "blue-apricorn",
+    "version_group_id": 20
+  },
+  "ITEM_YELLOW_APRICORN": {
+    "slug": "yellow-apricorn",
+    "version_group_id": 20
+  },
+  "ITEM_GREEN_APRICORN": {
+    "slug": "green-apricorn",
+    "version_group_id": 20
+  },
+  "ITEM_PINK_APRICORN": {
+    "slug": "pink-apricorn",
+    "version_group_id": 20
+  },
+  "ITEM_WHITE_APRICORN": {
+    "slug": "white-apricorn",
+    "version_group_id": 20
+  },
+  "ITEM_BLACK_APRICORN": {
+    "slug": "black-apricorn",
+    "version_group_id": 20
+  },
+  "ITEM_WISHING_PIECE": {
+    "slug": "wishing-piece",
+    "version_group_id": 20
+  },
+  "ITEM_GALARICA_TWIG": {
+    "slug": "galarica-twig",
+    "version_group_id": 20
+  },
+  "ITEM_ARMORITE_ORE": {
+    "slug": "armorite-ore",
+    "version_group_id": 20
+  },
+  "ITEM_DYNITE_ORE": {
+    "slug": "dynite-ore",
+    "version_group_id": 20
+  },
+  "ITEM_FIRE_STONE": {
+    "slug": "fire-stone",
+    "version_group_id": 20
+  },
+  "ITEM_WATER_STONE": {
+    "slug": "water-stone",
+    "version_group_id": 20
+  },
+  "ITEM_THUNDER_STONE": {
+    "slug": "thunder-stone",
+    "version_group_id": 20
+  },
+  "ITEM_LEAF_STONE": {
+    "slug": "leaf-stone",
+    "version_group_id": 20
+  },
+  "ITEM_ICE_STONE": {
+    "slug": "ice-stone",
+    "version_group_id": 20
+  },
+  "ITEM_SUN_STONE": {
+    "slug": "sun-stone",
+    "version_group_id": 20
+  },
+  "ITEM_MOON_STONE": {
+    "slug": "moon-stone",
+    "version_group_id": 20
+  },
+  "ITEM_SHINY_STONE": {
+    "slug": "shiny-stone",
+    "version_group_id": 20
+  },
+  "ITEM_DUSK_STONE": {
+    "slug": "dusk-stone",
+    "version_group_id": 20
+  },
+  "ITEM_DAWN_STONE": {
+    "slug": "dawn-stone",
+    "version_group_id": 20
+  },
+  "ITEM_SWEET_APPLE": {
+    "slug": "sweet-apple",
+    "version_group_id": 20
+  },
+  "ITEM_TART_APPLE": {
+    "slug": "tart-apple",
+    "version_group_id": 20
+  },
+  "ITEM_CRACKED_POT": {
+    "slug": "cracked-pot",
+    "version_group_id": 20
+  },
+  "ITEM_CHIPPED_POT": {
+    "slug": "chipped-pot",
+    "version_group_id": 20
+  },
+  "ITEM_GALARICA_CUFF": {
+    "slug": "galarica-cuff",
+    "version_group_id": 20
+  },
+  "ITEM_GALARICA_WREATH": {
+    "slug": "galarica-wreath",
+    "version_group_id": 20
+  },
+  "ITEM_DRAGON_SCALE": {
+    "slug": "dragon-scale",
+    "version_group_id": 20
+  },
+  "ITEM_UPGRADE": {
+    "slug": "up-grade",
+    "version_group_id": 20
+  },
+  "ITEM_PROTECTOR": {
+    "slug": "protector",
+    "version_group_id": 20
+  },
+  "ITEM_ELECTIRIZER": {
+    "slug": "electirizer",
+    "version_group_id": 20
+  },
+  "ITEM_MAGMARIZER": {
+    "slug": "magmarizer",
+    "version_group_id": 20
+  },
+  "ITEM_DUBIOUS_DISC": {
+    "slug": "dubious-disc",
+    "version_group_id": 20
+  },
+  "ITEM_REAPER_CLOTH": {
+    "slug": "reaper-cloth",
+    "version_group_id": 20
+  },
+  "ITEM_PRISM_SCALE": {
+    "slug": "prism-scale",
+    "version_group_id": 20
+  },
+  "ITEM_WHIPPED_DREAM": {
+    "slug": "whipped-dream",
+    "version_group_id": 20
+  },
+  "ITEM_SACHET": {
+    "slug": "sachet",
+    "version_group_id": 20
+  },
+  "ITEM_OVAL_STONE": {
+    "slug": "oval-stone",
+    "version_group_id": 20
+  },
+  "ITEM_STRAWBERRY_SWEET": {
+    "slug": "strawberry-sweet",
+    "version_group_id": 20
+  },
+  "ITEM_LOVE_SWEET": {
+    "slug": "love-sweet",
+    "version_group_id": 20
+  },
+  "ITEM_BERRY_SWEET": {
+    "slug": "berry-sweet",
+    "version_group_id": 20
+  },
+  "ITEM_CLOVER_SWEET": {
+    "slug": "clover-sweet",
+    "version_group_id": 20
+  },
+  "ITEM_FLOWER_SWEET": {
+    "slug": "flower-sweet",
+    "version_group_id": 20
+  },
+  "ITEM_STAR_SWEET": {
+    "slug": "star-sweet",
+    "version_group_id": 20
+  },
+  "ITEM_RIBBON_SWEET": {
+    "slug": "ribbon-sweet",
+    "version_group_id": 20
+  },
+  "ITEM_EVERSTONE": {
+    "slug": "everstone",
+    "version_group_id": 20
+  },
+  "ITEM_RED_NECTAR": {
+    "slug": "red-nectar",
+    "version_group_id": 20
+  },
+  "ITEM_YELLOW_NECTAR": {
+    "slug": "yellow-nectar",
+    "version_group_id": 20
+  },
+  "ITEM_PINK_NECTAR": {
+    "slug": "pink-nectar",
+    "version_group_id": 20
+  },
+  "ITEM_PURPLE_NECTAR": {
+    "slug": "purple-nectar",
+    "version_group_id": 20
+  },
+  "ITEM_FLAME_PLATE": {
+    "slug": "flame-plate",
+    "version_group_id": 20
+  },
+  "ITEM_SPLASH_PLATE": {
+    "slug": "splash-plate",
+    "version_group_id": 20
+  },
+  "ITEM_ZAP_PLATE": {
+    "slug": "zap-plate",
+    "version_group_id": 20
+  },
+  "ITEM_MEADOW_PLATE": {
+    "slug": "meadow-plate",
+    "version_group_id": 20
+  },
+  "ITEM_ICICLE_PLATE": {
+    "slug": "icicle-plate",
+    "version_group_id": 20
+  },
+  "ITEM_FIST_PLATE": {
+    "slug": "fist-plate",
+    "version_group_id": 20
+  },
+  "ITEM_TOXIC_PLATE": {
+    "slug": "toxic-plate",
+    "version_group_id": 20
+  },
+  "ITEM_EARTH_PLATE": {
+    "slug": "earth-plate",
+    "version_group_id": 20
+  },
+  "ITEM_SKY_PLATE": {
+    "slug": "sky-plate",
+    "version_group_id": 20
+  },
+  "ITEM_MIND_PLATE": {
+    "slug": "mind-plate",
+    "version_group_id": 20
+  },
+  "ITEM_INSECT_PLATE": {
+    "slug": "insect-plate",
+    "version_group_id": 20
+  },
+  "ITEM_STONE_PLATE": {
+    "slug": "stone-plate",
+    "version_group_id": 20
+  },
+  "ITEM_SPOOKY_PLATE": {
+    "slug": "spooky-plate",
+    "version_group_id": 20
+  },
+  "ITEM_DRACO_PLATE": {
+    "slug": "draco-plate",
+    "version_group_id": 20
+  },
+  "ITEM_DREAD_PLATE": {
+    "slug": "dread-plate",
+    "version_group_id": 20
+  },
+  "ITEM_IRON_PLATE": {
+    "slug": "iron-plate",
+    "version_group_id": 20
+  },
+  "ITEM_PIXIE_PLATE": {
+    "slug": "pixie-plate",
+    "version_group_id": 20
+  },
+  "ITEM_DOUSE_DRIVE": {
+    "slug": "douse-drive",
+    "version_group_id": 20
+  },
+  "ITEM_SHOCK_DRIVE": {
+    "slug": "shock-drive",
+    "version_group_id": 20
+  },
+  "ITEM_BURN_DRIVE": {
+    "slug": "burn-drive",
+    "version_group_id": 20
+  },
+  "ITEM_CHILL_DRIVE": {
+    "slug": "chill-drive",
+    "version_group_id": 20
+  },
+  "ITEM_FIRE_MEMORY": {
+    "slug": "fire-memory",
+    "version_group_id": 20
+  },
+  "ITEM_WATER_MEMORY": {
+    "slug": "water-memory",
+    "version_group_id": 20
+  },
+  "ITEM_ELECTRIC_MEMORY": {
+    "slug": "electric-memory",
+    "version_group_id": 20
+  },
+  "ITEM_GRASS_MEMORY": {
+    "slug": "grass-memory",
+    "version_group_id": 20
+  },
+  "ITEM_ICE_MEMORY": {
+    "slug": "ice-memory",
+    "version_group_id": 20
+  },
+  "ITEM_FIGHTING_MEMORY": {
+    "slug": "fighting-memory",
+    "version_group_id": 20
+  },
+  "ITEM_POISON_MEMORY": {
+    "slug": "poison-memory",
+    "version_group_id": 20
+  },
+  "ITEM_GROUND_MEMORY": {
+    "slug": "ground-memory",
+    "version_group_id": 20
+  },
+  "ITEM_FLYING_MEMORY": {
+    "slug": "flying-memory",
+    "version_group_id": 20
+  },
+  "ITEM_PSYCHIC_MEMORY": {
+    "slug": "psychic-memory",
+    "version_group_id": 20
+  },
+  "ITEM_BUG_MEMORY": {
+    "slug": "bug-memory",
+    "version_group_id": 20
+  },
+  "ITEM_ROCK_MEMORY": {
+    "slug": "rock-memory",
+    "version_group_id": 20
+  },
+  "ITEM_GHOST_MEMORY": {
+    "slug": "ghost-memory",
+    "version_group_id": 20
+  },
+  "ITEM_DRAGON_MEMORY": {
+    "slug": "dragon-memory",
+    "version_group_id": 20
+  },
+  "ITEM_DARK_MEMORY": {
+    "slug": "dark-memory",
+    "version_group_id": 20
+  },
+  "ITEM_STEEL_MEMORY": {
+    "slug": "steel-memory",
+    "version_group_id": 20
+  },
+  "ITEM_FAIRY_MEMORY": {
+    "slug": "fairy-memory",
+    "version_group_id": 20
+  },
+  "ITEM_RUSTED_SWORD": {
+    "slug": "rusted-sword",
+    "version_group_id": 20
+  },
+  "ITEM_RUSTED_SHIELD": {
+    "slug": "rusted-shield",
+    "version_group_id": 20
+  },
+  "ITEM_RED_ORB": {
+    "slug": "red-orb",
+    "version_group_id": 20
+  },
+  "ITEM_BLUE_ORB": {
+    "slug": "blue-orb",
+    "version_group_id": 20
+  },
+  "ITEM_VENUSAURITE": {
+    "slug": "venusaurite",
+    "version_group_id": 20
+  },
+  "ITEM_CHARIZARDITE_X": {
+    "slug": "charizardite-x",
+    "version_group_id": 20
+  },
+  "ITEM_CHARIZARDITE_Y": {
+    "slug": "charizardite-y",
+    "version_group_id": 20
+  },
+  "ITEM_BLASTOISINITE": {
+    "slug": "blastoisinite",
+    "version_group_id": 20
+  },
+  "ITEM_BEEDRILLITE": {
+    "slug": "beedrillite",
+    "version_group_id": 20
+  },
+  "ITEM_PIDGEOTITE": {
+    "slug": "pidgeotite",
+    "version_group_id": 20
+  },
+  "ITEM_ALAKAZITE": {
+    "slug": "alakazite",
+    "version_group_id": 20
+  },
+  "ITEM_SLOWBRONITE": {
+    "slug": "slowbronite",
+    "version_group_id": 20
+  },
+  "ITEM_GENGARITE": {
+    "slug": "gengarite",
+    "version_group_id": 20
+  },
+  "ITEM_KANGASKHANITE": {
+    "slug": "kangaskhanite",
+    "version_group_id": 20
+  },
+  "ITEM_PINSIRITE": {
+    "slug": "pinsirite",
+    "version_group_id": 20
+  },
+  "ITEM_GYARADOSITE": {
+    "slug": "gyaradosite",
+    "version_group_id": 20
+  },
+  "ITEM_AERODACTYLITE": {
+    "slug": "aerodactylite",
+    "version_group_id": 20
+  },
+  "ITEM_MEWTWONITE_X": {
+    "slug": "mewtwonite-x",
+    "version_group_id": 20
+  },
+  "ITEM_MEWTWONITE_Y": {
+    "slug": "mewtwonite-y",
+    "version_group_id": 20
+  },
+  "ITEM_AMPHAROSITE": {
+    "slug": "ampharosite",
+    "version_group_id": 20
+  },
+  "ITEM_STEELIXITE": {
+    "slug": "steelixite",
+    "version_group_id": 20
+  },
+  "ITEM_SCIZORITE": {
+    "slug": "scizorite",
+    "version_group_id": 20
+  },
+  "ITEM_HERACRONITE": {
+    "slug": "heracronite",
+    "version_group_id": 20
+  },
+  "ITEM_HOUNDOOMINITE": {
+    "slug": "houndoominite",
+    "version_group_id": 20
+  },
+  "ITEM_TYRANITARITE": {
+    "slug": "tyranitarite",
+    "version_group_id": 20
+  },
+  "ITEM_SCEPTILITE": {
+    "slug": "sceptilite",
+    "version_group_id": 20
+  },
+  "ITEM_BLAZIKENITE": {
+    "slug": "blazikenite",
+    "version_group_id": 20
+  },
+  "ITEM_SWAMPERTITE": {
+    "slug": "swampertite",
+    "version_group_id": 20
+  },
+  "ITEM_GARDEVOIRITE": {
+    "slug": "gardevoirite",
+    "version_group_id": 20
+  },
+  "ITEM_SABLENITE": {
+    "slug": "sablenite",
+    "version_group_id": 20
+  },
+  "ITEM_MAWILITE": {
+    "slug": "mawilite",
+    "version_group_id": 20
+  },
+  "ITEM_AGGRONITE": {
+    "slug": "aggronite",
+    "version_group_id": 20
+  },
+  "ITEM_MEDICHAMITE": {
+    "slug": "medichamite",
+    "version_group_id": 20
+  },
+  "ITEM_MANECTITE": {
+    "slug": "manectite",
+    "version_group_id": 20
+  },
+  "ITEM_SHARPEDONITE": {
+    "slug": "sharpedonite",
+    "version_group_id": 20
+  },
+  "ITEM_CAMERUPTITE": {
+    "slug": "cameruptite",
+    "version_group_id": 20
+  },
+  "ITEM_ALTARIANITE": {
+    "slug": "altarianite",
+    "version_group_id": 20
+  },
+  "ITEM_BANETTITE": {
+    "slug": "banettite",
+    "version_group_id": 20
+  },
+  "ITEM_ABSOLITE": {
+    "slug": "absolite",
+    "version_group_id": 20
+  },
+  "ITEM_GLALITITE": {
+    "slug": "glalitite",
+    "version_group_id": 20
+  },
+  "ITEM_SALAMENCITE": {
+    "slug": "salamencite",
+    "version_group_id": 20
+  },
+  "ITEM_METAGROSSITE": {
+    "slug": "metagrossite",
+    "version_group_id": 20
+  },
+  "ITEM_LATIASITE": {
+    "slug": "latiasite",
+    "version_group_id": 20
+  },
+  "ITEM_LATIOSITE": {
+    "slug": "latiosite",
+    "version_group_id": 20
+  },
+  "ITEM_LOPUNNITE": {
+    "slug": "lopunnite",
+    "version_group_id": 20
+  },
+  "ITEM_GARCHOMPITE": {
+    "slug": "garchompite",
+    "version_group_id": 20
+  },
+  "ITEM_LUCARIONITE": {
+    "slug": "lucarionite",
+    "version_group_id": 20
+  },
+  "ITEM_ABOMASITE": {
+    "slug": "abomasite",
+    "version_group_id": 20
+  },
+  "ITEM_GALLADITE": {
+    "slug": "galladite",
+    "version_group_id": 20
+  },
+  "ITEM_AUDINITE": {
+    "slug": "audinite",
+    "version_group_id": 20
+  },
+  "ITEM_DIANCITE": {
+    "slug": "diancite",
+    "version_group_id": 20
+  },
+  "ITEM_GB_PLAYER": {
+    "slug": "gb-sounds",
+    "version_group_id": 20
+  },
+  "ITEM_NORMAL_GEM": {
+    "slug": "normal-gem",
+    "version_group_id": 20
+  },
+  "ITEM_FIRE_GEM": {
+    "slug": "fire-gem",
+    "version_group_id": 20
+  },
+  "ITEM_WATER_GEM": {
+    "slug": "water-gem",
+    "version_group_id": 20
+  },
+  "ITEM_ELECTRIC_GEM": {
+    "slug": "electric-gem",
+    "version_group_id": 20
+  },
+  "ITEM_GRASS_GEM": {
+    "slug": "grass-gem",
+    "version_group_id": 20
+  },
+  "ITEM_ICE_GEM": {
+    "slug": "ice-gem",
+    "version_group_id": 20
+  },
+  "ITEM_FIGHTING_GEM": {
+    "slug": "fighting-gem",
+    "version_group_id": 20
+  },
+  "ITEM_POISON_GEM": {
+    "slug": "poison-gem",
+    "version_group_id": 20
+  },
+  "ITEM_GROUND_GEM": {
+    "slug": "ground-gem",
+    "version_group_id": 20
+  },
+  "ITEM_FLYING_GEM": {
+    "slug": "flying-gem",
+    "version_group_id": 20
+  },
+  "ITEM_PSYCHIC_GEM": {
+    "slug": "psychic-gem",
+    "version_group_id": 20
+  },
+  "ITEM_BUG_GEM": {
+    "slug": "bug-gem",
+    "version_group_id": 20
+  },
+  "ITEM_ROCK_GEM": {
+    "slug": "rock-gem",
+    "version_group_id": 20
+  },
+  "ITEM_GHOST_GEM": {
+    "slug": "ghost-gem",
+    "version_group_id": 20
+  },
+  "ITEM_DRAGON_GEM": {
+    "slug": "dragon-gem",
+    "version_group_id": 20
+  },
+  "ITEM_DARK_GEM": {
+    "slug": "dark-gem",
+    "version_group_id": 20
+  },
+  "ITEM_STEEL_GEM": {
+    "slug": "steel-gem",
+    "version_group_id": 20
+  },
+  "ITEM_FAIRY_GEM": {
+    "slug": "fairy-gem",
+    "version_group_id": 20
+  },
+  "ITEM_NORMALIUM_Z": {
+    "slug": "normalium-z",
+    "version_group_id": 20
+  },
+  "ITEM_FIRIUM_Z": {
+    "slug": "firium-z",
+    "version_group_id": 20
+  },
+  "ITEM_WATERIUM_Z": {
+    "slug": "waterium-z",
+    "version_group_id": 20
+  },
+  "ITEM_ELECTRIUM_Z": {
+    "slug": "electrium-z",
+    "version_group_id": 20
+  },
+  "ITEM_GRASSIUM_Z": {
+    "slug": "grassium-z",
+    "version_group_id": 20
+  },
+  "ITEM_ICIUM_Z": {
+    "slug": "icium-z",
+    "version_group_id": 20
+  },
+  "ITEM_FIGHTINIUM_Z": {
+    "slug": "fightinium-z",
+    "version_group_id": 20
+  },
+  "ITEM_POISONIUM_Z": {
+    "slug": "poisonium-z",
+    "version_group_id": 20
+  },
+  "ITEM_GROUNDIUM_Z": {
+    "slug": "groundium-z",
+    "version_group_id": 20
+  },
+  "ITEM_FLYINIUM_Z": {
+    "slug": "flyinium-z",
+    "version_group_id": 20
+  },
+  "ITEM_PSYCHIUM_Z": {
+    "slug": "psychium-z",
+    "version_group_id": 20
+  },
+  "ITEM_BUGINIUM_Z": {
+    "slug": "buginium-z",
+    "version_group_id": 20
+  },
+  "ITEM_ROCKIUM_Z": {
+    "slug": "rockium-z",
+    "version_group_id": 20
+  },
+  "ITEM_GHOSTIUM_Z": {
+    "slug": "ghostium-z",
+    "version_group_id": 20
+  },
+  "ITEM_DRAGONIUM_Z": {
+    "slug": "dragonium-z",
+    "version_group_id": 20
+  },
+  "ITEM_DARKINIUM_Z": {
+    "slug": "darkinium-z",
+    "version_group_id": 20
+  },
+  "ITEM_STEELIUM_Z": {
+    "slug": "steelium-z",
+    "version_group_id": 20
+  },
+  "ITEM_FAIRIUM_Z": {
+    "slug": "fairium-z",
+    "version_group_id": 20
+  },
+  "ITEM_PIKANIUM_Z": {
+    "slug": "pikanium-z",
+    "version_group_id": 20
+  },
+  "ITEM_EEVIUM_Z": {
+    "slug": "eevium-z",
+    "version_group_id": 20
+  },
+  "ITEM_SNORLIUM_Z": {
+    "slug": "snorlium-z",
+    "version_group_id": 20
+  },
+  "ITEM_MEWNIUM_Z": {
+    "slug": "mewnium-z",
+    "version_group_id": 20
+  },
+  "ITEM_DECIDIUM_Z": {
+    "slug": "decidium-z",
+    "version_group_id": 20
+  },
+  "ITEM_INCINIUM_Z": {
+    "slug": "incinium-z",
+    "version_group_id": 20
+  },
+  "ITEM_PRIMARIUM_Z": {
+    "slug": "primarium-z",
+    "version_group_id": 20
+  },
+  "ITEM_LYCANIUM_Z": {
+    "slug": "lycanium-z",
+    "version_group_id": 20
+  },
+  "ITEM_MIMIKIUM_Z": {
+    "slug": "mimikium-z",
+    "version_group_id": 20
+  },
+  "ITEM_KOMMONIUM_Z": {
+    "slug": "kommonium-z",
+    "version_group_id": 20
+  },
+  "ITEM_TAPUNIUM_Z": {
+    "slug": "tapunium-z",
+    "version_group_id": 20
+  },
+  "ITEM_SOLGANIUM_Z": {
+    "slug": "solganium-z",
+    "version_group_id": 20
+  },
+  "ITEM_LUNALIUM_Z": {
+    "slug": "lunalium-z",
+    "version_group_id": 20
+  },
+  "ITEM_MARSHADIUM_Z": {
+    "slug": "marshadium-z",
+    "version_group_id": 20
+  },
+  "ITEM_ALORAICHIUM_Z": {
+    "slug": "aloraichium-z",
+    "version_group_id": 20
+  },
+  "ITEM_PIKASHUNIUM_Z": {
+    "slug": "pikashunium-z",
+    "version_group_id": 20
+  },
+  "ITEM_ULTRANECROZIUM_Z": {
+    "slug": "ultranecrozium-z",
+    "version_group_id": 20
+  },
+  "ITEM_LIGHT_BALL": {
+    "slug": "light-ball",
+    "version_group_id": 20
+  },
+  "ITEM_THICK_CLUB": {
+    "slug": "thick-club",
+    "version_group_id": 20
+  },
+  "ITEM_LUCKY_PUNCH": {
+    "slug": "lucky-punch",
+    "version_group_id": 20
+  },
+  "ITEM_METAL_POWDER": {
+    "slug": "metal-powder",
+    "version_group_id": 20
+  },
+  "ITEM_QUICK_POWDER": {
+    "slug": "quick-powder",
+    "version_group_id": 20
+  },
+  "ITEM_DEEP_SEA_SCALE": {
+    "slug": "deep-sea-scale",
+    "version_group_id": 20
+  },
+  "ITEM_DEEP_SEA_TOOTH": {
+    "slug": "deep-sea-tooth",
+    "version_group_id": 20
+  },
+  "ITEM_SOUL_DEW": {
+    "slug": "soul-dew",
+    "version_group_id": 20
+  },
+  "ITEM_ADAMANT_ORB": {
+    "slug": "adamant-orb",
+    "version_group_id": 20
+  },
+  "ITEM_LUSTROUS_ORB": {
+    "slug": "lustrous-orb",
+    "version_group_id": 20
+  },
+  "ITEM_GRISEOUS_ORB": {
+    "slug": "griseous-orb",
+    "version_group_id": 20
+  },
+  "ITEM_SEA_INCENSE": {
+    "slug": "sea-incense",
+    "version_group_id": 20
+  },
+  "ITEM_LAX_INCENSE": {
+    "slug": "lax-incense",
+    "version_group_id": 20
+  },
+  "ITEM_ODD_INCENSE": {
+    "slug": "odd-incense",
+    "version_group_id": 20
+  },
+  "ITEM_ROCK_INCENSE": {
+    "slug": "rock-incense",
+    "version_group_id": 20
+  },
+  "ITEM_FULL_INCENSE": {
+    "slug": "full-incense",
+    "version_group_id": 20
+  },
+  "ITEM_WAVE_INCENSE": {
+    "slug": "wave-incense",
+    "version_group_id": 20
+  },
+  "ITEM_ROSE_INCENSE": {
+    "slug": "rose-incense",
+    "version_group_id": 20
+  },
+  "ITEM_LUCK_INCENSE": {
+    "slug": "luck-incense",
+    "version_group_id": 20
+  },
+  "ITEM_PURE_INCENSE": {
+    "slug": "pure-incense",
+    "version_group_id": 20
+  },
+  "ITEM_RED_SCARF": {
+    "slug": "red-scarf",
+    "version_group_id": 20
+  },
+  "ITEM_BLUE_SCARF": {
+    "slug": "blue-scarf",
+    "version_group_id": 20
+  },
+  "ITEM_PINK_SCARF": {
+    "slug": "pink-scarf",
+    "version_group_id": 20
+  },
+  "ITEM_GREEN_SCARF": {
+    "slug": "green-scarf",
+    "version_group_id": 20
+  },
+  "ITEM_YELLOW_SCARF": {
+    "slug": "yellow-scarf",
+    "version_group_id": 20
+  },
+  "ITEM_MACHO_BRACE": {
+    "slug": "macho-brace",
+    "version_group_id": 20
+  },
+  "ITEM_POWER_WEIGHT": {
+    "slug": "power-weight",
+    "version_group_id": 20
+  },
+  "ITEM_POWER_BRACER": {
+    "slug": "power-bracer",
+    "version_group_id": 20
+  },
+  "ITEM_POWER_BELT": {
+    "slug": "power-belt",
+    "version_group_id": 20
+  },
+  "ITEM_POWER_LENS": {
+    "slug": "power-lens",
+    "version_group_id": 20
+  },
+  "ITEM_POWER_BAND": {
+    "slug": "power-band",
+    "version_group_id": 20
+  },
+  "ITEM_POWER_ANKLET": {
+    "slug": "power-anklet",
+    "version_group_id": 20
+  },
+  "ITEM_SILK_SCARF": {
+    "slug": "silk-scarf",
+    "version_group_id": 20
+  },
+  "ITEM_CHARCOAL": {
+    "slug": "charcoal",
+    "version_group_id": 20
+  },
+  "ITEM_MYSTIC_WATER": {
+    "slug": "mystic-water",
+    "version_group_id": 20
+  },
+  "ITEM_MAGNET": {
+    "slug": "magnet",
+    "version_group_id": 20
+  },
+  "ITEM_MIRACLE_SEED": {
+    "slug": "miracle-seed",
+    "version_group_id": 20
+  },
+  "ITEM_NEVER_MELT_ICE": {
+    "slug": "never-melt-ice",
+    "version_group_id": 20
+  },
+  "ITEM_BLACK_BELT": {
+    "slug": "black-belt",
+    "version_group_id": 20
+  },
+  "ITEM_POISON_BARB": {
+    "slug": "poison-barb",
+    "version_group_id": 20
+  },
+  "ITEM_SOFT_SAND": {
+    "slug": "soft-sand",
+    "version_group_id": 20
+  },
+  "ITEM_SHARP_BEAK": {
+    "slug": "sharp-beak",
+    "version_group_id": 20
+  },
+  "ITEM_TWISTED_SPOON": {
+    "slug": "twisted-spoon",
+    "version_group_id": 20
+  },
+  "ITEM_SILVER_POWDER": {
+    "slug": "silver-powder",
+    "version_group_id": 20
+  },
+  "ITEM_HARD_STONE": {
+    "slug": "hard-stone",
+    "version_group_id": 20
+  },
+  "ITEM_SPELL_TAG": {
+    "slug": "spell-tag",
+    "version_group_id": 20
+  },
+  "ITEM_DRAGON_FANG": {
+    "slug": "dragon-fang",
+    "version_group_id": 20
+  },
+  "ITEM_BLACK_GLASSES": {
+    "slug": "black-glasses",
+    "version_group_id": 20
+  },
+  "ITEM_METAL_COAT": {
+    "slug": "metal-coat",
+    "version_group_id": 20
+  },
+  "ITEM_CHOICE_BAND": {
+    "slug": "choice-band",
+    "version_group_id": 20
+  },
+  "ITEM_CHOICE_SPECS": {
+    "slug": "choice-specs",
+    "version_group_id": 20
+  },
+  "ITEM_CHOICE_SCARF": {
+    "slug": "choice-scarf",
+    "version_group_id": 20
+  },
+  "ITEM_FLAME_ORB": {
+    "slug": "flame-orb",
+    "version_group_id": 20
+  },
+  "ITEM_TOXIC_ORB": {
+    "slug": "toxic-orb",
+    "version_group_id": 20
+  },
+  "ITEM_DAMP_ROCK": {
+    "slug": "damp-rock",
+    "version_group_id": 20
+  },
+  "ITEM_HEAT_ROCK": {
+    "slug": "heat-rock",
+    "version_group_id": 20
+  },
+  "ITEM_SMOOTH_ROCK": {
+    "slug": "smooth-rock",
+    "version_group_id": 20
+  },
+  "ITEM_ICY_ROCK": {
+    "slug": "icy-rock",
+    "version_group_id": 20
+  },
+  "ITEM_ELECTRIC_SEED": {
+    "slug": "electric-seed",
+    "version_group_id": 20
+  },
+  "ITEM_PSYCHIC_SEED": {
+    "slug": "psychic-seed",
+    "version_group_id": 20
+  },
+  "ITEM_MISTY_SEED": {
+    "slug": "misty-seed",
+    "version_group_id": 20
+  },
+  "ITEM_GRASSY_SEED": {
+    "slug": "grassy-seed",
+    "version_group_id": 20
+  },
+  "ITEM_ABSORB_BULB": {
+    "slug": "absorb-bulb",
+    "version_group_id": 20
+  },
+  "ITEM_CELL_BATTERY": {
+    "slug": "cell-battery",
+    "version_group_id": 20
+  },
+  "ITEM_LUMINOUS_MOSS": {
+    "slug": "luminous-moss",
+    "version_group_id": 20
+  },
+  "ITEM_SNOWBALL": {
+    "slug": "snowball",
+    "version_group_id": 20
+  },
+  "ITEM_BRIGHT_POWDER": {
+    "slug": "bright-powder",
+    "version_group_id": 20
+  },
+  "ITEM_WHITE_HERB": {
+    "slug": "white-herb",
+    "version_group_id": 20
+  },
+  "ITEM_EXP_SHARE": {
+    "slug": "exp-share",
+    "version_group_id": 20
+  },
+  "ITEM_QUICK_CLAW": {
+    "slug": "quick-claw",
+    "version_group_id": 20
+  },
+  "ITEM_SOOTHE_BELL": {
+    "slug": "soothe-bell",
+    "version_group_id": 20
+  },
+  "ITEM_MENTAL_HERB": {
+    "slug": "mental-herb",
+    "version_group_id": 20
+  },
+  "ITEM_KINGS_ROCK": {
+    "slug": "kings-rock",
+    "version_group_id": 20
+  },
+  "ITEM_AMULET_COIN": {
+    "slug": "amulet-coin",
+    "version_group_id": 20
+  },
+  "ITEM_CLEANSE_TAG": {
+    "slug": "cleanse-tag",
+    "version_group_id": 20
+  },
+  "ITEM_SMOKE_BALL": {
+    "slug": "smoke-ball",
+    "version_group_id": 20
+  },
+  "ITEM_FOCUS_BAND": {
+    "slug": "focus-band",
+    "version_group_id": 20
+  },
+  "ITEM_LUCKY_EGG": {
+    "slug": "lucky-egg",
+    "version_group_id": 20
+  },
+  "ITEM_SCOPE_LENS": {
+    "slug": "scope-lens",
+    "version_group_id": 20
+  },
+  "ITEM_LEFTOVERS": {
+    "slug": "leftovers",
+    "version_group_id": 20
+  },
+  "ITEM_SHELL_BELL": {
+    "slug": "shell-bell",
+    "version_group_id": 20
+  },
+  "ITEM_WIDE_LENS": {
+    "slug": "wide-lens",
+    "version_group_id": 20
+  },
+  "ITEM_MUSCLE_BAND": {
+    "slug": "muscle-band",
+    "version_group_id": 20
+  },
+  "ITEM_WISE_GLASSES": {
+    "slug": "wise-glasses",
+    "version_group_id": 20
+  },
+  "ITEM_EXPERT_BELT": {
+    "slug": "expert-belt",
+    "version_group_id": 20
+  },
+  "ITEM_LIGHT_CLAY": {
+    "slug": "light-clay",
+    "version_group_id": 20
+  },
+  "ITEM_LIFE_ORB": {
+    "slug": "life-orb",
+    "version_group_id": 20
+  },
+  "ITEM_POWER_HERB": {
+    "slug": "power-herb",
+    "version_group_id": 20
+  },
+  "ITEM_FOCUS_SASH": {
+    "slug": "focus-sash",
+    "version_group_id": 20
+  },
+  "ITEM_ZOOM_LENS": {
+    "slug": "zoom-lens",
+    "version_group_id": 20
+  },
+  "ITEM_METRONOME": {
+    "slug": "metronome",
+    "version_group_id": 20
+  },
+  "ITEM_IRON_BALL": {
+    "slug": "iron-ball",
+    "version_group_id": 20
+  },
+  "ITEM_LAGGING_TAIL": {
+    "slug": "lagging-tail",
+    "version_group_id": 20
+  },
+  "ITEM_DESTINY_KNOT": {
+    "slug": "destiny-knot",
+    "version_group_id": 20
+  },
+  "ITEM_BLACK_SLUDGE": {
+    "slug": "black-sludge",
+    "version_group_id": 20
+  },
+  "ITEM_GRIP_CLAW": {
+    "slug": "grip-claw",
+    "version_group_id": 20
+  },
+  "ITEM_STICKY_BARB": {
+    "slug": "sticky-barb",
+    "version_group_id": 20
+  },
+  "ITEM_SHED_SHELL": {
+    "slug": "shed-shell",
+    "version_group_id": 20
+  },
+  "ITEM_BIG_ROOT": {
+    "slug": "big-root",
+    "version_group_id": 20
+  },
+  "ITEM_RAZOR_CLAW": {
+    "slug": "razor-claw",
+    "version_group_id": 20
+  },
+  "ITEM_RAZOR_FANG": {
+    "slug": "razor-fang",
+    "version_group_id": 20
+  },
+  "ITEM_EVIOLITE": {
+    "slug": "eviolite",
+    "version_group_id": 20
+  },
+  "ITEM_FLOAT_STONE": {
+    "slug": "float-stone",
+    "version_group_id": 20
+  },
+  "ITEM_ROCKY_HELMET": {
+    "slug": "rocky-helmet",
+    "version_group_id": 20
+  },
+  "ITEM_AIR_BALLOON": {
+    "slug": "air-balloon",
+    "version_group_id": 20
+  },
+  "ITEM_RED_CARD": {
+    "slug": "red-card",
+    "version_group_id": 20
+  },
+  "ITEM_RING_TARGET": {
+    "slug": "ring-target",
+    "version_group_id": 20
+  },
+  "ITEM_BINDING_BAND": {
+    "slug": "binding-band",
+    "version_group_id": 20
+  },
+  "ITEM_EJECT_BUTTON": {
+    "slug": "eject-button",
+    "version_group_id": 20
+  },
+  "ITEM_WEAKNESS_POLICY": {
+    "slug": "weakness-policy",
+    "version_group_id": 20
+  },
+  "ITEM_ASSAULT_VEST": {
+    "slug": "assault-vest",
+    "version_group_id": 20
+  },
+  "ITEM_SAFETY_GOGGLES": {
+    "slug": "safety-goggles",
+    "version_group_id": 20
+  },
+  "ITEM_ADRENALINE_ORB": {
+    "slug": "adrenaline-orb",
+    "version_group_id": 20
+  },
+  "ITEM_TERRAIN_EXTENDER": {
+    "slug": "terrain-extender",
+    "version_group_id": 20
+  },
+  "ITEM_PROTECTIVE_PADS": {
+    "slug": "protective-pads",
+    "version_group_id": 20
+  },
+  "ITEM_THROAT_SPRAY": {
+    "slug": "throat-spray",
+    "version_group_id": 20
+  },
+  "ITEM_EJECT_PACK": {
+    "slug": "eject-pack",
+    "version_group_id": 20
+  },
+  "ITEM_HEAVY_DUTY_BOOTS": {
+    "slug": "heavy-duty-boots",
+    "version_group_id": 20
+  },
+  "ITEM_BLUNDER_POLICY": {
+    "slug": "blunder-policy",
+    "version_group_id": 20
+  },
+  "ITEM_ROOM_SERVICE": {
+    "slug": "room-service",
+    "version_group_id": 20
+  },
+  "ITEM_UTILITY_UMBRELLA": {
+    "slug": "utility-umbrella",
+    "version_group_id": 20
+  },
+  "ITEM_CHERI_BERRY": {
+    "slug": "cheri-berry",
+    "version_group_id": 20
+  },
+  "ITEM_CHESTO_BERRY": {
+    "slug": "chesto-berry",
+    "version_group_id": 20
+  },
+  "ITEM_PECHA_BERRY": {
+    "slug": "pecha-berry",
+    "version_group_id": 20
+  },
+  "ITEM_RAWST_BERRY": {
+    "slug": "rawst-berry",
+    "version_group_id": 20
+  },
+  "ITEM_ASPEAR_BERRY": {
+    "slug": "aspear-berry",
+    "version_group_id": 20
+  },
+  "ITEM_LEPPA_BERRY": {
+    "slug": "leppa-berry",
+    "version_group_id": 20
+  },
+  "ITEM_ORAN_BERRY": {
+    "slug": "oran-berry",
+    "version_group_id": 20
+  },
+  "ITEM_PERSIM_BERRY": {
+    "slug": "persim-berry",
+    "version_group_id": 20
+  },
+  "ITEM_LUM_BERRY": {
+    "slug": "lum-berry",
+    "version_group_id": 20
+  },
+  "ITEM_SITRUS_BERRY": {
+    "slug": "sitrus-berry",
+    "version_group_id": 20
+  },
+  "ITEM_FIGY_BERRY": {
+    "slug": "figy-berry",
+    "version_group_id": 20
+  },
+  "ITEM_WIKI_BERRY": {
+    "slug": "wiki-berry",
+    "version_group_id": 20
+  },
+  "ITEM_MAGO_BERRY": {
+    "slug": "mago-berry",
+    "version_group_id": 20
+  },
+  "ITEM_AGUAV_BERRY": {
+    "slug": "aguav-berry",
+    "version_group_id": 20
+  },
+  "ITEM_IAPAPA_BERRY": {
+    "slug": "iapapa-berry",
+    "version_group_id": 20
+  },
+  "ITEM_RAZZ_BERRY": {
+    "slug": "razz-berry",
+    "version_group_id": 20
+  },
+  "ITEM_BLUK_BERRY": {
+    "slug": "bluk-berry",
+    "version_group_id": 20
+  },
+  "ITEM_NANAB_BERRY": {
+    "slug": "nanab-berry",
+    "version_group_id": 20
+  },
+  "ITEM_WEPEAR_BERRY": {
+    "slug": "wepear-berry",
+    "version_group_id": 20
+  },
+  "ITEM_PINAP_BERRY": {
+    "slug": "pinap-berry",
+    "version_group_id": 20
+  },
+  "ITEM_POMEG_BERRY": {
+    "slug": "pomeg-berry",
+    "version_group_id": 20
+  },
+  "ITEM_KELPSY_BERRY": {
+    "slug": "kelpsy-berry",
+    "version_group_id": 20
+  },
+  "ITEM_QUALOT_BERRY": {
+    "slug": "qualot-berry",
+    "version_group_id": 20
+  },
+  "ITEM_HONDEW_BERRY": {
+    "slug": "hondew-berry",
+    "version_group_id": 20
+  },
+  "ITEM_GREPA_BERRY": {
+    "slug": "grepa-berry",
+    "version_group_id": 20
+  },
+  "ITEM_TAMATO_BERRY": {
+    "slug": "tamato-berry",
+    "version_group_id": 20
+  },
+  "ITEM_CORNN_BERRY": {
+    "slug": "cornn-berry",
+    "version_group_id": 20
+  },
+  "ITEM_MAGOST_BERRY": {
+    "slug": "magost-berry",
+    "version_group_id": 20
+  },
+  "ITEM_RABUTA_BERRY": {
+    "slug": "rabuta-berry",
+    "version_group_id": 20
+  },
+  "ITEM_NOMEL_BERRY": {
+    "slug": "nomel-berry",
+    "version_group_id": 20
+  },
+  "ITEM_SPELON_BERRY": {
+    "slug": "spelon-berry",
+    "version_group_id": 20
+  },
+  "ITEM_PAMTRE_BERRY": {
+    "slug": "pamtre-berry",
+    "version_group_id": 20
+  },
+  "ITEM_WATMEL_BERRY": {
+    "slug": "watmel-berry",
+    "version_group_id": 20
+  },
+  "ITEM_DURIN_BERRY": {
+    "slug": "durin-berry",
+    "version_group_id": 20
+  },
+  "ITEM_BELUE_BERRY": {
+    "slug": "belue-berry",
+    "version_group_id": 20
+  },
+  "ITEM_CHILAN_BERRY": {
+    "slug": "chilan-berry",
+    "version_group_id": 20
+  },
+  "ITEM_OCCA_BERRY": {
+    "slug": "occa-berry",
+    "version_group_id": 20
+  },
+  "ITEM_PASSHO_BERRY": {
+    "slug": "passho-berry",
+    "version_group_id": 20
+  },
+  "ITEM_WACAN_BERRY": {
+    "slug": "wacan-berry",
+    "version_group_id": 20
+  },
+  "ITEM_RINDO_BERRY": {
+    "slug": "rindo-berry",
+    "version_group_id": 20
+  },
+  "ITEM_YACHE_BERRY": {
+    "slug": "yache-berry",
+    "version_group_id": 20
+  },
+  "ITEM_CHOPLE_BERRY": {
+    "slug": "chople-berry",
+    "version_group_id": 20
+  },
+  "ITEM_KEBIA_BERRY": {
+    "slug": "kebia-berry",
+    "version_group_id": 20
+  },
+  "ITEM_SHUCA_BERRY": {
+    "slug": "shuca-berry",
+    "version_group_id": 20
+  },
+  "ITEM_COBA_BERRY": {
+    "slug": "coba-berry",
+    "version_group_id": 20
+  },
+  "ITEM_PAYAPA_BERRY": {
+    "slug": "payapa-berry",
+    "version_group_id": 20
+  },
+  "ITEM_TANGA_BERRY": {
+    "slug": "tanga-berry",
+    "version_group_id": 20
+  },
+  "ITEM_CHARTI_BERRY": {
+    "slug": "charti-berry",
+    "version_group_id": 20
+  },
+  "ITEM_KASIB_BERRY": {
+    "slug": "kasib-berry",
+    "version_group_id": 20
+  },
+  "ITEM_HABAN_BERRY": {
+    "slug": "haban-berry",
+    "version_group_id": 20
+  },
+  "ITEM_COLBUR_BERRY": {
+    "slug": "colbur-berry",
+    "version_group_id": 20
+  },
+  "ITEM_BABIRI_BERRY": {
+    "slug": "babiri-berry",
+    "version_group_id": 20
+  },
+  "ITEM_LIECHI_BERRY": {
+    "slug": "liechi-berry",
+    "version_group_id": 20
+  },
+  "ITEM_GANLON_BERRY": {
+    "slug": "ganlon-berry",
+    "version_group_id": 20
+  },
+  "ITEM_SALAC_BERRY": {
+    "slug": "salac-berry",
+    "version_group_id": 20
+  },
+  "ITEM_PETAYA_BERRY": {
+    "slug": "petaya-berry",
+    "version_group_id": 20
+  },
+  "ITEM_APICOT_BERRY": {
+    "slug": "apicot-berry",
+    "version_group_id": 20
+  },
+  "ITEM_LANSAT_BERRY": {
+    "slug": "lansat-berry",
+    "version_group_id": 20
+  },
+  "ITEM_STARF_BERRY": {
+    "slug": "starf-berry",
+    "version_group_id": 20
+  },
+  "ITEM_ENIGMA_BERRY": {
+    "slug": "enigma-berry",
+    "version_group_id": 20
+  },
+  "ITEM_MICLE_BERRY": {
+    "slug": "micle-berry",
+    "version_group_id": 20
+  },
+  "ITEM_CUSTAP_BERRY": {
+    "slug": "custap-berry",
+    "version_group_id": 20
+  },
+  "ITEM_JABOCA_BERRY": {
+    "slug": "jaboca-berry",
+    "version_group_id": 20
+  },
+  "ITEM_ROWAP_BERRY": {
+    "slug": "rowap-berry",
+    "version_group_id": 20
+  },
+  "ITEM_KEE_BERRY": {
+    "slug": "kee-berry",
+    "version_group_id": 20
+  },
+  "ITEM_MARANGA_BERRY": {
+    "slug": "maranga-berry",
+    "version_group_id": 20
+  },
+  "ITEM_TM93": {
+    "slug": "tm93",
+    "version_group_id": 20
+  },
+  "ITEM_TM94": {
+    "slug": "tm94",
+    "version_group_id": 20
+  },
+  "ITEM_TM95": {
+    "slug": "tm95",
+    "version_group_id": 20
+  },
+  "ITEM_TM96": {
+    "slug": "tm96",
+    "version_group_id": 20
+  },
+  "ITEM_TM97": {
+    "slug": "tm97",
+    "version_group_id": 20
+  },
+  "ITEM_TM98": {
+    "slug": "tm98",
+    "version_group_id": 20
+  },
+  "ITEM_TM99": {
+    "slug": "tm99",
+    "version_group_id": 20
+  },
+  "ITEM_TM100": {
+    "slug": "tm100",
+    "version_group_id": 20
+  },
+  "ITEM_OVAL_CHARM": {
+    "slug": "oval-charm",
+    "version_group_id": 20
+  },
+  "ITEM_SHINY_CHARM": {
+    "slug": "shiny-charm",
+    "version_group_id": 20
+  },
+  "ITEM_CATCHING_CHARM": {
+    "slug": "catching-charm",
+    "version_group_id": 20
+  },
+  "ITEM_EXP_CHARM": {
+    "slug": "exp-charm",
+    "version_group_id": 20
+  },
+  "ITEM_ROTOM_CATALOG": {
+    "slug": "rotom-catalog",
+    "version_group_id": 20
+  },
+  "ITEM_GRACIDEA": {
+    "slug": "gracidea",
+    "version_group_id": 20
+  },
+  "ITEM_REVEAL_GLASS": {
+    "slug": "reveal-glass",
+    "version_group_id": 20
+  },
+  "ITEM_DNA_SPLICERS": {
+    "slug": "dna-splicers",
+    "version_group_id": 20
+  },
+  "ITEM_ZYGARDE_CUBE": {
+    "slug": "zygarde-cube",
+    "version_group_id": 20
+  },
+  "ITEM_PRISON_BOTTLE": {
+    "slug": "prison-bottle",
+    "version_group_id": 20
+  },
+  "ITEM_REINS_OF_UNITY": {
+    "slug": "reins-of-unity",
+    "version_group_id": 20
+  },
+  "ITEM_MEGA_RING": {
+    "slug": "mega-ring",
+    "version_group_id": 20
+  },
+  "ITEM_Z_POWER_RING": {
+    "slug": "z-power-ring",
+    "version_group_id": 20
+  },
+  "ITEM_DYNAMAX_BAND": {
+    "slug": "dynamax-band",
+    "version_group_id": 20
+  },
+  "ITEM_BICYCLE": {
+    "slug": "bicycle",
+    "version_group_id": 15
+  },
+  "ITEM_MACH_BIKE": {
+    "slug": "mach-bike",
+    "version_group_id": 20
+  },
+  "ITEM_ACRO_BIKE": {
+    "slug": "acro-bike",
+    "version_group_id": 20
+  },
+  "ITEM_OLD_ROD": {
+    "slug": "old-rod",
+    "version_group_id": 20
+  },
+  "ITEM_GOOD_ROD": {
+    "slug": "good-rod",
+    "version_group_id": 20
+  },
+  "ITEM_SUPER_ROD": {
+    "slug": "super-rod",
+    "version_group_id": 20
+  },
+  "ITEM_DOWSING_MACHINE": {
+    "slug": "dowsing-machine",
+    "version_group_id": 20
+  },
+  "ITEM_TOWN_MAP": {
+    "slug": "town-map",
+    "version_group_id": 20
+  },
+  "ITEM_VS_SEEKER": {
+    "slug": "vs-seeker",
+    "version_group_id": 20
+  },
+  "ITEM_TM_CASE": {
+    "slug": "tm-case",
+    "version_group_id": 20
+  },
+  "ITEM_POKEMON_BOX_LINK": {
+    "slug": "pokemon-box-link",
+    "version_group_id": 20
+  },
+  "ITEM_COIN_CASE": {
+    "slug": "coin-case",
+    "version_group_id": 20
+  },
+  "ITEM_WAILMER_PAIL": {
+    "slug": "wailmer-pail",
+    "version_group_id": 20
+  },
+  "ITEM_POKE_RADAR": {
+    "slug": "poke-radar",
+    "version_group_id": 20
+  },
+  "ITEM_SOOT_SACK": {
+    "slug": "soot-sack",
+    "version_group_id": 20
+  },
+  "ITEM_POKE_FLUTE": {
+    "slug": "poke-flute",
+    "version_group_id": 20
+  },
+  "ITEM_SS_TICKET": {
+    "slug": "ss-ticket",
+    "version_group_id": 20
+  },
+  "ITEM_EON_TICKET": {
+    "slug": "eon-ticket",
+    "version_group_id": 20
+  },
+  "ITEM_LETTER": {
+    "slug": "letter",
+    "version_group_id": 20
+  },
+  "ITEM_DEVON_PARTS": {
+    "slug": "devon-parts",
+    "version_group_id": 20
+  },
+  "ITEM_GO_GOGGLES": {
+    "slug": "go-goggles",
+    "version_group_id": 20
+  },
+  "ITEM_DEVON_SCOPE": {
+    "slug": "devon-scope",
+    "version_group_id": 20
+  },
+  "ITEM_BASEMENT_KEY": {
+    "slug": "basement-key",
+    "version_group_id": 20
+  },
+  "ITEM_SCANNER": {
+    "slug": "scanner",
+    "version_group_id": 20
+  },
+  "ITEM_STORAGE_KEY": {
+    "slug": "storage-key",
+    "version_group_id": 20
+  },
+  "ITEM_KEY_TO_ROOM_1": {
+    "slug": "key-to-room-1",
+    "version_group_id": 20
+  },
+  "ITEM_KEY_TO_ROOM_2": {
+    "slug": "key-to-room-2",
+    "version_group_id": 20
+  },
+  "ITEM_KEY_TO_ROOM_4": {
+    "slug": "key-to-room-4",
+    "version_group_id": 20
+  },
+  "ITEM_KEY_TO_ROOM_6": {
+    "slug": "key-to-room-6",
+    "version_group_id": 20
+  },
+  "ITEM_METEORITE": {
+    "slug": "meteorite",
+    "version_group_id": 20
+  },
+  "ITEM_CONTEST_PASS": {
+    "slug": "contest-pass",
+    "version_group_id": 20
+  },
+  "ITEM_PARCEL": {
+    "slug": "parcel",
+    "version_group_id": 20
+  },
+  "ITEM_SECRET_KEY": {
+    "slug": "secret-key",
+    "version_group_id": 20
+  },
+  "ITEM_GOLD_TEETH": {
+    "slug": "gold-teeth",
+    "version_group_id": 20
+  },
+  "ITEM_CARD_KEY": {
+    "slug": "card-key",
+    "version_group_id": 20
+  },
+  "ITEM_LIFT_KEY": {
+    "slug": "lift-key",
+    "version_group_id": 20
+  },
+  "ITEM_SILPH_SCOPE": {
+    "slug": "silph-scope",
+    "version_group_id": 20
+  },
+  "ITEM_TEA": {
+    "slug": "tea",
+    "version_group_id": 20
+  },
+  "ITEM_CLEAR_BELL": {
+    "slug": "clear-bell",
+    "version_group_id": 20
+  },
+  "ITEM_LOST_ITEM": {
+    "slug": "lost-item",
+    "version_group_id": 20
+  },
+  "ITEM_MACHINE_PART": {
+    "slug": "machine-part",
+    "version_group_id": 20
+  },
+  "ITEM_MYSTERY_EGG": {
+    "slug": "mystery-egg",
+    "version_group_id": 20
+  },
+  "ITEM_PASS": {
+    "slug": "pass",
+    "version_group_id": 20
+  },
+  "ITEM_RAINBOW_WING": {
+    "slug": "rainbow-wing",
+    "version_group_id": 20
+  },
+  "ITEM_RED_SCALE": {
+    "slug": "red-scale",
+    "version_group_id": 20
+  },
+  "ITEM_SECRET_POTION": {
+    "slug": "secret-potion",
+    "version_group_id": 20
+  },
+  "ITEM_SILVER_WING": {
+    "slug": "silver-wing",
+    "version_group_id": 20
+  },
+  "ITEM_TIDAL_BELL": {
+    "slug": "tidal-bell",
+    "version_group_id": 20
+  },
+  "ITEM_SQUIRT_BOTTLE": {
+    "slug": "squirt-bottle",
+    "version_group_id": 20
+  },
+  "ITEM_AZURE_FLUTE": {
+    "slug": "azure-flute",
+    "version_group_id": 20
+  },
+  "ITEM_TM_FOCUS_PUNCH": {
+    "slug": "focus-punch",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_DRAGON_CLAW": {
+    "slug": "dragon-claw",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_WATER_PULSE": {
+    "slug": "water-pulse",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_CALM_MIND": {
+    "slug": "calm-mind",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_ROAR": {
+    "slug": "roar",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_TOXIC": {
+    "slug": "toxic",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_HAIL": {
+    "slug": "hail",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_BULK_UP": {
+    "slug": "bulk-up",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_BULLET_SEED": {
+    "slug": "bullet-seed",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_HIDDEN_POWER": {
+    "slug": "hidden-power",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_SUNNY_DAY": {
+    "slug": "sunny-day",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_TAUNT": {
+    "slug": "taunt",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_ICE_BEAM": {
+    "slug": "ice-beam",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_BLIZZARD": {
+    "slug": "blizzard",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_HYPER_BEAM": {
+    "slug": "hyper-beam",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_LIGHT_SCREEN": {
+    "slug": "light-screen",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_PROTECT": {
+    "slug": "protect",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_RAIN_DANCE": {
+    "slug": "rain-dance",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_GIGA_DRAIN": {
+    "slug": "giga-drain",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_SAFEGUARD": {
+    "slug": "safeguard",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_FRUSTRATION": {
+    "slug": "frustration",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_SOLAR_BEAM": {
+    "slug": "solar-beam",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_IRON_TAIL": {
+    "slug": "iron-tail",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_THUNDERBOLT": {
+    "slug": "thunderbolt",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_THUNDER": {
+    "slug": "thunder",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_EARTHQUAKE": {
+    "slug": "earthquake",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_RETURN": {
+    "slug": "return",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_DIG": {
+    "slug": "dig",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_PSYCHIC": {
+    "slug": "psychic",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_SHADOW_BALL": {
+    "slug": "shadow-ball",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_BRICK_BREAK": {
+    "slug": "brick-break",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_DOUBLE_TEAM": {
+    "slug": "double-team",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_REFLECT": {
+    "slug": "reflect",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_SHOCK_WAVE": {
+    "slug": "shock-wave",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_FLAMETHROWER": {
+    "slug": "flamethrower",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_SLUDGE_BOMB": {
+    "slug": "sludge-bomb",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_SANDSTORM": {
+    "slug": "sandstorm",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_FIRE_BLAST": {
+    "slug": "fire-blast",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_ROCK_TOMB": {
+    "slug": "rock-tomb",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_AERIAL_ACE": {
+    "slug": "aerial-ace",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_TORMENT": {
+    "slug": "torment",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_FACADE": {
+    "slug": "facade",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_SECRET_POWER": {
+    "slug": "secret-power",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_REST": {
+    "slug": "rest",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_ATTRACT": {
+    "slug": "attract",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_THIEF": {
+    "slug": "thief",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_STEEL_WING": {
+    "slug": "steel-wing",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_SKILL_SWAP": {
+    "slug": "skill-swap",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_SNATCH": {
+    "slug": "snatch",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_TM_OVERHEAT": {
+    "slug": "overheat",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_HM_CUT": {
+    "slug": "cut",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_HM_FLY": {
+    "slug": "fly",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_HM_SURF": {
+    "slug": "surf",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_HM_STRENGTH": {
+    "slug": "strength",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_HM_FLASH": {
+    "slug": "flash",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_HM_ROCK_SMASH": {
+    "slug": "rock-smash",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_HM_WATERFALL": {
+    "slug": "waterfall",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_HM_WHIRLPOOL": {
+    "slug": "whirlpool",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_HM_DIVE": {
+    "slug": "dive",
+    "version_group_id": 20,
+    "source": "move"
+  },
+  "ITEM_NONE": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_STRANGE_BALL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_ORANGE_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_HARBOR_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_GLITTER_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_MECH_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_WOOD_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_WAVE_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_BEAD_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_SHADOW_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_TROPIC_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_DREAM_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_FAB_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_RETRO_MAIL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_DRAGONINITE": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_HAWLUCHANITE": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_RAICHUNITE_X": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_RAICHUNITE_Y": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_ENIGMA_BERRY_E_READER": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_BERRY_POUCH": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_POWDER_JAR": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_POKEBLOCK_CASE": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_FAME_CHECKER": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_TEACHY_TV": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_MYSTIC_TICKET": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_MAGMA_EMBLEM": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_BIKE_VOUCHER": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_TRI_PASS": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_RAINBOW_PASS": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_RUBY": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_SAPPHIRE": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_TERA_ORB": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_BUG_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_DARK_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_DRAGON_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_ELECTRIC_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_FAIRY_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_FIGHTING_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_FIRE_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_FLYING_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_GHOST_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_GRASS_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_GROUND_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_ICE_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_NORMAL_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_POISON_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_PSYCHIC_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_ROCK_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_STEEL_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_WATER_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_BERSERK_GENE": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_GLIMMERING_CHARM": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_STELLAR_TERA_SHARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_JUBILIFE_MUFFIN": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_REMEDY": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_FINE_REMEDY": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_SUPERB_REMEDY": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_AUX_EVASION": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_AUX_GUARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_AUX_POWER": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_AUX_POWERGUARD": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_CHOICE_DUMPLING": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_SWAP_SNACK": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_TWICE_SPICED_RADISH": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_POKESHI_DOLL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_GS_BALL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_FERTILIZER": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_EXP_SHARE_SMALL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_HEALING_HEART": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_INFINITE_REPEL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_INFINITE_RARE_CANDIES": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_RADIO": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_ROOM_1_KEY": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_ROOM_2_KEY": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_ROOM_4_KEY": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_ROOM_6_KEY": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_UNUSED_BERRY_1": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_POKE_VIAL": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_UNUSED_BERRY_3": {
+    "source": "adaptacion-funcional-completa"
+  },
+  "ITEM_CLEFABLITE": {
+    "slug": "clefablite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_VICTREEBELITE": {
+    "slug": "victreebelite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_STARMINITE": {
+    "slug": "starminite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_MEGANIUMITE": {
+    "slug": "meganiumite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_FERALIGITE": {
+    "slug": "feraligite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_SKARMORITE": {
+    "slug": "skarmorite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_FROSLASSITE": {
+    "slug": "froslassite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_EMBOARITE": {
+    "slug": "emboarite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_EXCADRITE": {
+    "slug": "excadrite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_SCOLIPITE": {
+    "slug": "scolipite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_SCRAFTINITE": {
+    "slug": "scraftinite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_EELEKTROSSITE": {
+    "slug": "eelektrossite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_CHANDELURITE": {
+    "slug": "chandelurite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_CHESNAUGHTITE": {
+    "slug": "chesnaughtite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_DELPHOXITE": {
+    "slug": "delphoxite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_GRENINJITE": {
+    "slug": "greninjite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_PYROARITE": {
+    "slug": "pyroarite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_FLOETTITE": {
+    "slug": "floettite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_MALAMARITE": {
+    "slug": "malamarite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_BARBARACITE": {
+    "slug": "barbaracite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_DRAGALGITE": {
+    "slug": "dragalgite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_ZYGARDITE": {
+    "slug": "zygardite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_DRAMPANITE": {
+    "slug": "drampanite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_FALINKSITE": {
+    "slug": "falinksite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_HEATRANITE": {
+    "slug": "heatranite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_DARKRANITE": {
+    "slug": "darkranite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_ZERAORITE": {
+    "slug": "zeraorite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_CHIMECHITE": {
+    "slug": "chimechite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_ABSOLITE_Z": {
+    "slug": "absolitez",
+    "source": "pokemon-anil"
+  },
+  "ITEM_STARAPTITE": {
+    "slug": "staraptite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_GARCHOMPITE_Z": {
+    "slug": "garchompitez",
+    "source": "pokemon-anil"
+  },
+  "ITEM_LUCARIONITE_Z": {
+    "slug": "lucarionitez",
+    "source": "pokemon-anil"
+  },
+  "ITEM_GOLURKITE": {
+    "slug": "golurkite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_MEOWSTICITE": {
+    "slug": "meowsticite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_CRABOMINITE": {
+    "slug": "crabominite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_GOLISOPITE": {
+    "slug": "golisopite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_MAGEARNITE": {
+    "slug": "magearnite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_SCOVILLAINITE": {
+    "slug": "scovillainite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_BAXCALIBRITE": {
+    "slug": "baxcalibrite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_TATSUGIRINITE": {
+    "slug": "tatsugirinite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_GLIMMORANITE": {
+    "slug": "glimmoranite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_LEEK": {
+    "slug": "leek",
+    "source": "pokemon-anil"
+  },
+  "ITEM_ROSELI_BERRY": {
+    "slug": "roseliberry",
+    "source": "pokemon-anil"
+  },
+  "ITEM_N_SOLARIZER": {
+    "slug": "nsolarizer",
+    "source": "pokemon-anil"
+  },
+  "ITEM_N_LUNARIZER": {
+    "slug": "nlunarizer",
+    "source": "pokemon-anil"
+  },
+  "ITEM_AURORA_TICKET": {
+    "slug": "auroraticket",
+    "source": "pokemon-anil"
+  },
+  "ITEM_OLD_SEA_MAP": {
+    "slug": "oldseamap",
+    "source": "pokemon-anil"
+  },
+  "ITEM_ABILITY_SHIELD": {
+    "slug": "abilityshield",
+    "source": "pokemon-anil"
+  },
+  "ITEM_CLEAR_AMULET": {
+    "slug": "clearamulet",
+    "source": "pokemon-anil"
+  },
+  "ITEM_PUNCHING_GLOVE": {
+    "slug": "punchingglove",
+    "source": "pokemon-anil"
+  },
+  "ITEM_COVERT_CLOAK": {
+    "slug": "covertcloak",
+    "source": "pokemon-anil"
+  },
+  "ITEM_LOADED_DICE": {
+    "slug": "loadeddice",
+    "source": "pokemon-anil"
+  },
+  "ITEM_AUSPICIOUS_ARMOR": {
+    "slug": "auspiciousarmor",
+    "source": "pokemon-anil"
+  },
+  "ITEM_BOOSTER_ENERGY": {
+    "slug": "boosterenergy",
+    "source": "pokemon-anil"
+  },
+  "ITEM_BIG_BAMBOO_SHOOT": {
+    "slug": "bigbambooshoot",
+    "source": "pokemon-anil"
+  },
+  "ITEM_GIMMIGHOUL_COIN": {
+    "slug": "gimmighoulcoin",
+    "source": "pokemon-anil"
+  },
+  "ITEM_LEADERS_CREST": {
+    "slug": "leaderscrest",
+    "source": "pokemon-anil"
+  },
+  "ITEM_MALICIOUS_ARMOR": {
+    "slug": "maliciousarmor",
+    "source": "pokemon-anil"
+  },
+  "ITEM_MIRROR_HERB": {
+    "slug": "mirrorherb",
+    "source": "pokemon-anil"
+  },
+  "ITEM_SCROLL_OF_DARKNESS": {
+    "slug": "scrollofdarkness",
+    "source": "pokemon-anil"
+  },
+  "ITEM_SCROLL_OF_WATERS": {
+    "slug": "scrollofwaters",
+    "source": "pokemon-anil"
+  },
+  "ITEM_TINY_BAMBOO_SHOOT": {
+    "slug": "tinybambooshoot",
+    "source": "pokemon-anil"
+  },
+  "ITEM_ADAMANT_CRYSTAL": {
+    "slug": "adamantcrystal",
+    "source": "pokemon-anil"
+  },
+  "ITEM_GRISEOUS_CORE": {
+    "slug": "griseouscore",
+    "source": "pokemon-anil"
+  },
+  "ITEM_LUSTROUS_GLOBE": {
+    "slug": "lustrousglobe",
+    "source": "pokemon-anil"
+  },
+  "ITEM_BLACK_AUGURITE": {
+    "slug": "blackaugurite",
+    "source": "pokemon-anil"
+  },
+  "ITEM_LINKING_CORD": {
+    "slug": "linkingcord",
+    "source": "pokemon-anil"
+  },
+  "ITEM_PEAT_BLOCK": {
+    "slug": "peatblock",
+    "source": "pokemon-anil"
+  },
+  "ITEM_FAIRY_FEATHER": {
+    "slug": "fairyfeather",
+    "source": "pokemon-anil"
+  },
+  "ITEM_SYRUPY_APPLE": {
+    "slug": "syrupyapple",
+    "source": "pokemon-anil"
+  },
+  "ITEM_UNREMARKABLE_TEACUP": {
+    "slug": "unremarkableteacup",
+    "source": "pokemon-anil"
+  },
+  "ITEM_MASTERPIECE_TEACUP": {
+    "slug": "masterpieceteacup",
+    "source": "pokemon-anil"
+  },
+  "ITEM_CORNERSTONE_MASK": {
+    "slug": "cornerstonemask",
+    "source": "pokemon-anil"
+  },
+  "ITEM_WELLSPRING_MASK": {
+    "slug": "wellspringmask",
+    "source": "pokemon-anil"
+  },
+  "ITEM_HEARTHFLAME_MASK": {
+    "slug": "hearthflamemask",
+    "source": "pokemon-anil"
+  },
+  "ITEM_HEALTH_MOCHI": {
+    "slug": "healthmochi",
+    "source": "pokemon-anil"
+  },
+  "ITEM_MUSCLE_MOCHI": {
+    "slug": "musclemochi",
+    "source": "pokemon-anil"
+  },
+  "ITEM_RESIST_MOCHI": {
+    "slug": "resistmochi",
+    "source": "pokemon-anil"
+  },
+  "ITEM_GENIUS_MOCHI": {
+    "slug": "geniusmochi",
+    "source": "pokemon-anil"
+  },
+  "ITEM_CLEVER_MOCHI": {
+    "slug": "clevermochi",
+    "source": "pokemon-anil"
+  },
+  "ITEM_SWIFT_MOCHI": {
+    "slug": "swiftmochi",
+    "source": "pokemon-anil"
+  },
+  "ITEM_FRESH_START_MOCHI": {
+    "slug": "freshstartmochi",
+    "source": "pokemon-anil"
+  },
+  "ITEM_METAL_ALLOY": {
+    "slug": "metalalloy",
+    "source": "pokemon-anil"
+  }
+}

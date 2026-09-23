@@ -1061,7 +1061,7 @@ static void ItemStorage_PrintDescription(s32 id)
         description = gText_GoBackPrevMenu;
 
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
-    AddTextPrinterParameterized(windowId, FONT_NORMAL, description, 0, 1, 0, NULL);
+    AddTextPrinterParameterized(windowId, FONT_SMALL_NARROWER, description, 0, 1, 0, NULL);
 }
 
 static void ItemStorage_AddScrollIndicator(void)

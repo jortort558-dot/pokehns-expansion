@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Comprueba que las descripciones de objetos caben en el original inglés.
-
-Por defecto compara ``src/data/items.h`` con el mismo archivo de
-``upstream/master``. También admite un archivo inglés explícito para poder
-trabajar sin esa referencia de Git.
-"""
+"""Comprueba que las descripciones caben en el formato compacto de seis líneas."""
 
 from __future__ import annotations
 
@@ -125,24 +120,16 @@ def audit(
 ) -> list[str]:
     issues: list[str] = []
     for item, description in current.items():
-        original = reference.get(item)
-        if original is None:
-            limits = custom_limits.get(item)
-            if limits is None:
-                issues.append(f"{item} (línea {description.source_line}): sin referencia inglesa")
-                continue
-            original = Description(item, tuple(" " * limit for limit in limits), 0)
-        if len(description.lines) > len(original.lines):
+        if len(description.lines) > 6:
             issues.append(
                 f"{item} (línea {description.source_line}): usa {len(description.lines)} líneas; "
-                f"el inglés usa {len(original.lines)}"
+                "el formato compacto admite 6"
             )
-        for index, line in enumerate(description.lines[: len(original.lines)]):
-            allowed = len(original.lines[index])
-            if len(line) > allowed:
+        for index, line in enumerate(description.lines):
+            if len(line) > 29:
                 issues.append(
                     f"{item} (línea {description.source_line}, texto {index + 1}): "
-                    f"{len(line)} caracteres; máximo inglés {allowed} — {line!r}"
+                    f"{len(line)} caracteres; máximo compacto 29 — {line!r}"
                 )
     return issues
 
@@ -199,7 +186,7 @@ def main() -> int:
             print(f"- {issue}")
         return 1
 
-    print("OK: todas respetan las líneas y caracteres del original inglés.")
+    print("OK: todas respetan el formato compacto de 6 líneas y 29 caracteres.")
     return 0
 
 
