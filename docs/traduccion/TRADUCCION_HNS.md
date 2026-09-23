@@ -6,9 +6,11 @@ Documento central de seguimiento, directrices de localización, inventario de co
 
 ## 📌 Reglas de Oro y Criterios Técnicos del Proyecto
 
-1. **Regla de Nombres vs. Descripciones (Estricta - Anti-Solapamiento)**:
+1. **Regla de Nombres y Descripciones (Estricta - Anti-Solapamiento)**:
    - **NOMBRES en ESPAÑOL**: Movimientos (`Destructor`, `Golpe Kárate`), Habilidades (`Hedor`, `Llovizna`), Objetos (`Poké Ball`, `Superpoción`) y Naturalezas (`FIRME`, `MODESTA`, `ALEGRE`).
-   - **DESCRIPCIONES en INGLÉS**: Movimientos, habilidades y objetos se conservan en inglés canónico upstream para evitar desbordamientos, solapamientos en pantalla de datos y fallos en el motor de batalla.
+   - **DESCRIPCIONES DE OBJETOS en ESPAÑOL ADAPTADO**: deben explicar fielmente el efecto, aunque se aparten de la traducción oficial. No pueden usar más líneas ni más caracteres en cada línea que la descripción inglesa equivalente.
+   - **AUDITORÍA DE OBJETOS**: ejecutar `python tools/auditar_descripciones_objetos.py`; compara `src/data/items.h` con `upstream/master` y falla ante cualquier exceso.
+   - **DESCRIPCIONES DE MOVIMIENTOS Y HABILIDADES en INGLÉS**: se conservan en inglés canónico mientras no exista una auditoría específica equivalente.
 2. **Directrices de UI y Ajustes Visuales**:
    - `PODER` en lugar de _Potencia_ (evita pisar la categoría de daño).
    - `PRECIS.` en lugar de _Precisión_ (evita chocar con el número 100).
@@ -48,7 +50,7 @@ pie title Estado de Contenido Traducido
 | **Nombres de Habilidades**        | `src/data/abilities.h`  | ✅ 100% | Habilidades oficiales traducidas al castellano          |
 | **Descripciones de Habilidades**  | `src/data/abilities.h`  | ✅ 100% | En inglés canónico                                      |
 | **Nombres de Objetos**            | `src/data/items.h`      | ✅ 100% | 860 objetos traducidos al castellano                    |
-| **Descripciones de Objetos**      | `src/data/items.h`      | ✅ 100% | En inglés canónico                                      |
+| **Descripciones de Objetos**      | `src/data/items.h`      | 🟡 En curso | Español adaptado al número de líneas y caracteres del inglés |
 | **Naturalezas Pokémon**           | `src/pokemon.c`         | ✅ 100% | Las 25 naturalezas traducidas (`FIRME`, `ALEGRE`, etc.) |
 | **Mensajes del Motor de Batalla** | `src/battle_message.c`  | ✅ 100% | Mensajes esenciales traducidos al castellano            |
 
