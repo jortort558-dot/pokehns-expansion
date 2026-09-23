@@ -5939,6 +5939,7 @@ static void HandleEndTurn_FinishBattle(void)
                 // The Safari Zone / Bug Contest suspend the one-encounter-per-zone
                 // rule, so a catch there must not burn the zone either.
                 if (!NuzlockeIsSpeciesClauseActive && !OneTypeChallengeCaptureBlocked
+                 && !IsScriptedWildBattle()
                  && !IsNuzlockeCaptureSuspended())
                 {
                     if (gBattleOutcome != B_OUTCOME_CAUGHT)

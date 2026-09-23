@@ -6,6 +6,22 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 
 ## 🟢 BUGS RESUELTOS POR VERSIÓN Y COMMITS
 
+### 📦 Versión `pokehns-0.23.0-20260923-fichas-iris-textos-es.gba`
+
+- **Fecha**: 23/09/2026
+- **Commit**: `PENDIENTE` (`fix: corregir fichas y completar textos de Iris`)
+
+**Incidencias resueltas en esta build:**
+
+- [x] **Crash al canjear una captura**: el selector de rutas reserva una única lista del tamaño exacto, usa los nombres del mapa activo y deja de fragmentar la memoria antes de abrirse.
+- [x] **Intercambio con Fichas Gimnasio**: la partida se guarda antes de iniciar la escena de intercambio y vuelve a guardarse al completarla.
+- [x] **Encuentros estáticos**: los combates salvajes iniciados por script, incluido Sudowoodo, ya no consumen la captura de la ruta.
+- [x] **Textos puntuales**: traducidos la niña de la floristería y el mensaje «¿Usar otro Pokémon?» tras una derrota.
+- [x] **Descripciones de objetos**: las 860 entradas conservan su frase completa y respetan ahora un máximo de 6 líneas de 25 caracteres; corregido el recorte visible de Tecno-ROM y casos equivalentes.
+- [x] **Ciudad Iris**: revisados y reformateados la ciudad, sus edificios, Torre Quemada, Torre Hojalata y rutas próximas; 28 archivos superan la auditoría de longitud, saltos e inglés residual.
+- [x] **Pokégear y acompañante**: traducidos los 156 textos de llamadas y revanchas y las 138 reacciones del Pokémon acompañante.
+- [x] **Validación**: auditorías de textos y descripciones sin incidencias; build HnS completa con código 0.
+
 ### 📦 Versión `pokehns-0.9.0-20260920-bloque6-endrino-es.gba`
 
 - **Fecha**: 20/09/2026
@@ -138,7 +154,6 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ## 🔴 BUGS PENDIENTES (EN COLA DE RESOLUCIÓN)
 
 - [ ] **Auditoría completa de expansión**: Todavía existen cadenas inglesas no reportadas en sistemas secundarios y mensajes modernos. Se tratarán por bloques para poder revisarlas dentro del juego.
-- [ ] **Tienda de MT de Ciudad Trigal**: al comprar solo aparece el número de la MT; estudiar cómo mostrar también el nombre del movimiento junto al número.
 - [x] **Sprite overworld de Knekro desordenado**: corregido el empaquetado de la hoja horizontal con `-mwidth 2 -mheight 4`; restaurados los nueve frames y sus cuatro orientaciones. La solución anterior de repetir el frame frontal no corregía el `.4bpp` corrupto.
 - [x] **Combate de Knekro cargaba un montañero y datos inválidos**: la definición se había añadido por error a `src/data/trainers.party`, que no forma parte de la build HnS. Trasladada a `src/data/trainers_hns.party`, de modo que `TRAINER_KNEKRO_HNS` carga su sprite frontal y su equipo reales.
 - [x] **Knekro cambiaba de tamaño al girar**: los tres frames laterales ocupaban 25 píxeles de alto frente a los 20–21 de norte/sur. Compactados a 21 píxeles manteniendo los pies alineados y la paleta indexada de 16 colores.

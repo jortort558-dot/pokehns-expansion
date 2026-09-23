@@ -15,7 +15,9 @@ EcruteakCity_SageOffice1_EventScript_Sign::
 	end
 
 EcruteakCity_SageOffice1_Text_Sign:
-	.string "La campana de hojalata tañe con\npureza\lpara quienes se cobijan bajo el ala\lde\lla torre.$"
+	.string "La campana de hojalata tañe con\n"
+	.string "pureza para quienes se cobijan\l"
+	.string "bajo el ala de la torre.$"
 EcruteakCity_SageOffice2_EventScript_SageA::
 	lock
 	faceplayer
@@ -87,22 +89,63 @@ EcruteakCity_SageOffice2_Movement_StandAside:
 	step_end
 
 EcruteakTinTowerEntrance_Text_SageNoBadge:
-	.string "La TORRE HOJALATA está restringida\na los\lno dignos. Lo siento, pero debes\lirte.$"
+	.string "La TORRE HOJALATA está\n"
+	.string "restringida a los no dignos. Lo\l"
+	.string "siento, pero debes irte.$"
 EcruteakTinTowerEntrance_Text_SageWithBadge:
-	.string "El paso a la TORRE HOJALATA\nrequiere la\lMEDALLA del GIMNASIO de CIUDAD\lIRIS.\p¡Ah!\n¡La MEDALLA de CIUDAD IRIS!\lAdelante,\lpuedes pasar sin problemas.$"
+	.string "El paso a la TORRE HOJALATA\n"
+	.string "requiere la MEDALLA del GIMNASIO\l"
+	.string "de CIUDAD IRIS.\p"
+	.string "¡Ah! ¡La MEDALLA de CIUDAD IRIS!\n"
+	.string "Adelante, puedes pasar sin\l"
+	.string "problemas.$"
 EcruteakTinTowerEntrance_Text_SageNoClearBell:
-	.string "Ha ocurrido un acontecimiento de\nenorme\ltrascendencia.\pTe ruego me disculpes, pero debo\npedirte\lque te marches.\p...Aquello que sosiega el alma...\pEl TRÍO SABIO dice cosas que\nresultan\ltan difíciles de comprender...$"
+	.string "Ha ocurrido un acontecimiento de\n"
+	.string "enorme trascendencia.\p"
+	.string "Te ruego me disculpes, pero debo\n"
+	.string "pedirte que te marches.\p"
+	.string "...Aquello que sosiega el\n"
+	.string "alma...\p"
+	.string "El TRÍO SABIO dice cosas que\n"
+	.string "resultan tan difíciles de\l"
+	.string "comprender...$"
 EcruteakTinTowerEntrance_Text_SageHearsClearBell1:
-	.string "Ha ocurrido un hecho trascendental.\pDisculpa, pero debo pedirte que te\nmarches.\p..............................$"
+	.string "Ha ocurrido un hecho\n"
+	.string "trascendental.\p"
+	.string "Disculpa, pero debo pedirte que\n"
+	.string "te marches.\p"
+	.string "..............................$"
 EcruteakTinTowerEntrance_Text_SageHearsClearBell2:
-	.string "¡Ah!\n¡El sonido de esa CAMPANA CLARA!\p¡E-es sublime!\n¡Jamás en mi vida había oído un\lsonido\ltan hermoso!\pEl tañido de esa campana refleja la\npureza del alma de su portador.\pTú...\nQuizá tú seas capaz de cruzar la\lTORRE\lHOJALATA.\pPor favor, continúa adelante.$"
+	.string "¡Ah! ¡El sonido de esa CAMPANA\n"
+	.string "CLARA!\p"
+	.string "¡E-es sublime! ¡Jamás en mi vida\n"
+	.string "había oído un sonido tan\l"
+	.string "hermoso!\p"
+	.string "El tañido de esa campana refleja\n"
+	.string "la pureza del alma de su\l"
+	.string "portador.\p"
+	.string "Tú... Quizá tú seas capaz de\n"
+	.string "cruzar la TORRE HOJALATA.\p"
+	.string "Por favor, continúa adelante.$"
 EcruteakTinTowerEntrance_Text_SagePleaseDoGoOn:
 	.string "Por favor, continúa adelante.$"
 EcruteakTinTowerEntrance_Text_SageDone:
-	.string "El tañido de esa campana refleja el\nalma\lde su portador.\pTú...\nVerdaderamente eres digno.$"
+	.string "El tañido de esa campana refleja\n"
+	.string "el alma de su portador.\p"
+	.string "Tú... Verdaderamente eres digno.$"
 EcruteakTinTowerEntrance_Text_WanderingSage:
-	.string "La TORRE HOJALATA que ves delante\nes\luna torre de nueve pisos de belleza\ldivina.\pSosiega el alma de todo aquel que\nla\lcontempla.$"
+	.string "La TORRE HOJALATA que ves\n"
+	.string "delante es una torre de nueve\l"
+	.string "pisos de belleza divina.\p"
+	.string "Sosiega el alma de todo aquel\n"
+	.string "que la contempla.$"
 EcruteakTinTowerEntrance_Text_WanderingSageClearBell:
-	.string "¡La TORRE HOJALATA se estremeció!\n¡Un POKéMON legendario debe de\lhaber\lregresado a su cumbre!$"
+	.string "¡La TORRE HOJALATA se\n"
+	.string "estremeció! ¡Un POKéMON\l"
+	.string "legendario debe de haber\l"
+	.string "regresado a su cumbre!$"
 EcruteakTinTowerEntrance_Text_Gramps:
-	.string "Dos torres... Dos POKéMON...\pPero cuando una ardió, ambos\nPOKéMON se\lfueron volando para no volver\ljamás.$"
+	.string "Dos torres... Dos POKéMON...\p"
+	.string "Pero cuando una ardió, ambos\n"
+	.string "POKéMON se fueron volando para\l"
+	.string "no volver jamás.$"

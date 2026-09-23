@@ -159,6 +159,7 @@ void FindNextGymTokenRetry(void)
 
 void BuildGymTokenRetryMenu(void)
 {
+    const struct RegionMapLocation *regionMapEntries = GetActiveRegionMapEntries();
     u32 zone;
     u32 count = 0;
 
@@ -166,6 +167,24 @@ void BuildGymTokenRetryMenu(void)
     if (!IsGymTokenModeActive() || gSaveBlock3Ptr->gymTokens.count == 0)
         return;
 
+    // Count first so the dynamic menu needs a single, exact allocation.  The
+    // old repeated reallocations could fragment the small GBA heap and crash
+    // before the route selector was drawn.
+    for (zone = 0; zone < NUZLOCKE_NUM_ZONES; zone++)
+    {
+        u8 bit = 1 << (zone & 7);
+        u16 mapsec = NuzlockeGetMapsecByZoneId(zone);
+
+        if (mapsec != MAPSEC_NONE
+         && NuzlockeFlagGet(mapsec)
+         && !(*GetGymTokenRetriedFlagByte(zone) & bit))
+            count++;
+    }
+
+    if (count == 0)
+        return;
+
+    MultichoiceDynamic_InitStack(count + 1);
     for (zone = 0; zone < NUZLOCKE_NUM_ZONES; zone++)
     {
         u8 bit = 1 << (zone & 7);
@@ -176,22 +195,22 @@ void BuildGymTokenRetryMenu(void)
          && !(*GetGymTokenRetriedFlagByte(zone) & bit))
         {
             struct ListMenuItem item;
-            u8 *name = Alloc(100);
+            const u8 *mapName = regionMapEntries[mapsec].name;
+            u8 *name = Alloc(StringLength(mapName) + 1);
 
             if (name == NULL)
                 continue;
-            StringCopy(name, gRegionMapEntries[mapsec].name);
+            StringCopy(name, mapName);
             item.name = name;
             item.id = zone;
             MultichoiceDynamic_PushElement(item);
-            count++;
         }
     }
 
-    if (count != 0)
+    if (!MultichoiceDynamic_StackEmpty())
     {
         struct ListMenuItem cancelItem;
-        u8 *cancelName = Alloc(100);
+        u8 *cancelName = Alloc(StringLength(gText_Cancel2) + 1);
 
         if (cancelName != NULL)
         {
@@ -201,6 +220,10 @@ void BuildGymTokenRetryMenu(void)
             MultichoiceDynamic_PushElement(cancelItem);
         }
         gSpecialVar_Result = 1;
+    }
+    else
+    {
+        MultichoiceDynamic_DestroyStack();
     }
 }
 
@@ -216,7 +239,7 @@ void SelectGymTokenRetry(void)
     if (mapsec == MAPSEC_NONE || !NuzlockeFlagGet(mapsec))
         return;
     sSelectedRetryZone = zone;
-    StringCopy(gStringVar2, gRegionMapEntries[mapsec].name);
+    StringCopy(gStringVar2, GetActiveRegionMapEntries()[mapsec].name);
     gSpecialVar_Result = 1;
 }
 

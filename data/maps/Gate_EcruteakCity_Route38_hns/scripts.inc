@@ -10,4 +10,8 @@ Route38_EventScript_Officer::
 	end
 
 Route38_Text_EcruteakGateOfficer:
-	.string "¿De dónde has dicho que vienes?\n¿De PUEBLO PRIMAVERA?\pAllí vive el PROF. ELM, ¿verdad?\pHas recorrido un camino muy largo\npara\lllegar hasta aquí.$"
+	.string "¿De dónde has dicho que vienes?\n"
+	.string "¿De PUEBLO PRIMAVERA?\p"
+	.string "Allí vive el PROF. ELM, ¿verdad?\p"
+	.string "Has recorrido un camino muy\n"
+	.string "largo para llegar hasta aquí.$"

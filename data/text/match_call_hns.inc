@@ -3,1296 +3,1329 @@
 
 @ Joey - Youngster, Route 30
 MatchCall_HNS_Joey_General1::
-	.string "Yo, {PLAYER}!\n"
-	.string "How're you doing?\p"
-	.string "How are your POKéMON doing?\p"
-	.string "My {STR_VAR_3}'s raring to go,\n"
-	.string "just like always.\p"
-	.string "It's the only one I have.\n"
-	.string "I'm going to become a great\l"
-	.string "trainer with it!$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal estás?\p"
+
+	.string "¿Qué tal están tus POKéMON?\p"
+
+	.string "Mi {STR_VAR_3} está ansioso por\n"
+	.string "luchar, como siempre.\p"
+
+	.string "Es el único que tengo. ¡Con él,\n"
+	.string "llegaré a ser un gran\l"
+	.string "entrenador!$"
 
 MatchCall_HNS_Joey_General2::
-	.string "Yo, {PLAYER}!\n"
-	.string "Got a minute?\p"
-	.string "My {STR_VAR_3}'s looking\n"
-	.string "sharper than before!\p"
-	.string "I doubt there's a POKéMON\n"
-	.string "as cool as this guy in\l"
-	.string "your party!$"
+	.string "¡Hola, {PLAYER}! ¿Tienes un\n"
+	.string "minuto?\p"
+
+	.string "¡Mi {STR_VAR_3} parece más listo\n"
+	.string "que antes!\p"
+
+	.string "¡Dudo que tengas un POKéMON tan\n"
+	.string "guay como éste en tu equipo!$"
 
 MatchCall_HNS_Joey_General3::
-	.string "Yo, {PLAYER}!\n"
-	.string "How're you doing?\p"
-	.string "I'm checking out\n"
-	.string "{STR_VAR_3}'s moves and\l"
-	.string "devising some strategies.\p"
-	.string "When I come up with a good\n"
-	.string "one, let's battle!$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal estás?\p"
+
+	.string "Estoy estudiando los movimientos\n"
+	.string "de {STR_VAR_3} y pensando\l"
+	.string "estrategias.\p"
+
+	.string "Cuando encuentre una buena,\n"
+	.string "¡lucharemos!$"
 
 MatchCall_HNS_Joey_Battle::
-	.string "Yo, {PLAYER}!\p"
-	.string "Let's get together and\n"
-	.string "battle!\p"
-	.string "I promise things will be\n"
-	.string "different!$"
+	.string "¡Hola, {PLAYER}!\p"
 
-@ Wade - Bug Catcher, Route 31
+	.string "¡Reunámonos para luchar!\p"
+
+	.string "¡Esta vez no lo tendrás tan\n"
+	.string "fácil!$"
+
 MatchCall_HNS_Wade_General1::
-	.string "{PLAYER}, howdy!\p"
-	.string "How are your POKéMON doing?\p"
-	.string "My POKéMON have too much\n"
-	.string "energy to burn.\p"
-	.string "It gets to be a problem.\p"
-	.string "Of all my POKéMON,\n"
-	.string "{STR_VAR_3} is the hardest\l"
-	.string "to handle.\p"
-	.string "Working with it is\n"
-	.string "exhausting.$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "¿Qué tal están tus POKéMON?\p"
+
+	.string "Mis POKéMON tienen demasiada\n"
+	.string "energía.\p"
+
+	.string "Puede llegar a ser un problema.\p"
+
+	.string "De todos mis POKéMON,\n"
+	.string "{STR_VAR_3} es el más difícil de\l"
+	.string "controlar.\p"
+
+	.string "Trabajar con él cansa mucho.$"
 
 MatchCall_HNS_Wade_General2::
-	.string "{PLAYER}, howdy!\n"
-	.string "Isn't it nice out?\p"
-	.string "Are your POKéMON growing?\p"
-	.string "My POKéMON are growing a\n"
-	.string "bit too quickly for me.\l"
-	.string "It's overwhelming!\p"
-	.string "{STR_VAR_3}'s growing\n"
-	.string "especially quickly.\p"
-	.string "I think it'll get tough.$"
+	.string "¡Hola, {PLAYER}! ¿A que hace un\n"
+	.string "día estupendo?\p"
+
+	.string "¿Tus POKéMON están creciendo?\p"
+
+	.string "Mis POKéMON lo hacen demasiado\n"
+	.string "rápido para mí. ¡Es abrumador!\p"
+
+	.string "{STR_VAR_3} es el que más rápido\n"
+	.string "crece.\p"
+
+	.string "Creo que será muy fuerte.$"
 
 MatchCall_HNS_Wade_General3::
-	.string "{PLAYER}, howdy!\p"
-	.string "Oh yeah, we KO'd a wild\n"
-	.string "{STR_VAR_3} with one hit\l"
-	.string "a while back.\p"
-	.string "It went down so easily,\n"
-	.string "I felt a little sorry for\l"
-	.string "the poor thing.$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "Hace poco derrotamos de un golpe\n"
+	.string "a un {STR_VAR_3} salvaje.\p"
+
+	.string "Cayó con tanta facilidad que\n"
+	.string "sentí pena por el pobre.$"
 
 MatchCall_HNS_Wade_FoundItem::
-	.string "{PLAYER}, howdy!\p"
-	.string "I found all kinds of\n"
-	.string "BERRIES.\p"
-	.string "If you want, I'll share\n"
-	.string "some with you.\p"
-	.string "I'll be waiting on\n"
-	.string "ROUTE 31.$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "Encontré todo tipo de BAYAS.\p"
+
+	.string "Si quieres, puedo compartirlas\n"
+	.string "contigo.\p"
+
+	.string "Te esperaré en la RUTA 31.$"
 
 MatchCall_HNS_Wade_Battle::
-	.string "{PLAYER}, howdy!\p"
-	.string "Do you feel like a POKéMON\n"
-	.string "battle?\p"
-	.string "It won't be like last\n"
-	.string "time!$"
+	.string "¡Hola, {PLAYER}!\p"
 
-@ Ralph - Fisher, Route 32
+	.string "¿Te apetece luchar contra mí?\p"
+
+	.string "¡No será como la última vez!$"
+
 MatchCall_HNS_Ralph_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "How's the fishing?\p"
-	.string "Are you taking good care of\n"
-	.string "your POKéMON?\p"
-	.string "You have to be good to\n"
-	.string "your partners!$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal va la\n"
+	.string "pesca?\p"
+
+	.string "¿Estás cuidando bien de tus\n"
+	.string "POKéMON?\p"
+
+	.string "¡Debes tratar bien a tus\n"
+	.string "compañeros!$"
 
 MatchCall_HNS_Ralph_General2::
-	.string "Hey, {PLAYER}!\p"
-	.string "I've been spending more\n"
-	.string "time with my {STR_VAR_3}\l"
-	.string "than I have with my kids.\p"
-	.string "That's a bit sad,\n"
-	.string "actually.$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "He estado pasando más tiempo con\n"
+	.string "mi {STR_VAR_3} que con mis\l"
+	.string "niños.\p"
+
+	.string "En realidad es un poco triste.$"
 
 MatchCall_HNS_Ralph_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "Listen to this!\p"
-	.string "I just beat a wild\n"
-	.string "{STR_VAR_3}.\p"
-	.string "I told my kid, but he\n"
-	.string "scoffed that he could do\l"
-	.string "the same thing easily.\p"
-	.string "Boy, has he gotten\n"
-	.string "cocky…$"
+	.string "¡Hola, {PLAYER}! ¡Escucha esto!\p"
+
+	.string "Acabo de derrotar a un\n"
+	.string "{STR_VAR_3} salvaje.\p"
+
+	.string "Se lo he dicho a mi niño, pero\n"
+	.string "se burló de mí diciendo que él\l"
+	.string "hubiera hecho lo mismo, pero más\l"
+	.string "fácilmente.\p"
+
+	.string "Se ha vuelto un poco gallito…$"
 
 MatchCall_HNS_Ralph_Battle::
-	.string "Hey, {PLAYER}!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}!\p"
 
-@ Liz - Picnicker, Route 32
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Liz_General1::
-	.string "Hi, {PLAYER}!\n"
-	.string "I had some time, so I\l"
-	.string "called you.\p"
-	.string "So anyway, how are your\n"
-	.string "POKéMON?\p"
-	.string "Me, I take my {STR_VAR_3}\n"
-	.string "to the POKéMON CENTER in\l"
-	.string "VIOLET every day,\p"
-	.string "so it's doing just\n"
-	.string "fantastic!\p"
-	.string "I'm friends with the\n"
-	.string "receptionist!$"
+	.string "¡Hola, {PLAYER}! Tenía algo de\n"
+	.string "tiempo, así que pensé en\l"
+	.string "llamarte.\p"
+
+	.string "De todos modos, ¿qué tal están\n"
+	.string "tus POKéMON?\p"
+
+	.string "Yo llevo cada día a mi\n"
+	.string "{STR_VAR_3} al CENTRO POKéMON de\l"
+	.string "CIUDAD MALVA,\p"
+
+	.string "¡así que está fenomenal!\p"
+
+	.string "¡Soy amiga de la recepcionista!$"
 
 MatchCall_HNS_Liz_General2::
-	.string "Hi, {PLAYER}!\n"
-	.string "You have to hear this.\p"
-	.string "My {STR_VAR_3} is so\n"
-	.string "adorable!\p"
-	.string "It always wants to\n"
-	.string "nuzzle me!$"
+	.string "¡Hola, {PLAYER}! Oh, tienes que\n"
+	.string "oír esto.\p"
+
+	.string "¡Mi {STR_VAR_3} es tan\n"
+	.string "encantador!\p"
+
+	.string "¡Siempre está pegado a mí!$"
 
 MatchCall_HNS_Liz_General3::
-	.string "Hi, {PLAYER}!\n"
-	.string "Listen, listen!\p"
-	.string "Don't you think FALKNER of\n"
-	.string "VIOLET GYM is cool and\l"
-	.string "handsome?\p"
-	.string "But they say his dad, who's\n"
-	.string "out training on the road,\l"
-	.string "is even more cool and\l"
-	.string "handsome than FALKNER.\p"
-	.string "I wish I could meet him!$"
+	.string "¡Hola, {PLAYER}! ¡Escucha,\n"
+	.string "escucha!\p"
+
+	.string "¿No te parece que PEGASO, del\n"
+	.string "GIMNASIO de CIUDAD MALVA, es\l"
+	.string "guapo y genial?\p"
+
+	.string "Pero dicen que su padre, que\n"
+	.string "está entrenando por ahí, es aún\l"
+	.string "más guapo y genial que PEGASO.\p"
+
+	.string "¡Ojalá pudiera conocerlo!$"
 
 MatchCall_HNS_Liz_Battle::
-	.string "Hi, {PLAYER}!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}!\p"
 
-@ Anthony - Hiker, Route 33
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Anthony_General1::
-	.string "Hey there, {PLAYER}!\p"
-	.string "Are your POKéMON as feisty\n"
-	.string "as ever?\p"
-	.string "My {STR_VAR_3} and me--we\n"
-	.string "have energy to burn.\p"
-	.string "We hike up mountains every\n"
-	.string "day to work out all our\l"
-	.string "energy.$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "¿Están tus POKéMON tan animados\n"
+	.string "como siempre?\p"
+
+	.string "Mi {STR_VAR_3} y yo tenemos\n"
+	.string "mucha energía.\p"
+
+	.string "Escalamos montañas todos los\n"
+	.string "días a modo de entrenamiento.$"
 
 MatchCall_HNS_Anthony_General2::
-	.string "Hey there, {PLAYER}!\p"
-	.string "The other day, I was\n"
-	.string "watching my {STR_VAR_3}\l"
-	.string "eat some BERRIES.\p"
-	.string "It looked like it was\n"
-	.string "enjoying its meal, so I\l"
-	.string "decided to try some.\p"
-	.string "I'm not sure if people\n"
-	.string "should eat that stuff, but\l"
-	.string "it was delicious!$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "El otro día, vi como mi\n"
+	.string "{STR_VAR_3} comía BAYAS.\p"
+
+	.string "Parecía que estaba disfrutando\n"
+	.string "de su comida, así que decidí\l"
+	.string "probarlas.\p"
+
+	.string "¡No estoy seguro de que la gente\n"
+	.string "pueda comerlas, pero estaban\l"
+	.string "deliciosas!$"
 
 MatchCall_HNS_Anthony_General3::
-	.string "Hey there, {PLAYER}!\p"
-	.string "Lately, I've been running\n"
-	.string "across wild {STR_VAR_3}\l"
-	.string "quite often.\p"
-	.string "They're easily taken\n"
-	.string "care of.$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "Últimamente, me he cruzado a\n"
+	.string "menudo con {STR_VAR_3} salvajes.\p"
+
+	.string "Es fácil cuidarlos.$"
 
 MatchCall_HNS_Anthony_Battle::
-	.string "Hey there, {PLAYER}!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}!\p"
 
-@ Todd - Camper, Route 34
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Todd_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "What's up?\p"
-	.string "How do you raise your\n"
-	.string "POKéMON?\p"
-	.string "I do all sorts of things,\n"
-	.string "like leaving them in\l"
-	.string "DAY-CARE and\p"
-	.string "toughening them up with\n"
-	.string "items.$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal?\p"
+
+	.string "¿Cómo mejoras a tus POKéMON?\p"
+
+	.string "Hago de todo, como dejarlos en\n"
+	.string "la GUARDERÍA y\p"
+
+	.string "fortalecerlos con objetos.$"
 
 MatchCall_HNS_Todd_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "What's up?\p"
-	.string "My {STR_VAR_3} is looking\n"
-	.string "more and more like me.\p"
-	.string "It's getting cuter!$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal?\p"
+
+	.string "Mi {STR_VAR_3} se parece cada\n"
+	.string "vez más a mí.\p"
+
+	.string "¡Está muy bonito!$"
 
 MatchCall_HNS_Todd_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "What's up?\p"
-	.string "And, you know?\p"
-	.string "Now we can KO {STR_VAR_3}\n"
-	.string "easily.\p"
-	.string "I should challenge the\n"
-	.string "GOLDENROD GYM.$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal?\p"
+
+	.string "¿Sabes?\p"
+
+	.string "Ahora podemos acabar fácilmente\n"
+	.string "con los {STR_VAR_3}.\p"
+
+	.string "Debo visitar el GIMNASIO TRIGAL.$"
 
 MatchCall_HNS_Todd_Battle::
-	.string "Hey, {PLAYER}!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}!\p"
 
-@ Gina - Picnicker, Route 34
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Gina_General1::
-	.string "Hi, {PLAYER}!\n"
-	.string "How are you?\p"
-	.string "Are your POKéMON still\n"
-	.string "tough?\p"
-	.string "I train every day\n"
-	.string "with {STR_VAR_3}.$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal estás?\p"
+
+	.string "¿Tus POKéMON son duros?\p"
+
+	.string "Yo me entreno todos los días con\n"
+	.string "{STR_VAR_3}.$"
 
 MatchCall_HNS_Gina_General2::
-	.string "Hi, {PLAYER}!\n"
-	.string "How are you?\p"
-	.string "My {STR_VAR_3} and I are\n"
-	.string "getting more in sync with\l"
-	.string "each other.$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal estás?\p"
+
+	.string "Mi {STR_VAR_3} y yo estamos cada\n"
+	.string "vez más sincronizados.$"
 
 MatchCall_HNS_Gina_General3::
-	.string "Hi, {PLAYER}!\n"
-	.string "How are you?\p"
-	.string "We battled a wild\n"
-	.string "{STR_VAR_3} and managed\l"
-	.string "to drop it in a close\l"
-	.string "match.\p"
-	.string "We're getting into the\n"
-	.string "groove!$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal estás?\p"
+
+	.string "Luchamos con un {STR_VAR_3}\n"
+	.string "salvaje y conseguimos atraparle.\p"
+
+	.string "¡Ya le estamos cogiendo el\n"
+	.string "truco!$"
 
 MatchCall_HNS_Gina_Battle::
-	.string "Hi, {PLAYER}!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}!\p"
 
-@ Irwin - Juggler, Route 35
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Irwin_General1::
-	.string "Uh, hello, {PLAYER}?\n"
-	.string "It's your pal, IRWIN!\p"
-	.string "I saw the most amazing\n"
-	.string "battle the other day!\p"
-	.string "I wish I could battle\n"
-	.string "like that.\p"
-	.string "Oh wait, I can! I just\n"
-	.string "need someone to battle!$"
+	.string "Eh, ¿hola, {PLAYER}? ¡Soy tu\n"
+	.string "amigo IRWIN!\p"
+
+	.string "¡El otro día vi un combate\n"
+	.string "increíble!\p"
+
+	.string "Ojalá pudiera combatir así.\p"
+
+	.string "¡Un momento, sí puedo! ¡Solo\n"
+	.string "necesito un rival!$"
 
 MatchCall_HNS_Irwin_General2::
-	.string "Uh, hello, {PLAYER}?\n"
-	.string "It's your pal, IRWIN!\p"
-	.string "Hehe, I called right away!\p"
-	.string "I think we can be good\n"
-	.string "friends!$"
+	.string "Eh, ¿hola, {PLAYER}? ¡Soy tu\n"
+	.string "amigo IRWIN!\p"
+
+	.string "¡Je, je, acabo de llamar!\p"
+
+	.string "¡Creo que podemos ser buenos\n"
+	.string "amigos!$"
 
 MatchCall_HNS_Irwin_General3::
-	.string "Uh, hello, {PLAYER}?\n"
-	.string "It's your pal, IRWIN!\p"
-	.string "Hearing about your\n"
-	.string "escapades rocks my soul!\p"
-	.string "It sure does!$"
+	.string "Eh, ¿hola, {PLAYER}? ¡Soy tu\n"
+	.string "amigo IRWIN!\p"
+
+	.string "¡Oír lo de tus aventuras me\n"
+	.string "alegra el alma!\p"
+
+	.string "¡Te lo aseguro!$"
 
 MatchCall_HNS_Irwin_Battle::
-	.string "Uh, hello, {PLAYER}?\n"
-	.string "It's your pal, IRWIN!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "Eh, ¿hola, {PLAYER}? ¡Soy tu\n"
+	.string "amigo IRWIN!\p"
 
-@ Arnie - Bug Catcher, Route 35
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Arnie_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "How's it going?\p"
-	.string "I bet your POKéMON are a\n"
-	.string "lot stronger than before.$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal va\n"
+	.string "todo?\p"
+
+	.string "Seguro que tus POKéMON son más\n"
+	.string "fuertes que antes.$"
 
 MatchCall_HNS_Arnie_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "How's it going?\p"
-	.string "I'm always with my\n"
+	.string "¡Hola, {PLAYER}! ¿Qué tal va\n"
+	.string "todo?\p"
+
+	.string "¡Siempre estoy con mi\n"
 	.string "{STR_VAR_3}!\p"
-	.string "It's so cute!\n"
-	.string "I just love it!$"
+
+	.string "¡Es tan mono! ¡Me encanta!$"
 
 MatchCall_HNS_Arnie_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "How's it going?\p"
-	.string "Changing the topic here,\n"
-	.string "I saw this {STR_VAR_3}\l"
-	.string "for the first time.\p"
-	.string "It was easy to beat,\n"
-	.string "actually.$"
+	.string "¡Hola, {PLAYER}! ¿Qué tal va\n"
+	.string "todo?\p"
+
+	.string "Cambiando de tema, he visto a un\n"
+	.string "{STR_VAR_3} por primera vez.\p"
+
+	.string "La verdad, fue fácil vencerlo.$"
 
 MatchCall_HNS_Arnie_Battle::
-	.string "Hey, {PLAYER}!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}!\p"
 
-@ Alan - Schoolboy, Route 36
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Alan_General1::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's ALAN!\p"
-	.string "{PLAYER}, are you raising\n"
-	.string "your POKéMON properly?\p"
-	.string "I read in a book that you\n"
-	.string "should raise any POKéMON\l"
-	.string "you catch with love and\l"
-	.string "care.$"
+	.string "¡Hola, {PLAYER}! ¡Soy ALAN!\p"
+
+	.string "{PLAYER}, ¿estás criando bien a\n"
+	.string "tus POKéMON?\p"
+
+	.string "He leído que debes criar con\n"
+	.string "cariño y cuidado a todos los\l"
+	.string "POKéMON que captures.$"
 
 MatchCall_HNS_Alan_General2::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's ALAN!\p"
-	.string "My {STR_VAR_3}'s getting\n"
-	.string "stronger, exactly as I\l"
-	.string "calculated!$"
+	.string "¡Hola, {PLAYER}! ¡Soy ALAN!\p"
+
+	.string "Mi {STR_VAR_3} está cada vez más\n"
+	.string "fuerte, ¡justo como calculé!$"
 
 MatchCall_HNS_Alan_General3::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's ALAN!\p"
-	.string "By the way, we knocked\n"
-	.string "out a wild {STR_VAR_3}\l"
-	.string "just the other day.\p"
-	.string "Studying up in advance\n"
-	.string "worked!$"
+	.string "¡Hola, {PLAYER}! ¡Soy ALAN!\p"
+
+	.string "Por cierto, el otro día\n"
+	.string "noqueamos a un {STR_VAR_3}\l"
+	.string "salvaje.\p"
+
+	.string "¡Estudiar funciona!$"
 
 MatchCall_HNS_Alan_FoundItem::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's ALAN!\p"
-	.string "Hehehe, I picked up\n"
-	.string "something nice!\p"
-	.string "You can have it!\p"
-	.string "Why don't you come to\n"
-	.string "ROUTE 36 and pick it up?$"
+	.string "¡Hola, {PLAYER}! ¡Soy ALAN!\p"
+
+	.string "¡Je, je, he cogido algo\n"
+	.string "interesante!\p"
+
+	.string "¡Es tuyo!\p"
+
+	.string "¿Por qué no vienes a la RUTA 36\n"
+	.string "y te lo llevas?$"
 
 MatchCall_HNS_Alan_Battle::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's ALAN!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy ALAN!\p"
 
-@ Dana - Lass, Route 38
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Dana_General1::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's DANA!\p"
-	.string "My {STR_VAR_3} is so full\n"
-	.string "of energy, it's a little\l"
-	.string "scary.\p"
-	.string "How are your POKéMON\n"
-	.string "doing?$"
+	.string "¡Hola, {PLAYER}! ¡Soy DANA!\p"
+
+	.string "Mi {STR_VAR_3} está tan lleno de\n"
+	.string "energía que da un poco de miedo.\p"
+
+	.string "¿Qué tal están tus POKéMON?$"
 
 MatchCall_HNS_Dana_General2::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's DANA!\p"
-	.string "My {STR_VAR_3} is getting\n"
-	.string "prettier!\p"
-	.string "I've been taking photos\n"
-	.string "galore!$"
+	.string "¡Hola, {PLAYER}! ¡Soy DANA!\p"
+
+	.string "¡Mi {STR_VAR_3} está precioso!\p"
+
+	.string "¡Le he hecho un montón de fotos!$"
 
 MatchCall_HNS_Dana_General3::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's DANA!\p"
-	.string "It took only an instant to\n"
-	.string "KO a wild {STR_VAR_3}.\p"
-	.string "It must be because you\n"
-	.string "gave me some battling tips\l"
-	.string "last time.$"
+	.string "¡Hola, {PLAYER}! ¡Soy DANA!\p"
+
+	.string "Acabé con un {STR_VAR_3} salvaje\n"
+	.string "en un segundo.\p"
+
+	.string "Debe de ser porque la última vez\n"
+	.string "me diste consejos de combate.$"
 
 MatchCall_HNS_Dana_FoundItem::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's DANA!\p"
-	.string "You know what?\n"
-	.string "I got a good gift!\p"
-	.string "As I promised, it's yours!\n"
-	.string "I'm sure you'd like it.\p"
-	.string "Come get it! I'm waiting\n"
-	.string "on ROUTE 38!$"
+	.string "¡Hola, {PLAYER}! ¡Soy DANA!\p"
+
+	.string "¿Sabes una cosa? ¡Conseguí un\n"
+	.string "gran regalo!\p"
+
+	.string "¡Como prometí, es tuyo! Sabía\n"
+	.string "que te gustaría.\p"
+
+	.string "¡Ven a por él! ¡Te espero en la\n"
+	.string "RUTA 38!$"
 
 MatchCall_HNS_Dana_Battle::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's DANA!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy DANA!\p"
 
-@ Chad - Schoolboy, Route 38
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Chad_General1::
-	.string "Hello, {PLAYER}!\n"
-	.string "It's CHAD!\p"
-	.string "How are your POKéMON\n"
-	.string "doing?\p"
-	.string "You know PROF. OAK, so of\n"
-	.string "course your POKéMON are\l"
-	.string "fine!\p"
-	.string "My POKéMON are doing well\n"
-	.string "too.\p"
-	.string "But then, I am trying to\n"
-	.string "become a POKéMON\l"
-	.string "professor.$"
+	.string "¡Hola, {PLAYER}! ¡Soy CHAD!\p"
+
+	.string "¿Qué tal están tus POKéMON?\p"
+
+	.string "Ya conoces al PROF. OAK, ¡así\n"
+	.string "que seguro que tus POKéMON están\l"
+	.string "bien!\p"
+
+	.string "Los míos también están bien.\p"
+
+	.string "Claro que intento convertirme en\n"
+	.string "profesor POKéMON.$"
 
 MatchCall_HNS_Chad_General2::
-	.string "Hello, {PLAYER}!\n"
-	.string "It's CHAD!\p"
-	.string "I recently began observing\n"
-	.string "wild {STR_VAR_3}.\p"
-	.string "I've been learning all\n"
-	.string "sorts of new things\l"
-	.string "through my observations.\p"
-	.string "I wish I could become a\n"
-	.string "POKéMON researcher like\l"
-	.string "PROF. OAK soon.$"
+	.string "¡Hola, {PLAYER}! ¡Soy CHAD!\p"
+
+	.string "Hace poco empecé a observar a\n"
+	.string "los {STR_VAR_3} salvajes.\p"
+
+	.string "Gracias a mis observaciones\n"
+	.string "estoy aprendiendo todo tipo de\l"
+	.string "cosas.\p"
+
+	.string "Ojalá pronto pueda ser\n"
+	.string "investigador POKéMON como el\l"
+	.string "PROF. OAK.$"
 
 MatchCall_HNS_Chad_General3::
-	.string "Hello, {PLAYER}!\n"
-	.string "It's CHAD!\p"
-	.string "I'm going to study hard\n"
-	.string "so PROF. OAK will make\l"
-	.string "me his assistant!$"
+	.string "¡Hola, {PLAYER}! ¡Soy CHAD!\p"
+
+	.string "¡Voy a estudiar mucho para que\n"
+	.string "el PROF. OAK me haga su\l"
+	.string "ayudante!$"
 
 MatchCall_HNS_Chad_Battle::
-	.string "Hello, {PLAYER}!\n"
-	.string "It's CHAD!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy CHAD!\p"
 
-@ Derek - Pokefan M, Route 39
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Derek_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's DEREK!\p"
-	.string "You have to hear this!\p"
-	.string "My lovable {STR_VAR_3}\n"
-	.string "looked at me and grinned!\p"
-	.string "It must be because our\n"
-	.string "hearts beat together as\l"
-	.string "one!$"
+	.string "¡Hola, {PLAYER}! ¡Soy DEREK!\p"
+
+	.string "¡Tienes que oír esto!\p"
+
+	.string "¡Mi adorable {STR_VAR_3} me miró\n"
+	.string "y me sonrió!\p"
+
+	.string "¡Será porque somos almas\n"
+	.string "gemelas!$"
 
 MatchCall_HNS_Derek_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's DEREK!\p"
-	.string "Listen to this.\p"
-	.string "My {STR_VAR_3} grins\n"
-	.string "happily when I pinch its\l"
-	.string "cheek.\p"
-	.string "But it never grins for\n"
-	.string "anyone else.\p"
-	.string "I must be special.$"
+	.string "¡Hola, {PLAYER}! ¡Soy DEREK!\p"
+
+	.string "Escucha esto.\p"
+
+	.string "Mi {STR_VAR_3} sonríe alegre si\n"
+	.string "le pellizco el moflete.\p"
+
+	.string "Pero sólo si lo hago yo.\p"
+
+	.string "Debo de ser especial.$"
 
 MatchCall_HNS_Derek_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's DEREK!\p"
-	.string "How is your PIKACHU\n"
-	.string "doing?\p"
-	.string "Let's get together and\n"
-	.string "brag about our PIKACHU!$"
+	.string "¡Hola, {PLAYER}! ¡Soy DEREK!\p"
+
+	.string "¿Cómo está tu PIKACHU?\p"
+
+	.string "¡Reunámonos para presumir de\n"
+	.string "nuestros PIKACHU!$"
 
 MatchCall_HNS_Derek_FoundItem::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's DEREK!\p"
-	.string "I'd like you to have a\n"
-	.string "NUGGET.\p"
-	.string "I'm on ROUTE 39.\n"
-	.string "Come pick it up!$"
+	.string "¡Hola, {PLAYER}! ¡Soy DEREK!\p"
+
+	.string "Quiero darte una PEPITA.\p"
+
+	.string "Estoy en la RUTA 39. ¡Ven a\n"
+	.string "recogerlo!$"
 
 MatchCall_HNS_Derek_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's DEREK!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy DEREK!\p"
 
-@ Tully - Fisher, Route 42
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Tully_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's TULLY!\p"
-	.string "How's your trip coming\n"
-	.string "along?\p"
-	.string "I can't complain about\n"
-	.string "my fishing!$"
+	.string "¡Hola, {PLAYER}! ¡Soy TULLY!\p"
+
+	.string "¿Qué tal va tu viaje?\p"
+
+	.string "¡No puedo quejarme de mi pesca!$"
 
 MatchCall_HNS_Tully_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's TULLY!\p"
-	.string "My {STR_VAR_3} has grown\n"
-	.string "again.\p"
-	.string "It was only about so big\n"
-	.string "when I caught it, but now\l"
-	.string "it's way bigger.$"
+	.string "¡Hola, {PLAYER}! ¡Soy TULLY!\p"
+
+	.string "Mi {STR_VAR_3} ha vuelto a\n"
+	.string "crecer.\p"
+
+	.string "Sólo era así de grande cuando lo\n"
+	.string "atrapé, pero ahora es mucho\l"
+	.string "mayor.$"
 
 MatchCall_HNS_Tully_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's TULLY!\p"
-	.string "Oh yeah, I KO'd a wild\n"
-	.string "{STR_VAR_3}.\p"
-	.string "It was huge, like this big\n"
-	.string "even.\p"
-	.string "Heh, I guess you can't\n"
-	.string "tell over the phone…$"
+	.string "¡Hola, {PLAYER}! ¡Soy TULLY!\p"
+
+	.string "Ya lo creo, noqueé a un\n"
+	.string "{STR_VAR_3} salvaje.\p"
+
+	.string "Era enorme, así de grande.\p"
+
+	.string "Eh, seguro que no te lo crees\n"
+	.string "por teléfono…$"
 
 MatchCall_HNS_Tully_FoundItem::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's TULLY!\p"
-	.string "I picked up a good little\n"
-	.string "thing at the water's edge.\p"
-	.string "Like I promised, it's\n"
-	.string "yours.\p"
-	.string "I'll be waiting on\n"
-	.string "ROUTE 42.$"
+	.string "¡Hola, {PLAYER}! ¡Soy TULLY!\p"
+
+	.string "Pesqué una cosita interesante en\n"
+	.string "la orilla.\p"
+
+	.string "Como te prometí, es tuyo.\p"
+
+	.string "Te esperaré en la RUTA 42.$"
 
 MatchCall_HNS_Tully_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's TULLY!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy TULLY!\p"
 
-@ Brent - Pokemaniac, Route 43
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Brent_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's BRENT!\p"
-	.string "Oh yeah, I saw you coming\n"
-	.string "out of a POKéMON CENTER\l"
-	.string "the other day.\p"
-	.string "You heal your POKéMON\n"
-	.string "regularly, don't you?\l"
-	.string "I'm impressed.\p"
-	.string "Heh, my {STR_VAR_3} is\n"
-	.string "so tough, it doesn't need\l"
-	.string "to go to POKéMON CENTERS\l"
-	.string "often. Heheh!$"
+	.string "¡Hola, {PLAYER}! ¡Soy BRENT!\p"
+
+	.string "El otro día te vi salir de un\n"
+	.string "CENTRO POKéMON.\p"
+
+	.string "Curas a tus POKéMON a menudo,\n"
+	.string "¿verdad? Me has impresionado.\p"
+
+	.string "Je, mi {STR_VAR_3} es tan fuerte\n"
+	.string "que apenas necesita ir al CENTRO\l"
+	.string "POKéMON. ¡Je, je!$"
 
 MatchCall_HNS_Brent_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's BRENT!\p"
-	.string "Oh yeah, I got an\n"
-	.string "extremely rare POKéMON in\l"
-	.string "a trade a while back.\p"
-	.string "Do you want to know what\n"
-	.string "it is?\p"
-	.string "Hehe, I'm keeping it a\n"
-	.string "secret!$"
+	.string "¡Hola, {PLAYER}! ¡Soy BRENT!\p"
+
+	.string "Sí, conseguí un POKéMON raro\n"
+	.string "mediante intercambio hace un\l"
+	.string "rato.\p"
+
+	.string "¿Quieres saber cuál es?\p"
+
+	.string "Je, je, ¡es un secreto!$"
 
 MatchCall_HNS_Brent_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's BRENT!\p"
-	.string "Did you know…?\p"
-	.string "BILL's originally from\n"
-	.string "GOLDENROD.\p"
-	.string "Evidently, BILL isn't very\n"
-	.string "good at battling.$"
+	.string "¡Hola, {PLAYER}! ¡Soy BRENT!\p"
+
+	.string "¿Sabías que…?\p"
+
+	.string "BILL proviene de CIUDAD TRIGAL.\p"
+
+	.string "Como es obvio, a BILL no se le\n"
+	.string "da bien luchar.$"
 
 MatchCall_HNS_Brent_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's BRENT!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy BRENT!\p"
 
-@ Tiffany - Picnicker, Route 43
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Tiffany_General1::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's TIFFANY!\p"
-	.string "Are your POKéMON doing\n"
-	.string "well?\p"
-	.string "I hope you take them to a\n"
-	.string "POKéMON CENTER every day.\p"
-	.string "Don't push them too hard.\p"
-	.string "My {STR_VAR_3} is cute and\n"
-	.string "lively precisely because I\l"
-	.string "take it to a POKéMON\l"
-	.string "CENTER every day.$"
+	.string "¡Hola, {PLAYER}! ¡Soy TIFFANY!\p"
+
+	.string "¿Qué tal van tus POKéMON?\p"
+
+	.string "Espero que les lleves a un\n"
+	.string "CENTRO POKéMON todos los días.\p"
+
+	.string "Dosifica sus fuerzas.\p"
+
+	.string "Mi {STR_VAR_3} es bonito y\n"
+	.string "vivaracho precisamente porque le\l"
+	.string "llevo todos los días a un CENTRO\l"
+	.string "POKéMON.$"
 
 MatchCall_HNS_Tiffany_General2::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's TIFFANY!\p"
-	.string "My {STR_VAR_3}'s adorable,\n"
-	.string "don't you think so?\p"
-	.string "I always sleep with it--\n"
-	.string "it's so fluffy and warm!$"
+	.string "¡Hola, {PLAYER}! ¡Soy TIFFANY!\p"
+
+	.string "Mi {STR_VAR_3} es adorable, ¿no\n"
+	.string "crees?\p"
+
+	.string "Siempre duermo con él, ¡es\n"
+	.string "blando y calentito!$"
 
 MatchCall_HNS_Tiffany_General3::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's TIFFANY!\p"
-	.string "Oh, and we had to battle\n"
-	.string "a wild {STR_VAR_3} a\l"
-	.string "while ago…\p"
-	.string "My CLEFAIRY came close to\n"
-	.string "fainting!\p"
-	.string "Isn't that awful?\n"
-	.string "I hate those nasty\l"
+	.string "¡Hola, {PLAYER}! ¡Soy TIFFANY!\p"
+
+	.string "Oh, y teníamos que luchar contra\n"
+	.string "un {STR_VAR_3} salvaje hace un\l"
+	.string "rato…\p"
+
+	.string "¡Mi CLEFAIRY casi se desmaya!\p"
+
+	.string "¿No es horrible? ¡Odio a los\n"
 	.string "{STR_VAR_3}!$"
 
 MatchCall_HNS_Tiffany_Battle::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's TIFFANY!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy TIFFANY!\p"
 
-@ Vance - Bird Keeper, Route 44
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Vance_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's VANCE!\p"
-	.string "Are you and your POKéMON\n"
-	.string "fine?\p"
-	.string "My {STR_VAR_3} looks like\n"
-	.string "it will get tough enough\p"
-	.string "to face and beat the\n"
-	.string "legendary bird POKéMON!$"
+	.string "¡Hola, {PLAYER}! ¡Soy VANCE!\p"
+
+	.string "¿Estáis bien tus POKéMON y tú?\p"
+
+	.string "Parece que mi {STR_VAR_3} será\n"
+	.string "lo bastante fuerte\p"
+
+	.string "¡para enfrentarse a las aves\n"
+	.string "legendarias y vencerlas!$"
 
 MatchCall_HNS_Vance_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's VANCE!\p"
-	.string "My {STR_VAR_3}'s become\n"
-	.string "tougher.\p"
-	.string "We've achieved liftoff!$"
+	.string "¡Hola, {PLAYER}! ¡Soy VANCE!\p"
+
+	.string "Mi {STR_VAR_3} está más y más\n"
+	.string "fuerte.\p"
+
+	.string "¡Hemos despegado!$"
 
 MatchCall_HNS_Vance_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's VANCE!\p"
-	.string "We can easily beat\n"
-	.string "{STR_VAR_3}!\p"
-	.string "…Huh? You too?\n"
-	.string "Isn't that great?$"
+	.string "¡Hola, {PLAYER}! ¡Soy VANCE!\p"
+
+	.string "¡Podemos derrotar a {STR_VAR_3}\n"
+	.string "sin problemas!\p"
+
+	.string "¿Sí? ¿Tú también? ¡Estupendo!$"
 
 MatchCall_HNS_Vance_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's VANCE!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy VANCE!\p"
 
-@ Wilton - Fisher, Route 44
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Wilton_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's WILTON!\p"
-	.string "Have your POKéMON grown\n"
-	.string "any?\p"
-	.string "My {STR_VAR_3} has grown\n"
-	.string "quite a bit.$"
+	.string "¡Hola, {PLAYER}! ¡Soy WILTON!\p"
+
+	.string "¿Han crecido algo tus POKéMON?\p"
+
+	.string "Mi {STR_VAR_3} ha crecido un\n"
+	.string "poco.$"
 
 MatchCall_HNS_Wilton_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's WILTON!\p"
-	.string "My {STR_VAR_3}'s grown\n"
-	.string "impressive!\p"
-	.string "My fishing skills have\n"
-	.string "improved too!$"
+	.string "¡Hola, {PLAYER}! ¡Soy WILTON!\p"
+
+	.string "¡Mi {STR_VAR_3} está\n"
+	.string "impresionante!\p"
+
+	.string "¡También soy mejor pescador!$"
 
 MatchCall_HNS_Wilton_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's WILTON!\p"
-	.string "We beat a wild\n"
-	.string "{STR_VAR_3}…\p"
-	.string "You know, I have more fun\n"
-	.string "fishing than beating wild\l"
-	.string "POKéMON.$"
+	.string "¡Hola, {PLAYER}! ¡Soy WILTON!\p"
+
+	.string "Hemos vencido a un {STR_VAR_3}\n"
+	.string "salvaje…\p"
+
+	.string "La verdad, me divierte más\n"
+	.string "pescar que vencer POKéMON\l"
+	.string "salvajes.$"
 
 MatchCall_HNS_Wilton_FoundItem::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's WILTON!\p"
-	.string "I snagged an item while\n"
-	.string "fishing.\p"
-	.string "Come pick it up on\n"
-	.string "ROUTE 44.$"
+	.string "¡Hola, {PLAYER}! ¡Soy WILTON!\p"
+
+	.string "Enganché un objeto pescando.\p"
+
+	.string "Ven a recogerlo en la RUTA 44.$"
 
 MatchCall_HNS_Wilton_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's WILTON!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy WILTON!\p"
 
-@ Kenji - Blackbelt, Route 45
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Kenji_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "This is KENJI!\p"
-	.string "{PLAYER}! Beautiful\n"
-	.string "weather, hey?$"
+	.string "¡Hola, {PLAYER}! ¡Soy KENJI!\p"
+
+	.string "¡{PLAYER}! Qué buen tiempo,\n"
+	.string "¿verdad?$"
 
 MatchCall_HNS_Kenji_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "This is KENJI!\p"
-	.string "Are you still on your\n"
-	.string "journey?\p"
-	.string "I remain dedicated to my\n"
-	.string "training.\p"
-	.string "Oooooaaarrrgh!$"
+	.string "¡Hola, {PLAYER}! ¡Soy KENJI!\p"
+
+	.string "¿Continúas viajando?\p"
+
+	.string "Yo sigo entrenándome a fondo.\p"
+
+	.string "¡Oooooaaarrrgh!$"
 
 MatchCall_HNS_Kenji_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "This is KENJI!\p"
-	.string "I'm in training now.\p"
-	.string "I apologize, but call me\n"
-	.string "back another time.\p"
-	.string "Oooooaaarrrgh!$"
+	.string "¡Hola, {PLAYER}! ¡Soy KENJI!\p"
+
+	.string "Ahora estoy entrenándome.\p"
+
+	.string "Tendrás que llamarme en otro\n"
+	.string "momento.\p"
+
+	.string "¡Oooooaaarrrgh!$"
 
 MatchCall_HNS_Kenji_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "This is KENJI!\p"
-	.string "I'm taking a break!\p"
-	.string "Why not drop by if you\n"
-	.string "are free?$"
+	.string "¡Hola, {PLAYER}! ¡Soy KENJI!\p"
+
+	.string "¡Estoy descansando!\p"
+
+	.string "¿Por qué no te pasas un rato?$"
 
 MatchCall_HNS_Kenji_FoundItem::
-	.string "Hey, {PLAYER}!\n"
-	.string "This is KENJI!\p"
-	.string "I'm taking a break from\n"
-	.string "training.\p"
-	.string "I found something good.\n"
-	.string "Come get it if you want!$"
+	.string "¡Hola, {PLAYER}! ¡Soy KENJI!\p"
 
-@ Parry - Hiker, Route 45
+	.string "Estoy descansando del\n"
+	.string "entrenamiento.\p"
+
+	.string "He encontrado algo bueno. ¡Ven a\n"
+	.string "por ello si lo quieres!$"
+
 MatchCall_HNS_Parry_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's PARRY!\p"
-	.string "Are your POKéMON looking\n"
-	.string "good?\p"
-	.string "My {STR_VAR_3} and me--\n"
-	.string "we're looking mighty\l"
-	.string "dandy! Hahahah!$"
+	.string "¡Hola, {PLAYER}! ¡Soy PARRY!\p"
+
+	.string "¿Qué tal están tus POKéMON?\p"
+
+	.string "¡Mi {STR_VAR_3} y yo estamos muy\n"
+	.string "bien! ¡Ja, ja, ja, ja!$"
 
 MatchCall_HNS_Parry_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's PARRY!\p"
-	.string "Nothing can match my\n"
-	.string "{STR_VAR_3} now.$"
+	.string "¡Hola, {PLAYER}! ¡Soy PARRY!\p"
+
+	.string "No hay nada como mi {STR_VAR_3}.$"
 
 MatchCall_HNS_Parry_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's PARRY!\p"
-	.string "Yeah, we KO'd a wild\n"
-	.string "{STR_VAR_3}!\p"
-	.string "That was OK, but I wanted\n"
-	.string "to get it…$"
+	.string "¡Hola, {PLAYER}! ¡Soy PARRY!\p"
+
+	.string "¡Noqueamos a un {STR_VAR_3}\n"
+	.string "salvaje!\p"
+
+	.string "Estuvo bien, pero quería\n"
+	.string "atraparlo…$"
 
 MatchCall_HNS_Parry_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's PARRY!\p"
-	.string "You'll battle with me\n"
-	.string "again, right?$"
+	.string "¡Hola, {PLAYER}! ¡Soy PARRY!\p"
 
-@ Erin - Picnicker, Route 46
+	.string "Volveremos a luchar, ¿verdad?$"
+
 MatchCall_HNS_Erin_General1::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's ERIN!\p"
-	.string "Are you raising your\n"
-	.string "POKéMON?\p"
-	.string "My {STR_VAR_3} is looking\n"
-	.string "good!$"
+	.string "¡Hola, {PLAYER}! ¡Soy ERIN!\p"
+
+	.string "¿Estás mejorando a tus POKéMON?\p"
+
+	.string "¡El {STR_VAR_3} de  está muy\n"
+	.string "bien!$"
 
 MatchCall_HNS_Erin_General2::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's ERIN!\p"
-	.string "My {STR_VAR_3} is much\n"
-	.string "stronger than before!$"
+	.string "¡Hola, {PLAYER}! ¡Soy ERIN!\p"
+
+	.string "El {STR_VAR_3} de  está mucho\n"
+	.string "más fuerte que antes.$"
 
 MatchCall_HNS_Erin_General3::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's ERIN!\p"
-	.string "And, and… I just battled\n"
-	.string "and beat {STR_VAR_3}!\p"
-	.string "I've raised my POKéMON\n"
-	.string "properly!$"
+	.string "¡Hola, {PLAYER}! ¡Soy ERIN!\p"
+
+	.string "Y, y… ¡Acabo de derrotar a\n"
+	.string "{STR_VAR_3}!\p"
+
+	.string "¡He entrenado bien a mis\n"
+	.string "POKéMON!$"
 
 MatchCall_HNS_Erin_Battle::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's ERIN!\p"
-	.string "I'm working hard to raise\n"
-	.string "my POKéMON!\p"
-	.string "Come back for another\n"
-	.string "battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy ERIN!\p"
 
-@ Jack - Schoolboy, National Park
+	.string "¡Trabajo duro para entrenar a\n"
+	.string "mis POKéMON!\p"
+
+	.string "¡Vuelve para luchar de nuevo!$"
+
 MatchCall_HNS_Jack_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's JACK!\p"
-	.string "How are your POKéMON\n"
-	.string "doing?\p"
-	.string "My {STR_VAR_3} is so\n"
-	.string "curious, it's a problem.\p"
-	.string "Maybe it's like me…$"
+	.string "¡Hola, {PLAYER}! ¡Soy JACK!\p"
+
+	.string "¿Qué tal están tus POKéMON?\p"
+
+	.string "Mi {STR_VAR_3} es muy curioso,\n"
+	.string "es un problema.\p"
+
+	.string "Quizá es como yo…$"
 
 MatchCall_HNS_Jack_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's JACK!\p"
-	.string "My {STR_VAR_3}'s\n"
-	.string "intelligence keeps rising.\p"
-	.string "It might be smarter\n"
-	.string "than yours!$"
+	.string "¡Hola, {PLAYER}! ¡Soy JACK!\p"
+
+	.string "La inteligencia de mi\n"
+	.string "{STR_VAR_3} sigue creciendo.\p"
+
+	.string "¡Va a ser más listo que los\n"
+	.string "tuyos!$"
 
 MatchCall_HNS_Jack_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's JACK!\p"
-	.string "Did you know?\p"
-	.string "When it's raining, THUNDER\n"
-	.string "is sure to strike.\p"
-	.string "My friend heard some great\n"
-	.string "tips. When he tells me,\l"
-	.string "I'll call right away and\l"
-	.string "tell you.$"
+	.string "¡Hola, {PLAYER}! ¡Soy JACK!\p"
+
+	.string "¿Sabías qué…?\p"
+
+	.string "Cuando llueve, el ataque TRUENO\n"
+	.string "siempre golpea.\p"
+
+	.string "Mi amigo ha oído algunos trucos\n"
+	.string "geniales. Cuando me los diga, te\l"
+	.string "llamaré para contártelos.$"
 
 MatchCall_HNS_Jack_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's JACK!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy JACK!\p"
 
-@ Beverly - Pokefan F, National Park
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Beverly_General1::
-	.string "Hello, {PLAYER}!\n"
-	.string "It's BEVERLY!\p"
-	.string "Keeping your POKéMON\n"
-	.string "happy?\p"
-	.string "My {STR_VAR_3} is healthy.\n"
-	.string "It eats a lot every day.$"
+	.string "¡Hola, {PLAYER}! ¡Soy BEVERLY!\p"
+
+	.string "¿Son felices tus POKéMON?\p"
+
+	.string "Mi {STR_VAR_3} está sano. Come\n"
+	.string "mucho todos los días.$"
 
 MatchCall_HNS_Beverly_General2::
-	.string "Hello, {PLAYER}!\n"
-	.string "It's BEVERLY!\p"
-	.string "I fancied up my\n"
-	.string "{STR_VAR_3} and made it\l"
-	.string "even cuter than before!$"
+	.string "¡Hola, {PLAYER}! ¡Soy BEVERLY!\p"
+
+	.string "¡He arreglado a mi {STR_VAR_3} y\n"
+	.string "está más guapo que nunca!$"
 
 MatchCall_HNS_Beverly_General3::
-	.string "Hello, {PLAYER}!\n"
-	.string "It's BEVERLY!\p"
-	.string "Are your POKéMON in prime\n"
-	.string "form?\p"
-	.string "Let's chat about POKéMON\n"
-	.string "again.$"
+	.string "¡Hola, {PLAYER}! ¡Soy BEVERLY!\p"
+
+	.string "¿Están tus POKéMON en forma?\p"
+
+	.string "Hablemos de POKéMON otra vez.$"
 
 MatchCall_HNS_Beverly_FoundItem::
-	.string "Hello, {PLAYER}!\n"
-	.string "It's BEVERLY!\p"
-	.string "My husband got some\n"
-	.string "NUGGETS.\p"
-	.string "If you'd like, you could\n"
-	.string "have one as thanks for\l"
-	.string "helping me out.\p"
-	.string "I'll be at NATIONAL PARK.\n"
-	.string "Please come see me when\l"
-	.string "you can.$"
+	.string "¡Hola, {PLAYER}! ¡Soy BEVERLY!\p"
+
+	.string "Mi marido obtuvo algunas\n"
+	.string "PEPITAS.\p"
+
+	.string "Si quieres, puedes quedarte con\n"
+	.string "una por ayudarme.\p"
+
+	.string "Estaré en el PARQUE NACIONAL.\n"
+	.string "Por favor, ven a verme cuando\l"
+	.string "puedas.$"
 
 MatchCall_HNS_Beverly_Battle::
-	.string "Hello, {PLAYER}!\n"
-	.string "It's BEVERLY!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy BEVERLY!\p"
 
-@ Huey - Sailor, Olivine Lighthouse
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Huey_General1::
-	.string "Yo, {PLAYER}!\n"
-	.string "It's HUEY!\p"
-	.string "How's it going?$"
+	.string "¡Hola, {PLAYER}! ¡Soy HUEY!\p"
+
+	.string "¿Qué tal va todo?$"
 
 MatchCall_HNS_Huey_General2::
-	.string "Yo, {PLAYER}!\n"
-	.string "It's HUEY!\p"
-	.string "We have to battle again\n"
-	.string "sometime.\p"
-	.string "You can bet I'm going to\n"
-	.string "keep challenging you till\l"
-	.string "I win.$"
+	.string "¡Hola, {PLAYER}! ¡Soy HUEY!\p"
+
+	.string "Tenemos que luchar en otra\n"
+	.string "ocasión.\p"
+
+	.string "Descuida, seguiré retándote\n"
+	.string "hasta que te gane.$"
 
 MatchCall_HNS_Huey_Battle::
-	.string "Yo, {PLAYER}!\n"
-	.string "It's HUEY!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy HUEY!\p"
 
-@ Gaven - Cooltrainer M, Route 26
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Gaven_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's GAVEN!\p"
-	.string "How are your POKéMON\n"
-	.string "doing?\p"
-	.string "My {STR_VAR_3}'s doing as\n"
-	.string "great as ever.\p"
-	.string "Let's keep at it and\n"
-	.string "become POKéMON CHAMPS!$"
+	.string "¡Hola, {PLAYER}! ¡Soy GAVEN!\p"
+
+	.string "¿Qué tal están tus POKéMON?\p"
+
+	.string "Mi {STR_VAR_3} lo está haciendo\n"
+	.string "mejor que nunca.\p"
+
+	.string "¡Si seguimos así, seremos\n"
+	.string "CAMPEONES POKéMON!$"
 
 MatchCall_HNS_Gaven_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's GAVEN!\p"
-	.string "My {STR_VAR_3} might be\n"
-	.string "greater than I imagined.\p"
-	.string "I doubt I'll see a\n"
-	.string "POKéMON that's better\l"
-	.string "than mine.$"
+	.string "¡Hola, {PLAYER}! ¡Soy GAVEN!\p"
+
+	.string "Mi {STR_VAR_3} puede ser mejor\n"
+	.string "de lo que imaginaba.\p"
+
+	.string "Dudo que vea a un {STR_VAR_3}\n"
+	.string "mejor que el mío.$"
 
 MatchCall_HNS_Gaven_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's GAVEN!\p"
-	.string "I obsess over how to\n"
-	.string "beat you.$"
+	.string "¡Hola, {PLAYER}! ¡Soy GAVEN!\p"
+
+	.string "Me obsesiona la idea de\n"
+	.string "vencerte.$"
 
 MatchCall_HNS_Gaven_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's GAVEN!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy GAVEN!\p"
 
-@ Beth - Cooltrainer F, Route 26
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Beth_General1::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's BETH!\p"
-	.string "Are you the kind of person\n"
-	.string "who goes to POKéMON\l"
-	.string "CENTERS often?\p"
-	.string "I go every day. Watching\n"
-	.string "out for the health of your\l"
-	.string "POKéMON is a basic part of\l"
-	.string "being a POKéMON trainer.$"
+	.string "¡Hola, {PLAYER}! ¡Soy BETH!\p"
+
+	.string "¿Eres del tipo de persona que va\n"
+	.string "a menudo a los CENTROS POKéMON?\p"
+
+	.string "Yo voy todos los días. Cuidar de\n"
+	.string "la salud de tus POKéMON es uno\l"
+	.string "de los principios básicos de\l"
+	.string "entrenar POKéMON.$"
 
 MatchCall_HNS_Beth_General2::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's BETH!\p"
-	.string "Do you remember my sweet\n"
+	.string "¡Hola, {PLAYER}! ¡Soy BETH!\p"
+
+	.string "¿Recuerdas a mi dulce\n"
 	.string "{STR_VAR_3}?\p"
-	.string "{STR_VAR_3} runs very\n"
-	.string "fast.\p"
-	.string "It's exhilarating to ride\n"
-	.string "on its back when it really\l"
-	.string "gets going.$"
+
+	.string "{STR_VAR_3} corre muy rápido.\p"
+
+	.string "Montar sobre su espalda cuando\n"
+	.string "se pone en marcha es muy\l"
+	.string "emocionante.$"
 
 MatchCall_HNS_Beth_General3::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's BETH!\p"
-	.string "Let's battle again\n"
-	.string "sometime!$"
+	.string "¡Hola, {PLAYER}! ¡Soy BETH!\p"
+
+	.string "¡Debemos luchar en otra ocasión!$"
 
 MatchCall_HNS_Beth_Battle::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's BETH!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy BETH!\p"
 
-@ Jose - Bird Keeper, Route 27
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Jose_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's JOSE!\p"
-	.string "Are your POKéMON still\n"
-	.string "cooking?\p"
-	.string "My {STR_VAR_3} has too\n"
-	.string "much energy.\p"
-	.string "Once it takes off, it\n"
-	.string "won't come back for a\l"
-	.string "while.$"
+	.string "¡Hola, {PLAYER}! ¡Soy JOSE!\p"
+
+	.string "Tus POKéMON, ¿aún se entrenan?\p"
+
+	.string "Mi {STR_VAR_3} tiene mucha\n"
+	.string "energía.\p"
+
+	.string "Cuando despega, no vuelve en un\n"
+	.string "rato.$"
 
 MatchCall_HNS_Jose_General2::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's JOSE!\p"
-	.string "Hey listen, my\n"
-	.string "{STR_VAR_3}'s stick has\l"
-	.string "this really delicious\l"
-	.string "aroma.\p"
-	.string "That aroma gets my\n"
-	.string "appetite going!$"
+	.string "¡Hola, {PLAYER}! ¡Soy JOSE!\p"
+
+	.string "Escucha, el puerro de mi\n"
+	.string "{STR_VAR_3} tiene un aroma\l"
+	.string "delicioso.\p"
+
+	.string "¡Ese aroma me abre el apetito!$"
 
 MatchCall_HNS_Jose_General3::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's JOSE!\p"
-	.string "A while ago, my FARFETCH'D\n"
-	.string "KO'd this {STR_VAR_3}.\p"
-	.string "You should have seen\n"
-	.string "FARFETCH'D wield that\l"
-	.string "stick.\p"
-	.string "Amazing stuff!$"
+	.string "¡Hola, {PLAYER}! ¡Soy JOSE!\p"
+
+	.string "Hace un tiempo, mi FARFETCH'D\n"
+	.string "derrotó a {STR_VAR_3}.\p"
+
+	.string "Deberías haber visto a\n"
+	.string "FARFETCH'D con ese puerro.\p"
+
+	.string "¡Impresionante!$"
 
 MatchCall_HNS_Jose_FoundItem::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's JOSE!\p"
-	.string "My FARFETCH'D had\n"
-	.string "something pretty in its\l"
-	.string "beak.\p"
-	.string "Like I promised, you can\n"
-	.string "have it.\p"
-	.string "Catch up to me on\n"
-	.string "ROUTE 27, and I'll let\l"
-	.string "you have it.$"
+	.string "¡Hola, {PLAYER}! ¡Soy JOSE!\p"
+
+	.string "Mi FARFETCH'D llevaba en el pico\n"
+	.string "algo bonito.\p"
+
+	.string "Como prometí, puedes quedártelo.\p"
+
+	.string "Búscame en la RUTA 27 y te lo\n"
+	.string "daré.$"
 
 MatchCall_HNS_Jose_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's JOSE!\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "¡Hola, {PLAYER}! ¡Soy JOSE!\p"
 
-@ Reena - Cooltrainer F, Route 27
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Reena_General1::
-	.string "Hello, {PLAYER}.\n"
-	.string "It's REENA.\p"
-	.string "Hey, how are your POKéMON\n"
-	.string "doing?\p"
-	.string "What? Great? I see…\p"
-	.string "What? My POKéMON?\p"
-	.string "Of course they're doing\n"
-	.string "great! What kind of a\l"
-	.string "question is that?$"
+	.string "Hola, {PLAYER}. Soy REENA.\p"
+
+	.string "Eh, ¿qué tal van tus POKéMON?\p"
+
+	.string "¿Qué? ¿Genial? Ya veo…\p"
+
+	.string "¿Qué? ¿Mis POKéMON?\p"
+
+	.string "¡Claro que lo están haciendo\n"
+	.string "bien! ¿A qué te refieres?$"
 
 MatchCall_HNS_Reena_General2::
-	.string "Hello, {PLAYER}.\n"
-	.string "It's REENA.\p"
-	.string "Listen, dear…\p"
-	.string "Do you recall my\n"
-	.string "{STR_VAR_3}?\p"
-	.string "Yes, exactly. That lovely\n"
+	.string "Hola, {PLAYER}. Soy REENA.\p"
+
+	.string "Escucha, joven…\p"
+
+	.string "¿Te acuerdas de mi {STR_VAR_3}?\p"
+
+	.string "Exactamente. Ese bonito\n"
 	.string "{STR_VAR_3}.\p"
-	.string "Wouldn't you agree it's a\n"
-	.string "perfect match for me?$"
+
+	.string "¿No opinas que es una pareja\n"
+	.string "perfecta para mí?$"
 
 MatchCall_HNS_Reena_General3::
-	.string "Hello, {PLAYER}.\n"
-	.string "It's REENA.\p"
-	.string "Don't be too proud just\n"
-	.string "because you happened to\l"
-	.string "beat me…\p"
-	.string "It was a fluke!$"
+	.string "Hola, {PLAYER}. Soy REENA.\p"
+
+	.string "No te enorgullezcas tanto por\n"
+	.string "haberme vencido…\p"
+
+	.string "¡Ha sido chiripa!$"
 
 MatchCall_HNS_Reena_Battle::
-	.string "Hello, {PLAYER}.\n"
-	.string "It's REENA.\p"
-	.string "I was waiting for you.\n"
-	.string "Let's battle!$"
+	.string "Hola, {PLAYER}. Soy REENA.\p"
 
-@ Alex - Battle Girl, Route 13
+	.string "Te estaba esperando. ¡Luchemos!$"
+
 MatchCall_HNS_Alex_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's ALEX!\p"
-	.string "My regal POKéMON\n"
-	.string "grow sharper by the day.\p"
-	.string "{STR_VAR_3} is getting\n"
-	.string "really tough!$"
+	.string "¡Hola, {PLAYER}! ¡Soy ALEX!\p"
+
+	.string "Mis majestuosos POKéMON mejoran\n"
+	.string "cada día.\p"
+
+	.string "¡{STR_VAR_3} se está volviendo\n"
+	.string "muy fuerte!$"
 
 MatchCall_HNS_Alex_General2::
-	.string "Hey, {PLAYER}!\p"
-	.string "I heard other regions have\n"
-	.string "kings and queens. Why\l"
-	.string "doesn't KANTO have\p"
-	.string "any royalty?$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "He oído que otras regiones\n"
+	.string "tienen reyes y reinas. ¿Por qué\l"
+	.string "KANTO no tiene\p"
+
+	.string "realeza?$"
 
 MatchCall_HNS_Alex_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's ALEX!\p"
-	.string "My regal POKéMON are ready\n"
-	.string "for a rematch! Come to ROUTE 13!$"
+	.string "¡Hola, {PLAYER}! ¡Soy ALEX!\p"
 
-@ Riley - Biker, Route 17
+	.string "¡Mis majestuosos POKéMON están\n"
+	.string "listos para la revancha! ¡Ven a\l"
+	.string "la RUTA 13!$"
+
 MatchCall_HNS_Riley_General1::
-	.string "Yo, {PLAYER}!\n"
-	.string "RILEY here.\p"
-	.string "CYCLING ROAD is the best.\n"
-	.string "Nothing beats the wind\l"
-	.string "in your face.\p"
-	.string "{STR_VAR_3} loves the\n"
-	.string "speed too!$"
+	.string "¡Hola, {PLAYER}! Soy RILEY.\p"
+
+	.string "La RUTA CICLISTA es lo mejor. No\n"
+	.string "hay nada como sentir el viento\l"
+	.string "en la cara.\p"
+
+	.string "¡A {STR_VAR_3} también le\n"
+	.string "encanta la velocidad!$"
 
 MatchCall_HNS_Riley_General2::
-	.string "Yo, {PLAYER}!\p"
-	.string "You JOHTO kids aren't bad.\n"
-	.string "Maybe I misjudged you.\p"
-	.string "Don't let it go to your\n"
-	.string "head though!$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "Los chavales de JOHTO no sois\n"
+	.string "malos. Quizá te juzgué mal.\p"
+
+	.string "¡Pero no dejes que se te suba a\n"
+	.string "la cabeza!$"
 
 MatchCall_HNS_Riley_Battle::
-	.string "Yo, {PLAYER}!\n"
-	.string "RILEY here.\p"
-	.string "Get down to CYCLING ROAD!\n"
-	.string "I want a rematch!$"
+	.string "¡Hola, {PLAYER}! Soy RILEY.\p"
 
-@ Trevor - Juggler, Route 14
+	.string "¡Ven a la RUTA CICLISTA! ¡Quiero\n"
+	.string "la revancha!$"
+
 MatchCall_HNS_Trevor_General1::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's TREVOR.\p"
-	.string "Did you know POKéMON get\n"
-	.string "friendlier when you train\l"
-	.string "in memorable places?\p"
-	.string "{STR_VAR_3} seems to\n"
-	.string "like it here.$"
+	.string "¡Hola, {PLAYER}! Soy TREVOR.\p"
+
+	.string "¿Sabías que los POKéMON se\n"
+	.string "encariñan más si entrenáis en\l"
+	.string "lugares memorables?\p"
+
+	.string "Parece que a {STR_VAR_3} le\n"
+	.string "gusta este lugar.$"
 
 MatchCall_HNS_Trevor_General2::
-	.string "Hi, {PLAYER}!\p"
-	.string "Some POKéMON moves\n"
-	.string "are stronger when your\p"
-	.string "POKéMON feels more\n"
-	.string "friendly toward you!$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "Algunos movimientos son más\n"
+	.string "fuertes cuando tu\p"
+
+	.string "¡POKéMON siente más cariño por\n"
+	.string "ti!$"
 
 MatchCall_HNS_Trevor_Battle::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's TREVOR.\p"
-	.string "My friends are ready for battle!\n"
-	.string "Come see on ROUTE 14!$"
+	.string "¡Hola, {PLAYER}! Soy TREVOR.\p"
 
-@ Kyle - Fisherman, Route 12
+	.string "¡Mis amigos están listos para\n"
+	.string "combatir! ¡Ven a vernos a la\l"
+	.string "RUTA 14!$"
+
 MatchCall_HNS_Kyle_General1::
-	.string "Who is this?!\n"
-	.string "I called you?\p"
-	.string "This is KYLE. Don't forget!$"
+	.string "¡¿Quién eres?! ¿Te he llamado\n"
+	.string "yo?\p"
+
+	.string "Soy KYLE. ¡No lo olvides!$"
 
 MatchCall_HNS_Kyle_General2::
-	.string "Hey, {PLAYER}!\p"
-	.string "Do you remember?\n"
-	.string "The secrets of fishing?$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "¿Recuerdas? ¿Los secretos de la\n"
+	.string "pesca?$"
 
 MatchCall_HNS_Kyle_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "KYLE here.\p"
-	.string "I've reeled in some tough\n"
-	.string "new POKéMON!\p"
-	.string "Come to ROUTE 12 for\n"
-	.string "a battle!$"
+	.string "¡Hola, {PLAYER}! Soy KYLE.\p"
 
-@ Carter - Pokefan, Route 14
+	.string "¡He pescado nuevos POKéMON muy\n"
+	.string "fuertes!\p"
+
+	.string "¡Ven a combatir a la RUTA 12!$"
+
 MatchCall_HNS_Carter_General1::
-	.string "Hi there, {PLAYER}!\n"
-	.string "CARTER here.\p"
-	.string "I've been collecting rare\n"
-	.string "starter POKéMON.\p"
-	.string "My {STR_VAR_3} is my\n"
-	.string "newest pride and joy!$"
+	.string "¡Hola, {PLAYER}! Soy CARTER.\p"
+
+	.string "He estado reuniendo POKéMON\n"
+	.string "iniciales raros.\p"
+
+	.string "¡Mi {STR_VAR_3} es mi nuevo\n"
+	.string "orgullo!$"
 
 MatchCall_HNS_Carter_General2::
-	.string "Hi, {PLAYER}!\p"
-	.string "Did you know there are\n"
-	.string "starter POKéMON from many\l"
-	.string "different regions?\p"
-	.string "I want to collect them\n"
-	.string "all!$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "¿Sabías que hay POKéMON\n"
+	.string "iniciales de muchas regiones?\p"
+
+	.string "¡Quiero reunirlos a todos!$"
 
 MatchCall_HNS_Carter_Battle::
-	.string "Hi, {PLAYER}!\n"
-	.string "CARTER here.\p"
-	.string "I have new starters to\n"
-	.string "show off! Come to\l"
-	.string "ROUTE 14!$"
+	.string "¡Hola, {PLAYER}! Soy CARTER.\p"
 
-@ Hillary - Expert, Route 15
+	.string "¡Tengo nuevos iniciales que\n"
+	.string "enseñarte! ¡Ven a la RUTA 14!$"
+
 MatchCall_HNS_Hillary_General1::
-	.string "Hello, {PLAYER}.\n"
-	.string "It's TEACHER HILLARY.\p"
-	.string "Why aren't you in school?$"
+	.string "Hola, {PLAYER}. Soy la PROFESORA\n"
+	.string "HILLARY.\p"
+
+	.string "¿Por qué no estás en clase?$"
 
 MatchCall_HNS_Hillary_General2::
-	.string "Hello, {PLAYER}.\p"
-	.string "Are you playing games\n"
-	.string "instead of doing homework?$"
+	.string "Hola, {PLAYER}.\p"
+
+	.string "¿Estás jugando en vez de hacer\n"
+	.string "los deberes?$"
 
 MatchCall_HNS_Hillary_Battle::
-	.string "Hello, {PLAYER}.\n"
-	.string "It's HILLARY.\p"
-	.string "My POKéMON have graduated\n"
-	.string "to the next level!\p"
-	.string "Come test us on ROUTE 15!$"
+	.string "Hola, {PLAYER}. Soy HILLARY.\p"
 
-@ Rob - Bug Catcher, Route 2
+	.string "¡Mis POKéMON han pasado al\n"
+	.string "siguiente nivel!\p"
+
+	.string "¡Ven a ponernos a prueba en la\n"
+	.string "RUTA 15!$"
+
 MatchCall_HNS_Rob_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "ROB here!\p"
-	.string "VIRIDIAN FOREST is full\n"
-	.string "of cool bugs!$"
+	.string "¡Hola, {PLAYER}! Soy ROB!\p"
+
+	.string "¡El BOSQUE VERDE está lleno de\n"
+	.string "BICHOS geniales!$"
 
 MatchCall_HNS_Rob_General2::
-	.string "Hey, {PLAYER}!\p"
-	.string "I saw a BUG TYPE GYM\n"
-	.string "LEADER in VIRIDIAN FOREST!$" 
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "¡Vi a un LÍDER de tipo BICHO en\n"
+	.string "el BOSQUE VERDE!$"
 
 MatchCall_HNS_Rob_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "ROB here!\p"
-	.string "My bug team is stronger\n"
-	.string "than ever!\p"
-	.string "Come to ROUTE 2 for a\n"
-	.string "rematch!$"
+	.string "¡Hola, {PLAYER}! Soy ROB!\p"
 
-@ Nicole - Swimmer, Route 20
+	.string "¡Mi equipo de tipo BICHO es más\n"
+	.string "fuerte que nunca!\p"
+
+	.string "¡Ven a la RUTA 2 para la\n"
+	.string "revancha!$"
+
 MatchCall_HNS_Nicole_General1::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's NICOLE!\p"
-	.string "The waves are great today!\n"
-	.string "My POKéMON love swimming\l"
-	.string "in the open sea.\p"
-	.string "{STR_VAR_3} is getting\n"
-	.string "so fast!$"
+	.string "¡Hola, {PLAYER}! ¡Soy NICOLE!\p"
+
+	.string "¡Hoy hay unas olas estupendas! A\n"
+	.string "mis POKéMON les encanta nadar en\l"
+	.string "alta mar.\p"
+
+	.string "¡{STR_VAR_3} se está volviendo\n"
+	.string "rapidísimo!$"
 
 MatchCall_HNS_Nicole_General2::
-	.string "Hi, {PLAYER}!\p"
-	.string "Swimming with POKéMON is\n"
-	.string "the best exercise.$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "Nadar con POKéMON es el mejor\n"
+	.string "ejercicio.$"
 
 MatchCall_HNS_Nicole_Battle::
-	.string "Hi, {PLAYER}!\n"
-	.string "It's NICOLE!\p"
-	.string "My water POKéMON are\n"
-	.string "raring to battle!\p"
-	.string "Come to ROUTE 20!$"
+	.string "¡Hola, {PLAYER}! ¡Soy NICOLE!\p"
 
-@ Billy - School Kid, Route 15
+	.string "¡Mis POKéMON de tipo AGUA están\n"
+	.string "deseando combatir!\p"
+
+	.string "¡Ven a la RUTA 20!$"
+
 MatchCall_HNS_Billy_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's BILLY.\p"
-	.string "I've been studying battle\n"
-	.string "strategies in class.\p"
-	.string "{STR_VAR_3} and I have\n"
-	.string "been practicing them!$"
+	.string "¡Hola, {PLAYER}! Soy BILLY.\p"
+
+	.string "He estudiado estrategias de\n"
+	.string "combate en clase.\p"
+
+	.string "¡{STR_VAR_3} y yo las hemos\n"
+	.string "practicado!$"
 
 MatchCall_HNS_Billy_General2::
-	.string "Hey, {PLAYER}!\p"
-	.string "Tests are coming up, but\n"
-	.string "I'd rather be battling.\p"
-	.string "Book smarts aren't\n"
-	.string "everything, right?$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "Se acercan los exámenes, pero\n"
+	.string "prefiero combatir.\p"
+
+	.string "Saber de libros no lo es todo,\n"
+	.string "¿verdad?$"
 
 MatchCall_HNS_Billy_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "It's BILLY.\p"
-	.string "I learned some new tricks!\n"
-	.string "Come to ROUTE 15!$"
+	.string "¡Hola, {PLAYER}! Soy BILLY.\p"
 
-@ Kenny - Hiker, Route 13
+	.string "¡He aprendido algunos trucos\n"
+	.string "nuevos! ¡Ven a la RUTA 15!$"
+
 MatchCall_HNS_Kenny_General1::
-	.string "Hey there, {PLAYER}!\n"
-	.string "KENNY here.\p"
-	.string "Were all mountains really\n"
-	.string "shaped by oceans and rivers?$"
+	.string "¡Hola, {PLAYER}! Soy KENNY.\p"
+
+	.string "¿De verdad los mares y los ríos\n"
+	.string "dieron forma a todas las\l"
+	.string "montañas?$"
 
 MatchCall_HNS_Kenny_General2::
-	.string "Hey, {PLAYER}!\p"
-	.string "It's KENNY here.\n"
-	.string "I visited the PEWTER museum!\p"
-	.string "Did you know the entire KANTO\n"
-	.string "region was once under water?$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "Soy KENNY. ¡He visitado el museo\n"
+	.string "de CIUDAD PLATEADA!\p"
+
+	.string "¿Sabías que toda la región de\n"
+	.string "KANTO estuvo bajo el agua?$"
 
 MatchCall_HNS_Kenny_Battle::
-	.string "Hey there, {PLAYER}!\n"
-	.string "KENNY here.\p"
-	.string "I've trained hard in the\n"
-	.string "mountains!\p"
-	.string "Come to ROUTE 13 for\n"
-	.string "a battle!$"
+	.string "¡Hola, {PLAYER}! Soy KENNY.\p"
 
-@ Joel - Biker, Route 17
+	.string "¡He entrenado duro en las\n"
+	.string "montañas!\p"
+
+	.string "¡Ven a combatir a la RUTA 13!$"
+
 MatchCall_HNS_Joel_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "JOEL here.\p"
-	.string "I've been working on\n"
-	.string "looking cool in battle.\p"
-	.string "{STR_VAR_3} has some\n"
-	.string "flashy new moves!$"
+	.string "¡Hola, {PLAYER}! Soy JOEL.\p"
+
+	.string "He practicado para lucirme en\n"
+	.string "combate.\p"
+
+	.string "¡{STR_VAR_3} tiene nuevos\n"
+	.string "movimientos muy vistosos!$"
 
 MatchCall_HNS_Joel_General2::
-	.string "Hey, {PLAYER}!\p"
-	.string "JOEL here.\p"
-	.string "There was an accident on\n"
-	.string "CYCLING ROAD.\p"
-	.string "Being safe is the coolest thing\n"
-	.string "you can be.$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "Soy JOEL.\p"
+
+	.string "Ha habido un accidente en la\n"
+	.string "RUTA CICLISTA.\p"
+
+	.string "No hay nada más genial que ir\n"
+	.string "con cuidado.$"
 
 MatchCall_HNS_Joel_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "JOEL here.\p"
-	.string "I look AND fight cool now!\n"
-	.string "Come to CYCLING ROAD!$"
+	.string "¡Hola, {PLAYER}! Soy JOEL.\p"
 
-@ Charles - Biker, Route 17
+	.string "¡Ahora luzco bien Y combato con\n"
+	.string "estilo! ¡Ven a la RUTA CICLISTA!$"
+
 MatchCall_HNS_Charles_General1::
-	.string "Hey, {PLAYER}!\n"
-	.string "CHARLES here.\p"
-	.string "I was something of a\n"
-	.string "heartbreaker in UNOVA.\p"
-	.string "Now I'm a highway star!$"
+	.string "¡Hola, {PLAYER}! Soy CHARLES.\p"
+
+	.string "En TESELIA era todo un\n"
+	.string "rompecorazones.\p"
+
+	.string "¡Ahora soy la estrella de la\n"
+	.string "carretera!$"
 
 MatchCall_HNS_Charles_General2::
-	.string "Hey, {PLAYER}!\p"
-	.string "CYCLING ROAD at night is\n"
-	.string "something else.\p"
-	.string "The streetlights and the\n"
-	.string "wind… it's freedom!$"
+	.string "¡Hola, {PLAYER}!\p"
+
+	.string "La RUTA CICLISTA de noche es\n"
+	.string "otra cosa.\p"
+
+	.string "Las farolas y el viento… ¡eso es\n"
+	.string "libertad!$"
 
 MatchCall_HNS_Charles_Battle::
-	.string "Hey, {PLAYER}!\n"
-	.string "CHARLES here.\p"
-	.string "The highway stars want\n"
-	.string "revenge! Come to\l"
-	.string "CYCLING ROAD!$"
+	.string "¡Hola, {PLAYER}! Soy CHARLES.\p"
+
+	.string "¡Las estrellas de la carretera\n"
+	.string "quieren revancha! ¡Ven a la RUTA\l"
+	.string "CICLISTA!$"

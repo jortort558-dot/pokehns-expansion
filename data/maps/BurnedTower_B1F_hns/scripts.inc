@@ -184,7 +184,25 @@ BurnedTower_B1F_Movement_EusineLeave:
 	step_end
 
 BurnedTowerB1FEusineText:
-	.string "EUSKADI: ¡Estoy flipando!\p¡SUICUNE ha pasado como una\nexhalación\ljusto delante de mis propios ojos!\pLlevo diez años persiguiendo a\nSUICUNE,\l¡y por fin lo he visto en persona!\p¡Se me hace un nudo en la garganta!\p¡{PLAYER}, te lo debo todo a ti!\p¡Muchísimas gracias!\pDicen que los POKéMON legendarios\nde\lCIUDAD IRIS ponen a prueba a los\lhumanos\lelegidos dejándoles acercarse.\pVoy a seguirle la pista a SUICUNE.\p¡{PLAYER}, volvamos a vernos!\p¡Hasta la vista!$"
+	.string "EUSKADI: ¡Estoy flipando!\p"
+	.string "¡SUICUNE ha pasado como una\n"
+	.string "exhalación justo delante de mis\l"
+	.string "propios ojos!\p"
+	.string "Llevo diez años persiguiendo a\n"
+	.string "SUICUNE, ¡y por fin lo he visto\l"
+	.string "en persona!\p"
+	.string "¡Se me hace un nudo en la\n"
+	.string "garganta!\p"
+	.string "¡{PLAYER}, te lo debo todo a ti!\p"
+	.string "¡Muchísimas gracias!\p"
+	.string "Dicen que los POKéMON\n"
+	.string "legendarios de CIUDAD IRIS ponen\l"
+	.string "a prueba a los humanos elegidos\l"
+	.string "dejándoles acercarse.\p"
+	.string "Voy a seguirle la pista a\n"
+	.string "SUICUNE.\p"
+	.string "¡{PLAYER}, volvamos a vernos!\p"
+	.string "¡Hasta la vista!$"
 BurnedTower_B1F_EventScript_Item_Taunt::
 	finditem ITEM_TM_TAUNT
 	end

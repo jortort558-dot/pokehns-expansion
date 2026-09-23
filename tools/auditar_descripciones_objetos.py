@@ -126,10 +126,10 @@ def audit(
                 "el formato compacto admite 6"
             )
         for index, line in enumerate(description.lines):
-            if len(line) > 29:
+            if len(line) > 25:
                 issues.append(
                     f"{item} (línea {description.source_line}, texto {index + 1}): "
-                    f"{len(line)} caracteres; máximo compacto 29 — {line!r}"
+                    f"{len(line)} caracteres; máximo compacto 25 — {line!r}"
                 )
     return issues
 
@@ -186,7 +186,7 @@ def main() -> int:
             print(f"- {issue}")
         return 1
 
-    print("OK: todas respetan el formato compacto de 6 líneas y 29 caracteres.")
+    print("OK: todas respetan el formato compacto de 6 líneas y 25 caracteres.")
     return 0
 
 

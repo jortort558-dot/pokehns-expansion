@@ -215,6 +215,7 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenTrade::
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 	special UseGymTokenTrade
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeFailed
+	call Common_EventScript_SaveGame
 	special DoInGameTradeScene
 	waitstate
 	special FinishGymTokenTrade

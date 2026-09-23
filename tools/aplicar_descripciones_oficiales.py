@@ -11,7 +11,7 @@ from pathlib import Path
 from auditar_descripciones_objetos import ITEM_START_RE, extract_parenthesized
 
 REPO = Path(__file__).resolve().parents[1]
-WIDTH = 29
+WIDTH = 25
 ABBREVIATIONS = {
     "antigua": "ant.", "antiguo": "ant.", "valiente": "val.",
     "cataclismo": "catacl.", "lamentable": "lament.",
@@ -22,6 +22,23 @@ ABBREVIATIONS = {
     "determinado": "det.", "especialmente": "espec.",
     "elaboradas": "elab.", "entregaban": "entreg.", "ofrenda": "ofr.",
     "Cosechas": "Cosech.", "gratitud": "grat.",
+    "construido": "constr.", "construida": "constr.", "Dinamax": "Dinam.",
+    "Vespiquen": "Vespiq.", "suaviza": "suav.", "También": "Tb.",
+    "también": "tb.", "efecto": "ef.", "Revivir": "Rev.", "Máximo": "Máx.",
+    "restaura": "rest.", "completamente": "compl.", "problemas": "probl.",
+    "medicinal": "med.", "medicinales": "med.", "rendimiento": "rend.",
+    "especial": "esp.", "especiales": "esp.", "durante": "dur.",
+    "combate": "comb.", "Pokécubos": "Pokéc.", "caramelos": "caram.",
+    "probabilidad": "prob.", "fragmento": "frag.", "cristal": "crist.",
+    "debilitarse": "debil.", "Teracristal": "Terac.",
+    "resistente": "resist.", "general": "gral.", "Puede": "P.",
+    "puede": "p.", "veces": "vcs.", "quiera": "qra.",
+    "cambiar": "camb.", "aspecto": "asp.", "dinamaxizarse": "dinamax.",
+    "todas": "todas", "características": "caract.",
+    "fertilizante": "fert.", "cultivo": "cult.", "Parece": "Parece",
+    "asienta": "asent.", "región": "reg.",
+    "llamado": "llam.", "determinadas": "dets.", "accesorios": "acces.",
+    "cierto": "cto.",
 }
 
 
@@ -35,6 +52,30 @@ def wrap(text: str) -> list[str]:
         lines = textwrap.wrap(" ".join(words), width=WIDTH, break_long_words=False, break_on_hyphens=False)
         if len(lines) <= 6:
             return lines
+    # Último recurso: abrevia, de una en una, las palabras más largas. No se
+    # elimina ninguna parte de la frase ni ningún concepto.
+    for index in sorted(range(len(words)), key=lambda i: len(words[i]), reverse=True):
+        word = words[index]
+        suffix = ""
+        while word and word[-1] in ".,;:!?":
+            suffix = word[-1] + suffix
+            word = word[:-1]
+        if len(word) > 8:
+            words[index] = word[:6] + "." + suffix
+            lines = textwrap.wrap(" ".join(words), width=WIDTH, break_long_words=False, break_on_hyphens=False)
+            if len(lines) <= 6:
+                return lines
+    for index in sorted(range(len(words)), key=lambda i: len(words[i]), reverse=True):
+        word = words[index]
+        suffix = ""
+        while word and word[-1] in ".,;:!?":
+            suffix = word[-1] + suffix
+            word = word[:-1]
+        if len(word) > 5:
+            words[index] = word[:3] + "." + suffix
+            lines = textwrap.wrap(" ".join(words), width=WIDTH, break_long_words=False, break_on_hyphens=False)
+            if len(lines) <= 6:
+                return lines
     return lines
 
 

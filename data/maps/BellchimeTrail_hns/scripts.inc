@@ -16,12 +16,13 @@ BellchimeTrail_EventScript_Morty::
 	end
 
 BellchimeTrail_Text_Morty:
-	.string "MORTI: El POKéMON legendario\n"
-	.string "no me ha elegido…\p"
+	.string "MORTI: El POKéMON legendario no\n"
+	.string "me ha elegido…\p"
 	.string "Pero eso no significa que haya\n"
 	.string "perdido mi futuro.\p"
-	.string "Seguiré entrenando hasta descubrir\n"
-	.string "un nuevo camino para mí.\p"
+	.string "Seguiré entrenando hasta\n"
+	.string "descubrir un nuevo camino para\l"
+	.string "mí.\p"
 	.string "Si buscas otro combate, búscame\n"
 	.string "en el DOJO KÁRATE.$"
 

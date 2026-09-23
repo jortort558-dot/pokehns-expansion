@@ -81,31 +81,32 @@ Route37_EventScript_Sign::
 	end
 
 Route37_Text_TwinsAnnAndAnne1_Seen:
-	.string "ANA: ¡ANA y yo formamos el equipo\n"
-	.string "perfecto!$"
+	.string "ANA: ¡ANA y yo formamos el\n"
+	.string "equipo perfecto!$"
 
 Route37_Text_TwinsAnnAndAnne1_Beaten:
 	.string "ANA Y ANITA: Mmm… Eres demasiado\n"
 	.string "fuerte…$"
 
 Route37_Text_TwinsAnnAndAnne1_After:
-	.string "ANA: Sé exactamente qué piensan mi\n"
-	.string "hermana y mis POKéMON.$"
+	.string "ANA: Sé exactamente qué piensan\n"
+	.string "mi hermana y mis POKéMON.$"
 
 Route37_Text_TwinsAnnAndAnne2_Seen:
-	.string "ANITA: ¡ANA y yo luchamos siempre\n"
-	.string "unidas!$"
+	.string "ANITA: ¡ANA y yo luchamos\n"
+	.string "siempre unidas!$"
 
 Route37_Text_TwinsAnnAndAnne2_Beaten:
 	.string "ANA Y ANITA: Mmm… Eres demasiado\n"
 	.string "fuerte…$"
 
 Route37_Text_TwinsAnnAndAnne2_After:
-	.string "ANITA: Compartimos el mismo corazón\n"
-	.string "que nuestros POKéMON.$"
+	.string "ANITA: Compartimos el mismo\n"
+	.string "corazón que nuestros POKéMON.$"
 
 Route37_Text_PsychicGreg_Seen:
-	.string "Un POKéMON dormido está indefenso.\p"
+	.string "Un POKéMON dormido está\n"
+	.string "indefenso.\p"
 	.string "¡Te demostraré lo temible que\n"
 	.string "resulta!$"
 
@@ -114,21 +115,23 @@ Route37_Text_PsychicGreg_Beaten:
 
 Route37_Text_PsychicGreg_After:
 	.string "Dormir o paralizar al rival son\n"
-	.string "tácticas fundamentales en combate.$"
+	.string "tácticas fundamentales en\l"
+	.string "combate.$"
 
 Route37_Text_Sunny_Meet:
 	.string "DOMINGO: ¡Hola!\p"
-	.string "¡Soy DOMINGO, de la familia\nsemanal!\p"
+	.string "¡Soy DOMINGO, de la familia\n"
+	.string "semanal!\p"
 	.string "Si adivinas mi día favorito, ¡te\n"
 	.string "daré un premio estupendo!$"
 
 Route37_Text_Sunny_GiveGift1:
-	.string "¡Me dijeron que te entregara esto\n"
-	.string "en cuanto te viera!$"
+	.string "¡Me dijeron que te entregara\n"
+	.string "esto en cuanto te viera!$"
 
 Route37_Text_Sunny_GiveGift2:
-	.string "¡Me dijeron que te entregara esto\nen\l"
-	.string "cuanto te viera!$"
+	.string "¡Me dijeron que te entregara\n"
+	.string "esto en cuanto te viera!$"
 
 Route37_Text_Sunny_GaveGift:
 	.string "DOMINGO: Ese trasto…\p"
@@ -137,13 +140,14 @@ Route37_Text_Sunny_GaveGift:
 	.string "¡Ah, ya me acuerdo!\p"
 	.string "Dáselo a un POKéMON con ataques\n"
 	.string "eléctricos.\p"
-	.string "¡Mi hermana MÓNICA dice que el IMÁN\n"
-	.string "potencia los ataques de tipo\lELÉCTRICO!$"
+	.string "¡Mi hermana MÓNICA dice que el\n"
+	.string "IMÁN potencia los ataques de\l"
+	.string "tipo ELÉCTRICO!$"
 
 Route37_Text_Sunny_Sunday:
-	.string "DOMINGO: Mis hermanos son MÓNICA,\n"
-	.string "TOSCANA, MIGUEL, ARTURO, VIERNES y\l"
-	.string "SANTOS.\p"
+	.string "DOMINGO: Mis hermanos son\n"
+	.string "MÓNICA, TOSCANA, MIGUEL, ARTURO,\l"
+	.string "VIERNES y SANTOS.\p"
 	.string "¡Todos son mayores que yo!$"
 
 Route37_Text_Sunny_NotSunday:
@@ -151,5 +155,4 @@ Route37_Text_Sunny_NotSunday:
 	.string "Mmm… ¡Se me había olvidado!$"
 
 Route37_Text_Sign:
-	.string "RUTA 37\n"
-	.string "CIUDAD IRIS MÁS ADELANTE$"
+	.string "RUTA 37 CIUDAD IRIS MÁS ADELANTE$"
