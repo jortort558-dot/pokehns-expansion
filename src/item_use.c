@@ -99,6 +99,7 @@ static const u8 sText_PokeFluteAwakenedMon[] = _("The POKé FLUTE awakened sleep
 static const u8 sText_PokeVialHealed[] = _("¡El equipo se ha recuperado!\nCargas: {STR_VAR_1}/{STR_VAR_2}{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PokeVialEmpty[] = _("El PokéVial está vacío.\nRecárgalo en un Centro POKéMON.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PokeVialNoEffect[] = _("El equipo ya está sano.\nNo tendrá ningún efecto.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PokeVialDisabled[] = _("El PokéVial está desactivado\npor las reglas del reto.{PAUSE_UNTIL_PRESS}");
 
 // EWRAM variables
 EWRAM_DATA static TaskFunc sItemUseOnFieldCB = NULL;
@@ -1764,6 +1765,12 @@ void ItemUseOutOfBattle_PokeVial(u8 taskId)
     bool32 healedAny = FALSE;
     const u8 *msg;
 
+    if (!IsPokeVialEnabled())
+    {
+        msg = sText_PokeVialDisabled;
+        goto displayMessage;
+    }
+
     curCharges = VarGet(VAR_POKEVIAL_CHARGES);
     if (curCharges > maxCharges)
     {
@@ -1813,10 +1820,25 @@ void ItemUseOutOfBattle_PokeVial(u8 taskId)
         }
     }
 
+displayMessage:
     if (!gTasks[taskId].tUsingRegisteredKeyItem)
         DisplayItemMessage(taskId, FONT_NORMAL, msg, CloseItemMessage);
     else
         DisplayItemMessageOnField(taskId, msg, Task_CloseCantUseKeyItemMessage);
+}
+
+bool8 IsPokeVialEnabled(void)
+{
+    const struct ChallengeSettings *settings = &gSaveBlock3Ptr->challengeSettings;
+
+    if (!settings->tx_Challenges_Nuzlocke && !settings->tx_Nuzlocke_EasyMode)
+        return TRUE;
+    return settings->tx_Nuzlocke_PokeVial;
+}
+
+void CheckPokeVialEnabled(void)
+{
+    gSpecialVar_Result = IsPokeVialEnabled();
 }
 
 u16 GetPokeVialMaxCharges(void)
@@ -1835,7 +1857,7 @@ u16 GetPokeVialMaxCharges(void)
 
 void RechargePokeVial(void)
 {
-    if (CheckBagHasItem(ITEM_POKE_VIAL, 1))
+    if (IsPokeVialEnabled() && CheckBagHasItem(ITEM_POKE_VIAL, 1))
         VarSet(VAR_POKEVIAL_CHARGES, GetPokeVialMaxCharges());
 }
 

@@ -1010,6 +1010,14 @@ u8 LoadGameSave(u8 saveType)
 #endif
         gSaveBlock1Ptr->saveVersion = 7;
     }
+    if (gSaveBlock1Ptr->saveVersion < 8)
+    {
+        // These mechanics existed before their rule toggles, so preserve the
+        // previous behaviour for every existing save.
+        gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_PokeVial = TRUE;
+        gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_GymTokens = TRUE;
+        gSaveBlock1Ptr->saveVersion = 8;
+    }
 
     // Add version migration steps here:
     // if (gSaveBlock1Ptr->saveVersion < 1)

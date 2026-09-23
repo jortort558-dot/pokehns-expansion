@@ -22,9 +22,12 @@
 static EWRAM_DATA u8 sSelectedRetryZone = 0;
 static EWRAM_DATA u8 sRetrySearchStart = 0;
 
-static bool32 IsGymTokenModeActive(void)
+bool32 IsGymTokenModeActive(void)
 {
-    return IsNuzlockeActive() || IsNuzlockeEasyActive();
+    const struct ChallengeSettings *settings = &gSaveBlock3Ptr->challengeSettings;
+
+    return settings->tx_Nuzlocke_GymTokens
+        && (IsNuzlockeActive() || IsNuzlockeEasyActive());
 }
 
 static u16 GetBaseStatTotal(u16 species)
@@ -109,14 +112,14 @@ void AwardGymToken(void)
 
 void GetGymTokenCount(void)
 {
-    gSpecialVar_Result = gSaveBlock3Ptr->gymTokens.count;
+    gSpecialVar_Result = IsGymTokenModeActive() ? gSaveBlock3Ptr->gymTokens.count : 0;
     ConvertIntToDecimalStringN(gStringVar1, gSpecialVar_Result, STR_CONV_MODE_LEFT_ALIGN, 1);
 }
 
 void GymTokenRecordFailedEncounter(u16 mapsec)
 {
     u8 zone = NuzlockeGetZoneId(mapsec);
-    if (zone < NUZLOCKE_NUM_ZONES)
+    if (IsGymTokenModeActive() && zone < NUZLOCKE_NUM_ZONES)
         gSaveBlock3Ptr->gymTokens.failedEncounterFlags[zone / 8] |= 1 << (zone & 7);
 }
 

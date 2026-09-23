@@ -20,6 +20,8 @@ NewBarkTown_PlayersHouse_1F_SetMomStandingAtTable::
 NewBarkTown_PlayersHouse_1F_EventScript_Mom::
 	lock
 	faceplayer
+	special CheckPokeVialEnabled
+	goto_if_eq VAR_RESULT, FALSE, NewBarkTown_PlayersHouse_1F_EventScript_Mom_Regular
 	checkitem ITEM_POKE_VIAL
 	goto_if_eq VAR_RESULT, FALSE, NewBarkTown_PlayersHouse_1F_EventScript_MomGivePokeVialRetro
 	goto_if_set FLAG_MOM_VISITED, NewBarkTown_PlayersHouse_1F_EventScript_Mom_Regular
@@ -277,12 +279,17 @@ NewBarkTown_PlayersHouse_1F_EventScript_GiveRunningShoes::
 	return
 
 NewBarkTown_PlayersHouse_1F_EventScript_GivePokeVial::
+	special CheckPokeVialEnabled
+	goto_if_eq VAR_RESULT, FALSE, NewBarkTown_PlayersHouse_1F_EventScript_SkipPokeVial
 	msgbox NewBarkTown_PlayersHouse_1F_Text_GivePokeVial, MSGBOX_DEFAULT
 	giveitem ITEM_POKE_VIAL
 	setvar VAR_POKEVIAL_CHARGES, 1
 	msgbox NewBarkTown_PlayersHouse_1F_Text_ExplainPokeVial, MSGBOX_DEFAULT
 	closemessage
 	delay 30
+	return
+
+NewBarkTown_PlayersHouse_1F_EventScript_SkipPokeVial::
 	return
 
 NewBarkTown_PlayersHouse_1F_PlayerIntroMovement1:

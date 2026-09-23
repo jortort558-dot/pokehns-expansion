@@ -555,7 +555,7 @@ static void ShowTimeWindow(void)
         }
     }
 
-    if (CheckBagHasItem(ITEM_POKE_VIAL, 1))
+    if (IsPokeVialEnabled() && CheckBagHasItem(ITEM_POKE_VIAL, 1))
     {
         maxCharges = GetPokeVialMaxCharges();
         currentCharges = VarGet(VAR_POKEVIAL_CHARGES);

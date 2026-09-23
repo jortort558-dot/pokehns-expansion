@@ -5,6 +5,7 @@
 
 #define GYM_TOKEN_MAX 3
 
+bool32 IsGymTokenModeActive(void);
 bool32 GymTokenCanTradeMon(struct BoxPokemon *boxMon);
 bool32 GymTokenCanReviveMon(struct BoxPokemon *boxMon);
 void AwardGymToken(void);

@@ -102,6 +102,8 @@ enum {
     ITEM_NUZLOCKE_NICKNAMING,
     ITEM_NUZLOCKE_DELETION,
     ITEM_NUZLOCKE_RARE_CANDY,
+    ITEM_NUZLOCKE_POKE_VIAL,
+    ITEM_NUZLOCKE_GYM_TOKENS,
     ITEM_NUZLOCKE_NEXT,
     ITEM_NUZLOCKE_COUNT,
 };
@@ -206,6 +208,8 @@ static const u8 sMidGameLockPolicy[TAB_COUNT * MAX_ITEMS_PER_TAB] = {
     [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_NICKNAMING]     = LOCK_ONEWAY_DOWN,
     [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_DELETION]       = LOCK_ONEWAY_DOWN,
     [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_RARE_CANDY]     = LOCK_FULL,
+    [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_POKE_VIAL]      = LOCK_ONEWAY_DOWN,
+    [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_GYM_TOKENS]     = LOCK_ONEWAY_DOWN,
     // TAB_DIFFICULTY
     [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_PARTY_LIMIT]    = LOCK_ONEWAY_DOWN,
     [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_LEVEL_CAP]      = LOCK_ONEWAY_DOWN,
@@ -916,6 +920,14 @@ static const u8 *const sDesc_RareCandy[] = {
     COMPOUND_STRING("Carameloraros infinitos en el PC al\nempezar la partida."),
     COMPOUND_STRING("Sin acceso a Carameloraros infinitos."),
 };
+static const u8 *const sDesc_PokeVial[] = {
+    COMPOUND_STRING("Entrega el PokéVial y permite\nrecargarlo en Centros POKéMON."),
+    COMPOUND_STRING("No entrega ni permite utilizar\nel PokéVial durante el reto."),
+};
+static const u8 *const sDesc_GymTokens[] = {
+    COMPOUND_STRING("Las medallas dan Fichas Gimnasio\npara canjear ayudas Nuzlocke."),
+    COMPOUND_STRING("Las medallas no dan fichas ni se\npueden usar sus servicios."),
+};
 static const u8 *const sDesc_NuzlockeNext[] = {
     COMPOUND_STRING("Continuar a opciones de dificultad."),
 };
@@ -954,6 +966,18 @@ static const struct ChallengeMenuItem sTabItems_Nuzlocke[] = {
     [ITEM_NUZLOCKE_RARE_CANDY] = {
         .name         = COMPOUND_STRING("CARAMELORAROS"),
         .descriptions = sDesc_RareCandy,
+        .numChoices   = 2,
+        .choiceNames  = sChoices_OnOff,
+    },
+    [ITEM_NUZLOCKE_POKE_VIAL] = {
+        .name         = COMPOUND_STRING("POKéVIAL"),
+        .descriptions = sDesc_PokeVial,
+        .numChoices   = 2,
+        .choiceNames  = sChoices_OnOff,
+    },
+    [ITEM_NUZLOCKE_GYM_TOKENS] = {
+        .name         = COMPOUND_STRING("FICHAS GIM."),
+        .descriptions = sDesc_GymTokens,
         .numChoices   = 2,
         .choiceNames  = sChoices_OnOff,
     },
@@ -1333,6 +1357,8 @@ static bool8 CheckConditions(u8 tab, u8 itemIndex)
         case ITEM_NUZLOCKE_NEXT:
             return TRUE;
         case ITEM_NUZLOCKE_RARE_CANDY:
+        case ITEM_NUZLOCKE_POKE_VIAL:
+        case ITEM_NUZLOCKE_GYM_TOKENS:
             return nuzSel > 0;
         default:
             if (nuzSel == 1) // EASY — lock all sub-options except RARE_CANDY
@@ -1833,6 +1859,8 @@ static void ProcessLeftRight(void)
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_NICKNAMING)     = 0; // ON
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_DELETION)       = 0; // CEMETERY
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_RARE_CANDY)     = 1; // OFF
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_POKE_VIAL)      = 0; // ON
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_GYM_TOKENS)     = 0; // ON
         }
 
         // If Fairy monotype challenge set, force "Add Fairy Type" on
@@ -2033,6 +2061,8 @@ static void Task_ConfirmSaveYes(u8 taskId)
         cs->tx_Challenges_Nuzlocke         = (nuzSel >= 2) ? 1 : 0;
         cs->tx_Nuzlocke_EasyMode           = (nuzSel == 1) ? 1 : 0;
         cs->tx_Challenges_NuzlockeHardcore = (nuzSel == 3) ? 1 : 0;
+        cs->tx_Nuzlocke_PokeVial           = !(*GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_POKE_VIAL));
+        cs->tx_Nuzlocke_GymTokens          = !(*GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_GYM_TOKENS));
 
         if (nuzSel == 0) // OFF — clear sub-options
         {
@@ -2262,6 +2292,8 @@ void CB2_InitChallengeMenu(void)
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_NICKNAMING)     = !cs->tx_Nuzlocke_Nicknaming;
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_DELETION)       = cs->tx_Nuzlocke_Deletion;
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_RARE_CANDY)     = !cs->tx_Nuzlocke_RareCandy;
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_POKE_VIAL)      = !cs->tx_Nuzlocke_PokeVial;
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_GYM_TOKENS)     = !cs->tx_Nuzlocke_GymTokens;
 
             // Difficulty tab
             *GetSelectionPtr(TAB_DIFFICULTY, ITEM_DIFFICULTY_PARTY_LIMIT)    = cs->tx_Challenges_PartyLimit;
