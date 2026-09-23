@@ -157,6 +157,7 @@ def main() -> int:
         default="tools/item_description_limits.json",
         help="límites explícitos para objetos propios sin original inglés",
     )
+    parser.add_argument("--list-untranslated", action="store_true")
     args = parser.parse_args()
 
     repo = Path(__file__).resolve().parents[1]
@@ -189,6 +190,9 @@ def main() -> int:
 
     print(f"Descripciones analizadas: {len(current)}; referencia inglesa: {len(reference)}")
     print(f"Pendientes idénticas al inglés: {len(untranslated)}")
+    if args.list_untranslated:
+        for item in untranslated:
+            print(f"- {item}")
     if issues:
         print(f"Incidencias: {len(issues)}")
         for issue in issues:

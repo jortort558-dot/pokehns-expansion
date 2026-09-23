@@ -26,8 +26,8 @@ def format_compound_string(text):
         return f'"{parts[0]}"'
     lines = [f'"{parts[0]}\\n"']
     for p in parts[1:-1]:
-        lines.append(f'        "{p}\\n"')
-    lines.append(f'        "{parts[-1]}"')
+        lines.append(f'            "{p}\\n"')
+    lines.append(f'            "{parts[-1]}"')
     return "\n".join(lines)
 
 def apply_abilities(abilities_file, abilities_es, dry_run=False):
@@ -138,7 +138,7 @@ def apply_items(items_file, items_es, shared_items_es, dry_run=False):
                 repl_lines.append(f'"{p}\\n"')
             else:
                 repl_lines.append(f'"{p}"')
-        formatted_c_str = "\n".join("    " + l if i > 0 else l for i, l in enumerate(repl_lines))
+        formatted_c_str = "\n".join("                                          " + l if i > 0 else l for i, l in enumerate(repl_lines))
         safe_repl = formatted_c_str.replace('\\', '\\\\')
 
         pattern = r'(static\s+const\s+u8\s+' + re.escape(sym) + r'\[\]\s*=\s*_\(\s*\n?\s*)"[\s\S]*?"(\s*\);)'
