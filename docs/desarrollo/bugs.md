@@ -270,3 +270,8 @@ Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
 
 - [x] **Segundo intento sobre rutas consumidas**: el selector consulta directamente las marcas Nuzlocke y permite recuperar una ruta cuyo uso se gastó tanto por captura como por derrota o huida.
 - [x] **Intercambio sin bloqueo**: simplificada la elección a un único recorrido lineal; entrega al azar un Pokémon normal cuya suma de estadísticas base sea igual o superior a la ofrecida.
+
+### Versión 0.20.3 (2026-09-23 - Interfaz de Fichas Gimnasio)
+
+- [x] **Selector real de rutas**: sustituida la cadena de preguntas por una lista desplazable con todas las rutas consumidas y opción de cancelar; ya no se encadenan diálogos ni se reinicia el juego al agotarlos.
+- [x] **Escena de intercambio**: el canje de Ficha Gimnasio utiliza la animación completa de intercambio interno con los nombres y Pokémon generados dinámicamente.

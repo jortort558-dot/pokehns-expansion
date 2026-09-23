@@ -2,14 +2,18 @@
 #include "gym_tokens.h"
 #include "event_data.h"
 #include "caps.h"
+#include "malloc.h"
 #include "nuzlocke.h"
 #include "pokedex.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "string_util.h"
+#include "trade.h"
 #include "region_map.h"
 #include "save.h"
+#include "script_menu.h"
+#include "strings.h"
 #include "constants/party_menu.h"
 #include "constants/pokemon.h"
 #include "constants/species.h"
@@ -153,6 +157,69 @@ void FindNextGymTokenRetry(void)
     }
 }
 
+void BuildGymTokenRetryMenu(void)
+{
+    u32 zone;
+    u32 count = 0;
+
+    gSpecialVar_Result = 0;
+    if (!IsGymTokenModeActive() || gSaveBlock3Ptr->gymTokens.count == 0)
+        return;
+
+    for (zone = 0; zone < NUZLOCKE_NUM_ZONES; zone++)
+    {
+        u8 bit = 1 << (zone & 7);
+        u16 mapsec = NuzlockeGetMapsecByZoneId(zone);
+
+        if (mapsec != MAPSEC_NONE
+         && NuzlockeFlagGet(mapsec)
+         && !(*GetGymTokenRetriedFlagByte(zone) & bit))
+        {
+            struct ListMenuItem item;
+            u8 *name = Alloc(100);
+
+            if (name == NULL)
+                continue;
+            StringCopy(name, gRegionMapEntries[mapsec].name);
+            item.name = name;
+            item.id = zone;
+            MultichoiceDynamic_PushElement(item);
+            count++;
+        }
+    }
+
+    if (count != 0)
+    {
+        struct ListMenuItem cancelItem;
+        u8 *cancelName = Alloc(100);
+
+        if (cancelName != NULL)
+        {
+            StringCopy(cancelName, gText_Cancel2);
+            cancelItem.name = cancelName;
+            cancelItem.id = NUZLOCKE_NUM_ZONES;
+            MultichoiceDynamic_PushElement(cancelItem);
+        }
+        gSpecialVar_Result = 1;
+    }
+}
+
+void SelectGymTokenRetry(void)
+{
+    u8 zone = gSpecialVar_0x8004;
+    u16 mapsec;
+
+    gSpecialVar_Result = 0;
+    if (zone >= NUZLOCKE_NUM_ZONES)
+        return;
+    mapsec = NuzlockeGetMapsecByZoneId(zone);
+    if (mapsec == MAPSEC_NONE || !NuzlockeFlagGet(mapsec))
+        return;
+    sSelectedRetryZone = zone;
+    StringCopy(gStringVar2, gRegionMapEntries[mapsec].name);
+    gSpecialVar_Result = 1;
+}
+
 void UseSelectedGymTokenRetry(void)
 {
     u8 zone = sSelectedRetryZone;
@@ -260,15 +327,21 @@ void UseGymTokenTrade(void)
     SetMonData(&received, sIvFields[secondPerfect], &perfectIv);
     SetMonData(&received, MON_DATA_OT_NAME, sClerkName);
     CalculateMonStats(&received);
-    HandleSetPokedexFlagFromMon(&received, FLAG_SET_SEEN);
-    HandleSetPokedexFlagFromMon(&received, FLAG_SET_CAUGHT);
-    if (gSpecialVar_0x8004 == PC_MON_CHOSEN)
-        *boxMon = received.box;
-    else
-        gPlayerParty[gSpecialVar_0x8004] = received;
+    gEnemyParty[0] = received;
+    SetCustomInGameTradeScene();
+    StringCopy(gStringVar3, gSpeciesInfo[species].speciesName);
+    gSpecialVar_Result = 1;
+}
+
+void FinishGymTokenTrade(void)
+{
+    gSpecialVar_Result = 0;
+    if (!IsGymTokenModeActive()
+     || gSaveBlock3Ptr->gymTokens.count == 0
+     || gSaveBlock3Ptr->gymTokens.mysteryTrades >= GYM_TOKEN_TRADE_LIMIT)
+        return;
     gSaveBlock3Ptr->gymTokens.count--;
     gSaveBlock3Ptr->gymTokens.mysteryTrades++;
-    StringCopy(gStringVar3, gSpeciesInfo[species].speciesName);
     gSpecialVar_Result = 1;
 }
 

@@ -181,21 +181,24 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenNone::
 	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry::
-	setvar VAR_0x8005, 0
-GoldenrodCity_PokemonCenter_EventScript_GymTokenRetryNext::
-	special FindNextGymTokenRetry
+	special BuildGymTokenRetryMenu
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry
+	message GoldenrodCity_PokemonCenter_Text_GymTokenChooseRoute
+	waitmessage
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	closemessage
+	goto_if_eq VAR_RESULT, MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+	goto_if_eq VAR_RESULT, 112, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu @ NUZLOCKE_NUM_ZONES
+	copyvar VAR_0x8004, VAR_RESULT
+	special SelectGymTokenRetry
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRetryZone, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_GymTokenRetrySkip
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
 	special UseSelectedGymTokenRetry
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry
 	special SaveGymTokenTransaction
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRetryDone, MSGBOX_DEFAULT
 	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
-
-GoldenrodCity_PokemonCenter_EventScript_GymTokenRetrySkip::
-	setvar VAR_0x8005, 1
-	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenRetryNext
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry::
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenNoRetry, MSGBOX_DEFAULT
@@ -211,6 +214,10 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenTrade::
 	waitstate
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
 	special UseGymTokenTrade
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeFailed
+	special DoInGameTradeScene
+	waitstate
+	special FinishGymTokenTrade
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeFailed
 	call Common_EventScript_SaveGame
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTradeDone, MSGBOX_DEFAULT
@@ -263,6 +270,10 @@ GoldenrodCity_PokemonCenter_Text_GymTokenRetry:
 GoldenrodCity_PokemonCenter_Text_GymTokenRetryZone:
 	.string "¿Recuperar el intento de\n"
 	.string "{STR_VAR_2} por 1 FICHA?$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenChooseRoute:
+	.string "Elige la ruta cuyo intento\n"
+	.string "quieres recuperar.$"
 
 GoldenrodCity_PokemonCenter_Text_GymTokenTrade:
 	.string "¿Prefieres un intercambio\n"

@@ -715,7 +715,10 @@ gSpecials::
 	def_special AwardGymToken
 	def_special GetGymTokenCount
 	def_special FindNextGymTokenRetry
+	def_special BuildGymTokenRetryMenu
+	def_special SelectGymTokenRetry
 	def_special UseSelectedGymTokenRetry
 	def_special UseGymTokenTrade
+	def_special FinishGymTokenTrade
 	def_special UseGymTokenRevive
 	def_special SaveGymTokenTransaction
