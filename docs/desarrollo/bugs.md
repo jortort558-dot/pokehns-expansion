@@ -9,7 +9,7 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ### 📦 Versión `pokehns-0.23.0-20260923-fichas-iris-textos-es.gba`
 
 - **Fecha**: 23/09/2026
-- **Commit**: `PENDIENTE` (`fix: corregir fichas y completar textos de Iris`)
+- **Commit**: `f6bdce7f05` (`fix: corregir fichas y completar textos de Iris`)
 
 **Incidencias resueltas en esta build:**
 
