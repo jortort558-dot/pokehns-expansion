@@ -19,9 +19,9 @@
 
 // Shared Item Description entries
 
-static const u8 sFullHealDesc[]       = _("Cura todos los\n"
-                                          "problemas de estado\n"
-                                          "a Pokémon.");
+static const u8 sFullHealDesc[]       = _("Cura males de\n"
+                                          "estado a un\n"
+                                          "Pokémon.");
 
 static const u8 sPokeDollDesc[]       = _("Use to flee from\n"
                                           "any battle with\n"
@@ -32,28 +32,28 @@ static const u8 sMaxReviveDesc[]      = _("Revives a fainted\n"
                                           "its HP.");
 
 static const u8 sHealthFeatherDesc[]  = _("Aumenta el valor\n"
-                                          "de PS de base de\n"
-                                          "un Pokémon.");
+                                          "de PS base\n"
+                                          "a Pokémon.");
 
 static const u8 sMuscleFeatherDesc[]  = _("Aumenta el valor\n"
                                           "de Ataque base de\n"
-                                          "un Pokémon.");
+                                          "a Pokémon.");
 
 static const u8 sResistFeatherDesc[]  = _("Aumenta el valor\n"
                                           "de Defensa base\n"
-                                          "de un Pokémon.");
+                                          "a un Pokémon.");
 
 static const u8 sGeniusFeatherDesc[]  = _("Aumenta el valor\n"
                                           "de At. Esp. base\n"
-                                          "de un Pokémon.");
+                                          "a un Pokémon.");
 
 static const u8 sCleverFeatherDesc[]  = _("Aumenta el valor\n"
                                           "de Def. Esp. base\n"
-                                          "de un Pokémon.");
+                                          "a un Pokémon.");
 
 static const u8 sSwiftFeatherDesc[]   = _("Aumenta el valor\n"
                                           "de Velocidad base\n"
-                                          "un Pokémon.");
+                                          "a Pokémon.");
 
 static const u8 sBigMushroomDesc[]    = _("A rare mushroom\n"
                                           "that would sell at a\n"
@@ -1656,7 +1656,7 @@ const struct ItemInfo gItemsInfo[] =
     #endif
         .holdEffectParam = 0,
         .description = COMPOUND_STRING(
-            "Cambia la habilidad\n"
+            "Cambia habilidad\n"
             "a Pokémon."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_FIELD_USE,
@@ -1673,9 +1673,9 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 250000 : 20,
         .holdEffectParam = 0,
         .description = COMPOUND_STRING(
-            "Cambia la habilidad\n"
+            "Cambia habilidad\n"
             "de un Pokémon por\n"
-            "su habilidad oculta."),
+            "la oculta."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_FIELD_USE,
         .type = ITEM_USE_PARTY_MENU,
@@ -1692,7 +1692,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba el Ataque y\n"
+            "suba Ataque y\n"
             "baje la Defensa."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -1710,7 +1710,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba el Ataque y\n"
+            "suba Ataque y\n"
             "baje el At. Esp."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -1728,8 +1728,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba el Ataque y\n"
-            "baje la Def. Esp."),
+            "suba Ataque y\n"
+            "baje Def. Esp."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
         .type = ITEM_USE_PARTY_MENU,
@@ -1746,8 +1746,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba el Ataque y\n"
-            "baje la Velocidad."),
+            "suba Ataque y\n"
+            "baje Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
         .type = ITEM_USE_PARTY_MENU,
@@ -1764,7 +1764,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Defensa y\n"
+            "suba Defensa y\n"
             "baje el Ataque."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -1782,7 +1782,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Defensa y\n"
+            "suba Defensa y\n"
             "baje el At. Esp."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -1800,8 +1800,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Defensa y\n"
-            "baje la Def. Esp."),
+            "suba Defensa y\n"
+            "baje Def. Esp."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
         .type = ITEM_USE_PARTY_MENU,
@@ -1818,8 +1818,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Defensa y\n"
-            "baje la Velocidad."),
+            "suba Defensa y\n"
+            "baje Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
         .type = ITEM_USE_PARTY_MENU,
@@ -1836,7 +1836,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba el At. Esp. y\n"
+            "suba At. Esp. y\n"
             "baje el Ataque."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -1854,7 +1854,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba el At. Esp. y\n"
+            "suba At. Esp. y\n"
             "baje la Defensa."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -1872,8 +1872,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba el At. Esp. y\n"
-            "baje la Def. Esp."),
+            "suba At. Esp. y\n"
+            "baje Def. Esp."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
         .type = ITEM_USE_PARTY_MENU,
@@ -1890,8 +1890,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba el At. Esp. y\n"
-            "baje la Velocidad."),
+            "suba At. Esp. y\n"
+            "baje Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
         .type = ITEM_USE_PARTY_MENU,
@@ -1908,7 +1908,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Def. Esp. y\n"
+            "suba Def. Esp. y\n"
             "baje el Ataque."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -1926,7 +1926,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Def. Esp. y\n"
+            "suba Def. Esp. y\n"
             "baje la Defensa."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -1944,7 +1944,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Def. Esp. y\n"
+            "suba Def. Esp. y\n"
             "baje el At. Esp."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -1962,8 +1962,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Def. Esp. y\n"
-            "baje la Velocidad."),
+            "suba Def. Esp. y\n"
+            "baje Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
         .type = ITEM_USE_PARTY_MENU,
@@ -1980,7 +1980,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Velocidad y\n"
+            "suba Veloc. y\n"
             "baje el Ataque."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -1998,7 +1998,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Velocidad y\n"
+            "suba Veloc. y\n"
             "baje la Defensa."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -2016,7 +2016,7 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Velocidad y\n"
+            "suba Veloc. y\n"
             "baje el At. Esp."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
@@ -2034,8 +2034,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "suba la Velocidad y\n"
-            "baje la Def. Esp."),
+            "suba Veloc. y\n"
+            "baje Def. Esp."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
         .type = ITEM_USE_PARTY_MENU,
@@ -2052,8 +2052,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = (I_PRICE >= GEN_9) ? 20000 : 20,
         .description = COMPOUND_STRING(
             "Su aroma hace que\n"
-            "todas las estadísticas\n"
-            "crezcan por igual."),
+            "iguale aumentos\n"
+            "de atributos."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_NATURE_MINT,
         .type = ITEM_USE_PARTY_MENU,
@@ -2072,9 +2072,8 @@ const struct ItemInfo gItemsInfo[] =
         .pluralName = ITEM_PLURAL_NAME("CARAMELO RARO"),
         .price = (I_PRICE >= GEN_7) ? 10000 : 4800,
         .description = COMPOUND_STRING(
-            "Sube un nivel\n"
-            "a un Pokémon.\n"
-            "one."),
+            "Sube un nivel a\n"
+            "un Pokémon."),
         .pocket = POCKET_MEDICINE,
         .sortType = ITEM_TYPE_LEVEL_UP_ITEM,
         .type = ITEM_USE_PARTY_MENU,
@@ -2092,8 +2091,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = 20,
         .holdEffectParam = EXP_100,
         .description = COMPOUND_STRING(
-            "Da muy pocos Puntos\n"
-            "de Experiencia a un\n"
+            "Da muy poca Exp.\n"
+            "a un\n"
             "Pokémon."),
         .pocket = POCKET_MEDICINE,
         .sortType = ITEM_TYPE_LEVEL_UP_ITEM,
@@ -2112,8 +2111,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = 240,
         .holdEffectParam = EXP_800,
         .description = COMPOUND_STRING(
-            "Da pocos Puntos de\n"
-            "de Experiencia a un\n"
+            "Da poca Exp.\n"
+            "a un\n"
             "Pokémon."),
         .pocket = POCKET_MEDICINE,
         .sortType = ITEM_TYPE_LEVEL_UP_ITEM,
@@ -2132,8 +2131,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = 1000,
         .holdEffectParam = EXP_3000,
         .description = COMPOUND_STRING(
-            "Da bastantes Puntos\n"
-            "de Experiencia a un\n"
+            "Da bastante Exp.\n"
+            "a un\n"
             "Pokémon."),
         .pocket = POCKET_MEDICINE,
         .sortType = ITEM_TYPE_LEVEL_UP_ITEM,
@@ -2152,8 +2151,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = 3000,
         .holdEffectParam = EXP_10000,
         .description = COMPOUND_STRING(
-            "Da muchos Puntos de\n"
-            "de Experiencia a un\n"
+            "Da mucha Exp.\n"
+            "a un\n"
             "Pokémon."),
         .pocket = POCKET_MEDICINE,
         .sortType = ITEM_TYPE_LEVEL_UP_ITEM,
@@ -2172,8 +2171,8 @@ const struct ItemInfo gItemsInfo[] =
         .price = 10000,
         .holdEffectParam = EXP_30000,
         .description = COMPOUND_STRING(
-            "Da muchísimos Puntos\n"
-            "de Experiencia a un\n"
+            "Da muchísima Exp.\n"
+            "a un\n"
             "Pokémon."),
         .pocket = POCKET_MEDICINE,
         .sortType = ITEM_TYPE_LEVEL_UP_ITEM,
@@ -2718,7 +2717,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "Una bonita chapa\n"
             "que desprende un\n"
-            "brillo plateado."),
+            "brillo plata."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_SELLABLE,
         .type = ITEM_USE_BAG_MENU,
@@ -4614,8 +4613,8 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("CONFITE FRESA"),
         .price = 500 * TREASURE_FACTOR,
         .description = COMPOUND_STRING(
-            "Confite con forma de\n"
-            "que le encanta a\n"
+            "Confite de fresa\n"
+            "que gusta a\n"
             "Milcery."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
@@ -4631,8 +4630,8 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("CONFITE CORAZÓN"),
         .price = 500 * TREASURE_FACTOR,
         .description = COMPOUND_STRING(
-            "Confite con forma de\n"
-            "que le encanta a\n"
+            "Dulce corazón\n"
+            "que gusta a\n"
             "Milcery."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
@@ -4648,8 +4647,8 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("CONFITE FRUTO"),
         .price = 500 * TREASURE_FACTOR,
         .description = COMPOUND_STRING(
-            "Confite con forma de\n"
-            "que le encanta a\n"
+            "Confite fruto\n"
+            "que gusta a\n"
             "Milcery."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
@@ -4665,8 +4664,8 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("CONFITE TRÉBOL"),
         .price = 500 * TREASURE_FACTOR,
         .description = COMPOUND_STRING(
-            "Confite con forma de\n"
-            "que le encanta a\n"
+            "Confite trébol\n"
+            "que gusta a\n"
             "Milcery."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
@@ -4682,8 +4681,8 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("CONFITE FLOR"),
         .price = 500 * TREASURE_FACTOR,
         .description = COMPOUND_STRING(
-            "Confite con forma de\n"
-            "que le encanta a\n"
+            "Confite floral\n"
+            "que gusta a\n"
             "Milcery."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
@@ -4699,8 +4698,8 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("CONFITE ESTRELLA"),
         .price = 500 * TREASURE_FACTOR,
         .description = COMPOUND_STRING(
-            "Confite con forma de\n"
-            "que le encanta a\n"
+            "Confite astro\n"
+            "que gusta a\n"
             "Milcery."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
@@ -4716,8 +4715,8 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("CONFITE LAZO"),
         .price = 500 * TREASURE_FACTOR,
         .description = COMPOUND_STRING(
-            "Confite con forma de\n"
-            "que le encanta a\n"
+            "Confite de lazo\n"
+            "que gusta a\n"
             "Milcery."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
@@ -5731,7 +5730,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "Permite a Beedrill\n"
             "megaevolucionar\n"
-            "durante el combate."),
+            "en combate."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_BAG_MENU,
@@ -8769,9 +8768,9 @@ const struct ItemInfo gItemsInfo[] =
         .price = 3000,
         .holdEffect = HOLD_EFFECT_MACHO_BRACE,
         .description = COMPOUND_STRING(
-            "A hold item that\n"
-            "promotes growth,\n"
-            "but baje la Velocidad."),
+            "Duplica los EV\n"
+            "ganados, pero\n"
+            "baja la Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -8788,9 +8787,9 @@ const struct ItemInfo gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_POWER_ITEM,
         .holdEffectParam = POWER_ITEM_BOOST,
         .description = COMPOUND_STRING(
-            "A hold item that\n"
-            "promotes HP gain,\n"
-            "but baje la Velocidad."),
+            "Sube EV de PS\n"
+            "del portador y\n"
+            "baja la Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -8808,9 +8807,9 @@ const struct ItemInfo gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_POWER_ITEM,
         .holdEffectParam = POWER_ITEM_BOOST,
         .description = COMPOUND_STRING(
-            "A hold item that\n"
-            "promotes Atk gain,\n"
-            "but baje la Velocidad."),
+            "Sube EV Ataque\n"
+            "del portador y\n"
+            "baja la Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -8828,9 +8827,9 @@ const struct ItemInfo gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_POWER_ITEM,
         .holdEffectParam = POWER_ITEM_BOOST,
         .description = COMPOUND_STRING(
-            "A hold item that\n"
-            "promotes Def gain,\n"
-            "but baje la Velocidad."),
+            "Sube EV Defensa\n"
+            "del portador y\n"
+            "baja la Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -8849,9 +8848,9 @@ const struct ItemInfo gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_POWER_ITEM,
         .holdEffectParam = POWER_ITEM_BOOST,
         .description = COMPOUND_STRING(
-            "Hold item that pro-\n"
-            "motes Sp. Atk gain,\n"
-            "but baje la Velocidad."),
+            "Sube EV At. Esp.\n"
+            "del portador y\n"
+            "baja la Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -8869,9 +8868,9 @@ const struct ItemInfo gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_POWER_ITEM,
         .holdEffectParam = POWER_ITEM_BOOST,
         .description = COMPOUND_STRING(
-            "Hold item that pro-\n"
-            "motes Sp. Def gain,\n"
-            "but baje la Velocidad."),
+            "Sube EV Def. Esp.\n"
+            "del portador y\n"
+            "baja la Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -8889,9 +8888,9 @@ const struct ItemInfo gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_POWER_ITEM,
         .holdEffectParam = POWER_ITEM_BOOST,
         .description = COMPOUND_STRING(
-            "A hold item that\n"
-            "promotes Spd gain,\n"
-            "but baje la Velocidad."),
+            "Sube EV Veloc.\n"
+            "del portador y\n"
+            "baja la Veloc."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EV_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -9504,7 +9503,7 @@ const struct ItemInfo gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_TERRAIN_SEED,
         .holdEffectParam = HOLD_EFFECT_PARAM_ELECTRIC_TERRAIN,
         .description = COMPOUND_STRING(
-            "Sube la Defensa en\n"
+            "Sube Defensa en\n"
             "Campo Eléctrico,\n"
             "pero solo una vez."),
         .pocket = POCKET_ITEMS,
@@ -9523,7 +9522,7 @@ const struct ItemInfo gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_TERRAIN_SEED,
         .holdEffectParam = HOLD_EFFECT_PARAM_PSYCHIC_TERRAIN,
         .description = COMPOUND_STRING(
-            "Sube la Def. Esp. en\n"
+            "Sube Def. Esp. en\n"
             "Campo Psíquico,\n"
             "pero solo una vez."),
         .pocket = POCKET_ITEMS,
@@ -9542,8 +9541,8 @@ const struct ItemInfo gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_TERRAIN_SEED,
         .holdEffectParam = HOLD_EFFECT_PARAM_MISTY_TERRAIN,
         .description = COMPOUND_STRING(
-            "Sube la Def. Esp. en\n"
-            "Campo de Niebla,\n"
+            "Sube Def. Esp. en\n"
+            "Campo Niebla,\n"
             "pero solo una vez."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_HELD_ITEM,
@@ -9561,8 +9560,8 @@ const struct ItemInfo gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_TERRAIN_SEED,
         .holdEffectParam = HOLD_EFFECT_PARAM_GRASSY_TERRAIN,
         .description = COMPOUND_STRING(
-            "Sube la Defensa en\n"
-            "Campo de Hierba,\n"
+            "Sube Defensa en\n"
+            "Campo Hierba,\n"
             "pero solo una vez."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_HELD_ITEM,
@@ -13981,9 +13980,9 @@ const struct ItemInfo gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "Permite megaevolucionar\n"
-            "a un {PKMN} que lleve\n"
-            "su megapiedra."),
+            "Permite la Megaevo.\n"
+            "al {PKMN} equipado\n"
+            "con piedra."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -15041,9 +15040,9 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("MONEDA GIMMIGHOUL"),
         .price = 400,
         .description = COMPOUND_STRING(
-            "Gimmighoul atesora\n"
-            "con mucho aprecio\n"
-            "estas raras monedas."),
+            "Moneda guardada\n"
+            "Gimmighoul con\n"
+            "mucho aprecio."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
         .type = ITEM_USE_BAG_MENU,
@@ -16436,8 +16435,8 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("PokéVial"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "Cura los PS y estado\n"
-            "del equipo vivo. Se\n"
+            "Cura PS y estados\n"
+            "del equipo; se\n"
             "recarga en el Centro."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,

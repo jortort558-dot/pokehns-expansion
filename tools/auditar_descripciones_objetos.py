@@ -9,6 +9,7 @@ trabajar sin esa referencia de Git.
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import subprocess
 import sys
@@ -117,13 +118,20 @@ def read_git_reference(repo: Path, git_ref: str, relative_path: str) -> str:
     return result.stdout.decode("utf-8")
 
 
-def audit(current: dict[str, Description], reference: dict[str, Description]) -> list[str]:
+def audit(
+    current: dict[str, Description],
+    reference: dict[str, Description],
+    custom_limits: dict[str, list[int]],
+) -> list[str]:
     issues: list[str] = []
     for item, description in current.items():
         original = reference.get(item)
         if original is None:
-            issues.append(f"{item} (línea {description.source_line}): sin referencia inglesa")
-            continue
+            limits = custom_limits.get(item)
+            if limits is None:
+                issues.append(f"{item} (línea {description.source_line}): sin referencia inglesa")
+                continue
+            original = Description(item, tuple(" " * limit for limit in limits), 0)
         if len(description.lines) > len(original.lines):
             issues.append(
                 f"{item} (línea {description.source_line}): usa {len(description.lines)} líneas; "
@@ -144,6 +152,11 @@ def main() -> int:
     parser.add_argument("--items", default="src/data/items.h", help="archivo traducido")
     parser.add_argument("--reference-ref", default="upstream/master", help="referencia Git inglesa")
     parser.add_argument("--reference-file", help="archivo inglés; sustituye a --reference-ref")
+    parser.add_argument(
+        "--custom-limits",
+        default="tools/item_description_limits.json",
+        help="límites explícitos para objetos propios sin original inglés",
+    )
     args = parser.parse_args()
 
     repo = Path(__file__).resolve().parents[1]
@@ -162,9 +175,20 @@ def main() -> int:
 
     current = parse_descriptions(current_text)
     reference = parse_descriptions(reference_text)
-    issues = audit(current, reference)
+    try:
+        custom_limits = json.loads((repo / args.custom_limits).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        print(f"ERROR: no se pudieron leer los límites propios: {error}", file=sys.stderr)
+        return 2
+    issues = audit(current, reference, custom_limits)
+    untranslated = sorted(
+        item
+        for item, description in current.items()
+        if item in reference and description.lines == reference[item].lines
+    )
 
     print(f"Descripciones analizadas: {len(current)}; referencia inglesa: {len(reference)}")
+    print(f"Pendientes idénticas al inglés: {len(untranslated)}")
     if issues:
         print(f"Incidencias: {len(issues)}")
         for issue in issues:
