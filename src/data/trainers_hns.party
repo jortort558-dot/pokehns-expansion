@@ -16010,26 +16010,26 @@ Gender: Male
 Music: Rich
 Double Battle: No
 
-Meowth
+Jolteon
 Level: 22
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Fake Out
-- Pay Day
-- Bite
-- Taunt
+- Thunder Shock
+- Double Kick
+- Quick Attack
+- Sand Attack
 
-Voltorb
+Starmie
 Level: 23
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Shock Wave
+- Water Pulse
 - Swift
-- Thunder Wave
-- Rollout
-
-Porygon
-Level: 24
-IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
 - Psybeam
 - Recover
-- Agility
-- Tri Attack
+
+Snorlax @ Chesto Berry
+Level: 24
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+- Body Slam
+- Yawn
+- Rest
+- Rock Tomb

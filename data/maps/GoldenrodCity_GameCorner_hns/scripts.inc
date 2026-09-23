@@ -3,10 +3,13 @@ GoldenrodCity_GameCorner_hns_MapScripts::
 
 GoldenrodCity_GameCorner_EventScript_Knekro::
 	goto_if_defeated TRAINER_KNEKRO_HNS, GoldenrodCity_GameCorner_EventScript_KnekroPostBattle
+	goto_if_unset FLAG_BADGE03_GET, GoldenrodCity_GameCorner_EventScript_KnekroLocked
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_GameCorner_EventScript_KnekroNoCoinCase
 	checkcoins VAR_TEMP_1
 	goto_if_ge VAR_TEMP_1, (MAX_COINS + 1) - 3000, GoldenrodCity_GameCorner_EventScript_KnekroNoCoinSpace
+	msgbox GoldenrodCity_GameCorner_Text_KnekroChallenge, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_GameCorner_EventScript_KnekroDeclined
 	trainerbattle_single TRAINER_KNEKRO_HNS, GoldenrodCity_GameCorner_Text_KnekroIntro, GoldenrodCity_GameCorner_Text_KnekroDefeat, GoldenrodCity_GameCorner_EventScript_KnekroReward
 	goto GoldenrodCity_GameCorner_EventScript_KnekroPostBattle
 
@@ -30,22 +33,30 @@ GoldenrodCity_GameCorner_EventScript_KnekroNoCoinSpace::
 	msgbox GoldenrodCity_GameCorner_Text_KnekroNoCoinSpace, MSGBOX_NPC
 	end
 
+GoldenrodCity_GameCorner_EventScript_KnekroLocked::
+	msgbox GoldenrodCity_GameCorner_Text_KnekroLocked, MSGBOX_NPC
+	end
+
+GoldenrodCity_GameCorner_EventScript_KnekroDeclined::
+	msgbox GoldenrodCity_GameCorner_Text_KnekroDeclined, MSGBOX_NPC
+	end
+
 GoldenrodCity_GameCorner_EventScript_KnekroPostBattle::
 	msgbox GoldenrodCity_GameCorner_Text_KnekroPostBattle, MSGBOX_NPC
 	end
 
 GoldenrodCity_GameCorner_Text_KnekroIntro:
-	.string "KNEKRO: Esto no es azar.\n"
-	.string "Son gachas con una palanca.\p"
-	.string "Si me ganas, te doy 3.000 fichas.\n"
-	.string "A ver si tu equipo tiene buen pity.$"
+	.string "¡TERCERO DEL MUNDOOO!\n"
+	.string "¡Vuela alto, criatura!$"
 
 GoldenrodCity_GameCorner_Text_KnekroDefeat:
-	.string "¡Me ha salido el peor porcentaje!$"
+	.string "Bueno... Esto estaba dentro\n"
+	.string "del porcentaje.$"
 
 GoldenrodCity_GameCorner_Text_KnekroReward:
 	.string "KNEKRO: Un trato es un trato.\p"
-	.string "¡Has recibido 3.000 fichas!$"
+	.string "¡Toma 3.000 fichas!\n"
+	.string "No te las gastes en gachas.$"
 
 GoldenrodCity_GameCorner_Text_KnekroNoCoinCase:
 	.string "KNEKRO: Sin MONEDERO no hay premio.\n"
@@ -56,8 +67,24 @@ GoldenrodCity_GameCorner_Text_KnekroNoCoinSpace:
 	.string "Gasta algunas y vuelve luego.$"
 
 GoldenrodCity_GameCorner_Text_KnekroPostBattle:
-	.string "KNEKRO: Si una tirada parece\n"
-	.string "segura, ya han ganado ellos.$"
+	.string "KNEKRO: Fui tercero del mundo.\n"
+	.string "Los otros dos tuvieron suerte.$"
+
+GoldenrodCity_GameCorner_Text_KnekroLocked:
+	.string "KNEKRO: ¿Pero dónde vas, criatura?\n"
+	.string "Primero tienes que ganar a BLANCA.\p"
+	.string "Aquí no regalamos ELO.\n"
+	.string "Bueno... fichas sí, si me ganas.$"
+
+GoldenrodCity_GameCorner_Text_KnekroChallenge:
+	.string "KNEKRO: Ojito, criatura.\n"
+	.string "Fui tercero del mundo.\p"
+	.string "Te puedo mandar al lobby.\n"
+	.string "¿Quieres combatir?$"
+
+GoldenrodCity_GameCorner_Text_KnekroDeclined:
+	.string "KNEKRO: Buena decisión.\n"
+	.string "Retirarse a tiempo también da ELO.$"
 
 GoldenrodCity_GameCorner_PrizeRoom_EventScript_PrizeClerkMons::
 	lock
