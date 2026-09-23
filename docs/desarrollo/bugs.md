@@ -259,19 +259,28 @@ Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
 
 ### Versión 0.20.1 (2026-09-23 - Correcciones de Trigal y Fichas Gimnasio)
 
+- **Commits**: `924a10f83f` (`fix: corregir comercios y fichas de Trigal`) y `167235aaad` (`fix: corregir separador de nombres de MT`).
 - [x] **Tiendas de MT**: las listas muestran el número de la MT seguido del nombre del movimiento, recortado de forma segura al ancho disponible.
 - [x] **Evaluadores de amistad**: traducidas la chica de Ciudad Trigal y la dependienta equivalente de Azulona; revisados también los evaluadores de Ruta 27, Ciudad Orquídea y el Evaluador de Motes.
 - [x] **Comercios de Trigal**: traducidos los diálogos de la herborista del Subsuelo y del mostrador de fichas y premios del Casino.
 - [x] **Segundo intento de captura**: ampliado el registro de 96 a las 112 zonas que usa HnS, conservando la disposición de las partidas existentes mediante campos anexos y migración a `SAVE_VERSION 9`.
 - [x] **Intercambio y resurrección con fichas**: la selección consulta correctamente los PS reconstruidos del Pokémon almacenado; los Pokémon vivos vuelven a poder elegirse para intercambio y los debilitados para resurrección.
 - [x] **Valores iniciales**: PokéVial y Fichas Gimnasio aparecen en `NO` al configurar una partida nueva y al restablecer las opciones de Nuzlocke.
+- [x] **Validación**: JSON de mapas válido, auditoría de textos HnS sin incidencias y build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.20.1-20260923-trigal-fichas-fix-es.gba` y actualizada `pokehns_fase1.gba`.
 
 ### Versión 0.20.2 (2026-09-23 - Segundo intento e intercambio)
 
+- **Commit**: `111b4d1e78` (`fix: reparar segundo intento e intercambio`).
 - [x] **Segundo intento sobre rutas consumidas**: el selector consulta directamente las marcas Nuzlocke y permite recuperar una ruta cuyo uso se gastó tanto por captura como por derrota o huida.
 - [x] **Intercambio sin bloqueo**: simplificada la elección a un único recorrido lineal; entrega al azar un Pokémon normal cuya suma de estadísticas base sea igual o superior a la ofrecida.
+- [x] **Validación**: `gym_tokens.c` compilado de forma aislada y build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.20.2-20260923-fichas-rutas-intercambio-es.gba` y actualizada `pokehns_fase1.gba`.
 
 ### Versión 0.20.3 (2026-09-23 - Interfaz de Fichas Gimnasio)
 
+- **Commit**: `7776f4c898` (`fix: mejorar selector y escena de fichas`).
 - [x] **Selector real de rutas**: sustituida la cadena de preguntas por una lista desplazable con todas las rutas consumidas y opción de cancelar; ya no se encadenan diálogos ni se reinicia el juego al agotarlos.
 - [x] **Escena de intercambio**: el canje de Ficha Gimnasio utiliza la animación completa de intercambio interno con los nombres y Pokémon generados dinámicamente.
+- [x] **Validación**: auditoría de textos sin incidencias, compilación aislada de selector, scripts y escena de intercambio, y build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.20.3-20260923-selector-intercambio-es.gba` y actualizada `pokehns_fase1.gba`.
