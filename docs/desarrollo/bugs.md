@@ -265,3 +265,8 @@ Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
 - [x] **Segundo intento de captura**: ampliado el registro de 96 a las 112 zonas que usa HnS, conservando la disposición de las partidas existentes mediante campos anexos y migración a `SAVE_VERSION 9`.
 - [x] **Intercambio y resurrección con fichas**: la selección consulta correctamente los PS reconstruidos del Pokémon almacenado; los Pokémon vivos vuelven a poder elegirse para intercambio y los debilitados para resurrección.
 - [x] **Valores iniciales**: PokéVial y Fichas Gimnasio aparecen en `NO` al configurar una partida nueva y al restablecer las opciones de Nuzlocke.
+
+### Versión 0.20.2 (2026-09-23 - Segundo intento e intercambio)
+
+- [x] **Segundo intento sobre rutas consumidas**: el selector consulta directamente las marcas Nuzlocke y permite recuperar una ruta cuyo uso se gastó tanto por captura como por derrota o huida.
+- [x] **Intercambio sin bloqueo**: simplificada la elección a un único recorrido lineal; entrega al azar un Pokémon normal cuya suma de estadísticas base sea igual o superior a la ofrecida.

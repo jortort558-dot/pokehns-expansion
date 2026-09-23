@@ -59,27 +59,6 @@ static u16 GetBaseStatTotal(u16 species)
          + info->baseSpeed + info->baseSpAttack + info->baseSpDefense;
 }
 
-static u16 GetFamilyBaseSpecies(u16 species)
-{
-    u16 previous;
-    while ((previous = GetSpeciesPreEvolution(species)) != SPECIES_NONE && previous != species)
-        species = previous;
-    return species;
-}
-
-static bool32 IsCaughtFamily(u16 species)
-{
-    u16 family = GetFamilyBaseSpecies(species);
-    u16 i;
-    for (i = 1; i < NUM_SPECIES; i++)
-    {
-        if (IsSpeciesEnabled(i) && GetFamilyBaseSpecies(i) == family
-         && GetSetPokedexFlag(SpeciesToNationalPokedexNum(i), FLAG_GET_CAUGHT))
-            return TRUE;
-    }
-    return FALSE;
-}
-
 static bool32 WasRevived(const struct BoxPokemon *boxMon)
 {
     u32 i;
@@ -159,12 +138,12 @@ void FindNextGymTokenRetry(void)
     for (zone = sRetrySearchStart; zone < NUZLOCKE_NUM_ZONES; zone++)
     {
         u8 bit = 1 << (zone & 7);
-        if ((*GetGymTokenFailedFlagByte(zone) & bit)
+        u16 mapsec = NuzlockeGetMapsecByZoneId(zone);
+
+        if (mapsec != MAPSEC_NONE
+         && NuzlockeFlagGet(mapsec)
          && !(*GetGymTokenRetriedFlagByte(zone) & bit))
         {
-            u16 mapsec = NuzlockeGetMapsecByZoneId(zone);
-            if (mapsec == MAPSEC_NONE)
-                continue;
             sSelectedRetryZone = zone;
             sRetrySearchStart = zone + 1;
             StringCopy(gStringVar2, gRegionMapEntries[mapsec].name);
@@ -178,11 +157,15 @@ void UseSelectedGymTokenRetry(void)
 {
     u8 zone = sSelectedRetryZone;
     u8 bit;
+    u16 mapsec;
+
     gSpecialVar_Result = 0;
     if (!IsGymTokenModeActive() || gSaveBlock3Ptr->gymTokens.count == 0 || zone >= NUZLOCKE_NUM_ZONES)
         return;
     bit = 1 << (zone & 7);
-    if (!(*GetGymTokenFailedFlagByte(zone) & bit)
+    mapsec = NuzlockeGetMapsecByZoneId(zone);
+    if (mapsec == MAPSEC_NONE
+     || !NuzlockeFlagGet(mapsec)
      || (*GetGymTokenRetriedFlagByte(zone) & bit))
         return;
     NuzlockeFlagClearByZoneId(zone);
@@ -196,24 +179,28 @@ void UseSelectedGymTokenRetry(void)
 static u16 ChooseMysterySpecies(u16 offeredSpecies)
 {
     u16 offeredBst = GetBaseStatTotal(offeredSpecies);
-    u16 offeredFamily = GetFamilyBaseSpecies(offeredSpecies);
-    u32 attempts;
-    for (attempts = 0; attempts < 2048; attempts++)
+    u16 selectedSpecies = offeredSpecies;
+    u16 eligibleCount = 0;
+    u16 species;
+
+    // Choose uniformly among regular species whose base-stat total is at least
+    // as high as that of the offered Pokémon.
+    for (species = 1; species < NUM_SPECIES; species++)
     {
-        u16 species = (Random() % (NUM_SPECIES - 1)) + 1;
-        u16 bst;
         const struct SpeciesInfo *info = &gSpeciesInfo[species];
+
         if (!IsSpeciesEnabled(species) || info->isRestrictedLegendary || info->isSubLegendary
          || info->isMythical || info->isUltraBeast || info->isMegaEvolution
          || info->isPrimalReversion || info->isUltraBurst)
             continue;
-        if (GetFamilyBaseSpecies(species) == offeredFamily || IsCaughtFamily(species))
-            continue;
-        bst = GetBaseStatTotal(species);
-        if (bst >= offeredBst && bst <= offeredBst + 80)
-            return species;
+        if (GetBaseStatTotal(species) >= offeredBst)
+        {
+            eligibleCount++;
+            if (Random() % eligibleCount == 0)
+                selectedSpecies = species;
+        }
     }
-    return offeredSpecies;
+    return selectedSpecies;
 }
 
 void UseGymTokenTrade(void)
