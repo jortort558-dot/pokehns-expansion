@@ -77,7 +77,19 @@ Guardar el archivo en una carpeta coherente, por ejemplo:
 graphics/object_events/pics/people/custom/maria_hns.png
 ```
 
-No crear manualmente el `.4bpp`: la build lo genera desde el PNG.
+No crear manualmente el `.4bpp`: la build lo genera desde el PNG. Sin embargo,
+una hoja horizontal de frames necesita una regla de empaquetado por frame; la
+conversión genérica no basta. Añadir en `graphics_file_rules.mk`:
+
+```make
+graphics/object_events/pics/people/custom/maria_hns.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+```
+
+`-mwidth 2 -mheight 4` indica que cada frame ocupa 2×4 tiles de 8 píxeles, es
+decir, `16×32`. Sin esta regla, `gbagfx` recorre primero las filas de tiles de
+toda la imagen de `144×32`; después, cada `overworld_frame` lee 256 bytes que
+mezclan trozos de varios frames. El síntoma en juego es un NPC desordenado.
 
 ## 4. Preparar la paleta
 
@@ -193,6 +205,11 @@ static const struct SpriteFrameImage sPicTable_Maria_hns[] = {
 Los valores `2, 4` representan el ancho y alto en bloques de 8 píxeles. Para
 sprites de otro tamaño hay que copiar un objeto existente con esas mismas
 dimensiones y ajustar también OAM, tamaño, sombra y animaciones.
+
+La tabla de C y la regla de conversión deben coincidir: `2, 4` en
+`overworld_frame` exige `-mwidth 2 -mheight 4` al generar el `.4bpp`. Repetir un
+único índice en la tabla no arregla un `.4bpp` mal empaquetado; solo repite el
+frame corrupto.
 
 ## 8. Crear la información gráfica
 
@@ -388,8 +405,11 @@ rg -n "FLAG_HIDE_MARIA|LOCALID_MARIA" data include src
 Un overworld nuevo no crea automáticamente un entrenador. Hay que añadir:
 
 1. Una constante `TRAINER_*` en el sistema de constantes de entrenadores.
-2. Una entrada en la tabla usada por HnS, normalmente
-   `src/data/trainers_hns.h`.
+2. Una entrada en la fuente usada por HnS: `src/data/trainers_hns.party`.
+   `src/data/trainers_hns.h` es generado por `trainerproc` durante la build y
+   no debe editarse como fuente. No usar `src/data/trainers.party`: ese archivo
+   pertenece a la build base y una entrada añadida allí queda vacía en HnS,
+   provocando un sprite y un equipo inválidos.
 3. Su nombre, clase, género, música, retrato de combate y equipo.
 4. Las cadenas de encuentro, derrota y diálogo posterior.
 5. Un `trainerbattle_*` en el script del mapa.
@@ -520,6 +540,7 @@ Comprobar:
 | Fondo opaco | El color transparente no ocupa el índice 0 |
 | Sprite cortado o deformado | Tamaño, OAM o `overworld_frame` no coinciden |
 | Frames mezclados | Orden o dimensiones de la hoja incorrectos |
+| Tiles de varios frames mezclados | Falta `-mwidth`/`-mheight` en la regla específica de `graphics_file_rules.mk` |
 | NPC invisible | Flag activada, ID sin puntero o evento fuera del mapa |
 | Crasheo al cargar el mapa | Puntero gráfico nulo, tabla corta o JSON inválido |
 | No mira al jugador | Falta `faceplayer` o el movimiento lo impide |
@@ -530,6 +551,7 @@ Comprobar:
 
 - [ ] Nombre interno elegido y sin colisiones.
 - [ ] PNG indexado, dimensiones correctas y máximo 16 colores.
+- [ ] Regla `.4bpp` con metatile igual al frame (`-mwidth 2 -mheight 4` para `16×32`).
 - [ ] Paleta válida o paleta existente elegida.
 - [ ] `object_event_graphics.h` actualizado.
 - [ ] `object_event_pic_tables.h` actualizado.

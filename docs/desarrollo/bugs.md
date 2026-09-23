@@ -139,7 +139,8 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 
 - [ ] **Auditoría completa de expansión**: Todavía existen cadenas inglesas no reportadas en sistemas secundarios y mensajes modernos. Se tratarán por bloques para poder revisarlas dentro del juego.
 - [ ] **Tienda de MT de Ciudad Trigal**: al comprar solo aparece el número de la MT; estudiar cómo mostrar también el nombre del movimiento junto al número.
-- [x] **Sprite overworld de Knekro desordenado**: fijado el retrato frontal estable del NPC estacionario para impedir que las orientaciones seleccionen frames mal compuestos dentro del Casino.
+- [x] **Sprite overworld de Knekro desordenado**: corregido el empaquetado de la hoja horizontal con `-mwidth 2 -mheight 4`; restaurados los nueve frames y sus cuatro orientaciones. La solución anterior de repetir el frame frontal no corregía el `.4bpp` corrupto.
+- [x] **Combate de Knekro cargaba un montañero y datos inválidos**: la definición se había añadido por error a `src/data/trainers.party`, que no forma parte de la build HnS. Trasladada a `src/data/trainers_hns.party`, de modo que `TRAINER_KNEKRO_HNS` carga su sprite frontal y su equipo reales.
 
   ![Knekro con el sprite desordenado](images/knekro_sprite_desordenado.png)
 
@@ -223,3 +224,12 @@ Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
 - [x] **Transacciones persistentes**: guardado automático después de cada canje y antes de revelar el intercambio.
 - [x] **Migración retroactiva**: `SAVE_VERSION` 7 reconstruye las medallas y concede hasta 3 fichas en partidas Nuzlocke existentes.
 - [x] **Entrega visible**: cada gimnasio informa si concede la ficha o si el saldo máximo obliga a perderla.
+
+### Versión 0.19.1 (2026-09-23 - Correcciones de Knekro)
+
+- **Commit**: `1f49a349b9` (`fix: corregir sprites y combate de Knekro`).
+- [x] **Overworld reparado desde la fuente**: la tira horizontal se convierte por frames de `16×32`; se recuperan las cuatro orientaciones y sus animaciones.
+- [x] **Combate reparado**: Knekro está definido en `trainers_hns.party`, por lo que carga su retrato y sus tres Pokémon en la ROM HnS.
+- [x] **Documentación preventiva**: la guía explica tanto el empaquetado de hojas horizontales como la tabla de entrenadores que debe editarse.
+- [x] **Validación**: comprobados los frames `.4bpp`, la entrada generada `TRAINER_KNEKRO_HNS` y la build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.19.1-20260923-knekro-fix-es.gba` y actualizada `pokehns_fase1.gba`.
