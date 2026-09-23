@@ -1215,9 +1215,10 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, enum Item item, u
         CopyItemName(item, name);
         if (GetItemTMHMIndex(item) != 0)
         {
-            u8 *dest = StringAppend(name, _(" "));
+            u8 *dest = name + StringLength(name);
             const u8 *moveName = GetMoveName(GetItemTMHMMoveId(item));
 
+            *dest++ = CHAR_SPACE;
             while (dest - name < ITEM_NAME_LENGTH && *moveName != EOS)
                 *dest++ = *moveName++;
             *dest = EOS;
