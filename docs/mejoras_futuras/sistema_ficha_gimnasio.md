@@ -9,6 +9,8 @@ con gimnasio de Johto y Kanto.
 ## Reglas
 
 - Solo funciona con un Nuzlocke normal o fácil activo.
+- Puede desactivarse en la pestaña de reglas Nuzlocke; en ese caso no se
+  conceden fichas ni se habilitan sus servicios.
 - Cada medalla concede una Ficha Gimnasio una sola vez.
 - El jugador puede llevar un máximo de 3 fichas.
 - Si se obtiene una medalla con el saldo al máximo, esa ficha se pierde.

@@ -8,7 +8,13 @@ El diseño completo del recurso, sus tres usos, persistencia, migración y prueb
 
 ### Estado
 
-Diseño cerrado y pendiente de implementación.
+Implementación completa desde 0.19.0.
+
+## Extras Nuzlocke configurables
+
+PokéVial y Fichas Gimnasio pueden activarse o desactivarse desde la pestaña de
+reglas Nuzlocke. El patrón obligatorio para futuras ayudas está en
+[Configuración de extras Nuzlocke](configuracion_extras_nuzlocke.md).
 
 ## REV. ÚNICO (propuesta sustituida)
 

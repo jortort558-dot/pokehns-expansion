@@ -143,6 +143,7 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 - [x] **Combate de Knekro cargaba un montañero y datos inválidos**: la definición se había añadido por error a `src/data/trainers.party`, que no forma parte de la build HnS. Trasladada a `src/data/trainers_hns.party`, de modo que `TRAINER_KNEKRO_HNS` carga su sprite frontal y su equipo reales.
 - [x] **Knekro cambiaba de tamaño al girar**: los tres frames laterales ocupaban 25 píxeles de alto frente a los 20–21 de norte/sur. Compactados a 21 píxeles manteniendo los pies alineados y la paleta indexada de 16 colores.
 - [x] **Identidad y acceso al combate de Knekro**: exige la Medalla Planicie de Blanca, avisa de la dificultad y permite rechazar el reto. Su equipo pasa a representar su histórico competitivo con Jolteon, Starmie y Snorlax, acompañado de diálogos y bromas propios.
+- [x] **Extras obligatorios en Nuzlocke**: PokéVial y Fichas Gimnasio disponen ahora de interruptores independientes en el menú de reglas; al apagarlos se desactiva por completo su entrega, interfaz y funcionamiento.
 
   ![Knekro con el sprite desordenado](images/knekro_sprite_desordenado.png)
 
@@ -245,3 +246,13 @@ Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
 - [x] **Personalidad**: diálogo propio antes, durante y después del combate, incluida la entrada «¡TERCERO DEL MUNDOOO!».
 - [x] **Validación**: PNG indexado de 4 bits, nueve frames alineados, auditoría de textos sin incidencias y build HnS completa con código 0.
 - [x] **ROM**: publicada como `releases/pokehns-0.19.2-20260923-knekro-historico-es.gba` y actualizada `pokehns_fase1.gba`.
+
+### Versión 0.20.0 (2026-09-23 - Extras Nuzlocke configurables)
+
+- **Commit**: `b7f6906607` (`feat: hacer opcionales los extras de nuzlocke`).
+- [x] **Menú de reglas**: añadidas las opciones `POKéVIAL` y `FICHAS GIM.` con valores `SÍ/NO` y descripciones completas.
+- [x] **Desactivación integral**: afecta a entrega, uso, recarga, interfaz, recompensas de medalla, registro de encuentros y servicios de canje.
+- [x] **Compatibilidad**: los dos bits ocupan espacio libre de `ChallengeSettings`; `SAVE_VERSION 8` conserva ambos sistemas activos en partidas anteriores.
+- [x] **Política durante la partida**: los extras se pueden apagar, pero no reactivar para evitar ventajas retroactivas.
+- [x] **Validación**: build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.20.0-20260923-extras-nuzlocke-es.gba` y actualizada `pokehns_fase1.gba`.
