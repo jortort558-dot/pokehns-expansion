@@ -21,6 +21,7 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 - [x] **Ciudad Iris**: revisados y reformateados la ciudad, sus edificios, Torre Quemada, Torre Hojalata y rutas próximas; 28 archivos superan la auditoría de longitud, saltos e inglés residual.
 - [x] **Pokégear y acompañante**: traducidos los 156 textos de llamadas y revanchas y las 138 reacciones del Pokémon acompañante.
 - [x] **Validación**: auditorías de textos y descripciones sin incidencias; build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.23.0-20260923-fichas-iris-textos-es.gba` y actualizada `pokehns_fase1.gba`.
 
 ### 📦 Versión `pokehns-0.9.0-20260920-bloque6-endrino-es.gba`
 
