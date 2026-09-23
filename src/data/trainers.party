@@ -16873,35 +16873,3 @@ Double Battle: No
 Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_KNEKRO_HNS ===
-Name: KNEKRO
-Class: Pkmn Trainer 1
-Pic: Knekro Hns
-Gender: Male
-Music: Rich
-Double Battle: No
-
-Meowth
-Level: 22
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Fake Out
-- Pay Day
-- Bite
-- Taunt
-
-Voltorb
-Level: 23
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Shock Wave
-- Swift
-- Thunder Wave
-- Rollout
-
-Porygon
-Level: 24
-IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
-- Psybeam
-- Recover
-- Agility
-- Tri Attack
