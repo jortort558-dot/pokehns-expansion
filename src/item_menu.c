@@ -159,12 +159,14 @@ static void PrintItemQuantity(u8, s16);
 static u8 BagMenu_AddWindow(u8);
 static u8 GetSwitchBagPocketDirection(void);
 static void SwitchBagPocket(u8, s16, bool16);
+static void Task_SwitchBagPocket(u8);
+#if 0
 static bool8 CanSwapItems(void);
 static void StartItemSwap(u8 taskId);
-static void Task_SwitchBagPocket(u8);
 static void Task_HandleSwappingItemsInput(u8);
 static void DoItemSwap(u8);
 static void CancelItemSwap(u8);
+#endif
 static void PrintTMHMMoveData(enum Item itemId);
 static void PrintContextMenuItems(u8);
 static void PrintContextMenuItemGrid(u8, u8, u8);
@@ -1069,7 +1071,7 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
     }
 }
 
-static u8 sItemDescSummaryBuffer[256];
+static EWRAM_DATA u8 sItemDescSummaryBuffer[256] = {0};
 
 static void PrintItemDescription(int itemIndex)
 {
@@ -1093,7 +1095,7 @@ static void PrintItemDescription(int itemIndex)
         }
         sItemDescSummaryBuffer[i] = EOS;
 
-        static const u8 sText_MoreInfoHint[] = _("\n{R_BUTTON} Más información...");
+        static const u8 sText_MoreInfoHint[] = _("\n{SELECT_BUTTON} Más info...");
         StringAppend(sItemDescSummaryBuffer, sText_MoreInfoHint);
 
         str = sItemDescSummaryBuffer;
@@ -1343,16 +1345,17 @@ static void Task_BagMenu_HandleInput(u8 taskId)
         default:
             if (JOY_NEW(SELECT_BUTTON))
             {
-                if (CanSwapItems() == TRUE)
+                u8 listPos = GetItemListPosition(gBagPosition.pocket);
+                if (listPos < gBagMenu->numItemStacks[gBagPosition.pocket] - 1)
                 {
-                    ListMenuGetScrollAndRow(tListTaskId, scrollPos, cursorPos);
-                    if ((*scrollPos + *cursorPos) != gBagMenu->numItemStacks[gBagPosition.pocket] - 1)
+                    u16 itemId = GetBagItemId(gBagPosition.pocket, listPos);
+                    if (itemId != ITEM_NONE && itemId != LIST_CANCEL)
                     {
                         PlaySE(SE_SELECT);
-                        StartItemSwap(taskId);
+                        OpenItemPopupInfo(taskId, itemId);
+                        return;
                     }
                 }
-                return;
             }
             else if (JOY_NEW(START_BUTTON))
             {
@@ -1380,20 +1383,6 @@ static void Task_BagMenu_HandleInput(u8 taskId)
                     ListMenuGetScrollAndRow(data[0], scrollPos, cursorPos);
                     gTasks[taskId].func = Task_LoadBagSortOptions;
                     return;
-                }
-            }
-            else if (JOY_NEW(R_BUTTON))
-            {
-                u8 listPos = GetItemListPosition(gBagPosition.pocket);
-                if (listPos < gBagMenu->numItemStacks[gBagPosition.pocket] - 1)
-                {
-                    u16 itemId = GetBagItemId(gBagPosition.pocket, listPos);
-                    if (itemId != ITEM_NONE && itemId != LIST_CANCEL)
-                    {
-                        PlaySE(SE_SELECT);
-                        OpenItemPopupInfo(taskId, itemId);
-                        return;
-                    }
                 }
             }
             break;
@@ -1453,7 +1442,7 @@ static u8 GetSwitchBagPocketDirection(void)
         PlaySECursorMove(SE_SELECT);
         return SWITCH_POCKET_LEFT;
     }
-    if (JOY_NEW(DPAD_RIGHT))
+    if (JOY_NEW(DPAD_RIGHT) || LRKeys == MENU_R_PRESSED)
     {
         PlaySECursorMove(SE_SELECT);
         return SWITCH_POCKET_RIGHT;
@@ -1555,7 +1544,7 @@ static void OpenItemPopupInfo(u8 taskId, u16 itemId)
     u8 pocket;
     u32 i;
     u8 formattedDesc[512];
-    static const u8 sText_ClosePopupHint[] = _("{A_BUTTON}/{B_BUTTON}/{R_BUTTON} VOLVER");
+    static const u8 sText_ClosePopupHint[] = _("{A_BUTTON}/{B_BUTTON}/{SELECT_BUTTON} VOLVER");
 
     BagDestroyPocketScrollArrowPair();
     DestroyPocketSwitchArrowPair();
@@ -1602,7 +1591,7 @@ static void OpenItemPopupInfo(u8 taskId, u16 itemId)
 
 static void Task_ItemPopup_HandleInput(u8 taskId)
 {
-    if (JOY_NEW(A_BUTTON | B_BUTTON | R_BUTTON))
+    if (JOY_NEW(A_BUTTON | B_BUTTON | SELECT_BUTTON))
     {
         PlaySE(SE_SELECT);
         CloseItemPopupInfo(taskId);
@@ -1749,6 +1738,7 @@ static void DrawPocketIndicatorSquare(u8 x, bool8 isCurrentPocket)
     ScheduleBgCopyTilemapToVram(2);
 }
 
+#if 0
 static bool8 CanSwapItems(void)
 {
     // Swaps can only be done from the field or in battle (as opposed to while selling items, for example)
@@ -1861,6 +1851,7 @@ static void CancelItemSwap(u8 taskId)
     CreatePocketSwitchArrowPair();
     gTasks[taskId].func = Task_BagMenu_HandleInput;
 }
+#endif
 
 static void OpenContextMenu(u8 taskId)
 {

@@ -2,6 +2,7 @@
 #include "main.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "battle_main.h"
 #include "frontier_util.h"
 #include "battle_message.h"
 #include "battle_tent.h"
@@ -231,6 +232,14 @@ static void PssScrollLeftEnd(u8);
 static void TryDrawExperienceProgressBar(void);
 static void SwitchToMoveSelection(u8);
 static void Task_HandleInput_MoveSelect(u8);
+static void OpenAbilityPopup(u8 taskId);
+static void CloseAbilityPopup(u8 taskId);
+static void Task_SummaryPopup_AbilityInput(u8 taskId);
+static void OpenMovePopup(u8 taskId, u8 moveIndex);
+static void RenderMovePopupContent(u8 windowId);
+static void CloseMovePopup(u8 taskId);
+static void Task_SummaryPopup_MoveInput(u8 taskId);
+static void WordWrapDescription(const u8 *src, u8 *dst, u32 maxDstSize, u8 fontId, u32 maxPixelWidth);
 static bool8 HasMoreThanOneMove(void);
 static void ChangeSelectedMove(s16 *, s8, u8 *);
 static void CloseMoveSelectMode(u8);
@@ -589,7 +598,7 @@ static const struct WindowTemplate sSummaryTemplate[] =
         .width = 11,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = 800,
+        .baseBlock = 698,
     },
     [PSS_LABEL_WINDOW_PORTRAIT_DEX_NUMBER] = {
         .bg = 0,
@@ -758,6 +767,33 @@ static const u8 sButtons_Gfx[][4 * TILE_SIZE_4BPP] = {
     INCBIN_U8("graphics/summary_screen/a_button.4bpp"),
     INCBIN_U8("graphics/summary_screen/b_button.4bpp"),
 };
+
+#define PSS_POPUP_WINDOW_BASEBLOCK 720
+#define PSS_POPUP_WINDOW_WIDTH 24
+#define PSS_POPUP_WINDOW_HEIGHT 13
+
+static const struct WindowTemplate sSummaryPopupTemplate = {
+    .bg = 0,
+    .tilemapLeft = 3,
+    .tilemapTop = 3,
+    .width = PSS_POPUP_WINDOW_WIDTH,
+    .height = PSS_POPUP_WINDOW_HEIGHT,
+    .paletteNum = 6,
+    .baseBlock = PSS_POPUP_WINDOW_BASEBLOCK,
+};
+
+static const u8 sSummaryModalColor_Title[3]  = {3, 5, 6};
+static const u8 sSummaryModalColor_Sub[3]    = {3, 8, 2};
+static const u8 sSummaryModalColor_Body[3]   = {3, 1, 2};
+static const u8 sSummaryModalColor_Footer[3] = {3, 4, 2};
+
+static EWRAM_DATA bool8 sSummaryPopupIsOpen = FALSE;
+static EWRAM_DATA u8 sSummaryPopupWindowId = 0;
+static EWRAM_DATA u8 sSummaryPopupMoveIndex = 0;
+static EWRAM_DATA TaskFunc sSummaryPopupReturnTask = NULL;
+static EWRAM_DATA bool8 sSummaryPopupHiddenSprites[SPRITE_ARR_ID_COUNT] = {0};
+static EWRAM_DATA bool8 sSummaryPopupCategoryIconHidden = FALSE;
+static EWRAM_DATA u8 sMoveDescSummaryBuffer[256] = {0};
 
 static void (*const sTextPrinterFunctions[])(void) =
 {
@@ -1964,6 +2000,22 @@ static void Task_HandleInput(u8 taskId)
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
         }
+        else if (JOY_NEW(SELECT_BUTTON))
+        {
+            if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO && !sMonSummaryScreen->summary.isEgg)
+            {
+                PlaySE(SE_SELECT);
+                OpenAbilityPopup(taskId);
+                return;
+            }
+            else if ((sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES || sMonSummaryScreen->currPageIndex == PSS_PAGE_CONTEST_MOVES)
+                     && !sMonSummaryScreen->summary.isEgg && sMonSummaryScreen->summary.moves[0] != MOVE_NONE)
+            {
+                PlaySE(SE_SELECT);
+                OpenMovePopup(taskId, 0);
+                return;
+            }
+        }
         else if (JOY_NEW(START_BUTTON))
         {
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
@@ -2567,6 +2619,15 @@ static void Task_HandleInput_MoveSelect(u8 taskId)
         {
             data[0] = 4;
             ChangeSelectedMove(data, 1, &sMonSummaryScreen->firstMoveIndex);
+        }
+        else if (JOY_NEW(SELECT_BUTTON))
+        {
+            if (sMonSummaryScreen->firstMoveIndex < MAX_MON_MOVES && sMonSummaryScreen->summary.moves[sMonSummaryScreen->firstMoveIndex] != MOVE_NONE)
+            {
+                PlaySE(SE_SELECT);
+                OpenMovePopup(taskId, sMonSummaryScreen->firstMoveIndex);
+                return;
+            }
         }
         else if (JOY_NEW(A_BUTTON))
         {
@@ -3777,7 +3838,11 @@ static void PrintMonAbilityName(void)
 static void PrintMonAbilityDescription(void)
 {
     enum Ability ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
-    PrintTextOnWindowToFit(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilitiesInfo[ability].description, 0, 17, 0, 0);
+    u8 windowId = AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY);
+    static const u8 sText_AbilityMoreInfoHint[] = _("{SELECT_BUTTON} Más info...");
+
+    PrintTextOnWindowWithFont(windowId, gAbilitiesInfo[ability].description, 0, 14, 0, 0, FONT_SMALL_NARROWER);
+    PrintTextOnWindowWithFont(windowId, sText_AbilityMoreInfoHint, 0, 23, 0, 1, FONT_SMALL_NARROWER);
 }
 
 static void BufferMonTrainerMemo(void)
@@ -4427,17 +4492,37 @@ static void PrintMoveDetails(enum Move move)
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
     if (move != MOVE_NONE)
     {
+        static const u8 sText_MoveMoreInfoHint[] = _("\n{SELECT_BUTTON} Más info...");
+        const u8 *fullDesc;
+        u32 i = 0, lines = 1;
+
         if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
         {
             if (B_SHOW_CATEGORY_ICON == TRUE)
                 ShowCategoryIcon(GetBattleMoveCategory(move));
             PrintMovePowerAndAccuracy(move);
-            PrintTextOnWindowToFit(windowId, GetMoveDescription(move), 6, 1, 0, 0);
+            fullDesc = GetMoveDescription(move);
         }
         else
         {
-            PrintTextOnWindowToFit(windowId, gContestEffects[GetMoveContestEffect(move)].description, 6, 1, 0, 0);
+            fullDesc = gContestEffects[GetMoveContestEffect(move)].description;
         }
+
+        while (fullDesc[i] != EOS && i < sizeof(sMoveDescSummaryBuffer) - 32)
+        {
+            if (fullDesc[i] == CHAR_NEWLINE)
+            {
+                lines++;
+                if (lines > 2)
+                    break;
+            }
+            sMoveDescSummaryBuffer[i] = fullDesc[i];
+            i++;
+        }
+        sMoveDescSummaryBuffer[i] = EOS;
+        StringAppend(sMoveDescSummaryBuffer, sText_MoveMoreInfoHint);
+
+        PrintTextOnWindowWithFont(windowId, sMoveDescSummaryBuffer, 6, 1, 0, 0, FONT_SMALL_NARROWER);
         PutWindowTilemap(windowId);
     }
     else
@@ -5063,6 +5148,7 @@ static void ShowRelearnPrompt(void)
     PrintTextOnWindowWithFont(PSS_LABEL_WINDOW_PROMPT_RELEARN, relearnText, relearnTextXPos, 4, 0, 0, FONT_SMALL);
 }
 
+#if P_SUMMARY_SCREEN_RENAME
 static inline bool32 ShouldShowRename(void)
 {
     return (P_SUMMARY_SCREEN_RENAME
@@ -5083,4 +5169,413 @@ static void CB2_ReturnToSummaryScreenFromNamingScreen(void)
 static void CB2_PssChangePokemonNickname(void)
 {
     ChangePokemonNicknameWithCallback(CB2_ReturnToSummaryScreenFromNamingScreen);
+}
+#endif
+
+static void WordWrapDescription(const u8 *src, u8 *dst, u32 maxDstSize, u8 fontId, u32 maxPixelWidth)
+{
+    u32 srcIdx = 0, dstIdx = 0;
+    u8 wordBuf[64];
+    u32 wordLen = 0;
+    s32 currentLineWidth = 0;
+    u8 spaceStr[2];
+    s32 spaceWidth;
+
+    spaceStr[0] = CHAR_SPACE;
+    spaceStr[1] = EOS;
+    spaceWidth = GetStringWidth(fontId, spaceStr, 0);
+
+    while (src[srcIdx] != EOS && dstIdx < maxDstSize - 1)
+    {
+        if (src[srcIdx] == CHAR_SPACE || src[srcIdx] == CHAR_NEWLINE)
+        {
+            if (wordLen > 0)
+            {
+                wordBuf[wordLen] = EOS;
+                s32 wordWidth = GetStringWidth(fontId, wordBuf, 0);
+
+                if (currentLineWidth > 0 && (currentLineWidth + spaceWidth + wordWidth) > (s32)maxPixelWidth)
+                {
+                    if (dstIdx < maxDstSize - 1)
+                        dst[dstIdx++] = CHAR_NEWLINE;
+                    currentLineWidth = 0;
+                }
+                else if (currentLineWidth > 0)
+                {
+                    if (dstIdx < maxDstSize - 1)
+                        dst[dstIdx++] = CHAR_SPACE;
+                    currentLineWidth += spaceWidth;
+                }
+
+                u32 w;
+                for (w = 0; w < wordLen && dstIdx < maxDstSize - 1; w++)
+                    dst[dstIdx++] = wordBuf[w];
+                currentLineWidth += wordWidth;
+                wordLen = 0;
+            }
+
+            if (src[srcIdx] == CHAR_NEWLINE && src[srcIdx + 1] == CHAR_NEWLINE)
+            {
+                if (dstIdx < maxDstSize - 1)
+                    dst[dstIdx++] = CHAR_NEWLINE;
+                currentLineWidth = 0;
+                srcIdx++;
+            }
+        }
+        else
+        {
+            if (wordLen < sizeof(wordBuf) - 1)
+                wordBuf[wordLen++] = src[srcIdx];
+        }
+        srcIdx++;
+    }
+
+    if (wordLen > 0)
+    {
+        wordBuf[wordLen] = EOS;
+        s32 wordWidth = GetStringWidth(fontId, wordBuf, 0);
+
+        if (currentLineWidth > 0 && (currentLineWidth + spaceWidth + wordWidth) > (s32)maxPixelWidth)
+        {
+            if (dstIdx < maxDstSize - 1)
+                dst[dstIdx++] = CHAR_NEWLINE;
+        }
+        else if (currentLineWidth > 0)
+        {
+            if (dstIdx < maxDstSize - 1)
+                dst[dstIdx++] = CHAR_SPACE;
+        }
+
+        u32 w;
+        for (w = 0; w < wordLen && dstIdx < maxDstSize - 1; w++)
+            dst[dstIdx++] = wordBuf[w];
+    }
+
+    dst[dstIdx] = EOS;
+}
+
+static void OpenAbilityPopup(u8 taskId)
+{
+    u8 windowId;
+    u8 formattedDesc[512];
+    enum Ability ability;
+    u32 i;
+    static const u8 sText_AbilityHeader[] = _("HABILIDAD POKÉMON");
+    static const u8 sText_ClosePopupHint[] = _("{A_BUTTON}/{B_BUTTON}/{SELECT_BUTTON} VOLVER");
+
+    for (i = 0; i < ARRAY_COUNT(sMonSummaryScreen->spriteIds); i++)
+    {
+        if (sMonSummaryScreen->spriteIds[i] != SPRITE_NONE)
+        {
+            sSummaryPopupHiddenSprites[i] = gSprites[sMonSummaryScreen->spriteIds[i]].invisible;
+            gSprites[sMonSummaryScreen->spriteIds[i]].invisible = TRUE;
+        }
+    }
+    if (sMonSummaryScreen->categoryIconSpriteId != SPRITE_NONE)
+    {
+        sSummaryPopupCategoryIconHidden = gSprites[sMonSummaryScreen->categoryIconSpriteId].invisible;
+        gSprites[sMonSummaryScreen->categoryIconSpriteId].invisible = TRUE;
+    }
+
+    windowId = AddWindow(&sSummaryPopupTemplate);
+    sSummaryPopupWindowId = windowId;
+    sSummaryPopupIsOpen = TRUE;
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(3));
+
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 0, 192, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 103, 192, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 0, 1, 104);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 191, 0, 1, 104);
+
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 1, 190, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 102, 190, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 1, 1, 102);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 190, 1, 1, 102);
+
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 6, 26, 180, 1);
+
+    ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+
+    AddTextPrinterParameterized4(windowId, FONT_NORMAL, 6, 4, 0, 0, sSummaryModalColor_Title, 0, gAbilitiesInfo[ability].name);
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, sText_AbilityHeader);
+
+    WordWrapDescription(gAbilitiesInfo[ability].description, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
+    AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 29, 0, 2, sSummaryModalColor_Body, 0, formattedDesc);
+
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 48, 90, 0, 0, sSummaryModalColor_Footer, 0, sText_ClosePopupHint);
+
+    PutWindowTilemap(windowId);
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+    ScheduleBgCopyTilemapToVram(0);
+
+    sSummaryPopupReturnTask = gTasks[taskId].func;
+    gTasks[taskId].func = Task_SummaryPopup_AbilityInput;
+}
+
+static void Task_SummaryPopup_AbilityInput(u8 taskId)
+{
+    if (JOY_NEW(A_BUTTON | B_BUTTON | SELECT_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        CloseAbilityPopup(taskId);
+    }
+}
+
+static void CloseAbilityPopup(u8 taskId)
+{
+    u32 i;
+
+    if (sSummaryPopupIsOpen)
+    {
+        ClearWindowTilemap(sSummaryPopupWindowId);
+        RemoveWindow(sSummaryPopupWindowId);
+        sSummaryPopupIsOpen = FALSE;
+    }
+
+    PutPageWindowTilemaps(sMonSummaryScreen->currPageIndex);
+    PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME);
+    PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_SPECIES);
+
+    for (i = 0; i < ARRAY_COUNT(sMonSummaryScreen->spriteIds); i++)
+    {
+        if (sMonSummaryScreen->spriteIds[i] != SPRITE_NONE)
+            gSprites[sMonSummaryScreen->spriteIds[i]].invisible = sSummaryPopupHiddenSprites[i];
+    }
+    if (sMonSummaryScreen->categoryIconSpriteId != SPRITE_NONE)
+        gSprites[sMonSummaryScreen->categoryIconSpriteId].invisible = sSummaryPopupCategoryIconHidden;
+
+    ScheduleBgCopyTilemapToVram(0);
+    gTasks[taskId].func = sSummaryPopupReturnTask;
+}
+
+static void RenderMovePopupContent(u8 windowId)
+{
+    u8 formattedDesc[512];
+    enum Move move;
+    u8 validMovesCount = 0, currentPos = 0, i;
+    static const u8 sText_MovePopupNavHint[] = _("{DPAD_LEFTRIGHT} OTRO ATAQUE   {B_BUTTON} VOLVER");
+    static const u8 sText_MoveIndexFormat[] = _("({STR_VAR_1}/{STR_VAR_2})");
+    static const u8 sText_CatFis[] = _("FÍS");
+    static const u8 sText_CatEsp[] = _("ESP");
+    static const u8 sText_CatEst[] = _("EST");
+    static const u8 sText_OpenParen[] = _(" (");
+    static const u8 sText_CloseParenPot[] = _(")  POT:");
+    static const u8 sText_TwoDashes[] = _("--");
+    static const u8 sText_PrecLabel[] = _("  PREC:");
+    static const u8 sText_Percent[] = _("%");
+    static const u8 sText_PpLabel[] = _("  PP:");
+    static const u8 sText_Slash[] = _("/");
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(3));
+
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 0, 192, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 103, 192, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 0, 1, 104);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 191, 0, 1, 104);
+
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 1, 190, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 102, 190, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 1, 1, 102);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 190, 1, 1, 102);
+
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 6, 26, 180, 1);
+
+    move = sMonSummaryScreen->summary.moves[sSummaryPopupMoveIndex];
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (sMonSummaryScreen->summary.moves[i] != MOVE_NONE)
+        {
+            validMovesCount++;
+            if (i == sSummaryPopupMoveIndex)
+                currentPos = validMovesCount;
+        }
+    }
+
+    AddTextPrinterParameterized4(windowId, FONT_NORMAL, 6, 4, 0, 0, sSummaryModalColor_Title, 0, GetMoveName(move));
+
+    ConvertIntToDecimalStringN(gStringVar1, currentPos, STR_CONV_MODE_LEFT_ALIGN, 1);
+    ConvertIntToDecimalStringN(gStringVar2, validMovesCount, STR_CONV_MODE_LEFT_ALIGN, 1);
+    StringExpandPlaceholders(gStringVar3, sText_MoveIndexFormat);
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 162, 5, 0, 0, sSummaryModalColor_Sub, 0, gStringVar3);
+
+    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
+    {
+        u8 category = GetBattleMoveCategory(move);
+        const u8 *catStr;
+        u8 statsBuffer[64];
+        u8 tempNum[16];
+        u8 *ptr;
+
+        switch (category)
+        {
+        case DAMAGE_CATEGORY_PHYSICAL: catStr = sText_CatFis; break;
+        case DAMAGE_CATEGORY_SPECIAL:  catStr = sText_CatEsp; break;
+        default:                       catStr = sText_CatEst; break;
+        }
+
+        u32 power = GetMovePower(move);
+        u32 acc = GetMoveAccuracy(move);
+        u32 curPp = sMonSummaryScreen->summary.pp[sSummaryPopupMoveIndex];
+        u32 maxPp = GetMovePP(move);
+
+        ptr = StringCopy(statsBuffer, gTypesInfo[GetMoveType(move)].name);
+        ptr = StringAppend(ptr, sText_OpenParen);
+        ptr = StringAppend(ptr, catStr);
+        ptr = StringAppend(ptr, sText_CloseParenPot);
+        if (power < 2)
+        {
+            ptr = StringAppend(ptr, sText_TwoDashes);
+        }
+        else
+        {
+            ConvertIntToDecimalStringN(tempNum, power, STR_CONV_MODE_LEFT_ALIGN, 3);
+            ptr = StringAppend(ptr, tempNum);
+        }
+        ptr = StringAppend(ptr, sText_PrecLabel);
+        if (acc == 0)
+        {
+            ptr = StringAppend(ptr, sText_TwoDashes);
+        }
+        else
+        {
+            ConvertIntToDecimalStringN(tempNum, acc, STR_CONV_MODE_LEFT_ALIGN, 3);
+            ptr = StringAppend(ptr, tempNum);
+            ptr = StringAppend(ptr, sText_Percent);
+        }
+        ptr = StringAppend(ptr, sText_PpLabel);
+        ConvertIntToDecimalStringN(tempNum, curPp, STR_CONV_MODE_LEFT_ALIGN, 2);
+        ptr = StringAppend(ptr, tempNum);
+        ptr = StringAppend(ptr, sText_Slash);
+        ConvertIntToDecimalStringN(tempNum, maxPp, STR_CONV_MODE_LEFT_ALIGN, 2);
+        StringAppend(ptr, tempNum);
+
+        AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, statsBuffer);
+
+        WordWrapDescription(GetMoveDescription(move), formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
+        AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 29, 0, 2, sSummaryModalColor_Body, 0, formattedDesc);
+    }
+    else
+    {
+        WordWrapDescription(gContestEffects[GetMoveContestEffect(move)].description, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
+        AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 29, 0, 2, sSummaryModalColor_Body, 0, formattedDesc);
+    }
+
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 22, 90, 0, 0, sSummaryModalColor_Footer, 0, sText_MovePopupNavHint);
+
+    PutWindowTilemap(windowId);
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+    ScheduleBgCopyTilemapToVram(0);
+}
+
+static void OpenMovePopup(u8 taskId, u8 moveIndex)
+{
+    u32 i;
+
+    sSummaryPopupMoveIndex = moveIndex;
+
+    for (i = 0; i < ARRAY_COUNT(sMonSummaryScreen->spriteIds); i++)
+    {
+        if (sMonSummaryScreen->spriteIds[i] != SPRITE_NONE)
+        {
+            sSummaryPopupHiddenSprites[i] = gSprites[sMonSummaryScreen->spriteIds[i]].invisible;
+            gSprites[sMonSummaryScreen->spriteIds[i]].invisible = TRUE;
+        }
+    }
+    if (sMonSummaryScreen->categoryIconSpriteId != SPRITE_NONE)
+    {
+        sSummaryPopupCategoryIconHidden = gSprites[sMonSummaryScreen->categoryIconSpriteId].invisible;
+        gSprites[sMonSummaryScreen->categoryIconSpriteId].invisible = TRUE;
+    }
+
+    sSummaryPopupWindowId = AddWindow(&sSummaryPopupTemplate);
+    sSummaryPopupIsOpen = TRUE;
+    RenderMovePopupContent(sSummaryPopupWindowId);
+
+    sSummaryPopupReturnTask = gTasks[taskId].func;
+    gTasks[taskId].func = Task_SummaryPopup_MoveInput;
+}
+
+static void Task_SummaryPopup_MoveInput(u8 taskId)
+{
+    if (JOY_NEW(DPAD_LEFT | DPAD_UP))
+    {
+        s8 nextIdx = sSummaryPopupMoveIndex;
+        u8 count = 0;
+        while (count < MAX_MON_MOVES)
+        {
+            nextIdx--;
+            if (nextIdx < 0)
+                nextIdx = MAX_MON_MOVES - 1;
+            if (sMonSummaryScreen->summary.moves[nextIdx] != MOVE_NONE)
+                break;
+            count++;
+        }
+        if (nextIdx != sSummaryPopupMoveIndex && sMonSummaryScreen->summary.moves[nextIdx] != MOVE_NONE)
+        {
+            PlaySE(SE_SELECT);
+            sSummaryPopupMoveIndex = nextIdx;
+            RenderMovePopupContent(sSummaryPopupWindowId);
+        }
+    }
+    else if (JOY_NEW(DPAD_RIGHT | DPAD_DOWN))
+    {
+        s8 nextIdx = sSummaryPopupMoveIndex;
+        u8 count = 0;
+        while (count < MAX_MON_MOVES)
+        {
+            nextIdx++;
+            if (nextIdx >= MAX_MON_MOVES)
+                nextIdx = 0;
+            if (sMonSummaryScreen->summary.moves[nextIdx] != MOVE_NONE)
+                break;
+            count++;
+        }
+        if (nextIdx != sSummaryPopupMoveIndex && sMonSummaryScreen->summary.moves[nextIdx] != MOVE_NONE)
+        {
+            PlaySE(SE_SELECT);
+            sSummaryPopupMoveIndex = nextIdx;
+            RenderMovePopupContent(sSummaryPopupWindowId);
+        }
+    }
+    else if (JOY_NEW(A_BUTTON | B_BUTTON | SELECT_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        CloseMovePopup(taskId);
+    }
+}
+
+static void CloseMovePopup(u8 taskId)
+{
+    u32 i;
+
+    if (sSummaryPopupIsOpen)
+    {
+        ClearWindowTilemap(sSummaryPopupWindowId);
+        RemoveWindow(sSummaryPopupWindowId);
+        sSummaryPopupIsOpen = FALSE;
+    }
+
+    PutPageWindowTilemaps(sMonSummaryScreen->currPageIndex);
+    PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME);
+    PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_SPECIES);
+
+    for (i = 0; i < ARRAY_COUNT(sMonSummaryScreen->spriteIds); i++)
+    {
+        if (sMonSummaryScreen->spriteIds[i] != SPRITE_NONE)
+            gSprites[sMonSummaryScreen->spriteIds[i]].invisible = sSummaryPopupHiddenSprites[i];
+    }
+    if (sMonSummaryScreen->categoryIconSpriteId != SPRITE_NONE)
+        gSprites[sMonSummaryScreen->categoryIconSpriteId].invisible = sSummaryPopupCategoryIconHidden;
+
+    if (sSummaryPopupReturnTask == Task_HandleInput_MoveSelect)
+    {
+        sMonSummaryScreen->firstMoveIndex = sSummaryPopupMoveIndex;
+        KeepMoveSelectorVisible(SPRITE_ARR_ID_MOVE_SELECTOR1);
+        PrintMoveDetails(sMonSummaryScreen->summary.moves[sSummaryPopupMoveIndex]);
+    }
+
+    ScheduleBgCopyTilemapToVram(0);
+    gTasks[taskId].func = sSummaryPopupReturnTask;
 }
