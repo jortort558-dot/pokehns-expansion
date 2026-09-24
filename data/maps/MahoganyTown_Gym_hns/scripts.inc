@@ -123,7 +123,7 @@ MahoganyTown_Gym_Text_PryceIntro:
 MahoganyTown_Gym_Text_PryceImpressed:
 	.string "Ah, me quito el sombrero ante tu\ndestreza.\lCon esa férrea voluntad que posees,\lsuperarás\ltodos los obstáculos de la vida.\l¡Eres digno de portar esta MEDALLA!$"
 MahoganyTown_Gym_Text_ReceivedBadge:
-	.string "¡{PLAYER} recibió la MEDALLA GLACIAR!$"
+	.string "¡{PLAYER} recibió la\nMEDALLA GLACIAR!$"
 MahoganyTown_Gym_Text_GlacierBadgeSpeech:
 	.string "Esa MEDALLA aumentará el ATAQUE\nESPECIAL\lde tus POKéMON.\lTambién les permitirá usar\lTORBELLINO para\lcruzar remolinos salvajes en el\lagua.\lY toma... ¡esto es un obsequio de\lmi parte!$"
 MahoganyTown_Gym_Text_HailSpeech:

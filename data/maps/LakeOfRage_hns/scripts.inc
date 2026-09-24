@@ -239,13 +239,13 @@ LakeOfRage_Text_Dragonite:
 LakeOfRage_Text_LanceForcedToEvolve:
 	.string "Este lago está atestado de GYARADOS\ny de\lnada más…\pAsí que los MAGIKARP están siendo\nforzados\la evolucionar…$"
 LakeOfRage_Text_LanceIntro1:
-	.string "¿Has venido por los rumores?\p¿Eres {PLAYER}? Yo me llamo LANCE, y\nsoy\lun Entrenador igual que tú.$"
+	.string "¿Has venido por los rumores?\p¿Eres {PLAYER}? Me llamo LANCE.\nSoy un Entrenador como tú.$"
 LakeOfRage_Text_LanceIntro2:
 	.string "Este hombre de aquí me puso al\ntanto de\lciertos rumores extraños.\pAsí que vinimos a investigar…$"
 LakeOfRage_Text_LanceIntro3:
 	.string "Vi cómo luchaste antes, {PLAYER}.\pSe nota a leguas que eres un\nEntrenador\lde enorme destreza.\pSi no te importa, ¿podrías\nayudarnos a\linvestigar este misterio?$"
 LakeOfRage_Text_LanceRadioSignal:
-	.string "LANCE: ¡Excelente!\pTodo apunta a que los MAGIKARP del\nLAGO\lestán siendo obligados a\levolucionar.\pLa culpable es una misteriosa\nemisión de\lradio que procede de CAOBA.\p¡Te estaremos esperando allí, {PLAYER}!$"
+	.string "LANCE: ¡Excelente!\pTodo apunta a que los MAGIKARP del\nLAGO\lestán siendo obligados a\levolucionar.\pLa culpable es una misteriosa\nemisión de\lradio que procede de CAOBA.\pTe esperaremos allí.\n¡No tardes, {PLAYER}!$"
 LakeOfRage_Text_LanceRefused:
 	.string "Vaya… Bueno, si cambias de parecer,\npor favor ven a echarnos una mano.$"
 LakeOfRage_Text_LanceAskHelp:
@@ -279,7 +279,7 @@ LakeOfRage_Text_CooltrainermAaronBeaten:
 LakeOfRage_Text_CooltrainermAaronAfter:
 	.string "Los POKéMON y sus Entrenadores se\nhacen\lfuertes a base de batirse el cobre.$"
 LakeOfRage_Text_CooltrainerfLoisSeen:
-	.string "¿Qué le ha pasado al GYARADOS rojo?\n¿Ya no está?\n¡Maldición! ¿He venido para nada?\n¡Pues mira, echemos un combate!$"
+	.string "¿Qué le ha pasado al GYARADOS rojo?\n¿Ya no está?\l¡Maldición! ¿He venido para nada?\l¡Pues mira, echemos un combate!$"
 LakeOfRage_Text_CooltrainerfLoisBeaten:
 	.string "¡Bien jugado!$"
 LakeOfRage_Text_CooltrainerfLoisAfter:

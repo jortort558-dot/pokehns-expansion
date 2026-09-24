@@ -288,7 +288,7 @@ OlivineLighthouse_EventScript_JasmineRefuse::
 	end
 
 OlivineLighthouse_Text_PlayerHandedSecretpotion:
-	.string "¡{PLAYER} le entregó la POCIÓN SECRETA\na YASMINA!$"
+	.string "¡{PLAYER} le entregó la\nPOCIÓN SECRETA a YASMINA!$"
 OlivineLighthouse_Text_JasmineDontBeOffended:
 	.string "YASMINA: …Esto... Por favor, no te\nlo\ltomes a mal…\p…AMPHY desconfía y no acepta nada\nde\lnadie que no sea yo…$"
 OlivineLighthouse_Text_JasmineAmphyHowFeeling:

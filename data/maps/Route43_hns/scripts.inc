@@ -117,7 +117,7 @@ Route43_Text_CamperSpencerSeen:
 Route43_Text_CamperSpencerBeaten:
 	.string "Perder no tiene ninguna gracia…$"
 Route43_Text_CamperSpencerAfter:
-	.string "¿Qué demonios pasa en el LAGO DE LA\nFURIA?\nTeníamos pensado acampar allí.$"
+	.string "¿Qué demonios pasa en el LAGO DE LA\nFURIA?\lTeníamos pensado acampar allí.$"
 Route43_Text_PicnickerTiffanySeen:
 	.string "¿Tú también vas al LAGO DE LA\nFURIA?\l¡Juguemos un rato antes!$"
 Route43_Text_PicnickerTiffanyBeaten:

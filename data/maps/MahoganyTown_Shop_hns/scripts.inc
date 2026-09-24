@@ -242,4 +242,4 @@ MahoganyMart1F_Text_Lance_Radio:
 MahoganyMart1F_Text_Lance_Stairs:
 	.string "¡Trabajo impecable encontrando las\nescaleras secretas, DRAGONITE!$"
 MahoganyMart1F_Text_Lance_SplitUp:
-	.string "LANCE: {PLAYER}, deberíamos separarnos\npara inspeccionar este lugar.\pEntraré yo primero.$"
+	.string "LANCE: {PLAYER}, será mejor\nsepararnos para investigar.\pEntraré yo primero.$"

@@ -239,7 +239,7 @@ OlivineCity_Gym_Text_JasmineSteelTypeIntro:
 OlivineCity_Gym_Text_JasmineBetterTrainer:
 	.string "…Eres mejor Entrenador que yo,\ntanto en habilidad como en bondad.\pCumpliendo las normas de la LIGA,\nte hago entrega de esta MEDALLA.$"
 OlivineCity_Gym_Text_ReceivedMineralBadge:
-	.string "¡{PLAYER} recibió la MEDALLA MINERAL!$"
+	.string "¡{PLAYER} recibió la\nMEDALLA MINERAL!$"
 OlivineCity_Gym_Text_JasmineBadgeSpeech:
 	.string "La MEDALLA MINERAL aumenta la DEF.\nESPECIAL de los POKéMON.\p…Esto… Por favor, llévate esto\ntambién…$"
 OlivineCity_Gym_Text_JasmineIronTailSpeech:

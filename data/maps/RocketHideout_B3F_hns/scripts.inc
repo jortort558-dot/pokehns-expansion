@@ -526,7 +526,7 @@ RocketHideout_B3F_Movement_Spin2:
 	step_end
 
 RocketHideout_B3F_Text_PetrelIntro:
-	.string "¡Mwahahaha, te estábamos esperando!\nConque tú eres {PLAYER}...\n¿A mí? ¿No sabes quién soy?\n¡Soy el mismísimo GIOVANNI!\n¡El majestuoso GIOVANNI en persona!\n¡Wahaha!$"
+	.string "¡Mwahahaha, te esperábamos!\nConque tú eres {PLAYER}...\l¿A mí? ¿No sabes quién soy?\l¡Soy el mismísimo GIOVANNI!\l¡El majestuoso GIOVANNI en persona!\l¡Wahaha!$"
 RocketHideout_B3F_Text_PetrelDisbelief:
 	.string "...¿Eh?\n¿Que mi voz no se parece en nada a\lla de\lGIOVANNI?\l¿Que ni siquiera tengo su aspecto?\l¿Pero cómo es posible, si me he\lmatado a\lpracticar para imitarlo clavado?$"
 RocketHideout_B3F_Text_PetrelReveal:

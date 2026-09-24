@@ -29,7 +29,7 @@ OlivineCity_House1_EventScript_TradeCompleted::
 OlivineCity_House1_Text_YouWillTradeWontYou:
 	.string "¡Colecciono POKéMON!\n¿Tienes un {STR_VAR_1}?\p¿Quieres cambiarlo por mi\n{STR_VAR_2}?$"
 OlivineCity_House1_Text_MonYouTakeCare:
-	.string "¡Toma ya! ¡He conseguido un {STR_VAR_1}!\p¡{STR_VAR_2}, cuídate mucho!$"
+	.string "¡Toma ya! ¡Conseguí un\n{STR_VAR_1}!\p¡{STR_VAR_2}, cuídate mucho!$"
 OlivineCity_House1_Text_ThisIsntAMon:
 	.string "Mmm, va a ser que no.\nEso no es un {STR_VAR_1}.$"
 OlivineCity_House1_Text_YouWontTradeMe:

@@ -142,7 +142,7 @@ OlivineCity_Movement_SilverLeave:
 	step_end
 
 OlivineCity_Text_SilverEncounter:
-	.string "¿Tú otra vez?\nNo hace falta que te pongas en\lguardia.\pNo pierdo mi tiempo con enclenques\ncomo tú.\pHablando de débiles... La LÍDER del\nGIMNASIO no está.\lSe dice que anda cuidando de un\lbicho\lenfermo en el FARO.\p¡Bah! ¡Pamplinas!\n¡A un POKéMON enfermo se le\labandona!\p¡Un POKéMON que no puede luchar es\nun estorbo inútil!\p¿Por qué no te vas a entrenar al\nFARO?\pQuién sabe... ¡Igual hasta te ayuda\na ser un Entrenador algo más\ldecente!$"
+	.string "¿Otra vez tú?\nTranqui, pringao. No vengo a\lpartirte la cara.\pNo pienso perder el tiempo con un\nmatao como tú.\pHablando de mataos... La LÍDER del\nGIMNASIO no está.\lDicen que cuida a un POKéMON\lenfermo en el FARO.\p¡Bah! ¡Menuda chorrada!\nA un POKéMON enfermo se le\labandona.\pSi no puede luchar, no sirve para\nnada. Es un estorbo.\p¿Por qué no te largas al FARO a\nentrenar?\pQuién sabe... Igual así dejas de\nser tan paquete.$"
 OlivineCity_EventScript_Sailor1::
 	lock
 	faceplayer
@@ -252,7 +252,7 @@ OlivineCity_Text_PortSign:
 OlivineCity_Text_GymSign:
 	.string "GIMNASIO POKéMON DE CIUDAD OLIVO\nLÍDER: YASMINA\pLa chica de la defensa de acero.$"
 OlivineCity_Text_LighthouseSign:
-	.string "FARO DE OLIVO\nTambién conocido como el FARO\nBRILLANTE.$"
+	.string "FARO DE OLIVO\nTambién conocido como el FARO\lBRILLANTE.$"
 OlivineCity_Text_BattleTowerSign:
 	.string "COLINA DESAFÍO y TIENDAS DE COMBATE\nMÁS ADELANTE.\p¡Gran apertura!$"
 OlivineCity_Text_Machoke:

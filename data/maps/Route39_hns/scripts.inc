@@ -136,7 +136,7 @@ Route39_Text_ChooseLegend::
 	.string "BAOBA: ¡Cielos benditos! ¿Esa\n"
 	.string "sombra era de un POKéMON?\p"
 	.string "¿Pudiste verlo bien?\n"
-	.string "No pude distinguir de qué color era...$"
+	.string "No distinguí bien su color...$"
 
 Route39_Text_BaobaIntro::
 	.string "Qué extraño...\p"
@@ -146,18 +146,18 @@ Route39_Text_BaobaIntro::
 	.string "Hacía años que no veía una.\p"
 	.string "¡Me llamo BAOBA!\n"
 	.string "Antes dirigía la ZONA SAFARI de\l"
-	.string "CIUDAD FUCSIA, pero se fue quedando\l"
-	.string "anticuada con las nuevas atracciones.\p"
-	.string "Por eso viajé al extranjero a aprender\n"
-	.string "nuevas técnicas y abrir una flamante\l"
+	.string "CIUDAD FUCSIA, pero quedó anticuada\l"
+	.string "frente a las nuevas atracciones.\p"
+	.string "Por eso viajé al extranjero para\n"
+	.string "aprender técnicas y abrir una nueva\l"
 	.string "ZONA SAFARI de última generación\l"
 	.string "en CIUDAD ORQUÍDEA.\p"
 	.string "Seguro que no es casualidad que nos\n"
 	.string "hayamos conocido aquí.\p"
 	.string "¿Qué tal si registramos nuestros\n"
 	.string "números en el POKéGEAR?\p"
-	.string "¡Te llamaré en cuanto inauguremos la\n"
-	.string "ZONA SAFARI antes de avisar a nadie!$"
+	.string "¡Te llamaré en cuanto inauguremos\n"
+	.string "la ZONA SAFARI, antes que a nadie!$"
 
 Route39_Text_Registered:
 	.string "¡{PLAYER} registró a BAOBA en el\nPOKéGEAR!$"

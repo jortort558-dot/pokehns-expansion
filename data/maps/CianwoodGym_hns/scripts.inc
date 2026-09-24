@@ -122,13 +122,13 @@ CianwoodGym_Movement_ChuckRight:
 CianwoodGym_Text_ChuckIntro1:
 	.string "¡JAJAJA!\p¡Conque has llegado hasta aquí!\p¡Te advierto que soy duro de pelar!\p¡Mis POKéMON rompen piedras y\nquiebran\lhuesos con un solo golpe!\p¡Fíjate en esto!$"
 CianwoodGym_Text_ChuckIntro2:
-	.string "ANÍBAL: ¡Uaaargh!\n…\n¡¡¡Yaaaaaargh!!!$"
+	.string "ANÍBAL: ¡Uaaargh!\n…\l¡¡¡Yaaaaaargh!!!$"
 CianwoodGym_Text_ChuckIntro3:
 	.string "¡Toma ya! ¿Asustado, eh?\p¿Qué? ¿Que eso no tiene nada que\nver con\llos POKéMON?\p¡Bueno, en eso tienes razón!\p¡Al turrón! ¡Que empiece el\ncombate!$"
 CianwoodGym_Text_ChuckLoss:
-	.string "¿C-cómo? ¿Que he perdido?\p¡Vaya sorpresa!\n¡Eres digno de la MEDALLA TORMENTA!$"
+	.string "¿C-cómo? ¿Que he perdido?\p¡Vaya sorpresa!\n¡Te mereces la MEDALLA TORMENTA!$"
 CianwoodGym_Text_GetStormBadge:
-	.string "¡{PLAYER} recibió la MEDALLA TORMENTA!$"
+	.string "¡{PLAYER} recibió la\nMEDALLA TORMENTA!$"
 CianwoodGym_Text_ChuckBadgeSpeech:
 	.string "La MEDALLA TORMENTA hace que todos\nlos\lPOKéMON hasta nivel 70 te\lobedezcan,\lincluso los intercambiados.\pAdemás, permite a tus POKéMON usar\nVUELO fuera del combate.\p¡Toma, quédate con esto también!$"
 CianwoodGym_Text_ChuckTMSpeech:

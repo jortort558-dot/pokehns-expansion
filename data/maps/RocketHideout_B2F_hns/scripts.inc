@@ -251,7 +251,7 @@ RocketHideout_B2F_Text_LanceInterrupt:
 RocketHideout_B2F_Text_ArianaOutraged:
 	.string "ATENEA: ¿Qué? ¿Tenías un cómplice?\n¿Dónde está vuestro sentido del\lhonor?\l¡Como líder provisional en ausencia\lde\lGIOVANNI, os enseñaré lo que cuesta\lmeterse\lcon el Team Rocket!$"
 RocketHideout_B2F_Text_LanceChooseMons:
-	.string "LANCE: ¡Rápido, {PLAYER}, elige a tus\nPOKéMON!$"
+	.string "LANCE: ¡Rápido, {PLAYER}!\n¡Elige a tus POKéMON!$"
 RocketHideout_B2F_EventScript_ReadyForBattlePrompt::
 	msgbox RocketHideout_B2F_Text_LanceChooseMons, MSGBOX_DEFAULT
 	goto RocketHideout_B2F_EventScript_ChoosePartyForMultiBattle
@@ -692,4 +692,3 @@ RocketHideout_B2F_EventScript_Grunt16::
 	trainerbattle_single TRAINER_GRUNT_16_HNS, RocketHideout_B2F_Text_GruntM19Seen, RocketHideout_B2F_Text_GruntM19Beaten
 	msgbox RocketHideout_B2F_Text_GruntM19After, MSGBOX_AUTOCLOSE
 	end
-

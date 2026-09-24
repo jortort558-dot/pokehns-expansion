@@ -244,7 +244,7 @@ CianwoodCity_Movement_Eusine3:
 	step_end
 
 CianwoodCity_Text_EusineSuicune:
-	.string "EUSINE: ¡Ey, {PLAYER}!\p¿No era ése SUICUNE hace un\nmomento?\pSolo lo he visto de refilón, pero\nme ha\lparecido ver a SUICUNE corriendo\lsobre\llas olas.\pSUICUNE es majestuoso y grandioso.\pY recorre pueblos y caminos a una\nvelocidad absolutamente pasmosa.\pEs maravilloso…\pDeseo con toda mi alma ver a\nSUICUNE\lde cerca…\pLo he decidido.\p¡Combatiré contra ti como\nEntrenador\lpara ganarme el respeto de SUICUNE!\p¡Adelante, {PLAYER}! ¡Luchemos ahora!$"
+	.string "EUSINE: ¡Ey, {PLAYER}!\p¿No era ése SUICUNE hace un\nmomento?\pSolo lo he visto de refilón, pero\nme ha\lparecido ver a SUICUNE corriendo\lsobre\llas olas.\pSUICUNE es majestuoso y grandioso.\pY recorre pueblos y caminos a una\nvelocidad absolutamente pasmosa.\pEs maravilloso…\pDeseo con toda mi alma ver a\nSUICUNE\lde cerca…\pLo he decidido.\p¡Combatiré contra ti como\nEntrenador\lpara ganarme el respeto de SUICUNE!\p¡Adelante, {PLAYER}!\n¡Luchemos ahora!$"
 CianwoodCity_Text_EusineBeaten:
 	.string "Me fastidia admitirlo, pero tú\nganas.$"
 CianwoodCity_Text_EusineAfter:

@@ -29,6 +29,6 @@ CianwoodCity_EventScript_PharmacistAfter::
 CianwoodCity_Text_PharmacistGivePotion:
 	.string "Tus POKéMON parecen estar\nrebosantes\lde salud.\p¿Te preocupa algo?\p…\p¿Que el POKéMON del FARO está muy\nenfermo?\p¡Entendido!\pEsto debería bastar para devolverle\nla\lsalud.$"
 CianwoodCity_Text_ReceivedSecretpotion:
-	.string "¡{PLAYER} recibió la POCIÓN SECRETA!$"
+	.string "¡{PLAYER} recibió la\nPOCIÓN SECRETA!$"
 CianwoodCity_Text_PharmacistDescribePotion:
 	.string "Mi POCIÓN SECRETA es un poco fuerte\nde\lmás, así que solo la entrego en\lcasos de\lurgencia.$"
