@@ -315,12 +315,18 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeFailed::
 	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveConfirm::
+	special GetGymTokenCount
+	goto_if_lt VAR_RESULT, 2, GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveNotEnough
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRevive, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
 	msgbox GoldenrodCity_PokemonCenter_Text_MustSaveBeforeAction, MSGBOX_DEFAULT
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenSaveAborted
 	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenRevive
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveNotEnough::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenReviveNotEnough, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenRevive::
 	chooseboxmon SELECT_PC_MON_GYM_TOKEN_REVIVE
@@ -384,7 +390,11 @@ GoldenrodCity_PokemonCenter_Text_GymTokenTrade:
 
 GoldenrodCity_PokemonCenter_Text_GymTokenRevive:
 	.string "¿Resucitar un POKéMON debilitado\n"
-	.string "por 1 FICHA GIMNASIO?$"
+	.string "por 2 FICHAS GIMNASIO?$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenReviveNotEnough:
+	.string "La resurrección de un POKéMON\n"
+	.string "requiere 2 FICHAS GIMNASIO.$"
 
 GoldenrodCity_PokemonCenter_Text_GymTokenNoRetry:
 	.string "No tienes zonas gastadas que se\n"
@@ -403,7 +413,7 @@ GoldenrodCity_PokemonCenter_Text_GymTokenReviveDone:
 	.string "No podrá resucitar otra vez.$"
 
 GoldenrodCity_PokemonCenter_Text_GymTokenReviveFailed:
-	.string "Necesitas 1 FICHA y un POKéMON\n"
+	.string "Necesitas 2 FICHAS y un POKéMON\n"
 	.string "debilitado que no haya vuelto ya.$"
 
 GoldenrodCity_PokemonCenter_Text_GymTokenExplain:

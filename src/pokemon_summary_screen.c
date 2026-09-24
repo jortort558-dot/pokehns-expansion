@@ -770,12 +770,12 @@ static const u8 sButtons_Gfx[][4 * TILE_SIZE_4BPP] = {
 
 #define PSS_POPUP_WINDOW_BASEBLOCK 720
 #define PSS_POPUP_WINDOW_WIDTH 24
-#define PSS_POPUP_WINDOW_HEIGHT 13
+#define PSS_POPUP_WINDOW_HEIGHT 12
 
 static const struct WindowTemplate sSummaryPopupTemplate = {
     .bg = 0,
     .tilemapLeft = 3,
-    .tilemapTop = 3,
+    .tilemapTop = 4,
     .width = PSS_POPUP_WINDOW_WIDTH,
     .height = PSS_POPUP_WINDOW_HEIGHT,
     .paletteNum = 6,
@@ -792,8 +792,10 @@ static EWRAM_DATA u8 sSummaryPopupWindowId = 0;
 static EWRAM_DATA u8 sSummaryPopupMoveIndex = 0;
 static EWRAM_DATA TaskFunc sSummaryPopupReturnTask = NULL;
 static EWRAM_DATA bool8 sSummaryPopupHiddenSprites[SPRITE_ARR_ID_COUNT] = {0};
+static EWRAM_DATA s16 sSummaryPopupSavedMonY = 0;
 static EWRAM_DATA bool8 sSummaryPopupCategoryIconHidden = FALSE;
 static EWRAM_DATA u8 sMoveDescSummaryBuffer[256] = {0};
+static EWRAM_DATA u16 sSummaryBg0TilemapBackup[32 * 32] = {0};
 
 static void (*const sTextPrinterFunctions[])(void) =
 {
@@ -5260,8 +5262,13 @@ static void OpenAbilityPopup(u8 taskId)
     u8 formattedDesc[512];
     enum Ability ability;
     u32 i;
+    void *bg0Buf;
     static const u8 sText_AbilityHeader[] = _("HABILIDAD POKÉMON");
     static const u8 sText_ClosePopupHint[] = _("{A_BUTTON}/{B_BUTTON}/{SELECT_BUTTON} VOLVER");
+
+    bg0Buf = GetBgTilemapBuffer(0);
+    if (bg0Buf != NULL)
+        CpuCopy16(bg0Buf, sSummaryBg0TilemapBackup, sizeof(sSummaryBg0TilemapBackup));
 
     for (i = 0; i < ARRAY_COUNT(sMonSummaryScreen->spriteIds); i++)
     {
@@ -5270,6 +5277,11 @@ static void OpenAbilityPopup(u8 taskId)
             sSummaryPopupHiddenSprites[i] = gSprites[sMonSummaryScreen->spriteIds[i]].invisible;
             gSprites[sMonSummaryScreen->spriteIds[i]].invisible = TRUE;
         }
+    }
+    if (sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON] != SPRITE_NONE)
+    {
+        sSummaryPopupSavedMonY = gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON]].y;
+        gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON]].y = 240;
     }
     if (sMonSummaryScreen->categoryIconSpriteId != SPRITE_NONE)
     {
@@ -5284,26 +5296,26 @@ static void OpenAbilityPopup(u8 taskId)
     FillWindowPixelBuffer(windowId, PIXEL_FILL(3));
 
     FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 0, 192, 1);
-    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 103, 192, 1);
-    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 0, 1, 104);
-    FillWindowPixelRect(windowId, PIXEL_FILL(1), 191, 0, 1, 104);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 95, 192, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 0, 1, 96);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 191, 0, 1, 96);
 
     FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 1, 190, 1);
-    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 102, 190, 1);
-    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 1, 1, 102);
-    FillWindowPixelRect(windowId, PIXEL_FILL(4), 190, 1, 1, 102);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 94, 190, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 1, 1, 94);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 190, 1, 1, 94);
 
-    FillWindowPixelRect(windowId, PIXEL_FILL(4), 6, 26, 180, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 6, 25, 180, 1);
 
     ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
 
-    AddTextPrinterParameterized4(windowId, FONT_NORMAL, 6, 4, 0, 0, sSummaryModalColor_Title, 0, gAbilitiesInfo[ability].name);
+    AddTextPrinterParameterized4(windowId, FONT_NORMAL, 6, 3, 0, 0, sSummaryModalColor_Title, 0, gAbilitiesInfo[ability].name);
     AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, sText_AbilityHeader);
 
     WordWrapDescription(gAbilitiesInfo[ability].description, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
-    AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 29, 0, 2, sSummaryModalColor_Body, 0, formattedDesc);
+    AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 28, 0, 1, sSummaryModalColor_Body, 0, formattedDesc);
 
-    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 48, 90, 0, 0, sSummaryModalColor_Footer, 0, sText_ClosePopupHint);
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 44, 83, 0, 0, sSummaryModalColor_Footer, 0, sText_ClosePopupHint);
 
     PutWindowTilemap(windowId);
     CopyWindowToVram(windowId, COPYWIN_FULL);
@@ -5325,6 +5337,7 @@ static void Task_SummaryPopup_AbilityInput(u8 taskId)
 static void CloseAbilityPopup(u8 taskId)
 {
     u32 i;
+    void *bg0Buf;
 
     if (sSummaryPopupIsOpen)
     {
@@ -5332,6 +5345,10 @@ static void CloseAbilityPopup(u8 taskId)
         RemoveWindow(sSummaryPopupWindowId);
         sSummaryPopupIsOpen = FALSE;
     }
+
+    bg0Buf = GetBgTilemapBuffer(0);
+    if (bg0Buf != NULL)
+        CpuCopy16(sSummaryBg0TilemapBackup, bg0Buf, sizeof(sSummaryBg0TilemapBackup));
 
     PutPageWindowTilemaps(sMonSummaryScreen->currPageIndex);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME);
@@ -5342,8 +5359,14 @@ static void CloseAbilityPopup(u8 taskId)
         if (sMonSummaryScreen->spriteIds[i] != SPRITE_NONE)
             gSprites[sMonSummaryScreen->spriteIds[i]].invisible = sSummaryPopupHiddenSprites[i];
     }
+    if (sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON] != SPRITE_NONE)
+        gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON]].y = sSummaryPopupSavedMonY;
     if (sMonSummaryScreen->categoryIconSpriteId != SPRITE_NONE)
         gSprites[sMonSummaryScreen->categoryIconSpriteId].invisible = sSummaryPopupCategoryIconHidden;
+
+    SetTypeIcons();
+    SetFriendshipSprite();
+    ShowShinyStarObjIfMonShiny();
 
     ScheduleBgCopyTilemapToVram(0);
     gTasks[taskId].func = sSummaryPopupReturnTask;
@@ -5370,16 +5393,16 @@ static void RenderMovePopupContent(u8 windowId)
     FillWindowPixelBuffer(windowId, PIXEL_FILL(3));
 
     FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 0, 192, 1);
-    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 103, 192, 1);
-    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 0, 1, 104);
-    FillWindowPixelRect(windowId, PIXEL_FILL(1), 191, 0, 1, 104);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 95, 192, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, 0, 1, 96);
+    FillWindowPixelRect(windowId, PIXEL_FILL(1), 191, 0, 1, 96);
 
     FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 1, 190, 1);
-    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 102, 190, 1);
-    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 1, 1, 102);
-    FillWindowPixelRect(windowId, PIXEL_FILL(4), 190, 1, 1, 102);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 94, 190, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 1, 1, 1, 94);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 190, 1, 1, 94);
 
-    FillWindowPixelRect(windowId, PIXEL_FILL(4), 6, 26, 180, 1);
+    FillWindowPixelRect(windowId, PIXEL_FILL(4), 6, 25, 180, 1);
 
     move = sMonSummaryScreen->summary.moves[sSummaryPopupMoveIndex];
 
@@ -5393,12 +5416,16 @@ static void RenderMovePopupContent(u8 windowId)
         }
     }
 
-    AddTextPrinterParameterized4(windowId, FONT_NORMAL, 6, 4, 0, 0, sSummaryModalColor_Title, 0, GetMoveName(move));
+    {
+        u32 nameLen = GetStringWidth(FONT_NORMAL, GetMoveName(move), 0);
+        u32 fontId = (nameLen > 140) ? FONT_SMALL_NARROWER : FONT_NORMAL;
+        AddTextPrinterParameterized4(windowId, fontId, 6, 3, 0, 0, sSummaryModalColor_Title, 0, GetMoveName(move));
+    }
 
     ConvertIntToDecimalStringN(gStringVar1, currentPos, STR_CONV_MODE_LEFT_ALIGN, 1);
     ConvertIntToDecimalStringN(gStringVar2, validMovesCount, STR_CONV_MODE_LEFT_ALIGN, 1);
     StringExpandPlaceholders(gStringVar3, sText_MoveIndexFormat);
-    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 162, 5, 0, 0, sSummaryModalColor_Sub, 0, gStringVar3);
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 160, 4, 0, 0, sSummaryModalColor_Sub, 0, gStringVar3);
 
     if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
     {
@@ -5454,15 +5481,15 @@ static void RenderMovePopupContent(u8 windowId)
         AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, statsBuffer);
 
         WordWrapDescription(GetMoveDescription(move), formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
-        AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 29, 0, 2, sSummaryModalColor_Body, 0, formattedDesc);
+        AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 28, 0, 1, sSummaryModalColor_Body, 0, formattedDesc);
     }
     else
     {
         WordWrapDescription(gContestEffects[GetMoveContestEffect(move)].description, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
-        AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 29, 0, 2, sSummaryModalColor_Body, 0, formattedDesc);
+        AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 28, 0, 1, sSummaryModalColor_Body, 0, formattedDesc);
     }
 
-    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 22, 90, 0, 0, sSummaryModalColor_Footer, 0, sText_MovePopupNavHint);
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 18, 83, 0, 0, sSummaryModalColor_Footer, 0, sText_MovePopupNavHint);
 
     PutWindowTilemap(windowId);
     CopyWindowToVram(windowId, COPYWIN_FULL);
@@ -5472,8 +5499,13 @@ static void RenderMovePopupContent(u8 windowId)
 static void OpenMovePopup(u8 taskId, u8 moveIndex)
 {
     u32 i;
+    void *bg0Buf;
 
     sSummaryPopupMoveIndex = moveIndex;
+
+    bg0Buf = GetBgTilemapBuffer(0);
+    if (bg0Buf != NULL)
+        CpuCopy16(bg0Buf, sSummaryBg0TilemapBackup, sizeof(sSummaryBg0TilemapBackup));
 
     for (i = 0; i < ARRAY_COUNT(sMonSummaryScreen->spriteIds); i++)
     {
@@ -5482,6 +5514,11 @@ static void OpenMovePopup(u8 taskId, u8 moveIndex)
             sSummaryPopupHiddenSprites[i] = gSprites[sMonSummaryScreen->spriteIds[i]].invisible;
             gSprites[sMonSummaryScreen->spriteIds[i]].invisible = TRUE;
         }
+    }
+    if (sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON] != SPRITE_NONE)
+    {
+        sSummaryPopupSavedMonY = gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON]].y;
+        gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON]].y = 240;
     }
     if (sMonSummaryScreen->categoryIconSpriteId != SPRITE_NONE)
     {
@@ -5549,6 +5586,7 @@ static void Task_SummaryPopup_MoveInput(u8 taskId)
 static void CloseMovePopup(u8 taskId)
 {
     u32 i;
+    void *bg0Buf;
 
     if (sSummaryPopupIsOpen)
     {
@@ -5556,6 +5594,10 @@ static void CloseMovePopup(u8 taskId)
         RemoveWindow(sSummaryPopupWindowId);
         sSummaryPopupIsOpen = FALSE;
     }
+
+    bg0Buf = GetBgTilemapBuffer(0);
+    if (bg0Buf != NULL)
+        CpuCopy16(sSummaryBg0TilemapBackup, bg0Buf, sizeof(sSummaryBg0TilemapBackup));
 
     PutPageWindowTilemaps(sMonSummaryScreen->currPageIndex);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME);
@@ -5566,8 +5608,14 @@ static void CloseMovePopup(u8 taskId)
         if (sMonSummaryScreen->spriteIds[i] != SPRITE_NONE)
             gSprites[sMonSummaryScreen->spriteIds[i]].invisible = sSummaryPopupHiddenSprites[i];
     }
+    if (sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON] != SPRITE_NONE)
+        gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON]].y = sSummaryPopupSavedMonY;
     if (sMonSummaryScreen->categoryIconSpriteId != SPRITE_NONE)
         gSprites[sMonSummaryScreen->categoryIconSpriteId].invisible = sSummaryPopupCategoryIconHidden;
+
+    SetTypeIcons();
+    SetFriendshipSprite();
+    ShowShinyStarObjIfMonShiny();
 
     if (sSummaryPopupReturnTask == Task_HandleInput_MoveSelect)
     {
