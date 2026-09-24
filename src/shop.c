@@ -44,6 +44,7 @@
 #if IS_HNS
 #include "constants/flags.h"
 #include "event_data.h"
+#include "nuzlocke.h"
 #endif
 
 #define TAG_SCROLL_ARROW   2100
@@ -1181,22 +1182,43 @@ static void BuyMenuFreeMemory(void)
     FreeAllWindowBuffers();
 }
 
+static bool8 IsShopHealingItemBanned(u16 item)
+{
+#if IS_HNS
+    if (sMartInfo.martType != MART_TYPE_NORMAL)
+        return FALSE;
+    if (!gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_BanHealingShop)
+        return FALSE;
+    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive())
+        return FALSE;
+    return (GetItemPocket(item) == POCKET_MEDICINE);
+#else
+    return FALSE;
+#endif
+}
+
 static void BuyMenuBuildListMenuTemplate(void)
 {
     u16 i;
+    u16 validCount = 0;
 
     sListMenuItems = Alloc((sMartInfo.itemCount + 1) * sizeof(*sListMenuItems));
     sItemNames = Alloc((sMartInfo.itemCount + 1) * sizeof(*sItemNames));
     for (i = 0; i < sMartInfo.itemCount; i++)
-        BuyMenuSetListEntry(&sListMenuItems[i], sMartInfo.itemList[i], sItemNames[i]);
+    {
+        if (IsShopHealingItemBanned(sMartInfo.itemList[i]))
+            continue;
+        BuyMenuSetListEntry(&sListMenuItems[validCount], sMartInfo.itemList[i], sItemNames[validCount]);
+        validCount++;
+    }
 
-    StringCopy(sItemNames[i], gText_Cancel2);
-    sListMenuItems[i].name = sItemNames[i];
-    sListMenuItems[i].id = LIST_CANCEL;
+    StringCopy(sItemNames[validCount], gText_Cancel2);
+    sListMenuItems[validCount].name = sItemNames[validCount];
+    sListMenuItems[validCount].id = LIST_CANCEL;
 
     gMultiuseListMenuTemplate = sShopBuyMenuListTemplate;
     gMultiuseListMenuTemplate.items = sListMenuItems;
-    gMultiuseListMenuTemplate.totalItems = sMartInfo.itemCount + 1;
+    gMultiuseListMenuTemplate.totalItems = validCount + 1;
     if (gMultiuseListMenuTemplate.totalItems > MAX_ITEMS_SHOWN)
         gMultiuseListMenuTemplate.maxShowed = MAX_ITEMS_SHOWN;
     else

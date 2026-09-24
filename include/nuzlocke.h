@@ -18,6 +18,7 @@ u8 NuzlockeGetZoneId(u16 mapsec);
 void NuzlockeFlagClearByZoneId(u8 zone);
 u16 NuzlockeGetMapsecByZoneId(u8 zone);
 bool8 IsNuzlockeEncounterArea(u16 mapsec);
+void SyncNuzlockeCaughtRoutes(void);
 
 void NuzlockeDeletePartyMon(u8 position);
 void NuzlockeDeletePartyMonOption(u8 position);

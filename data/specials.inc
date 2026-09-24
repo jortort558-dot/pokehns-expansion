@@ -722,3 +722,5 @@ gSpecials::
 	def_special FinishGymTokenTrade
 	def_special UseGymTokenRevive
 	def_special SaveGymTokenTransaction
+	def_special BufferCurrentLevelCap
+	def_special BufferLevelCapSummary

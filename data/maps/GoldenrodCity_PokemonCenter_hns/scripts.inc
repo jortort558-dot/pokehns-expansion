@@ -161,6 +161,30 @@ GoldenrodCity_PokemonCenter_Text_LinkExplainer:
 GoldenrodCity_PokemonCenter_EventScript_GymTokenClerk::
 	lock
 	faceplayer
+	msgbox GoldenrodCity_PokemonCenter_Text_LockeAssistantIntro, MSGBOX_DEFAULT
+GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu::
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner, 0
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 1
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 2
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionRewards, 3
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionExit, 4
+	dynmultistack 0, 0, FALSE, 5, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	closemessage
+	switch VAR_RESULT
+	case 0, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner
+	case 1, GoldenrodCity_PokemonCenter_EventScript_AssistantGymTokens
+	case 2, GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps
+	case 3, GoldenrodCity_PokemonCenter_EventScript_AssistantRewards
+	case 4, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+
+GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner::
+	message MoveRelearner_Text_WouldLearnNewMoves
+	waitmessage
+	goto Common_EventScript_MoveRelearnerDynMultiChoice
+
+GoldenrodCity_PokemonCenter_EventScript_AssistantGymTokens::
 	special GetGymTokenCount
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenIntro, MSGBOX_DEFAULT
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNone
@@ -172,13 +196,80 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu::
 	case 1, GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeConfirm
 	case 2, GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveConfirm
 	case 3, GoldenrodCity_PokemonCenter_EventScript_GymTokenExplain
-	case 4, GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
-	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
-	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+	case 4, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps::
+	special BufferLevelCapSummary
+	msgbox GoldenrodCity_PokemonCenter_Text_LevelCapSummary, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	msgbox GoldenrodCity_PokemonCenter_Text_LevelCapAllLeaders, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_AssistantRewards::
+	msgbox GoldenrodCity_PokemonCenter_Text_RewardsFuture, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd::
+	msgbox GoldenrodCity_PokemonCenter_Text_LockeAssistantGoodbye, MSGBOX_DEFAULT
+	release
+	end
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenNone::
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenNone, MSGBOX_DEFAULT
-	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_Text_LockeAssistantIntro:
+	.string "¡Hola! Soy el Asistente del Locke.\p"
+	.string "Ofrezco servicios de apoyo para tu\n"
+	.string "aventura. ¿En qué puedo ayudarte?$"
+
+GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner:
+	.string "Recordar movimientos$"
+
+GoldenrodCity_PokemonCenter_Text_OptionGymTokens:
+	.string "Fichas Gimnasio$"
+
+GoldenrodCity_PokemonCenter_Text_OptionLevelCaps:
+	.string "Info líderes y niveles$"
+
+GoldenrodCity_PokemonCenter_Text_OptionRewards:
+	.string "Recompensas Locke$"
+
+GoldenrodCity_PokemonCenter_Text_OptionExit:
+	.string "Salir$"
+
+GoldenrodCity_PokemonCenter_Text_LockeAssistantGoodbye:
+	.string "¡Mucho ánimo con tu reto!$"
+
+GoldenrodCity_PokemonCenter_Text_LevelCapSummary:
+	.string "DIFICULTAD: {STR_VAR_3}\n"
+	.string "NIVEL MÁXIMO ACTUAL: {STR_VAR_1}\p"
+	.string "Siguiente objetivo:\n"
+	.string "{STR_VAR_2}\p"
+	.string "¿Quieres consultar la lista\n"
+	.string "de límites de cada líder?$"
+
+GoldenrodCity_PokemonCenter_Text_LevelCapAllLeaders:
+	.string "LÍMITES (Normal / Difícil):\p"
+	.string "Pegaso: 11 / 8\n"
+	.string "Antón: 16 / 15\p"
+	.string "Blanca: 21 / 20\n"
+	.string "Morty: 25 / 23\p"
+	.string "Aníbal: 31 / 29\n"
+	.string "Yasmina: 36 / 33\p"
+	.string "Fredo: 38 / 37\n"
+	.string "Débora: 45 / 42\p"
+	.string "Liga Pokémon Johto: 56 / 54\p"
+	.string "Gimnasios Kanto: 70\n"
+	.string "Campeón Kanto: 100$"
+
+GoldenrodCity_PokemonCenter_Text_RewardsFuture:
+	.string "Esta función estará disponible en\n"
+	.string "una próxima actualización.\p"
+	.string "¡Podrás recibir recompensas según\n"
+	.string "tus logros en la partida!$"
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry::
 	special BuildGymTokenRetryMenu
@@ -252,8 +343,7 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenExplain::
 	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd::
-	release
-	end
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
 
 GoldenrodCity_PokemonCenter_Text_GymTokenIntro:
 	.string "Soy el encargado de las\n"

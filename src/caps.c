@@ -3,6 +3,7 @@
 #include "event_data.h"
 #include "caps.h"
 #include "pokemon.h"
+#include "string_util.h"
 
 static u8 GetCurrentBadgeCount(void)
 {
@@ -181,4 +182,47 @@ u32 GetCurrentEVCap(void)
     }
 
     return MAX_TOTAL_EVS;
+}
+
+void BufferCurrentLevelCap(void)
+{
+    u32 cap = GetCurrentLevelCap();
+    ConvertIntToDecimalStringN(gStringVar1, cap, STR_CONV_MODE_LEFT_ALIGN, 3);
+}
+
+void BufferLevelCapSummary(void)
+{
+    u8 badgeCount = GetCurrentBadgeCount();
+    u8 mode = gSaveBlock3Ptr->challengeSettings.tx_Challenges_LevelCap;
+    u32 cap = GetCurrentLevelCap();
+
+    ConvertIntToDecimalStringN(gStringVar1, cap, STR_CONV_MODE_LEFT_ALIGN, 3);
+
+    if (badgeCount == 0)
+        StringCopy(gStringVar2, COMPOUND_STRING("Pegaso (Gimnasio Malvalona)"));
+    else if (badgeCount == 1)
+        StringCopy(gStringVar2, COMPOUND_STRING("Antón (Gimnasio Azalea)"));
+    else if (badgeCount == 2)
+        StringCopy(gStringVar2, COMPOUND_STRING("Blanca (Gimnasio Trigal)"));
+    else if (badgeCount == 3)
+        StringCopy(gStringVar2, COMPOUND_STRING("Morty (Gimnasio Iris)"));
+    else if (badgeCount == 4)
+        StringCopy(gStringVar2, COMPOUND_STRING("Aníbal (Gimnasio Orquídea)"));
+    else if (badgeCount == 5)
+        StringCopy(gStringVar2, COMPOUND_STRING("Yasmina (Gimnasio Olivo)"));
+    else if (badgeCount == 6)
+        StringCopy(gStringVar2, COMPOUND_STRING("Fredo (Gimnasio Caoba)"));
+    else if (badgeCount == 7)
+        StringCopy(gStringVar2, COMPOUND_STRING("Débora (Gimnasio Endrino)"));
+    else if (!FlagGet(FLAG_IS_CHAMPION))
+        StringCopy(gStringVar2, COMPOUND_STRING("Liga Pokémon (Meseta Añil)"));
+    else
+        StringCopy(gStringVar2, COMPOUND_STRING("Gimnasios de Kanto"));
+
+    if (mode == 1)
+        StringCopy(gStringVar3, COMPOUND_STRING("NORMAL"));
+    else if (mode == 2)
+        StringCopy(gStringVar3, COMPOUND_STRING("DIFÍCIL"));
+    else
+        StringCopy(gStringVar3, COMPOUND_STRING("ESTÁNDAR"));
 }

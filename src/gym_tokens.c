@@ -52,6 +52,9 @@ bool32 IsGymTokenModeActive(void)
 {
     const struct ChallengeSettings *settings = &gSaveBlock3Ptr->challengeSettings;
 
+    if (gSaveBlock3Ptr->gymTokens.count > 0)
+        return TRUE;
+
     return settings->tx_Nuzlocke_GymTokens
         && (IsNuzlockeActive() || IsNuzlockeEasyActive());
 }
@@ -139,6 +142,7 @@ void FindNextGymTokenRetry(void)
     }
     if (!IsGymTokenModeActive() || gSaveBlock3Ptr->gymTokens.count == 0)
         return;
+    SyncNuzlockeCaughtRoutes();
     for (zone = sRetrySearchStart; zone < NUZLOCKE_NUM_ZONES; zone++)
     {
         u8 bit = 1 << (zone & 7);
@@ -166,6 +170,8 @@ void BuildGymTokenRetryMenu(void)
     gSpecialVar_Result = 0;
     if (!IsGymTokenModeActive() || gSaveBlock3Ptr->gymTokens.count == 0)
         return;
+
+    SyncNuzlockeCaughtRoutes();
 
     // Count first so the dynamic menu needs a single, exact allocation.  The
     // old repeated reallocations could fragment the small GBA heap and crash

@@ -21,5 +21,7 @@
 u32 GetCurrentLevelCap(void);
 u32 GetSoftLevelCapExpValue(u32 level, u32 expValue);
 u32 GetCurrentEVCap(void);
+void BufferCurrentLevelCap(void);
+void BufferLevelCapSummary(void);
 
 #endif /* GUARD_CAPS_H */

@@ -376,6 +376,39 @@ bool8 IsNuzlockeEncounterArea(u16 mapsec)
 #endif
 }
 
+void SyncNuzlockeCaughtRoutes(void)
+{
+    u32 i, box, slot;
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        struct Pokemon *mon = &gPlayerParty[i];
+        if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && !GetMonData(mon, MON_DATA_IS_EGG))
+        {
+            u16 mapsec = GetMonData(mon, MON_DATA_MET_LOCATION);
+            if (IsNuzlockeEncounterArea(mapsec))
+                NuzlockeFlagSet(mapsec);
+        }
+    }
+
+    if (gPokemonStoragePtr != NULL)
+    {
+        for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+        {
+            for (slot = 0; slot < IN_BOX_COUNT; slot++)
+            {
+                struct BoxPokemon *boxMon = &gPokemonStoragePtr->boxes[box][slot];
+                if (GetBoxMonData(boxMon, MON_DATA_SPECIES) != SPECIES_NONE && !GetBoxMonData(boxMon, MON_DATA_IS_EGG))
+                {
+                    u16 mapsec = GetBoxMonData(boxMon, MON_DATA_MET_LOCATION);
+                    if (IsNuzlockeEncounterArea(mapsec))
+                        NuzlockeFlagSet(mapsec);
+                }
+            }
+        }
+    }
+}
+
 void NuzlockeDeletePartyMon(u8 position)
 {
     struct ChallengeSettings *cs = &gSaveBlock3Ptr->challengeSettings;

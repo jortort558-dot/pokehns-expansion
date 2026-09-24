@@ -1,58 +1,57 @@
 MoveRelearner_Text_WouldLearnNewMoves:
-	.string "Hi, I'm the Move Relearner.\n"
-	.string "Would you like to learn new moves?$"
+	.string "Hola, soy el Recuerda-Movimientos.\n"
+	.string "¿Quieres recordar algún ataque?$"
 
 MoveRelearner_Text_LevelUpMoves:
-	.string "Level Up Moves$"
+	.string "Por nivel$"
 
 MoveRelearner_Text_EggMoves:
-	.string "Egg Moves$"
+	.string "Mov. Huevo$"
 
 MoveRelearner_Text_TMMoves:
-	.string "TM Moves$"
+	.string "Mov. MT$"
 
 MoveRelearner_Text_TutormoveMoves:
-	.string "Tutor Moves$"
+	.string "Mov. Tutor$"
 
 MoveRelearner_Text_SeeYa:
-	.string "See ya!$"
+	.string "¡Hasta luego!$"
 
 MoveRelearner_Text_AnythingElse:
-	.string "Is there anything else I may do for you?$"
+	.string "¿Puedo ayudarte en algo más?$"
 
 MoveRelearner_Text_ChoosePkmn:
-	.string "Please choose your Pokémon.$"
+	.string "Elige un Pokémon, por favor.$"
 
 MoveRelearner_Text_HaveNoPkmn:
-	.string "You have no Pokémon.$"
+	.string "No llevas ningún Pokémon.$"
 
 MoveRelearner_Text_CantTeachMoveToEgg:
-	.string "Sorry…\n"
-	.string "But an Egg can't learn moves.$"
+	.string "Lo siento…\n"
+	.string "Un Huevo no puede aprender ataques.$"
 
 MoveRelearner_Text_CantTeachMoveToPkmn:
-	.string "Sorry…\p"
-	.string "It doesn't appear as if I have any move\n"
-	.string "I can teach that Pokémon.$"
+	.string "Lo siento…\p"
+	.string "No parece que ese Pokémon pueda\n"
+	.string "recordar ningún movimiento.$"
 
 MoveRelearner_Text_LevelUpMoveLWR::
-	.string "level up move$"
+	.string "movimiento$"
 
 MoveRelearner_Text_EggMoveLWR::
-	.string "egg move$"
+	.string "movimiento huevo$"
 
 MoveRelearner_Text_TMMoveLWR::
-	.string "TM move$"
+	.string "movimiento MT$"
 
 MoveRelearner_Text_TutorMoveLWR::
-	.string "tutor move$"
+	.string "movimiento tutor$"
 
 MoveRelearner_Text_MoveLWR::
-	.string "move$"
+	.string "movimiento$"
 
 MoveRelearner_Text_WhichXmoveShouldTeach:
-	.string "Which {STR_VAR_3} should I teach?$"
+	.string "¿Qué {STR_VAR_3} debería recordar?$"
 
 MoveRelearner_Text_ThankYouComeAgain:
-	.string "Thank you for using our services.\n"
-	.string "Please come again!$"
+	.string "¡Vuelve cuando quieras!$"

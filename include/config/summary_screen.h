@@ -14,11 +14,11 @@
 #define P_SORT_MOVES                     FALSE   // If TRUE, sorts all moves alphabetically in the relearner's list.
 
 // Level up Relearner
-#define P_PRE_EVO_MOVES                  FALSE   // If TRUE, it enables the Pokémon to learn moves from it's pre evolution.
+#define P_PRE_EVO_MOVES                  TRUE    // If TRUE, it enables the Pokémon to learn moves from it's pre evolution.
 #define P_ENABLE_ALL_LEVEL_UP_MOVES      FALSE   // If TRUE, it enables the Pokémon to learn all level up moves, regardless of its level.
 
 // TM Relearner
-#define P_TM_MOVES_RELEARNER             FALSE   // If TRUE, enables machine move relearner.
+#define P_TM_MOVES_RELEARNER             TRUE    // If TRUE, enables machine move relearner.
 #define P_ENABLE_ALL_TM_MOVES            FALSE   // If TRUE, it enables the Pokémon to learn all TMs its compatible with, regardless of it being in the bag.
 
 // Relearner flags - Redundant if P_ENABLE_MOVE_RELEARNERS is TRUE, but still added here incase you don't want all relearners unlocked at the same time.

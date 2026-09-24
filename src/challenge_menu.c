@@ -114,6 +114,7 @@ enum {
     ITEM_NUZLOCKE_RARE_CANDY,
     ITEM_NUZLOCKE_POKE_VIAL,
     ITEM_NUZLOCKE_GYM_TOKENS,
+    ITEM_NUZLOCKE_BAN_HEALING_SHOP,
     ITEM_NUZLOCKE_NEXT,
     ITEM_NUZLOCKE_COUNT,
 };
@@ -1022,6 +1023,10 @@ static const u8 *const sDesc_GymTokens[] = {
     COMPOUND_STRING("Las medallas dan Fichas Gimnasio\npara canjear ayudas Nuzlocke."),
     COMPOUND_STRING("Las medallas no dan fichas ni se\npueden usar sus servicios."),
 };
+static const u8 *const sDesc_BanHealingShop[] = {
+    COMPOUND_STRING("Las tiendas no venden curas ni pociones\ndurante el reto Nuzlocke."),
+    COMPOUND_STRING("Las tiendas venden objetos curativos\ncon normalidad."),
+};
 static const u8 *const sDesc_NuzlockeNext[] = {
     COMPOUND_STRING("Continuar a opciones de dificultad."),
 };
@@ -1074,6 +1079,12 @@ static const struct ChallengeMenuItem sTabItems_Nuzlocke[] = {
         .descriptions = sDesc_GymTokens,
         .numChoices   = 2,
         .choiceNames  = sChoices_OnOff,
+    },
+    [ITEM_NUZLOCKE_BAN_HEALING_SHOP] = {
+        .name         = COMPOUND_STRING("CURAS TIENDA"),
+        .descriptions = sDesc_BanHealingShop,
+        .numChoices   = 2,
+        .choiceNames  = sChoices_BanUnban,
     },
     [ITEM_NUZLOCKE_NEXT] = {
         .name         = COMPOUND_STRING("SIGUIENTE"),
@@ -2187,6 +2198,7 @@ static void Task_ConfirmSaveYes(u8 taskId)
         cs->tx_Challenges_NuzlockeHardcore = (nuzSel == 3) ? 1 : 0;
         cs->tx_Nuzlocke_PokeVial           = !(*GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_POKE_VIAL));
         cs->tx_Nuzlocke_GymTokens          = !(*GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_GYM_TOKENS));
+        cs->tx_Nuzlocke_BanHealingShop     = (*GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_BAN_HEALING_SHOP) == 0) ? 1 : 0;
 
         if (nuzSel == 0) // OFF — clear sub-options
         {
@@ -2423,6 +2435,7 @@ void CB2_InitChallengeMenu(void)
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_RARE_CANDY)     = !cs->tx_Nuzlocke_RareCandy;
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_POKE_VIAL)      = !cs->tx_Nuzlocke_PokeVial;
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_GYM_TOKENS)     = !cs->tx_Nuzlocke_GymTokens;
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_BAN_HEALING_SHOP) = cs->tx_Nuzlocke_BanHealingShop ? 0 : 1;
 
             // Difficulty tab
             *GetSelectionPtr(TAB_DIFFICULTY, ITEM_DIFFICULTY_PARTY_LIMIT)    = cs->tx_Challenges_PartyLimit;
