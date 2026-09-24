@@ -1079,29 +1079,22 @@ static void PrintItemDescription(int itemIndex)
         u16 itemId = GetBagItemId(gBagPosition.pocket, itemIndex);
         const u8 *fullDesc = GetItemDescription(itemId);
         u32 i = 0, lines = 1;
-        bool8 hasMore = FALSE;
 
         while (fullDesc[i] != EOS && i < sizeof(sItemDescSummaryBuffer) - 32)
         {
             if (fullDesc[i] == CHAR_NEWLINE)
             {
                 lines++;
-                if (lines > 4)
-                {
-                    hasMore = TRUE;
+                if (lines > 3)
                     break;
-                }
             }
             sItemDescSummaryBuffer[i] = fullDesc[i];
             i++;
         }
         sItemDescSummaryBuffer[i] = EOS;
 
-        if (hasMore)
-        {
-            static const u8 sText_MoreInfoHint[] = _("\n{R_BUTTON} Ver detalles...");
-            StringAppend(sItemDescSummaryBuffer, sText_MoreInfoHint);
-        }
+        static const u8 sText_MoreInfoHint[] = _("\n{R_BUTTON} Más información...");
+        StringAppend(sItemDescSummaryBuffer, sText_MoreInfoHint);
 
         str = sItemDescSummaryBuffer;
     }
@@ -1473,6 +1466,88 @@ static const u8 sModalColor_Pocket[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE
 static const u8 sModalColor_Body[3]   = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
 static const u8 sModalColor_Footer[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
 
+static void WordWrapDescription(const u8 *src, u8 *dst, u32 maxDstSize, u8 fontId, u32 maxPixelWidth)
+{
+    u32 srcIdx = 0, dstIdx = 0;
+    u8 wordBuf[64];
+    u32 wordLen = 0;
+    s32 currentLineWidth = 0;
+    u8 spaceStr[2];
+    s32 spaceWidth;
+
+    spaceStr[0] = CHAR_SPACE;
+    spaceStr[1] = EOS;
+    spaceWidth = GetStringWidth(fontId, spaceStr, 0);
+
+    while (src[srcIdx] != EOS && dstIdx < maxDstSize - 1)
+    {
+        if (src[srcIdx] == CHAR_NEWLINE || src[srcIdx] == CHAR_SPACE)
+        {
+            if (wordLen > 0)
+            {
+                wordBuf[wordLen] = EOS;
+                s32 wordWidth = GetStringWidth(fontId, wordBuf, 0);
+
+                if (currentLineWidth > 0 && (currentLineWidth + spaceWidth + wordWidth) > (s32)maxPixelWidth)
+                {
+                    if (dstIdx < maxDstSize - 1)
+                        dst[dstIdx++] = CHAR_NEWLINE;
+                    currentLineWidth = 0;
+                }
+                else if (currentLineWidth > 0)
+                {
+                    if (dstIdx < maxDstSize - 1)
+                        dst[dstIdx++] = CHAR_SPACE;
+                    currentLineWidth += spaceWidth;
+                }
+
+                u32 w;
+                for (w = 0; w < wordLen && dstIdx < maxDstSize - 1; w++)
+                    dst[dstIdx++] = wordBuf[w];
+                currentLineWidth += wordWidth;
+                wordLen = 0;
+            }
+
+            if (src[srcIdx] == CHAR_NEWLINE && src[srcIdx + 1] == CHAR_NEWLINE)
+            {
+                if (dstIdx < maxDstSize - 1)
+                    dst[dstIdx++] = CHAR_NEWLINE;
+                currentLineWidth = 0;
+                srcIdx++;
+            }
+        }
+        else
+        {
+            if (wordLen < sizeof(wordBuf) - 1)
+                wordBuf[wordLen++] = src[srcIdx];
+        }
+        srcIdx++;
+    }
+
+    if (wordLen > 0)
+    {
+        wordBuf[wordLen] = EOS;
+        s32 wordWidth = GetStringWidth(fontId, wordBuf, 0);
+
+        if (currentLineWidth > 0 && (currentLineWidth + spaceWidth + wordWidth) > (s32)maxPixelWidth)
+        {
+            if (dstIdx < maxDstSize - 1)
+                dst[dstIdx++] = CHAR_NEWLINE;
+        }
+        else if (currentLineWidth > 0)
+        {
+            if (dstIdx < maxDstSize - 1)
+                dst[dstIdx++] = CHAR_SPACE;
+        }
+
+        u32 w;
+        for (w = 0; w < wordLen && dstIdx < maxDstSize - 1; w++)
+            dst[dstIdx++] = wordBuf[w];
+    }
+
+    dst[dstIdx] = EOS;
+}
+
 static void OpenItemPopupInfo(u8 taskId, u16 itemId)
 {
     u8 windowId;
@@ -1480,7 +1555,6 @@ static void OpenItemPopupInfo(u8 taskId, u16 itemId)
     u8 pocket;
     u32 i;
     u8 formattedDesc[512];
-    u32 src = 0, dst = 0;
     static const u8 sText_ClosePopupHint[] = _("{A_BUTTON}/{B_BUTTON}/{R_BUTTON} VOLVER");
 
     BagDestroyPocketScrollArrowPair();
@@ -1509,22 +1583,12 @@ static void OpenItemPopupInfo(u8 taskId, u16 itemId)
     // 3. Línea divisoria horizontal
     FillWindowPixelRect(windowId, PIXEL_FILL(3), 6, 17, 196, 1);
 
-    // 4. Descripción completa formateada a lo ancho del pop-up
+    // 4. Descripción completa con WordWrap limpio y saltos de línea reales
     desc = GetItemDescription(itemId);
     if (desc != NULL && desc[0] != EOS)
     {
-        while (desc[src] != EOS && dst < sizeof(formattedDesc) - 1)
-        {
-            if (desc[src] == CHAR_NEWLINE)
-                formattedDesc[dst++] = CHAR_SPACE;
-            else
-                formattedDesc[dst++] = desc[src];
-            src++;
-        }
-        formattedDesc[dst] = EOS;
-
-        WrapFontIdToFit(formattedDesc, formattedDesc + dst, FONT_NORMAL, 194);
-        AddTextPrinterParameterized4(windowId, FONT_NORMAL, 6, 21, 0, 1, sModalColor_Body, TEXT_SKIP_DRAW, formattedDesc);
+        WordWrapDescription(desc, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 194);
+        AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 21, 0, 2, sModalColor_Body, TEXT_SKIP_DRAW, formattedDesc);
     }
 
     // 5. Pie de página

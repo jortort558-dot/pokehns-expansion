@@ -11,6 +11,7 @@ bool32 GymTokenCanReviveMon(struct BoxPokemon *boxMon);
 void AwardGymToken(void);
 void GetGymTokenCount(void);
 void FindNextGymTokenRetry(void);
+void RollGymTokenGachapon(void);
 void BuildGymTokenRetryMenu(void);
 void SelectGymTokenRetry(void);
 void UseSelectedGymTokenRetry(void);

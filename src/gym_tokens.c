@@ -83,7 +83,8 @@ bool32 GymTokenCanTradeMon(struct BoxPokemon *boxMon)
     return IsGymTokenModeActive()
         && GetBoxMonData(boxMon, MON_DATA_SPECIES) != SPECIES_NONE
         && !GetBoxMonData(boxMon, MON_DATA_IS_EGG)
-        && GetBoxMonCurrentHp(boxMon) != 0;
+        && GetBoxMonCurrentHp(boxMon) != 0
+        && GetBoxMonData(boxMon, MON_DATA_HELD_ITEM) == ITEM_NONE;
 }
 
 bool32 GymTokenCanReviveMon(struct BoxPokemon *boxMon)
@@ -159,6 +160,50 @@ void FindNextGymTokenRetry(void)
             return;
         }
     }
+}
+
+void RollGymTokenGachapon(void)
+{
+    u32 eligibleZones[NUZLOCKE_NUM_ZONES];
+    u32 count = 0;
+    u32 zone;
+    u32 chosenIndex;
+    u32 chosenZone;
+    u16 mapsec;
+
+    gSpecialVar_Result = 0;
+    if (!IsGymTokenModeActive() || gSaveBlock3Ptr->gymTokens.count == 0)
+        return;
+
+    SyncNuzlockeCaughtRoutes();
+
+    for (zone = 0; zone < NUZLOCKE_NUM_ZONES; zone++)
+    {
+        u8 bit = 1 << (zone & 7);
+        mapsec = NuzlockeGetMapsecByZoneId(zone);
+
+        if (mapsec != MAPSEC_NONE
+         && NuzlockeFlagGet(mapsec)
+         && !(*GetGymTokenRetriedFlagByte(zone) & bit))
+        {
+            eligibleZones[count++] = zone;
+        }
+    }
+
+    if (count == 0)
+        return;
+
+    chosenIndex = Random() % count;
+    chosenZone = eligibleZones[chosenIndex];
+    mapsec = NuzlockeGetMapsecByZoneId(chosenZone);
+
+    NuzlockeFlagClearByZoneId(chosenZone);
+    *GetGymTokenFailedFlagByte(chosenZone) &= ~(1 << (chosenZone & 7));
+    *GetGymTokenRetriedFlagByte(chosenZone) |= (1 << (chosenZone & 7));
+    gSaveBlock3Ptr->gymTokens.count--;
+
+    StringCopy(gStringVar1, GetActiveRegionMapEntries()[mapsec].name);
+    gSpecialVar_Result = 1;
 }
 
 void BuildGymTokenRetryMenu(void)
@@ -319,9 +364,7 @@ void UseGymTokenTrade(void)
 
     gSpecialVar_Result = 0;
     if (gSaveBlock3Ptr->gymTokens.count == 0
-     || gSaveBlock3Ptr->gymTokens.mysteryTrades >= GYM_TOKEN_TRADE_LIMIT
-     || !GymTokenCanTradeMon(boxMon)
-     || GetBoxMonData(boxMon, MON_DATA_HELD_ITEM) != ITEM_NONE)
+     || !GymTokenCanTradeMon(boxMon))
         return;
     species = ChooseMysterySpecies(GetBoxMonData(boxMon, MON_DATA_SPECIES));
     for (i = 0; i < gPlayerPartyCount; i++)
@@ -366,8 +409,7 @@ void FinishGymTokenTrade(void)
 {
     gSpecialVar_Result = 0;
     if (!IsGymTokenModeActive()
-     || gSaveBlock3Ptr->gymTokens.count == 0
-     || gSaveBlock3Ptr->gymTokens.mysteryTrades >= GYM_TOKEN_TRADE_LIMIT)
+     || gSaveBlock3Ptr->gymTokens.count == 0)
         return;
     gSaveBlock3Ptr->gymTokens.count--;
     gSaveBlock3Ptr->gymTokens.mysteryTrades++;

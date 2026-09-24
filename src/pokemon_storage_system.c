@@ -4564,11 +4564,12 @@ static bool32 ShouldBoxmonSpriteBeTransparent(u32 boxId, u32 boxPosition)
 
     if (IsNuzlockeActive() || IsNuzlockeEasyActive())
     {
-        if ((sStorage->boxOption == OPTION_SELECT_MON
-        || sStorage->boxOption == OPTION_DEPOSIT
-        || sStorage->boxOption == OPTION_WITHDRAW
-        || sStorage->boxOption == OPTION_MOVE_MONS)
-        && GetMonData(&mon, MON_DATA_HP) == 0 && GetMonData(&mon, MON_DATA_IS_EGG) == FALSE)
+        if (GetPcMonSelectionType() != SELECT_PC_MON_GYM_TOKEN_REVIVE
+         && (sStorage->boxOption == OPTION_SELECT_MON
+          || sStorage->boxOption == OPTION_DEPOSIT
+          || sStorage->boxOption == OPTION_WITHDRAW
+          || sStorage->boxOption == OPTION_MOVE_MONS)
+         && GetMonData(&mon, MON_DATA_HP) == 0 && GetMonData(&mon, MON_DATA_IS_EGG) == FALSE)
             return TRUE;
     }
     return FALSE;
@@ -4880,10 +4881,11 @@ static void  CreatePartyMonSprite(u8 partyPosition, bool8 visible)
 
     if (IsNuzlockeActive() || IsNuzlockeEasyActive())
     {
-        if (sStorage->boxOption == OPTION_SELECT_MON
-        || sStorage->boxOption == OPTION_DEPOSIT
-        || sStorage->boxOption == OPTION_WITHDRAW
-        || sStorage->boxOption == OPTION_MOVE_MONS)
+        if (GetPcMonSelectionType() != SELECT_PC_MON_GYM_TOKEN_REVIVE
+         && (sStorage->boxOption == OPTION_SELECT_MON
+          || sStorage->boxOption == OPTION_DEPOSIT
+          || sStorage->boxOption == OPTION_WITHDRAW
+          || sStorage->boxOption == OPTION_MOVE_MONS))
         {
             if (GetMonData(partyPokemon, MON_DATA_HP) == 0 && GetMonData(partyPokemon, MON_DATA_IS_EGG) == FALSE)
                 partySprite->oam.objMode = ST_OAM_OBJ_BLEND;
@@ -4945,14 +4947,17 @@ static void CreatePartyMonsSprites(bool8 visible)
 
     if (IsNuzlockeActive() || IsNuzlockeEasyActive())
     {
-        if (sStorage->boxOption == OPTION_SELECT_MON
-        || sStorage->boxOption == OPTION_DEPOSIT
-        || sStorage->boxOption == OPTION_WITHDRAW
-        || sStorage->boxOption == OPTION_MOVE_MONS)
+        if (GetPcMonSelectionType() != SELECT_PC_MON_GYM_TOKEN_REVIVE
+         && (sStorage->boxOption == OPTION_SELECT_MON
+          || sStorage->boxOption == OPTION_DEPOSIT
+          || sStorage->boxOption == OPTION_WITHDRAW
+          || sStorage->boxOption == OPTION_MOVE_MONS))
         {
             for (i = 0; i < PARTY_SIZE; i++)
             {
-                if (GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0 && GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) == FALSE)
+                if (sStorage->partySprites[i] != NULL
+                 && GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0
+                 && GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) == FALSE)
                     sStorage->partySprites[i]->oam.objMode = ST_OAM_OBJ_BLEND;
             }
         }

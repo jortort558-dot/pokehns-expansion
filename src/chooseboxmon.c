@@ -271,6 +271,11 @@ bool32 CanBoxMonBeSelected(struct BoxPokemon *boxmon)
     return !IsBoxMonExcluded(boxmon);
 }
 
+u8 GetPcMonSelectionType(void)
+{
+    return sSelectionType;
+}
+
 static void Task_ChooseBoxMon(u8 taskId)
 {
     if (!gPaletteFade.active)

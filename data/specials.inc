@@ -715,6 +715,7 @@ gSpecials::
 	def_special AwardGymToken
 	def_special GetGymTokenCount
 	def_special FindNextGymTokenRetry
+	def_special RollGymTokenGachapon
 	def_special BuildGymTokenRetryMenu
 	def_special SelectGymTokenRetry
 	def_special UseSelectedGymTokenRetry
