@@ -68,6 +68,7 @@ enum {
     WIN_QUANTITY_PRICE,
     WIN_MESSAGE,
     WIN_BERRIES,
+    WIN_POPUP_INFO,
 };
 
 enum {
@@ -157,6 +158,7 @@ static void Task_ReturnToShopMenu(u8 taskId);
 static void ShowShopMenuAfterExitingBuyOrSellMenu(u8 taskId);
 static void BuyMenuDrawGraphics(void);
 static void BuyMenuAddScrollIndicatorArrows(void);
+static void BuyMenuRemoveScrollIndicatorArrows(void);
 static void Task_BuyMenu(u8 taskId);
 static void BuyMenuBuildListMenuTemplate(void);
 static void BuyMenuInitBgs(void);
@@ -910,6 +912,15 @@ static const struct WindowTemplate sShopBuyMenuWindowTemplates[] =
         .paletteNum = 15,
         .baseBlock = 0x0222,
     },
+    [WIN_POPUP_INFO] = {
+        .bg = 0,
+        .tilemapLeft = 2,
+        .tilemapTop = 2,
+        .width = 26,
+        .height = 16,
+        .paletteNum = 15,
+        .baseBlock = 0x0240,
+    },
     DUMMY_WIN_TEMPLATE
 };
 
@@ -1253,9 +1264,202 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, enum Item item, u
     menuItem->id = item;
 }
 
+static const u8 sModalColor_Title[3]  = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED,       TEXT_COLOR_LIGHT_RED};
+static const u8 sModalColor_Pocket[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE,      TEXT_COLOR_LIGHT_BLUE};
+static const u8 sModalColor_Body[3]   = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+static const u8 sModalColor_Footer[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+
+static void WordWrapDescription(const u8 *src, u8 *dst, u32 maxDstSize, u8 fontId, u32 maxPixelWidth)
+{
+    u32 srcIdx = 0, dstIdx = 0;
+    u8 wordBuf[64];
+    u32 wordLen = 0;
+    s32 currentLineWidth = 0;
+    u8 spaceStr[2];
+    s32 spaceWidth;
+
+    spaceStr[0] = CHAR_SPACE;
+    spaceStr[1] = EOS;
+    spaceWidth = GetStringWidth(fontId, spaceStr, 0);
+
+    while (src[srcIdx] != EOS && dstIdx < maxDstSize - 1)
+    {
+        if (src[srcIdx] == CHAR_NEWLINE || src[srcIdx] == CHAR_SPACE)
+        {
+            if (wordLen > 0)
+            {
+                wordBuf[wordLen] = EOS;
+                s32 wordWidth = GetStringWidth(fontId, wordBuf, 0);
+
+                if (currentLineWidth > 0 && (currentLineWidth + spaceWidth + wordWidth) > (s32)maxPixelWidth)
+                {
+                    if (dstIdx < maxDstSize - 1)
+                        dst[dstIdx++] = CHAR_NEWLINE;
+                    currentLineWidth = 0;
+                }
+                else if (currentLineWidth > 0)
+                {
+                    if (dstIdx < maxDstSize - 1)
+                        dst[dstIdx++] = CHAR_SPACE;
+                    currentLineWidth += spaceWidth;
+                }
+
+                u32 w;
+                for (w = 0; w < wordLen && dstIdx < maxDstSize - 1; w++)
+                    dst[dstIdx++] = wordBuf[w];
+                currentLineWidth += wordWidth;
+                wordLen = 0;
+            }
+
+            if (src[srcIdx] == CHAR_NEWLINE && src[srcIdx + 1] == CHAR_NEWLINE)
+            {
+                if (dstIdx < maxDstSize - 1)
+                    dst[dstIdx++] = CHAR_NEWLINE;
+                currentLineWidth = 0;
+                srcIdx++;
+            }
+        }
+        else
+        {
+            if (wordLen < sizeof(wordBuf) - 1)
+                wordBuf[wordLen++] = src[srcIdx];
+        }
+        srcIdx++;
+    }
+
+    if (wordLen > 0)
+    {
+        wordBuf[wordLen] = EOS;
+        s32 wordWidth = GetStringWidth(fontId, wordBuf, 0);
+
+        if (currentLineWidth > 0 && (currentLineWidth + spaceWidth + wordWidth) > (s32)maxPixelWidth)
+        {
+            if (dstIdx < maxDstSize - 1)
+                dst[dstIdx++] = CHAR_NEWLINE;
+        }
+        else if (currentLineWidth > 0)
+        {
+            if (dstIdx < maxDstSize - 1)
+                dst[dstIdx++] = CHAR_SPACE;
+        }
+
+        u32 w;
+        for (w = 0; w < wordLen && dstIdx < maxDstSize - 1; w++)
+            dst[dstIdx++] = wordBuf[w];
+    }
+
+    dst[dstIdx] = EOS;
+}
+
+static void Task_ShopItemPopup_HandleInput(u8 taskId);
+static void CloseShopItemPopupInfo(u8 taskId);
+
+static void OpenShopItemPopupInfo(u8 taskId, u16 itemId)
+{
+    const u8 *desc;
+    u8 pocket;
+    u8 formattedDesc[512];
+    static const u8 sText_ClosePopupHint[] = _("{A_BUTTON}/{B_BUTTON}/{SELECT_BUTTON} VOLVER");
+
+    BuyMenuRemoveScrollIndicatorArrows();
+
+    if (sShopData->itemSpriteIds[0] != SPRITE_NONE)
+        gSprites[sShopData->itemSpriteIds[0]].invisible = TRUE;
+    if (sShopData->itemSpriteIds[1] != SPRITE_NONE)
+        gSprites[sShopData->itemSpriteIds[1]].invisible = TRUE;
+    if (sBerryIconSpriteId != SPRITE_NONE)
+        gSprites[sBerryIconSpriteId].invisible = TRUE;
+
+    DrawStdFrameWithCustomTileAndPalette(WIN_POPUP_INFO, FALSE, 1, 13);
+    PutWindowTilemap(WIN_POPUP_INFO);
+    FillWindowPixelBuffer(WIN_POPUP_INFO, PIXEL_FILL(1));
+
+    // 1. Título con nombre del objeto
+    CopyItemName(itemId, gStringVar1);
+    AddTextPrinterParameterized4(WIN_POPUP_INFO, FONT_NORMAL, 6, 3, 0, 0, sModalColor_Title, TEXT_SKIP_DRAW, gStringVar1);
+
+    // 2. Bolsillo al que pertenece
+    pocket = GetItemPocket(itemId);
+    if (pocket < POCKETS_COUNT)
+    {
+        StringCopy(gStringVar2, gPocketNamesStringsTable[pocket]);
+        AddTextPrinterParameterized4(WIN_POPUP_INFO, FONT_SMALL_NARROWER, 126, 5, 0, 0, sModalColor_Pocket, TEXT_SKIP_DRAW, gStringVar2);
+    }
+
+    // 3. Línea divisoria horizontal
+    FillWindowPixelRect(WIN_POPUP_INFO, PIXEL_FILL(3), 6, 17, 196, 1);
+
+    // 4. Descripción completa con WordWrap limpio
+    desc = GetItemDescription(itemId);
+    if (desc != NULL && desc[0] != EOS)
+    {
+        WordWrapDescription(desc, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 194);
+        AddTextPrinterParameterized4(WIN_POPUP_INFO, FONT_SHORT_COPY_1, 6, 21, 0, 2, sModalColor_Body, TEXT_SKIP_DRAW, formattedDesc);
+    }
+
+    // 5. Pie de página
+    AddTextPrinterParameterized4(WIN_POPUP_INFO, FONT_SMALL_NARROWER, 90, 114, 0, 0, sModalColor_Footer, TEXT_SKIP_DRAW, sText_ClosePopupHint);
+
+    CopyWindowToVram(WIN_POPUP_INFO, COPYWIN_FULL);
+    ScheduleBgCopyTilemapToVram(0);
+
+    gTasks[taskId].func = Task_ShopItemPopup_HandleInput;
+}
+
+static void Task_ShopItemPopup_HandleInput(u8 taskId)
+{
+    if (JOY_NEW(A_BUTTON | B_BUTTON | SELECT_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        CloseShopItemPopupInfo(taskId);
+    }
+}
+
+static void CloseShopItemPopupInfo(u8 taskId)
+{
+    u8 moneyWindowId;
+
+    ClearStdWindowAndFrameToTransparent(WIN_POPUP_INFO, FALSE);
+    ClearWindowTilemap(WIN_POPUP_INFO);
+
+    moneyWindowId = (sMartInfo.martType == MART_TYPE_KURT) ? WIN_BERRIES : WIN_MONEY;
+    PutWindowTilemap(moneyWindowId);
+    PutWindowTilemap(WIN_ITEM_LIST);
+    PutWindowTilemap(WIN_ITEM_DESCRIPTION);
+
+    if (sMartInfo.martType == MART_TYPE_KURT)
+    {
+        DrawStdFrameWithCustomTileAndPalette(WIN_BERRIES, FALSE, 1, 13);
+        if (sKurtCurrentBerry != ITEM_NONE)
+            PrintBerryCount(WIN_BERRIES, sKurtCurrentBerry);
+    }
+    else if (sMartInfo.martType == MART_TYPE_NORMAL)
+    {
+        PrintMoneyAmountInMoneyBoxWithBorder(WIN_MONEY, 1, 13, GetMoney(&gSaveBlock1Ptr->money));
+    }
+    else
+    {
+        DrawStdFrameWithCustomTileAndPalette(WIN_MONEY, FALSE, 1, 13);
+        PrintBPAmountInMoneyBox(WIN_MONEY, gSaveBlock2Ptr->frontier.battlePoints, 0);
+    }
+
+    ScheduleBgCopyTilemapToVram(0);
+
+    if (sShopData->itemSpriteIds[sShopData->iconSlot] != SPRITE_NONE)
+        gSprites[sShopData->itemSpriteIds[sShopData->iconSlot]].invisible = FALSE;
+    if (sBerryIconSpriteId != SPRITE_NONE)
+        gSprites[sBerryIconSpriteId].invisible = FALSE;
+
+    BuyMenuAddScrollIndicatorArrows();
+
+    gTasks[taskId].func = Task_BuyMenu;
+}
+
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list)
 {
     const u8 *description;
+    static u8 sShopItemDescSummaryBuffer[256];
+
     if (onInit != TRUE)
         PlaySECursorMove(SE_SELECT);
 
@@ -1270,14 +1474,36 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     {
         if (sMartInfo.martType == MART_TYPE_NORMAL
             || sMartInfo.martType == MART_TYPE_BP
-            || sMartInfo.martType == MART_TYPE_BP_ITEM)
-            description = GetItemDescription(item);
-        else if (sMartInfo.martType == MART_TYPE_KURT)
+            || sMartInfo.martType == MART_TYPE_BP_ITEM
+            || sMartInfo.martType == MART_TYPE_KURT)
         {
-            description = GetItemDescription(item);
-            sKurtCurrentBerry = GetBerryFromBall(item);
-            PrintBerryCount(WIN_BERRIES, sKurtCurrentBerry);
-            CopyWindowToVram(WIN_BERRIES, COPYWIN_FULL);
+            const u8 *fullDesc = GetItemDescription(item);
+            u32 i = 0, lines = 1;
+
+            while (fullDesc[i] != EOS && i < sizeof(sShopItemDescSummaryBuffer) - 32)
+            {
+                if (fullDesc[i] == CHAR_NEWLINE)
+                {
+                    lines++;
+                    if (lines > 3)
+                        break;
+                }
+                sShopItemDescSummaryBuffer[i] = fullDesc[i];
+                i++;
+            }
+            sShopItemDescSummaryBuffer[i] = EOS;
+
+            static const u8 sText_MoreInfoHint[] = _("\n{SELECT_BUTTON} Más info...");
+            StringAppend(sShopItemDescSummaryBuffer, sText_MoreInfoHint);
+
+            description = sShopItemDescSummaryBuffer;
+
+            if (sMartInfo.martType == MART_TYPE_KURT)
+            {
+                sKurtCurrentBerry = GetBerryFromBall(item);
+                PrintBerryCount(WIN_BERRIES, sKurtCurrentBerry);
+                CopyWindowToVram(WIN_BERRIES, COPYWIN_FULL);
+            }
         }
         else
             description = gDecorations[item].description;
@@ -1724,6 +1950,26 @@ static void Task_BuyMenu(u8 taskId)
         switch (itemId)
         {
         case LIST_NOTHING_CHOSEN:
+            if (JOY_NEW(SELECT_BUTTON))
+            {
+                u16 itemIndex = sShopData->scrollOffset + sShopData->selectedRow;
+                if (sListMenuItems != NULL && itemIndex <= sMartInfo.itemCount)
+                {
+                    s32 currentItem = sListMenuItems[itemIndex].id;
+                    if (currentItem != LIST_CANCEL && currentItem != ITEM_LIST_END)
+                    {
+                        if (sMartInfo.martType == MART_TYPE_NORMAL
+                            || sMartInfo.martType == MART_TYPE_BP
+                            || sMartInfo.martType == MART_TYPE_BP_ITEM
+                            || sMartInfo.martType == MART_TYPE_KURT)
+                        {
+                            PlaySE(SE_SELECT);
+                            OpenShopItemPopupInfo(taskId, (u16)currentItem);
+                            return;
+                        }
+                    }
+                }
+            }
             break;
         case LIST_CANCEL:
             PlaySE(SE_SELECT);

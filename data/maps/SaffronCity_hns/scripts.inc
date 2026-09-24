@@ -10,15 +10,15 @@ SaffronCity_Text_BaobaName:
 	.string "BAOBA$"
 
 SaffronCity_Text_Baoba:
-	.string "WARDEN BAOBA: {PLAYER}!\p"
-	.string "This is WARDEN BAOBA.\p"
-	.string "I'm calling to tell you that the\n"
-	.string "SAFARI ZONE has expanded again!\p"
-	.string "Finally, my SAFARI ZONE has been\n"
-	.string "fully realized!\p"
-	.string "You remember where it is, right?\p"
-	.string "Just west of CIANWOOD CITY!\n"
-	.string "see you soon!$"
+	.string "DIRECTOR BAOBA: ¡{PLAYER}!\p"
+	.string "Soy el DIRECTOR BAOBA.\p"
+	.string "Te llamo para avisarte de que\n"
+	.string "¡la ZONA SAFARI se ha ampliado otra vez!\p"
+	.string "¡Por fin mi ZONA SAFARI está\n"
+	.string "completamente terminada!\p"
+	.string "¿Te acuerdas de dónde está, verdad?\p"
+	.string "¡Al oeste de CIUDAD ORQUÍDEA!\n"
+	.string "¡Nos vemos pronto!$"
 
 SaffronCity_EventScript_Lass1A::
 	goto_if_set FLAG_RETURNED_MACHINE_PART, SaffronCity_EventScript_Lass1B
