@@ -65,11 +65,39 @@ enum RandomizerSpeciesMode {
     MAX_MON_MODE
 };
 
+enum WildPowerCategory {
+    CATEGORY_T1,
+    CATEGORY_T2,
+    CATEGORY_T3,
+    CATEGORY_T4,
+    CATEGORY_T4_PS,
+    CATEGORY_T5_SL,
+    CATEGORY_T5_L,
+    CATEGORY_MYTHICAL,
+    CATEGORY_COUNT
+};
+
+enum ProgressionBlock {
+    BLOCK_INICIO,           // 0 medallas de Johto
+    BLOCK_EARLY,            // 1-2 medallas de Johto
+    BLOCK_MID,              // 3-4 medallas de Johto
+    BLOCK_LATE_JOHTO,       // 5-6 medallas de Johto
+    BLOCK_PRE_LIGA,         // 7-8 medallas, Liga de Johto no superada
+    BLOCK_LIGA_JOHTO,       // Liga de Johto superada, antes del avance efectivo en Kanto
+    BLOCK_KANTO_TEMPRANO,   // 1-4 medallas de Kanto
+    BLOCK_KANTO_TARDIO,     // 5-8 medallas de Kanto
+    BLOCK_POSTGAME,         // contenido final superado
+    PROGRESSION_BLOCK_COUNT
+};
+
 struct RandomizerGroupSet {
     u16 species;
     u16 minGroup;
     u16 maxGroup;
 };
+
+u8 GetWildRandomizerProgressionBlock(void);
+enum WildPowerCategory GetWildPowerCategory(u16 species);
 
 
 bool8 IsRandomMovesActivated(void);

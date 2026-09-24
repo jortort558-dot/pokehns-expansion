@@ -16,6 +16,7 @@
 #include "data/randomizer/ability_whitelist.h"
 #include "move.h"
 #include "nuzlocke.h"
+#include "constants/opponents.h"
 
 const u16 gStarterAndGiftMonTable[STARTER_AND_GIFT_MON_COUNT] =
 {
@@ -1158,20 +1159,430 @@ u16 RandomizeMon(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, 
     }
 }
 
-u16 RandomizeWildEncounter(u16 species, u8 mapNum, u8 mapGroup, enum WildPokemonArea area, u8 slot)
+#define WILD_RANDOMIZER_T1_MAX_BST 320
+#define WILD_SPECIES_POOL_MAX 1200
+
+static const u16 sFinalPseudoLegendaries[] = {
+    SPECIES_DRAGONITE,
+    SPECIES_TYRANITAR,
+    SPECIES_SALAMENCE,
+    SPECIES_METAGROSS,
+    SPECIES_GARCHOMP,
+    SPECIES_HYDREIGON,
+    SPECIES_GOODRA,
+    SPECIES_GOODRA_HISUI,
+    SPECIES_KOMMO_O,
+    SPECIES_DRAGAPULT,
+    SPECIES_BAXCALIBUR,
+};
+
+static const u16 sCoverLegendaries[] = {
+    SPECIES_MEWTWO,
+    SPECIES_LUGIA,
+    SPECIES_HO_OH,
+    SPECIES_KYOGRE,
+    SPECIES_GROUDON,
+    SPECIES_RAYQUAZA,
+    SPECIES_DIALGA,
+    SPECIES_DIALGA_ORIGIN,
+    SPECIES_PALKIA,
+    SPECIES_PALKIA_ORIGIN,
+    SPECIES_GIRATINA_ALTERED,
+    SPECIES_GIRATINA_ORIGIN,
+    SPECIES_RESHIRAM,
+    SPECIES_ZEKROM,
+    SPECIES_KYUREM,
+    SPECIES_KYUREM_BLACK,
+    SPECIES_KYUREM_WHITE,
+    SPECIES_XERNEAS,
+    SPECIES_YVELTAL,
+    SPECIES_ZYGARDE_50,
+    SPECIES_ZYGARDE_10,
+    SPECIES_ZYGARDE_COMPLETE,
+    SPECIES_SOLGALEO,
+    SPECIES_LUNALA,
+    SPECIES_NECROZMA,
+    SPECIES_NECROZMA_DUSK_MANE,
+    SPECIES_NECROZMA_DAWN_WINGS,
+    SPECIES_NECROZMA_ULTRA,
+    SPECIES_ZACIAN_HERO,
+    SPECIES_ZACIAN_CROWNED,
+    SPECIES_ZAMAZENTA_HERO,
+    SPECIES_ZAMAZENTA_CROWNED,
+    SPECIES_ETERNATUS,
+    SPECIES_ETERNATUS_ETERNAMAX,
+    SPECIES_CALYREX,
+    SPECIES_CALYREX_ICE,
+    SPECIES_CALYREX_SHADOW,
+    SPECIES_KORAIDON,
+    SPECIES_MIRAIDON,
+};
+
+static const u16 sWildProgressionWeights[PROGRESSION_BLOCK_COUNT][7] = {
+    /* BLOCK_INICIO */         {650, 280,  60,  10,   0,   0,   0},
+    /* BLOCK_EARLY */          {400, 380, 180,  35,   5,   0,   0},
+    /* BLOCK_MID */            {200, 320, 300, 120,  50,   9,   1},
+    /* BLOCK_LATE_JOHTO */     { 80, 200, 300, 220, 130,  60,  10},
+    /* BLOCK_PRE_LIGA */       { 30, 120, 250, 280, 200, 100,  20},
+    /* BLOCK_LIGA_JOHTO */     {  0,  50, 150, 250, 250, 250,  50},
+    /* BLOCK_KANTO_TEMPRANO */ { 20, 100, 200, 250, 200, 160,  70},
+    /* BLOCK_KANTO_TARDIO */   {  0,  30, 120, 200, 250, 300, 100},
+    /* BLOCK_POSTGAME */       {  0,   0,  50, 150, 250, 450, 100},
+};
+
+struct WildRandomizerPools
 {
-    if (RandomizerFeatureEnabled(RANDOMIZE_WILD_MON))
+    bool8 initialized;
+    bool8 genScopeRestricted;
+    bool8 includeLegendaries;
+    u16 counts[7];
+    u16 offsets[7];
+    u16 species[WILD_SPECIES_POOL_MAX];
+};
+
+EWRAM_DATA static struct WildRandomizerPools sWildPools = {0};
+
+static inline u16 GetSpeciesBST(u16 species)
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[species];
+    return info->baseHP + info->baseAttack + info->baseDefense
+         + info->baseSpeed + info->baseSpAttack + info->baseSpDefense;
+}
+
+static bool32 IsCoverLegendary(u16 species)
+{
+    u32 i;
+    for (i = 0; i < ARRAY_COUNT(sCoverLegendaries); i++)
     {
-        u32 seed;
-        if (gSaveBlock3Ptr->challengeSettings.tx_Random_MapBased)
-            seed = GetRandomizerSeed() ^ (mapGroup << 24 | mapNum << 16 | area << 8 | slot);
-        else
-            seed = Random32();
-        return RandomizeMon(RANDOMIZER_REASON_WILD_ENCOUNTER, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), seed, species);
+        if (sCoverLegendaries[i] == species)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+static bool32 IsFinalPseudoLegendary(u16 species)
+{
+    u32 i;
+    for (i = 0; i < ARRAY_COUNT(sFinalPseudoLegendaries); i++)
+    {
+        if (sFinalPseudoLegendaries[i] == species)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+enum WildPowerCategory GetWildPowerCategory(u16 species)
+{
+    if (gSpeciesInfo[species].isMythical)
+        return CATEGORY_MYTHICAL;
+    if (IsCoverLegendary(species))
+        return CATEGORY_T5_L;
+    if (gSpeciesInfo[species].isRestrictedLegendary || gSpeciesInfo[species].isSubLegendary || gSpeciesInfo[species].isUltraBeast)
+        return CATEGORY_T5_SL;
+    if (IsFinalPseudoLegendary(species))
+        return CATEGORY_T4_PS;
+
+    u16 bst = GetSpeciesBST(species);
+    if (bst <= WILD_RANDOMIZER_T1_MAX_BST)
+        return CATEGORY_T1;
+    if (bst <= 419)
+        return CATEGORY_T2;
+    if (bst <= 499)
+        return CATEGORY_T3;
+    return CATEGORY_T4;
+}
+
+static bool32 IsSpeciesValidForWildRandomizer(u16 species)
+{
+    if (!IsSpeciesValidForRandomizer(species))
+        return FALSE;
+
+    if (!IsSpeciesInGenScope(species))
+        return FALSE;
+
+    const struct SpeciesInfo *info = &gSpeciesInfo[species];
+
+    if (info->randomizerMode == MON_RANDOMIZER_INVALID)
+        return FALSE;
+
+    if (info->isMegaEvolution
+     || info->isPrimalReversion
+     || info->isUltraBurst
+     || info->isGigantamax
+     || info->isTeraForm
+     || info->isTotem)
+        return FALSE;
+
+    if (info->isMythical)
+        return FALSE;
+
+    return TRUE;
+}
+
+static u8 GetJohtoBadgeCount(void)
+{
+    u8 count = 0;
+    u16 flag;
+    for (flag = FLAG_BADGE01_GET; flag <= FLAG_BADGE08_GET; flag++)
+    {
+        if (FlagGet(flag))
+            count++;
+    }
+    return count;
+}
+
+static u8 GetKantoBadgeCount(void)
+{
+    u8 count = 0;
+    u16 flag;
+    for (flag = FLAG_BADGE09_GET; flag <= FLAG_BADGE16_GET; flag++)
+    {
+        if (FlagGet(flag))
+            count++;
+    }
+    return count;
+}
+
+static bool32 HasBeatenJohtoLeague(void)
+{
+    return FlagGet(FLAG_IS_CHAMPION);
+}
+
+static bool32 HasBeatenFinalLeague(void)
+{
+#if IS_HNS
+    return FlagGet(FLAG_IS_KANTO_CHAMPION) || FlagGet(TRAINER_FLAGS_START + TRAINER_RED_HNS);
+#else
+    return FlagGet(FLAG_IS_CHAMPION);
+#endif
+}
+
+u8 GetWildRandomizerProgressionBlock(void)
+{
+    if (HasBeatenFinalLeague())
+        return BLOCK_POSTGAME;
+    if (GetKantoBadgeCount() >= 5)
+        return BLOCK_KANTO_TARDIO;
+    if (GetKantoBadgeCount() >= 1)
+        return BLOCK_KANTO_TEMPRANO;
+    if (HasBeatenJohtoLeague())
+        return BLOCK_LIGA_JOHTO;
+
+    u8 badges = GetJohtoBadgeCount();
+    if (badges == 0)
+        return BLOCK_INICIO;
+    if (badges <= 2)
+        return BLOCK_EARLY;
+    if (badges <= 4)
+        return BLOCK_MID;
+    if (badges <= 6)
+        return BLOCK_LATE_JOHTO;
+    return BLOCK_PRE_LIGA;
+}
+
+static void BuildWildSpeciesPools(void)
+{
+    u16 i, species;
+    u16 currentOffset = 0;
+    u16 catCur[7] = {0};
+    bool32 includeLegendaries = gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries;
+
+    memset(sWildPools.counts, 0, sizeof(sWildPools.counts));
+
+    for (species = 1; species < RANDOMIZER_SPECIES_COUNT; species++)
+    {
+        enum WildPowerCategory cat;
+
+        if (!IsSpeciesValidForWildRandomizer(species))
+            continue;
+
+        cat = GetWildPowerCategory(species);
+        if (cat >= 7)
+            continue;
+
+        if ((cat == CATEGORY_T5_SL || cat == CATEGORY_T5_L) && !includeLegendaries)
+            continue;
+
+        sWildPools.counts[cat]++;
     }
 
-    return species;
+    for (i = 0; i < 7; i++)
+    {
+        sWildPools.offsets[i] = currentOffset;
+        currentOffset += sWildPools.counts[i];
+    }
+
+    for (species = 1; species < RANDOMIZER_SPECIES_COUNT; species++)
+    {
+        enum WildPowerCategory cat;
+
+        if (!IsSpeciesValidForWildRandomizer(species))
+            continue;
+
+        cat = GetWildPowerCategory(species);
+        if (cat >= 7)
+            continue;
+
+        if ((cat == CATEGORY_T5_SL || cat == CATEGORY_T5_L) && !includeLegendaries)
+            continue;
+
+        if (sWildPools.offsets[cat] + catCur[cat] < WILD_SPECIES_POOL_MAX)
+        {
+            sWildPools.species[sWildPools.offsets[cat] + catCur[cat]] = species;
+            catCur[cat]++;
+        }
+    }
+
+    sWildPools.initialized = TRUE;
+    sWildPools.genScopeRestricted = IsGenScopeRestricted();
+    sWildPools.includeLegendaries = includeLegendaries;
 }
+
+static u16 ChooseWildForm(struct Sfc32State *state, u16 baseSpecies)
+{
+    u32 speciesMode = gSpeciesInfo[baseSpecies].randomizerMode;
+    u16 candidate = baseSpecies;
+
+    if (speciesMode == MON_RANDOMIZER_RANDOM_FORM)
+    {
+        const u16 *formsTable = gSpeciesInfo[baseSpecies].formSpeciesIdTable;
+        if (formsTable)
+        {
+            u16 validForms[32];
+            u32 validCount = 0;
+            u32 i = 0;
+            while (formsTable[i] != FORM_SPECIES_END && validCount < ARRAY_COUNT(validForms))
+            {
+                u16 f = formsTable[i];
+                const struct SpeciesInfo *fInfo = &gSpeciesInfo[f];
+                if (!fInfo->isMegaEvolution
+                 && !fInfo->isPrimalReversion
+                 && !fInfo->isUltraBurst
+                 && !fInfo->isGigantamax
+                 && !fInfo->isTeraForm
+                 && !fInfo->isTotem
+                 && fInfo->randomizerMode != MON_RANDOMIZER_INVALID)
+                {
+                    validForms[validCount++] = f;
+                }
+                i++;
+            }
+            if (validCount > 0)
+                candidate = validForms[RandomizerNextRange(state, validCount)];
+        }
+    }
+    else if (speciesMode == MON_RANDOMIZER_SPECIAL_FORM)
+    {
+        candidate = ChooseFormSpecial(state, baseSpecies);
+        const struct SpeciesInfo *cstInfo = &gSpeciesInfo[candidate];
+        if (cstInfo->isMegaEvolution
+         || cstInfo->isPrimalReversion
+         || cstInfo->isUltraBurst
+         || cstInfo->isGigantamax
+         || cstInfo->isTeraForm
+         || cstInfo->isTotem
+         || cstInfo->randomizerMode == MON_RANDOMIZER_INVALID)
+        {
+            candidate = baseSpecies;
+        }
+    }
+
+    return candidate;
+}
+
+static enum WildPowerCategory WeightedCategoryRoll(const u16 *weights, struct Sfc32State *state)
+{
+    u32 roll = RandomizerNextRange(state, 1000);
+    u32 accum = 0;
+    u32 i;
+
+    for (i = 0; i < 7; i++)
+    {
+        accum += weights[i];
+        if (roll < accum)
+            return (enum WildPowerCategory)i;
+    }
+    return CATEGORY_T1;
+}
+
+static u16 ChooseWildSpecies(enum WildPowerCategory category, struct Sfc32State *state, u16 fallbackSpecies)
+{
+    if (sWildPools.counts[category] == 0)
+    {
+        s32 c;
+        bool32 found = FALSE;
+
+        for (c = (s32)category - 1; c >= 0; c--)
+        {
+            if (sWildPools.counts[c] > 0)
+            {
+                category = (enum WildPowerCategory)c;
+                found = TRUE;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            for (c = (s32)category + 1; c < 7; c++)
+            {
+                if (sWildPools.counts[c] > 0)
+                {
+                    category = (enum WildPowerCategory)c;
+                    found = TRUE;
+                    break;
+                }
+            }
+        }
+
+        if (!found)
+            return fallbackSpecies;
+    }
+
+    u16 index = RandomizerNextRange(state, sWildPools.counts[category]);
+    u16 baseSpecies = sWildPools.species[sWildPools.offsets[category] + index];
+    return ChooseWildForm(state, baseSpecies);
+}
+
+u16 RandomizeWildEncounter(u16 species, u8 mapNum, u8 mapGroup, enum WildPokemonArea area, u8 slot)
+{
+    if (!RandomizerFeatureEnabled(RANDOMIZE_WILD_MON) || !IsSpeciesValidForRandomizer(species))
+        return species;
+
+    u8 block = GetWildRandomizerProgressionBlock();
+    struct Sfc32State state;
+
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_MapBased)
+    {
+        u32 slotKey = (((u32)mapGroup) << 24)
+                    | (((u32)mapNum) << 16)
+                    | (((u32)area) << 10)
+                    | (((u32)slot) << 4)
+                    | (u32)block;
+        state = RandomizerRandSeed(RANDOMIZER_REASON_WILD_ENCOUNTER, slotKey, (u32)species);
+    }
+    else
+    {
+        state.a = Random32();
+        state.b = Random32();
+        state.c = Random32();
+        state.ctr = RANDOMIZER_STREAM;
+        u32 i;
+        for (i = 0; i < 10; i++)
+            _SFC32_Next_Stream(&state, RANDOMIZER_STREAM);
+    }
+
+    if (!sWildPools.initialized
+     || sWildPools.genScopeRestricted != IsGenScopeRestricted()
+     || sWildPools.includeLegendaries != gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries)
+    {
+        BuildWildSpeciesPools();
+    }
+
+    enum WildPowerCategory category = WeightedCategoryRoll(sWildProgressionWeights[block], &state);
+    return ChooseWildSpecies(category, &state, species);
+}
+
 
 
 bool32 IsRandomizationPossible(u16 originalSpecies, u16 targetSpecies)
