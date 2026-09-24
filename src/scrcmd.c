@@ -2497,6 +2497,7 @@ bool8 ScrCmd_dynmultichoice(struct ScriptContext *ctx)
     }
     else
     {
+        ScriptReadWord(ctx); // Consume the NULL word emitted by dynmultistack macro
         argc = MultichoiceDynamic_StackSize();
         items = AllocZeroed(sizeof(struct ListMenuItem) * argc);
         for (i = 0; i < argc; ++i)

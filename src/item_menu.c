@@ -144,6 +144,9 @@ static void PrepareTMHMMoveWindow(void);
 static bool8 IsWallysBag(void);
 static void Task_WallyTutorialBagMenu(u8);
 static void Task_BagMenu_HandleInput(u8);
+static void OpenItemPopupInfo(u8 taskId, u16 itemId);
+static void Task_ItemPopup_HandleInput(u8 taskId);
+static void CloseItemPopupInfo(u8 taskId);
 static void GetItemNameFromPocket(u8 *dest, enum Item itemId);
 static void PrintItemDescription(int);
 static void BagMenu_PrintCursorAtPos(u8, u8);
@@ -604,6 +607,15 @@ static const struct WindowTemplate sContextMenuWindowTemplates[] =
         .paletteNum = 15,
         .baseBlock = 0x231,
     },
+    [ITEMWIN_POPUP_INFO] = {
+        .bg = 1,
+        .tilemapLeft = 2,
+        .tilemapTop = 2,
+        .width = 26,
+        .height = 16,
+        .paletteNum = 15,
+        .baseBlock = 0x1B1,
+    },
 };
 
 EWRAM_DATA struct BagMenu *gBagMenu = 0;
@@ -1057,12 +1069,41 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
     }
 }
 
+static u8 sItemDescSummaryBuffer[256];
+
 static void PrintItemDescription(int itemIndex)
 {
     const u8 *str;
     if (itemIndex != LIST_CANCEL)
     {
-        str = GetItemDescription(GetBagItemId(gBagPosition.pocket, itemIndex));
+        u16 itemId = GetBagItemId(gBagPosition.pocket, itemIndex);
+        const u8 *fullDesc = GetItemDescription(itemId);
+        u32 i = 0, lines = 1;
+        bool8 hasMore = FALSE;
+
+        while (fullDesc[i] != EOS && i < sizeof(sItemDescSummaryBuffer) - 32)
+        {
+            if (fullDesc[i] == CHAR_NEWLINE)
+            {
+                lines++;
+                if (lines > 4)
+                {
+                    hasMore = TRUE;
+                    break;
+                }
+            }
+            sItemDescSummaryBuffer[i] = fullDesc[i];
+            i++;
+        }
+        sItemDescSummaryBuffer[i] = EOS;
+
+        if (hasMore)
+        {
+            static const u8 sText_MoreInfoHint[] = _("\n{R_BUTTON} Ver detalles...");
+            StringAppend(sItemDescSummaryBuffer, sText_MoreInfoHint);
+        }
+
+        str = sItemDescSummaryBuffer;
     }
     else
     {
@@ -1348,6 +1389,20 @@ static void Task_BagMenu_HandleInput(u8 taskId)
                     return;
                 }
             }
+            else if (JOY_NEW(R_BUTTON))
+            {
+                u8 listPos = GetItemListPosition(gBagPosition.pocket);
+                if (listPos < gBagMenu->numItemStacks[gBagPosition.pocket] - 1)
+                {
+                    u16 itemId = GetBagItemId(gBagPosition.pocket, listPos);
+                    if (itemId != ITEM_NONE && itemId != LIST_CANCEL)
+                    {
+                        PlaySE(SE_SELECT);
+                        OpenItemPopupInfo(taskId, itemId);
+                        return;
+                    }
+                }
+            }
             break;
         }
 
@@ -1405,12 +1460,109 @@ static u8 GetSwitchBagPocketDirection(void)
         PlaySECursorMove(SE_SELECT);
         return SWITCH_POCKET_LEFT;
     }
-    if (JOY_NEW(DPAD_RIGHT) || LRKeys == MENU_R_PRESSED)
+    if (JOY_NEW(DPAD_RIGHT))
     {
         PlaySECursorMove(SE_SELECT);
         return SWITCH_POCKET_RIGHT;
     }
     return SWITCH_POCKET_NONE;
+}
+
+static const u8 sModalColor_Title[3]  = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED,       TEXT_COLOR_LIGHT_RED};
+static const u8 sModalColor_Pocket[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE,      TEXT_COLOR_LIGHT_BLUE};
+static const u8 sModalColor_Body[3]   = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+static const u8 sModalColor_Footer[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+
+static void OpenItemPopupInfo(u8 taskId, u16 itemId)
+{
+    u8 windowId;
+    const u8 *desc;
+    u8 pocket;
+    u32 i;
+    u8 formattedDesc[512];
+    u32 src = 0, dst = 0;
+    static const u8 sText_ClosePopupHint[] = _("{A_BUTTON}/{B_BUTTON}/{R_BUTTON} VOLVER");
+
+    BagDestroyPocketScrollArrowPair();
+    DestroyPocketSwitchArrowPair();
+    for (i = 0; i < ITEMMENUSPRITE_COUNT; i++)
+    {
+        if (gBagMenu->spriteIds[i] != SPRITE_NONE)
+            gSprites[gBagMenu->spriteIds[i]].invisible = TRUE;
+    }
+
+    windowId = BagMenu_AddWindow(ITEMWIN_POPUP_INFO);
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
+
+    // 1. Título con nombre del objeto
+    CopyItemName(itemId, gStringVar1);
+    AddTextPrinterParameterized4(windowId, FONT_NORMAL, 6, 3, 0, 0, sModalColor_Title, TEXT_SKIP_DRAW, gStringVar1);
+
+    // 2. Bolsillo al que pertenece
+    pocket = GetItemPocket(itemId);
+    if (pocket < POCKETS_COUNT)
+    {
+        StringCopy(gStringVar2, gPocketNamesStringsTable[pocket]);
+        AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 126, 5, 0, 0, sModalColor_Pocket, TEXT_SKIP_DRAW, gStringVar2);
+    }
+
+    // 3. Línea divisoria horizontal
+    FillWindowPixelRect(windowId, PIXEL_FILL(3), 6, 17, 196, 1);
+
+    // 4. Descripción completa formateada a lo ancho del pop-up
+    desc = GetItemDescription(itemId);
+    if (desc != NULL && desc[0] != EOS)
+    {
+        while (desc[src] != EOS && dst < sizeof(formattedDesc) - 1)
+        {
+            if (desc[src] == CHAR_NEWLINE)
+                formattedDesc[dst++] = CHAR_SPACE;
+            else
+                formattedDesc[dst++] = desc[src];
+            src++;
+        }
+        formattedDesc[dst] = EOS;
+
+        WrapFontIdToFit(formattedDesc, formattedDesc + dst, FONT_NORMAL, 194);
+        AddTextPrinterParameterized4(windowId, FONT_NORMAL, 6, 21, 0, 1, sModalColor_Body, TEXT_SKIP_DRAW, formattedDesc);
+    }
+
+    // 5. Pie de página
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 90, 114, 0, 0, sModalColor_Footer, TEXT_SKIP_DRAW, sText_ClosePopupHint);
+
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+    ScheduleBgCopyTilemapToVram(1);
+
+    gTasks[taskId].func = Task_ItemPopup_HandleInput;
+}
+
+static void Task_ItemPopup_HandleInput(u8 taskId)
+{
+    if (JOY_NEW(A_BUTTON | B_BUTTON | R_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        CloseItemPopupInfo(taskId);
+    }
+}
+
+static void CloseItemPopupInfo(u8 taskId)
+{
+    u32 i;
+
+    BagMenu_RemoveWindow(ITEMWIN_POPUP_INFO);
+    ScheduleBgCopyTilemapToVram(1);
+
+    for (i = 0; i < ITEMMENUSPRITE_COUNT; i++)
+    {
+        if (gBagMenu->spriteIds[i] != SPRITE_NONE)
+            gSprites[gBagMenu->spriteIds[i]].invisible = FALSE;
+    }
+
+    CreatePocketScrollArrowPair();
+    CreatePocketSwitchArrowPair();
+    ScheduleBgCopyTilemapToVram(0);
+
+    gTasks[taskId].func = Task_BagMenu_HandleInput;
 }
 
 static void ChangeBagPocketId(u8 *bagPocketId, s8 deltaBagPocketId)
