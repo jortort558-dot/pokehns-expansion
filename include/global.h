@@ -321,6 +321,7 @@ struct ChallengeSettings
     u8 tx_Nuzlocke_RareCandy:1;
     u8 tx_Nuzlocke_PokeVial:1;
     u8 tx_Nuzlocke_GymTokens:1;
+    u8 tx_Random_Items_Competitive:2;   // 0 = NORMAL, 1 = ABUNDANTE, 2 = OFF
     u8 nuzlockeEncounterFlags[16];
     // Mode / Features
     u8 tx_Mode_InfiniteTMs:1;
@@ -340,6 +341,10 @@ struct ChallengeSettings
     u8 tx_Features_FrontierBans:1;
     u8 tx_Difficulty_EscapeRopeDig:1;
     u8 tx_Features_ShinyChance:4;
+    // Randomizer Items granular settings (fits in remaining 4 bits of this byte)
+    u8 tx_Random_Items_Progression:1;   // 0 = ACTIVADA, 1 = CAÓTICA
+    u8 tx_Random_Items_TMShuffle:1;     // 0 = SÍ, 1 = NO
+    u8 tx_Random_Items_MegaStones:1;    // 0 = POST-LAGO, 1 = DESACTIVADAS
 };
 
 struct SaveBlock3

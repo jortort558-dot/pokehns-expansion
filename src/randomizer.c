@@ -470,29 +470,162 @@ static inline bool32 ShouldRandomizeItem(u16 itemId)
     return !(IsItemTMHM(itemId) || IsKeyItem(itemId) || itemId == ITEM_GS_BALL || itemId == ITEM_NONE);
 }
 
-#include "data/randomizer/item_whitelist.h"
+#include "data/randomizer/item_tiers.h"
+
+u16 GetRandomizedTM(u16 tmId)
+{
+    u8 permutation[100];
+    u32 i;
+    struct Sfc32State state;
+
+    if (tmId < ITEM_TM01 || tmId > ITEM_TM100)
+        return tmId;
+
+    // Si el shuffle de MTs está desactivado (1 = NO), devolver la MT original
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_TMShuffle != 0)
+        return tmId;
+
+    state = RandomizerRandSeed(RANDOMIZER_REASON_FIELD_ITEM, 0x544D5348 /* "TMSH" */, 0x9E3779B9);
+    for (i = 0; i < 100; i++)
+        permutation[i] = (u8)i;
+
+    // Fisher-Yates shuffle determinista según la seed
+    for (i = 99; i > 0; i--)
+    {
+        u32 j = RandomizerNextRange(&state, i + 1);
+        u8 temp = permutation[i];
+        permutation[i] = permutation[j];
+        permutation[j] = temp;
+    }
+
+    return ITEM_TM01 + permutation[tmId - ITEM_TM01];
+}
+
+u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
+{
+    struct Sfc32State state;
+    u32 mapSeed;
+    u32 roll;
+    enum ItemProgressionTier progTier;
+    u16 wT1, wT2, wT3, wT4, wT5;
+    u16 totalWeight;
+
+    if (originalItem == ITEM_NONE)
+        return ITEM_NONE;
+
+    // MTs: barajadas si el shuffle de MTs está activo
+    if (originalItem >= ITEM_TM01 && originalItem <= ITEM_TM100)
+        return GetRandomizedTM(originalItem);
+
+    // HMs y Objetos Clave / Historia: NUNCA se tocan
+    if ((originalItem >= ITEM_HM01 && originalItem <= ITEM_HM08)
+     || IsKeyItem(originalItem)
+     || originalItem == ITEM_GS_BALL)
+    {
+        return originalItem;
+    }
+
+    // Hash determinista: semilla + grupo mapa + num mapa + id local
+    mapSeed = (((u32)mapGroup) << 24) | (((u32)mapNum) << 16) | (((u32)localId) << 8);
+    mapSeed ^= (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Progression << 3)
+             | (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_MegaStones << 2)
+             | (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Competitive);
+
+    state = RandomizerRandSeed(RANDOMIZER_REASON_FIELD_ITEM, mapSeed, originalItem);
+
+    progTier = GetMapProgressionTier(mapGroup, mapNum);
+
+    // 1. MEGAPIEDRAS (Pool Separada)
+    // Solo post-Lago de la Furia si la opción está en POST-LAGO (0)
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_MegaStones == 0
+        && IsLocationPostLakeOfRage(mapGroup, mapNum))
+    {
+        u32 megaRate;
+        if (progTier == ITEM_PROG_POSTGAME)
+            megaRate = 120; // 12% en Kanto / Postgame
+        else
+            megaRate = 100; // 10% en Mid (Lago/Rocket) y Late game
+
+        if (RandomizerNextRange(&state, 1000) < megaRate)
+        {
+            u32 megaIndex = RandomizerNextRange(&state, ARRAY_COUNT(sMegaStonesPool));
+            return sMegaStonesPool[megaIndex];
+        }
+    }
+
+    // 2. TABLA DE PESOS DE TIERS SEGÚN PROGRESIÓN (O MODO CAÓTICO)
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Progression != 0)
+    {
+        // Modo CAÓTICO: distribución plana uniforme
+        wT1 = 250;
+        wT2 = 250;
+        wT3 = 250;
+        wT4 = 250;
+        wT5 = (progTier >= ITEM_PROG_LATE) ? 5 : 0;
+    }
+    else
+    {
+        // Curva de progresión ACTIVADA (items.md)
+        switch (progTier)
+        {
+        case ITEM_PROG_EARLY:
+            wT1 = 600; wT2 = 300; wT3 = 90;  wT4 = 10;  wT5 = 0;
+            break;
+        case ITEM_PROG_EARLY_MID:
+            wT1 = 450; wT2 = 320; wT3 = 180; wT4 = 50;  wT5 = 0;
+            break;
+        case ITEM_PROG_MID:
+            wT1 = 300; wT2 = 320; wT3 = 250; wT4 = 120; wT5 = 0;
+            break;
+        case ITEM_PROG_LATE:
+            wT1 = 180; wT2 = 270; wT3 = 300; wT4 = 245; wT5 = 5; // 0.5% Master Ball
+            break;
+        case ITEM_PROG_POSTGAME:
+        default:
+            wT1 = 100; wT2 = 200; wT3 = 300; wT4 = 390; wT5 = 10; // 1.0% Master Ball
+            break;
+        }
+    }
+
+    // Modificador de Objetos Competitivos (T4):
+    // 0 = NORMAL, 1 = ABUNDANTE (+100 = +10%), 2 = OFF
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Competitive == 1)
+    {
+        wT4 += 100;
+        if (wT1 >= 50) wT1 -= 50;
+        if (wT2 >= 50) wT2 -= 50;
+    }
+    else if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Competitive == 2)
+    {
+        wT3 += wT4;
+        wT4 = 0;
+    }
+
+    totalWeight = wT1 + wT2 + wT3 + wT4 + wT5;
+    roll = RandomizerNextRange(&state, totalWeight);
+
+    // 3. ELECCIÓN DE OBJETO DENTRO DEL TIER SELECCIONADO
+    if (roll < wT1)
+        return sItemTier1[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier1))];
+    roll -= wT1;
+
+    if (roll < wT2)
+        return sItemTier2[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier2))];
+    roll -= wT2;
+
+    if (roll < wT3)
+        return sItemTier3[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier3))];
+    roll -= wT3;
+
+    if (roll < wT4)
+        return sItemTier4[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier4))];
+
+    return sItemTier5[0];
+}
 
 u16 RandomizeFoundItem(u16 itemId, u8 mapNum, u8 mapGroup, u8 localId)
 {
-    struct Sfc32State state;
-    u16 result;
-    u32 mapSeed;
-
-    if (!ShouldRandomizeItem(itemId))
-        return itemId;
-
-    mapSeed = ((u32)mapGroup) << 16;
-    mapSeed |= ((u32)mapNum) << 8;
-    mapSeed |= localId;
-
-    state = RandomizerRandSeed(RANDOMIZER_REASON_FIELD_ITEM, mapSeed, itemId);
-
-    do {
-        result = sRandomizerItemWhitelist[RandomizerNextRange(&state, ITEM_WHITELIST_SIZE)];
-    } while(!ShouldRandomizeItem(result) || IsItemTMHM(result));
-
-    return result;
-
+    return GetRandomizedFieldItem(itemId, mapGroup, mapNum, localId);
 }
 
 static inline void RandomizeFoundItemScript(u16 *scriptVar)
@@ -500,7 +633,7 @@ static inline void RandomizeFoundItemScript(u16 *scriptVar)
     if (RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS))
     {
         u8 objEvent = gSelectedObjectEvent;
-        *scriptVar = RandomizeFoundItem(
+        *scriptVar = GetRandomizedFieldItem(
             *scriptVar,
             gObjectEvents[objEvent].mapGroup,
             gObjectEvents[objEvent].mapNum,
@@ -518,17 +651,17 @@ void FindHiddenItemRandomize_NativeCall(struct ScriptContext *ctx)
     RandomizeFoundItemScript(&gSpecialVar_0x8005);
 }
 
-// Items handed over by NPCs (the `giveitem` macro / STD_OBTAIN_ITEM). These have no
-// object event of their own, so seed off the current map plus the NPC being talked to.
+// Items entregados por NPCs (STD_OBTAIN_ITEM / giveitem).
+// Según items.md: Regalos ordinarios de NPCs permanecen VANILLA.
+// Únicamente las MTs entregadas por líderes y entrenadores entran en el shuffle de MTs.
 void ObtainItemRandomize_NativeCall(struct ScriptContext *ctx)
 {
     if (RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS))
     {
-        gSpecialVar_0x8000 = RandomizeFoundItem(
-            gSpecialVar_0x8000,
-            gSaveBlock1Ptr->location.mapNum,
-            gSaveBlock1Ptr->location.mapGroup,
-            gSpecialVar_LastTalked);
+        if (gSpecialVar_0x8000 >= ITEM_TM01 && gSpecialVar_0x8000 <= ITEM_TM100)
+        {
+            gSpecialVar_0x8000 = GetRandomizedTM(gSpecialVar_0x8000);
+        }
     }
 }
 
