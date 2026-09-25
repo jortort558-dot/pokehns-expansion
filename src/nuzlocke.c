@@ -315,6 +315,9 @@ bool8 IsNuzlockeNicknamingActive(void)
 
 u8 NuzlockeFlagSet(u16 mapsec)
 {
+    if (!IsNuzlockeEncounterArea(mapsec))
+        return 0;
+
     u16 id = sNuzlockeLUT[mapsec];
     u8 *ptr = &gSaveBlock3Ptr->challengeSettings.nuzlockeEncounterFlags[id / 8];
 
@@ -324,6 +327,9 @@ u8 NuzlockeFlagSet(u16 mapsec)
 
 u8 NuzlockeFlagClear(u16 mapsec)
 {
+    if (!IsNuzlockeEncounterArea(mapsec))
+        return 0;
+
     u16 id = sNuzlockeLUT[mapsec];
     u8 *ptr = &gSaveBlock3Ptr->challengeSettings.nuzlockeEncounterFlags[id / 8];
 
@@ -333,6 +339,9 @@ u8 NuzlockeFlagClear(u16 mapsec)
 
 u8 NuzlockeFlagGet(u16 mapsec)
 {
+    if (!IsNuzlockeEncounterArea(mapsec))
+        return 0;
+
     u16 id = sNuzlockeLUT[mapsec];
     u8 *ptr = &gSaveBlock3Ptr->challengeSettings.nuzlockeEncounterFlags[id / 8];
 
