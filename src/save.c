@@ -87,10 +87,10 @@ STATIC_ASSERT(sizeof(struct SaveBlock3) <= SAVE_BLOCK_3_CHUNK_SIZE * NUM_SECTORS
 // registeredItemHold, so growing it shifts that member and silently corrupts
 // existing saves. The size is pinned here to turn that into a build error.
 // Note the ABI: CFLAGS uses -mabi=apcs-gnu, which rounds every struct up to a
-// multiple of 4 bytes. The former trailing byte is now used by the three
-// trainer-randomizer settings and initialized by save migration v10. If this
-// fires, the remaining bitfield headroom is gone and a layout-aware migration
-// is required rather than another field.
+// multiple of 4 bytes. The trainer-randomizer settings use previously unused
+// bits inside existing bytes and are initialized by save migration v10. If
+// this fires, the remaining bitfield headroom is gone and a layout-aware
+// migration is required rather than another field.
 STATIC_ASSERT(sizeof(struct ChallengeSettings) == 32, ChallengeSettingsLayoutPinned);
 STATIC_ASSERT(sizeof(struct SaveBlock2) <= SECTOR_DATA_SIZE, SaveBlock2FreeSpace);
 STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1), SaveBlock1FreeSpace);
@@ -1026,8 +1026,8 @@ u8 LoadGameSave(u8 saveType)
     }
     if (gSaveBlock1Ptr->saveVersion < 10)
     {
-        // The final byte of ChallengeSettings used to be ABI padding. Do not
-        // interpret its indeterminate contents as trainer randomizer options.
+        // These fields use bits that were padding in earlier save versions. Do
+        // not interpret their indeterminate contents as randomizer options.
         gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerPower = 0;
         gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerItems = 0;
         gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerMegas = 0;

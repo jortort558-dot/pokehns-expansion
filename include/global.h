@@ -273,6 +273,7 @@ struct ChallengeSettings
     u8 disableMatchCall:1;
     u8 bikeMusic:1;
     u8 surfMusic:1;
+    u8 tx_Random_TrainerPower:2;
     bool8 autoRun;
     // Randomizer
     u8 tx_Random_Chaos:1;
@@ -322,6 +323,8 @@ struct ChallengeSettings
     u8 tx_Nuzlocke_PokeVial:1;
     u8 tx_Nuzlocke_GymTokens:1;
     u8 tx_Random_Items_Competitive:2;   // 0 = NORMAL, 1 = ABUNDANTE, 2 = OFF
+    u8 tx_Random_TrainerItems:2;
+    u8 tx_Random_TrainerMegas:2;
     u8 nuzlockeEncounterFlags[16];
     // Mode / Features
     u8 tx_Mode_InfiniteTMs:1;
@@ -346,10 +349,6 @@ struct ChallengeSettings
     u8 tx_Random_Items_TMShuffle:1;     // 0 = SÍ, 1 = NO
     u8 tx_Random_Items_MegaStones:1;    // 0 = POST-LAGO, 1 = DESACTIVADAS
     u8 tx_Nuzlocke_BanHealingShop:1;    // 0 = PERMITIDAS, 1 = PROHIBIDAS
-    // Trainer randomizer (uses the former trailing padding byte)
-    u8 tx_Random_TrainerPower:2;
-    u8 tx_Random_TrainerItems:2;
-    u8 tx_Random_TrainerMegas:2;
 };
 
 struct SaveBlock3
