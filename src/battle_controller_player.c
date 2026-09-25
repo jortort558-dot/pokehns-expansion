@@ -17,6 +17,7 @@
 #include "link.h"
 #include "load_save.h"
 #include "main.h"
+#include "new_game.h"
 #include "m4a.h"
 #include "event_data.h"
 #include "palette.h"
@@ -395,7 +396,7 @@ static void HandleInputChooseAction(enum BattlerId battler)
     {
         SwapHpBarsWithHpText();
     }
-    else if (DEBUG_BATTLE_MENU == TRUE && JOY_NEW(SELECT_BUTTON))
+    else if (DEBUG_BATTLE_MENU == TRUE && !IsPokemitosCupActive() && JOY_NEW(SELECT_BUTTON))
     {
         BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_DEBUG, 0);
         BtlController_Complete(battler);

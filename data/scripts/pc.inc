@@ -81,6 +81,8 @@ EventScript_AccessFakePC_AfterLeague::
 	end
 
 EventScript_ChallengeViewer::
+	callnative Script_CheckPokemitosCupActive
+	goto_if_eq VAR_RESULT, TRUE, EventScript_PokemitosCupChallengeLocked
 	playse SE_PC_LOGIN
 	callnative Script_OpenChallengeMenu
 	waitstate
@@ -88,11 +90,27 @@ EventScript_ChallengeViewer::
 	end
 
 EventScript_FakeChallengeViewer::
+	callnative Script_CheckPokemitosCupActive
+	goto_if_eq VAR_RESULT, TRUE, EventScript_FakePokemitosCupChallengeLocked
 	playse SE_PC_LOGIN
 	callnative Script_OpenChallengeMenu
 	delay 30
 	goto EventScript_FakePCMainMenu
 	end
+
+EventScript_PokemitosCupChallengeLocked::
+	msgbox gText_PokemitosCupChallengeLocked, MSGBOX_DEFAULT
+	goto EventScript_PCMainMenu
+	end
+
+EventScript_FakePokemitosCupChallengeLocked::
+	msgbox gText_PokemitosCupChallengeLocked, MSGBOX_DEFAULT
+	goto EventScript_FakePCMainMenu
+	end
+
+gText_PokemitosCupChallengeLocked::
+	.string "Las reglas de la PokemitosCup II\n"
+	.string "quedan fijadas al inscribirte.$"
 
 EventScript_AccessPlayersPC::
 	playse SE_PC_LOGIN

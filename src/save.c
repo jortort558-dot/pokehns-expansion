@@ -1033,6 +1033,12 @@ u8 LoadGameSave(u8 saveType)
         gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerMegas = 0;
         gSaveBlock1Ptr->saveVersion = 10;
     }
+    if (gSaveBlock1Ptr->saveVersion < 11)
+    {
+        // This bit was padding before the PokemitosCup mode existed.
+        gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup = FALSE;
+        gSaveBlock1Ptr->saveVersion = 11;
+    }
 
     // Add version migration steps here:
     // if (gSaveBlock1Ptr->saveVersion < 1)

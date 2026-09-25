@@ -77,6 +77,10 @@ static void Task_NewGameHnsSpeech_ChooseGender(u8);
 static void NewGameHnsSpeech_ShowGenderMenu(void);
 static void NewGameHnsSpeech_ClearGenderWindow(u8, u8);
 static void Task_NewGameHnsSpeech_ChallengeDisclaimer(u8);
+static void Task_NewGameHnsSpeech_PokemitosCupQuestion(u8);
+static void Task_NewGameHnsSpeech_CreatePokemitosCupYesNo(u8);
+static void Task_NewGameHnsSpeech_ProcessPokemitosCupYesNo(u8);
+static void Task_NewGameHnsSpeech_WaitPokemitosCupConfirmation(u8);
 static void Task_NewGameHnsSpeech_WaitDisclaimerText(u8);
 static void Task_NewGameHnsSpeech_WaitPressDisclaimer(u8);
 static void Task_NewGameHnsSpeech_ChallengeMenu(u8);
@@ -712,12 +716,66 @@ static void Task_NewGameHnsSpeech_ProcessNameYesNoMenu(u8 taskId)
     {
     case 0:
         PlaySE(SE_SELECT);
-        gTasks[taskId].func = Task_NewGameHnsSpeech_ChallengeDisclaimer;
+        gTasks[taskId].func = Task_NewGameHnsSpeech_PokemitosCupQuestion;
         break;
     case MENU_B_PRESSED:
     case 1:
         PlaySE(SE_SELECT);
         gTasks[taskId].func = Task_NewGameHnsSpeech_BoyOrGirl;
+    }
+}
+
+static void Task_NewGameHnsSpeech_PokemitosCupQuestion(u8 taskId)
+{
+    static const u8 sText_PokemitosCupQuestion[] = _("¿Vienes a participar en la\nPokemitosCup II Edition?");
+
+    NewGameHnsSpeech_ClearWindow(0);
+    StringCopy(gStringVar4, sText_PokemitosCupQuestion);
+    AddTextPrinterForMessage(TRUE);
+    gTasks[taskId].func = Task_NewGameHnsSpeech_CreatePokemitosCupYesNo;
+}
+
+static void Task_NewGameHnsSpeech_CreatePokemitosCupYesNo(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        CreateYesNoMenuParameterized(2, 1, 0xF3, 0xDF, 2, 15);
+        gTasks[taskId].func = Task_NewGameHnsSpeech_ProcessPokemitosCupYesNo;
+    }
+}
+
+static void Task_NewGameHnsSpeech_ProcessPokemitosCupYesNo(u8 taskId)
+{
+    static const u8 sText_PokemitosCupConfirmed[] = _("¡Perfecto! Aplicaré las reglas\noficiales de la PokemitosCup II.\pNo podrás cambiar los desafíos\nni usar funciones de depuración.");
+
+    switch (Menu_ProcessInputNoWrapClearOnChoose())
+    {
+    case 0:
+        PlaySE(SE_SELECT);
+        memset(&gSaveBlock3Ptr->challengeSettings, 0, sizeof(struct ChallengeSettings));
+        SetDefaultChallengeSettings();
+        ApplyPokemitosCupPreset();
+        NewGameHnsSpeech_ClearWindow(0);
+        StringCopy(gStringVar4, sText_PokemitosCupConfirmed);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameHnsSpeech_WaitPokemitosCupConfirmation;
+        break;
+    case MENU_B_PRESSED:
+    case 1:
+        PlaySE(SE_SELECT);
+        gTasks[taskId].func = Task_NewGameHnsSpeech_ChallengeDisclaimer;
+        break;
+    }
+}
+
+static void Task_NewGameHnsSpeech_WaitPokemitosCupConfirmation(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active() && ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))))
+    {
+        gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+        NewGameHnsSpeech_StartFadeOutTarget1InTarget2(taskId, 2);
+        NewGameHnsSpeech_StartFadePlatformIn(taskId, 1);
+        gTasks[taskId].func = Task_NewGameHnsSpeech_SlidePlatformAway2;
     }
 }
 

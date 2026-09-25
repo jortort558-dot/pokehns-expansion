@@ -6,6 +6,7 @@ struct ScriptContext;
 void CB2_InitChallengeMenu(void);
 void ChallengeMenu_SetInitialSetup(bool8 isInitial);
 void Script_OpenChallengeMenu(struct ScriptContext *ctx);
+void Script_CheckPokemitosCupActive(struct ScriptContext *ctx);
 bool32 HMsOverwriteOptionActive(void);
 u8 GetMaxPartySize(void);
 bool8 IsPartyLimitChallengeActive(void);

@@ -24,6 +24,7 @@
 #include "item_menu.h"
 #include "link.h"
 #include "match_call.h"
+#include "new_game.h"
 #include "metatile_behavior.h"
 #include "mom_savings.h"
 #include "overworld.h"
@@ -162,7 +163,7 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     else if (heldKeys & DPAD_RIGHT)
         input->dpadDirection = DIR_EAST;
 
-    if (DEBUG_OVERWORLD_MENU && !DEBUG_OVERWORLD_IN_MENU)
+    if (DEBUG_OVERWORLD_MENU && !DEBUG_OVERWORLD_IN_MENU && !IsPokemitosCupActive())
     {
         if ((heldKeys & DEBUG_OVERWORLD_HELD_KEYS) && input->DEBUG_OVERWORLD_TRIGGER_EVENT)
         {
@@ -275,7 +276,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         return TRUE;
 #endif
 
-    if (input->input_field_1_2 && DEBUG_OVERWORLD_MENU && !DEBUG_OVERWORLD_IN_MENU)
+    if (input->input_field_1_2 && DEBUG_OVERWORLD_MENU && !DEBUG_OVERWORLD_IN_MENU && !IsPokemitosCupActive())
     {
         PlaySE(SE_WIN_OPEN);
         FreezeObjectEvents();

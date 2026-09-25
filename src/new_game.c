@@ -162,6 +162,82 @@ void SetDefaultChallengeSettings(void)
     gSaveblock3.challengeSettings.tx_Nuzlocke_GymTokens      = 0;
 }
 
+void ApplyPokemitosCupPreset(void)
+{
+    struct ChallengeSettings *cs = &gSaveblock3.challengeSettings;
+
+    // Exact preset captured from the PokemitosCup II reference save.
+    cs->tx_PokemitosCup = TRUE;
+
+    cs->tx_Features_RTCType = 0;
+    cs->tx_Features_ShinyChance = 4; // 1/512
+    cs->tx_Features_ShinyColors = 1;
+    cs->tx_Features_WildMonDropItems = 0;
+    cs->tx_Features_FrontierBans = 0;
+
+    cs->tx_Random_Chaos = 0;
+    cs->tx_Random_WildPokemon = 1;
+    cs->tx_Random_Similar = 1;
+    cs->tx_Random_MapBased = 1;
+    cs->tx_Random_IncludeLegendaries = 1;
+    cs->tx_Random_Type = 0;
+    cs->tx_Random_TypeEffectiveness = 0;
+    cs->tx_Random_Abilities = 1;
+    cs->tx_Random_Moves = 1;
+    cs->tx_Random_Trainer = 1;
+    cs->tx_Random_Evolutions = 0;
+    cs->tx_Random_EvolutionMethods = 0;
+    cs->tx_Random_Items = 1;
+    cs->tx_Random_Static = 1;
+    cs->tx_Random_Starter = 1;
+    cs->tx_Random_GenScope = 0; // Gen 1-9
+    cs->tx_Random_TrainerPower = 0;
+    cs->tx_Random_TrainerItems = 0;
+    cs->tx_Random_TrainerMegas = 0;
+
+    cs->tx_Random_Items_Progression = 0;
+    cs->tx_Random_Items_TMShuffle = 0;
+    cs->tx_Random_Items_MegaStones = 0;
+    cs->tx_Random_Items_Competitive = 0;
+
+    cs->tx_Challenges_Nuzlocke = 1;
+    cs->tx_Challenges_NuzlockeHardcore = 0;
+    cs->tx_Nuzlocke_EasyMode = 0;
+    cs->tx_Nuzlocke_SpeciesClause = 1;
+    cs->tx_Nuzlocke_ShinyClause = 1;
+    cs->tx_Nuzlocke_Nicknaming = 1;
+    cs->tx_Nuzlocke_Deletion = 0;
+    cs->tx_Nuzlocke_RareCandy = 1;
+    cs->tx_Nuzlocke_PokeVial = 1;
+    cs->tx_Nuzlocke_GymTokens = 1;
+    cs->tx_Nuzlocke_BanHealingShop = 1;
+
+    cs->tx_Challenges_PartyLimit = 0;
+    cs->tx_Challenges_LevelCap = 1;
+    cs->tx_Challenges_ExpMultiplier = 0;
+    cs->tx_Challenges_NoItemPlayer = 0;
+    cs->tx_Challenges_NoItemTrainer = 0;
+    cs->tx_Challenges_MaxPartyIVs = 0;
+    cs->tx_Challenges_TrainerScalingIVs = 1;
+    cs->tx_Challenges_NoEVs = 0;
+    cs->tx_Challenges_TrainerScalingEVs = 1;
+    cs->tx_Challenges_LessEscapes = 0;
+    cs->tx_Difficulty_EscapeRopeDig = 0;
+
+    cs->tx_Challenges_PkmnCenter = 0;
+    cs->tx_Challenges_Expensive = 0;
+    cs->tx_Challenges_EvoLimit = 0;
+    cs->tx_Challenges_OneTypeChallenge = 31;
+    cs->tx_Challenges_BaseStatEqualizer = 0;
+    cs->tx_Challenges_Mirror = 0;
+    cs->tx_Challenges_Mirror_Thief = 0;
+}
+
+bool8 IsPokemitosCupActive(void)
+{
+    return gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup;
+}
+
 static void ClearPokedexFlags(void)
 {
     gUnusedPokedexU8 = 0;

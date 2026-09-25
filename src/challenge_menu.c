@@ -27,6 +27,7 @@
 #include "overworld.h"
 #include "script.h"
 #include "challenge_menu.h"
+#include "new_game.h"
 
 
 // =============================================================================
@@ -232,7 +233,7 @@ static const u8 sMidGameLockPolicy[TAB_COUNT * MAX_ITEMS_PER_TAB] = {
     [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_GYM_TOKENS]     = LOCK_ONEWAY_DOWN,
     // TAB_DIFFICULTY
     [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_PARTY_LIMIT]    = LOCK_ONEWAY_DOWN,
-    [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_LEVEL_CAP]      = LOCK_ONEWAY_DOWN,
+    [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_LEVEL_CAP]      = LOCK_FREE,
     [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_EXP_MULTIPLIER] = LOCK_FREE,
     [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_ITEM_PLAYER]    = LOCK_ONEWAY_DOWN,
     [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_ITEM_TRAINER]   = LOCK_FREE,
@@ -2592,6 +2593,11 @@ void Script_OpenChallengeMenu(struct ScriptContext *ctx)
     ScriptContext_Stop();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     SetMainCallback2(CB2_InitChallengeMenu);
+}
+
+void Script_CheckPokemitosCupActive(struct ScriptContext *ctx)
+{
+    gSpecialVar_Result = IsPokemitosCupActive();
 }
 
 bool32 HMsOverwriteOptionActive(void)

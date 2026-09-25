@@ -297,6 +297,7 @@ struct ChallengeSettings
     u8 tx_Challenges_Nuzlocke:1;
     u8 tx_Challenges_NuzlockeHardcore:1;
     u8 tx_Challenges_PartyLimit:3;
+    u8 tx_PokemitosCup:1;
     u8 tx_Challenges_OneTypeChallenge:5;
     u8 tx_Challenges_NoItemPlayer:1;
     u8 tx_Challenges_NoItemTrainer:1;
