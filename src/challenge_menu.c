@@ -23,6 +23,7 @@
 #include "battle_main.h"
 #include "random.h"
 #include "config/randomizer.h"
+#include "randomizer.h"
 #include "overworld.h"
 #include "script.h"
 #include "challenge_menu.h"
@@ -80,6 +81,9 @@ enum {
     ITEM_RANDOM_WILD_PKMN,
     ITEM_RANDOM_MAP_BASED,
     ITEM_RANDOM_TRAINER,
+    ITEM_RANDOM_TRAINER_POWER,
+    ITEM_RANDOM_TRAINER_ITEMS,
+    ITEM_RANDOM_TRAINER_MEGAS,
     ITEM_RANDOM_STATIC,
     ITEM_RANDOM_SIMILAR,
     ITEM_RANDOM_LEGENDARIES,
@@ -196,10 +200,10 @@ static const u8 sMidGameLockPolicy[TAB_COUNT * MAX_ITEMS_PER_TAB] = {
     // TAB_MODE — all free
     // TAB_FEATURES — all free
     // TAB_RANDOMIZER
-    [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_OFF_ON]      = LOCK_ONEWAY_DOWN,
+    [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_OFF_ON]      = LOCK_FREE,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_STARTER]     = LOCK_ONEWAY_DOWN,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_WILD_PKMN]   = LOCK_ONEWAY_DOWN,
-    [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_TRAINER]     = LOCK_ONEWAY_DOWN,
+    [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_TRAINER]     = LOCK_FREE,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_STATIC]      = LOCK_ONEWAY_DOWN,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_LEGENDARIES] = LOCK_ONEWAY_DOWN,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_TYPE]        = LOCK_ONEWAY_DOWN,
@@ -535,6 +539,32 @@ static const u8 *const sChoices_OffRandom[] = {
     COMPOUND_STRING("ALEATORIO"),
 };
 
+static const u8 *const sChoices_TrainerPower[] = {
+    COMPOUND_STRING("PROG."),
+    COMPOUND_STRING("SUAVE"),
+    COMPOUND_STRING("DIFÍCIL"),
+    COMPOUND_STRING("MÁXIMA"),
+};
+
+static const u8 *const sChoices_TrainerItems[] = {
+    COMPOUND_STRING("PROG."),
+    COMPOUND_STRING("NO"),
+    COMPOUND_STRING("BAYAS"),
+    COMPOUND_STRING("COMBATE"),
+};
+
+static const u8 *const sChoices_TrainerMegas[] = {
+    COMPOUND_STRING("TRAMA"),
+    COMPOUND_STRING("NO"),
+    COMPOUND_STRING("JEFES"),
+    COMPOUND_STRING("TODOS"),
+};
+
+static const u8 *const sChoices_WildPower[] = {
+    COMPOUND_STRING("PROG."),
+    COMPOUND_STRING("CAÓTICA"),
+};
+
 static const u8 *const sChoices_Progression[] = {
     COMPOUND_STRING("ACTIVADA"),
     COMPOUND_STRING("CAÓTICA"),
@@ -754,7 +784,7 @@ static const u8 *const sDesc_RandomStarter[] = {
 };
 static const u8 *const sDesc_RandomWild[] = {
     COMPOUND_STRING("Encuentros salvajes habituales."),
-    COMPOUND_STRING("POKéMON salvajes aleatorios."),
+    COMPOUND_STRING("Aleatoriza solo la especie.\nSlots, nivel y frecuencia no cambian."),
 };
 static const u8 *const sDesc_RandomMapBased[] = {
     COMPOUND_STRING("Encuentros salvajes totalmente\naleatorios en todo momento."),
@@ -764,13 +794,31 @@ static const u8 *const sDesc_RandomTrainer[] = {
     COMPOUND_STRING("Entrenadores con equipos normales."),
     COMPOUND_STRING("Equipos de entrenadores aleatorios."),
 };
+static const u8 *const sDesc_RandomTrainerPower[] = {
+    COMPOUND_STRING("Potencia ajustada al progreso."),
+    COMPOUND_STRING("Equipos de una etapa anterior."),
+    COMPOUND_STRING("Equipos de una etapa posterior."),
+    COMPOUND_STRING("Máxima potencia desde el inicio."),
+};
+static const u8 *const sDesc_RandomTrainerItems[] = {
+    COMPOUND_STRING("Objetos según rival y progreso."),
+    COMPOUND_STRING("Sin objetos, salvo Megapiedras."),
+    COMPOUND_STRING("Todos llevan una baya útil."),
+    COMPOUND_STRING("Todos llevan objetos de combate."),
+};
+static const u8 *const sDesc_RandomTrainerMegas[] = {
+    COMPOUND_STRING("Jefes tras desbloquear las Megas."),
+    COMPOUND_STRING("Ningún entrenador usa Megas."),
+    COMPOUND_STRING("Los jefes usan Mega desde el inicio."),
+    COMPOUND_STRING("Todo equipo tiene una Mega final."),
+};
 static const u8 *const sDesc_RandomStatic[] = {
     COMPOUND_STRING("Encuentros estáticos normales."),
-    COMPOUND_STRING("Especiales, casino, errantes y\nestáticos sin cambios."),
+    COMPOUND_STRING("Aleatoriza especiales, casino,\nerrantes y encuentros estáticos."),
 };
 static const u8 *const sDesc_RandomSimilar[] = {
-    COMPOUND_STRING("Reemplazo por nivel similar (según\netapa evolutiva)."),
-    COMPOUND_STRING("Distribución no equilibrada por\npoder."),
+    COMPOUND_STRING("Especies acordes al progreso actual."),
+    COMPOUND_STRING("Cualquier potencia desde el inicio."),
 };
 static const u8 *const sDesc_RandomLegendaries[] = {
     COMPOUND_STRING("Legendarios excluidos de aleatorizar."),
@@ -843,6 +891,24 @@ static const struct ChallengeMenuItem sTabItems_Randomizer[] = {
         .numChoices   = 2,
         .choiceNames  = sChoices_OffRandom,
     },
+    [ITEM_RANDOM_TRAINER_POWER] = {
+        .name         = COMPOUND_STRING("POTENCIA RIVAL"),
+        .descriptions = sDesc_RandomTrainerPower,
+        .numChoices   = 4,
+        .choiceNames  = sChoices_TrainerPower,
+    },
+    [ITEM_RANDOM_TRAINER_ITEMS] = {
+        .name         = COMPOUND_STRING("OBJETOS RIVAL"),
+        .descriptions = sDesc_RandomTrainerItems,
+        .numChoices   = 4,
+        .choiceNames  = sChoices_TrainerItems,
+    },
+    [ITEM_RANDOM_TRAINER_MEGAS] = {
+        .name         = COMPOUND_STRING("MEGAS RIVAL"),
+        .descriptions = sDesc_RandomTrainerMegas,
+        .numChoices   = 4,
+        .choiceNames  = sChoices_TrainerMegas,
+    },
     [ITEM_RANDOM_STATIC] = {
         .name         = COMPOUND_STRING("ESTÁTICOS"),
         .descriptions = sDesc_RandomStatic,
@@ -850,10 +916,10 @@ static const struct ChallengeMenuItem sTabItems_Randomizer[] = {
         .choiceNames  = sChoices_OffRandom,
     },
     [ITEM_RANDOM_SIMILAR] = {
-        .name         = COMPOUND_STRING("EQUILIBRIO"),
+        .name         = COMPOUND_STRING("POTENCIA SALVAJE"),
         .descriptions = sDesc_RandomSimilar,
         .numChoices   = 2,
-        .choiceNames  = sChoices_OnOff,
+        .choiceNames  = sChoices_WildPower,
     },
     [ITEM_RANDOM_LEGENDARIES] = {
         .name         = COMPOUND_STRING("LEGENDARIOS"),
@@ -922,12 +988,12 @@ static const struct ChallengeMenuItem sTabItems_Randomizer[] = {
 // =============================================================================
 
 static const u8 *const sDesc_Items_Randomize[] = {
-    COMPOUND_STRING("Objetos del suelo vanilla (sin cambios)."),
-    COMPOUND_STRING("Randomiza los objetos del suelo.\n¡MTs y Megapiedras configurables!"),
+    COMPOUND_STRING("Los objetos del suelo no cambian."),
+    COMPOUND_STRING("Aleatoriza objetos del suelo.\nObjetos clave y MO se conservan."),
 };
 static const u8 *const sDesc_Items_Progression[] = {
-    COMPOUND_STRING("Mejores objetos según el mapa y progreso.\n(R29 = comunes, C. Victoria = élite)."),
-    COMPOUND_STRING("Distribución plana: cualquier tier puede\naparecer desde la primera ruta."),
+    COMPOUND_STRING("Mejores objetos según la zona\ny el progreso de la aventura."),
+    COMPOUND_STRING("Cualquier objeto puede aparecer\ndesde la primera ruta."),
 };
 static const u8 *const sDesc_Items_TMShuffle[] = {
     COMPOUND_STRING("Baraja todas las MTs del juego entre sí\nsin repetición."),
@@ -938,9 +1004,9 @@ static const u8 *const sDesc_Items_MegaStones[] = {
     COMPOUND_STRING("No aparecen Megapiedras en el suelo."),
 };
 static const u8 *const sDesc_Items_Competitive[] = {
-    COMPOUND_STRING("Aparición normal de objetos competitivos\nde Tier 4 (Restos, Vidasfera, etc.)."),
-    COMPOUND_STRING("Mayor probabilidad de encontrar objetos\ncompetitivos de Tier 4."),
-    COMPOUND_STRING("Desactiva los objetos competitivos\nde Tier 4 en el suelo."),
+    COMPOUND_STRING("Frecuencia normal de objetos\ncomo Restos o Vidasfera."),
+    COMPOUND_STRING("Aumenta los objetos útiles\npara combates exigentes."),
+    COMPOUND_STRING("No aparecen objetos competitivos\nen el suelo."),
 };
 static const u8 *const sDesc_Items_Next[] = {
     COMPOUND_STRING("Continuar a opciones Nuzlocke."),
@@ -1437,8 +1503,13 @@ static bool8 CheckConditions(u8 tab, u8 itemIndex)
             return TRUE;
         case ITEM_RANDOM_MAP_BASED:
             return masterOn && *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_WILD_PKMN);
+        case ITEM_RANDOM_TRAINER_POWER:
+        case ITEM_RANDOM_TRAINER_ITEMS:
+        case ITEM_RANDOM_TRAINER_MEGAS:
+            return masterOn && *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER);
         case ITEM_RANDOM_SIMILAR:
-            return masterOn && anyPkmn && !(*GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_CHAOS));
+            return masterOn && *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_WILD_PKMN)
+                && !(*GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_CHAOS));
         case ITEM_RANDOM_LEGENDARIES:
         case ITEM_RANDOM_GEN_SCOPE:
             return masterOn && anyPkmn;
@@ -2136,6 +2207,9 @@ static void Task_ConfirmSaveYes(u8 taskId)
         cs->tx_Random_WildPokemon      = 0;
         cs->tx_Random_MapBased         = 0;
         cs->tx_Random_Trainer          = 0;
+        cs->tx_Random_TrainerPower     = TRAINER_POWER_PROGRESSIVE;
+        cs->tx_Random_TrainerItems     = TRAINER_ITEMS_PROGRESSIVE;
+        cs->tx_Random_TrainerMegas     = TRAINER_MEGAS_STORY;
         cs->tx_Random_Static           = 0;
         cs->tx_Random_Similar          = 0;
         cs->tx_Random_IncludeLegendaries = 0;
@@ -2159,6 +2233,9 @@ static void Task_ConfirmSaveYes(u8 taskId)
         cs->tx_Random_WildPokemon      = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_WILD_PKMN);
         cs->tx_Random_MapBased         = cs->tx_Random_WildPokemon ? *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_MAP_BASED) : 0;
         cs->tx_Random_Trainer          = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER);
+        cs->tx_Random_TrainerPower     = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_POWER);
+        cs->tx_Random_TrainerItems     = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_ITEMS);
+        cs->tx_Random_TrainerMegas     = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_MEGAS);
         cs->tx_Random_Static           = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_STATIC);
         cs->tx_Random_Similar          = !(*GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_SIMILAR));
         cs->tx_Random_IncludeLegendaries = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_LEGENDARIES);
@@ -2399,8 +2476,13 @@ void CB2_InitChallengeMenu(void)
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_WILD_PKMN)   = cs->tx_Random_WildPokemon;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_MAP_BASED)  = cs->tx_Random_MapBased;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER)     = cs->tx_Random_Trainer;
+            *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_POWER) = cs->tx_Random_TrainerPower;
+            *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_ITEMS) = cs->tx_Random_TrainerItems;
+            *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_MEGAS) = cs->tx_Random_TrainerMegas;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_STATIC)      = cs->tx_Random_Static;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_SIMILAR)     = !cs->tx_Random_Similar;
+            if (sIsInitialSetup && *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_OFF_ON) == 0)
+                *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_SIMILAR) = 0;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_LEGENDARIES) = cs->tx_Random_IncludeLegendaries;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_GEN_SCOPE)   = cs->tx_Random_GenScope;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TYPE)        = cs->tx_Random_Type;

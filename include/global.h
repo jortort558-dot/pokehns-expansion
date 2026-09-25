@@ -346,6 +346,10 @@ struct ChallengeSettings
     u8 tx_Random_Items_TMShuffle:1;     // 0 = SÍ, 1 = NO
     u8 tx_Random_Items_MegaStones:1;    // 0 = POST-LAGO, 1 = DESACTIVADAS
     u8 tx_Nuzlocke_BanHealingShop:1;    // 0 = PERMITIDAS, 1 = PROHIBIDAS
+    // Trainer randomizer (uses the former trailing padding byte)
+    u8 tx_Random_TrainerPower:2;
+    u8 tx_Random_TrainerItems:2;
+    u8 tx_Random_TrainerMegas:2;
 };
 
 struct SaveBlock3

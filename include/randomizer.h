@@ -90,6 +90,27 @@ enum ProgressionBlock {
     PROGRESSION_BLOCK_COUNT
 };
 
+enum TrainerRandomizerPower {
+    TRAINER_POWER_PROGRESSIVE,
+    TRAINER_POWER_GENTLE,
+    TRAINER_POWER_CHALLENGING,
+    TRAINER_POWER_MAXIMUM,
+};
+
+enum TrainerRandomizerItems {
+    TRAINER_ITEMS_PROGRESSIVE,
+    TRAINER_ITEMS_NONE,
+    TRAINER_ITEMS_BERRIES,
+    TRAINER_ITEMS_COMPETITIVE,
+};
+
+enum TrainerRandomizerMegas {
+    TRAINER_MEGAS_STORY,
+    TRAINER_MEGAS_OFF,
+    TRAINER_MEGAS_BOSSES,
+    TRAINER_MEGAS_ALL,
+};
+
 struct RandomizerGroupSet {
     u16 species;
     u16 minGroup;

@@ -20,6 +20,8 @@
 #include "constants/trainers.h"
 #include "difficulty.h"
 
+#define TRAINER_RANDOMIZER_VERSION 1
+
 const u16 gStarterAndGiftMonTable[STARTER_AND_GIFT_MON_COUNT] =
 {
     SPECIES_CYNDAQUIL,
@@ -1232,6 +1234,10 @@ static const u16 sWildProgressionWeights[PROGRESSION_BLOCK_COUNT][7] = {
     /* BLOCK_POSTGAME */       {  0,   0,  50, 150, 250, 450, 100},
 };
 
+// Flat power distribution used by POTENCIA SALVAJE: CAÓTICA. It changes only
+// the chosen species category; encounter slots, levels and rates stay intact.
+static const u16 sWildChaoticWeights[7] = {200, 200, 200, 200, 100, 80, 20};
+
 struct WildRandomizerPools
 {
     bool8 initialized;
@@ -1353,7 +1359,8 @@ static bool32 HasBeatenJohtoLeague(void)
 static bool32 HasBeatenFinalLeague(void)
 {
 #if IS_HNS
-    return FlagGet(FLAG_IS_KANTO_CHAMPION) || FlagGet(TRAINER_FLAGS_START + TRAINER_RED_HNS);
+    return FlagGet(TRAINER_FLAGS_START + TRAINER_RED_HNS)
+        || FlagGet(TRAINER_FLAGS_START + TRAINER_RED_POSTOBC_HNS);
 #else
     return FlagGet(FLAG_IS_CHAMPION);
 #endif
@@ -1581,7 +1588,10 @@ u16 RandomizeWildEncounter(u16 species, u8 mapNum, u8 mapGroup, enum WildPokemon
         BuildWildSpeciesPools();
     }
 
-    enum WildPowerCategory category = WeightedCategoryRoll(sWildProgressionWeights[block], &state);
+    const u16 *weights = gSaveBlock3Ptr->challengeSettings.tx_Random_Similar
+                       ? sWildProgressionWeights[block]
+                       : sWildChaoticWeights;
+    enum WildPowerCategory category = WeightedCategoryRoll(weights, &state);
     return ChooseWildSpecies(category, &state, species);
 }
 
@@ -1717,6 +1727,22 @@ static bool32 IsConfiguredMegaBoss(u16 trainerId, u8 trainerClass)
     return FALSE;
 }
 
+static bool32 ShouldTrainerUseMega(u16 trainerId, u8 trainerClass)
+{
+    switch (gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerMegas)
+    {
+    case TRAINER_MEGAS_OFF:
+        return FALSE;
+    case TRAINER_MEGAS_BOSSES:
+        return IsConfiguredMegaBoss(trainerId, trainerClass);
+    case TRAINER_MEGAS_ALL:
+        return TRUE;
+    case TRAINER_MEGAS_STORY:
+    default:
+        return FlagGet(FLAG_MEGA_SYSTEM_UNLOCKED) && IsConfiguredMegaBoss(trainerId, trainerClass);
+    }
+}
+
 static enum TrainerPowerTier GetTrainerPowerTier(u16 trainerId, u8 trainerClass)
 {
     switch (trainerId)
@@ -1804,73 +1830,52 @@ static u16 RollCompatibleTrainerItem(u16 species, enum TrainerPowerTier tier, u8
     u32 roll = RandomizerNextRange(state, 100);
     u32 berryChance = 0;
     u32 safeChance = 0;
+    u8 itemMode = gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerItems;
 
-    switch (tier)
-    {
-    case TRAINER_TIER_REGULAR:
-        if (block <= BLOCK_EARLY)
-        {
-            berryChance = 0;
-            safeChance = 0;
-        }
-        else if (block == BLOCK_MID)
-        {
-            berryChance = 20;
-            safeChance = 0;
-        }
-        else if (block == BLOCK_LATE_JOHTO)
-        {
-            berryChance = 30;
-            safeChance = 0;
-        }
-        else
-        {
-            berryChance = 0;
-            safeChance = 50;
-        }
-        break;
-    case TRAINER_TIER_ACE:
-        if (block <= BLOCK_EARLY)
-        {
-            berryChance = 20;
-            safeChance = 0;
-        }
-        else if (block == BLOCK_MID)
-        {
-            berryChance = 0;
-            safeChance = 50;
-        }
-        else if (block == BLOCK_LATE_JOHTO)
-        {
-            berryChance = 0;
-            safeChance = 70;
-        }
-        else
-        {
-            berryChance = 0;
-            safeChance = 100;
-        }
-        break;
-    case TRAINER_TIER_BOSS:
-    default:
-        if (block <= BLOCK_EARLY)
-        {
-            berryChance = 100;
-            safeChance = 0;
-        }
-        else
-        {
-            berryChance = 0;
-            safeChance = 100;
-        }
-        break;
-    }
+    if (itemMode == TRAINER_ITEMS_NONE)
+        return ITEM_NONE;
+    if (itemMode == TRAINER_ITEMS_BERRIES)
+        berryChance = 100;
+    else if (itemMode == TRAINER_ITEMS_COMPETITIVE)
+        safeChance = 100;
 
-    if (difficulty == DIFFICULTY_EASY)
+    if (itemMode == TRAINER_ITEMS_PROGRESSIVE)
     {
-        safeChance = 0;
-        if (berryChance == 0 && tier >= TRAINER_TIER_ACE)
-            berryChance = 30;
+        switch (tier)
+        {
+        case TRAINER_TIER_REGULAR:
+            if (block == BLOCK_MID)
+                berryChance = 20;
+            else if (block == BLOCK_LATE_JOHTO)
+                berryChance = 30;
+            else if (block > BLOCK_LATE_JOHTO)
+                safeChance = 50;
+            break;
+        case TRAINER_TIER_ACE:
+            if (block <= BLOCK_EARLY)
+                berryChance = 20;
+            else if (block == BLOCK_MID)
+                safeChance = 50;
+            else if (block == BLOCK_LATE_JOHTO)
+                safeChance = 70;
+            else
+                safeChance = 100;
+            break;
+        case TRAINER_TIER_BOSS:
+        default:
+            if (block <= BLOCK_EARLY)
+                berryChance = 100;
+            else
+                safeChance = 100;
+            break;
+        }
+
+        if (difficulty == DIFFICULTY_EASY)
+        {
+            safeChance = 0;
+            if (berryChance == 0 && tier >= TRAINER_TIER_ACE)
+                berryChance = 30;
+        }
     }
 
     if (roll < berryChance)
@@ -1883,7 +1888,7 @@ static u16 RollCompatibleTrainerItem(u16 species, enum TrainerPowerTier tier, u8
     else if (roll < (berryChance + safeChance))
     {
         static const u16 sTrainerSafeItems[] = {
-            ITEM_LEFTOVERS, ITEM_FOCUS_SASH, ITEM_ROCKY_HELMET, ITEM_LIFE_ORB, ITEM_EXPERT_BELT, ITEM_ASSAULT_VEST
+            ITEM_LEFTOVERS, ITEM_FOCUS_SASH, ITEM_ROCKY_HELMET, ITEM_LIFE_ORB, ITEM_EXPERT_BELT
         };
         if (CanTrainerSpeciesEvolve(species))
         {
@@ -1910,6 +1915,7 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     enum TrainerPowerTier tier = GetTrainerPowerTier(trainerId, trainerClass);
 
     u32 slotKey = (((u32)trainerId) << 16) | (((u32)block) << 8) | (u32)slot;
+    slotKey ^= TRAINER_RANDOMIZER_VERSION * 0x9E3779B9;
     struct Sfc32State state = RandomizerRandSeed(RANDOMIZER_REASON_TRAINER_PARTY, slotKey, (u32)originalSpecies);
 
     if (!sWildPools.initialized
@@ -1922,7 +1928,7 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     s8 megaSlot = -1;
     s8 specialSlot = -1;
 
-    if (FlagGet(FLAG_MEGA_SYSTEM_UNLOCKED) && IsConfiguredMegaBoss(trainerId, trainerClass) && totalMons > 0)
+    if (ShouldTrainerUseMega(trainerId, trainerClass) && totalMons > 0)
     {
         megaSlot = totalMons - 1;
     }
@@ -1959,9 +1965,26 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     u8 effectiveBlock = block;
     const u16 (*weights)[7] = sWildProgressionWeights;
 
+    switch (gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerPower)
+    {
+    case TRAINER_POWER_GENTLE:
+        if (effectiveBlock > BLOCK_INICIO)
+            effectiveBlock--;
+        break;
+    case TRAINER_POWER_CHALLENGING:
+        effectiveBlock = min(effectiveBlock + 1, BLOCK_POSTGAME);
+        break;
+    case TRAINER_POWER_MAXIMUM:
+        effectiveBlock = BLOCK_POSTGAME;
+        break;
+    case TRAINER_POWER_PROGRESSIVE:
+    default:
+        break;
+    }
+
     if (tier == TRAINER_TIER_ACE)
     {
-        effectiveBlock = min(block + 1, BLOCK_POSTGAME);
+        effectiveBlock = min(effectiveBlock + 1, BLOCK_POSTGAME);
     }
     else if (tier == TRAINER_TIER_BOSS)
     {
