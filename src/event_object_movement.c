@@ -22,6 +22,7 @@
 #include "follower_helper.h"
 #include "gpu_regs.h"
 #include "graphics.h"
+#include "item.h"
 #include "mauville_old_man.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
@@ -1735,6 +1736,14 @@ static u8 InitObjectEventStateFromTemplate(const struct ObjectEventTemplate *tem
     objectEvent->trainerType = template->trainerType;
     objectEvent->mapNum = mapNum;
     objectEvent->trainerRange_berryTreeId = template->trainerRange_berryTreeId;
+    if ((objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL)
+        && objectEvent->trainerRange_berryTreeId == ITEM_NONE
+        && template->script != NULL && template->script[0] == 0x1A && T1_READ_16(&template->script[1]) == VAR_0x8000)
+    {
+        u16 itemId = T1_READ_16(&template->script[3]);
+        if (itemId < ITEMS_COUNT)
+            objectEvent->trainerRange_berryTreeId = itemId;
+    }
     objectEvent->previousMovementDirection = gInitialMovementTypeFacingDirections[template->movementType];
     SetObjectEventDirection(objectEvent, objectEvent->previousMovementDirection);
     if (sMovementTypeHasRange[objectEvent->movementType])
@@ -2025,6 +2034,20 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     return objectEventId;
 }
 
+static u16 GetItemBallItemId(const struct ObjectEventTemplate *template)
+{
+    if (template->trainerRange_berryTreeId != ITEM_NONE && template->trainerRange_berryTreeId < ITEMS_COUNT)
+        return template->trainerRange_berryTreeId;
+
+    if (template->script != NULL && template->script[0] == 0x1A && T1_READ_16(&template->script[1]) == VAR_0x8000)
+    {
+        u16 itemId = T1_READ_16(&template->script[3]);
+        if (itemId < ITEMS_COUNT)
+            return itemId;
+    }
+    return ITEM_NONE;
+}
+
 u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
     u8 objectEventId;
@@ -2036,6 +2059,20 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
 
     graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
     CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(graphicsId, objectEventTemplate->movementType, &spriteTemplate, &subspriteTables);
+
+    // Si es un objeto de suelo (Item Ball) y contiene exclusivamente una MT o MO, usar el sprite de Poké Ball amarilla
+    if (graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || graphicsId == OBJ_EVENT_GFX_ITEM_BALL)
+    {
+        u16 itemId = GetItemBallItemId(objectEventTemplate);
+        if (itemId != ITEM_NONE && GetItemPocket(itemId) == POCKET_TM_HM)
+        {
+            graphicsInfo = &gPokeballGraphics[BALL_FAST];
+            spriteTemplate.paletteTag = graphicsInfo->paletteTag;
+            spriteTemplate.images = graphicsInfo->images;
+            subspriteTables = graphicsInfo->subspriteTables;
+        }
+    }
+
     spriteFrameImage.size = graphicsInfo->size;
     spriteTemplate.images = &spriteFrameImage;
     objectEventId = TrySetupObjectEventSprite(objectEventTemplate, &spriteTemplate, mapNum, mapGroup, cameraX, cameraY);
@@ -3256,6 +3293,17 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
     subspriteTables = NULL;
     graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
     CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(objectEvent->graphicsId, objectEvent->movementType, &spriteTemplate, &subspriteTables);
+
+    if ((objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL)
+        && objectEvent->trainerRange_berryTreeId < ITEMS_COUNT
+        && GetItemPocket(objectEvent->trainerRange_berryTreeId) == POCKET_TM_HM)
+    {
+        graphicsInfo = &gPokeballGraphics[BALL_FAST];
+        spriteTemplate.paletteTag = graphicsInfo->paletteTag;
+        spriteTemplate.images = graphicsInfo->images;
+        subspriteTables = graphicsInfo->subspriteTables;
+    }
+
     spriteFrameImage.size = graphicsInfo->size;
     spriteTemplate.images = &spriteFrameImage;
 
