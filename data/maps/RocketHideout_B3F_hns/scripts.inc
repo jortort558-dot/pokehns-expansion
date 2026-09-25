@@ -82,7 +82,7 @@ RocketHideout_B3F_Movement_DragoniteLeave:
 	step_end
 
 RocketHideout_B3F_Text_LanceGetPassword:
-	.string "LANCE: Hacen falta dos contraseñas\npara entrar en la sala del jefe.\pSolo unos pocos miembros del\nTEAM ROCKET las conocen.\pAquel SOLDADO tuvo la amabilidad\nde contármelo.\p{PLAYER}, busquemos las contraseñas.$"
+	.string "LANCE: Hacen falta dos contraseñas\npara entrar en la sala del jefe.\pSolo unos pocos miembros del\nTEAM ROCKET las conocen.\pAquel SOLDADO tuvo la amabilidad\nde contármelo.\p{PLAYER}, busquemos las claves.$"
 RocketHideout_B3F_EventScript_RocketKO::
 	lock
 	faceplayer
@@ -530,7 +530,7 @@ RocketHideout_B3F_Text_PetrelIntro:
 RocketHideout_B3F_Text_PetrelDisbelief:
 	.string "…¿Eh?\n¿No me parezco en nada a\lGIOVANNI?\p¿Ni siquiera tengo su aspecto?\n¿Cómo puede ser? ¡Me he esforzado\ltanto para imitarlo!$"
 RocketHideout_B3F_Text_PetrelReveal:
-	.string "PETREL: ¡Soy Ejecutivo del\nTEAM ROCKET!\pIntentas colarte en la sala del\ntransmisor de radio.\pPues no va a ocurrir. La protege\nuna contraseña especial.\pLa clave es «¡Viva GIOVANNI!».\n¿Te sorprende que te la diga?\pPero conocerla no te servirá.\pSolo se abre si la digo yo.\nLa puerta reacciona a mi voz.$"
+	.string "PETREL: ¡Soy Ejecutivo del\nTEAM ROCKET!\pIntentas colarte en la sala del\ntransmisor de radio.\pPues no va a ocurrir. La protege\nuna contraseña especial.\pLa clave es: ¡Viva GIOVANNI!\n¿Te sorprende que te la diga?\pPero conocerla no te servirá.\pSolo se abre si la digo yo.\nLa puerta reacciona a mi voz.$"
 RocketHideout_B3F_Text_PetrelBeaten:
 	.string "Yo… No pude hacer nada…\pGIOVANNI, perdóname…$"
 RocketHideout_B3F_Text_PetrelAfterBattle:

@@ -84,21 +84,21 @@ BattleTowerOutsideSailorText:
 
 BattleTowerOutsideSignText:
 	.string "{UP_ARROW} ENTRADA A COLINA DESAFÍO\p"
-	.string "«¡Alcanzad la cima, Entrenadores\n"
-	.string "apasionados!»\p"
+	.string "¡Alcanzad la cima, Entrenadores\n"
+	.string "apasionados!\p"
 	.string "{RIGHT_ARROW} CARPAS DE BATALLA$"
 
 BattleTower_Battle_Tent_Text_Factory:
 	.string "CARPA DE BATALLA: FÁBRICA\n"
-	.string "«¡Encuentra al POKéMON definitivo!»$"
+	.string "¡Encuentra al POKéMON definitivo!$"
 
 BattleTower_Battle_Tent_Text_Palace:
 	.string "CARPA DE BATALLA: PALACIO\n"
-	.string "«¡Deleita tu vista con combates!»$"
+	.string "¡Deleita tu vista con combates!$"
 
 BattleTower_Battle_Tent_Text_Arena:
 	.string "CARPA DE BATALLA: ESTADIO\n"
-	.string "«¡Que vengan los mejores equipos!»$"
+	.string "¡Que vengan los mejores equipos!$"
 
 BattleTowerOutsideText_Closed:
 	.string "La COLINA DESAFÍO está cerrada\n"
