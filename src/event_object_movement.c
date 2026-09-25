@@ -1974,20 +1974,18 @@ u16 LoadSheetGraphicsInfo(const struct ObjectEventGraphicsInfo *info, u16 uuid, 
     return tag;
 }
 
-static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEventTemplate, struct SpriteTemplate *spriteTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
+static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEventTemplate, struct SpriteTemplate *spriteTemplate, const struct ObjectEventGraphicsInfo *graphicsInfo, u16 graphicsUuid, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
     u8 spriteId;
     u8 objectEventId;
     struct Sprite *sprite;
     struct ObjectEvent *objectEvent;
-    const struct ObjectEventGraphicsInfo *graphicsInfo;
 
     objectEventId = InitObjectEventStateFromTemplate(objectEventTemplate, mapNum, mapGroup);
     if (objectEventId == OBJECT_EVENTS_COUNT)
         return OBJECT_EVENTS_COUNT;
 
     objectEvent = &gObjectEvents[objectEventId];
-    graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
     if (spriteTemplate->paletteTag != TAG_NONE && spriteTemplate->paletteTag != OBJ_EVENT_PAL_TAG_DYNAMIC)
         LoadObjectEventPalette(spriteTemplate->paletteTag);
 
@@ -1995,7 +1993,7 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
         objectEvent->invisible = TRUE;
 
     if (OW_GFX_COMPRESS)
-        spriteTemplate->tileTag = LoadSheetGraphicsInfo(graphicsInfo, objectEvent->graphicsId, NULL);
+        spriteTemplate->tileTag = LoadSheetGraphicsInfo(graphicsInfo, graphicsUuid, NULL);
 
     if (objectEvent->graphicsId & OBJ_EVENT_MON && objectEvent->graphicsId & OBJ_EVENT_MON_SHINY)
         objectEvent->shiny = TRUE;
@@ -2064,6 +2062,7 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
     struct SpriteFrameImage spriteFrameImage;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
     const struct SubspriteTable *subspriteTables = NULL;
+    u16 graphicsUuid = graphicsId;
 
     graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
     CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(graphicsId, objectEventTemplate->movementType, &spriteTemplate, &subspriteTables);
@@ -2075,6 +2074,7 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
         if (itemId != ITEM_NONE && GetItemPocket(itemId) == POCKET_TM_HM)
         {
             graphicsInfo = &gPokeballGraphics[BALL_FAST];
+            graphicsUuid = NUM_OBJ_EVENT_GFX;
             spriteTemplate.paletteTag = graphicsInfo->paletteTag;
             spriteTemplate.images = graphicsInfo->images;
             subspriteTables = graphicsInfo->subspriteTables;
@@ -2083,7 +2083,7 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
 
     spriteFrameImage.size = graphicsInfo->size;
     spriteTemplate.images = &spriteFrameImage;
-    objectEventId = TrySetupObjectEventSprite(objectEventTemplate, &spriteTemplate, mapNum, mapGroup, cameraX, cameraY);
+    objectEventId = TrySetupObjectEventSprite(objectEventTemplate, &spriteTemplate, graphicsInfo, graphicsUuid, mapNum, mapGroup, cameraX, cameraY);
     if (objectEventId == OBJECT_EVENTS_COUNT)
         return OBJECT_EVENTS_COUNT;
 
