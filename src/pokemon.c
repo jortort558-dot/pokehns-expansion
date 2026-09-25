@@ -9206,6 +9206,10 @@ u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove)
              && !(P_EVOLUTION_LEVEL_1_LEARN >= GEN_8 && learnset[sLearningMoveTableID].level == 1))
         {
             gMoveToLearn = learnset[sLearningMoveTableID].move;
+#if RANDOMIZER_AVAILABLE
+            if (RandomizerFeatureEnabled(RANDOMIZE_LEARNSET))
+                gMoveToLearn = RandomizeMove(gMoveToLearn, species);
+#endif
             sLearningMoveTableID++;
             return GiveMoveToMon(mon, gMoveToLearn);
         }
