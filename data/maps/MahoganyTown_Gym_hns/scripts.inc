@@ -19,7 +19,7 @@ MahoganyTown_Gym_EventScript_Statue2::
 MahoganyTown_Gym_Text_GymStatue:
 	.string "GIMNASIO POKéMON DE PUEBLO CAOBA$"
 MahoganyTown_Gym_Text_GymStatueCertified:
-	.string "GIMNASIO POKéMON DE PUEBLO CAOBA\nENTRENADORES CERTIFICADOS POR\lFREDO:\l{PLAYER}$"
+	.string "GIMNASIO POKéMON DE PUEBLO CAOBA\pCERTIFICADOS POR FREDO:\n{PLAYER}$"
 MahoganyTown_GymEventScript_GymGuy::
 	lock
 	faceplayer
@@ -119,52 +119,52 @@ MahoganyTown_Gym_EventScript_Pryce_Defeated::
 	end
 
 MahoganyTown_Gym_Text_PryceIntro:
-	.string "Los POKéMON atraviesan muchas\nvivencias a\llo largo de sus vidas, igual que\lnosotros.\lYo también he presenciado y\lpadecido mucho\len este mundo.\lComo soy tu mayor, déjame enseñarte\la qué\lme refiero.\lConvivo con los POKéMON desde antes\lde que\ltú nacieras.\lNo soy alguien a quien se venza con\lfacilidad.\l¡Yo, FREDO, el maestro del\linvierno,\lte mostraré mi auténtico poder!$"
+	.string "Los POKéMON viven muchas cosas,\nigual que nosotros.\pYo también he visto y sufrido\nmucho en mi vida.\pComo soy tu mayor, déjame enseñarte\na qué me refiero.\pLlevo con los POKéMON desde antes\nde que tú nacieras.\pNo pierdo con facilidad.\p¡Yo, FREDO, maestro del invierno,\nte mostraré mi poder!$"
 MahoganyTown_Gym_Text_PryceImpressed:
-	.string "Ah, me quito el sombrero ante tu\ndestreza.\lCon esa férrea voluntad que posees,\lsuperarás\ltodos los obstáculos de la vida.\l¡Eres digno de portar esta MEDALLA!$"
+	.string "Ah, me impresiona tu\ndestreza.\pCon esa férrea voluntad, sé que\nsuperarás cualquier obstáculo.\p¡Mereces esta MEDALLA!$"
 MahoganyTown_Gym_Text_ReceivedBadge:
 	.string "¡{PLAYER} recibió la\nMEDALLA GLACIAR!$"
 MahoganyTown_Gym_Text_GlacierBadgeSpeech:
-	.string "Esa MEDALLA aumentará el ATAQUE\nESPECIAL\lde tus POKéMON.\lTambién les permitirá usar\lTORBELLINO para\lcruzar remolinos salvajes en el\lagua.\lY toma... ¡esto es un obsequio de\lmi parte!$"
+	.string "Esa MEDALLA aumenta el ATAQUE\nESPECIAL de los POKéMON.\pTambién les permite usar TORBELLINO\npara cruzar remolinos reales.\pY esto… ¡Es un regalo mío!$"
 MahoganyTown_Gym_Text_HailSpeech:
-	.string "Esa MT contiene GRANIZO.\nCausa daño continuo en cada turno\ldurante\lcinco turnos.\lEs una muestra de la crudeza del\linvierno.$"
+	.string "Esa MT contiene GRANIZO.\pDaña en cada turno durante\ncinco turnos.\pDemuestra la crudeza\ndel invierno.$"
 MahoganyTown_Gym_Text_CherishPokemon:
-	.string "Cuando el hielo y la nieve se\nderriten,\lla primavera florece de nuevo.\lTus POKéMON y tú estaréis juntos\ldurante\lmuchos años venideros.\l¡Atesora cada instante a su lado!$"
+	.string "Al fundirse el hielo y la nieve,\nllega la primavera.\pTus POKéMON y tú seguiréis juntos\ndurante muchos años.\p¡Atesora vuestro tiempo juntos!$"
 MahoganyTown_Gym_Text_PryceRematch:
-	.string "¡Ah, el mismísimo CAMPEÓN de JOHTO!\nTu talento es verdaderamente\lformidable.\lEstoy impresionado.\lPero incluso ahora, aún tenemos\lmucho que\laprender el uno del otro.\lYo, FREDO, el maestro del invierno,\ltodavía\lguardo algún que otro as en la\lmanga.\l¿Aceptas una revancha conmigo?$"
+	.string "¡Ah, CAMPEÓN DE JOHTO!\pTu talento es verdaderamente\nformidable.\pEstoy impresionado.\pPero aún tenemos mucho que aprender\nel uno del otro.\pYo, FREDO, maestro del invierno,\naún guardo algún as en la manga.\p¿Quieres una revancha conmigo?$"
 MahoganyTown_Gym_Text_PryceRematchDefeat:
-	.string "Ah, una vez más me rindo ante tu\ntalento.\lCon esa férrea voluntad que posees,\lsuperarás\ltodos los obstáculos que te depare\lla vida.$"
+	.string "Ah, vuelves a impresionarme con\ntu destreza.\pCon esa férrea voluntad, sé que\nsuperarás cualquier obstáculo.$"
 MahoganyTown_Gym_Text_Guide:
-	.string "FREDO es todo un veterano que lleva\nunos\l50 años entrenando POKéMON.\lTiene un plantel solidísimo para\lfrenar lo que\lsea que le tires encima.\lEl fuego es una gran opción para\lempezar,\l¡pero ten cuidado si hace llover!$"
+	.string "FREDO es un veterano que lleva\nunos 50 años entrenando POKéMON.\pTiene un equipo sólido capaz de\nresponder a cualquier rival.\pEl fuego es un buen comienzo,\n¡pero cuidado con la lluvia!$"
 MahoganyTown_Gym_Text_GuideWin:
-	.string "FREDO es un fenómeno, ¡pero tú eres\nde otra\lgalaxia!\l¡Ha sido un combate que ha\lderretido la\lbrecha generacional!$"
+	.string "FREDO es increíble, ¡pero tú lo\neres aún más!\p¡Ese combate ardiente ha unido\na dos generaciones!$"
 MahoganyTown_Gym_Text_BoarderRonaldSeen:
-	.string "¡Voy a congelar a tus POKéMON para\nque no\lpuedas mover ni un dedo!$"
+	.string "¡Congelaré a tus POKéMON para que\nno puedas hacer nada!$"
 MahoganyTown_Gym_Text_BoarderRonaldBeaten:
 	.string "Mecachis. No he podido hacer nada.$"
 MahoganyTown_Gym_Text_BoarderRonaldAfter:
-	.string "Creo que hay un movimiento que los\nPOKéMON\lpueden usar incluso estando\lcongelados.$"
+	.string "Creo que hay un movimiento que un\nPOKéMON puede usar congelado.$"
 MahoganyTown_Gym_Text_BoarderBradSeen:
-	.string "Este GIMNASIO tiene una pista\nresbaladiza.\lEs divertido, ¿verdad?\l¡Pero oye, que no hemos venido a\ljugar!$"
+	.string "Este GIMNASIO tiene suelo helado.\pEs divertido, ¿verdad?\p¡Pero no estamos aquí para jugar!$"
 MahoganyTown_Gym_Text_BoarderBradBeaten:
 	.string "¿Ves lo en serio que vamos?$"
 MahoganyTown_Gym_Text_BoarderBradAfter:
-	.string "Este GIMNASIO es la caña.\n¡Me flipa patinar con mis POKéMON!$"
+	.string "Este GIMNASIO es genial.\n¡Me encanta patinar con ellos!$"
 MahoganyTown_Gym_Text_BoarderDouglasSeen:
 	.string "Me sé el secreto de FREDO.$"
 MahoganyTown_Gym_Text_BoarderDouglasBeaten:
 	.string "Vale. Te contaré el secreto de\nFREDO.$"
 MahoganyTown_Gym_Text_BoarderDouglasAfter:
-	.string "El secreto tras la fuerza de FREDO…\nMedita todos los días bajo una\lcascada\lhelada para templar cuerpo y mente.$"
+	.string "El secreto del poder de FREDO…\pMedita a diario bajo una cascada\npara fortalecer cuerpo y mente.$"
 MahoganyTown_Gym_Text_SkierRoxanneSeen:
-	.string "Para llegar hasta FREDO, nuestro\nLÍDER,\ltienes que pensar muy bien antes de\ldeslizarte.$"
+	.string "Para llegar hasta FREDO, nuestro\nLÍDER, piensa antes de deslizarte.$"
 MahoganyTown_Gym_Text_SkierRoxanneBeaten:
 	.string "¡Esquiando no te dejaría ganarme!$"
 MahoganyTown_Gym_Text_SkierRoxanneAfter:
-	.string "Si no esquías con precisión\nmilimétrica,\lno llegarás muy lejos en este\lGIMNASIO.$"
+	.string "Si no patinas con precisión,\nno avanzarás en este GIMNASIO.$"
 MahoganyTown_Gym_Text_SkierClarissaSeen:
-	.string "¡Mira qué viraje en paralelo me\nmarco!$"
+	.string "¡Mira mi giro en paralelo!$"
 MahoganyTown_Gym_Text_SkierClarissaBeaten:
-	.string "¡Nooo! ¡Me has hecho darme un\nleñazo!$"
+	.string "¡Nooo! ¡Me has hecho caer!$"
 MahoganyTown_Gym_Text_SkierClarissaAfter:
-	.string "No debí haberme tirado tantas\nflores con\lmi técnica de esquí…$"
+	.string "No debí presumir tanto de mi\ntécnica de esquí…$"

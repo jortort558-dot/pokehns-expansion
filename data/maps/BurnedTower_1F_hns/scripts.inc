@@ -49,7 +49,7 @@ BurnedTower_Movement_Eusine2:
 
 
 BurnedTower_1FEusineIntroText:
-	.string "EUSKADI: Me llamo EUSKADI.\p"
+	.string "EUSINE: Me llamo EUSINE.\p"
 	.string "Voy tras la pista de un POKéMON\n"
 	.string "llamado SUICUNE.\p"
 	.string "¿Y tú eres...?\p"
@@ -84,7 +84,7 @@ BurnedTower_1F_EventScript_Morty::
 	end
 
 BurnedTower_1FEusineText:
-	.string "EUSKADI: Dicen que SUICUNE\n"
+	.string "EUSINE: Dicen que SUICUNE\n"
 	.string "podría estar en esta TORRE\l"
 	.string "QUEMADA, así que vine a\l"
 	.string "investigar.\p"
@@ -95,7 +95,7 @@ BurnedTower_1FMortyText:
 	.string "POKéMON que se consideran\l"
 	.string "legendarios: SUICUNE, ENTEI y\l"
 	.string "RAIKOU.\p"
-	.string "Como EUSKADI está aquí, he\n"
+	.string "Como EUSINE está aquí, he\n"
 	.string "decidido inspeccionar la TORRE\l"
 	.string "junto a él.$"
 BurnedTower_1F_EventScript_Silver::
@@ -153,9 +153,9 @@ BurnedTower_1F_Silver_Battle_Chikorita::
 BurnedTowerSilver_BeforeText:
 	.string "..............................\p"
 	.string "...Vaya, tú otra vez, pringao.\p"
-	.string "He venido buscando los POKéMON\n"
-	.string "legendarios que dicen que anidan\l"
-	.string "aquí.\p"
+	.string "Busco los POKéMON legendarios\n"
+	.string "que dicen que anidan en este\l"
+	.string "lugar.\p"
 	.string "¡Pero aquí no hay una puta\n"
 	.string "mierda!\p"
 	.string "¿Tanto patear para llegar a este\n"

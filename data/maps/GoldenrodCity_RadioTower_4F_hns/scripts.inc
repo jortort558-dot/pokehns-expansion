@@ -88,47 +88,47 @@ GoldenrodCity_RadioTower_4F4_EventScript_Meowth::
 
 
 GoldenrodCity_RadioTower_4F4_Text_Proton_Seen:
-	.string "PROTÓN: ¡Alto ahí un segundo!\n¿No eres tú quien nos estorbó en el\lPOZO\lSLOWPOKE?\lYa veo... Haces todo esto porque te\ldivierte\lhacerme rabiar. ¡Mucho cuidado!\lPero ya que tanto lo deseas, ¡te\lmostraré la\lcolosal furia de un EJECUTIVO DEL\lTEAM ROCKET!$"
+	.string "PROTÓN: ¡Espera un segundo!\p¿No eres quien se interpuso en\nnuestro camino en el POZO SLOWPOKE?\pYa veo… Haces todo esto porque\nquieres enfadarme. ¡Ten cuidado!\pYa que lo deseas, ¡te mostraré\ntoda la furia de un EJECUTIVO del\lTEAM ROCKET!$"
 GoldenrodCity_RadioTower_4F4_Text_Proton_Beaten:
 	.string "Uf...$"
 GoldenrodCity_RadioTower_4F4_Text_Proton_After:
-	.string "PROTÓN: Puede que hayas ganado esta\nvez...\lPero lo único que has conseguido es\lque la\lfuria del TEAM ROCKET arda con más\lfuerza.$"
+	.string "PROTÓN: Puede que hayas ganado esta\nvez… Pero solo has conseguido que\lla furia del TEAM ROCKET aumente.$"
 GoldenrodCity_RadioTower_4F4_Text_Fisher:
-	.string "Estuve escuchando la radio mientras\nvisitaba\llas RUINAS.\lSe coló una emisión rarísima por\lallí.$"
+	.string "Escuchaba la radio mientras estaba\nen las RUINAS.\pOí allí una emisión extraña.$"
 GoldenrodCity_RadioTower_4F4_Text_DJMary:
-	.string "ROSA: ¿Por qué? ¿Por qué me tiene\nque pasar\lesto a mí?\l¡MEOWTH, ayúdame!$"
+	.string "ROSA: ¿Por qué tengo que sufrir\nyo todo esto?\p¡MEOWTH, ayúdame!$"
 GoldenrodCity_RadioTower_4F4_Text_DJMaryCleared:
-	.string "ROSA: ¡Oh! ¡Mi pequeño salvador!\n¿Aceptarías esto como\lagradecimiento?$"
+	.string "ROSA: ¡Oh! ¡Mi pequeño salvador!\p¿Aceptarías esto como gratitud?$"
 GoldenrodCity_RadioTower_4F4_Text_DJMaryPinkBow:
-	.string "ROSA: Va genial para esquivar los\nataques del\lenemigo.$"
+	.string "ROSA: Sirve para esquivar los\nataques del rival.$"
 GoldenrodCity_RadioTower_4F4_Text_DJMaryAfter:
-	.string "ROSA: ¡Por favor, sintonízame en LA\nHORA DEL\lPROFESOR OAK!$"
+	.string "ROSA: ¡Escúchame en LA HORA DEL\nPROF. OAK!$"
 GoldenrodCity_RadioTower_4F4_Text_Meowth:
 	.string "MEOWTH: ¡Meowth…!$"
 GoldenrodCity_RadioTower_4F4_Text_GruntM10Seen:
-	.string "¿Planeas rescatar al DIRECTOR?\n¡Pues lo llevas claro, porque\lpienso borrarte\ldel mapa!$"
+	.string "¿Planeas rescatar al DIRECTOR?\p¡No podrás, porque voy a vencerte!$"
 GoldenrodCity_RadioTower_4F4_Text_GruntM10Beaten:
 	.string "¡No! ¡Increíble!$"
 GoldenrodCity_RadioTower_4F4_Text_GruntM10After:
 	.string "¡No me lo puedo creer! ¡Me ha\nvencido!$"
 GoldenrodCity_RadioTower_4F4_Text_ExecutiveM2Seen:
-	.string "¡Alto! ¡Me conocen como la\nfortaleza del\lTEAM ROCKET!\l¡De aquí no vas a pasar!$"
+	.string "¡Alto! ¡Soy la fortaleza\ndel TEAM ROCKET!\p¡No darás ni un paso más!$"
 GoldenrodCity_RadioTower_4F4_Text_ExecutiveM2Beaten:
 	.string "¡La fortaleza se ha desmoronado!$"
 GoldenrodCity_RadioTower_4F4_Text_ExecutiveM2After:
-	.string "Te has ganado mi respeto, así que\nescucha un\lbuen consejo.\lNo es tarde. Todavía estás a tiempo\lde darte\lla vuelta.$"
+	.string "Te has ganado mi respeto, así que\nte daré un consejo.\pAún estás a tiempo de volver atrás.$"
 GoldenrodCity_RadioTower_4F4_Text_GruntF4Seen:
-	.string "¿Que si los POKéMON me parecen\nmonos?\l¡Mis POKéMON me parecerán divinos\len cuanto\lle revienten los morros a los\ltuyos!$"
+	.string "¿Que si los POKéMON son adorables?\p¡Los míos me parecerán adorables\ndespués de vencer a los tuyos!$"
 GoldenrodCity_RadioTower_4F4_Text_GruntF4Beaten:
-	.string "¡Ay, no! ¡Menuda panda de inútiles!$"
+	.string "¡Ay, no! ¡Son unos inútiles!$"
 GoldenrodCity_RadioTower_4F4_Text_GruntF4After:
-	.string "¡Yo solo me amo a mí misma y a mi\nbelleza!\l¿A quién le importan los POKéMON?$"
+	.string "¡Me amo a mí y a mi belleza!\p¿A quién le importan los POKéMON?$"
 GoldenrodCity_RadioTower_4F4_Text_ScientistRichSeen:
-	.string "Sencillamente magistral.\nEsta TORRE RADIO culminará nuestro\lgrandioso\lplan.$"
+	.string "Sencillamente magistral.\pEsta TORRE RADIO culminará nuestro\ngran plan.$"
 GoldenrodCity_RadioTower_4F4_Text_ScientistRichBeaten:
-	.string "Mmm…\nTodo gran plan tiene sus pequeños\ltropiezos.$"
+	.string "Mmm…\pTodo gran plan tiene tropiezos.$"
 GoldenrodCity_RadioTower_4F4_Text_ScientistRichAfter:
-	.string "¿De verdad eres tan iluso como para\ncreer que\lpuedes detener al TEAM ROCKET?$"
+	.string "¿De verdad crees que puedes detener\nal TEAM ROCKET?$"
 GoldenrodCity_RadioTower_4F4_Text_ProductionSign:
 	.string "4P PRODUCCIÓN$"
 GoldenrodCity_RadioTower_4F4_Text_Studio2Sign:

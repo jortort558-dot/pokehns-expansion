@@ -140,24 +140,26 @@ Route39_Text_ChooseLegend::
 
 Route39_Text_BaobaIntro::
 	.string "Qué extraño...\p"
-	.string "¡Oh!\n"
-	.string "Eso que llevas ahí es...\l"
+	.string "...¡Oh!\n"
+	.string "Eso que llevas es...\l"
 	.string "lo que llaman... ¡una POKéDEX!\p"
-	.string "Hacía años que no veía una.\p"
+	.string "¡Hacía años que no veía una!\p"
 	.string "¡Me llamo BAOBA!\n"
-	.string "Antes dirigía la ZONA SAFARI de\l"
-	.string "CIUDAD FUCSIA, pero quedó anticuada\l"
-	.string "frente a las nuevas atracciones.\p"
-	.string "Por eso viajé al extranjero para\n"
-	.string "aprender técnicas y abrir una nueva\l"
-	.string "ZONA SAFARI de última generación\l"
+	.string "Antes dirigía la ZONA SAFARI\l"
+	.string "de CIUDAD FUCSIA, pero estaba\l"
+	.string "quedándose anticuada frente a\l"
+	.string "las nuevas formas de ocio.\p"
+	.string "Viajé al extranjero para aprender\n"
+	.string "las técnicas más modernas y abrir\l"
+	.string "una ZONA SAFARI de vanguardia\l"
 	.string "en CIUDAD ORQUÍDEA.\p"
-	.string "Seguro que no es casualidad que nos\n"
-	.string "hayamos conocido aquí.\p"
-	.string "¿Qué tal si registramos nuestros\n"
-	.string "números en el POKéGEAR?\p"
-	.string "¡Te llamaré en cuanto inauguremos\n"
-	.string "la ZONA SAFARI, antes que a nadie!$"
+	.string "Quizá no sea casualidad\n"
+	.string "que hayamos coincidido.\p"
+	.string "¿Por qué no intercambiamos\n"
+	.string "nuestros números del POKéGEAR?\p"
+	.string "Te llamaré cuando abramos,\n"
+	.string "antes de avisar a\l"
+	.string "ninguna otra persona!$"
 
 Route39_Text_Registered:
 	.string "¡{PLAYER} registró a BAOBA en el\nPOKéGEAR!$"
@@ -269,11 +271,11 @@ Route39_EventScript_DerekNoRoom::
 	end
 
 Route39_Text_PokefanMDerekSeen:
-	.string "¡Es el momento perfecto para fardar\nde mi PIKACHU!$"
+	.string "¡Es un momento perfecto para\nfardar de mi PIKACHU!$"
 Route39_Text_PokefanMDerekBeaten:
 	.string "No me ha dado tiempo ni de lucir\na mi PIKACHU…$"
 Route39_Text_PokefanMDerekAfter:
-	.string "¡No pienso escuchar tus\nfanfarronadas!\pLos POKéFANS tenemos por norma no\nescuchar las presunciones de nadie.$"
+	.string "¡No pienso escuchar tus\nfanfarronadas!\pLos POKéFANS tenemos por norma\nno escuchar a los fanfarrones.$"
 Route39_EventScript_Ruth::
 	trainerbattle_single TRAINER_RUTH_HNS, Route39_Text_PokefanFRuthSeen, Route39_Text_PokefanFRuthBeaten
 	msgbox Route39_Text_PokefanFRuthAfter, MSGBOX_AUTOCLOSE
@@ -291,9 +293,9 @@ Route39_EventScript_Norman::
 	end
 
 Route39_Text_PsychicNormanSeen:
-	.string "Déjame comprobar de qué son capaces\ntus POKéMON.$"
+	.string "Déjame ver de qué son capaces\ntus POKéMON.$"
 Route39_Text_PsychicNormanBeaten:
-	.string "Oh, tus POKéMON tienen un potencial\nenorme.$"
+	.string "Oh, tus POKéMON tienen\nun gran potencial.$"
 Route39_Text_PsychicNormanAfter:
 	.string "¿Sabes que los POKéMON tienen\nhabilidades distintas?\pA las personas les pasa igual.\nCada uno alberga un potencial\lúnico.$"
 Route39_EventScript_Jamie::
@@ -302,11 +304,11 @@ Route39_EventScript_Jamie::
 	end
 
 Route39_Text_PokefanFJaimeSeen:
-	.string "Llegas en el momento justo.\p¡Combatamos!$"
+	.string "Llegas en el momento\njusto.\p¡Combatamos!$"
 Route39_Text_PokefanFJaimeBeaten:
 	.string "Vaya, qué decepción…$"
 Route39_Text_PokefanFJaimeAfter:
-	.string "Conocí a UMBREON de noche aquí\nmismo, en la RUTA 39.\pNo sé por qué, pero parece\nencantarle\lentrenar por esta zona.\pSe vuelve más cariñoso entrenando\naquí que en ningún otro sitio.$"
+	.string "Conocí a UMBREON de noche\naquí mismo, en la RUTA 39.\pNo sé por qué, pero parece\nque le gusta que entrene\lpor esta zona.\pParece volverse más cariñoso\nentrenando aquí que\len ningún otro sitio.$"
 Route39_EventScript_Sign1::
 	lock
 	msgbox Route39_Text_Sign, MSGBOX_SIGN
@@ -324,7 +326,7 @@ Route39_EventScript_Sign2::
 	end
 
 Route39_Text_MoomooFarmSign:
-	.string "GRANJA MU-MU\pDisfruta de nuestra leche fresca y\nsabrosa.$"
+	.string "GRANJA MU-MU\pLeche fresca y deliciosa$"
 Route39_EventScript_Sign3::
 	lock
 	msgbox Route39_Text_TrainerTips, MSGBOX_SIGN
@@ -333,9 +335,9 @@ Route39_EventScript_Sign3::
 	end
 
 Route39_Text_TrainerTips:
-	.string "PISTAS PARA ENTRENADORES\pUsa GOLPE CABEZA en los árboles\npara que caigan POKéMON.\pCaen POKéMON de especies muy\ndistintas según el árbol.\p¡Dale un CABEZAZO a cualquier árbol\nque veas!$"
+	.string "PISTAS PARA ENTRENADORES\pUsa GOLPE CABEZA en los árboles\npara hacer caer POKéMON.\pDe los árboles caen POKéMON\nde especies distintas.\pUsa GOLPE CABEZA en cualquier\nárbol que veas.$"
 Route39_Text_DerekRegister:
-	.string "¡No pienso escuchar tus\nfanfarronadas!\pLos POKéFANS tenemos por norma no\nescuchar las presunciones de nadie.$"
+	.string "¡No pienso escuchar tus\nfanfarronadas!\pLos POKéFANS tenemos por norma\nno escuchar a los fanfarrones.$"
 Route39_Text_DerekHasItem:
 	.string "¡Ey! Estaba presumiendo de mi\nPIKACHU y encontré esto.\p¡Toma, te lo regalo!$"
 Route39_Text_DerekGaveItem:

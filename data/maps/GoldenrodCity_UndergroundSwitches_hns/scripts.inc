@@ -54,7 +54,7 @@ GoldenrodCity_UndergroundSwitches_EventScript_AntiSoftLock_TP::
 	end
 
 GoldenrodCity_UndergroundSwitches_EventScript_AntiSoftLock_Text::
-	.string "Puede que te hayas quedado\natascado.\p¿Volver a la entrada y reiniciar\nlos\linterruptores?$"
+	.string "Quizá te hayas quedado atascado.\p¿Volver a la entrada y reiniciar\nlos interruptores?$"
 @ 3->2->1
 
 @==============================================================================================================================================
@@ -520,16 +520,16 @@ GoldenrodCity_UndergroundSwitches_EventScript_Item_SmokeBall::
 
 GoldenrodUnderground_Text_SilverBefore:
     .string "¡Para el carro ahí mismo!\p"
-    .string "Te he visto entrar y te he seguido\nel\l"
-    .string "rastro.\p"
+    .string "Te he visto entrar y he seguido\n"
+    .string "tu rastro.\p"
     .string "No quiero que me estorbes mientras\n"
     .string "reviento al TEAM ROCKET yo solito.\p"
     .string "…Espera un momento. Tú me ganaste\n"
     .string "antes, ¿verdad?\p"
     .string "¡Fue pura potra, payaso!\p"
-    .string "He entrenado a mi equipo a mala\nleche\l"
-    .string "¡y ahora te voy a cobrar la deuda\lcon\l"
-    .string "intereses!$"
+    .string "He entrenado a mi equipo a mala\nleche,\l"
+    .string "¡y ahora te cobraré la deuda\l"
+    .string "con intereses!$"
 
 GoldenrodUnderground_Text_SilverWin:
     .string "…¿Por qué? ¡¿Por qué cojones\npierdo?!\p"
@@ -557,42 +557,42 @@ GoldenrodUnderground_Text_SilverAfter:
 GoldenrodUnderground_Text_SilverLoss:
     .string "¡Ja! Este es mi auténtico poder,\n"
     .string "pringao.\p"
-    .string "Voy a barrer al TEAM ROCKET del\nmapa.\p"
+    .string "Voy a borrar del mapa a todo el\nTEAM ROCKET.\p"
     .string "Y luego le voy a pisar la cabeza al\n"
     .string "fantasma ese de LANCE.$"
 
 GoldenrodUnderground_Text_GruntM11Seen:
-	.string "Abres una compuerta y se cierra\notra.\l¡A que no logras llegar a donde\lquieres!$"
+	.string "Abres una y se cierra otra.\p¡No llegarás adonde quieres!$"
 GoldenrodUnderground_Text_GruntM11Beaten:
 	.string "¡Mierda! ¡La indecisión me ha\nhundido!$"
 GoldenrodUnderground_Text_GruntM11After:
-	.string "Yo también me hago un lío… El\ninterruptor\ldel fondo es el primero que hay que\lpulsar,\lpero…$"
+	.string "Yo también me lío… Primero pulsa\nel interruptor del fondo, pero…$"
 GoldenrodUnderground_Text_GruntM25Seen:
-	.string "¡Jajajaja!\n¿Desesperado con las compuertas?\l¡Te soltaré un secreto si consigues\lvencerme!$"
+	.string "¡Ja, ja, ja!\p¿Te confunden las compuertas?\p¡Te daré una pista si me vences!$"
 GoldenrodUnderground_Text_GruntM25Beaten:
 	.string "Uffff… He metido la pata.$"
 GoldenrodUnderground_Text_GruntM25After:
-	.string "De acuerdo. ¡Una pista!\nCambia el orden de los\linterruptores.\lEso alterará cómo abren y cierran\llas\lcompuertas.$"
+	.string "De acuerdo. ¡Una pista!\pCambia el orden al pulsarlos.\pAsí cambiará la forma en que se\nabren y cierran las compuertas.$"
 GoldenrodUnderground_Text_BurglarDuncanSeen:
 	.string "¡Suelto todo lo que lleves de\nvalor!$"
 GoldenrodUnderground_Text_BurglarDuncanBeaten:
 	.string "¡Piedad!$"
 GoldenrodUnderground_Text_BurglarDuncanAfter:
-	.string "¡Robar y vender! ¡Eso es lo básico\ndel\lcrimen, renacuajo!$"
+	.string "¡Robar y vender! ¡Es lo básico\ndel crimen, renacuajo!$"
 GoldenrodUnderground_Text_BurglarEddieSeen:
-	.string "Abandonaron este proyecto antes de\nterminarlo.\lAndo buscando si dejaron algún\lbotín.$"
+	.string "Abandonaron este proyecto antes de\nterminarlo.\pBusco algún botín olvidado.$"
 GoldenrodUnderground_Text_BurglarEddieBeaten:
 	.string "¡Por encima de mis posibilidades!$"
 GoldenrodUnderground_Text_BurglarEddieAfter:
-	.string "¿ALMACENES SUBTERRÁNEOS?\n¿Para qué demonios quieres ir allí?\lNo hay un pimiento ahí abajo.$"
+	.string "¿ALMACENES SUBTERRÁNEOS?\p¿Para qué quieres ir allí?\pNo hay nada ahí abajo.$"
 GoldenrodUnderground_Text_GruntM13Seen:
-	.string "Me da igual que te hayas perdido.\n¡Si apareces por aquí, no eres más\lque una\lvíctima!$"
+	.string "Me da igual que te hayas perdido.\p¡Si apareces aquí, solo eres\nuna víctima!$"
 GoldenrodUnderground_Text_GruntM13Beaten:
 	.string "¡Urg! Sí, te crees muy chulito,\n¿eh?$"
 GoldenrodUnderground_Text_GruntM13After:
-	.string "Hay que tener horchata en las venas\npara\ltocarle las narices al TEAM ROCKET.$"
+	.string "Hay que tener hielo en las venas\npara desafiar al TEAM ROCKET.$"
 GoldenrodUnderground_Text_GruntF3Seen:
-	.string "¿Te has perdido? No, no lo parece.\nNo tienes cara de asustado.\l¡Pues te daré un buen motivo para\ltemblar!$"
+	.string "¿Te has perdido? No, no puede ser.\pNo pareces asustado.\p¡Te daré un motivo para temblar!$"
 GoldenrodUnderground_Text_GruntF3Beaten:
 	.string "¿Pero cómo has podido?$"
 GoldenrodUnderground_Text_GruntF3After:

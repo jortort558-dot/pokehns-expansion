@@ -67,42 +67,42 @@ TrainerHill_Courtyard_EventScript_Sailor::
 	end
 
 BattleTowerOutsideYoungsterText:
-	.string "Wow, the TRAINER HILL is huge!\p"
-	.string "There must be many kinds of\n"
-	.string "POKéMON in there!$"
+	.string "¡Hala, la COLINA DESAFÍO es enorme!\p"
+	.string "¡Dentro debe de haber muchas clases\n"
+	.string "de POKéMON!$"
 
 BattleTowerOutsideBeautyText:
-	.string "In the BATTLE TENTS, you can\n"
-	.string "use only three POKéMON.\p"
-	.string "It's so hard to decide which\n"
-	.string "three should go into battle…$"
+	.string "En las CARPAS DE BATALLA solo\n"
+	.string "puedes usar tres POKéMON.\p"
+	.string "Es muy difícil decidir qué\n"
+	.string "tres llevar al combate…$"
 
 BattleTowerOutsideSailorText:
-	.string "Hehehe, I snuck out from work.\p"
-	.string "I can't bail out until I've won!\p"
-	.string "I have to win it all. That I must!$"
+	.string "Je, je, me he escapado del trabajo.\p"
+	.string "¡No puedo irme hasta que gane!\p"
+	.string "¡Tengo que ganarlo todo!$"
 
 BattleTowerOutsideSignText:
-	.string "{UP_ARROW} TRAINER HILL ENTRANCE\p"
-	.string "“Scale the heights, you hot-blooded\n"
-	.string "TRAINERS!”\p"
-	.string "{RIGHT_ARROW} BATTLE TENTS.$"
+	.string "{UP_ARROW} ENTRADA A COLINA DESAFÍO\p"
+	.string "«¡Alcanzad la cima, Entrenadores\n"
+	.string "apasionados!»\p"
+	.string "{RIGHT_ARROW} CARPAS DE BATALLA$"
 
 BattleTower_Battle_Tent_Text_Factory:
-	.string "BATTLE TENT: FACTORY\n"
-	.string "“Find it! The ultimate POKéMON!”$"
+	.string "CARPA DE BATALLA: FÁBRICA\n"
+	.string "«¡Encuentra al POKéMON definitivo!»$"
 
 BattleTower_Battle_Tent_Text_Palace:
-	.string "BATTLE TENT: PALACE\n"
-	.string "“Feast Your Eyes on Battles!”$"
+	.string "CARPA DE BATALLA: PALACIO\n"
+	.string "«¡Deleita tu vista con combates!»$"
 
 BattleTower_Battle_Tent_Text_Arena:
-	.string "BATTLE TENT: ARENA\n"
-	.string "“May the Greatest Teams Gather!”$"
+	.string "CARPA DE BATALLA: ESTADIO\n"
+	.string "«¡Que vengan los mejores equipos!»$"
 
 BattleTowerOutsideText_Closed:
-	.string "The TRAINER HILL is currently\n"
-	.string "closed for repairs.$"
+	.string "La COLINA DESAFÍO está cerrada\n"
+	.string "por reformas.$"
 
 
 TrainerHill_Courtyard_EventScript_LeftMoveTutor::
@@ -198,46 +198,46 @@ TrainerHill_Courtyard_ExchangeServiceCorner_EventScript_OldWTMan::
 	end
 
 TrainerHill_Courtyard_ExchangeServiceCorner_EventScript_OldWTMan_Text:
-	.string "Hi! If you are looking for the\n"
-	.string "WONDERTRADE, they're now located in\l"
-	.string "every POKéMON CENTER. Have fun!$"
+	.string "¡Hola! Si buscas el INTERCAMBIO\n"
+	.string "PRODIGIOSO, ahora está disponible\l"
+	.string "en todos los CENTROS POKéMON.$"
 
 TrainerHill_Courtyard_ExchangeServiceCorner_Text_WelcomePleaseChoosePrize:
-	.string "Hello, this is the EXCHANGE SERVICE\n"
-	.string "CORNER.\p"
-	.string "We exchange the Battle Points you\n"
-	.string "have collected for lovely prizes.\p"
-	.string "Please choose a prize from this list.$"
+	.string "Hola. Este es el RINCÓN DEL\n"
+	.string "SERVICIO DE CANJE.\p"
+	.string "Cambiamos tus Puntos de Batalla\n"
+	.string "por fantásticos premios.\p"
+	.string "Elige un premio de la lista.$"
 
 TrainerHill_Courtyard_ExchangeServiceCorner_Text_WishIHadAllDolls:
-	.string "Oh, they're so nice!\n"
-	.string "I wish I had them!\l"
-	.string "Cute cushions!\l"
-	.string "Big plush DOLLS!\l"
-	.string "Little plush DOLLS!\l"
-	.string "I wish I had them all!$"
+	.string "¡Oh, son preciosos!\n"
+	.string "¡Ojalá los tuviera!\l"
+	.string "¡Cojines adorables!\l"
+	.string "¡MUÑECOS de peluche grandes!\l"
+	.string "¡MUÑECOS de peluche pequeños!\l"
+	.string "¡Ojalá pudiera tenerlos todos!$"
 
 TrainerHill_Courtyard_ExchangeServiceCorner_Text_GetYouAnythingYouWant:
-	.string "Leave it to your mommy!\p"
-	.string "If it's anything you want, I'll go\n"
-	.string "through anything to get it, honey!$"
+	.string "¡Déjaselo a mamá!\p"
+	.string "Si quieres algo, haré lo que sea\n"
+	.string "para conseguírtelo, cariño.$"
 
 TrainerHill_Courtyard_ExchangeServiceCorner_Text_ItemsWillGetMonTougher:
-	.string "If I can get hold of the items here,\n"
-	.string "my POKéMON will get tougher.\p"
-	.string "You bet they will!\n"
-	.string "No question about it!$"
+	.string "Si consigo los objetos de aquí,\n"
+	.string "mis POKéMON se harán más fuertes.\p"
+	.string "¡Claro que sí!\n"
+	.string "¡No me cabe duda!$"
 
 TrainerHill_Courtyard_ExchangeServiceCorner_Text_GoGetYourOwnDoll:
-	.string "Hah?\n"
-	.string "What are you gawking at?\p"
-	.string "I don't like you staring at my plush\n"
-	.string "doll like that.\p"
-	.string "If you want it, go get one yourself!\n"
-	.string "Isn't that right, SMOOCHUM?$"
+	.string "¿Eh?\n"
+	.string "¿Qué miras?\p"
+	.string "No me gusta que observes así mi\n"
+	.string "muñeco de peluche.\p"
+	.string "¡Si quieres uno, consíguelo tú!\n"
+	.string "¿Verdad, SMOOCHUM?$"
 
 TrainerHill_Courtyard_ExchangeServiceCorner_Text_MoreBattlePointsForRecord:
-	.string "Did you know?\p"
-	.string "If you stretch your record at any of\n"
-	.string "the BATTLE facilities, they start\l"
-	.string "giving you more and more Battle Points.$"
+	.string "¿Lo sabías?\p"
+	.string "Si alargas tu racha en cualquier\n"
+	.string "instalación de BATALLA, empiezan a\l"
+	.string "darte más Puntos de Batalla.$"

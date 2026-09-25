@@ -29,10 +29,10 @@ OlivineCity_House1_EventScript_TradeCompleted::
 OlivineCity_House1_Text_YouWillTradeWontYou:
 	.string "¡Colecciono POKéMON!\n¿Tienes un {STR_VAR_1}?\p¿Quieres cambiarlo por mi\n{STR_VAR_2}?$"
 OlivineCity_House1_Text_MonYouTakeCare:
-	.string "¡Toma ya! ¡Conseguí un\n{STR_VAR_1}!\p¡{STR_VAR_2}, cuídate mucho!$"
+	.string "¡Bien! ¡Ya tengo un {STR_VAR_1}!\p¡Cuídate mucho, {STR_VAR_2}!$"
 OlivineCity_House1_Text_ThisIsntAMon:
 	.string "Mmm, va a ser que no.\nEso no es un {STR_VAR_1}.$"
 OlivineCity_House1_Text_YouWontTradeMe:
 	.string "¿No quieres cambiarlo? Jo...$"
 OlivineCity_House1_Text_After:
-	.string "¡Hola! ¿Cómo le va a mi viejo\nVOLTORB?$"
+	.string "¡Hola! ¿Cómo está mi viejo VOLTORB?$"

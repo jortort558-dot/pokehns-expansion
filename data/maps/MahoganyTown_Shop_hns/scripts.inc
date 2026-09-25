@@ -230,16 +230,16 @@ MahoganyTown_Pokemart:
 MahoganyTown_Shop_Text_Granny:
 	.string "Vuelve en otro momento, por favor.\nLa tienda está... cerrada por\lahora.$"
 MahoganyMart1F_Text_Pharmacist_Lance:
-	.string "¡El TEAM ROCKET ha secuestrado mi\nsótano!$"
+	.string "¡El TEAM ROCKET tomó mi sótano!$"
 MahoganyMart1F_Text_BlackBelt:
-	.string "¡Je, je! El experimento ha salido a\nlas\lmil maravillas.\pLos MAGIKARP no valen un pimiento,\npero\llos GYARADOS dan una pasta gansa.$"
+	.string "¡Je, je! El experimento ha salido\na las mil maravillas.\pLos MAGIKARP no valen nada, pero\nlos GYARADOS dan mucho dinero.$"
 MahoganyMart1F_Text_BlackBelt_Lance:
-	.string "Urrrgh…\nLos POKéMON de ese tío son de\lpiedra…$"
+	.string "Urrrgh…\pLos POKéMON de ese tipo son duros…$"
 MahoganyMart1F_Text_Lance_HyperBeam:
 	.string "LANCE: DRAGONITE, ¡HIPERRAYO!$"
 MahoganyMart1F_Text_Lance_Radio:
-	.string "¿Qué te ha entretenido, {PLAYER}?\pTal y como sospechábamos, esa\nextraña\lseñal de radio procede de aquí\labajo.$"
+	.string "¿Por qué has tardado, {PLAYER}?\pComo sospechábamos, esa extraña\nseñal de radio viene de aquí.$"
 MahoganyMart1F_Text_Lance_Stairs:
-	.string "¡Trabajo impecable encontrando las\nescaleras secretas, DRAGONITE!$"
+	.string "¡Buen trabajo encontrando las\nescaleras, DRAGONITE!$"
 MahoganyMart1F_Text_Lance_SplitUp:
-	.string "LANCE: {PLAYER}, será mejor\nsepararnos para investigar.\pEntraré yo primero.$"
+	.string "LANCE: {PLAYER}, debemos separarnos\npara registrar este lugar.\pYo iré primero.$"

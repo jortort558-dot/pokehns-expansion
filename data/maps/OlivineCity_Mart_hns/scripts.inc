@@ -18,6 +18,6 @@ OlivineCity_EventScript_Lass::
 	end
 
 OlivineCity_Text_MartCooltrainerF:
-	.string "¿Tus POKéMON ya han aprendido el\nmovimiento para llevar a personas\lpor el agua?$"
+	.string "¿Tus POKéMON ya conocen el\nmovimiento que transporta personas\lpor el agua?$"
 OlivineCity_Text_MartLass:
-	.string "Mi BUTTERFREE me lo envió mi novio\ndesde el extranjero.\pTraía una CARTA suya.\p¿Quieres saber qué pone?\pA ver... ¡Pues no! ¡Es un secreto!$"
+	.string "Mi BUTTERFREE vino de parte de mi\nnovio, que vive en el extranjero.\pTraía una CARTA suya.\p¿Quieres saber qué dice?\pA ver... ¡No! ¡Es un secreto!$"

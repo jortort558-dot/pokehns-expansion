@@ -18,20 +18,20 @@ CliffEdgeGate_EventScript_Picnicker::
 	end
 
 CliffEdgeGate_Text_IntroOpen:
-	.string "Did you know? There's a SAFARI ZONE\n"
-	.string "just around the corner.\p"
-	.string "It's really fun!\n"
-	.string "You will see many different kinds of\l"
-	.string "POKéMON, and it's all you can catch!\p"
-	.string "There is no reason not to go, right?\n"
-	.string "Just around the corner.$"
+	.string "¿Lo sabías? Hay una ZONA SAFARI\n"
+	.string "a la vuelta de la esquina.\p"
+	.string "¡Es muy divertida!\n"
+	.string "Verás muchas especies de POKéMON\l"
+	.string "¡y podrás capturar cuanto quieras!\p"
+	.string "No hay razón para no ir, ¿verdad?\n"
+	.string "Está ahí al lado.$"
 
 CliffEdgeGate_Text_Expectations:
-	.string "I appreciate that everybody is looking\n"
-	.string "forward to it.\p"
-	.string "But the lady at the reception seems\n"
-	.string "a bit too dramatic...\p"
-	.string "Don't get your expectations too high!$"
+	.string "Me alegra que todos estén deseando\n"
+	.string "visitarla.\p"
+	.string "Pero la chica de recepción parece\n"
+	.string "un poco exagerada…\p"
+	.string "¡No te hagas demasiadas ilusiones!$"
 
 CliffEdgeGate_EventScript_CaveSign::
 	lock
@@ -45,4 +45,3 @@ CliffEdgeGate_Text_SignOpen:
 	.string "¡Explora y halla POKéMON salvajes!\l"
 	.string "¡ZONA SAFARI del DIRECTOR BAOBA\l"
 	.string "abierta al público!$"
-

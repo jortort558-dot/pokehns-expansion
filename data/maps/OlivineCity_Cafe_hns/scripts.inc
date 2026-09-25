@@ -15,7 +15,7 @@ OlivineCity_Cafe_EventScript_Jasmine::
 	end
 
 OlivineCity_Cafe_Text_Jasmine:
-	.string "Ah... Hola, {PLAYER}.\pTodos estos platos que ves aquí no\nson\lsolo míos...\pEsto...\pEn realidad, quien estaba sentado\nantes\lque yo comió una barbaridad...\pSi quieres que luchemos otra vez,\nvisítame en el DOJO de COMBATE en\lCIUDAD AZAFRÁN.$"
+	.string "Ah... Hola, {PLAYER}.\pEsos platos que ves ahí no son\ntodos míos...\pEh...\pEn realidad, quien estaba aquí\nantes que yo comió muchísimo...\pSi quieres volver a combatir,\nvisítame en el DOJO DE LUCHA de\lCIUDAD AZAFRÁN.$"
 OlivineCity_EventScript_SailorA::
 	lock
 	faceplayer
@@ -46,10 +46,10 @@ OlivineCity_EventScript_SailorB::
 	end
 
 OlivineCity_Text_CafeSailorStrength:
-	.string "¡Ja! ¡Tus POKéMON tienen pinta de\nser\lmás bien flacuchos!\pSeguro que no tienen fuelle ni para\nmover una roca.\p¡Anda, toma esto y enséñales\nFUERZA!$"
+	.string "¡Ja! ¡Tus POKéMON parecen unos\npeso pluma!\pNo tienen fuerza suficiente para\napartar rocas.\p¡Toma, úsalo para enseñarles\nFUERZA!$"
 OlivineCity_Text_CafeSailorGotStrength:
-	.string "En alta mar, ¡lo único con lo que\npuedes contar es con tu propio\lcuerpo!\p¡Mírame qué brazos tengo!\n¡Deberías entrenar tan duro como\lyo!$"
+	.string "¡En alta mar, solo puedes\nconfiar en ti mismo!\p¡Estoy orgulloso de este cuerpazo!\n¡Entrena duro, como yo!$"
 OlivineCity_Text_CafeFishingGuru:
-	.string "¡El menú del CAFÉ DE OLIVO está\nlleno\lde manjares para MARINEROS de buena\lplanta como yo!$"
+	.string "¡El menú del CAFÉ DE OLIVO rebosa\nde comida contundente para\lMARINEROS fortachones como yo!$"
 OlivineCity_Text_CafeSailor:
-	.string "Cada vez que atraco en este pueblo,\nme vengo directo al CAFÉ DE OLIVO.\pTodo lo de la carta te llena de\nfuerza.\l¡Es imposible parar de zampar!$"
+	.string "Siempre que atraco en esta ciudad,\nvoy directo al CAFÉ DE OLIVO.\pTodo el menú me da más fuerzas.\n¡No puedo parar de comer!$"

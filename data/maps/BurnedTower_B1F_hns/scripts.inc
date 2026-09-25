@@ -184,7 +184,7 @@ BurnedTower_B1F_Movement_EusineLeave:
 	step_end
 
 BurnedTowerB1FEusineText:
-	.string "EUSKADI: ¡Estoy flipando!\p"
+	.string "EUSINE: ¡Estoy flipando!\p"
 	.string "¡SUICUNE ha pasado como una\n"
 	.string "exhalación justo delante de mis\l"
 	.string "propios ojos!\p"
@@ -210,4 +210,3 @@ BurnedTower_B1F_EventScript_Item_Taunt::
 BurnedTower_B1F_EventScript_Item_UltraBall::
 	finditem ITEM_ULTRA_BALL
 	end
-

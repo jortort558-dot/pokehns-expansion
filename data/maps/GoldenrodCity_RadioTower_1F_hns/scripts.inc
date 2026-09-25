@@ -48,14 +48,14 @@ RadioTower1F_EventScript_Whitney::
 RadioTower1F_Text_Whitney1::
 	.string "BLANCA: ¡Hola!\p"
 	.string "¡Me llamo BLANCA!\p"
-	.string "Oí hablar del CONCURSO para ganar\nuna\l"
-	.string "TARJETA RADIO y vine a por una…\p"
+	.string "Me enteré del CONCURSO que daba\nuna TARJETA RADIO y vine aquí\l"
+	.string "a por una…\p"
 	.string "¡Pero las preguntas son\ndificilísimas!$"
 
 RadioTower1F_Text_Whitney2::
 	.string "BLANCA: ¡Hala! ¡Lo has conseguido!\p"
-	.string "¡Pues yo estaba convencida de que\nla\l"
-	.string "tercera pregunta era falsa!\l"
+	.string "¡Pues yo estaba convencida de que\n"
+	.string "la tercera pregunta era falsa!\l"
 	.string "¡Vaya metedura de pata!\p"
 	.string "¡Bueno, me vuelvo al GIMNASIO!$"
 
@@ -175,9 +175,9 @@ RadioTower1F_Text_RadioCardWomanOfferQuiz:
     .string "Si aciertas cinco preguntas,\n"
     .string "ganarás una TARJETA RADIO para el\l"
     .string "POKéGEAR.\p"
-    .string "Podréis escuchar música POKéMON en\n"
+    .string "Podrás escuchar música POKéMON en\n"
     .string "cualquier lugar y momento.\p"
-    .string "¿Quieres participar en el CONCURSO?$"
+    .string "¿Quieres participar en el concurso?$"
 
 RadioTower1F_Text_QuizQuestion1:
     .string "Pregunta 1:\p"
@@ -221,8 +221,8 @@ RadioTower1F_Text_PokegearRadio:
     .string "sintoniza la RADIO!$"
 
 RadioTower1F_Text_TuneIn:
-    .string "¡No te pierdas nuestros programas\nde\l"
-    .string "radio!$"
+    .string "¡No te pierdas nuestros programas\n"
+    .string "de radio!$"
 
 RadioTower1F_Text_WrongAnswer:
     .string "Vaya por Dios.\n"

@@ -19,8 +19,8 @@ MahoganyTown_PokemonCenter_EventScript_Girl::
 	end
 
 MahoganyTown_PokemonCenter_Text_PokefanM:
-	.string "¿Cómo se te queda el cuerpo? ¿Que\nel\lTEAM ROCKET ha vuelto?\pHe visto a tipos vestidos de negro\npor el\lLAGO DE LA FURIA…$"
+	.string "¿Cómo? ¿Ha vuelto el TEAM ROCKET?\pVi a unos hombres de negro en el\nLAGO DE LA FURIA…$"
 MahoganyTown_PokemonCenter_Text_Youngster:
-	.string "Evito que mis POKéMON evolucionen\ndemasiado pronto.\pHago que aprendan ciertos ataques\nantes\lde dejarlos evolucionar.$"
+	.string "Evito que mis POKéMON evolucionen\ndemasiado pronto.\pLes enseño ciertos movimientos\nantes de dejarlos evolucionar.$"
 MahoganyTown_PokemonCenter_Text_CooltrainerF:
-	.string "Los POKéMON se vuelven mucho más\nfuertes\lal evolucionar,\lpero también aprenden movimientos\lcon más\llentitud.$"
+	.string "Los POKéMON se hacen más fuertes\nal evolucionar,\ppero también aprenden movimientos\nmás despacio.$"

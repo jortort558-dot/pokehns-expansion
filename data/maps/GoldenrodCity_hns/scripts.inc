@@ -326,7 +326,7 @@ GoldenrodCity_Text_ElmCall:
 
 GoldenrodCity_Text_PokefanM:
 	.string "Construyeron la nueva TORRE RADIO\n"
-	.string "para sustituir a la antigua torre\lde\l"
+	.string "para sustituir la vieja torre de\l"
 	.string "madera carcomida.$"
 
 GoldenrodCity_Text_Youngster1:
@@ -340,12 +340,12 @@ GoldenrodCity_Text_CooltrainerF1:
 	.string "¡Qué payasada!$"
 
 GoldenrodCity_Text_CooltrainerF1_Cleared:
-	.string "¿De verdad ese tipo de negro era\ndel\l"
-	.string "TEAM ROCKET? ¡No me lo puedo creer!$"
+	.string "¿De verdad ese tipo de negro era\n"
+	.string "del TEAM ROCKET? ¡No me lo creo!$"
 
 GoldenrodCity_Text_CooltrainerF2:
-	.string "La TORRE RADIO de CIUDAD TRIGAL es\nel\l"
-	.string "gran símbolo de la ciudad.\p"
+	.string "La TORRE RADIO de CIUDAD TRIGAL es\n"
+	.string "el gran símbolo de la ciudad.\p"
 	.string "Ahora mismo tienen una promoción:\n"
 	.string "si aciertas las preguntas de su\l"
 	.string "concurso, te regalan una TARJETA\l"
@@ -393,7 +393,7 @@ GoldenrodCity_Text_Rocket4:
 	.string "Ha sido una lucha larga y dura…$"
 
 GoldenrodCity_Text_Rocket5:
-	.string "¡Eh, niñato! ¡Pintas menos que\nnada\l"
+	.string "¡Eh, niñato! ¡No pintas nada\n"
 	.string "aquí! ¡Piérdete de una vez!$"
 
 GoldenrodCity_Text_Rocket6:
@@ -417,8 +417,8 @@ GoldenrodCity_Text_GymSign:
 
 GoldenrodCity_Text_CitySign:
 	.string "CIUDAD TRIGAL\p"
-	.string "La alegre metrópoli del encanto y\nla\l"
-	.string "opulencia$"
+	.string "La alegre metrópoli del encanto y\n"
+	.string "la opulencia$"
 
 GoldenrodCity_Text_BikeShopSign:
 	.string "¡El mundo es tu carril bici!\n"
@@ -453,16 +453,15 @@ GoldenrodCity_Text_MoveTutorCost:
 	.string "¿Hace el trato?$"
 
 GoldenrodCity_Text_MoveTutorDecline:
-	.string "Vaya… ¡Pero si estos movimientos\nson\l"
-	.string "la repera!$"
+	.string "Vaya… ¡Pero son ataques geniales!$"
 
 GoldenrodCity_Text_MoveTutorWhich:
 	.string "¡Jajaja! ¡No te vas a arrepentir!\p"
 	.string "¿Qué ataque enseño?$"
 
 GoldenrodCity_Text_MoveTutorNoCash:
-	.string "Qué lástima. Me tocará pedir algo\nde\l"
-	.string "dinero a casa…$"
+	.string "Qué lástima. Tendré que pedir algo\n"
+	.string "de dinero en casa…$"
 
 GoldenrodCity_Text_MoveTutorUnderstand:
 	.string "Quien domina este movimiento,\n"

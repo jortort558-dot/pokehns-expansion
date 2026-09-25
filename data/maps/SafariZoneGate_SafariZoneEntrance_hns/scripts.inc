@@ -215,8 +215,8 @@ SafariZoneGate_SafariZoneEntrance_Text_BaobaWrong:
 SafariZoneGate_SafariZoneEntrance_Text_BaobaBeach:
 	.string "¡Hola, {PLAYER}!\p"
 	.string "¿Has traído un POKéMON exótico\n"
-	.string "de la zona de PLAYA de la ZONA SAFARI\l"
-	.string "de FUCSIA para enseñármelo?$"
+	.string "de la zona de PLAYA de la ZONA\l"
+	.string "SAFARI de FUCSIA para enseñármelo?$"
 
 SafariZoneGate_SafariZoneEntrance_Text_BaobaBrush:
 	.string "¡Hola, {PLAYER}!\p"
@@ -241,7 +241,7 @@ SafariZoneGate_SafariZoneEntrance_Text_BaobaDeclined:
 	.string "¡Jamás podremos competir con DEVON!$"
 
 SafariZoneGate_SafariZoneEntrance_Text_BaobaLastMon:
-	.string "¡No puedo quedarme con tu último POKéMON!$"
+	.string "¡No puedo coger tu último POKéMON!$"
 
 SafariZoneGate_SafariZoneEntrance_Text_BaobaDone:
 	.string "¡Hombre, {PLAYER}!\p"
@@ -381,22 +381,22 @@ SafariZoneGate_SafariZoneEntrance_Movement_ReturnToTable:
 
 SafariZoneGate_SafariZoneEntrance_Text_BaobaWelcome:
 	.string "¡Hola, {PLAYER}!\n"
-	.string "Te estaba esperando.\n"
+	.string "Te estaba esperando.\l"
 	.string "¿Qué te parece?\p"
 	.string "Por cierto, esta ZONA SAFARI es\n"
 	.string "completamente nueva...\p"
 	.string "¡Y todavía estamos ampliándola!\p"
-	.string "De momento tenemos abiertas dos zonas\n"
+	.string "De momento hay dos zonas abiertas\n"
 	.string "¡y cuatro más vienen de camino!\p"
-	.string "¡Pásatelo en grande en la ZONA SAFARI!\n"
-	.string "¡Te llamaré en cuanto las demás zonas\l"
+	.string "¡Disfruta de la ZONA SAFARI!\n"
+	.string "¡Te llamaré cuando las demás zonas\l"
 	.string "estén listas!$"
 
 SafariZoneGate_SafariZoneEntrance_Text_BaobaPokeblocks:
 	.string "¡Ah! Casi se me olvida.\p"
 	.string "Los POKéCUBOS son una atracción\n"
 	.string "fundamental de mi ZONA SAFARI, ¡así\l"
-	.string "que más te vale llevar uno de estos!$"
+	.string "¡así que llévate uno de estos!$"
 
 SafariZoneGate_SafariZoneEntrance_Text_Baoba:
 	.string "¡Hola, {PLAYER}!\p"
@@ -411,10 +411,9 @@ SafariZoneGate_SafariZoneEntrance_Text_Boy:
 	.string "OCULTAS.\p"
 	.string "El tipo de POKéCUBO también influye\n"
 	.string "en la naturaleza del POKéMON.\p"
-	.string "¡Y lo mejor de todo es que según el\n"
-	.string "POKéCUBO puedes atraer ejemplares\l"
-	.string "con IVs perfectos!\p"
-	.string "Esos paneles de la pared lo explican\n"
+	.string "Y, según el POKéCUBO, puedes atraer\n"
+	.string "ejemplares con IVs perfectos.\p"
+	.string "Los paneles de la pared lo explican\n"
 	.string "todo al detalle.$"
 
 SafariZoneGate_SafariZoneEntrance_Text_BoyGiveCase:

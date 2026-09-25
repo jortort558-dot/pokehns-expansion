@@ -105,9 +105,8 @@ Route38_Text_BirdKeeperTobyBeaten:
 	.string "Ahora me dan ganas de salir\n"
 	.string "volando de aquí…$"
 Route38_Text_BirdKeeperTobyAfter:
-	.string "Pienso ir a entrenar a CIUDAD\n"
-	.string "ORQUÍDEA para enseñarle a volar\l"
-	.string "a mi POKéMON.$"
+	.string "Iré a entrenar a ORQUÍDEA\n"
+	.string "y enseñaré VUELO a mi POKéMON.$"
 Route38_Text_SchoolboyChad1Seen:
 	.string "¡Déjame probar algo que aprendí\n"
 	.string "hoy en clase!$"
@@ -115,19 +114,17 @@ Route38_Text_SchoolboyChad1Beaten:
 	.string "Supongo que no he estudiado lo\n"
 	.string "suficiente…$"
 Route38_Text_SchoolboyChadAfter:
-	.string "Tengo tantos exámenes que casi\n"
-	.string "no me queda tiempo para los\l"
-	.string "POKéMON.\p"
-	.string "Por eso, cuando tengo un rato\n"
-	.string "para jugar, me concentro al\l"
-	.string "máximo.$"
+	.string "Tengo tantos exámenes que\n"
+	.string "apenas me queda tiempo\l"
+	.string "para mis POKéMON.\p"
+	.string "Por eso, cuando puedo jugar,\n"
+	.string "me concentro de verdad.$"
 Route38_Text_ChadRegister:
-	.string "Tengo tantos exámenes que casi\n"
-	.string "no me queda tiempo para los\l"
-	.string "POKéMON.\p"
-	.string "Por eso, cuando tengo un rato\n"
-	.string "para jugar, me concentro al\l"
-	.string "máximo.$"
+	.string "Tengo tantos exámenes que\n"
+	.string "apenas me queda tiempo\l"
+	.string "para mis POKéMON.\p"
+	.string "Por eso, cuando puedo jugar,\n"
+	.string "me concentro de verdad.$"
 Route38_Text_ChadRematchIntro:
 	.string "¡Déjame probar algo que aprendí\n"
 	.string "hoy en clase!$"
@@ -135,12 +132,11 @@ Route38_Text_ChadRematchDefeat:
 	.string "Supongo que no he estudiado lo\n"
 	.string "suficiente…$"
 Route38_Text_ChadPostRematch:
-	.string "Tengo tantos exámenes que casi\n"
-	.string "no me queda tiempo para los\l"
-	.string "POKéMON.\p"
-	.string "Por eso, cuando tengo un rato\n"
-	.string "para jugar, me concentro al\l"
-	.string "máximo.$"
+	.string "Tengo tantos exámenes que\n"
+	.string "apenas me queda tiempo\l"
+	.string "para mis POKéMON.\p"
+	.string "Por eso, cuando puedo jugar,\n"
+	.string "me concentro de verdad.$"
 Route38_Text_LassDana1Seen:
 	.string "Parece que se te da muy bien\n"
 	.string "esto de los POKéMON.\p"
@@ -168,8 +164,7 @@ Route38_Text_SailorHarrySeen:
 	.string "que conozco toda clase de\l"
 	.string "POKéMON!$"
 Route38_Text_SailorHarryBeaten:
-	.string "¡Tu técnica es de categoría\n"
-	.string "mundial!$"
+	.string "¡Tu técnica es de talla mundial!$"
 Route38_Text_SailorHarryAfter:
 	.string "Por todo el mundo hay personas\n"
 	.string "de todo tipo viviendo felices\l"
@@ -178,7 +173,8 @@ Route38_Text_BeautyOliviaSeen:
 	.string "¿No te parece que mis POKéMON y\n"
 	.string "yo somos absolutamente divinos?$"
 Route38_Text_BeautyOliviaBeaten:
-	.string "Bebemos LECHE MU-MU a diario.$"
+	.string "Bebemos LECHE MU-MU\n"
+	.string "cada día.$"
 Route38_Text_BeautyOliviaAfter:
 	.string "La LECHE MU-MU es fantástica\n"
 	.string "para la belleza y la salud,\p"

@@ -146,45 +146,45 @@ GoldenrodCity_RadioTower_2F_EventScript_Jigglypuff::
 RadioTower2FBuenaPasswordIsHelpText:
 	.string "BUENA: ¿Eh? ¿La contraseña de hoy?\n¡SOCORRO, por supuesto!$"
 GoldenrodCity_RadioTower_2F_Text_SuperNerd:
-	.string "Puedes escuchar la radio en\ncualquier\lrincón. ¡Sintonízala!$"
+	.string "Puedes escuchar la radio en\ncualquier sitio. ¡Sintonízala!$"
 GoldenrodCity_RadioTower_2F_Text_Policeman:
 	.string "Acceso restringido a partir de este\npunto.$"
 GoldenrodCity_RadioTower_2F_Text_Teacher:
-	.string "Las nanas de la radio pueden hacer\nque los\lPOKéMON se queden dormidos.$"
+	.string "Las nanas de la radio pueden hacer\nque los POKéMON se duerman.$"
 GoldenrodCity_RadioTower_2F_Text_TeacherRockets:
 	.string "¿Para qué querrán apoderarse de la\nTORRE RADIO?$"
 GoldenrodCity_RadioTower_2F_Text_Jigglypuff:
 	.string "JIGGLYPUFF: ¡Jiggly…!$"
 GoldenrodCity_RadioTower_2F_Text_BlackBelt1:
-	.string "Lo siento. Solo personal autorizado\na partir\lde esta puerta.\lAntes no era así de estricto.\lAl DIRECTOR le pasa algo muy raro…$"
+	.string "Lo siento. Solo puede pasar el\npersonal autorizado.\pAntes no era así.\pAl DIRECTOR le pasa algo extraño…$"
 GoldenrodCity_RadioTower_2F_Text_BlackBelt2:
-	.string "Siéntete libre de mirar por donde\nquieras.\lEl DIRECTOR vuelve a ser tan majo\lcomo\lsiempre.$"
+	.string "Puedes mirar por donde quieras.\pEl DIRECTOR vuelve a ser tan amable\ncomo antes.$"
 GoldenrodCity_RadioTower_2F_Text_GruntM4Seen:
-	.string "¡Hace tres años obligaron al TEAM\nROCKET a\ldisolverse!\l¡Pero aquí y ahora marcamos nuestro\lregreso!$"
+	.string "Hace tres años obligaron al\nTEAM ROCKET a disolverse.\p¡Pero ahora iniciamos el regreso!$"
 GoldenrodCity_RadioTower_2F_Text_GruntM4Beaten:
 	.string "¡Gwaaah! ¡No te pases de listo!$"
 GoldenrodCity_RadioTower_2F_Text_GruntM4After:
-	.string "¡No permitiremos que arruines\nnuestros planes\lde renacimiento!$"
+	.string "¡No arruinarás nuestros planes\nde regreso!$"
 GoldenrodCity_RadioTower_2F_Text_GruntM5Seen:
-	.string "¡Somos el TEAM ROCKET, los amos que\nexplotan\la los POKéMON!\l¡Nos flipa ser malos! ¿Tiemblas de\lmiedo?$"
+	.string "¡Somos el TEAM ROCKET y explotamos\na los POKéMON!\p¡Nos encanta el mal! ¿Tienes miedo?$"
 GoldenrodCity_RadioTower_2F_Text_GruntM5Beaten:
-	.string "¿Pero tú te crees algún héroe de\ncuento?$"
+	.string "¿Te crees que eres un héroe?$"
 GoldenrodCity_RadioTower_2F_Text_GruntM5After:
-	.string "No siempre somos malvados.\nSimplemente hacemos\llo que nos sale de las narices.$"
+	.string "No siempre somos malvados.\nHacemos lo que nos da la gana.$"
 GoldenrodCity_RadioTower_2F_Text_GruntM6Seen:
 	.string "¡Ehh, tú! ¡Quítate de en medio!$"
 GoldenrodCity_RadioTower_2F_Text_GruntM6Beaten:
 	.string "Aaaargh. Me rindo.$"
 GoldenrodCity_RadioTower_2F_Text_GruntM6After:
-	.string "Nuestros EJECUTIVOS están ocupando\ntodo el\ledificio.\lTienen un plan gigantesco. ¿Cuál\lserá?$"
+	.string "Nuestros EJECUTIVOS están tomando\neste lugar.\pTienen un gran plan. ¿Cuál será?$"
 GoldenrodCity_RadioTower_2F_Text_GruntF2Seen:
-	.string "¡Jajaja!\nQué aburrimiento. ¡Tomar este sitio\lha sido\ldemasiado fácil!\l¡Venga, entreténme un rato!$"
+	.string "¡Ja, ja, ja!\pQué aburrimiento. ¡Fue muy fácil\ntomar este lugar!\p¡Venga, entretenme un rato!$"
 GoldenrodCity_RadioTower_2F_Text_GruntF2Beaten:
 	.string "¿P-pero quién eres tú?$"
 GoldenrodCity_RadioTower_2F_Text_GruntF2After:
 	.string "Me has ganado, ¡pero no pienso\nolvidarlo!$"
 GoldenrodCity_RadioTower_2F_Text_BuenaShowPromo:
-	.string "BUENA: ¡Sintoniza mi SHOW DE LA\nCONTRASEÑA!\l¡Escúchalo para enterarte de la\lclave de hoy!$"
+	.string "BUENA: ¡Sintoniza mi SHOW DE LA\nCONTRASEÑA!$"
 GoldenrodCity_RadioTower_2F_Text_BuenaAskPassword:
 	.string "BUENA: ¡Hola, hola!\n¿Sabes ya la contraseña de hoy?\l¡Muy bien! ¿Cuál es?$"
 GoldenrodCity_RadioTower_2F_Text_BuenaCorrect:
@@ -194,12 +194,12 @@ GoldenrodCity_RadioTower_2F_Text_BuenaWrong:
 GoldenrodCity_RadioTower_2F_Text_BuenaComeBack:
 	.string "BUENA: ¿No lo tienes claro?\n¡Vuelve cuando estés preparado!$"
 GoldenrodCity_RadioTower_2F_Text_BuenaAlreadyPlayed:
-	.string "BUENA: ¡Ya acertaste la clave de\nhoy!\l¡Vuelve a sintonizarnos mañana!$"
+	.string "BUENA: ¡La clave de hoy ya la\nacertaste!\l¡Vuelve a sintonizarnos mañana!$"
 GoldenrodCity_RadioTower_2F_Text_BuenaBagFull:
-	.string "BUENA: ¡Has acertado, pero tienes\nla\lBOLSA llena!\l¡Haz hueco y ven a hablarme otra\lvez!$"
+	.string "BUENA: ¡Has acertado, pero tienes\nla BOLSA llena!\p¡Haz hueco y vuelve a hablarme!$"
 GoldenrodCity_RadioTower_2F_Text_SalesSign:
 	.string "2P VENTAS$"
 GoldenrodCity_RadioTower_2F_Text_OakTalkSign:
 	.string "LA HORA DEL PROF. OAK\n¡El programa más escuchado de las\londas!$"
 GoldenrodCity_RadioTower_2F_Text_PokemonRadioSign:
-	.string "Radio POKéMON: donde sea y cuando\nsea$"
+	.string "Radio POKéMON: en todo momento\ny lugar$"

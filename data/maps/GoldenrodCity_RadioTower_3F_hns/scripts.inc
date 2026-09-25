@@ -142,42 +142,42 @@ GoldenrodCity_RadioTower_3F_Text_PersonnelSign:
 GoldenrodCity_RadioTower_3F_Text_PokemonMusicSign:
 	.string "MÚSICA POKéMON con el DJ BEN$"
 GoldenrodCity_RadioTower_3F_Text_SuperNerd:
-	.string "Tenemos grabaciones de los rugidos\nde todos\llos POKéMON descubiertos hasta la\lfecha.\lDebemos de tener cerca de 400\lespecies.$"
+	.string "Tenemos grabaciones de los gritos\nde todos los POKéMON descubiertos.\pDebe de haber unas 400 especies.$"
 GoldenrodCity_RadioTower_3F_Text_GymGuideRockets:
-	.string "Para los Entrenadores, sus POKéMON\nson\lcompañeros queridísimos.\lEs una atrocidad cómo el TEAM\lROCKET intenta\lsometer a los POKéMON.$"
+	.string "Para los Entrenadores, los POKéMON\nson compañeros muy queridos.\pEs terrible que el TEAM ROCKET\nintente controlarlos.$"
 GoldenrodCity_RadioTower_3F_Text_GymGuide:
-	.string "Emitimos las 24 horas del día para\nofrecer\llos programas más entretenidos.\l¡Yo también me dejaré la piel sin\ldescanso!$"
+	.string "Emitimos las 24 horas para ofrecer\nprogramas entretenidos.\p¡Yo también trabajaré sin parar!$"
 GoldenrodCity_RadioTower_3F_Text_CooltrainerFPleaseSave:
-	.string "El jefazo del TEAM ROCKET se ha\natrincherado\ldentro.\lSolo el DIRECTOR puede abrir esa\lpuerta.\lEstá en la quinta planta.\l¡Por favor, sálvalo!$"
+	.string "El jefe del TEAM ROCKET se ha\nencerrado dentro.\pEl DIRECTOR puede abrir la puerta.\pEstá en la quinta planta.\p¡Sálvalo, por favor!$"
 GoldenrodCity_RadioTower_3F_Text_CooltrainerFDirectorSafe:
 	.string "¿El DIRECTOR se encuentra a salvo?$"
 GoldenrodCity_RadioTower_3F_Text_CooltrainerFHeroGift:
-	.string "¡Muchísimas gracias! ¡Eres mi\nhéroe!\lToma esto en señal de gratitud.$"
+	.string "¡Gracias! ¡Eres mi héroe!\pAcepta esto en señal de gratitud.$"
 GoldenrodCity_RadioTower_3F_Text_CooltrainerFSunnyDay:
-	.string "Es DÍA SOLEADO.\nPotencia los ataques de tipo fuego\ldurante\lun tiempo.$"
+	.string "Es INTERCAMBIO. Cambia la habilidad\nde un POKéMON por la de otro.$"
 GoldenrodCity_RadioTower_3F_Text_CooltrainerFMarvelous:
-	.string "¡Has estado sencillamente de\npelícula!$"
+	.string "¡Has estado sencillamente genial!$"
 GoldenrodCity_RadioTower_3F_Text_GruntM7Seen:
-	.string "Tengo órdenes estrictas.\n¡Tengo que machacar a cualquiera\lque ose\ldesafiar al TEAM ROCKET!$"
+	.string "Tengo órdenes estrictas.\p¡Debo aplastar a cualquiera que\ndesafíe al TEAM ROCKET!$"
 GoldenrodCity_RadioTower_3F_Text_GruntM7Beaten:
 	.string "¡¿Quéee?!$"
 GoldenrodCity_RadioTower_3F_Text_GruntM7After:
-	.string "He fracasado en mi misión…\nATLAS se va a poner como una\lfiera...$"
+	.string "He fracasado en mi misión…\pATLAS se enfadará muchísimo…$"
 GoldenrodCity_RadioTower_3F_Text_GruntM8Seen:
-	.string "¡Sienta de lujo obligar a los\nPOKéMON a\lcometer crímenes!$"
+	.string "¡Me encanta ordenar a los POKéMON\nque cometan delitos!$"
 GoldenrodCity_RadioTower_3F_Text_GruntM8Beaten:
 	.string "¡No me fastidies!$"
 GoldenrodCity_RadioTower_3F_Text_GruntM8After:
-	.string "¡Qué asco da perder!\n¡Maldita sea! ¡Odio los POKéMON\linútiles!$"
+	.string "¡Me siento fatal por perder!\p¡Maldita sea! ¡Odio a los inútiles!$"
 GoldenrodCity_RadioTower_3F_Text_GruntM9Seen:
-	.string "¿Por qué se ha abierto la verja?\n¿Has tenido tú algo que ver con\lesto?$"
+	.string "¿Por qué se abrió la verja?\n¿Has tenido algo que ver con esto?$"
 GoldenrodCity_RadioTower_3F_Text_GruntM9Beaten:
 	.string "¡Estoy acabado!$"
 GoldenrodCity_RadioTower_3F_Text_GruntM9After:
-	.string "¡¿Qué?! ¿Has burlado a nuestros\nsoldados en\lel SUBTERRÁNEO?\l¿Pero cómo demonios has podido?$"
+	.string "¡¿Qué?! ¿Has superado a nuestros\nhombres del SUBTERRÁNEO?\p¿Cómo has podido?$"
 GoldenrodCity_RadioTower_3F_Text_ScientistMarcSeen:
-	.string "¿Un mocoso merodeando por aquí?\n¿Quién te crees que eres?$"
+	.string "¿Un crío desconocido por aquí?\p¿Quién eres?$"
 GoldenrodCity_RadioTower_3F_Text_ScientistMarcBeaten:
 	.string "¡Tsk! ¡Te subestimé demasiado!$"
 GoldenrodCity_RadioTower_3F_Text_ScientistMarcAfter:
-	.string "¡Bwahahaha…!\nPuedo emitir una señal tan potente\lcomo me\lplazca desde esta antena.$"
+	.string "¡Bua, ja, ja…!\pDesde aquí puedo emitir una señal\ntan potente como necesite.$"

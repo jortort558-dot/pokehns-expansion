@@ -23,6 +23,6 @@ OlivineCity_EventScript_Teacher::
 	end
 
 OlivineCity_Text_PokecenterFisher:
-	.string "El MARINERO del CAFÉ DE OLIVO de\nal lado es un trozo de pan.\pLe enseñó FUERZA a mi POKéMON.\pAhora puede mover pedruscos\ngigantes\lsin despeinarse.$"
+	.string "El MARINERO del CAFÉ DE OLIVO de\nal lado es muy generoso.\pLe enseñó FUERZA a mi POKéMON.\pAhora mueve rocas enormes\nsin apenas esfuerzo.$"
 OlivineCity_Text_PokecenterTeacher:
-	.string "Hay un tipo al otro lado del mar,\nen CIUDAD ORQUÍDEA.\pDicen que se pasa el día entero\nfardando\lde sus POKéMON raros.$"
+	.string "Hay alguien al otro lado del mar,\nen CIUDAD ORQUÍDEA.\pDicen que no para de presumir de\nsus POKéMON raros.$"

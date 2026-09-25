@@ -50,10 +50,10 @@ MountMortar2_Text_PokemaniacMillerSeen:
 MountMortar2_Text_PokemaniacMillerBeaten:
 	.string "¿He perdido contra un crío...?$"
 MountMortar2_Text_PokemaniacMillerAfter:
-	.string "Hace poco pasó por aquí un karateka\ncon\lganas de pelea.\pEra insultantemente bueno.\nNos dio una tunda que para qué\lcontarte.\pSe adentró en la cueva diciendo que\nera\lparte de su riguroso entrenamiento.\l¿Cómo le irá? $"
+	.string "Hace poco, un karateka quiso\ncombatir.\pEra increíblemente bueno.\nNos dio una paliza.\pSe adentró en la cueva diciendo que\nera parte de su entrenamiento.\p¿Cómo le irá?$"
 MountMortar2_Text_SupernerdMarkusSeen:
 	.string "¡Ey! ¡HUGH!$"
 MountMortar2_Text_SupernerdMarkusBeaten:
-	.string "Te confundí con otra persona…$"
+	.string "Te confundí con otra\npersona…$"
 MountMortar2_Text_SupernerdMarkusAfter:
-	.string "Vine a explorar el MONTE MORTERO,\npero me separé de mi compañero…\p¿Te has cruzado con un Entrenador\nque lleva un SEADRA con CASCADA?$"
+	.string "Vine a explorar el MONTE MORTERO,\npero me separé de mi compañero…\p¿Viste a un Entrenador que tiene\nun SEADRA que conoce CASCADA?$"

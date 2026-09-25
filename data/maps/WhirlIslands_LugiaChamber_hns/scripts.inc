@@ -289,16 +289,20 @@ WhirlIslands_LugiaChamber_EventScript_KuniAfter::
 	end
 
 WhirlIslands_LugiaChamber_Text_Kimono_AfterNotCaught:
-	.string "No solo has hecho aparecer a\n"
-	.string "LUGIA, también lo has derrotado…\p"
+	.string "No solo has hecho que aparezca\n"
+	.string "LUGIA, sino que también lo has\l"
+	.string "derrotado…\p"
 	.string "No nos queda nada más que decir.\n"
-	.string "Cuídate durante tu viaje…$"
+	.string "Cuídate mucho durante tu\l"
+	.string "viaje…$"
 
 WhirlIslands_LugiaChamber_Text_Kimono_AfterCaught:
-	.string "No solo has hecho aparecer a\n"
-	.string "LUGIA, también lo has capturado…\p"
+	.string "No solo has hecho que aparezca\n"
+	.string "LUGIA, sino que también lo has\l"
+	.string "capturado…\p"
 	.string "No nos queda nada más que decir.\n"
-	.string "Cuídate durante tu viaje…$"
+	.string "Cuídate mucho durante tu\l"
+	.string "viaje…$"
 
 WhirlIslands_LugiaChamber_Movement_CameraPanUp:
 	walk_up
@@ -569,23 +573,24 @@ WhirlIslands_LugiaChamber_Text_Kuni_Before::
 WhirlIslands_LugiaChamber_Text_Kimono_Opening::
 	.string "CHICA KIMONO: Así es.\n"
 	.string "Aquí recibiremos a LUGIA.\p"
-	.string "Cuando nuestra danza se funda con\n"
-	.string "el sonido de la CAMPANA OLEAJE\l"
-	.string "que te confiamos, LUGIA volverá\l"
-	.string "a emerger de la cascada.$"
+	.string "Cuando la danza que practicamos\n"
+	.string "tantos días se funda con el sonido\l"
+	.string "de la CAMPANA OLEAJE que te\l"
+	.string "confiamos, LUGIA volverá a salir\l"
+	.string "de lo más hondo de la cascada.$"
 
 WhirlIslands_LugiaChamber_Text_Kimono_Closing1::
 	.string "Ese es, sin duda, LUGIA…\n"
-	.string "El guardián ancestral de estas\l"
-	.string "islas…\p"
+	.string "El guardián de estas islas desde\l"
+	.string "tiempos ancestrales…\p"
 	.string "Muchos lo intentaron sin descanso,\n"
 	.string "pero todos fracasaron…\p"
-	.string "{PLAYER}, tu corazón, en armonía\n"
-	.string "con la CAMPANA OLEAJE, ha logrado\l"
-	.string "que por fin aparezca…\p"
-	.string "¿No lo entiendes, {PLAYER}?\n"
-	.string "LUGIA esperaba desde hace tiempo\l"
-	.string "a alguien como tú.\p"
+	.string "{PLAYER}, tu corazón en armonía\n"
+	.string "con la CAMPANA OLEAJE ha permitido\l"
+	.string "que por fin aparezca…\l"
+	.string "¿No lo entiendes, {PLAYER}?\p"
+	.string "LUGIA debía de llevar mucho tiempo\n"
+	.string "esperando a alguien como tú.\p"
 	.string "¿No estás de acuerdo?$"
 
 WhirlIslands_LugiaChamber_Text_Kimono_After::

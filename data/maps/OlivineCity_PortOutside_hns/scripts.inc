@@ -16,9 +16,10 @@ OlivineCity_PortOutside_EventScript_Sabrina::
     end
 
 OlivineCity_PortOutside_Text_Sabrina:
-    .string "SABRINA: De repente me han dado\n"
+    .string "SABRINA: De repente me entran\n"
 	.string "ganas de contemplar el mar.\p"
-	.string "Nos veremos en el DOJO KARATE.$"
+	.string "Nos veremos en el DOJO DE\n"
+	.string "LUCHA.$"
 
 OlivineCity_PortOutside_EventScript_Fisherman1::
 	lock
@@ -37,6 +38,6 @@ OlivineCity_PortOutside_EventScript_Fisherman2::
 	end
 
 OlivineCity_PortOutside_Text_PortFisherman1:
-	.string "El FERRY S.S. AQUA solía zarpar\nhacia\lKANTO los lunes y viernes. ¡Pero\lahora\lsale prácticamente a todas horas!$"
+	.string "El FERRY S.S. AQUA iba a KANTO los\nlunes y viernes. Pero ahora\l¡zarpa casi sin descanso!$"
 OlivineCity_PortOutside_Text_Fisherman2:
-	.string "¡Olé ahí, cómo mola pescar!$"
+	.string "¡Sí, señor! ¡Estoy pescando!$"

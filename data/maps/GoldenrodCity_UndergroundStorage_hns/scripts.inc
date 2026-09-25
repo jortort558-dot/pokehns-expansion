@@ -48,26 +48,26 @@ GoldenrodCity_UndergroundStorage_EventScript_Item_MaxEther::
     end
 
 RadioTowerBasement_Text_GruntM24Seen:
-	.string "¿Cómo has llegado tan lejos?\nSupongo que no queda otra: te\lborraré de\len medio.$"
+	.string "¿Cómo has llegado tan lejos?\pNo queda otra. Me desharé de ti.$"
 RadioTowerBasement_Text_GruntM24Beaten:
 	.string "¡El borrado he sido yo…!$"
 RadioTowerBasement_Text_GruntM24After:
-	.string "El TEAM ROCKET seguirá en pie\naguardando el\lregreso de GIOVANNI.\lHaremos lo que haga falta.$"
+	.string "El TEAM ROCKET seguirá adelante,\nesperando el regreso de GIOVANNI.\pHaremos lo que sea necesario.$"
 RadioTowerBasement_Text_GruntM14Seen:
-	.string "¡De aquí no pasas!\n¡No tengo piedad con mis enemigos,\lni aunque\lsean unos mocosos!$"
+	.string "¡No pasarás de aquí!\pNo tengo piedad con mis enemigos,\n¡ni siquiera con los críos!$"
 RadioTowerBasement_Text_GruntM14Beaten:
 	.string "¡Maldita sea!$"
 RadioTowerBasement_Text_GruntM14After:
-	.string "He perdido…\n¡Perdóneme, señor GIOVANNI!$"
+	.string "He perdido…\p¡Perdóname, GIOVANNI!$"
 RadioTowerBasement_Text_GruntM15Seen:
-	.string "¡Jia, jia, jia! ¡Mira quién anda\npor aquí!\l¿Listo? ¡Ahora soy un hueso duro de\lroer!$"
+	.string "¡Jia, jia! ¡Mira quién está aquí!\p¿Listo? ¡Ahora soy muy fuerte!$"
 RadioTowerBasement_Text_GruntM15Beaten:
-	.string "¡Jia, jia, jia! ¡Eres buenísimo!\nEsto del TEAM ROCKET es solo un\ltrabajo, pero\lveo que hace daño a los demás.\lSe acabó, me largo de aquí.\lMuchas gracias. ¡Lo siento,\lGIOVANNI!$"
+	.string "¡Jia, jia, jia! ¡Eres muy bueno!\pEl TEAM ROCKET es solo un trabajo,\npero veo que hace daño a otros.\pSe acabó, me marcho.\p¡Gracias! ¡Lo siento, GIOVANNI!$"
 RadioTowerBasement_Text_GruntM15After:
-	.string "¡Jia, jia, jia! ¡Vaya pasada de\ncombate!\l¡Me acordaré de ti!$"
+	.string "¡Jia, jia, jia! ¡Qué gran combate!\n¡Me acordaré de ti!$"
 RadioTowerBasement_Text_DirectorIntro:
-	.string "DIRECTOR: ¿Quién? ¿Cómo? ¿Has\nvenido a\lrescatarme?\l¡Muchísimas gracias!\l¡La TORRE RADIO!\l¿Qué está pasando allí?\l¿Tomada por el TEAM ROCKET?\l¡Toma, llévate esta LLAVE\lMAGNÉTICA!$"
+	.string "DIRECTOR: ¿Quién? ¿Qué? ¿Has venido\na rescatarme?\p¡Gracias!\p¡La TORRE RADIO!\p¿Qué ocurre allí?\p¿La tomó el TEAM ROCKET?\pToma esta LLAVE MAGNÉTICA.$"
 RadioTowerBasement_Text_DirectorCardKey:
-	.string "DIRECTOR: Úsala para abrir las\ncompuertas\lde la 3P.$"
+	.string "DIRECTOR: Úsala para abrir las\ncompuertas de la 3P.$"
 RadioTowerBasement_Text_DirectorAfter:
-	.string "Te suplico que nos ayudes.\nQuién sabe qué harán si controlan\lla antena.\l¡Podrían someter a todos los\lPOKéMON con una\lseñal especial!\lEres la única persona a la que\lpuedo recurrir.\l¡Por favor, salva la TORRE RADIO…\ly a todos los POKéMON de la nación!$"
+	.string "Te suplico que nos ayudes.\pNo sabemos qué harán si controlan\nel transmisor.\p¡Podrían controlar a los POKéMON\ncon una señal especial!\pEres la única persona a quien\npuedo recurrir.\pSalva la TORRE RADIO, por favor…\p¡Y a todos los POKéMON del país!$"

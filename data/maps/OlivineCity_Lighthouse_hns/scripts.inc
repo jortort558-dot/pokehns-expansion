@@ -38,9 +38,9 @@ OlivineLighthouse_EventScript_1FPokefanF::
 	end
 
 OlivineLighthouse_Text_1FSailor:
-	.string "La gente viene a entrenar a este\nFARO.\pNo es nada fácil subir con todos\nlos\lEntrenadores que esperan dentro.$"
+	.string "La gente entrena en este FARO.\pNo es fácil subir con tantos\nEntrenadores esperando dentro.$"
 OlivineLighthouse_Text_1FPokefanF:
-	.string "En tiempos pasados, los POKéMON\niluminaban el mar de OLIVO de\lnoche.\pEste FARO se construyó en honor a\nesos nobles POKéMON.$"
+	.string "Antaño, los POKéMON iluminaban\nel mar de OLIVO por la noche.\pEste FARO se construyó en honor\na aquellos nobles POKéMON.$"
 @2nd floor==============================================================================================================================
 
 OlivineLighthouse_EventScript_Huey::
@@ -69,25 +69,25 @@ OlivineLighthouse_EventScript_GentlemanAlfred::
     end
 
 OlivineLighthouse_Text_SailorHueySeen:
-	.string "¡Los hombres de mar siempre estamos\ncon\lganas de pelea!$"
+	.string "¡Los hombres de mar siempre tenemos\nganas de una buena pelea!$"
 OlivineLighthouse_Text_SailorHueyBeaten:
-	.string "¡Urf!\n¡He perdido!$"
+	.string "¡Urf!\n¡Pierdo!$"
 OlivineLighthouse_Text_SailorHueyAfter:
-	.string "¡Vaya fuerza! ¿Qué te parecería\nsalir\la surcar los mares conmigo?$"
+	.string "¡Qué fuerza! ¿Te gustaría surcar\nlos mares conmigo?$"
 OlivineLighthouse_Text_HueyRegister:
-	.string "¡Vaya fuerza! ¿Qué te parecería\nsalir\la surcar los mares conmigo?$"
+	.string "¡Qué fuerza! ¿Te gustaría surcar\nlos mares conmigo?$"
 OlivineLighthouse_Text_HueyRematchIntro:
-	.string "¡Los hombres de mar siempre estamos\ncon\lganas de pelea!$"
+	.string "¡Los hombres de mar siempre tenemos\nganas de una buena pelea!$"
 OlivineLighthouse_Text_HueyRematchDefeat:
-	.string "¡Urf!\n¡He perdido!$"
+	.string "¡Urf!\n¡Pierdo!$"
 OlivineLighthouse_Text_HueyPostRematch:
-	.string "¡Vaya fuerza! ¿Qué te parecería\nsalir\la surcar los mares conmigo?$"
+	.string "¡Qué fuerza! ¿Te gustaría surcar\nlos mares conmigo?$"
 OlivineLighthouse_Text_GentlemanAlfredSeen:
-	.string "¿Eh? Este no es sitio para juegos\nde\lcríos.$"
+	.string "¿Eh? Este no es lugar para\njugar.$"
 OlivineLighthouse_Text_GentlemanAlfredBeaten:
-	.string "¡Ah! Ya veo que vas completamente\nen\lserio.$"
+	.string "¡Ah! Ya veo que vas\nen serio.$"
 OlivineLighthouse_Text_GentlemanAlfredAfter:
-	.string "Arriba del todo hay un POKéMON que\nmantiene iluminado el FARO.\pPero he oído que ha caído enfermo y\nno\lpueden curarlo con medicinas\lnormales.$"
+	.string "En lo alto hay un POKéMON que\nmantiene encendido el FARO.\pPero dicen que está enfermo y\nno pueden curarlo normalmente.$"
 @3rd floor==============================================================================================================================
 
 OlivineLighthouse_EventScript_BirdKeeperTheo::
@@ -107,23 +107,23 @@ OlivineLighthouse_EventScript_GentlemanPreston::
 
 
 OlivineLighthouse_Text_BirdKeeperTheoSeen:
-	.string "¿Qué haces aquí? ¿Vienes de\nmirones?\l¡Pues te sugiero que te marches!$"
+	.string "¿Qué haces aquí? ¿Solo vienes a\nmirar? ¡Te sugiero que te vayas!$"
 OlivineLighthouse_Text_BirdKeeperTheoBeaten:
-	.string "De verdad te preocupas por el\nPOKéMON\lenfermo…$"
+	.string "De verdad te preocupa el\nPOKéMON enfermo…$"
 OlivineLighthouse_Text_BirdKeeperTheoAfter:
-	.string "¿Cómo demonios se sube?\pQuiero ver al POKéMON enfermo, pero\nno encuentro la forma de llegar…$"
+	.string "¿Cómo demonios se sube?\pQuiero ver al POKéMON enfermo,\npero no consigo llegar…$"
 OlivineLighthouse_Text_SailorTerrellSeen:
-	.string "Los marineros somos tan nobles como\nfuertes. ¿Y tú qué tal?$"
+	.string "Los marineros somos buenos y\nfuertes. ¿Y tú?$"
 OlivineLighthouse_Text_SailorTerrellBeaten:
-	.string "Eres igual de noble y fuerte…$"
+	.string "También eres bueno y fuerte…$"
 OlivineLighthouse_Text_SailorTerrellAfter:
-	.string "Cada vez que regreso a OLIVO visito\nel GIMNASIO.\pEl tipo de POKéMON de la LÍDER\ncambió\lsin que me diese ni cuenta.$"
+	.string "Siempre que regreso a OLIVO,\nvisito el GIMNASIO.\pEl tipo de POKéMON de la LÍDER\ncambió sin que me diera cuenta.$"
 OlivineLighthouse_Text_GentlemanPrestonSeen:
-	.string "Viajo por todo el mundo entrenando\na mis\lPOKéMON. Deseo medir mis fuerzas\lcontigo.$"
+	.string "Viajo por el mundo entrenando a\nmis POKéMON. Quiero luchar contigo.$"
 OlivineLighthouse_Text_GentlemanPrestonBeaten:
-	.string "…Suspiro… Debo entrenar todavía\nmás…$"
+	.string "…Suspiro… Debo entrenar más…$"
 OlivineLighthouse_Text_GentlemanPrestonAfter:
-	.string "Antes, YASMINA utilizaba POKéMON de\ntipo ROCA, como ONIX.$"
+	.string "Antes, YASMINA usaba POKéMON de\ntipo ROCA, como ONIX.$"
 @4th floor==============================================================================================================================
 
 OlivineLighthouse_EventScript_SailorKent::
@@ -138,17 +138,17 @@ OlivineLighthouse_EventScript_LassConnie::
 
 
 OlivineLighthouse_Text_SailorKentSeen:
-	.string "YASMINA debe de estar destrozada\npor el\lPOKéMON de aquí.\pÚltimamente ni siquiera sonríe.$"
+	.string "YASMINA está muy preocupada\npor el POKéMON de aquí.\pÚltimamente ni siquiera sonríe.$"
 OlivineLighthouse_Text_SailorKentBeaten:
 	.string "A mí tampoco me sale una sonrisa…$"
 OlivineLighthouse_Text_SailorKentAfter:
-	.string "Hablando de enfermos, he oído que\nhay una\lbuena FARMACIA en CIUDAD ORQUÍDEA.$"
+	.string "Hablando de enfermedades, dicen que\nhay una gran FARMACIA en ORQUÍDEA.$"
 OlivineLighthouse_Text_LassConnieSeen:
-	.string "YASMINA es la LÍDER de esta ciudad.\pHe venido a hacer que regrese al\nGIMNASIO.\l¡Más vale que nadie se interponga!$"
+	.string "YASMINA es la LÍDER de esta ciudad.\pHe venido a llevarla al GIMNASIO.\p¡Más vale que nadie se interponga!$"
 OlivineLighthouse_Text_LassConnieBeaten:
 	.string "¡Aaaah! ¡Mis POKéMON!$"
 OlivineLighthouse_Text_LassConnieAfter:
-	.string "Es normal. Cualquiera se\npreocuparía si\lsu propio POKéMON estuviera\lsufriendo.\pRezaré por el POKéMON del FARO para\nque YASMINA pueda volver al\lGIMNASIO.$"
+	.string "Es normal. Cualquiera se preocupa\nsi hieren a su propio POKéMON.\pRezaré por el POKéMON del FARO para\nque YASMINA vuelva al GIMNASIO.$"
 @5th floor==============================================================================================================================
 
 OlivineLighthouse_EventScript_SailorErnest::
@@ -162,17 +162,17 @@ OlivineLighthouse_EventScript_BirdKeeperDenis::
     end
 
 OlivineLighthouse_Text_SailorErnestSeen:
-	.string "Quería desafiar a YASMINA, pero\nahora\lno tiene cuerpo para combates.\pY bien, ¿luchas tú conmigo?$"
+	.string "Quería luchar con YASMINA, pero\nahora no está para combates.\pAsí que ¿qué tal tú?$"
 OlivineLighthouse_Text_SailorErnestBeaten:
-	.string "¡Vaya, vaya! ¡Eres imparable!$"
+	.string "¡Vaya, vaya! ¡Eres arrollador!$"
 OlivineLighthouse_Text_SailorErnestAfter:
-	.string "Un LÍDER de GIMNASIO no solo debe\nser\lfuerte.\pUn buen LÍDER también necesita\ntener\lcompasión en el corazón.$"
+	.string "Ser LÍDER de GIMNASIO no consiste\nsolo en ser fuerte.\pUn buen LÍDER también debe ser\ncompasivo.$"
 OlivineLighthouse_Text_BirdKeeperDenisSeen:
-	.string "Estamos bastante altos aquí. Mis\nPOKéMON\lpájaro están en su salsa.$"
+	.string "Estamos muy alto. Mis POKéMON\npájaro están en plena forma.$"
 OlivineLighthouse_Text_BirdKeeperDenisBeaten:
 	.string "Ups… Han caído en picado…$"
 OlivineLighthouse_Text_BirdKeeperDenisAfter:
-	.string "Mis POKéMON aprendieron VUELO en\nCIUDAD ORQUÍDEA.\pBueno, como he perdido, me iré\nVOLANDO sobre el mar…$"
+	.string "Mis POKéMON aprendieron VUELO en\nCIUDAD ORQUÍDEA.\pBueno, como he perdido, cruzaré\nel mar VOLANDO…$"
 @6th floor==============================================================================================================================
 
 OlivineLighthouse_EventScript_Jasmine::
@@ -217,13 +217,27 @@ OlivineLighthouse_EventScript_AmpharosSick::
 	end
 
 OlivineLighthouse_Text_JasmineCianwoodPharmacy:
-	.string "YASMINA: …Este POKéMON siempre\nmantenía\lel mar iluminado durante la noche…\p…Pero enfermó de repente… Apenas\npuede respirar…\p…He oído que hay una FARMACIA\nmagnífica\len CIUDAD ORQUÍDEA…\pPero hay que cruzar el mar… Y no\npuedo\ldejar a AMPHY solo y desatendido…$"
+	.string "YASMINA: …Este POKéMON siempre\n"
+	.string "iluminaba el mar por la noche.\p"
+	.string "…Pero enfermó de repente…\n"
+	.string "Le cuesta mucho respirar…\p"
+	.string "…Sé que hay una gran FARMACIA\n"
+	.string "en CIUDAD ORQUÍDEA…\p"
+	.string "Pero está al otro lado del mar…\n"
+	.string "Y no puedo dejar solo a AMPHY.$"
 OlivineLighthouse_Text_JasmineGetMedicine:
-	.string "…¿Podrías hacerme el favor de\ntraerme\lla medicina? ¿Por favor?$"
+	.string "…¿Podrías traerme una medicina?\n"
+	.string "Por favor…$"
 OlivineLighthouse_Text_JasmineGetMedicine2:
-	.string "Hay una FARMACIA maravillosa en\nCIUDAD\lORQUÍDEA…\pPero hay que cruzar el mar… Y no\npuedo\ldejar a AMPHY desatendido…\p…¿Podrías traerme esa medicina?\n¿Por favor?$"
+	.string "Hay una gran FARMACIA\n"
+	.string "en CIUDAD ORQUÍDEA…\p"
+	.string "Pero está al otro lado del mar…\n"
+	.string "Y no puedo dejar solo a AMPHY.\p"
+	.string "…¿Podrías traerme una medicina?\n"
+	.string "Por favor…$"
 OlivineLighthouse_Text_JasmineCureAmphy:
-	.string "YASMINA: …¿Esa medicina logrará\ncurar\la AMPHY?$"
+	.string "YASMINA: …¿Esa medicina podrá\n"
+	.string "curar a AMPHY?$"
 OlivineLighthouse_EventScript_JasmineDeliverPotion::
 	msgbox OlivineLighthouse_Text_JasmineCureAmphy, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, FALSE, OlivineLighthouse_EventScript_JasmineRefuse
@@ -290,16 +304,27 @@ OlivineLighthouse_EventScript_JasmineRefuse::
 OlivineLighthouse_Text_PlayerHandedSecretpotion:
 	.string "¡{PLAYER} le entregó la\nPOCIÓN SECRETA a YASMINA!$"
 OlivineLighthouse_Text_JasmineDontBeOffended:
-	.string "YASMINA: …Esto... Por favor, no te\nlo\ltomes a mal…\p…AMPHY desconfía y no acepta nada\nde\lnadie que no sea yo…$"
+	.string "YASMINA: …Esto… No te lo tomes\n"
+	.string "a mal…\p"
+	.string "…AMPHY no acepta nada de nadie\n"
+	.string "que no sea yo.$"
 OlivineLighthouse_Text_JasmineAmphyHowFeeling:
-	.string "YASMINA: …\pAMPHY, ¿cómo te encuentras?$"
+	.string "YASMINA: …\p"
+	.string "AMPHY, ¿cómo te encuentras?$"
 OlivineLighthouse_Text_JasmineThankYou:
-	.string "YASMINA: …¡Ay, qué alivio tan\ngrande!\pEs sencillamente maravilloso…\pMuchísimas, muchísimas gracias.\p…Ahora podré volver al GIMNASIO…\pTe advierto de que el tipo ACERO es\nmuy resistente y poderoso.$"
+	.string "YASMINA: …Qué alivio…\p"
+	.string "Es sencillamente maravilloso…\p"
+	.string "Muchísimas gracias de verdad.\p"
+	.string "…Volveré al GIMNASIO…\p"
+	.string "También te advierto: los de ACERO\n"
+	.string "son muy poderosos.$"
 OlivineLighthouse_Text_JasmineISee:
-	.string "YASMINA: …Ya veo…\n…¡AMPHY, aguanta por favor!$"
+	.string "YASMINA: …Entiendo…\n"
+	.string "…¡Resiste, AMPHY!$"
 OlivineLighthouse_Text_AmphyPalPaloo:
 	.string "AMPHY: …\n…Pa… paluuu…$"
 OlivineLighthouse_Text_AmphyBreathingLabored:
-	.string "Le cuesta muchísimo respirar…$"
+	.string "Le cuesta muchísimo\n"
+	.string "respirar…$"
 OlivineLighthouse_Text_AmphyPaluPalulu:
 	.string "AMPHY: ¡Palu! ¡Palulu!$"

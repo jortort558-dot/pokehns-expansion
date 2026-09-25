@@ -44,7 +44,7 @@ LakeOfRage_EventScript_Pryce::
     end
 
 LakeOfRage_Text_Pryce:
-	.string "{PLAYER}.\pIncluso aquí, el frío mantiene mi\nmente\ldespejada.\pSi deseas volver a combatir,\nbúscame en el\lDOJO de COMBATE.$"
+	.string "{PLAYER}.\pIncluso aquí, el frío me mantiene\ndespejado.\pSi deseas volver a combatir, ven al\nDOJO DE LUCHA.$"
 LakeOfRage_EventScript_Gramps::
 	goto_if_ge VAR_MAHOGANY_TOWN_STATE, 14, LakeOfRage_EventScript_Gramps2
 	msgbox LakeOfRage_Text_Gramps, MSGBOX_NPC
@@ -237,19 +237,19 @@ LakeOfRage_Movement_DragoniteLeave:
 LakeOfRage_Text_Dragonite:
 	.string "DRAGONITE: ¡Giafuuuu!$"
 LakeOfRage_Text_LanceForcedToEvolve:
-	.string "Este lago está atestado de GYARADOS\ny de\lnada más…\pAsí que los MAGIKARP están siendo\nforzados\la evolucionar…$"
+	.string "Este lago está lleno de GYARADOS\ny nada más…\pAsí obligan a evolucionar\na los MAGIKARP…$"
 LakeOfRage_Text_LanceIntro1:
-	.string "¿Has venido por los rumores?\p¿Eres {PLAYER}? Me llamo LANCE.\nSoy un Entrenador como tú.$"
+	.string "¿Has venido por los rumores?\p¿Eres {PLAYER}? Soy LANCE,\nun Entrenador como tú.$"
 LakeOfRage_Text_LanceIntro2:
-	.string "Este hombre de aquí me puso al\ntanto de\lciertos rumores extraños.\pAsí que vinimos a investigar…$"
+	.string "Este hombre me habló de ciertos\nrumores.\pAsí que vinimos a investigar…$"
 LakeOfRage_Text_LanceIntro3:
-	.string "Vi cómo luchaste antes, {PLAYER}.\pSe nota a leguas que eres un\nEntrenador\lde enorme destreza.\pSi no te importa, ¿podrías\nayudarnos a\linvestigar este misterio?$"
+	.string "Vi cómo combatiste antes, {PLAYER}.\pSe nota que eres un Entrenador\nmuy hábil.\pSi no te importa, ¿nos ayudarías\na investigar?$"
 LakeOfRage_Text_LanceRadioSignal:
-	.string "LANCE: ¡Excelente!\pTodo apunta a que los MAGIKARP del\nLAGO\lestán siendo obligados a\levolucionar.\pLa culpable es una misteriosa\nemisión de\lradio que procede de CAOBA.\pTe esperaremos allí.\n¡No tardes, {PLAYER}!$"
+	.string "LANCE: ¡Excelente!\pParece que están obligando a los\nMAGIKARP del LAGO a evolucionar.\pLa causa es una misteriosa emisión\nde radio procedente de CAOBA.\pTe esperaremos allí,\n{PLAYER}.$"
 LakeOfRage_Text_LanceRefused:
-	.string "Vaya… Bueno, si cambias de parecer,\npor favor ven a echarnos una mano.$"
+	.string "Vaya… Si cambias de opinión,\nayúdanos, por favor.$"
 LakeOfRage_Text_LanceAskHelp:
-	.string "LANCE: ¿Mmm? ¿Te decides a\nayudarnos?$"
+	.string "LANCE: ¿Mmm? ¿Vas a\nayudarnos?$"
 LakeOfRage_Text_GyaradosCry:
 	.string "GYARADOS: ¡Giaaash!$"
 LakeOfRage_Text_Gramps:
@@ -257,29 +257,29 @@ LakeOfRage_Text_Gramps:
 LakeOfRage_Text_GrampsCleared:
 	.string "¡Jajaja! ¡Los MAGIKARP vuelven a\npicar!$"
 LakeOfRage_Text_SuperNerd:
-	.string "Dicen que este lago fue creado por\nuna\lestampida de GYARADOS enfurecidos.\p¿Tendrá relación con este brote\nmasivo que\lhay ahora?$"
+	.string "Dicen que unos GYARADOS enfurecidos\ncrearon este lago.\p¿Tendrá relación con el brote\nque hay ahora?$"
 LakeOfRage_Text_CooltrainerF:
-	.string "¿Me engañan los ojos o vi a un\nGYARADOS\lrojo en el LAGO?\pPero si los GYARADOS son azules de\ntoda\lla vida…$"
+	.string "¿Me engañan los ojos? Vi un\nGYARADOS rojo en el LAGO…\pPero creía que los GYARADOS eran\nazules.$"
 LakeOfRage_Text_FisherAndreSeen:
-	.string "¡Déjame luchar con el POKéMON que\nacabo\lde pescar!$"
+	.string "¡Déjame combatir con el POKéMON\nque acabo de pescar!$"
 LakeOfRage_Text_FisherAndreBeaten:
-	.string "Seré un hacha con la caña, pero\ncomo\lEntrenador doy bastante pena…$"
+	.string "Puede que sea un gran pescador,\npero soy un Entrenador pésimo…$"
 LakeOfRage_Text_FisherAndreAfter:
-	.string "¡Pescando no me gana nadie! Me paso\nel día\lentero sacando POKéMON del agua.$"
+	.string "¡Nadie me gana pescando! Capturo\nPOKéMON todo el día.$"
 LakeOfRage_Text_FisherRaymondSeen:
-	.string "Haga lo que haga, ¡solo pesco los\nmismos\lPOKéMON una y otra vez!$"
+	.string "¡Haga lo que haga, siempre pesco\nlos mismos POKéMON!$"
 LakeOfRage_Text_FisherRaymondBeaten:
 	.string "Se me ha enredado todo el sedal…$"
 LakeOfRage_Text_FisherRaymondAfter:
-	.string "¿Por qué no logro pescar ningún\nPOKéMON en\lcondiciones?$"
+	.string "¿Por qué no pesco ningún\nPOKéMON bueno?$"
 LakeOfRage_Text_CooltrainermAaronSeen:
-	.string "Si un Entrenador cruza la mirada\ncon otro,\lel desafío es inevitable.\pEse es nuestro destino.$"
+	.string "Si un Entrenador ve a otro,\ndebe desafiarlo.\pEse es nuestro destino.$"
 LakeOfRage_Text_CooltrainermAaronBeaten:
 	.string "Uf… Magnífico combate.$"
 LakeOfRage_Text_CooltrainermAaronAfter:
-	.string "Los POKéMON y sus Entrenadores se\nhacen\lfuertes a base de batirse el cobre.$"
+	.string "Los POKéMON y sus Entrenadores se\nfortalecen combatiendo sin cesar.$"
 LakeOfRage_Text_CooltrainerfLoisSeen:
-	.string "¿Qué le ha pasado al GYARADOS rojo?\n¿Ya no está?\l¡Maldición! ¿He venido para nada?\l¡Pues mira, echemos un combate!$"
+	.string "¿Qué pasó con el GYARADOS rojo?\p¿Ya no está?\p¡Maldición! ¿He venido para nada?\p¡Ya sé, combatamos!$"
 LakeOfRage_Text_CooltrainerfLoisBeaten:
 	.string "¡Bien jugado!$"
 LakeOfRage_Text_CooltrainerfLoisAfter:
@@ -329,13 +329,13 @@ LakeOfRage_EventScript_WesleyCompleted::
 	end
 
 LakeOfRage_Text_MeetWesley:
-	.string "MIO: Hola, ¿cómo estás?\p¡Soy de los HERMANOS DE LOS DÍAS!\n¿Adivinas cuál es mi día preferido?$"
+	.string "MIO: Hola, ¿cómo estás?\p¡Soy de los HERMANOS DE LOS DÍAS!\n¿Adivinas mi día preferido?$"
 LakeOfRage_Text_WesleyGivesGift:
-	.string "Encantado de conocerte.\nQuédate con este recuerdo.$"
+	.string "Encantado de conocerte. Acepta\neste recuerdo.$"
 LakeOfRage_Text_WesleyGaveGift:
-	.string "MIO: El CINTURÓN NEGRO potencia los\ngolpes\lde tipo LUCHA.$"
+	.string "MIO: El CINTURÓN NEGRO aumenta la\npotencia de los ataques de LUCHA.$"
 LakeOfRage_Text_WesleyWednesday:
-	.string "MIO: Si me has encontrado, seguro\nque ya\lhas visto a mis hermanos y\lhermanas.\p¿O ha sido pura chiripa?$"
+	.string "MIO: Si me has encontrado, debes\nhaber conocido a mis hermanos y\lhermanas.\p¿O solo has tenido suerte?$"
 LakeOfRage_Text_WesleyNotWednesday:
 	.string "MIO: Pues va a ser que no...$"
 LakeOfRage_EventScript_Sign1::

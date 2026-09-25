@@ -63,13 +63,13 @@ OlivineCity_PortInside_Movement_OakLeave:
 	step_end
 
 OlivineCity_PortInside_Text_Nationaldex1:
-	.string "PROF. OAK: ¡Hola!\n¡Empiezas a tener la presencia de\lun\lverdadero CAMPEÓN, {PLAYER}!\pEs momento de que tu POKéDEX esté\na la altura de quien eres.\pDéjame ver tu POKéDEX un segundo.\pVoy a actualizarla con el MODO\nNACIONAL.$"
+	.string "PROF. OAK: ¡Hola!\nYa empiezas a tener porte de\lCAMPEÓN, {PLAYER}!\pEs hora de que tu POKéDEX\nesté a tu altura.\pDéjame tu POKéDEX un segundo.\pLa actualizaré con el\nMODO NACIONAL.$"
 OlivineCity_PortInside_Text_Nationaldex2:
 	.string "¡La POKéDEX de {PLAYER}\nse actualizó al MODO NACIONAL!$"
 OlivineCity_PortInside_Text_Nationaldex3:
-	.string "PROF. OAK: No será fácil completar\nla POKéDEX NACIONAL...\pSin embargo, ¡sé que harás todo lo\nposible en nombre de la ciencia!$"
+	.string "PROF. OAK: No será fácil completar\nla POKéDEX NACIONAL...\pPero sé que harás un esfuerzo\nsincero por todos nosotros.$"
 OlivineCity_PortInside_Text_Nationaldex4:
-	.string "¡Vaya, cómo vuela el tiempo!\pTengo que ir a grabar mi programa\na la TORRE RADIO de CIUDAD TRIGAL.\pSeguro que te diriges hacia KANTO.\p¡Si pasas cerca de PUEBLO PALETA,\nno dudes en visitarme en mi\lLABORATORIO!$"
+	.string "¡Vaya, cómo vuela el tiempo!\pDebo grabar mi programa de radio en\nla TORRE RADIO de CIUDAD TRIGAL.\pSeguro que te diriges a KANTO.\pSi pasas cerca de PUEBLO PALETA,\n¡visita mi LABORATORIO POKéMON!$"
 OlivinePort_EventScript_CooltrainerF::
 	msgbox OlivinePort_Text_CooltrainerF, MSGBOX_NPC
 	end
@@ -238,9 +238,10 @@ OlivinePort_Movement_BoatLeave:
 OlivinePort_Text_NoPass:
     .string "{PLAYER} intentó enseñar el\n"
     .string "{STR_VAR_1}…\p"
-    .string "¡Pero no lo tiene!\p"
-    .string "Lo siento. Solo puedes embarcar\n"
-    .string "si tienes un {STR_VAR_1}.$"
+    .string "¡Pero no tiene el {STR_VAR_1}!\p"
+    .string "¡Lo siento!\n"
+    .string "Solo puedes embarcar si tienes\l"
+    .string "un {STR_VAR_1}.$"
 
 OlivinePort_Text_SailorGetOnBoard:
     .string "Zarpamos dentro de poco.\n"
@@ -271,9 +272,10 @@ OlivinePort_Text_FlashTicket:
 OlivinePort_Text_NoTicket:
     .string "{PLAYER} intentó enseñar el\n"
     .string "PASAJE BARCO…\p"
-    .string "¡Pero no lo tiene!\p"
-    .string "Lo siento. Solo puedes embarcar\n"
-    .string "si tienes un PASAJE BARCO.$"
+    .string "¡Pero no tiene el PASAJE!\p"
+    .string "¡Lo siento!\n"
+    .string "Solo puedes embarcar si tienes\l"
+    .string "un PASAJE BARCO.$"
 
 OlivinePort_Text_FishingGuru1:
     .string "Aquí es fácil pescar SHELLDER.\p"

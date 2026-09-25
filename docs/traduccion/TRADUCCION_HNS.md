@@ -144,7 +144,7 @@ pie title Estado de Contenido Traducido
 - [x] **Ciudad Iris (Ecruteak City)**:
   - Centro Pokémon: Encuentro con Bill (habilitación del sistema de PC).
   - Teatro de Danza: Las 5 Chicas Kimono (Eeveeluciones), combate contra el Recluta Rocket y entrega de la MO03 Surf.
-  - **Torre Quemada**: Encuentro con Euskadi (Eusine) y Morti, combate contra el Rival Cani con diálogos macarras, descenso al sótano y liberación de Raikou, Entei y Suicune.
+  - **Torre Quemada**: Encuentro con Eusine y Morti, combate contra el Rival Cani con diálogos macarras, descenso al sótano y liberación de Raikou, Entei y Suicune.
   - **Torre Hojalata / Campana**: Acceso custodiado por los sabios del Trío Sabio y Campana Clara.
   - **Gimnasio Iris**: Suelo invisible de abismo, médiums, sabios y líder **Morti** (Medalla Niebla + MT Bola Sombra).
 
@@ -163,11 +163,15 @@ pie title Estado de Contenido Traducido
   - Farmacia con 500 años de historia (obtención de la Medicina Secreta para Amphy).
   - Casa de la esposa de Aníbal (entrega MO Vuelo tras ganar la medalla).
   - Pescador que regala Tentacool y Pokemaníaco asustado que entrega a Shuckle ("Shuckie").
-  - Encuentro con Suicune huyendo por las olas y combate contra Euskadi (Eusine).
+  - Encuentro con Suicune huyendo por las olas y combate contra Eusine.
   - **Gimnasio Orquídea**: Puzle de empujar rocas, káratekas y líder **Aníbal** (Medalla Tormenta + MT Puño Certero).
 - [x] **Regreso a Olivo**:
   - Subida al Faro con la Poción Secreta, curación de Amphy y retorno de Yasmina al gimnasio.
   - **Gimnasio Olivo**: Líder **Yasmina** (Steelix, Medalla Mineral + MT Cola Férrea) e intercambio opcional de su Steelix "Oxidito".
+
+> **Revisión editorial (25/09/2026):** rehechos y auditados todos los diálogos,
+> entrenadores, carteles, ramas y textos contiguos de los 59 mapas del Bloque 4
+> frente a la referencia inglesa `c9d5bb3985`.
 
 ---
 
@@ -195,6 +199,11 @@ pie title Estado de Contenido Traducido
   - Rescate del verdadero Director de la Radio en los almacenes subterráneos.
   - Ascenso a la Torre Radio: Derrota de los Ejecutivos Proton, Petrel, Atenea y combate final contra Atlas en el mirador.
   - Disolución final del Team Rocket en Johto y entrega del Ala Arcoíris / Plateada por el Director.
+
+> **Revisión editorial (25/09/2026):** rehechos y auditados los textos de Ruta
+> 42, Monte Mortero, Ruta 43, Lago de la Furia, Pueblo Caoba, Guarida Rocket,
+> Gimnasio Caoba, invasión de Trigal, Torre Radio y subterráneo. Se comprobó su
+> cobertura frente a la referencia inglesa `c9d5bb3985`.
 
 ---
 

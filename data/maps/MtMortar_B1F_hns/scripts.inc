@@ -51,14 +51,14 @@ MountMortar4_EventScript_KiyoAfter::
 
 
 MountMortar4_Text_KiyoIntro:
-	.string "¡Ehh!\p¡Soy el REY DEL KÁRATE!\n¡Entreno en absoluta soledad en\lesta\ltenebrosa oscuridad!\p¡Tú! ¡Combate conmigo!\n¡¡¡Juaaaargh!!!$"
+	.string "¡Eh!\p¡Soy el REY DEL KÁRATE!\n¡Entreno solo aquí en la oscuridad!\p¡Tú! ¡Combate conmigo!\n¡¡¡Juaaaargh!!!$"
 MountMortar4_Text_KiyoWin:
 	.string "¡¡¡Uaaaargh!!!\n¡Me has vencido!$"
 MountMortar4_Text_KiyoTyrogueReward:
-	.string "Me... Me has dejado sin aliento...\pMi entrenamiento aún no es\nsuficiente...\lPero una derrota es una derrota.\lLo reconozco con honor.\pComo prueba de tu victoria sobre\nmí,\lte entregaré un POKéMON de tipo\lLUCHA\lmuy especial.$"
+	.string "Me… Me has destrozado…\pMi entrenamiento aún no es\nsuficiente…\pPero una derrota es una derrota.\nLo admito.\pComo prueba de que me has vencido,\nte daré un POKéMON de tipo LUCHA\lmuy especial.$"
 MountMortar4_Text_ReceiveTyrogue:
 	.string "¡{PLAYER} recibió a TYROGUE!$"
 MountMortar4_Text_KiyoGotTyrogue:
-	.string "TYROGUE es de tipo LUCHA.\pEvoluciona a un POKéMON mucho más\nduro\ly correoso.\pSigue esforzándote al máximo.\nYo también continuaré entrenando\lsin fin.\l¡Hasta siempre!$"
+	.string "TYROGUE es de tipo LUCHA.\pEvoluciona en un POKéMON\nmás fuerte.\pSigue esforzándote.\nYo también continuaré entrenando.\p¡Hasta siempre!$"
 MountMortar4_Text_KiyoFullParty:
-	.string "¡No tienes hueco libre en tu\nequipo!$"
+	.string "¡No tienes sitio en el equipo!$"

@@ -21,6 +21,6 @@ GoldenrodUnderground_EventScript_Teacher::
 	end
 
 GoldenrodUnderground1_Text_SuperNerd:
-	.string "Me desafiaron a un combate ahí\nabajo.\lEl ambiente está tenso. Ándate con\lojo.$"
+	.string "Me desafiaron a un combate ahí\nabajo.\pEs peligroso. Ten cuidado.$"
 GoldenrodUnderground1_Text_Teacher:
-	.string "Hay tiendas en el piso de abajo…\nPero también hay ENTRENADORES.\lMe da miedo bajar ahí.$"
+	.string "Hay tiendas en el piso de abajo…\nPero también hay Entrenadores.\pMe da miedo bajar.$"

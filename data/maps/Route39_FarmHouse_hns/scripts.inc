@@ -80,15 +80,15 @@ Route39_FarmHouse_EventScript_FarmerM_NotEnough::
 	end
 
 Route39_Text_FarmerMSickCow:
-	.string "Mi MILTANK ya no me da ni gota de\nleche.\pLa leche de esta GRANJA tiene mucha\nfama en toda la comarca.\pTodo el mundo quiere un trago.\pSi le doy un buen montón de BAYAS,\nseguro que vuelve a dar leche a\lraudales.$"
+	.string "Mi MILTANK ya no me da\nni una gota de leche.\pLa leche de esta GRANJA es famosa.\pTodo el mundo quiere probarla.\pSi le doy un montón de BAYAS,\nvolverá a dar mucha leche,\leso seguro.$"
 Route39_Text_FarmerMBuyMilk:
-	.string "¿Te apetece una LECHE MU-MU fresca?\pEs el orgullo de mi vida, vaya que\nsí.\p¡Dásela a tus POKéMON para\nrecuperar\lsus PS!\pTe la dejo por solo 500¥.$"
+	.string "¿Te apetece LECHE MU-MU?\pEs todo mi orgullo.\p¡Restaura los PS de los POKéMON!\pTe la dejo por tan solo\n500¥.$"
 Route39_Text_FarmerMGotMilk:
 	.string "¡Aquí tienes!\n¡Bébela bien fría y disfrútala!$"
 Route39_Text_FarmerMNoMoney:
 	.string "Lo siento, colega.\n¡Sin pasta no hay leche!$"
 Route39_Text_FarmerMNoRoom:
-	.string "Me da a mí que tienes la BOLSA\nllena hasta arriba.$"
+	.string "Creo que tienes la BOLSA llena.$"
 Route39_Text_FarmerMNoSale:
 	.string "¿Que no la quieres?\n¡Pues vuelve cuando tengas sed!$"
 Route39FarmHouse_Text_WouldYouLikeAnother:
@@ -98,8 +98,8 @@ Route39_Text_GotMilk:
 Route39_Text_FarmerMMilking:
 	.string "Será mejor que me ponga a ordeñar.$"
 Route39_Text_FarmerFInTrouble:
-	.string "Nuestra leche llega hasta KANTO.\pAsí que si nuestra propia MILTANK\nno\lnos da leche, estamos en un apuro.$"
+	.string "Nuestra leche llega hasta\nKANTO.\pSi nuestra MILTANK no da leche,\ntenemos un buen problema.$"
 Route39_Text_FarmerFHealedMiltank:
-	.string "¡Has curado a nuestra MILTANK,\ncielo!\lAhora vuelve a dar LECHE MU-MU.\pToma esto por las molestias.$"
+	.string "Has curado a nuestra MILTANK.\nYa vuelve a dar LECHE MU-MU.\pToma esto por las molestias.$"
 Route39_Text_FarmerFSnatchSpeech:
-	.string "Ahí tienes ROBO.\pEs un movimiento muy pillo que le\npermite a tu POKéMON robar el\lefecto\ldel ataque del rival justo antes de\lque lo use.\pSi más de un POKéMON usa ROBO, solo\nel más lento acabará robando el\lmovimiento.\pÚsala con cabeza, cielo. El ritmo\nlo es todo.$"
+	.string "Esto es ROBO.\pEs un movimiento muy astuto:\nroba el movimiento del rival\ljusto antes de que lo use.\pSi varios POKéMON usan ROBO,\nsolo el más lento de todos\lacabará robando el movimiento.\pÚsalo bien. Aquí el ritmo\nlo es todo.$"

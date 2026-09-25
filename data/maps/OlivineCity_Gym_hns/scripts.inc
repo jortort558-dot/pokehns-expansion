@@ -72,9 +72,9 @@ OlivineCity_Gym_EventScript_MoveLeft4::
 	return
 
 OlivineCity_Gym_Text_Gent:
-	.string "Sabía que vendrías.\pTe agradezco mucho tu ayuda a la\nLÍDER,\lpero el combate es harina de otro\lcostal.\p¡Demuestra lo que vales!$"
+	.string "Sabía que vendrías.\pGracias por ayudar a la LÍDER,\npero el combate es otra cosa.\p¡Adelante!$"
 OlivineCity_Gym_Text_Gent2:
-	.string "¡Impresionante!\nDeberías seguir viajando hacia\lotros\llugares.\pYa que puedes hacer SURF, ¿por qué\nno\llo intentas en el LAGO DE LA FURIA?$"
+	.string "¡Impresionante!\nDeberías seguir viajando a otros\llugares.\pYa que puedes hacer SURF, ¿por qué\nno pruebas en el LAGO DE LA FURIA?$"
 OlivineCity_Gym_EventScript_Lass::
 	lock
 	faceplayer
@@ -146,9 +146,9 @@ OlivineCity_Gym_EventScript_MoveRight4::
 	return
 
 OlivineCity_Gym_Text_Lass:
-	.string "Je, je... Ya sé de sobra lo capaz\nque\leres por lo del FARO.\p¡Es hora de que le enseñes esa\nfuerza\la YASMINA! ¡Mucha suerte!$"
+	.string "Je, je...\nYa vi lo que vales en el FARO.\p¡Es hora de que se lo demuestres\na YASMINA! ¡Mucha suerte!$"
 OlivineCity_Gym_Text_Lass2:
-	.string "Eres increíble...\nDeberías aspirar aún más alto con\lese\ltalento que tienes.\p¿Has estado ya en PUEBLO CAOBA?$"
+	.string "Eres increíble...\nCon ese potencial, deberías aspirar\laún más alto.\p¿Has estado ya en PUEBLO CAOBA?$"
 OlivineCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
@@ -172,11 +172,11 @@ OlivineCity_Gym_EventScript_GymGuideAfter::
 	end
 
 OlivineCity_Gym_Text_GymGuideText:
-	.string "YASMINA utiliza el tipo ACERO,\nrecientemente descubierto.\pEs famosa por contar no con uno,\nsino\lcon dos ases en la manga.\pEl primero es un bicho metálico que\nsube\lsu ATAQUE con gran técnica.\pEl fuego le hará daño, pero a veces\nresiste\lgolpes potentísimos.\pEl segundo es una descomunal\nserpiente de\lhierro con ataques demoledores.\lTen muchísimo cuidado con ella.\lParece lenta, pero la he visto\latacar\lprimero con una VELOCIDAD de\lespanto.$"
+	.string "YASMINA usa el recién descubierto\ntipo ACERO.\pEs famosa por tener no uno,\nsino dos ases.\pEl primero es un insecto metálico\nque puede aumentar su ATAQUE.\pEl fuego le hace daño, pero puede\nresistir golpes muy potentes.\pEl segundo es una serpiente de\nhierro con ataques demoledores.\pAcércate con mucho cuidado.\pParece lenta, pero la he visto\natacar primero con una VELOCIDAD\lde vértigo.$"
 OlivineCity_Gym_Text_GymGuideWinText:
-	.string "¡Ha sido alucinante!\nEl tipo ACERO, ¿eh?\p¡Vaya encuentro cercano de un tipo\ndesconocido!$"
+	.string "¡Ha sido alucinante!\pEl tipo ACERO, ¿eh?\p¡Un encuentro cercano con un tipo\ndesconocido!$"
 OlivineCity_Gym_Text_GymGuidePreText:
-	.string "YASMINA, la LÍDER del GIMNASIO,\nestá\len el FARO.\pHa estado cuidando de un POKéMON\nenfermo.\pUn buen Entrenador tiene que ser\ntambién\lcompasivo.$"
+	.string "YASMINA, la LÍDER del GIMNASIO,\nestá en el FARO.\pCuida de un POKéMON enfermo.\pUn buen Entrenador también debe ser\ncompasivo.$"
 OlivineCity_Gym_EventScript_Jasmine::
 	lock
 	faceplayer
@@ -235,21 +235,41 @@ OlivineCity_Gym_EventScript_Jasmine_Defeated::
 
 
 OlivineCity_Gym_Text_JasmineSteelTypeIntro:
-	.string "…Muchas gracias por toda tu ayuda\nen\lel FARO…\pPero esto es un combate oficial.\nPermíteme que me presente.\pSoy YASMINA, la LÍDER de GIMNASIO.\nUso POKéMON del tipo ACERO.\p…¿Conoces el tipo ACERO?\pEs un tipo descubierto hace muy\npoco\ltiempo.\p…Esto… ¿Podemos empezar?$"
+	.string "…Gracias por ayudarme en el\n"
+	.string "FARO…\p"
+	.string "Pero ahora es diferente.\n"
+	.string "Permíteme que me presente.\p"
+	.string "Soy YASMINA, LÍDER de GIMNASIO.\n"
+	.string "Uso POKéMON de tipo ACERO.\p"
+	.string "…¿Conoces el tipo ACERO?\p"
+	.string "Es un tipo descubierto hace\n"
+	.string "muy poco tiempo.\p"
+	.string "…Esto… ¿Puedo empezar?$"
 OlivineCity_Gym_Text_JasmineBetterTrainer:
-	.string "…Eres mejor Entrenador que yo,\ntanto en habilidad como en bondad.\pCumpliendo las normas de la LIGA,\nte hago entrega de esta MEDALLA.$"
+	.string "…Eres mejor Entrenador que yo,\n"
+	.string "tanto por fuerza como por bondad.\p"
+	.string "Según las normas de la LIGA,\n"
+	.string "te hago entrega de esta MEDALLA.$"
 OlivineCity_Gym_Text_ReceivedMineralBadge:
-	.string "¡{PLAYER} recibió la\nMEDALLA MINERAL!$"
+	.string "¡MEDALLA MINERAL para {PLAYER}!$"
 OlivineCity_Gym_Text_JasmineBadgeSpeech:
-	.string "La MEDALLA MINERAL aumenta la DEF.\nESPECIAL de los POKéMON.\p…Esto… Por favor, llévate esto\ntambién…$"
+	.string "La MEDALLA MINERAL aumenta la\n"
+	.string "DEFENSA ESPECIAL de los POKéMON.\p"
+	.string "…Esto… Llévate esto también…$"
 OlivineCity_Gym_Text_JasmineIronTailSpeech:
-	.string "…Puedes usar esa MT para enseñar\nCOLA FÉRREA.$"
+	.string "…Con esa MT puedes enseñar\n"
+	.string "COLA FÉRREA.$"
 OlivineCity_Gym_Text_JasmineGoodLuck:
-	.string "Esto… No sé muy bien cómo decirlo,\npero te deseo muchísima suerte…$"
+	.string "Esto… No sé muy bien cómo decirlo,\n"
+	.string "pero… buena suerte.$"
 OlivineCity_Gym_Text_JasmineRematchText:
-	.string "…Enhorabuena, CAMPEÓN de JOHTO.\pTe has vuelto extremadamente\nfuerte…\pMe pregunto si yo habré mejorado\nalgo.\l¿Te gustaría comprobarlo?\p¿Aceptas tener una revancha\nconmigo?$"
+	.string "…Enhorabuena, CAMPEÓN DE JOHTO.\p"
+	.string "Te has vuelto muy fuerte…\p"
+	.string "Me pregunto si yo habré mejorado.\p"
+	.string "¿Te gustaría comprobarlo?\p"
+	.string "¿Quieres una revancha conmigo?$"
 OlivineCity_Gym_Text_JasmineRematchDefeatText:
-	.string "…Eres mejor Entrenador que yo,\ntanto en habilidad como en bondad.$"
+	.string "…Eres mejor Entrenador que yo,\ntanto por fuerza como por bondad.$"
 OlivineCity_Gym_EventScript_Statue::
 	lock
 	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, OlivineCity_Gym_EventScript_Statue2
@@ -296,10 +316,10 @@ OlivineCity_Gym_EventScript_JasmineTradeCompleted::
 	end
 
 OlivineCity_Gym_Text_JasmineWantToTrade:
-	.string "…Esto, {PLAYER}…\nQuería pedirte un favor.\pHe criado a este STEELIX desde que\nera\lun pequeño ONIX.\pPero creo que OXIDITO sería mucho\nmás\lfeliz con alguien como tú.\p¿Cambiarías alguno de tus POKéMON\npor\lmi OXIDITO?$"
+	.string "…Esto, {PLAYER}…\nQuería pedirte un favor.\pHe criado a este STEELIX desde que\nera un pequeño ONIX.\pPero creo que OXIDITO sería más\nfeliz con alguien como tú.\p¿Cambiarías uno de tus POKéMON por\nmi OXIDITO?$"
 OlivineCity_Gym_Text_JasmineTakeCare:
-	.string "…Muchísimas gracias.\nPor favor, cuida muy bien de\lOXIDITO…$"
+	.string "…Muchísimas gracias.\nPor favor, cuida mucho de OXIDITO…$"
 OlivineCity_Gym_Text_JasmineDeclineTrade:
 	.string "…Oh… No pasa nada.\nLo comprendo perfectamente…$"
 OlivineCity_Gym_Text_JasmineTradeCompleted:
-	.string "…¿Cómo le va a OXIDITO?\nEspero de corazón que lo estés\lcuidando…$"
+	.string "…¿Cómo está OXIDITO?\nEspero de corazón que lo cuides…$"

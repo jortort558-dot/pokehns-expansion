@@ -18,6 +18,6 @@ OlivineCity_EventScript_PunisherBoy::
 	end
 
 OlivineCity_Text_PunishmentBro:
-	.string "De camino a CIUDAD ORQUÍDEA hay\ncuatro\lislas desiertas.\p¡A los niños malos los mandan\ncastigados\la esas islas perdidas!$"
+	.string "De camino a CIUDAD ORQUÍDEA hay\ncuatro islas desiertas.\p¡A los niños malos los llevan a\nesas islas como castigo!$"
 OlivineCity_Text_PunishmentBoy:
-	.string "Cada vez que hago una trastada,\nmi hermano mayor me asusta con eso.$"
+	.string "Cuando me meto en líos, mi hermano\nmayor siempre me asusta con eso.$"
