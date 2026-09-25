@@ -250,43 +250,41 @@ SSAqua_1F_Movement_GrandpaLeave:
 	step_end
 
 SSAqua_1F_Text_Sailor1_ToVermilion:
-    .string "FAST SHIP S.S.AQUA is en route to\n"
-    .string "VERMILION CITY.\p"
-    .string "We will make an announcement when\n"
-    .string "we arrive.$"
+    .string "El S.S. AQUA navega rumbo a\n"
+    .string "CIUDAD CARMÍN.\p"
+    .string "Anunciaremos nuestra llegada.$"
 
 SSAqua_1F_Text_Sailor1_ToOlivine:
-    .string "FAST SHIP S.S.AQUA is en route to\n"
-    .string "OLIVINE CITY.\p"
-    .string "We will make an announcement when\n"
-    .string "we arrive.$"
+    .string "El S.S. AQUA navega rumbo a\n"
+    .string "CIUDAD OLIVO.\p"
+    .string "Anunciaremos nuestra llegada.$"
 
 SSAqua_1F_Text_Sailor2_FirstTime:
-    .string "Here's your cabin.\p"
-    .string "If your POKéMON are hurt, take a\n"
-    .string "nap in the bed.\p"
-    .string "That will heal them.$"
+    .string "Este es tu camarote.\p"
+    .string "Si tus POKéMON están heridos,\n"
+    .string "duerme un poco en la cama.\p"
+    .string "Así se recuperarán.$"
 
 SSAqua_1F_Text_Sailor3:
-    .string "The passengers are all trainers.\p"
-    .string "They're all itching to battle in\n"
-    .string "their cabins.$"
+    .string "Los pasajeros son entrenadores.\p"
+    .string "Están deseando combatir en sus\n"
+    .string "camarotes.$"
 
 SSAqua_1F_Text_Grandpa:
-    .string "Whoa! Excuse me. I was in a hurry!\p"
-    .string "My granddaughter is missing!\p"
-    .string "She's just a wee girl. If you see\n"
-    .string "her, please let me know!$"
+    .string "¡Oh! ¡Perdona, tengo mucha prisa!\p"
+    .string "¡Mi nieta ha desaparecido!\p"
+    .string "Es muy pequeña. Si la ves,\n"
+    .string "¡avísame, por favor!$"
 
 SSAqua_1F_Text_Sailor1_InOlivine:
-    .string "FAST SHIP S.S.AQUA has arrived in\n"
-    .string "OLIVINE CITY.$"
+    .string "El S.S. AQUA ha llegado a\n"
+    .string "CIUDAD OLIVO.$"
 
 SSAqua_1F_Text_Sailor1_InVermilion:
-    .string "FAST SHIP S.S.AQUA has arrived in\n"
-    .string "VERMILION CITY.$"
+    .string "El S.S. AQUA ha llegado a\n"
+    .string "CIUDAD CARMÍN.$"
 
 
 SSAqua_1F_Text_SailorDoorArrived:
-    .string "We have arrived in VERMILION CITY.\n"
-    .string "Would you like to disembark?$"
+    .string "Hemos llegado a CIUDAD CARMÍN.\n"
+    .string "¿Quieres desembarcar?$"

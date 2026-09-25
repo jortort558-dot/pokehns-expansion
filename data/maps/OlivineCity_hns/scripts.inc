@@ -273,3 +273,20 @@ OlivineCity_Text_BattleTowerSign:
 	.string "COLINA DESAFÍO Y CARPAS DE BATALLA\nMÁS ADELANTE.\p¡Ya están abiertas!$"
 OlivineCity_Text_Machoke:
 	.string "MACHOKE: ¡CHO!$"
+
+OlivineCity_EventScript_SitoFriki::
+	lock
+	faceplayer
+	msgbox OlivineCity_Text_SitoFriki, MSGBOX_DEFAULT
+	release
+	end
+
+OlivineCity_Text_SitoFriki:
+	.string "¡Buenas! Me llamo Sito...\p"
+	.string "Oye, ¿me metes en tu grupo de\n"
+	.string "Steam, por favor?\p"
+	.string "Es solo para aprovecharme del\n"
+	.string "préstamo familiar de juegos...\p"
+	.string "¡Te juro que no cambiaré tus\n"
+	.string "contraseñas ni nada de eso!$"
+

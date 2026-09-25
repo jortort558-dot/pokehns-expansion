@@ -2002,7 +2002,7 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
     }
 }
 
-u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 firstTrainer, u32 battleTypeFlags)
+u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, u16 trainerId, bool32 firstTrainer, u32 battleTypeFlags)
 {
     u32 personalityValue;
     s32 i;
@@ -2062,12 +2062,15 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             }
             {
                 u16 species = partyData[monIndex].species;
+                u16 heldItem = partyData[monIndex].heldItem;
                 #if RANDOMIZER_AVAILABLE == TRUE
-                species = RandomizeTrainerMon(trainer->trainerClass, i, monsCount, species);
+                struct RandomizedTrainerMon randMon = RandomizeTrainerPartyMon(trainerId, trainer->trainerClass, i, monsCount, species, heldItem);
+                species = randMon.species;
+                heldItem = randMon.heldItem;
                 #endif
                 CreateMon(&party[i], species, partyData[monIndex].lvl, personalityValue, otId);
+                SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
             }
-            SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[monIndex].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[monIndex]);
             SetMonData(&party[i], MON_DATA_IVS, &(partyData[monIndex].iv));
@@ -2080,24 +2083,31 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 SetMonData(&party[i], MON_DATA_SPDEF_EV, &(partyData[monIndex].ev[4]));
                 SetMonData(&party[i], MON_DATA_SPEED_EV, &(partyData[monIndex].ev[5]));
             }
-            if (partyData[monIndex].ability != ABILITY_NONE)
             {
-                const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[partyData[monIndex].species];
+                u16 curSpecies = GetMonData(&party[i], MON_DATA_SPECIES);
+                const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[curSpecies];
                 u32 maxAbilityNum = ARRAY_COUNT(speciesInfo->abilities);
-                for (abilityNum = 0; abilityNum < maxAbilityNum; ++abilityNum)
+                bool32 abilityAssigned = FALSE;
+
+                if (partyData[monIndex].ability != ABILITY_NONE)
                 {
-                    if (speciesInfo->abilities[abilityNum] == partyData[monIndex].ability)
-                        break;
+                    for (abilityNum = 0; abilityNum < maxAbilityNum; ++abilityNum)
+                    {
+                        if (speciesInfo->abilities[abilityNum] == partyData[monIndex].ability)
+                        {
+                            abilityAssigned = TRUE;
+                            break;
+                        }
+                    }
                 }
-                assertf(abilityNum < maxAbilityNum, "illegal ability %S for %S", gAbilitiesInfo[partyData[monIndex].ability].name, speciesInfo->speciesName);
-            }
-            else if (B_TRAINER_MON_RANDOM_ABILITY)
-            {
-                const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[partyData[monIndex].species];
-                abilityNum = personalityHash % 3;
-                while (speciesInfo->abilities[abilityNum] == ABILITY_NONE)
+
+                if (!abilityAssigned)
                 {
-                    abilityNum--;
+                    abilityNum = personalityHash % maxAbilityNum;
+                    while (speciesInfo->abilities[abilityNum] == ABILITY_NONE && abilityNum > 0)
+                    {
+                        abilityNum--;
+                    }
                 }
             }
             SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
@@ -2194,11 +2204,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         if (tempTrainer.partySize == 0)
             tempTrainer.partySize = origTrainer->partySize;
 
-        retVal = CreateNPCTrainerPartyFromTrainer(party, (const struct Trainer *)(&tempTrainer), firstTrainer, gBattleTypeFlags);
+        retVal = CreateNPCTrainerPartyFromTrainer(party, (const struct Trainer *)(&tempTrainer), trainerNum, firstTrainer, gBattleTypeFlags);
     }
     else
     {
-        retVal = CreateNPCTrainerPartyFromTrainer(party, GetTrainerStructFromId(trainerNum), firstTrainer, gBattleTypeFlags);
+        retVal = CreateNPCTrainerPartyFromTrainer(party, GetTrainerStructFromId(trainerNum), trainerNum, firstTrainer, gBattleTypeFlags);
     }
     return retVal;
 }
@@ -2209,7 +2219,7 @@ void CreateTrainerPartyForPlayer(void)
 
     ZeroPlayerPartyMons();
     gPartnerTrainerId = gSpecialVar_0x8004;
-    CreateNPCTrainerPartyFromTrainer(gPlayerParty, GetTrainerStructFromId(gSpecialVar_0x8004), TRUE, BATTLE_TYPE_TRAINER);
+    CreateNPCTrainerPartyFromTrainer(gPlayerParty, GetTrainerStructFromId(gSpecialVar_0x8004), gSpecialVar_0x8004, TRUE, BATTLE_TYPE_TRAINER);
 }
 
 void VBlankCB_Battle(void)

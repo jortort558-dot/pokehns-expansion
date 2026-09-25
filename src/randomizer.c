@@ -17,6 +17,8 @@
 #include "move.h"
 #include "nuzlocke.h"
 #include "constants/opponents.h"
+#include "constants/trainers.h"
+#include "difficulty.h"
 
 const u16 gStarterAndGiftMonTable[STARTER_AND_GIFT_MON_COUNT] =
 {
@@ -1610,19 +1612,330 @@ bool32 IsRandomizationPossible(u16 originalSpecies, u16 targetSpecies)
     return TRUE;
 }
 
-u16 RandomizeTrainerMon(u16 trainerId, u8 slot, u8 totalMons, u16 species)
+enum TrainerPowerTier
 {
-    if (RandomizerFeatureEnabled(RANDOMIZE_TRAINER_MON))
-    {
-        u32 seed;
-        seed = (u32)trainerId << 16;
-        seed |= (u32)totalMons << 8;
-        seed |= slot;
+    TRAINER_TIER_REGULAR,
+    TRAINER_TIER_ACE,
+    TRAINER_TIER_BOSS,
+};
 
-        return RandomizeMon(RANDOMIZER_REASON_TRAINER_PARTY, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), seed, species);
+static const u16 sTrainerBossProgressionWeights[9][7] = {
+    /* INICIO */         {450, 400, 140,  10,   0,   0,   0},
+    /* EARLY */          {150, 450, 320,  70,  10,   0,   0},
+    /* MID */            { 30, 200, 450, 230,  80,   9,   1},
+    /* LATE_JOHTO */     {  0,  70, 300, 400, 160,  60,  10},
+    /* PRE_LIGA */       {  0,  20, 150, 450, 250, 110,  20},
+    /* LIGA_JOHTO */     {  0,   0,  50, 350, 300, 230,  70},
+    /* KANTO_TEMPRANO */ {  0,   0,  40, 340, 300, 240,  80},
+    /* KANTO_TARDIO */   {  0,   0,  20, 280, 300, 300, 100},
+    /* POSTGAME */       {  0,   0,   0, 200, 300, 400, 100},
+};
+
+struct MegaPair
+{
+    u16 species;
+    u16 stone;
+};
+
+static const struct MegaPair sTrainerMegaPairs[] =
+{
+    {SPECIES_VENUSAUR, ITEM_VENUSAURITE},
+    {SPECIES_CHARIZARD, ITEM_CHARIZARDITE_X},
+    {SPECIES_CHARIZARD, ITEM_CHARIZARDITE_Y},
+    {SPECIES_BLASTOISE, ITEM_BLASTOISINITE},
+    {SPECIES_BEEDRILL, ITEM_BEEDRILLITE},
+    {SPECIES_PIDGEOT, ITEM_PIDGEOTITE},
+    {SPECIES_ALAKAZAM, ITEM_ALAKAZITE},
+    {SPECIES_SLOWBRO, ITEM_SLOWBRONITE},
+    {SPECIES_GENGAR, ITEM_GENGARITE},
+    {SPECIES_KANGASKHAN, ITEM_KANGASKHANITE},
+    {SPECIES_PINSIR, ITEM_PINSIRITE},
+    {SPECIES_GYARADOS, ITEM_GYARADOSITE},
+    {SPECIES_AERODACTYL, ITEM_AERODACTYLITE},
+    {SPECIES_AMPHAROS, ITEM_AMPHAROSITE},
+    {SPECIES_STEELIX, ITEM_STEELIXITE},
+    {SPECIES_SCIZOR, ITEM_SCIZORITE},
+    {SPECIES_HERACROSS, ITEM_HERACRONITE},
+    {SPECIES_HOUNDOOM, ITEM_HOUNDOOMINITE},
+    {SPECIES_TYRANITAR, ITEM_TYRANITARITE},
+    {SPECIES_SCEPTILE, ITEM_SCEPTILITE},
+    {SPECIES_BLAZIKEN, ITEM_BLAZIKENITE},
+    {SPECIES_SWAMPERT, ITEM_SWAMPERTITE},
+    {SPECIES_GARDEVOIR, ITEM_GARDEVOIRITE},
+    {SPECIES_SABLEYE, ITEM_SABLENITE},
+    {SPECIES_MAWILE, ITEM_MAWILITE},
+    {SPECIES_AGGRON, ITEM_AGGRONITE},
+    {SPECIES_MEDICHAM, ITEM_MEDICHAMITE},
+    {SPECIES_MANECTRIC, ITEM_MANECTITE},
+    {SPECIES_SHARPEDO, ITEM_SHARPEDONITE},
+    {SPECIES_CAMERUPT, ITEM_CAMERUPTITE},
+    {SPECIES_ALTARIA, ITEM_ALTARIANITE},
+    {SPECIES_BANETTE, ITEM_BANETTITE},
+    {SPECIES_ABSOL, ITEM_ABSOLITE},
+    {SPECIES_GLALIE, ITEM_GLALITITE},
+    {SPECIES_SALAMENCE, ITEM_SALAMENCITE},
+    {SPECIES_METAGROSS, ITEM_METAGROSSITE},
+    {SPECIES_LOPUNNY, ITEM_LOPUNNITE},
+    {SPECIES_GARCHOMP, ITEM_GARCHOMPITE},
+    {SPECIES_LUCARIO, ITEM_LUCARIONITE},
+    {SPECIES_ABOMASNOW, ITEM_ABOMASITE},
+    {SPECIES_GALLADE, ITEM_GALLADITE},
+    {SPECIES_AUDINO, ITEM_AUDINITE},
+};
+
+static bool32 IsCustomMegaTrainer(u16 trainerId)
+{
+    // Hook extensible para que el usuario pueda añadir combates y entrenadores especiales que usen Mega
+    return FALSE;
+}
+
+static bool32 IsConfiguredMegaBoss(u16 trainerId, u8 trainerClass)
+{
+    if (IsCustomMegaTrainer(trainerId))
+        return TRUE;
+
+    switch (trainerClass)
+    {
+    case TRAINER_CLASS_LEADER_HNS:
+    case TRAINER_CLASS_LEADER_KANTO_HNS:
+    case TRAINER_CLASS_ELITE_FOUR_HNS:
+    case TRAINER_CLASS_CHAMPION_HNS:
+    case TRAINER_CLASS_ROCKET_ADMIN_HNS:
+    case TRAINER_CLASS_RIVAL_HNS:
+        return TRUE;
     }
 
-    return species;
+    switch (trainerId)
+    {
+    case TRAINER_RED_HNS:
+    case TRAINER_RED_POSTOBC_HNS:
+    case TRAINER_GIOVANNI_HNS:
+    case TRAINER_EUSINE_HNS:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static enum TrainerPowerTier GetTrainerPowerTier(u16 trainerId, u8 trainerClass)
+{
+    switch (trainerId)
+    {
+    case TRAINER_WILL_1_HNS:
+    case TRAINER_WILL_2_HNS:
+    case TRAINER_WILL_POSTOBC_HNS:
+    case TRAINER_KOGA_1_HNS:
+    case TRAINER_KOGA_2_HNS:
+    case TRAINER_KOGA_POSTOBC_HNS:
+    case TRAINER_BRUNO_1_HNS:
+    case TRAINER_BRUNO_2_HNS:
+    case TRAINER_BRUNO_POSTOBC_HNS:
+    case TRAINER_KAREN_1_HNS:
+    case TRAINER_KAREN_2_HNS:
+    case TRAINER_KAREN_POSTOBC_HNS:
+    case TRAINER_LANCE_1_HNS:
+    case TRAINER_LANCE_2_HNS:
+    case TRAINER_LANCE_3_HNS:
+    case TRAINER_LANCE_POSTOBC_HNS:
+    case TRAINER_RED_HNS:
+    case TRAINER_RED_POSTOBC_HNS:
+        return TRAINER_TIER_BOSS;
+    }
+
+    if (FlagGet(FLAG_MEGA_SYSTEM_UNLOCKED))
+    {
+        if (trainerClass == TRAINER_CLASS_LEADER_HNS
+         || trainerClass == TRAINER_CLASS_LEADER_KANTO_HNS)
+            return TRAINER_TIER_ACE;
+    }
+
+    return TRAINER_TIER_REGULAR;
+}
+
+static bool32 CanTrainerSpeciesEvolve(u16 species)
+{
+    const struct Evolution *evolutions = GetSpeciesEvolutions(species);
+    return (evolutions != NULL && evolutions[0].method != EVOLUTIONS_END);
+}
+
+static u16 RollCompatibleTrainerItem(u16 species, enum TrainerPowerTier tier, u8 block, enum DifficultyLevel difficulty, struct Sfc32State *state)
+{
+    u32 roll = RandomizerNextRange(state, 100);
+    u32 berryChance = 0;
+    u32 safeChance = 0;
+
+    switch (tier)
+    {
+    case TRAINER_TIER_REGULAR:
+        if (block <= BLOCK_EARLY)
+        {
+            berryChance = 0;
+            safeChance = 0;
+        }
+        else if (block == BLOCK_MID)
+        {
+            berryChance = 20;
+            safeChance = 0;
+        }
+        else if (block == BLOCK_LATE_JOHTO)
+        {
+            berryChance = 30;
+            safeChance = 0;
+        }
+        else
+        {
+            berryChance = 0;
+            safeChance = 50;
+        }
+        break;
+    case TRAINER_TIER_ACE:
+        if (block <= BLOCK_EARLY)
+        {
+            berryChance = 20;
+            safeChance = 0;
+        }
+        else if (block == BLOCK_MID)
+        {
+            berryChance = 0;
+            safeChance = 50;
+        }
+        else if (block == BLOCK_LATE_JOHTO)
+        {
+            berryChance = 0;
+            safeChance = 70;
+        }
+        else
+        {
+            berryChance = 0;
+            safeChance = 100;
+        }
+        break;
+    case TRAINER_TIER_BOSS:
+    default:
+        if (block <= BLOCK_EARLY)
+        {
+            berryChance = 100;
+            safeChance = 0;
+        }
+        else
+        {
+            berryChance = 0;
+            safeChance = 100;
+        }
+        break;
+    }
+
+    if (difficulty == DIFFICULTY_EASY)
+    {
+        safeChance = 0;
+        if (berryChance == 0 && tier >= TRAINER_TIER_ACE)
+            berryChance = 30;
+    }
+
+    if (roll < berryChance)
+    {
+        static const u16 sTrainerBerries[] = {
+            ITEM_SITRUS_BERRY, ITEM_LUM_BERRY, ITEM_ORAN_BERRY, ITEM_CHERI_BERRY, ITEM_CHESTO_BERRY, ITEM_PECHA_BERRY
+        };
+        return sTrainerBerries[RandomizerNextRange(state, ARRAY_COUNT(sTrainerBerries))];
+    }
+    else if (roll < (berryChance + safeChance))
+    {
+        static const u16 sTrainerSafeItems[] = {
+            ITEM_LEFTOVERS, ITEM_FOCUS_SASH, ITEM_ROCKY_HELMET, ITEM_LIFE_ORB, ITEM_EXPERT_BELT, ITEM_ASSAULT_VEST
+        };
+        if (CanTrainerSpeciesEvolve(species))
+        {
+            if (RandomizerNextRange(state, 100) < 35)
+                return ITEM_EVIOLITE;
+        }
+        return sTrainerSafeItems[RandomizerNextRange(state, ARRAY_COUNT(sTrainerSafeItems))];
+    }
+
+    return ITEM_NONE;
+}
+
+struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerClass, u8 slot, u8 totalMons, u16 originalSpecies, u16 originalHeldItem)
+{
+    struct RandomizedTrainerMon result;
+    result.species = originalSpecies;
+    result.heldItem = originalHeldItem;
+
+    if (!RandomizerFeatureEnabled(RANDOMIZE_TRAINER_MON) || !IsSpeciesValidForRandomizer(originalSpecies))
+        return result;
+
+    u8 block = GetWildRandomizerProgressionBlock();
+    enum DifficultyLevel difficulty = GetCurrentDifficultyLevel();
+    enum TrainerPowerTier tier = GetTrainerPowerTier(trainerId, trainerClass);
+
+    u32 slotKey = (((u32)trainerId) << 16) | (((u32)block) << 8) | (u32)slot;
+    struct Sfc32State state = RandomizerRandSeed(RANDOMIZER_REASON_TRAINER_PARTY, slotKey, (u32)originalSpecies);
+
+    if (!sWildPools.initialized
+     || sWildPools.genScopeRestricted != IsGenScopeRestricted()
+     || sWildPools.includeLegendaries != gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries)
+    {
+        BuildWildSpeciesPools();
+    }
+
+    s8 megaSlot = -1;
+    s8 specialSlot = -1;
+
+    if (FlagGet(FLAG_MEGA_SYSTEM_UNLOCKED) && IsConfiguredMegaBoss(trainerId, trainerClass) && totalMons > 0)
+    {
+        megaSlot = totalMons - 1;
+    }
+
+    if (tier == TRAINER_TIER_BOSS && totalMons >= 2)
+    {
+        specialSlot = (megaSlot == totalMons - 1) ? (totalMons - 2) : (totalMons - 1);
+    }
+
+    if (slot == megaSlot)
+    {
+        u32 pairIndex = RandomizerNextRange(&state, ARRAY_COUNT(sTrainerMegaPairs));
+        result.species = sTrainerMegaPairs[pairIndex].species;
+        result.heldItem = sTrainerMegaPairs[pairIndex].stone;
+        return result;
+    }
+
+    if (slot == specialSlot)
+    {
+        bool32 includeLegendaries = gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries;
+        enum WildPowerCategory cat;
+        if (trainerId == TRAINER_LANCE_1_HNS || trainerId == TRAINER_LANCE_2_HNS || trainerId == TRAINER_LANCE_3_HNS || trainerId == TRAINER_LANCE_POSTOBC_HNS)
+            cat = includeLegendaries ? CATEGORY_T5_L : CATEGORY_T4_PS;
+        else
+            cat = includeLegendaries ? CATEGORY_T5_SL : CATEGORY_T4_PS;
+
+        result.species = ChooseWildSpecies(cat, &state, originalSpecies);
+        result.heldItem = RollCompatibleTrainerItem(result.species, tier, block, difficulty, &state);
+        return result;
+    }
+
+    u8 effectiveBlock = block;
+    const u16 (*weights)[7] = sWildProgressionWeights;
+
+    if (tier == TRAINER_TIER_ACE)
+    {
+        effectiveBlock = min(block + 1, BLOCK_POSTGAME);
+    }
+    else if (tier == TRAINER_TIER_BOSS)
+    {
+        weights = sTrainerBossProgressionWeights;
+    }
+
+    enum WildPowerCategory category = WeightedCategoryRoll(weights[effectiveBlock], &state);
+    result.species = ChooseWildSpecies(category, &state, originalSpecies);
+    result.heldItem = RollCompatibleTrainerItem(result.species, tier, block, difficulty, &state);
+
+    return result;
+}
+
+u16 RandomizeTrainerMon(u16 trainerId, u8 slot, u8 totalMons, u16 species)
+{
+    struct RandomizedTrainerMon randMon = RandomizeTrainerPartyMon(trainerId, 0, slot, totalMons, species, ITEM_NONE);
+    return randMon.species;
 }
 
 u16 RandomizeFixedEncounterMon(u16 species, u8 mapNum, u8 mapGroup, u8 localId)
