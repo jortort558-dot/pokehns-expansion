@@ -319,8 +319,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD_HNS",
-      "x": 37,
-      "y": 48,
+      "x": 23,
+      "y": 43,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
