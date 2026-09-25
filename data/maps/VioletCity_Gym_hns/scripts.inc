@@ -56,47 +56,50 @@ VioletCity_Gym_EventScript_Falkner_Defeated::
 	end
 
 VioletGym_Text_Falkner_Intro:
-	.string "¡Soy PEGASO, el Líder del GIMNASIO\n"
+	.string "¡Soy PEGASO, el LÍDER del GIMNASIO\n"
 	.string "POKéMON de CIUDAD MALVA!\p"
-	.string "La gente dice que se pueden cortar\nlas\l"
-	.string "alas a los Pokémon pájaro\p"
-	.string "con una simple descarga eléctrica…\n"
-	.string "¡No permitiré tales insultos a mis\l"
+	.string "Dicen que una descarga eléctrica\n"
+	.string "puede cortar las alas de los\l"
+	.string "POKéMON voladores…\p"
+	.string "¡No permitiré tales insultos\n"
 	.string "POKéMON voladores!\p"
 	.string "¡Te demostraré el auténtico poder\n"
 	.string "de las majestuosas aves del cielo!$"
 
 VioletGym_Text_Falkner_WinLoss:
-	.string "… ¡Maldición! Los queridos pájaros\nde\l"
-	.string "mi padre…\p"
+	.string "…¡Maldición! Los queridos POKéMON\n"
+	.string "pájaro de mi padre…\p"
 	.string "De acuerdo. Te has ganado esto.\p"
 	.string "La MEDALLA CÉFIRO oficial de la\n"
 	.string "LIGA POKéMON.$"
 
 VioletGym_Text_ReceivedZephyrBadge:
-	.string "¡{PLAYER} recibió la MEDALLA CÉFIRO!$"
+	.string "{PLAYER} recibió la MEDALLA CÉFIRO.$"
 
 VioletGym_Text_Falkner_BadgeExplain:
 	.string "La MEDALLA CÉFIRO aumenta el ATAQUE\n"
 	.string "de tus POKéMON.\p"
-	.string "Además, permite que tus POKéMON\nusen\l"
-	.string "DESTELLO fuera de combate si lo\naprenden.\p"
+	.string "Además, permite usar DESTELLO\n"
+	.string "fuera de combate a los POKéMON\l"
+	.string "que puedan aprenderlo.\p"
 	.string "Toma… Llévate esto también.$"
 
 VioletGym_Text_Falkner_TMExplain:
-	.string "Al usar una MT, tus POKéMON\naprenderán\l"
-	.string "un nuevo movimiento al instante.\p"
+	.string "Al usar una MT, un POKéMON aprende\n"
+	.string "un movimiento al instante.\p"
 	.string "Esa MT contiene RESPIRO.\p"
-	.string "Restaura la mitad de los PS máximos\nde\l"
-	.string "tu POKéMON en combate.\p"
-	.string "En otras palabras, ¡curará a tus\nalas!$"
+	.string "Restaura la mitad de los PS máximos\n"
+	.string "del POKéMON en combate.\p"
+	.string "En otras palabras, ¡te curará\n"
+	.string "las alas!$"
 
 VioletGym_Text_Falkner_AfterFight:
-	.string "Hay muchos otros GIMNASIOS POKéMON\nen\l"
-	.string "las ciudades que te esperan.\p"
-	.string "Deberías ponerte a prueba en todos\nellos.\p"
-	.string "¡Yo seguiré entrenando sin descanso\nhasta\l"
-	.string "ser el maestro de las aves\ndefinitivo!$"
+	.string "Te esperan muchos otros GIMNASIOS\n"
+	.string "POKéMON en pueblos y ciudades.\p"
+	.string "Deberías poner a prueba tu destreza\n"
+	.string "en todos ellos.\p"
+	.string "¡Yo seguiré entrenando para ser\n"
+	.string "el mejor maestro de POKéMON pájaro!$"
 
 VioletGym_Text_Falkner_Rematch:
 	.string "¡Enhorabuena por derrotar al\n"
@@ -113,20 +116,20 @@ VioletGym_Text_Falkner_RematchLoss:
 
 VioletGym_Text_BirdKeeperRod_Seen:
 	.string "¡La clave es tener agallas!\p"
-	.string "¡Aquí entrenamos día y noche para\ndominar\l"
-	.string "el arte de los POKéMON pájaro!\p"
+	.string "¡Aquí entrenamos día y noche para\n"
+	.string "dominar a los POKéMON pájaro!\p"
 	.string "¡Vamos allá!$"
 
 VioletGym_Text_BirdKeeperRod_Beaten:
 	.string "¡Aaaaargh!$"
 
 VioletGym_Text_BirdKeeperRod_After:
-	.string "¡El talento de PEGASO es de otro\nnivel!\p"
-	.string "¡No te creas la gran cosa solo por\nhaberme\l"
-	.string "ganado a mí!$"
+	.string "¡El talento de PEGASO es auténtico!\p"
+	.string "¡No te confíes solo por haberme\n"
+	.string "vencido a mí!$"
 
 VioletGym_Text_BirdKeeperAbe_Seen:
-	.string "¡Veamos si tienes el nivel\nsuficiente\l"
+	.string "¡Veamos si tienes nivel suficiente\n"
 	.string "para plantarle cara a PEGASO!$"
 
 VioletGym_Text_BirdKeeperAbe_Beaten:
@@ -137,24 +140,26 @@ VioletGym_Text_BirdKeeperAbe_After:
 	.string "entrenador novato…$"
 
 VioletGym_Text_GymGuide_Intro:
-	.string "¡Ey! ¿Qué tal, futuro campeón?\n"
-	.string "¡No seré entrenador, pero sé dar\nconsejos!\p"
-	.string "¡Créeme! Con fe, el sueño de ganar\nla\l"
-	.string "Liga puede hacerse realidad.\p"
-	.string "¿Me crees? Pues abre bien las\norejas.\p"
-	.string "El as de PEGASO es un búho robusto\nal que\l"
-	.string "le chifla comerse sus BAYAS.\p"
-	.string "Aguanta golpes como un muro.\p"
-	.string "Dará buenos resultados usar\nmovimientos\l"
-	.string "de tipo ELÉCTRICO y ROCA, ¡pero ojo\ncon su\l"
+	.string "¡Ey! ¿Qué tal, futuro CAMPEÓN?\n"
+	.string "No soy entrenador, ¡pero sé dar\l"
+	.string "buenos consejos!\p"
+	.string "¡Créeme! Con fe, tu sueño de ser\n"
+	.string "CAMPEÓN puede hacerse realidad.\p"
+	.string "¿Me crees? Pues escucha.\p"
+	.string "El as de PEGASO es un búho robusto\n"
+	.string "al que le chiflan las BAYAS.\p"
+	.string "No es el más fuerte, pero aguanta\n"
+	.string "muchos golpes.\p"
+	.string "Usa movimientos de tipo ELÉCTRICO\n"
+	.string "y ROCA, ¡pero ten cuidado con su\l"
 	.string "BOFETÓN LODO!\p"
-	.string "Si necesitas más consejos, pásate\npor la\l"
-	.string "ACADEMIA POKéMON.\p"
-	.string "¡Los alumnos de allí se lo saben\ntodo!$"
+	.string "Si necesitas más consejos, visita\n"
+	.string "la ACADEMIA POKéMON.\p"
+	.string "¡Sus alumnos saben de qué hablan!$"
 
 VioletGym_Text_GymGuide_Win:
-	.string "¡Menudo combatazo! ¡Sigue así y\nserás el\l"
-	.string "CAMPEÓN en menos que canta un\ngallo!$"
+	.string "¡Menudo combate! ¡Sigue así y serás\n"
+	.string "CAMPEÓN antes de que te des cuenta!$"
 
 VioletCity_Gym_EventScript_Statue::
 	lock
@@ -175,5 +180,6 @@ VioletCity_Gym_Text_GymStatue:
 
 VioletCity_Gym_Text_GymStatueCertified:
 	.string "GIMNASIO POKéMON DE CIUDAD MALVA\p"
-	.string "ENTRENADORES CERTIFICADOS POR\nPEGASO:\l"
+	.string "ENTRENADORES CERTIFICADOS\n"
+	.string "POR PEGASO:\l"
 	.string "{PLAYER}$"

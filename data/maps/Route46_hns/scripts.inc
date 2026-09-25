@@ -65,11 +65,11 @@ Route46_Text_CamperTedSeen:
 	.string "¿Quieres echar un combate conmigo?$"
 
 Route46_Text_CamperTedBeaten:
-	.string "¿Cómocuál…?$"
+	.string "¿C-cómo…?$"
 
 Route46_Text_CamperTedAfterBattle:
-	.string "Hice todo lo que pude, pero me\nquedé\l"
-	.string "corto de fuerzas.\p"
+	.string "Lo di todo, pero me faltaron\n"
+	.string "fuerzas.\p"
 	.string "Sin excusas: admito que he perdido.$"
 
 Route46_Text_PicnickerErinSeen:
@@ -80,13 +80,15 @@ Route46_Text_PicnickerErinBeaten:
 	.string "¡Vaya, porras!$"
 
 Route46_Text_PicnickerErinAfterBattle:
-	.string "He visitado muchos GIMNASIOS, pero\nel\l"
-	.string "de CIUDAD TRIGAL es mi favorito.\p"
+	.string "He visitado muchos GIMNASIOS,\n"
+	.string "pero el de CIUDAD TRIGAL es\l"
+	.string "mi favorito.\p"
 	.string "¡Está repleto de flores preciosas!$"
 
 Route46_Text_ErinRegister:
-	.string "He visitado muchos GIMNASIOS, pero\nel\l"
-	.string "de CIUDAD TRIGAL es mi favorito.\p"
+	.string "He visitado muchos GIMNASIOS,\n"
+	.string "pero el de CIUDAD TRIGAL es\l"
+	.string "mi favorito.\p"
 	.string "¡Está repleto de flores preciosas!$"
 
 Route46_Text_ErinRematchIntro:
@@ -97,8 +99,9 @@ Route46_Text_ErinRematchDefeat:
 	.string "¡Vaya, porras!$"
 
 Route46_Text_ErinPostRematch:
-	.string "He visitado muchos GIMNASIOS, pero\nel\l"
-	.string "de CIUDAD TRIGAL es mi favorito.\p"
+	.string "He visitado muchos GIMNASIOS,\n"
+	.string "pero el de CIUDAD TRIGAL es\l"
+	.string "mi favorito.\p"
 	.string "¡Está repleto de flores preciosas!$"
 
 Route46_Text_PicnickerErin2Beaten:

@@ -237,7 +237,7 @@ BlackthornGym_Text_ClairIntroText:
 	.string "La mejor maestra dragón del mundo.\p"
 	.string "Puedo plantar cara incluso al\n"
 	.string "ALTO MANDO de la LIGA POKéMON.\p"
-	.string "¿Aun así quieres desafiarme?\p"
+	.string "¿Aún así quieres desafiarme?\p"
 	.string "…Bien. ¡Adelante!\p"
 	.string "Como LÍDER DE GIMNASIO, lucharé\n"
 	.string "con todas mis fuerzas.$"
@@ -250,7 +250,7 @@ BlackthornGym_Text_ClairWinText:
 BlackthornGym_Text_ClairText_GoToDragonsDen:
 	.string "No pienso aceptarlo.\p"
 	.string "Puede que haya perdido, pero aún no\n"
-	.string "estás listo para la LIGA POKéMON.\p"
+	.string "tienes nivel para la LIGA POKéMON.\p"
 	.string "Ya sé. Supera la prueba del clan\n"
 	.string "dragón.\p"
 	.string "Tras este GIMNASIO se encuentra la\n"

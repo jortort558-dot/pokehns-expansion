@@ -969,7 +969,7 @@ EcruteakCity_Theater_Text_ZukiSeen:
 EcruteakCity_Theater_Text_ZukiSeenAgain:
 	.string "Te pondré a prueba para ver si\n"
 	.string "eres un Entrenador digno.\p"
-	.string "¿Estás listo, {PLAYER}?$"
+	.string "¿Todo listo, {PLAYER}?$"
 EcruteakCity_Theater_Text_ZukiNo:
 	.string "Me parece bien... Esperaré a que\n"
 	.string "te prepares.$"
@@ -1050,4 +1050,4 @@ EcruteakCity_Theater_Text_ZukiAfterAll:
 	.string "POKéMON y al PROF. ELM...$"
 EcruteakCity_Theater_Text_KimonoGirlsBeforeBattle:
 	.string "Habla con ZUKI en el centro\n"
-	.string "cuando estés listo.$"
+	.string "cuando lo tengas todo listo.$"

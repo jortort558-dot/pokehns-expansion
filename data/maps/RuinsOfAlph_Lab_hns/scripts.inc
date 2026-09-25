@@ -628,7 +628,7 @@ RuinsOfAlph_Lab_Text_WeFinallyMadeNewBalls:
 	.string "POKéMON que ya poseas.\p"
 	.string "La TURNO BALL mejora cuanto más se\n"
 	.string "alargue el combate.\p"
-	.string "¡La prestigiosa CORPORACIÓN SILPH\n"
+	.string "¡La prestigiosa DEVON S.A.\n"
 	.string "las ha desarrollado con orgullo!\p"
 	.string "¡Pruébalas en tu viaje!$"
 
@@ -640,8 +640,9 @@ RuinsOfAlph_Lab_Text_IMadePokenav:
 RuinsOfAlph_Lab_Text_WowThatsAPokenav:
 	.string "¡Oh, caramba!\n"
 	.string "¡Si es un POKéNAV!\p"
-	.string "Nació del deseo de comprender mejor\n"
-	.string "las emociones de los POKéMON.\p"
+	.string "Nació del deseo del PRESIDENTE\n"
+	.string "de comprender mejor las emociones\l"
+	.string "de los POKéMON.\p"
 	.string "¿Quieres que te explique sus\n"
 	.string "funciones en detalle?\p"
 	.string "Bueno, ¡seguro que lo descubres\n"
@@ -722,5 +723,4 @@ RuinsOfAlph_Lab_Text_WhatToWorkOnNext:
 	.string "Nuestra empresa nos da libertad\n"
 	.string "para hacer realidad nuestras ideas.\p"
 	.string "¡Es el paraíso para un ingeniero!$"
-
 

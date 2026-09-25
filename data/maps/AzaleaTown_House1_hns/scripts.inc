@@ -119,4 +119,4 @@ CharcoalKiln_Text_Apprentice4:
 	.string "¡Eres el entrenador más enrollado!$"
 
 CharcoalKiln_Text_Farfetchd:
-	.string "FARFETCH'D: Kwaa!$"
+	.string "FARFETCH'D: ¡Kwaa!$"

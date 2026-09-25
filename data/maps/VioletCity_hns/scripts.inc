@@ -415,26 +415,27 @@ VioletCity_Text_HereTeacherIAm:
 	.string "¡Muy bueno ser que estudies aquí!$"
 
 VioletCity_Text_Lass:
-	.string "Hay rumores de que aparecen\nfantasmas en\l"
-	.string "la TORRE BELSPROUT.\p"
-	.string "Dicen que los ataques de tipo\nFANTASMA\l"
-	.string "ignoran la armadura de bichos de\nroca\l"
-	.string "como ONIX y GEODUDE.$"
+	.string "Dicen que aparecen fantasmas\n"
+	.string "en la TORRE BELLSPROUT.\p"
+	.string "Los movimientos de tipo FANTASMA\n"
+	.string "pueden atravesar las defensas de\l"
+	.string "POKéMON duros como ONIX y GEODUDE.$"
 
 VioletCity_Text_Boy:
 	.string "¡Ey! ¿Eres entrenador?\p"
-	.string "¡Si vas a la ACADEMIA, aprenderás\nun\l"
-	.string "montón de trucos para tus combates!$"
+	.string "¡Si vas a la ACADEMIA, seguro que\n"
+	.string "aprendes algo nuevo!$"
 
 VioletCity_Text_Gramps:
-	.string "¡PEGASO, del GIMNASIO POKéMON, es\nun\l"
-	.string "chico de lo más prometedor!\p"
-	.string "Heredó el gimnasio de su padre y lo\nlleva\l"
-	.string "con gran dedicación.$"
+	.string "¡PEGASO, el LÍDER del GIMNASIO,\n"
+	.string "es un gran entrenador!\p"
+	.string "Heredó el gimnasio de su padre\n"
+	.string "y está haciendo un trabajo genial.$"
 
 VioletCity_Text_Youngster:
-	.string "¡He visto un árbol que se menea al\nnorte!\p"
-	.string "¡Si te acercas, tiembla y se pone a\nbailar!\l"
+	.string "¡He visto un árbol que se menea\n"
+	.string "más adelante!\p"
+	.string "¡Si lo tocas, se retuerce y baila!\n"
 	.string "¡Mola un montón!$"
 
 VioletCity_Text_Sign:
@@ -444,31 +445,33 @@ VioletCity_Text_Sign:
 VioletCity_Text_GymSign:
 	.string "GIMNASIO POKéMON DE CIUDAD MALVA\p"
 	.string "LÍDER: PEGASO\n"
-	.string "El Elegante Maestro de los Cielos$"
+	.string "Elegante maestro de los POKéMON\l"
+	.string "voladores$"
 
 VioletCity_Text_SproutTowerSign:
-	.string "TORRE BELSPROUT\p"
-	.string "Santuario de Armonía POKéMON$"
+	.string "TORRE BELLSPROUT\p"
+	.string "Vive la senda de los POKéMON$"
 
 VioletCity_Text_EarlsAcademySign:
 	.string "ACADEMIA POKéMON DE EARL$"
 
 VioletCity_Text_Pichu:
-	.string "PICHU: Chuuuu!$"
+	.string "PICHU: ¡Chuuuu!$"
 
 VioletCity_Text_Bellsprout:
-	.string "BELLSPROUT: Sprouuuut.$"
+	.string "BELLSPROUT: ¡Sprouuuut!$"
 
 VioletCity_Text_Rattata:
-	.string "RATTATA: RATTATARATTA!$"
+	.string "RATTATA: ¡RATTATARATTA!$"
 
 VioletCity_Text_ElmName:
 	.string "PROF.ELM$"
 
 VioletCity_Text_Elm_Call:
-	.string "PROF. ELM: ¿Hola, {PLAYER}? ¡Hemos\n"
-	.string "descubierto algo clave sobre el\nHUEVO!\p"
-	.string "Mi ayudante te está esperando en el\n"
+	.string "PROF. ELM: ¿Hola, {PLAYER}?\n"
+	.string "¡Hemos descubierto algo importante\l"
+	.string "sobre el HUEVO!\p"
+	.string "Mi ayudante te espera en el\n"
 	.string "CENTRO POKéMON de CIUDAD MALVA.\p"
 	.string "¿Podrías pasarte a hablar con él?$"
 
@@ -483,11 +486,10 @@ VioletCity_Text_Kimono_Girl2:
 .string "Ahora todo encaja…$"
 
 VioletCity_Text_Kimono_Girl3:
-.string "Ese HUEVO encierra un destino\ncrucial.\p"
-.string "Por favor, cuídalo con tu propia\nvida.\l"
-.string "¿Me lo prometes?$"
+.string "Ese HUEVO es realmente importante.\p"
+.string "Por favor, cuídalo muy bien.\n"
+.string "¿Entendido?$"
 
 VioletCity_Text_Kimono_Girl4:
 .string "Confío plenamente en ti.$"
-
 

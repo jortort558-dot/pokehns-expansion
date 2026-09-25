@@ -55,7 +55,7 @@ VioletCity_House1_Text_After:
 	.string "¡Buenas! ¿Qué tal le va a mi ONIX?$"
 
 VioletCity_House1_Text_PokefanM:
-	.string "Los POKéMON obtenidos en\nintercambios\l"
-	.string "crecen con enorme rapidez.\p"
-	.string "¡Pero sin la MEDALLA adecuada,\nempezarán\l"
-	.string "a desobedecerte en combate!$"
+	.string "Los POKéMON recibidos en un\n"
+	.string "intercambio crecen muy rápido.\p"
+	.string "Pero si no tienes la MEDALLA\n"
+	.string "adecuada, pueden desobedecerte.$"

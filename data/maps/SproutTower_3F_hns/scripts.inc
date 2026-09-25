@@ -190,31 +190,34 @@ SproutTower_Text_RivalUsedEscapeRope:
 
 SproutTower_Text_SageLi_Seen:
 	.string "¡Es un placer recibirte aquí!\p"
-	.string "La TORRE BELSPROUT es un santuario\n"
-	.string "de armonía y disciplina.\p"
-	.string "Humanos y POKéMON forjan sus lazos\npara\l"
-	.string "construir un futuro brillante.\p"
+	.string "La TORRE BELLSPROUT es un lugar\n"
+	.string "de entrenamiento.\p"
+	.string "Humanos y POKéMON ponen a prueba\n"
+	.string "sus lazos para construir juntos\l"
+	.string "un futuro brillante.\p"
 	.string "Yo soy la prueba final.\p"
-	.string "¡Permíteme comprobar los vínculos\nque te\l"
-	.string "unen a tus queridos POKéMON!$"
+	.string "¡Permíteme comprobar los vínculos\n"
+	.string "que te unen a tus POKéMON!$"
 
 SproutTower_Text_SageLi_Beaten:
 	.string "¡Ah, sublime!$"
 
 SproutTower_Text_SageLi_TakeFlash:
-	.string "Tus POKéMON y tú no tendréis\nproblema\l"
-	.string "para dominar esta técnica.\p"
+	.string "Tus POKéMON y tú no tendréis\n"
+	.string "problemas para dominar esta\l"
+	.string "técnica.\p"
 	.string "Acepta la MO de DESTELLO.$"
 
 SproutTower_Text_SageLi_FlashExplain:
-	.string "DESTELLO ilumina hasta la más\nprofunda\l"
-	.string "de las tinieblas.\p"
-	.string "Pero para usarlo en cuevas,\nnecesitarás la\l"
-	.string "MEDALLA del GIMNASIO de CIUDAD\nMALVA.$"
+	.string "DESTELLO ilumina hasta el lugar\n"
+	.string "más oscuro.\p"
+	.string "Pero para usarlo fuera de combate,\n"
+	.string "necesitarás la MEDALLA del GIMNASIO\l"
+	.string "de CIUDAD MALVA.$"
 
 SproutTower_Text_SageLi_AfterBattle:
-	.string "Que la luz guíe tu camino y tu\ncorazón en\l"
-	.string "este gran viaje.$"
+	.string "Espero que aprendas y madures\n"
+	.string "durante tu viaje.$"
 
 SproutTower_Text_SageJin_Seen:
 	.string "¡Entreno para hallar la iluminación\n"
@@ -235,17 +238,19 @@ SproutTower_Text_SageTroy_Seen:
 	.string "depositas en tus POKéMON.$"
 
 SproutTower_Text_SageTroy_Beaten:
-	.string "¡Ciertamente! ¡Vuestra unión es\nreal!$"
+	.string "¡Ciertamente! ¡Vuestra unión\n"
+	.string "es real!$"
 
 SproutTower_Text_SageTroy_AfterBattle:
-	.string "El ANCIANO te aguarda unos pasos\nadelante.$"
+	.string "El ANCIANO te aguarda muy cerca.$"
 
 SproutTower_Text_SageNeal_Seen:
 	.string "La MO del ANCIANO ilumina hasta la\n"
 	.string "más profunda oscuridad.$"
 
 SproutTower_Text_SageNeal_Beaten:
-	.string "¡Pero es mi coronilla la que\nbrilla!$"
+	.string "¡Pero es mi coronilla la que\n"
+	.string "brilla!$"
 
 SproutTower_Text_SageNeal_AfterBattle:
 	.string "Que la luz ilumine cada paso\n"

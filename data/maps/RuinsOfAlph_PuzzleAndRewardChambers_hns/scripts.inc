@@ -417,9 +417,8 @@ RuinsOfAlph_PuzzleAndRewardChambers_Text_Aerodactyl:
 	.string "sus presas con colmillos de sierra.$"
 
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Omanyte:
-	.string "POKéMON marino que nadaba con\n"
-	.string "soltura gracias a sus diez\l"
-	.string "tentáculos.$"
+	.string "POKéMON que surcaba el mar\n"
+	.string "moviendo sus diez tentáculos.$"
 
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Hooh:
 	.string "POKéMON que surcaba el firmamento\n"

@@ -105,7 +105,7 @@ Route45_EventScript_Item_Nugget::
 	end
 
 Route45_Text_HikerErikSeen:
-    .string "¡Debes estar listo para todo!\p"
+    .string "¡Debes prepararte para todo!\p"
     .string "¡Veamos si has criado bien\n"
     .string "a tus POKéMON!$"
 

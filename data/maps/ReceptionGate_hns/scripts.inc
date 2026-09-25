@@ -71,7 +71,7 @@ VictoryRoadGate_Text_Officer:
     .string "que hayan demostrado su valía.$"
 
 VictoryRoadGate_Text_Kimono:
-    .string "Lo siento, chaval. El paso seguirá\n"
+    .string "Lo siento. El paso seguirá\n"
     .string "cerrado hasta que alguien se ocupe\l"
     .string "de ese POKéMON LEGENDARIO…$"
 

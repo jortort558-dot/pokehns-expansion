@@ -368,32 +368,35 @@ Route32_Text_CooltrainerM_AideIsWaiting:
 	.string "esperando en el CENTRO POKéMON.$"
 
 Route32_Text_CooltrainerM_SproutTower:
-	.string "¿Ya has visitado la TORRE\nBELLSPROUT?\l"
-	.string "Si pasas por CIUDAD MALVA,\p"
-	.string "se espera que entrenes allí\nprimero.\l"
-	.string "Es lo básico para cualquier\nentrenador.\p"
+	.string "¿Ya has visitado la\n"
+	.string "TORRE BELLSPROUT?\p"
+	.string "Si pasas por CIUDAD MALVA,\n"
+	.string "se espera que entrenes allí.\l"
+	.string "Es básico para todo entrenador.\p"
 	.string "¡Pásate por la TORRE BELLSPROUT!$"
 
 Route32_Text_CooltrainerM_VioletGym:
-	.string "¿Has ido ya al GIMNASIO POKéMON?\n"
-	.string "Allí podrás poner a prueba a tus\p"
-	.string "POKéMON y tu propia valía.\n"
-	.string "¡Es el rito de iniciación para\p"
-	.string "cualquier entrenador!$"
+	.string "¿Has ido ya al GIMNASIO POKéMON?\p"
+	.string "Allí podrás poner a prueba\n"
+	.string "a tus POKéMON y a ti mismo.\p"
+	.string "¡Es el rito de iniciación\n"
+	.string "de todo entrenador!$"
 
 Route32_Text_CooltrainerM_HaveThisSeed:
-	.string "¡Llevas unos POKéMON muy bien\ncuidados!\l"
-	.string "Se nota que has entrenado duro por\nlos\p"
-	.string "alrededores de CIUDAD MALVA.\n"
-	.string "El combate del GIMNASIO debió de\nser\p"
-	.string "de gran ayuda. Como recuerdo de\nMALVA,\l"
-	.string "¡quédate con esto!\p"
+	.string "¡Llevas unos POKéMON muy bien\n"
+	.string "cuidados!\l"
+	.string "Se nota que has entrenado duro\l"
+	.string "por CIUDAD MALVA.\p"
+	.string "El entrenamiento del GIMNASIO\n"
+	.string "debió de ayudarte mucho. Como\l"
+	.string "recuerdo de MALVA, ¡toma esto!\p"
 	.string "Potencia los movimientos de\n"
 	.string "tipo PLANTA.$"
 
 Route32_Text_CooltrainerM_Experiences:
-	.string "Lo vivido en CIUDAD MALVA te\nservirá\l"
-	.string "de mucho a lo largo de tu viaje.$"
+	.string "Lo vivido en CIUDAD MALVA\n"
+	.string "te servirá mucho a lo largo\l"
+	.string "de tu viaje.$"
 
 Route32_Text_SlowpokeTailOffer:
 	.string "¿Te hace una rica y nutritiva\n"
@@ -419,7 +422,8 @@ Route32_Text_FisherJustin_Beaten:
 
 Route32_Text_FisherJustin_After:
 	.string "Calma y sosiego… La pesca y los\n"
-	.string "POKéMON requieren la misma\npaciencia.$"
+	.string "POKéMON requieren\l"
+	.string "la misma paciencia.$"
 
 Route32_Text_FisherRalph1_Seen:
 	.string "Se me da de fábula pescar y criar\n"
@@ -524,15 +528,17 @@ Route32_Text_BirdKeeperPeter_Seen:
 	.string "¿Derrotaste a PEGASO?$"
 
 Route32_Text_BirdKeeperPeter_Beaten:
-	.string "Ya sé cuáles son mis puntos\ndébiles.$"
+	.string "Ya sé cuáles son mis puntos\n"
+	.string "débiles.$"
 
 Route32_Text_BirdKeeperPeter_After:
 	.string "Debería volver a entrenar en el\n"
 	.string "GIMNASIO de CIUDAD MALVA.$"
 
 Route32_Text_RoarIntro:
-	.string "¡¡¡GROOOAAAR!!! ¡LA GENTE SALE\nCORRIENDO\l"
-	.string "CUANDO RUJO! ¡PERO TÚ TE HAS\nACERCADO!\p"
+	.string "¡¡¡GROOOAAAR!!! ¡LA GENTE SALE\n"
+	.string "CORRIENDO CUANDO RUJO!\l"
+	.string "¡PERO TÚ TE HAS ACERCADO!\p"
 	.string "¡ESO ME MOLA! ¡TOMA ESTO!$"
 
 Route32_Text_RoarOutro:
@@ -555,7 +561,7 @@ Route32_Text_FriedaGaveGift:
 	.string "ataques de tipo VENENO!\p"
 	.string "¡Oh!\p"
 	.string "¡Es una pasada!\p"
-	.string "¡Te sorprenderá lo mucho que\npotencia\l"
+	.string "¡Te sorprenderá cuánto potencia\n"
 	.string "los movimientos venenosos!$"
 
 Route32_Text_FriedaFriday:

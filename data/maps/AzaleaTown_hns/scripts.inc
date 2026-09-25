@@ -386,7 +386,8 @@ AzaleaTown_Text_Rocket1:
 AzaleaTown_Text_Rocket2:
 	.string "¿Conoces la COLASLOWPOKE?\n"
 	.string "¡Dicen que es un manjar exquisito!\p"
-	.string "¿A que te alegra haber hablado\nconmigo?$"
+	.string "¿A que te alegra haber hablado\n"
+	.string "conmigo?$"
 
 AzaleaTown_Text_GrampsBefore:
 	.string "Los SLOWPOKE han desaparecido\n"
@@ -414,8 +415,8 @@ AzaleaTown_Text_Youngster:
 	.string "CORTE para despejar la senda.$"
 
 AzaleaTown_Text_Slowpoke1:
-	.string "SLOWPOKE:..........\p"
-	.string "...............¿Bostezo?$"
+	.string "SLOWPOKE: …\p"
+	.string "…¿Bostezo?$"
 
 AzaleaTown_Text_Kurt1:
 	.string "¡El ENCINAR está muy agitado!\p"
@@ -444,11 +445,13 @@ AzaleaTown_Text_GymSign:
 
 AzaleaTown_Text_SlowpokeWellSign:
 	.string "POZO SLOWPOKE\p"
-	.string "Conocido como el pozo que atrae la\nlluvia.\p"
-	.string "La gente del pueblo cree que los\nbostezos\l"
-	.string "de SLOWPOKE atraen el agua de\nlluvia.\p"
-	.string "Cuentan las crónicas que un bostezo\nacabó\l"
-	.string "con una terrible sequía hace 400\naños.$"
+	.string "También conocido como el pozo\n"
+	.string "que atrae la lluvia.\p"
+	.string "La gente cree que los bostezos\n"
+	.string "de SLOWPOKE invocan la lluvia.\p"
+	.string "Según las crónicas, un bostezo\n"
+	.string "de SLOWPOKE puso fin a una sequía\l"
+	.string "hace 400 años.$"
 
 AzaleaTown_Text_CharcoalKilnSign:
 	.string "CARBONERÍA DE AZALEA$"

@@ -61,7 +61,7 @@ SproutTower_Text_1F_Sage1:
 	.string "conseguirás la preciada MO.$"
 
 SproutTower_Text_1F_Sage2:
-	.string "La TORRE BELSPROUT se erigió hace\n"
+	.string "La TORRE BELLSPROUT se erigió hace\n"
 	.string "mucho para entrenar POKéMON.$"
 
 SproutTower_Text_1F_Granny:

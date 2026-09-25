@@ -61,19 +61,20 @@ VioletCity_TrainerSchool_EventScript_BlackBoard::
 	end
 
 VioletCity_TrainerSchool_Text_Twin:
-	.string "No soy de la época de la GBA, ¡pero\n"
-	.string "me flipan los juegos de POKéMON!\p"
-	.string "En las ediciones clásicas tenías\nque\l"
-	.string "pelear contra mil bichos salvajes\l"
-	.string "para conseguir suficiente EXP.\p"
-	.string "Pero en los nuevos, el REPARTIR\nEXP.\l"
-	.string "hace que subas de nivel en un\nsuspiro.\p"
-	.string "En este juego está equilibrado para\n"
-	.string "que tus POKéMON tengan el nivel\njusto\l"
-	.string "según los combates que disputes.\p"
-	.string "Si prefieres el desafío clásico de\nla\l"
-	.string "GEN 1-4, desactiva el REPARTIR EXP.\l"
-	.string "Si buscas algo más ágil, déjalo\nACTIVO.\p"
+	.string "No soy de la época de la GBA,\n"
+	.string "¡pero me encantan los juegos\l"
+	.string "de POKéMON!\p"
+	.string "En los juegos clásicos tenías que\n"
+	.string "combatir contra muchos POKéMON\l"
+	.string "salvajes para ganar suficiente EXP.\p"
+	.string "En los nuevos, el REPARTIR EXP.\n"
+	.string "hace que suban demasiado rápido.\p"
+	.string "Aquí está equilibrado para que tus\n"
+	.string "POKéMON tengan el nivel adecuado,\l"
+	.string "o algo más si combates mucho.\p"
+	.string "Si prefieres la experiencia clásica\n"
+	.string "de las GEN 1-4, desactívalo.\l"
+	.string "Si prefieres la moderna, actívalo.\p"
 	.string "¡Tú decides cómo jugar!$"
 
 VioletCity_TrainerSchool_Text_EarlIntro:
@@ -83,14 +84,15 @@ VioletCity_TrainerSchool_Text_EarlIntro:
 	.string "entrenador!$"
 
 VioletCity_TrainerSchool_Text_Teacher:
-	.string "Hay ciertos POKéMON que empiezan\nmuy\l"
-	.string "débiles y exigen montones de EXP\npara\l"
-	.string "desatar su verdadero potencial.\p"
-	.string "Por ejemplo, LARVITAR parece poca\ncosa,\l"
-	.string "pero acabará siendo un imponente\l"
-	.string "TYRANITAR si le dedicas mucho\nesfuerzo.\p"
-	.string "¡Solo los entrenadores más\nconstantes\l"
-	.string "logran sacar provecho a tales\njoyas!$"
+	.string "Algunos POKéMON empiezan siendo\n"
+	.string "débiles y necesitan mucha más EXP.\l"
+	.string "que otros para fortalecerse.\p"
+	.string "Por ejemplo, LARVITAR es débil,\n"
+	.string "pero acaba convirtiéndose en un\l"
+	.string "poderoso TYRANITAR a cambio\l"
+	.string "de muchísima EXP.\p"
+	.string "Solo entrenadores muy constantes\n"
+	.string "deberían intentar criar uno.$"
 
 VioletCity_TrainerSchool_Text_TeachHowToWin:
 	.string "¡Bien! ¡Enseñarte yo haré!\p"
@@ -106,13 +108,13 @@ VioletCity_TrainerSchool_Text_TeachMore:
 
 VioletCity_TrainerSchool_Text_TeachRaiseWell:
 	.string "¡Estupendo! ¡Enseñarte yo haré!\p"
-	.string "Si un POKéMON sale a luchar aunque\n"
-	.string "sea un instante, ¡puntos de EXP\l"
+	.string "Si un POKéMON sale a combatir,\n"
+	.string "aunque sea un instante, ¡EXP.\l"
 	.string "recibirá!\p"
 	.string "Pon arriba al POKéMON más débil,\n"
 	.string "¡y cámbialo rápido al luchar!\p"
-	.string "¡Así, el POKéMON débil en fuerte\n"
-	.string "se convertirá!$"
+	.string "¡Así, el POKéMON débil se hará\n"
+	.string "fuerte!$"
 
 VioletCity_TrainerSchool_Text_NoMoreToTeach:
 	.string "¡Oh! ¡Alumno muy listo ser tú!\n"
@@ -121,29 +123,31 @@ VioletCity_TrainerSchool_Text_NoMoreToTeach:
 	.string "demás alumnos!$"
 
 VioletCity_TrainerSchool_Text_Youngster1:
-	.string "Los POKéMON que antes solo\nevolucionaban\l"
-	.string "por intercambio ahora pueden\nhacerlo\p"
-	.string "subiendo de nivel.\n"
-	.string "MACHOKE y GRAVELER evolucionan al\nNV. 38,\p"
-	.string "mientras que KADABRA y HAUNTER lo\nhacen\l"
+	.string "Los POKéMON que antes solo\n"
+	.string "evolucionaban por intercambio ahora\l"
+	.string "pueden hacerlo subiendo de nivel.\p"
+	.string "MACHOKE y GRAVELER evolucionan\n"
+	.string "al NV. 38; KADABRA y HAUNTER,\l"
 	.string "al NV. 42.\p"
-	.string "Ciertos objetos, como el\nREVESTIMIENTO\l"
-	.string "METÁLICO, permiten evolucionar si\nlos\l"
-	.string "llevan equipados al subir de nivel.$"
+	.string "Algunos objetos, como el REVEST.\n"
+	.string "METÁLICO, también permiten\l"
+	.string "evolucionar si se llevan equipados\l"
+	.string "al subir de nivel.$"
 
 VioletCity_TrainerSchool_Text_GameboyKid1:
-	.string "¡Puedes ver a los POKéMON más\ndestacados\l"
-	.string "de la zona paseando por el\nescenario!\p"
-	.string "¡Pero asegúrate de explorar las\nrutas de\l"
-	.string "DÍA y de NOCHE para no perderte\nninguno!$"
+	.string "¡Puedes ver por el escenario\n"
+	.string "POKéMON destacados de la zona!\p"
+	.string "¡Pero explora las rutas de DÍA\n"
+	.string "y de NOCHE. ¡No te pierdas ninguno!$"
 
 VioletCity_TrainerSchool_Text_GameboyKid2:
-	.string "Las BAYAS de JOHTO son fantásticas\npara\l"
+	.string "Las BAYAS de JOHTO son ideales para\n"
 	.string "curar y fabricar Poké Balls.\p"
-	.string "En KANTO, ciertas bayas sirven para\n"
-	.string "reducir los puntos de esfuerzo de\nun bicho.\p"
-	.string "¡Y el DOJO de KANTO ayuda a\nperfeccionar\l"
-	.string "las estadísticas individuales!$"
+	.string "En KANTO, ciertas BAYAS reducen\n"
+	.string "los puntos de esfuerzo.\p"
+	.string "¡Y el DOJO de KANTO ayuda\n"
+	.string "a perfeccionar los atributos\l"
+	.string "individuales!$"
 
 VioletCity_TrainerSchool_Text_Youngster2:
 	.string "Ten en cuenta que tus rivales ahora\n"
@@ -154,8 +158,8 @@ VioletCity_TrainerSchool_Text_Youngster2:
 VioletCity_TrainerSchool_Text_Blackboard:
 	.string "En la pizarra se explican los\n"
 	.string "movimientos MO de los POKéMON.\p"
-	.string "¡Las MOs, una vez desbloqueadas, no\n"
-	.string "necesitan enseñarse para usarlas\nfuera!$"
+	.string "Una vez desbloqueadas, las MOs no\n"
+	.string "deben enseñarse para usarlas fuera.$"
 
 VioletCity_TrainerSchool_Text_Notebook:
 	.string "Es el cuaderno de este alumno…\p"
@@ -184,9 +188,11 @@ VioletCity_TrainerSchool_Text_Notebook3:
 	.string "combates son entrenadores POKéMON.\p"
 	.string "Su meta es desafiar los GIMNASIOS\n"
 	.string "y medirse a otros entrenadores.\p"
-	.string "La página siguiente está… ¡en\nblanco!\p"
+	.string "La página siguiente está…\n"
+	.string "¡en blanco!\p"
 	.string "Chico: Je, je, je…\p"
-	.string "No me ha dado tiempo a escribir\nmás…$"
+	.string "No me ha dado tiempo a escribir\n"
+	.string "más…$"
 
 VioletCity_TrainerSchool_Text_StickerMachine:
 	.string "¡Esta supermáquina imprime datos\n"

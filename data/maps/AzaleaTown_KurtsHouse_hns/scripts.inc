@@ -211,7 +211,8 @@ AzaleaTown_KurtsHouse_EventScript_KurtGsBall3::
 	release
 	end
 KurtsHouse_Text_BallAnyway:
-	.string "Bueno, ¿quieres que te fabrique\nalguna Poké Ball?$"
+	.string "Bueno, ¿quieres que te fabrique\n"
+	.string "alguna Poké Ball?$"
 
 AzaleaTown_KurtsHouse_EventScript_OakPhoto::
 	msgbox KurtsHouse_Text_OakPhoto, MSGBOX_SIGN
@@ -272,7 +273,8 @@ KurtsHouse_Text_KurtMakingBallsMustWait:
 	.string "¿Conoces al TEAM ROCKET?\n"
 	.string "Bueno, da igual, ¡te lo cuento ya!\p"
 	.string "El TEAM ROCKET es una banda de\n"
-	.string "maleantes que explota a los\nPOKéMON.\p"
+	.string "maleantes que explota a los\l"
+	.string "POKéMON.\p"
 	.string "Se suponía que se disolvieron hace\n"
 	.string "tres años…\p"
 	.string "¡Pero están en el POZO cortando las\n"
@@ -326,7 +328,8 @@ KurtsHouse_Text_KurtObtainedSingular:
 
 KurtsHouse_Text_KurtTurnedOutGreat:
 	.string "CÉSAR: ¡Ha quedado impresionante!\p"
-	.string "¡Prueba a capturar POKéMON con\nella!$"
+	.string "¡Prueba a capturar POKéMON\n"
+	.string "con ella!$"
 
 KurtsHouse_Text_KurtWhatIsThat:
 	.string "¿Q-qué es eso?\p"
@@ -344,7 +347,7 @@ KurtsHouse_Text_KurtAhHaISee:
 KurtsHouse_Text_KurtThisBallStartedToShake:
 	.string "¡{PLAYER}!\p"
 	.string "¡Esta Poké Ball empezó a vibrar\n"
-	.string "la estaba examinando!\p"
+	.string "mientras la estaba examinando!\p"
 	.string "¡Sin duda encierra algo insólito!$"
 
 KurtsHouse_Text_Kurt_Whatwasthat:

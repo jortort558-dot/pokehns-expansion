@@ -183,7 +183,7 @@ DragonsDen_Shrine_Text_ElderGreeting:
 	.string "Debo ponerte a prueba, lo siento.\p"
 	.string "No te preocupes. Solo tendrás que\n"
 	.string "responder unas preguntas.\p"
-	.string "¿Preparado?$"
+	.string "¿Todo listo?$"
 
 DragonsDen_Shrine_Text_Question1:
 	.string "¿Qué son los POKéMON para ti?$"
@@ -353,8 +353,8 @@ DragonsDen_Shrine_Text_ClairYoureLying:
 
 DragonsDen_Shrine_Text_MustIInformLance:
 	.string "¡DÉBORA!\p"
-	.string "Este joven es impecable tanto en\n"
-	.string "habilidad como en espíritu.\p"
+	.string "Quien tienes delante destaca\n"
+	.string "por su habilidad y su espíritu.\p"
 	.string "¡Admite tu derrota y entrégale la\n"
 	.string "MEDALLA DRAGÓN!\p"
 	.string "…¿O tendré que informar a LANCE?$"
@@ -367,7 +367,8 @@ DragonsDen_Shrine_Text_HereRisingBadge:
 	.string "¡Vamos! ¡Cógela!$"
 
 DragonsDen_Shrine_Text_PlayerReceivedRisingBadge:
-	.string "¡{PLAYER} recibió la MEDALLA DRAGÓN!$"
+	.string "¡{PLAYER} recibió la\n"
+	.string "MEDALLA DRAGÓN!$"
 
 DragonsDen_Shrine_Text_RisingBadgeExplanation:
 	.string "La MEDALLA DRAGÓN permite a tus\n"
@@ -379,7 +380,7 @@ DragonsDen_Shrine_Text_RisingBadgeExplanation:
 DragonsDen_Shrine_Text_ElderScoldsClair:
 	.string "DÉBORA…\p"
 	.string "Reflexiona sobre lo que a ti te\n"
-	.string "falta y este joven posee.$"
+	.string "falta y esta persona posee.$"
 
 DragonsDen_Shrine_Text_Speechless:
 	.string "..................................$"
@@ -405,7 +406,7 @@ DragonsDen_Shrine_Text_Elder2:
 	.string "Hacía mucho que un Entrenador no\n"
 	.string "recibía la excepcional aprobación\l"
 	.string "de nuestro MAESTRO.\p"
-	.string "De hecho, desde el maestro LANCE.$"
+	.string "De hecho, no ocurría desde LANCE.$"
 
 DragonsDen_Shrine_Text_Elder3:
 	.string "¿Conoces al joven maestro LANCE?\p"

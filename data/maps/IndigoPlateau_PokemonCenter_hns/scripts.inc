@@ -38,8 +38,8 @@ IndigoPlateau_Text_ShigyNinja:
 	.string "¡Enhorabuena por llegar hasta aquí!\p"
 	.string "He visto a muchos Entrenadores\n"
 	.string "y cada uno era único a su manera.\p"
-	.string "¡Deberías sentirte orgulloso\n"
-	.string "de haber llegado tan lejos!\p"
+	.string "¡Deberías sentir orgullo por\n"
+	.string "haber llegado tan lejos!\p"
 	.string "¡Ahora ve a por ellos!$"
 
 IndigoPlateau_Text_Blackbelt:
@@ -51,7 +51,7 @@ IndigoPlateau_Text_CooltrainerM:
     .string "En la LIGA POKéMON te pondrá\n"
     .string "a prueba el ALTO MANDO.\p"
     .string "Debes vencerlos. Si pierdes,\n"
-    .string "tendrás que empezar de nuevo!$"
+    .string "¡tendrás que empezar de nuevo!$"
 
 IndigoPlateau_EventScript_Silver::
 	lock
@@ -97,7 +97,7 @@ IndigoPlateau_Text_RivalWin:
     .string "Vale… He perdido…$"
 
 IndigoPlateau_Text_RivalAfter:
-    .string "Mierda… Sigo sin poder ganar…\p"
+    .string "Maldición… Sigo sin poder ganar…\p"
     .string "Tengo que pensar más en mis\n"
     .string "POKéMON…\p"
     .string "¡Bah! ¡Procura no perder!$"
@@ -144,7 +144,7 @@ IndigoPlateau_EventScript_Abra::
 
 IndigoPlateau_Text_TeleportGuy1:
     .string "¡Ah! ¿Vas a desafiar al ALTO MANDO?\n"
-    .string "¿Seguro que estás preparado?\p"
+    .string "¿Seguro que puedes afrontar esto?\p"
     .string "Si necesitas entrenar más,\n"
     .string "mi ABRA puede ayudarte.\p"
     .string "Te llevará a casa con TELETRANS.\p"

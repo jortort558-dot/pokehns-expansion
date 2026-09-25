@@ -669,23 +669,26 @@ AzaleaTown_Gym_Text_GymStatueCertified:
 
 AzaleaTown_Gym_Text_BugsyIntro:
 	.string "¡Soy ANTÓN!\p"
-	.string "¡Nadie me supera en lo que toca\n"
-	.string "a los POKéMON bicho!\p"
-	.string "¡Mis estudios me convertirán en la\n"
-	.string "mayor autoridad de este tipo!\p"
+	.string "¡Nadie me supera con los POKéMON\n"
+	.string "de tipo BICHO!\p"
+	.string "¡Mis estudios me convertirán en\n"
+	.string "la mayor autoridad sobre ellos!\p"
+	.string "Por ejemplo, ¿sabías que CORTE\n"
+	.string "es de tipo BICHO?\p"
 	.string "¡Deja que te demuestre todo lo\n"
-	.string "que he descubierto en mis viajes!$"
+	.string "que he aprendido estudiándolos!$"
 
 AzaleaTown_Gym_Text_BugsyBeaten:
 	.string "¡Guau, increíble!\p"
-	.string "¡Eres un as de los combates POKéMON!\p"
-	.string "Parece que a mis estudios aún les\n"
-	.string "queda un largo camino…\p"
+	.string "¡Eres todo un experto en POKéMON!\p"
+	.string "A mis estudios aún les queda\n"
+	.string "un largo camino…\p"
 	.string "De acuerdo, tú ganas.\n"
 	.string "¡Toma esta MEDALLA!$"
 
 AzaleaTown_Gym_Text_ReceivedHiveBadge:
-	.string "¡{PLAYER} recibió la MEDALLA COLMENA!$"
+	.string "¡{PLAYER} recibió la\n"
+	.string "MEDALLA COLMENA!$"
 
 AzaleaTown_Gym_Text_HiveBadgeSpeech:
 	.string "¿Conoces las ventajas de poseer\n"
@@ -723,8 +726,7 @@ AzaleaTown_Gym_Text_BugsyRematchDefeat:
 
 AzaleaTown_Gym_Text_BugCatcherBennySeen:
 	.string "Los POKéMON bicho evolucionan\n"
-	.string "muy pronto. ¡Por eso se hacen\l"
-	.string "fuertes en un abrir y cerrar de\nojos!$"
+	.string "pronto y se fortalecen muy rápido.$"
 
 AzaleaTown_Gym_Text_BugCatcherBennyBeaten:
 	.string "¡Evolucionar pronto no bastaba!$"
@@ -769,31 +771,37 @@ AzaleaTown_Gym_Text_TwinsAmyMay1Beaten:
 AzaleaTown_Gym_Text_TwinsAmyMay1After:
 	.string "AMY: ¡Eres muy fuerte!\p"
 	.string "¡Pero ANTÓN lo es mucho más!\n"
-	.string "¡Su SCYTHER asesta golpes críticos\n"
-	.string "con su afilado ataque!$"
+	.string "¡El CORTE de su SCYTHER casi\l"
+	.string "siempre asesta golpes críticos!$"
 
 AzaleaTown_Gym_Text_TwinsAmyMay2Seen:
 	.string "MAY: ¿Quieres ver al LÍDER?\n"
-	.string "¡Suerte con eso!\p"
-	.string "¡ANTÓN es un hueso duro de roer!$"
+	.string "¡Buena suerte!\p"
+	.string "¡ANTÓN es muy fuerte!\n"
+	.string "¡El CORTE de su SCYTHER parece\l"
+	.string "asestar siempre golpes críticos!$"
 
 AzaleaTown_Gym_Text_TwinsAmyMay2Beaten:
 	.string "AMY & MAY: ¡Vaya chasco por partida\n"
 	.string "doble!$"
 
 AzaleaTown_Gym_Text_TwinsAmyMay2After:
-	.string "MAY: ¡Nuestros POKéMON cayeron!\p"
+	.string "MAY: ¡Nuestros POKéMON bicho\n"
+	.string "han perdido! ¡Qué pena!\p"
 	.string "¡Pero ANTÓN no perderá!\n"
-	.string "¡Tiene grandes trucos bajo la\nmanga!$"
+	.string "¡Su PINECO acaba enseguida\l"
+	.string "con los POKéMON de tipo ROCA!$"
 
 AzaleaTown_Gym_Text_GymGuide:
 	.string "¡Aupa, futuro campeón!\p"
-	.string "ANTÓN es joven, pero su dominio\n"
-	.string "de los POKéMON bicho es tremendo.\p"
-	.string "¡Lo pasarías fatal sin mis\nconsejos!\p"
-	.string "A ver… Su POKéMON oruga conoce un\n"
-	.string "ataque para cubrir su debilidad al\nROCA.\p"
-	.string "¡Y mucho ojo con los golpes\ncríticos!\l"
+	.string "ANTÓN es joven, pero conoce muy\n"
+	.string "bien a los POKéMON de tipo BICHO.\p"
+	.string "Su POKéMON oruga conoce un ataque\n"
+	.string "que cubre su debilidad al ROCA.\p"
+	.string "También usa una nueva versión de\n"
+	.string "CORTE que es de tipo BICHO.\p"
+	.string "¡Y mucho ojo con sus golpes\n"
+	.string "críticos!\l"
 	.string "¡Mucha suerte!$"
 
 AzaleaTown_Gym_Text_GymGuideWin:

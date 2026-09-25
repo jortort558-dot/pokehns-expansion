@@ -111,7 +111,7 @@ PokemonLeague_WillsRoom_Text_Before:
     .string "Soy MENTO.\p"
     .string "He entrenado por todo el mundo\n"
     .string "para fortalecer a mis POKéMON\l"
-    .string "de tipo Psíquico.\p"
+    .string "de tipo PSÍQUICO.\p"
     .string "Al fin entré en el ALTO MANDO.\p"
     .string "¡Solo puedo seguir mejorando!\n"
     .string "¡Perder no es una opción!$"
@@ -131,7 +131,7 @@ PokemonLeague_WillsRoom_Text_Defeat:
 PokemonLeague_WillsRoom_Text_RematchBefore:
     .string "MENTO: Ah, has vuelto.\p"
     .string "Había previsto este encuentro.\p"
-    .string "Mis POKéMON Psíquicos y yo hemos\n"
+    .string "Mis POKéMON de tipo PSÍQUICO y yo\n"
     .string "evolucionado con nuevas tácticas.\p"
     .string "Prepárate para un combate de\n"
     .string "estrategia y poder mejorados.\p"

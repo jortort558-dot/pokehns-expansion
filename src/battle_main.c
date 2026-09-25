@@ -2064,7 +2064,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 u16 species = partyData[monIndex].species;
                 u16 heldItem = partyData[monIndex].heldItem;
                 #if RANDOMIZER_AVAILABLE == TRUE
-                struct RandomizedTrainerMon randMon = RandomizeTrainerPartyMon(trainerId, trainer->trainerClass, i, monsCount, species, heldItem);
+                struct RandomizedTrainerMon randMon = RandomizeTrainerPartyMon(trainerId, trainer->trainerClass, i, monsCount, species, heldItem, partyData[monIndex].lvl);
                 species = randMon.species;
                 heldItem = randMon.heldItem;
                 #endif

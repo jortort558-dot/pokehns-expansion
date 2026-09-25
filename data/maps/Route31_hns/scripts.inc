@@ -214,7 +214,7 @@ Route31_Text_WadeRematchDefeat:
 
 Route31_Text_WadePostRematch:
 	.string "¡Te daré un toque por el POKéGEAR\n"
-	.string "en cuanto encuentre algo que te\nmole!$"
+	.string "en cuanto encuentre algo que te\lmole!$"
 
 Route31_Text_WadeHasItem:
 	.string "¡Eh! ¡Te estaba buscando!\p"

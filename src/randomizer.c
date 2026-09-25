@@ -1620,14 +1620,14 @@ enum TrainerPowerTier
 };
 
 static const u16 sTrainerBossProgressionWeights[9][7] = {
-    /* INICIO */         {450, 400, 140,  10,   0,   0,   0},
-    /* EARLY */          {150, 450, 320,  70,  10,   0,   0},
-    /* MID */            { 30, 200, 450, 230,  80,   9,   1},
-    /* LATE_JOHTO */     {  0,  70, 300, 400, 160,  60,  10},
-    /* PRE_LIGA */       {  0,  20, 150, 450, 250, 110,  20},
-    /* LIGA_JOHTO */     {  0,   0,  50, 350, 300, 230,  70},
-    /* KANTO_TEMPRANO */ {  0,   0,  40, 340, 300, 240,  80},
-    /* KANTO_TARDIO */   {  0,   0,  20, 280, 300, 300, 100},
+    /* INICIO */         {300, 500, 180,  20,   0,   0,   0},
+    /* EARLY */          {100, 450, 380,  70,  10,   0,   0},
+    /* MID */            {  0, 200, 480, 230,  80,   9,   1},
+    /* LATE_JOHTO */     {  0,  40, 330, 410, 150,  60,  10},
+    /* PRE_LIGA */       {  0,  10, 150, 450, 260, 110,  20},
+    /* LIGA_JOHTO */     {  0,   0,  30, 370, 300, 230,  70},
+    /* KANTO_TEMPRANO */ {  0,   0,  20, 360, 300, 240,  80},
+    /* KANTO_TARDIO */   {  0,   0,   0, 300, 300, 300, 100},
     /* POSTGAME */       {  0,   0,   0, 200, 300, 400, 100},
 };
 
@@ -1758,6 +1758,47 @@ static bool32 CanTrainerSpeciesEvolve(u16 species)
     return (evolutions != NULL && evolutions[0].method != EVOLUTIONS_END);
 }
 
+static u16 PromoteSpeciesForLevel(u16 species, u8 level)
+{
+    u32 i;
+    u16 current = species;
+
+    for (i = 0; i < 2; i++)
+    {
+        const struct Evolution *evos = GetSpeciesEvolutions(current);
+        u16 target = SPECIES_NONE;
+        u32 j;
+
+        if (evos == NULL)
+            break;
+
+        for (j = 0; evos[j].method != EVOLUTIONS_END; j++)
+        {
+            if (evos[j].method == EVO_LEVEL || evos[j].method == EVO_LEVEL_BATTLE_ONLY)
+            {
+                u16 reqLvl = (evos[j].param == 0) ? 16 : evos[j].param;
+                if (level >= reqLvl)
+                {
+                    target = evos[j].targetSpecies;
+                    break;
+                }
+            }
+            else if ((evos[j].method == EVO_ITEM || evos[j].method == EVO_TRADE || evos[j].method == EVO_SPLIT_FROM_EVO || evos[j].method == EVO_SPIN) && level >= 30)
+            {
+                target = evos[j].targetSpecies;
+                break;
+            }
+        }
+
+        if (target != SPECIES_NONE && target < RANDOMIZER_SPECIES_COUNT && IsSpeciesPermitted(target))
+            current = target;
+        else
+            break;
+    }
+
+    return current;
+}
+
 static u16 RollCompatibleTrainerItem(u16 species, enum TrainerPowerTier tier, u8 block, enum DifficultyLevel difficulty, struct Sfc32State *state)
 {
     u32 roll = RandomizerNextRange(state, 100);
@@ -1855,7 +1896,7 @@ static u16 RollCompatibleTrainerItem(u16 species, enum TrainerPowerTier tier, u8
     return ITEM_NONE;
 }
 
-struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerClass, u8 slot, u8 totalMons, u16 originalSpecies, u16 originalHeldItem)
+struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerClass, u8 slot, u8 totalMons, u16 originalSpecies, u16 originalHeldItem, u8 level)
 {
     struct RandomizedTrainerMon result;
     result.species = originalSpecies;
@@ -1909,6 +1950,8 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
             cat = includeLegendaries ? CATEGORY_T5_SL : CATEGORY_T4_PS;
 
         result.species = ChooseWildSpecies(cat, &state, originalSpecies);
+        if (tier >= TRAINER_TIER_ACE || level >= 25)
+            result.species = PromoteSpeciesForLevel(result.species, level);
         result.heldItem = RollCompatibleTrainerItem(result.species, tier, block, difficulty, &state);
         return result;
     }
@@ -1923,18 +1966,24 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     else if (tier == TRAINER_TIER_BOSS)
     {
         weights = sTrainerBossProgressionWeights;
+        if (trainerClass == TRAINER_CLASS_ELITE_FOUR_HNS || trainerClass == TRAINER_CLASS_CHAMPION_HNS)
+            effectiveBlock = max(effectiveBlock, BLOCK_LIGA_JOHTO);
+        else if (trainerClass == TRAINER_CLASS_LEADER_KANTO_HNS || trainerId == TRAINER_RED_HNS || trainerId == TRAINER_RED_POSTOBC_HNS)
+            effectiveBlock = max(effectiveBlock, BLOCK_KANTO_TARDIO);
     }
 
     enum WildPowerCategory category = WeightedCategoryRoll(weights[effectiveBlock], &state);
     result.species = ChooseWildSpecies(category, &state, originalSpecies);
+    if (tier >= TRAINER_TIER_ACE || level >= 25)
+        result.species = PromoteSpeciesForLevel(result.species, level);
     result.heldItem = RollCompatibleTrainerItem(result.species, tier, block, difficulty, &state);
 
     return result;
 }
 
-u16 RandomizeTrainerMon(u16 trainerId, u8 slot, u8 totalMons, u16 species)
+u16 RandomizeTrainerMon(u16 trainerId, u8 slot, u8 totalMons, u16 species, u8 level)
 {
-    struct RandomizedTrainerMon randMon = RandomizeTrainerPartyMon(trainerId, 0, slot, totalMons, species, ITEM_NONE);
+    struct RandomizedTrainerMon randMon = RandomizeTrainerPartyMon(trainerId, 0, slot, totalMons, species, ITEM_NONE, level);
     return randMon.species;
 }
 

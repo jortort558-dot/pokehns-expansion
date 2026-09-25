@@ -208,11 +208,11 @@ Route27_Text_CooltrainerfReenaBeaten:
     .string "¡Oh! ¡Eres demasiado fuerte!$"
 
 Route27_Text_CooltrainerfReenaAfter:
-    .string "Solo eres un crío, pero tampoco\n"
+    .string "Aún tienes poca experiencia, pero\n"
     .string "se te puede subestimar.$"
 
 Route27_Text_ReenaRegister:
-    .string "Solo eres un crío, pero tampoco\n"
+    .string "Aún tienes poca experiencia, pero\n"
     .string "se te puede subestimar.$"
 
 Route27_Text_ReenaRematchIntro:
@@ -223,7 +223,7 @@ Route27_Text_ReenaRematchDefeat:
     .string "¡Oh! ¡Eres demasiado fuerte!$"
 
 Route27_Text_ReenaPostRematch:
-    .string "Solo eres un crío, pero tampoco\n"
+    .string "Aún tienes poca experiencia, pero\n"
     .string "se te puede subestimar.$"
 
 Route27_Text_CooltrainerfMeganSeen:

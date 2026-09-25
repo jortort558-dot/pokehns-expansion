@@ -334,7 +334,7 @@ PokemonLeague_ChampionsRoom_Text_RematchBattleIntro:
     .string "Esta es la verdadera prueba:\n"
     .string "un combate para decidir quién será\l"
     .string "el CAMPEÓN de KANTO.\p"
-    .string "¿Estás listo para afrontar este\n"
+	.string "¿Te atreves a afrontar este\n"
     .string "nuevo desafío y probarte otra vez?\p"
     .string "¡Muéstrame la fuerza que conquistó\n"
     .string "JOHTO, CAMPEÓN!$"

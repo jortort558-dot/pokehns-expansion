@@ -70,7 +70,7 @@ PokemonLeague_KarensRoom_Text_RematchBefore:
     .string "confianza en tus POKéMON.\p"
     .string "Desde nuestro último encuentro,\n"
     .string "mi vínculo con ellos es más fuerte.\p"
-    .string "¿Estás listo para afrontar al grupo\n"
+    .string "¿Te atreves a afrontar al grupo\n"
     .string "unido por un lazo inquebrantable?\p"
     .string "Muéstrame el poder del vínculo\n"
     .string "que tienes con tus POKéMON.$"

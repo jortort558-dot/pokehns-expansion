@@ -38,5 +38,5 @@ VioletCity_Mart_Text_Granny:
 VioletCity_Mart_Text_CooltrainerM:
 	.string "Un POKéMON puede llevar objetos\n"
 	.string "como POCIONES o ANTÍDOTOS.\p"
-	.string "Sin embargo, no sabrán usar\n"
-	.string "medicinas creadas por el hombre.$"
+	.string "Pero no saben usar objetos\n"
+	.string "fabricados por personas.$"

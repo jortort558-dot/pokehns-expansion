@@ -63,12 +63,12 @@ PokemonLeague_BrunosRoom_EventScript_BrunoDefeated::
 	end
 
 PokemonLeague_BrunosRoom_Text_RematchBefore:
-    .string "BRUNO: Has vuelto, joven guerrero.\p"
+    .string "BRUNO: Has vuelto, digno oponente.\p"
     .string "Nuestro riguroso entrenamiento\n"
     .string "nos ha hecho más fuertes.\p"
     .string "Mi voluntad de piedra es ahora\n"
     .string "todavía más firme e inquebrantable.\p"
-    .string "¿Estás listo para un desafío mayor?\p"
+    .string "¿Puedes afrontar un desafío mayor?\p"
     .string "Muéstrame el fruto de tu esfuerzo.\p"
     .string "¡Ja, ja!$"
 
@@ -80,7 +80,7 @@ PokemonLeague_BrunosRoom_Text_Before:
     .string "¿Podrás soportar nuestro poder?\p"
     .string "¿Mmm? No veo miedo en tus ojos.\n"
     .string "¡Tu determinación es perfecta!\p"
-    .string "¿Listo, {PLAYER}? ¡Te doblegarás\n"
+    .string "¿Todo listo, {PLAYER}? Cederás\n"
     .string "ante nuestro poder arrollador!\p"
     .string "¡Ja, ja!$"
 
