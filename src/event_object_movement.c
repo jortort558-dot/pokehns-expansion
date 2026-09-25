@@ -31,6 +31,7 @@
 #include "pokemon.h"
 #include "pokeball.h"
 #include "random.h"
+#include "randomizer.h"
 #include "region_map.h"
 #include "rtc.h"
 #include "script.h"
@@ -42,6 +43,7 @@
 #include "util.h"
 #include "wild_encounter.h"
 #include "constants/event_object_movement.h"
+#include "constants/script_commands.h"
 #include "constants/abilities.h"
 #include "constants/battle.h"
 #include "constants/event_objects.h"
@@ -1738,7 +1740,7 @@ static u8 InitObjectEventStateFromTemplate(const struct ObjectEventTemplate *tem
     objectEvent->trainerRange_berryTreeId = template->trainerRange_berryTreeId;
     if ((objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL)
         && objectEvent->trainerRange_berryTreeId == ITEM_NONE
-        && template->script != NULL && template->script[0] == 0x1A && T1_READ_16(&template->script[1]) == VAR_0x8000)
+        && template->script != NULL && template->script[0] == SCR_OP_SETORCOPYVAR && T1_READ_16(&template->script[1]) == VAR_0x8000)
     {
         u16 itemId = T1_READ_16(&template->script[3]);
         if (itemId < ITEMS_COUNT)
@@ -2034,18 +2036,24 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     return objectEventId;
 }
 
-static u16 GetItemBallItemId(const struct ObjectEventTemplate *template)
+static u16 GetItemBallItemId(const struct ObjectEventTemplate *template, u8 mapNum, u8 mapGroup)
 {
-    if (template->trainerRange_berryTreeId != ITEM_NONE && template->trainerRange_berryTreeId < ITEMS_COUNT)
-        return template->trainerRange_berryTreeId;
+    u16 itemId = ITEM_NONE;
 
-    if (template->script != NULL && template->script[0] == 0x1A && T1_READ_16(&template->script[1]) == VAR_0x8000)
+    if (template->trainerRange_berryTreeId != ITEM_NONE && template->trainerRange_berryTreeId < ITEMS_COUNT)
+        itemId = template->trainerRange_berryTreeId;
+    else if (template->script != NULL && template->script[0] == SCR_OP_SETORCOPYVAR && T1_READ_16(&template->script[1]) == VAR_0x8000)
     {
-        u16 itemId = T1_READ_16(&template->script[3]);
-        if (itemId < ITEMS_COUNT)
-            return itemId;
+        u16 scriptItemId = T1_READ_16(&template->script[3]);
+        if (scriptItemId < ITEMS_COUNT)
+            itemId = scriptItemId;
     }
-    return ITEM_NONE;
+
+#if RANDOMIZER_AVAILABLE
+    if (itemId != ITEM_NONE && RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS))
+        itemId = RandomizeFoundItem(itemId, mapNum, mapGroup, template->localId);
+#endif
+    return itemId;
 }
 
 u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
@@ -2063,7 +2071,7 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
     // Si es un objeto de suelo (Item Ball) y contiene exclusivamente una MT o MO, usar el sprite de Poké Ball amarilla
     if (graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || graphicsId == OBJ_EVENT_GFX_ITEM_BALL)
     {
-        u16 itemId = GetItemBallItemId(objectEventTemplate);
+        u16 itemId = GetItemBallItemId(objectEventTemplate, mapNum, mapGroup);
         if (itemId != ITEM_NONE && GetItemPocket(itemId) == POCKET_TM_HM)
         {
             graphicsInfo = &gPokeballGraphics[BALL_FAST];
@@ -3295,13 +3303,21 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
     CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(objectEvent->graphicsId, objectEvent->movementType, &spriteTemplate, &subspriteTables);
 
     if ((objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL)
-        && objectEvent->trainerRange_berryTreeId < ITEMS_COUNT
-        && GetItemPocket(objectEvent->trainerRange_berryTreeId) == POCKET_TM_HM)
+        && objectEvent->trainerRange_berryTreeId != ITEM_NONE
+        && objectEvent->trainerRange_berryTreeId < ITEMS_COUNT)
     {
-        graphicsInfo = &gPokeballGraphics[BALL_FAST];
-        spriteTemplate.paletteTag = graphicsInfo->paletteTag;
-        spriteTemplate.images = graphicsInfo->images;
-        subspriteTables = graphicsInfo->subspriteTables;
+        u16 itemId = objectEvent->trainerRange_berryTreeId;
+#if RANDOMIZER_AVAILABLE
+        if (RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS))
+            itemId = RandomizeFoundItem(itemId, objectEvent->mapNum, objectEvent->mapGroup, objectEvent->localId);
+#endif
+        if (GetItemPocket(itemId) == POCKET_TM_HM)
+        {
+            graphicsInfo = &gPokeballGraphics[BALL_FAST];
+            spriteTemplate.paletteTag = graphicsInfo->paletteTag;
+            spriteTemplate.images = graphicsInfo->images;
+            subspriteTables = graphicsInfo->subspriteTables;
+        }
     }
 
     spriteFrameImage.size = graphicsInfo->size;
