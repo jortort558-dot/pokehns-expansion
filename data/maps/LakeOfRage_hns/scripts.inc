@@ -67,6 +67,21 @@ LakeOfRage_EventScript_SilverTrigger::
 	waitmovement LOCALID_LAKEOFRAGE_SILVER
 	turnobject LOCALID_LAKEOFRAGE_SILVER, DIR_SOUTH
 	msgbox LakeOfRage_Text_SilverNoticePlayer, MSGBOX_DEFAULT
+	goto LakeOfRage_EventScript_SilverBattle
+
+LakeOfRage_EventScript_SilverAtGyaradosTrigger::
+	lockall
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
+	addobject LOCALID_LAKEOFRAGE_SILVER
+	turnobject LOCALID_LAKEOFRAGE_SILVER, DIR_NORTH
+	delay 30
+	msgbox LakeOfRage_Text_SilverGyaradosAwesome, MSGBOX_DEFAULT
+	applymovement LOCALID_LAKEOFRAGE_SILVER, Common_Movement_ExclamationMark
+	waitmovement LOCALID_LAKEOFRAGE_SILVER
+	turnobject LOCALID_LAKEOFRAGE_SILVER, DIR_SOUTH
+	msgbox LakeOfRage_Text_SilverNoticePlayer, MSGBOX_DEFAULT
+
+LakeOfRage_EventScript_SilverBattle::
 	setflag FLAG_MEGA_SYSTEM_UNLOCKED
 	call_if_eq VAR_STARTER_MON, 0, LakeOfRage_EventScript_SilverCyndaquil
 	call_if_eq VAR_STARTER_MON, 1, LakeOfRage_EventScript_SilverTotodile
@@ -235,6 +250,7 @@ LakeOfRage_EventScript_Lois::
 	end
 
 LakeOfRage_EventScript_Gyarados::
+	goto_if_unset FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_SilverAtGyaradosTrigger
 	lock
 	faceplayer
 	msgbox LakeOfRage_Text_GyaradosCry, MSGBOX_DEFAULT
