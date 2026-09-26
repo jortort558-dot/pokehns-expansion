@@ -4,6 +4,7 @@ LakeOfRage_hns_MapScripts::
 
 LakeOfRage_OnTransition::
 	setflag FLAG_VISITED_LAKE_OF_RAGE
+	call LakeOfRage_EventScript_SetupSilver
 	call_if_lt VAR_MAHOGANY_TOWN_STATE, 2, LakeOfRage_EventScript_HideLois
 	goto_if_lt VAR_MAHOGANY_TOWN_STATE, 14, LakeOfRage_EventScript_SetHighTide
 	special UpdateShoalTideFlag
@@ -29,6 +30,10 @@ LakeOfRage_EventScript_HideLois::
 LakeOfRage_EventScript_ThunderStorm::
 	setweather WEATHER_RAIN_THUNDERSTORM
 	end
+
+LakeOfRage_EventScript_SetupSilver::
+	setflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
+	return
 
 LakeOfRage_EventScript_Pryce::
     lock
@@ -74,9 +79,8 @@ LakeOfRage_EventScript_Silver::
 	goto_if_defeated TRAINER_RIVAL_CHIKORITA_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
 	goto_if_defeated TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
 	goto_if_defeated TRAINER_RIVAL_TOTODILE_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
-	msgbox LakeOfRage_Text_SilverBeforeBattle, MSGBOX_DEFAULT
 	release
-	end
+	goto LakeOfRage_EventScript_SilverTrigger
 
 LakeOfRage_EventScript_SilverCyndaquil::
 	trainerbattle_no_intro TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS, LakeOfRage_Text_SilverDefeat
@@ -161,10 +165,6 @@ LakeOfRage_Text_SilverNoticePlayer:
 	.string "ni en sueños podrás alcanzar!\p"
 	.string "¡Abre bien los ojos y contempla\n"
 	.string "el verdadero poder de combate!$"
-
-LakeOfRage_Text_SilverBeforeBattle:
-	.string "Haz sitio para lo que te di y\n"
-	.string "deja de hacerme perder el tiempo.$"
 
 LakeOfRage_Text_SilverDefeat:
 	.string "¡¿Qué demonios?!\n"
