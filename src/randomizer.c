@@ -1553,7 +1553,34 @@ static u16 ChooseWildSpecies(enum WildPowerCategory category, struct Sfc32State 
     return ChooseWildForm(state, baseSpecies);
 }
 
-u16 RandomizeWildEncounter(u16 species, u8 mapNum, u8 mapGroup, enum WildPokemonArea area, u8 slot)
+static u16 AdjustWildSpeciesEvolutionStage(u16 species, u8 level)
+{
+    if (level == 0)
+        return species;
+
+    u16 preEvo1 = GetSpeciesPreEvolution(species);
+    if (preEvo1 == SPECIES_NONE)
+        return species;
+
+    u16 preEvo2 = GetSpeciesPreEvolution(preEvo1);
+    bool32 isThreeStage = (preEvo2 != SPECIES_NONE);
+    bool32 isPseudo = IsFinalPseudoLegendary(species);
+
+    if (level < 30)
+    {
+        if (isPseudo || isThreeStage)
+            return isThreeStage ? preEvo2 : preEvo1;
+    }
+    else if (level < 45)
+    {
+        if (isPseudo && isThreeStage)
+            return preEvo1;
+    }
+
+    return species;
+}
+
+u16 RandomizeWildEncounter(u16 species, u8 mapNum, u8 mapGroup, enum WildPokemonArea area, u8 slot, u8 level)
 {
     if (!RandomizerFeatureEnabled(RANDOMIZE_WILD_MON) || !IsSpeciesValidForRandomizer(species))
         return species;
@@ -1592,7 +1619,8 @@ u16 RandomizeWildEncounter(u16 species, u8 mapNum, u8 mapGroup, enum WildPokemon
                        ? sWildProgressionWeights[block]
                        : sWildChaoticWeights;
     enum WildPowerCategory category = WeightedCategoryRoll(weights, &state);
-    return ChooseWildSpecies(category, &state, species);
+    u16 chosenSpecies = ChooseWildSpecies(category, &state, species);
+    return AdjustWildSpeciesEvolutionStage(chosenSpecies, level);
 }
 
 

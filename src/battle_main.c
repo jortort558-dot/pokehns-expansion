@@ -49,6 +49,7 @@
 #include "randomizer.h"
 #include "nuzlocke.h"
 #include "gym_tokens.h"
+#include "caps.h"
 #include "recorded_battle.h"
 #include "roamer.h"
 #include "safari_zone.h"
@@ -1984,9 +1985,9 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
             noMoveSet = FALSE;
     }
 #if RANDOMIZER_AVAILABLE
-    if (noMoveSet || RandomizerFeatureEnabled(RANDOMIZE_TRAINER_MON) || RandomizerFeatureEnabled(RANDOMIZE_LEARNSET))
+    if (noMoveSet || RandomizerFeatureEnabled(RANDOMIZE_TRAINER_MON) || RandomizerFeatureEnabled(RANDOMIZE_LEARNSET) || GetMonData(mon, MON_DATA_LEVEL) > partyEntry->lvl)
 #else
-    if (noMoveSet)
+    if (noMoveSet || GetMonData(mon, MON_DATA_LEVEL) > partyEntry->lvl)
 #endif
     {
         GiveMonInitialMoveset(mon);
@@ -1999,6 +2000,33 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
         u32 pp = GetMovePP(partyEntry->moves[j]);
         SetMonData(mon, MON_DATA_MOVE1 + j, &partyEntry->moves[j]);
         SetMonData(mon, MON_DATA_PP1 + j, &pp);
+    }
+}
+
+static bool32 IsTrainerExemptFromScaling(u16 trainerId, u8 trainerClass)
+{
+    switch (trainerClass)
+    {
+    case TRAINER_CLASS_LEADER:
+    case TRAINER_CLASS_LEADER_FRLG:
+    case TRAINER_CLASS_LEADER_HNS:
+    case TRAINER_CLASS_LEADER_KANTO_HNS:
+    case TRAINER_CLASS_ELITE_FOUR:
+    case TRAINER_CLASS_ELITE_FOUR_HNS:
+    case TRAINER_CLASS_CHAMPION:
+    case TRAINER_CLASS_CHAMPION_HNS:
+    case TRAINER_CLASS_RIVAL:
+    case TRAINER_CLASS_RIVAL_HNS:
+    case TRAINER_CLASS_DOME_ACE_HNS:
+    case TRAINER_CLASS_FACTORY_HEAD_HNS:
+    case TRAINER_CLASS_PALACE_MAVEN_HNS:
+    case TRAINER_CLASS_PIKE_QUEEN_HNS:
+    case TRAINER_CLASS_SALON_MAIDEN_HNS:
+    case TRAINER_CLASS_ARENA_TYCOON_HNS:
+    case TRAINER_CLASS_PYRAMID_KING_HNS:
+        return TRUE;
+    default:
+        return FALSE;
     }
 }
 
@@ -2029,12 +2057,38 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         u32 monIndices[monsCount];
         DoTrainerPartyPool(trainer, monIndices, monsCount, battleTypeFlags);
 
+        const struct TrainerMon *partyData = trainer->party;
+        u8 maxPartyLevel = 0;
         for (i = 0; i < monsCount; i++)
         {
             u32 monIndex = monIndices[i];
+            if (partyData[monIndex].lvl > maxPartyLevel)
+                maxPartyLevel = partyData[monIndex].lvl;
+        }
+
+        u32 currentCap = GetCurrentLevelCap();
+        bool32 canScale = (currentCap > 0 && currentCap < KANTO_MAX_LEVEL && !IsTrainerExemptFromScaling(trainerId, trainer->trainerClass));
+        s32 targetMaxLevel = (s32)currentCap - 2;
+        if (canScale && targetMaxLevel <= maxPartyLevel)
+            canScale = FALSE;
+
+        for (i = 0; i < monsCount; i++)
+        {
+            u32 monIndex = monIndices[i];
+            u8 monLevel = partyData[monIndex].lvl;
+            if (canScale)
+            {
+                s32 diffFromAs = (s32)maxPartyLevel - (s32)monLevel;
+                s32 scaledLevel = targetMaxLevel - diffFromAs;
+                if (scaledLevel < monLevel)
+                    scaledLevel = monLevel;
+                if (scaledLevel > MAX_LEVEL)
+                    scaledLevel = MAX_LEVEL;
+                monLevel = (u8)scaledLevel;
+            }
+
             s32 ball = -1;
             u32 personalityHash = GeneratePartyHash(trainer, i);
-            const struct TrainerMon *partyData = trainer->party;
             struct OriginalTrainerId otId = OTID_STRUCT_RANDOM_NO_SHINY;
             u32 abilityNum = 0;
 
@@ -2064,11 +2118,11 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 u16 species = partyData[monIndex].species;
                 u16 heldItem = partyData[monIndex].heldItem;
                 #if RANDOMIZER_AVAILABLE == TRUE
-                struct RandomizedTrainerMon randMon = RandomizeTrainerPartyMon(trainerId, trainer->trainerClass, i, monsCount, species, heldItem, partyData[monIndex].lvl);
+                struct RandomizedTrainerMon randMon = RandomizeTrainerPartyMon(trainerId, trainer->trainerClass, i, monsCount, species, heldItem, monLevel);
                 species = randMon.species;
                 heldItem = randMon.heldItem;
                 #endif
-                CreateMon(&party[i], species, partyData[monIndex].lvl, personalityValue, otId);
+                CreateMon(&party[i], species, monLevel, personalityValue, otId);
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
             }
 

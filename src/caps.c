@@ -43,9 +43,9 @@ static const u8 sLevelCapTable_Hard[] =
     [8] = 54,
 };
 
-// Post-league caps, matching HnS: beating the Johto Elite Four raises the cap to
-// 70 for the Kanto half, and only beating the Kanto league removes it entirely.
+#ifndef KANTO_MAX_LEVEL
 #define KANTO_MAX_LEVEL 70
+#endif
 
 u32 GetCurrentLevelCap(void)
 {
