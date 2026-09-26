@@ -1950,18 +1950,6 @@ static void DisplayBattleInfoPanel(enum BattlerId battler)
     CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
 }
 
-static UNUSED void CloseBattleInfoPanel(enum BattlerId battler)
-{
-    FillWindowPixelBuffer(B_WIN_MOVE_DESCRIPTION, PIXEL_FILL(0));
-    ClearStdWindowAndFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
-    CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_GFX);
-    if (gCategoryIconSpriteId != 0xFF)
-    {
-        DestroySprite(&gSprites[gCategoryIconSpriteId]);
-        gCategoryIconSpriteId = 0xFF;
-    }
-}
-
 void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 {
     u16 src[2];
