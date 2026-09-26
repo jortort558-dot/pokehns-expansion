@@ -70,7 +70,6 @@ enum WildPowerCategory {
     CATEGORY_T2,
     CATEGORY_T3,
     CATEGORY_T4,
-    CATEGORY_T4_PS,
     CATEGORY_T5_SL,
     CATEGORY_T5_L,
     CATEGORY_MYTHICAL,

@@ -1222,29 +1222,29 @@ static const u16 sCoverLegendaries[] = {
     SPECIES_MIRAIDON,
 };
 
-static const u16 sWildProgressionWeights[PROGRESSION_BLOCK_COUNT][7] = {
-    /* BLOCK_INICIO */         {650, 280,  60,  10,   0,   0,   0},
-    /* BLOCK_EARLY */          {400, 380, 180,  35,   5,   0,   0},
-    /* BLOCK_MID */            {200, 320, 300, 120,  50,   9,   1},
-    /* BLOCK_LATE_JOHTO */     { 80, 200, 300, 220, 130,  60,  10},
-    /* BLOCK_PRE_LIGA */       { 30, 120, 250, 280, 200, 100,  20},
-    /* BLOCK_LIGA_JOHTO */     {  0,  50, 150, 250, 250, 250,  50},
-    /* BLOCK_KANTO_TEMPRANO */ { 20, 100, 200, 250, 200, 160,  70},
-    /* BLOCK_KANTO_TARDIO */   {  0,  30, 120, 200, 250, 300, 100},
-    /* BLOCK_POSTGAME */       {  0,   0,  50, 150, 250, 450, 100},
+static const u16 sWildProgressionWeights[PROGRESSION_BLOCK_COUNT][CATEGORY_COUNT] = {
+    /* BLOCK_INICIO */         {700, 250,  48,   2,   0,   0},
+    /* BLOCK_EARLY */          {450, 380, 140,  30,   0,   0},
+    /* BLOCK_MID */            {250, 350, 280, 119,   1,   0},
+    /* BLOCK_LATE_JOHTO */     {120, 250, 350, 270,   9,   1},
+    /* BLOCK_PRE_LIGA */       { 50, 150, 380, 395,  20,   5},
+    /* BLOCK_LIGA_JOHTO */     { 20, 100, 350, 485,  40,   5},
+    /* BLOCK_KANTO_TEMPRANO */ { 20, 100, 300, 535,  40,   5},
+    /* BLOCK_KANTO_TARDIO */   {  0,  50, 250, 640,  50,  10},
+    /* BLOCK_POSTGAME */       {  0,  20, 180, 720,  60,  20},
 };
 
 // Flat power distribution used by POTENCIA SALVAJE: CAÓTICA. It changes only
 // the chosen species category; encounter slots, levels and rates stay intact.
-static const u16 sWildChaoticWeights[7] = {200, 200, 200, 200, 100, 80, 20};
+static const u16 sWildChaoticWeights[CATEGORY_COUNT] = {200, 200, 250, 270, 60, 20};
 
 struct WildRandomizerPools
 {
     bool8 initialized;
     bool8 genScopeRestricted;
     bool8 includeLegendaries;
-    u16 counts[7];
-    u16 offsets[7];
+    u16 counts[CATEGORY_COUNT];
+    u16 offsets[CATEGORY_COUNT];
     u16 species[WILD_SPECIES_POOL_MAX];
 };
 
@@ -1287,8 +1287,6 @@ enum WildPowerCategory GetWildPowerCategory(u16 species)
         return CATEGORY_T5_L;
     if (gSpeciesInfo[species].isRestrictedLegendary || gSpeciesInfo[species].isSubLegendary || gSpeciesInfo[species].isUltraBeast)
         return CATEGORY_T5_SL;
-    if (IsFinalPseudoLegendary(species))
-        return CATEGORY_T4_PS;
 
     u16 bst = GetSpeciesBST(species);
     if (bst <= WILD_RANDOMIZER_T1_MAX_BST)
@@ -1393,7 +1391,7 @@ static void BuildWildSpeciesPools(void)
 {
     u16 i, species;
     u16 currentOffset = 0;
-    u16 catCur[7] = {0};
+    u16 catCur[CATEGORY_COUNT] = {0};
     bool32 includeLegendaries = gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries;
 
     memset(sWildPools.counts, 0, sizeof(sWildPools.counts));
@@ -1406,7 +1404,7 @@ static void BuildWildSpeciesPools(void)
             continue;
 
         cat = GetWildPowerCategory(species);
-        if (cat >= 7)
+        if (cat >= CATEGORY_COUNT)
             continue;
 
         if ((cat == CATEGORY_T5_SL || cat == CATEGORY_T5_L) && !includeLegendaries)
@@ -1415,7 +1413,7 @@ static void BuildWildSpeciesPools(void)
         sWildPools.counts[cat]++;
     }
 
-    for (i = 0; i < 7; i++)
+    for (i = 0; i < CATEGORY_COUNT; i++)
     {
         sWildPools.offsets[i] = currentOffset;
         currentOffset += sWildPools.counts[i];
@@ -1429,7 +1427,7 @@ static void BuildWildSpeciesPools(void)
             continue;
 
         cat = GetWildPowerCategory(species);
-        if (cat >= 7)
+        if (cat >= CATEGORY_COUNT)
             continue;
 
         if ((cat == CATEGORY_T5_SL || cat == CATEGORY_T5_L) && !includeLegendaries)
@@ -1505,7 +1503,7 @@ static enum WildPowerCategory WeightedCategoryRoll(const u16 *weights, struct Sf
     u32 accum = 0;
     u32 i;
 
-    for (i = 0; i < 7; i++)
+    for (i = 0; i < CATEGORY_COUNT; i++)
     {
         accum += weights[i];
         if (roll < accum)
@@ -1533,7 +1531,7 @@ static u16 ChooseWildSpecies(enum WildPowerCategory category, struct Sfc32State 
 
         if (!found)
         {
-            for (c = (s32)category + 1; c < 7; c++)
+            for (c = (s32)category + 1; c < CATEGORY_COUNT; c++)
             {
                 if (sWildPools.counts[c] > 0)
                 {
@@ -1657,16 +1655,16 @@ enum TrainerPowerTier
     TRAINER_TIER_BOSS,
 };
 
-static const u16 sTrainerBossProgressionWeights[9][7] = {
-    /* INICIO */         {300, 500, 180,  20,   0,   0,   0},
-    /* EARLY */          {100, 450, 380,  70,  10,   0,   0},
-    /* MID */            {  0, 200, 480, 230,  80,   9,   1},
-    /* LATE_JOHTO */     {  0,  40, 330, 410, 150,  60,  10},
-    /* PRE_LIGA */       {  0,  10, 150, 450, 260, 110,  20},
-    /* LIGA_JOHTO */     {  0,   0,  30, 370, 300, 230,  70},
-    /* KANTO_TEMPRANO */ {  0,   0,  20, 360, 300, 240,  80},
-    /* KANTO_TARDIO */   {  0,   0,   0, 300, 300, 300, 100},
-    /* POSTGAME */       {  0,   0,   0, 200, 300, 400, 100},
+static const u16 sTrainerBossProgressionWeights[PROGRESSION_BLOCK_COUNT][CATEGORY_COUNT] = {
+    /* INICIO */         {300, 500, 180,  20,   0,   0},
+    /* EARLY */          {100, 450, 380,  80,   0,   0},
+    /* MID */            {  0, 200, 480, 310,   9,   1},
+    /* LATE_JOHTO */     {  0,  40, 330, 560,  60,  10},
+    /* PRE_LIGA */       {  0,  10, 150, 710, 110,  20},
+    /* LIGA_JOHTO */     {  0,   0,  30, 670, 230,  70},
+    /* KANTO_TEMPRANO */ {  0,   0,  20, 660, 240,  80},
+    /* KANTO_TARDIO */   {  0,   0,   0, 600, 300, 100},
+    /* POSTGAME */       {  0,   0,   0, 500, 400, 100},
 };
 
 struct MegaPair
@@ -1979,9 +1977,9 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
         bool32 includeLegendaries = gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries;
         enum WildPowerCategory cat;
         if (trainerId == TRAINER_LANCE_1_HNS || trainerId == TRAINER_LANCE_2_HNS || trainerId == TRAINER_LANCE_3_HNS || trainerId == TRAINER_LANCE_POSTOBC_HNS)
-            cat = includeLegendaries ? CATEGORY_T5_L : CATEGORY_T4_PS;
+            cat = includeLegendaries ? CATEGORY_T5_L : CATEGORY_T4;
         else
-            cat = includeLegendaries ? CATEGORY_T5_SL : CATEGORY_T4_PS;
+            cat = includeLegendaries ? CATEGORY_T5_SL : CATEGORY_T4;
 
         result.species = ChooseWildSpecies(cat, &state, originalSpecies);
         if (tier >= TRAINER_TIER_ACE || level >= 25)
@@ -1991,7 +1989,7 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     }
 
     u8 effectiveBlock = block;
-    const u16 (*weights)[7] = sWildProgressionWeights;
+    const u16 (*weights)[CATEGORY_COUNT] = sWildProgressionWeights;
 
     switch (gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerPower)
     {
