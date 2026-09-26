@@ -304,6 +304,10 @@
 
 // Move description menu
 #define B_SHOW_MOVE_DESCRIPTION     TRUE       // Shows move information in battler
+// Battle Info UI (Heart & Soul extension)
+#define B_BATTLE_INFO_MENU          TRUE       // If TRUE, enables the extended battle info panel (stat stages, field conditions)
+#define B_BATTLE_INFO_BUTTON        L_BUTTON   // Button to open/close the battle info panel (stat stages view)
+#define B_SHOW_REAL_MOVE_POWER      TRUE       // If TRUE, shows effective move power considering STAB, items, weather and type effectiveness
 
 // Weather settings
 // Search for 'rain', 'sunny day', and 'hail' for move-specific or species-specific weather interactions.
