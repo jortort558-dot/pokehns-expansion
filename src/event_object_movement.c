@@ -1738,7 +1738,7 @@ static u8 InitObjectEventStateFromTemplate(const struct ObjectEventTemplate *tem
     objectEvent->trainerType = template->trainerType;
     objectEvent->mapNum = mapNum;
     objectEvent->trainerRange_berryTreeId = template->trainerRange_berryTreeId;
-    if ((objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL)
+    if ((objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL || objectEvent->graphicsId == OBJ_EVENT_GFX_POKE_BALL)
         && objectEvent->trainerRange_berryTreeId == ITEM_NONE
         && template->script != NULL && template->script[0] == SCR_OP_SETORCOPYVAR && T1_READ_16(&template->script[1]) == VAR_0x8000)
     {
@@ -2068,7 +2068,7 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
     CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(graphicsId, objectEventTemplate->movementType, &spriteTemplate, &subspriteTables);
 
     // Si es un objeto de suelo (Item Ball) y contiene exclusivamente una MT o MO, usar el sprite de Poké Ball amarilla
-    if (graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || graphicsId == OBJ_EVENT_GFX_ITEM_BALL)
+    if (graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || graphicsId == OBJ_EVENT_GFX_ITEM_BALL || graphicsId == OBJ_EVENT_GFX_POKE_BALL)
     {
         u16 itemId = GetItemBallItemId(objectEventTemplate, mapNum, mapGroup);
         if (itemId != ITEM_NONE && GetItemPocket(itemId) == POCKET_TM_HM)
@@ -3302,7 +3302,7 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
     graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
     CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(objectEvent->graphicsId, objectEvent->movementType, &spriteTemplate, &subspriteTables);
 
-    if ((objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL)
+    if ((objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL || objectEvent->graphicsId == OBJ_EVENT_GFX_POKE_BALL)
         && objectEvent->trainerRange_berryTreeId != ITEM_NONE
         && objectEvent->trainerRange_berryTreeId < ITEMS_COUNT)
     {

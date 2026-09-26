@@ -1775,7 +1775,7 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
         acc = 0;
     }
 
-    u8 pwr_num[8], acc_num[3];
+    u8 pwr_num[32], acc_num[3];
     u8 cat_desc[7] = _("CAT: ");
     u8 pwr_desc[7] = _("PWR: ");
     u8 acc_desc[7] = _("ACC: ");
@@ -1793,12 +1793,16 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
         uq4_12_t typeMod = UQ_4_12(1.0);
         u32 realPwr = CalculateRealMovePower(battler, target, move, &typeMod);
 
-        if (realPwr != pwr) // Only show modified power if it differs
+        if (realPwr != pwr) // Show only the effective power, colored by the change
         {
-            // Format as "90>135"
-            u8 *ptr = ConvertIntToDecimalStringN(pwr_num, pwr, STR_CONV_MODE_LEFT_ALIGN, 3);
-            *ptr++ = '>';
-            ConvertIntToDecimalStringN(ptr, realPwr, STR_CONV_MODE_LEFT_ALIGN, 3);
+            u8 *ptr;
+
+            if (realPwr > pwr)
+                ptr = StringCopy(pwr_num, COMPOUND_STRING("{COLOR GREEN}{SHADOW LIGHT_GREEN}"));
+            else
+                ptr = StringCopy(pwr_num, COMPOUND_STRING("{COLOR RED}{SHADOW LIGHT_RED}"));
+            ptr = ConvertIntToDecimalStringN(ptr, realPwr, STR_CONV_MODE_LEFT_ALIGN, 3);
+            StringCopy(ptr, COMPOUND_STRING("{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"));
         }
         else
         {
