@@ -1912,7 +1912,7 @@ static void DisplayBattleInfoPanel(enum BattlerId battler)
 
         // Player stage
         StringAppend(gDisplayedStringBattle, sStageStrings[playerStage]);
-        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" | "));
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" / "));
         // Enemy stage
         StringAppend(gDisplayedStringBattle, sStageStrings[enemyStage]);
         StringAppend(gDisplayedStringBattle, gText_NewLine);
