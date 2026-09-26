@@ -94,10 +94,8 @@ static void Task_GiveExpWithExpBar(u8);
 static void Task_UpdateLvlInHealthbox(u8);
 static void PrintLinkStandbyMsg(void);
 
-static void ReloadMoveNames(enum BattlerId battler);
-static u32 CheckTypeEffectiveness(enum BattlerId battlerAtk, enum BattlerId battlerDef);
-static u32 CheckTargetTypeEffectiveness(enum BattlerId battler);
-static void MoveSelectionDisplayMoveEffectiveness(u32 foeEffectiveness, enum BattlerId battler);
+// Battle Info UI (Heart & Soul extension)
+static void DisplayBattleInfoPanel(enum BattlerId battler);
 
 static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(enum BattlerId battler) =
 {
@@ -903,6 +901,13 @@ void HandleInputChooseMove(enum BattlerId battler)
                 MoveSelectionDisplayMoveEffectiveness(CheckTargetTypeEffectiveness(battler), battler);
             MoveSelectionDisplayPpNumber(battler);
             MoveSelectionDisplayMoveType(battler);
+        }
+        // While description submenu is open, B_BATTLE_INFO_BUTTON toggles stat panel instead
+        else if (B_BATTLE_INFO_MENU && JOY_NEW(B_BATTLE_INFO_BUTTON)
+            && !(B_BATTLE_INFO_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
+        {
+            PlaySE(SE_SELECT);
+            DisplayBattleInfoPanel(battler);
         }
     }
     else if (JOY_NEW(B_MOVE_DESCRIPTION_BUTTON) &&
@@ -1765,7 +1770,7 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
         acc = 0;
     }
 
-    u8 pwr_num[3], acc_num[3];
+    u8 pwr_num[8], acc_num[3];
     u8 cat_desc[7] = _("CAT: ");
     u8 pwr_desc[7] = _("PWR: ");
     u8 acc_desc[7] = _("ACC: ");
@@ -1774,10 +1779,35 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
     u8 acc_start[] = _("{CLEAR_TO 0x6C}");
     LoadMessageBoxAndBorderGfx();
     DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
-    if (pwr < 2)
-        StringCopy(pwr_num, gText_BattleSwitchWhich5);
+
+    // --- Battle Info UI: True Power ---
+    if (B_SHOW_REAL_MOVE_POWER && pwr >= 2 && GetMoveCategory(move) != DAMAGE_CATEGORY_STATUS)
+    {
+        // Find the active opponent battler to compute effectiveness against
+        enum BattlerId target = GetOpposingSideBattler(battler);
+        uq4_12_t typeMod = UQ_4_12(1.0);
+        u32 realPwr = CalculateRealMovePower(battler, target, move, &typeMod);
+
+        if (realPwr != pwr) // Only show modified power if it differs
+        {
+            // Format as "90>135"
+            u8 *ptr = ConvertIntToDecimalStringN(pwr_num, pwr, STR_CONV_MODE_LEFT_ALIGN, 3);
+            *ptr++ = '>';
+            ConvertIntToDecimalStringN(ptr, realPwr, STR_CONV_MODE_LEFT_ALIGN, 3);
+        }
+        else
+        {
+            ConvertIntToDecimalStringN(pwr_num, pwr, STR_CONV_MODE_LEFT_ALIGN, 3);
+        }
+    }
     else
-        ConvertIntToDecimalStringN(pwr_num, pwr, STR_CONV_MODE_LEFT_ALIGN, 3);
+    {
+        if (pwr < 2)
+            StringCopy(pwr_num, gText_BattleSwitchWhich5);
+        else
+            ConvertIntToDecimalStringN(pwr_num, pwr, STR_CONV_MODE_LEFT_ALIGN, 3);
+    }
+
     if (acc < 2)
         StringCopy(acc_num, gText_BattleSwitchWhich5);
     else
@@ -1800,6 +1830,136 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
     StartSpriteAnim(&gSprites[gCategoryIconSpriteId], cat);
 
     CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
+}
+
+// ---------------------------------------------------------------------------
+// Battle Info UI — Panel B: Stat stages + field conditions
+// ---------------------------------------------------------------------------
+
+// Stat name abbreviations (7 stats: ATK DEF SPA SPD SPE ACC EVA)
+static const u8 sStatNames[NUM_BATTLE_STATS][6] =
+{
+    [STAT_ATK] = _("ATK "),
+    [STAT_DEF] = _("DEF "),
+    [STAT_SPATK] = _("SPA "),
+    [STAT_SPDEF] = _("SPD "),
+    [STAT_SPEED] = _("SPE "),
+    [STAT_ACC] = _("ACC "),
+    [STAT_EVASION] = _("EVA "),
+};
+
+static const u8 sStageStrings[][4] =
+{
+    [0]  = _("-6"),
+    [1]  = _("-5"),
+    [2]  = _("-4"),
+    [3]  = _("-3"),
+    [4]  = _("-2"),
+    [5]  = _("-1"),
+    [6]  = _(" 0"),
+    [7]  = _("+1"),
+    [8]  = _("+2"),
+    [9]  = _("+3"),
+    [10] = _("+4"),
+    [11] = _("+5"),
+    [12] = _("+6"),
+};
+
+// Weather abbreviations for the field panel
+static const u8 sWeatherNames[][6] =
+{
+    [BATTLE_WEATHER_RAIN]         = _("LLUV"),
+    [BATTLE_WEATHER_RAIN_PRIMAL]  = _("LLUP"),
+    [BATTLE_WEATHER_SUN]          = _("SOL "),
+    [BATTLE_WEATHER_SUN_PRIMAL]   = _("SOLP"),
+    [BATTLE_WEATHER_SANDSTORM]    = _("AREN"),
+    [BATTLE_WEATHER_HAIL]         = _("GRNZ"),
+    [BATTLE_WEATHER_SNOW]         = _("NIEV"),
+    [BATTLE_WEATHER_FOG]          = _("NIEB"),
+    [BATTLE_WEATHER_STRONG_WINDS] = _("VTRT"),
+};
+
+static void DisplayBattleInfoPanel(enum BattlerId battler)
+{
+    s32 i;
+    enum BattlerId opponent = GetOpposingSideBattler(battler);
+
+    LoadMessageBoxAndBorderGfx();
+    DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
+
+    // --- Line 1: Header ---
+    StringCopy(gDisplayedStringBattle, _("  TU       RIVAL"));
+    StringAppend(gDisplayedStringBattle, gText_NewLine);
+
+    // --- Lines 2-8: Stats ATK DEF SPA SPD SPE ACC EVA ---
+    for (i = STAT_ATK; i < NUM_BATTLE_STATS; i++)
+    {
+        s8 playerStage = gBattleMons[battler].statStages[i];
+        s8 enemyStage  = gBattleMons[opponent].statStages[i];
+
+        if (playerStage < 0) playerStage = 0;
+        if (playerStage > 12) playerStage = 12;
+        if (enemyStage < 0) enemyStage = 0;
+        if (enemyStage > 12) enemyStage = 12;
+
+        // Stat name (4 chars)
+        StringAppend(gDisplayedStringBattle, sStatNames[i]);
+
+        // Player stage
+        StringAppend(gDisplayedStringBattle, sStageStrings[playerStage]);
+        StringAppend(gDisplayedStringBattle, _(" | "));
+        // Enemy stage
+        StringAppend(gDisplayedStringBattle, sStageStrings[enemyStage]);
+        StringAppend(gDisplayedStringBattle, gText_NewLine);
+    }
+
+    // --- Final line: Weather ---
+    StringAppend(gDisplayedStringBattle, _("Clima: "));
+    if (gBattleWeather == B_WEATHER_NONE)
+    {
+        StringAppend(gDisplayedStringBattle, _("Ninguno"));
+    }
+    else
+    {
+        u32 bit;
+        for (bit = 0; bit < BATTLE_WEATHER_COUNT; bit++)
+        {
+            if (gBattleWeather & (1u << bit))
+            {
+                StringAppend(gDisplayedStringBattle, sWeatherNames[bit]);
+                break;
+            }
+        }
+        if (gBattleStruct->weatherDuration > 0)
+        {
+            u8 tBuf[8];
+            u8 *p = ConvertIntToDecimalStringN(tBuf, gBattleStruct->weatherDuration, STR_CONV_MODE_LEFT_ALIGN, 2);
+            *p++ = CHAR_SPACE;
+            *p = EOS;
+            StringAppend(gDisplayedStringBattle, tBuf);
+        }
+    }
+
+    // Screens indicator (player side)
+    if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_REFLECT)
+        StringAppend(gDisplayedStringBattle, _(" Ref"));
+    if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_LIGHTSCREEN)
+        StringAppend(gDisplayedStringBattle, _(" PL"));
+
+    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
+    CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
+}
+
+static UNUSED void CloseBattleInfoPanel(enum BattlerId battler)
+{
+    FillWindowPixelBuffer(B_WIN_MOVE_DESCRIPTION, PIXEL_FILL(0));
+    ClearStdWindowAndFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
+    CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_GFX);
+    if (gCategoryIconSpriteId != 0xFF)
+    {
+        DestroySprite(&gSprites[gCategoryIconSpriteId]);
+        gCategoryIconSpriteId = 0xFF;
+    }
 }
 
 void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)

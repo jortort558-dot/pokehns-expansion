@@ -11048,3 +11048,135 @@ enum BattlerId GetTargetBySlot(enum BattlerId battlerAtk, enum BattlerId battler
         return B_BATTLER_0;
     }
 }
+
+// ---------------------------------------------------------------------------
+// Battle Info UI (Heart & Soul extension)
+// ---------------------------------------------------------------------------
+// Calculates the effective move power shown in the info panel.
+// Factors: base power, STAB (x1.5 approx in UQ4.12), held type-boosting item,
+// weather (sun/rain x1.5 for fire/water), and type effectiveness vs battlerDef.
+// Returns 0 for status moves. If typeModifier_out != NULL it receives the raw
+// UQ4.12 type effectiveness value (UQ_4_12(1.0) = neutral).
+u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, uq4_12_t *typeModifier_out)
+{
+    u16 basePower;
+    uq4_12_t modifier;
+    uq4_12_t typeMod;
+    enum Type moveType;
+    enum HoldEffect holdEffect;
+    u32 holdParam;
+    u32 i;
+
+    // Status moves have no power
+    if (GetMoveCategory(move) == DAMAGE_CATEGORY_STATUS)
+    {
+        if (typeModifier_out != NULL)
+            *typeModifier_out = UQ_4_12(1.0);
+        return 0;
+    }
+
+    basePower = GetMovePower(move);
+    if (basePower == 0)
+        basePower = 1;
+
+    modifier = UQ_4_12(1.0);
+
+    // Determine move type (respects dynamic type changes like Protean)
+    moveType = GetBattleMoveType(move);
+
+    // --- STAB ---
+    {
+        enum Type types[3];
+        GetBattlerTypes(battlerAtk, FALSE, types);
+        for (i = 0; i < 3; i++)
+        {
+            if (types[i] == moveType && types[i] != TYPE_MYSTERY)
+            {
+                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+                break;
+            }
+        }
+    }
+
+    // --- Held item: type-boosting plates / elemental orbs (Charcoal, Mystic Water, etc.) ---
+    holdEffect = GetBattlerHoldEffect(battlerAtk);
+    holdParam  = GetBattlerHoldEffectParam(battlerAtk);
+    if (holdParam > 100)
+        holdParam = 100;
+
+    {
+        uq4_12_t itemMod = uq4_12_add(UQ_4_12(1.0), PercentToUQ4_12(holdParam));
+        switch (holdEffect)
+        {
+        case HOLD_EFFECT_TYPE_POWER:
+        case HOLD_EFFECT_PLATE:
+            if (moveType == (enum Type)GetItemSecondaryId(gBattleMons[battlerAtk].item))
+                modifier = uq4_12_multiply(modifier, itemMod);
+            break;
+        case HOLD_EFFECT_CHOICE_BAND:
+            if (IsBattleMovePhysical(move))
+                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+            break;
+        case HOLD_EFFECT_CHOICE_SPECS:
+            if (IsBattleMoveSpecial(move))
+                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+            break;
+        case HOLD_EFFECT_LIFE_ORB:
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+            break;
+        case HOLD_EFFECT_EXPERT_BELT:
+            // Will be multiplied after type-effectiveness check below
+            break;
+        default:
+            break;
+        }
+    }
+
+    // --- Weather bonus ---
+    {
+        u32 weather = gBattleWeather;
+        if (weather & B_WEATHER_SUN)
+        {
+            if (moveType == TYPE_FIRE)
+                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+            else if (moveType == TYPE_WATER)
+                modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+        }
+        else if (weather & B_WEATHER_RAIN)
+        {
+            if (moveType == TYPE_WATER)
+                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+            else if (moveType == TYPE_FIRE)
+                modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+        }
+        else if (weather & B_WEATHER_SANDSTORM)
+        {
+            if (moveType == TYPE_ROCK || moveType == TYPE_STEEL || moveType == TYPE_GROUND)
+                modifier = uq4_12_multiply(modifier, UQ_4_12(1.3)); // Sand Force approximation
+        }
+    }
+
+    // --- Type effectiveness vs target ---
+    {
+        enum Type defTypes[3];
+        GetBattlerTypes(battlerDef, FALSE, defTypes);
+        typeMod = UQ_4_12(1.0);
+        for (i = 0; i < 2; i++)
+        {
+            if (defTypes[i] != TYPE_MYSTERY)
+                typeMod = uq4_12_multiply(typeMod, GetTypeModifier(moveType, defTypes[i]));
+        }
+    }
+
+    // Expert Belt bonus when super-effective
+    if (holdEffect == HOLD_EFFECT_EXPERT_BELT && typeMod > UQ_4_12(1.0))
+        modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+
+    if (typeModifier_out != NULL)
+        *typeModifier_out = typeMod;
+
+    // Apply type effectiveness to the total modifier
+    modifier = uq4_12_multiply(modifier, typeMod);
+
+    return uq4_12_multiply_by_int_half_down(modifier, basePower);
+}
