@@ -193,7 +193,10 @@ void CreateShinyScriptedMon(u16 species, u8 level, enum Item item)
 
     #if RANDOMIZER_AVAILABLE
     if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
-        species = RandomizeMon(RANDOMIZER_REASON_FIXED_ENCOUNTER, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);
+        species = RandomizeFixedEncounterMon(species,
+            gSaveBlock1Ptr->location.mapNum,
+            gSaveBlock1Ptr->location.mapGroup,
+            gObjectEvents[gSelectedObjectEvent].localId);
     #endif
 
     // TODO: item randomization (HnS randomized the held item under tx_Random_Items)

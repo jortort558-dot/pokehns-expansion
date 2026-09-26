@@ -2073,7 +2073,7 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
         u16 itemId = GetItemBallItemId(objectEventTemplate, mapNum, mapGroup);
         if (itemId != ITEM_NONE && GetItemPocket(itemId) == POCKET_TM_HM)
         {
-            graphicsInfo = &gPokeballGraphics[BALL_FAST];
+            graphicsInfo = &gPokeballGraphics[BALL_LEVEL];
             graphicsUuid = NUM_OBJ_EVENT_GFX;
             spriteTemplate.paletteTag = graphicsInfo->paletteTag;
             spriteTemplate.images = graphicsInfo->images;
@@ -3290,6 +3290,7 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
     struct SpriteFrameImage spriteFrameImage;
     const struct SubspriteTable *subspriteTables;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
+    u16 graphicsUuid;
 
     for (i = 0; i < ARRAY_COUNT(gLinkPlayerObjectEvents); i++)
     {
@@ -3299,6 +3300,7 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
 
     objectEvent = &gObjectEvents[objectEventId];
     subspriteTables = NULL;
+    graphicsUuid = objectEvent->graphicsId;
     graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
     CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(objectEvent->graphicsId, objectEvent->movementType, &spriteTemplate, &subspriteTables);
 
@@ -3313,7 +3315,8 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
 #endif
         if (GetItemPocket(itemId) == POCKET_TM_HM)
         {
-            graphicsInfo = &gPokeballGraphics[BALL_FAST];
+            graphicsInfo = &gPokeballGraphics[BALL_LEVEL];
+            graphicsUuid = NUM_OBJ_EVENT_GFX;
             spriteTemplate.paletteTag = graphicsInfo->paletteTag;
             spriteTemplate.images = graphicsInfo->images;
             subspriteTables = graphicsInfo->subspriteTables;
@@ -3324,7 +3327,7 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
     spriteTemplate.images = &spriteFrameImage;
 
     if (OW_GFX_COMPRESS)
-        spriteTemplate.tileTag = LoadSheetGraphicsInfo(graphicsInfo, objectEvent->graphicsId, NULL);
+        spriteTemplate.tileTag = LoadSheetGraphicsInfo(graphicsInfo, graphicsUuid, NULL);
 
     if (spriteTemplate.paletteTag == OBJ_EVENT_PAL_TAG_DYNAMIC)
     {
