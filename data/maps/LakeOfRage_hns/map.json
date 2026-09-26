@@ -283,8 +283,8 @@
       "x": 29,
       "y": 38,
       "elevation": 0,
-      "var": "VAR_MAHOGANY_TOWN_STATE",
-      "var_value": "1",
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
       "script": "LakeOfRage_EventScript_SilverTrigger"
     },
     {
@@ -292,8 +292,8 @@
       "x": 30,
       "y": 38,
       "elevation": 0,
-      "var": "VAR_MAHOGANY_TOWN_STATE",
-      "var_value": "1",
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
       "script": "LakeOfRage_EventScript_SilverTrigger"
     },
     {
@@ -301,8 +301,8 @@
       "x": 31,
       "y": 38,
       "elevation": 0,
-      "var": "VAR_MAHOGANY_TOWN_STATE",
-      "var_value": "1",
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
       "script": "LakeOfRage_EventScript_SilverTrigger"
     },
     {
@@ -310,8 +310,8 @@
       "x": 32,
       "y": 38,
       "elevation": 0,
-      "var": "VAR_MAHOGANY_TOWN_STATE",
-      "var_value": "1",
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
       "script": "LakeOfRage_EventScript_SilverTrigger"
     },
     {
@@ -319,8 +319,8 @@
       "x": 33,
       "y": 38,
       "elevation": 0,
-      "var": "VAR_MAHOGANY_TOWN_STATE",
-      "var_value": "1",
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
       "script": "LakeOfRage_EventScript_SilverTrigger"
     }
   ],

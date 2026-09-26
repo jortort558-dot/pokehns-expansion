@@ -48,6 +48,8 @@ LakeOfRage_Text_Pryce:
 
 LakeOfRage_EventScript_SilverTrigger::
 	goto_if_set FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_SilverTriggerEnd
+	goto_if_set FLAG_HIDE_LAKE_OF_RAGE_GYARADOS, LakeOfRage_EventScript_SilverTriggerEnd
+	goto_if_lt VAR_MAHOGANY_TOWN_STATE, 1, LakeOfRage_EventScript_SilverTriggerEnd
 	lockall
 	clearflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
 	addobject LOCALID_LAKEOFRAGE_SILVER
