@@ -16033,3 +16033,141 @@ IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
 - Yawn
 - Rest
 - Rock Tomb
+
+=== TRAINER_RIVAL_CHIKORITA_LAKE_HNS ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Dark Red
+Items: Hyper Potion
+
+Golbat
+Level: 32
+- Poison Fang
+- Air Cutter
+- Confuse Ray
+- Bite
+
+Pupitar
+Level: 33
+- Rock Slide
+- Bite
+- Screech
+- Scary Face
+
+Octillery
+Level: 32
+- Octazooka
+- Psybeam
+- Aurora Beam
+- Signal Beam
+
+Meganium @ Miracle Seed
+Level: 34
+- Magical Leaf
+- Body Slam
+- Synthesis
+- Poison Powder
+
+Houndoom @ Houndoominite
+Level: 35
+- Flamethrower
+- Crunch
+- Nasty Plot
+- Smog
+
+=== TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Dark Red
+Items: Hyper Potion
+
+Golbat
+Level: 32
+- Poison Fang
+- Air Cutter
+- Confuse Ray
+- Bite
+
+Pupitar
+Level: 33
+- Rock Slide
+- Bite
+- Screech
+- Scary Face
+
+Octillery
+Level: 32
+- Octazooka
+- Psybeam
+- Aurora Beam
+- Signal Beam
+
+Typhlosion @ Charcoal
+Level: 34
+- Flamethrower
+- Swift
+- Smokescreen
+- Thunder Punch
+
+Houndoom @ Houndoominite
+Level: 35
+- Flamethrower
+- Crunch
+- Nasty Plot
+- Smog
+
+=== TRAINER_RIVAL_TOTODILE_LAKE_HNS ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Dark Red
+Items: Hyper Potion
+
+Golbat
+Level: 32
+- Poison Fang
+- Air Cutter
+- Confuse Ray
+- Bite
+
+Pupitar
+Level: 33
+- Rock Slide
+- Bite
+- Screech
+- Scary Face
+
+Octillery
+Level: 32
+- Octazooka
+- Psybeam
+- Aurora Beam
+- Signal Beam
+
+Feraligatr @ Mystic Water
+Level: 34
+- Waterfall
+- Ice Fang
+- Crunch
+- Scary Face
+
+Houndoom @ Houndoominite
+Level: 35
+- Flamethrower
+- Crunch
+- Nasty Plot
+- Smog

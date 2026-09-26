@@ -45,6 +45,157 @@ LakeOfRage_EventScript_Pryce::
 
 LakeOfRage_Text_Pryce:
 	.string "{PLAYER}.\pIncluso aquí, el frío me mantiene\ndespejado.\pSi deseas volver a combatir, ven al\nDOJO DE LUCHA.$"
+
+LakeOfRage_EventScript_SilverTrigger::
+	goto_if_set FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_SilverTriggerEnd
+	lockall
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
+	addobject LOCALID_LAKEOFRAGE_SILVER
+	applymovement LOCALID_LAKEOFRAGE_SILVER, LakeOfRage_Movement_SilverApproach
+	waitmovement LOCALID_LAKEOFRAGE_SILVER
+	turnobject LOCALID_LAKEOFRAGE_SILVER, DIR_NORTH
+	delay 30
+	msgbox LakeOfRage_Text_SilverGyaradosAwesome, MSGBOX_DEFAULT
+	applymovement LOCALID_LAKEOFRAGE_SILVER, Common_Movement_ExclamationMark
+	waitmovement LOCALID_LAKEOFRAGE_SILVER
+	turnobject LOCALID_LAKEOFRAGE_SILVER, DIR_SOUTH
+	msgbox LakeOfRage_Text_SilverNoticePlayer, MSGBOX_DEFAULT
+	setflag FLAG_MEGA_SYSTEM_UNLOCKED
+	call_if_eq VAR_STARTER_MON, 0, LakeOfRage_EventScript_SilverCyndaquil
+	call_if_eq VAR_STARTER_MON, 1, LakeOfRage_EventScript_SilverTotodile
+	call_if_eq VAR_STARTER_MON, 2, LakeOfRage_EventScript_SilverChikorita
+	goto LakeOfRage_EventScript_SilverRewards
+
+LakeOfRage_EventScript_Silver::
+	lock
+	faceplayer
+	goto_if_defeated TRAINER_RIVAL_CHIKORITA_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
+	goto_if_defeated TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
+	goto_if_defeated TRAINER_RIVAL_TOTODILE_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
+	msgbox LakeOfRage_Text_SilverBeforeBattle, MSGBOX_DEFAULT
+	release
+	end
+
+LakeOfRage_EventScript_SilverCyndaquil::
+	trainerbattle_no_intro TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS, LakeOfRage_Text_SilverDefeat
+	return
+
+LakeOfRage_EventScript_SilverTotodile::
+	trainerbattle_no_intro TRAINER_RIVAL_TOTODILE_LAKE_HNS, LakeOfRage_Text_SilverDefeat
+	return
+
+LakeOfRage_EventScript_SilverChikorita::
+	trainerbattle_no_intro TRAINER_RIVAL_CHIKORITA_LAKE_HNS, LakeOfRage_Text_SilverDefeat
+	return
+
+LakeOfRage_EventScript_SilverRewards::
+	msgbox LakeOfRage_Text_SilverAfterBattle, MSGBOX_DEFAULT
+	checkitem ITEM_MEGA_RING
+	goto_if_eq VAR_RESULT, TRUE, LakeOfRage_EventScript_SilverGiveMon
+	giveitem ITEM_MEGA_RING
+
+LakeOfRage_EventScript_SilverGiveMon::
+	msgbox LakeOfRage_Text_SilverDropMon, MSGBOX_DEFAULT
+	special GiveRandomMegaGift
+	goto_if_eq VAR_RESULT, MON_CANT_GIVE, LakeOfRage_EventScript_SilverNoRoom
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LakeOfRage_EventScript_SilverGiftToPC
+	msgbox LakeOfRage_Text_SilverGiftReceived, MSGBOX_DEFAULT
+	goto LakeOfRage_EventScript_SilverLeave
+
+LakeOfRage_EventScript_SilverGiftToPC::
+	msgbox LakeOfRage_Text_SilverGiftToPC, MSGBOX_DEFAULT
+
+LakeOfRage_EventScript_SilverLeave::
+	setflag FLAG_RECEIVED_MEGA_TEST_KIT
+	applymovement LOCALID_LAKEOFRAGE_SILVER, LakeOfRage_Movement_SilverLeave
+	waitmovement LOCALID_LAKEOFRAGE_SILVER
+	setflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
+	removeobject LOCALID_LAKEOFRAGE_SILVER
+	releaseall
+	end
+
+LakeOfRage_EventScript_SilverNoRoom::
+	msgbox LakeOfRage_Text_SilverNoRoom, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LakeOfRage_EventScript_SilverTriggerEnd::
+	end
+
+LakeOfRage_Movement_SilverApproach:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+LakeOfRage_Movement_SilverLeave:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+LakeOfRage_Text_SilverGyaradosAwesome:
+	.string "Míralo...\p"
+	.string "Ese color rojo sangre...\n"
+	.string "La furia que emana de sus\l"
+	.string "escamas...\p"
+	.string "Es sencillamente...\n"
+	.string "impresionante.$"
+
+LakeOfRage_Text_SilverNoticePlayer:
+	.string "¡¿Eh?! ¡¿Tú otra vez, {PLAYER}?!\p"
+	.string "¿Qué miras, pringao? ¿Te crees\n"
+	.string "que he venido de turismo?\p"
+	.string "Estudiaba la energía del lago.\n"
+	.string "¡He encontrado una fuerza que tú\l"
+	.string "ni en sueños podrás alcanzar!\p"
+	.string "¡Abre bien los ojos y contempla\n"
+	.string "el verdadero poder de combate!$"
+
+LakeOfRage_Text_SilverBeforeBattle:
+	.string "Haz sitio para lo que te di y\n"
+	.string "deja de hacerme perder el tiempo.$"
+
+LakeOfRage_Text_SilverDefeat:
+	.string "¡¿Qué demonios?!\n"
+	.string "¡¿Cómo ha podido pasar esto?!$"
+
+LakeOfRage_Text_SilverAfterBattle:
+	.string "Tch... No te vengas arriba.\n"
+	.string "Ha sido un fallo técnico.\p"
+	.string "Toma, quédate con esta chatarra.\n"
+	.string "Me dieron dos MEGA-AROS en el\l"
+	.string "laboratorio y no necesito otro\l"
+	.string "para machacarte la próxima.$"
+
+LakeOfRage_Text_SilverDropMon:
+	.string "¡Y quítame esto de la vista!\n"
+	.string "Este bicho con su piedra rara\l"
+	.string "solo me está ocupando sitio.\p"
+	.string "¡La próxima no tendrás tanta\n"
+	.string "suerte, espantapájaros!$"
+
+LakeOfRage_Text_SilverGiftReceived:
+	.string "{STR_VAR_1} se unió a tu equipo\n"
+	.string "con su MEGAPIEDRA equipada.$"
+
+LakeOfRage_Text_SilverGiftToPC:
+	.string "{STR_VAR_1} fue enviado al PC\n"
+	.string "con su MEGAPIEDRA equipada.$"
+
+LakeOfRage_Text_SilverNoRoom:
+	.string "¡Tu equipo y tus cajas están\n"
+	.string "llenos! Haz sitio y vuelve.\p"
+	.string "No pienso cargar con este trasto\n"
+	.string "eternamente, pringao.$"
 LakeOfRage_EventScript_Gramps::
 	goto_if_ge VAR_MAHOGANY_TOWN_STATE, 14, LakeOfRage_EventScript_Gramps2
 	msgbox LakeOfRage_Text_Gramps, MSGBOX_NPC

@@ -675,8 +675,11 @@
 #define TRAINER_MISTY_POSTOBC_HNS             651
 #define TRAINER_ERIKA_POSTOBC_HNS             652
 #define TRAINER_KNEKRO_HNS                    653
+#define TRAINER_RIVAL_CHIKORITA_LAKE_HNS      654
+#define TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS      655
+#define TRAINER_RIVAL_TOTODILE_LAKE_HNS       656
 
-#define TRAINERS_COUNT_HNS                       654
+#define TRAINERS_COUNT_HNS                       657
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

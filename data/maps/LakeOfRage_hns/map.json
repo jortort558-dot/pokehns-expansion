@@ -245,6 +245,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LakeOfRage_EventScript_Pryce",
       "flag": "FLAG_HIDE_LAKE_PRYCE"
+    },
+    {
+      "local_id": "LOCALID_LAKEOFRAGE_SILVER",
+      "graphics_id": "OBJ_EVENT_GFX_SILVER_HNS",
+      "x": 30,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LakeOfRage_EventScript_Silver",
+      "flag": "FLAG_HIDE_LAKE_OF_RAGE_SILVER"
     }
   ],
   "warp_events": [
@@ -263,7 +277,53 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_MAHOGANY_TOWN_STATE",
+      "var_value": "1",
+      "script": "LakeOfRage_EventScript_SilverTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_MAHOGANY_TOWN_STATE",
+      "var_value": "1",
+      "script": "LakeOfRage_EventScript_SilverTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_MAHOGANY_TOWN_STATE",
+      "var_value": "1",
+      "script": "LakeOfRage_EventScript_SilverTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_MAHOGANY_TOWN_STATE",
+      "var_value": "1",
+      "script": "LakeOfRage_EventScript_SilverTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_MAHOGANY_TOWN_STATE",
+      "var_value": "1",
+      "script": "LakeOfRage_EventScript_SilverTrigger"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
