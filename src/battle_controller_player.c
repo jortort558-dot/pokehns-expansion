@@ -94,6 +94,11 @@ static void Task_GiveExpWithExpBar(u8);
 static void Task_UpdateLvlInHealthbox(u8);
 static void PrintLinkStandbyMsg(void);
 
+static void ReloadMoveNames(enum BattlerId battler);
+static u32 CheckTypeEffectiveness(enum BattlerId battlerAtk, enum BattlerId battlerDef);
+static u32 CheckTargetTypeEffectiveness(enum BattlerId battler);
+static void MoveSelectionDisplayMoveEffectiveness(u32 foeEffectiveness, enum BattlerId battler);
+
 // Battle Info UI (Heart & Soul extension)
 static void DisplayBattleInfoPanel(enum BattlerId battler);
 
@@ -1888,7 +1893,7 @@ static void DisplayBattleInfoPanel(enum BattlerId battler)
     DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
 
     // --- Line 1: Header ---
-    StringCopy(gDisplayedStringBattle, _("  TU       RIVAL"));
+    StringCopy(gDisplayedStringBattle, COMPOUND_STRING("  TU       RIVAL"));
     StringAppend(gDisplayedStringBattle, gText_NewLine);
 
     // --- Lines 2-8: Stats ATK DEF SPA SPD SPE ACC EVA ---
@@ -1907,17 +1912,17 @@ static void DisplayBattleInfoPanel(enum BattlerId battler)
 
         // Player stage
         StringAppend(gDisplayedStringBattle, sStageStrings[playerStage]);
-        StringAppend(gDisplayedStringBattle, _(" | "));
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" | "));
         // Enemy stage
         StringAppend(gDisplayedStringBattle, sStageStrings[enemyStage]);
         StringAppend(gDisplayedStringBattle, gText_NewLine);
     }
 
     // --- Final line: Weather ---
-    StringAppend(gDisplayedStringBattle, _("Clima: "));
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("Clima: "));
     if (gBattleWeather == B_WEATHER_NONE)
     {
-        StringAppend(gDisplayedStringBattle, _("Ninguno"));
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("Ninguno"));
     }
     else
     {
@@ -1942,9 +1947,9 @@ static void DisplayBattleInfoPanel(enum BattlerId battler)
 
     // Screens indicator (player side)
     if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_REFLECT)
-        StringAppend(gDisplayedStringBattle, _(" Ref"));
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" Ref"));
     if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_LIGHTSCREEN)
-        StringAppend(gDisplayedStringBattle, _(" PL"));
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" PL"));
 
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
     CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
