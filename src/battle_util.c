@@ -8179,7 +8179,7 @@ s32 GetAdjustedDamage(struct BattleContext *ctx, s32 damage)
         enduredHit = TRUE;
         gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_FOE_ENDURED;
     }
-    else if (GetMoveEffect(ctx->move) == EFFECT_FALSE_SWIPE)
+    else if (GetMoveEffect(ctx->move) == EFFECT_FALSE_SWIPE || ctx->holdEffectAtk == HOLD_EFFECT_FALSE_SWIPE)
     {
         enduredHit = TRUE;
     }

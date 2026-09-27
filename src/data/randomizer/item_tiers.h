@@ -256,6 +256,7 @@ static const u16 sItemTier3[] =
     ITEM_SHED_SHELL,
     ITEM_AMULET_COIN,
     ITEM_LUCKY_EGG,
+    ITEM_USELESS_STONE,
 
     // Climas y Terrenos
     ITEM_DAMP_ROCK,

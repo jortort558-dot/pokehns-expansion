@@ -85,6 +85,7 @@ enum {
     MART_TYPE_BP,
     MART_TYPE_BP_ITEM,
     MART_TYPE_BP_DECOR,
+    MART_TYPE_MEGA_STONES,
 };
 
 // shop view window NPC info enum
@@ -1564,6 +1565,14 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
                 STR_CONV_MODE_LEFT_ALIGN,
                 6);
         }
+        else if (sMartInfo.martType == MART_TYPE_MEGA_STONES)
+        {
+            ConvertIntToDecimalStringN(
+                gStringVar1,
+                50000,
+                STR_CONV_MODE_LEFT_ALIGN,
+                6);
+        }
         else
         {
             ConvertIntToDecimalStringN(
@@ -1986,6 +1995,8 @@ static void Task_BuyMenu(u8 taskId)
 
             if (sMartInfo.martType == MART_TYPE_NORMAL)
                 sShopData->totalCost = (GetItemPrice(itemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT));
+            else if (sMartInfo.martType == MART_TYPE_MEGA_STONES)
+                sShopData->totalCost = 50000;
             else if (sMartInfo.martType == MART_TYPE_KURT)
                 sShopData->totalCost = 1;
             else if (sMartInfo.martType == MART_TYPE_BP
@@ -2081,6 +2092,15 @@ static void Task_BuyMenu(u8 taskId)
                     {
                         BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany, Task_BuyHowManyDialogueInit);
                     }
+                }
+                else if (sMartInfo.martType == MART_TYPE_MEGA_STONES)
+                {
+                    CopyItemName(itemId, gStringVar1);
+                    ConvertIntToDecimalStringN(gStringVar2, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
+                    StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2);
+                    tItemCount = 1;
+                    sShopData->totalCost = 50000;
+                    BuyMenuDisplayMessage(taskId, gStringVar4, BuyMenuConfirmPurchase);
                 }
                 else
                 {
@@ -2223,7 +2243,7 @@ static void BuyMenuTryMakePurchase(u8 taskId)
             BuyMenuDisplayMessage(taskId, gText_NoMoreRoomForThis, BuyMenuReturnToItemList);
         }
     }
-    else if (sMartInfo.martType == MART_TYPE_NORMAL)
+    else if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_MEGA_STONES)
     {
         if (AddBagItem(tItemId, tItemCount) == TRUE)
         {
@@ -2306,7 +2326,7 @@ static void BuyMenuSubtractMoney(u8 taskId)
         PlaySE(SE_SHOP);
         PrintMoneyAmountInMoneyBox(WIN_MONEY, GetMoney(&gSaveBlock1Ptr->money), 0);
 
-        if (sMartInfo.martType == MART_TYPE_NORMAL)
+        if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_MEGA_STONES)
             gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;
         else
             gTasks[taskId].func = Task_ReturnToItemListAfterDecorationPurchase;
@@ -2457,7 +2477,8 @@ static void Task_ExitBuyMenu(u8 taskId)
         if (sMartInfo.martType == MART_TYPE_KURT
             || sMartInfo.martType == MART_TYPE_BP
             || sMartInfo.martType == MART_TYPE_BP_ITEM
-            || sMartInfo.martType == MART_TYPE_BP_DECOR)
+            || sMartInfo.martType == MART_TYPE_BP_DECOR
+            || sMartInfo.martType == MART_TYPE_MEGA_STONES)
         {
             UnlockPlayerFieldControls();
             if (sMartInfo.callback)
@@ -2599,3 +2620,122 @@ void CreateKurtBallShop(void)
     gTasks[taskId].func = Task_GoToBuyOrSellMenu;
     FadeScreen(FADE_TO_BLACK, 0);
 }
+
+static const u16 sMegaStonesTier1[] = {
+    ITEM_VENUSAURITE,
+    ITEM_CHARIZARDITE_X,
+    ITEM_CHARIZARDITE_Y,
+    ITEM_BLASTOISINITE,
+    ITEM_BEEDRILLITE,
+    ITEM_PIDGEOTITE,
+    ITEM_ALAKAZITE,
+    ITEM_SLOWBRONITE,
+    ITEM_GENGARITE,
+    ITEM_KANGASKHANITE,
+    ITEM_PINSIRITE,
+    ITEM_GYARADOSITE,
+    ITEM_AERODACTYLITE,
+};
+
+static const u16 sMegaStonesTier2[] = {
+    ITEM_AMPHAROSITE,
+    ITEM_STEELIXITE,
+    ITEM_SCIZORITE,
+    ITEM_HERACRONITE,
+    ITEM_HOUNDOOMINITE,
+    ITEM_TYRANITARITE,
+    ITEM_SCEPTILITE,
+    ITEM_BLAZIKENITE,
+    ITEM_SWAMPERTITE,
+    ITEM_GARDEVOIRITE,
+    ITEM_SABLENITE,
+    ITEM_MAWILITE,
+    ITEM_AGGRONITE,
+    ITEM_MEDICHAMITE,
+    ITEM_MANECTITE,
+    ITEM_SHARPEDONITE,
+    ITEM_CAMERUPTITE,
+    ITEM_ALTARIANITE,
+    ITEM_BANETTITE,
+    ITEM_ABSOLITE,
+    ITEM_GLALITITE,
+};
+
+static const u16 sMegaStonesTier3[] = {
+    ITEM_SALAMENCITE,
+    ITEM_METAGROSSITE,
+    ITEM_LATIASITE,
+    ITEM_LATIOSITE,
+    ITEM_LOPUNNITE,
+    ITEM_GARCHOMPITE,
+    ITEM_LUCARIONITE,
+    ITEM_ABOMASITE,
+    ITEM_GALLADITE,
+    ITEM_AUDINITE,
+    ITEM_DIANCITE,
+    ITEM_MEWTWONITE_X,
+    ITEM_MEWTWONITE_Y,
+};
+
+static EWRAM_DATA u16 sElPiedrasShopList[16] = {0};
+
+void CreateElPiedrasMegaShop(void)
+{
+    u8 taskId;
+    s16 *data;
+    u8 badges = GetNumberOfBadges();
+    u16 pool[64];
+    u16 poolSize = 0;
+    u16 i, j;
+    u16 listCount = 0;
+    u32 seed;
+
+    for (i = 0; i < ARRAY_COUNT(sMegaStonesTier1); i++)
+        pool[poolSize++] = sMegaStonesTier1[i];
+
+    if (badges >= 8)
+    {
+        for (i = 0; i < ARRAY_COUNT(sMegaStonesTier2); i++)
+            pool[poolSize++] = sMegaStonesTier2[i];
+    }
+
+    if (badges >= 12)
+    {
+        for (i = 0; i < ARRAY_COUNT(sMegaStonesTier3); i++)
+            pool[poolSize++] = sMegaStonesTier3[i];
+    }
+
+    seed = (gSaveBlock2Ptr->playerTrainerId[0]
+            | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+            | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+            | (gSaveBlock2Ptr->playerTrainerId[3] << 24))
+            + badges * 17;
+
+    for (i = 0; i < 6 && poolSize > 0 && listCount < ARRAY_COUNT(sElPiedrasShopList) - 1; i++)
+    {
+        seed = 1103515245 * seed + 12345;
+        u16 idx = ((seed >> 16) & 0x7FFF) % poolSize;
+        u16 selected = pool[idx];
+
+        for (j = idx; j < poolSize - 1; j++)
+            pool[j] = pool[j + 1];
+        poolSize--;
+
+        sElPiedrasShopList[listCount++] = selected;
+    }
+    sElPiedrasShopList[listCount] = ITEM_NONE;
+
+    LockPlayerFieldControls();
+    sMartInfo.martType = MART_TYPE_MEGA_STONES;
+    SetShopItemsForSale(sElPiedrasShopList);
+    ClearItemPurchases();
+    SetShopMenuCallback(ScriptContext_Enable);
+
+    taskId = CreateTask(Task_ShopMenu, 8);
+    data = gTasks[taskId].data;
+    data[8] = (u32)CB2_InitBuyMenu >> 16;
+    data[9] = (u32)CB2_InitBuyMenu;
+    gTasks[taskId].func = Task_GoToBuyOrSellMenu;
+    FadeScreen(FADE_TO_BLACK, 0);
+}
+

@@ -17642,6 +17642,25 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_AzureFlute,
         .iconPalette = gItemIconPalette_AzureFlute,
     },
+
+    [ITEM_USELESS_STONE] =
+    {
+        .name = ITEM_NAME("PIEDRA INÚTIL"),
+        .price = 10000,
+        .holdEffect = HOLD_EFFECT_FALSE_SWIPE,
+        .description = COMPOUND_STRING(
+            "Piedra tosca y sin brillo.\n"
+            "Si el portador ataca,\n"
+            "jamás debilitará al rival\n"
+            "dejándole siempre 1 PS."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 30,
+        .iconPic = gItemIcon_HardStone,
+        .iconPalette = gItemIconPalette_HardStone,
+    },
 };
 
 #undef ITEM_NAME

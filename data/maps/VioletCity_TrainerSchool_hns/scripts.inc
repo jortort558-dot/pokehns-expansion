@@ -197,3 +197,38 @@ VioletCity_TrainerSchool_Text_Notebook3:
 VioletCity_TrainerSchool_Text_StickerMachine:
 	.string "¡Esta supermáquina imprime datos\n"
 	.string "en forma de pegatinas!$"
+
+VioletCity_TrainerSchool_EventScript_ElPiedras::
+	lock
+	faceplayer
+	msgbox VioletCity_School_Text_ElPiedrasLecture, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VioletCity_School_Text_ElPiedrasLecture:
+	.string "¿Que si especular es inmoral?\n"
+	.string "¡Venga ya, chavales, espabilad!\p"
+	.string "El mercado es una competición\n"
+	.string "constante. El que llora no farmea,\l"
+	.string "y el que no farmea se queda en\l"
+	.string "Hierro IV toda su vida.\p"
+	.string "Aquí el verdadero meta está en las\n"
+	.string "piedras evolutivas. Compras barato\l"
+	.string "a los novatos de la Ruta 30,\l"
+	.string "holdeas fuerte y vendes en Trigal\l"
+	.string "con un margen del cuatrocientos.\p"
+	.string "¿Ducharme? ¿Para qué?\n"
+	.string "El agua oxida el grind, socio.\l"
+	.string "Mi sudadera tiene tanta costra que\l"
+	.string "ya tiene estadísticas de armadura.\p"
+	.string "Además, en foros dicen que hay unas\n"
+	.string "piedras raras con transformaciones\l"
+	.string "dignas de anime...\l"
+	.string "y que en el norte hay shinies rojos\l"
+	.string "a los que están metiendo chicha.\p"
+	.string "En fin, a ver si encuentro a otro\n"
+	.string "colega con sofá libre, que en mi\l"
+	.string "casa hay una atmósfera de malas\l"
+	.string "vibras que no me deja concentrarme.$"
+

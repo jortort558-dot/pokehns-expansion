@@ -678,8 +678,9 @@
 #define TRAINER_RIVAL_CHIKORITA_LAKE_HNS      654
 #define TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS      655
 #define TRAINER_RIVAL_TOTODILE_LAKE_HNS       656
+#define TRAINER_EL_PIEDRAS_HNS                657
 
-#define TRAINERS_COUNT_HNS                       657
+#define TRAINERS_COUNT_HNS                       658
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

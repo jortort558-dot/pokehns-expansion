@@ -1,6 +1,16 @@
 GoldenrodCity_DepartmentStore_5F_hns_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, GoldenrodDeptElevator_OnFrame
+	map_script MAP_SCRIPT_ON_TRANSITION, GoldenrodCity_DepartmentStore_5F_OnTransition
 	.byte 0
+
+GoldenrodCity_DepartmentStore_5F_OnTransition:
+	goto_if_ge VAR_GOLDENROD_CITY_STATE, 10, GoldenrodDeptStore5_ShowElPiedras
+	setflag FLAG_HIDE_MEGA_SHOP_EL_PIEDRAS
+	end
+
+GoldenrodDeptStore5_ShowElPiedras:
+	clearflag FLAG_HIDE_MEGA_SHOP_EL_PIEDRAS
+	end
 
 
 GoldenrodDeptStore5_EventScript_Lass::
@@ -121,3 +131,32 @@ GoldenrodDeptStore5_Pokemart:
 GoldenrodDeptStore_Text_5FDirectory:
     .string "PERSONALIZA A TUS POKéMON\p"
     .string "5.ª PLANTA: RINCÓN DE MT$"
+
+GoldenrodDeptStore5_EventScript_ElPiedras::
+	lock
+	faceplayer
+	msgbox Mart_Text_ElPiedrasInStore, MSGBOX_DEFAULT
+	special CreateElPiedrasMegaShop
+	waitstate
+	msgbox Mart_Text_ElPiedrasFarewell, MSGBOX_DEFAULT
+	release
+	end
+
+Mart_Text_ElPiedrasInStore:
+	.string "¡Pasa, pasa, socio! ¿Has visto al\n"
+	.string "pobre dependiente de abajo?\l"
+	.string "Vendiendo Pociones por calderilla\l"
+	.string "como un asalariado del PNJ...\p"
+	.string "Aquí el que maneja el cotarro soy\n"
+	.string "yo. Traigo MEGAPIEDRAS exclusivas\l"
+	.string "de contrabando directo.\p"
+	.string "A 50.000 monedas cada una.\n"
+	.string "El verdadero meta se paga caro.\p"
+	.string "¿Te sobra el dinero o vas a seguir\n"
+	.string "pegando sin transformar como si\l"
+	.string "esto fuera primera generación?$"
+
+Mart_Text_ElPiedrasFarewell:
+	.string "Si no compras hoy, entra el FOMO.\n"
+	.string "Chispa y yo estaremos reinvirtiendo\l"
+	.string "las ganancias en el mercado.$"

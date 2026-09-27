@@ -16171,3 +16171,36 @@ Level: 35
 - Crunch
 - Nasty Plot
 - Smog
+
+=== TRAINER_EL_PIEDRAS_HNS ===
+Name: EL PIEDRAS
+Class: Pokemaniac Hns
+Pic: Pokemaniac
+Gender: Male
+Music: Hg Suspicious 1
+Double Battle: No
+
+Chispa (Meowth) (F) @ Amulet Coin
+Level: 19
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Pay Day
+- Bite
+- Fake Out
+- Screech
+
+Geodude
+Level: 18
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Rock Blast
+- Rollout
+- Defense Curl
+- Magnitude
+
+Eevee
+Level: 19
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Quick Attack
+- Bite
+- Sand Attack
+- Swift
+
