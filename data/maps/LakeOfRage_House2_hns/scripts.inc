@@ -1,5 +1,25 @@
 LakeOfRage_House2_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LakeOfRage_House2_OnTransition
 	.byte 0
+
+LakeOfRage_House2_OnTransition::
+	goto_if_unset FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_House2_HideElPiedras
+	goto_if_ge VAR_GOLDENROD_CITY_STATE, 10, LakeOfRage_House2_HideElPiedras
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
+	end
+
+LakeOfRage_House2_HideElPiedras::
+	setflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
+	end
+
+LakeOfRage_House2_EventScript_ElPiedras::
+	lock
+	faceplayer
+	msgbox LakeOfRage_House2_Text_ElPiedras, MSGBOX_DEFAULT
+	setflag FLAG_TALKED_EL_PIEDRAS_LAKE_OF_RAGE
+	closemessage
+	release
+	end
 
 LakeOfRage_House2_EventScript_Fisher::
 	lock
@@ -125,3 +145,18 @@ LakeOfRage_House2_Text_NotMagikarp:
 	.string "¿Cómo? ¡Eso no es un MAGIKARP!$"
 LakeOfRage_House2_Text_Refused:
 	.string "Vaya… ¿No tienes ninguno digno de\nenseñarme? Quizá la próxima vez.$"
+
+LakeOfRage_House2_Text_ElPiedras:
+	.string "¡Hermano! ¡Cierra la puerta que\n"
+	.string "se me enfrían los cheetos!\p"
+	.string "¿Has visto al tipo pelirrojo fuera\n"
+	.string "activar una mega-transformación\l"
+	.string "digna de anime shonen?\p"
+	.string "¡Esas piedras de mega-evolución\n"
+	.string "existen de verdad! ¡El mercado no\l"
+	.string "estaba inflado, socio!\p"
+	.string "Los del Team Rocket salieron por\n"
+	.string "patas dejando suministros.\p"
+	.string "En cuanto los barras de la Torre\n"
+	.string "Radio de Trigal, ¡voy a reventar\l"
+	.string "el monopolio de las tiendas!$"
