@@ -7814,6 +7814,10 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
     if (gSaveBlock3Ptr->challengeSettings.tx_Challenges_NoEVs && !FlagGet(FLAG_DEFEATED_RED))
         return;
 
+    // Si es un combate de sparring de superentrenamiento, los EVs se gestionan por script al finalizar
+    if (FlagGet(FLAG_SPARRING_NO_EVS))
+        return;
+
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
     if (heldItem == ITEM_ENIGMA_BERRY_E_READER)
     {

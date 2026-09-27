@@ -352,12 +352,108 @@ Route34_EventScript_Yami_ChooseMonToTrain::
 	special ChoosePartyMon
 	waitstate
 	goto_if_ge VAR_0x8004, PARTY_SIZE, Route34_EventScript_Yami_MenuPrincipal
-	special YamiSuperTraining_AddEVs
+	special YamiSuperTraining_CanTrainStat
 	goto_if_eq VAR_RESULT, FALSE, Route34_EventScript_Yami_StatMaxed
+	switch VAR_0x8005
+	case 0, Route34_EventScript_Yami_BattleBlissey
+	case 1, Route34_EventScript_Yami_BattleMachamp
+	case 2, Route34_EventScript_Yami_BattleGolem
+	case 3, Route34_EventScript_Yami_BattleCrobat
+	case 4, Route34_EventScript_Yami_BattleAlakazam
+	case 5, Route34_EventScript_Yami_BattleTentacruel
+	end
+
+Route34_EventScript_Yami_BattleBlissey::
+	bufferspeciesname STR_VAR_2, SPECIES_BLISSEY
+	msgbox Route34_Text_Yami_ComienzaSparring, MSGBOX_DEFAULT
+	setflag FLAG_NO_WILD_CATCHING
+	setflag FLAG_NO_SHINY
+	setflag FLAG_SPARRING_NO_EVS
+	setwildbattle SPECIES_BLISSEY, 35, ITEM_NONE
+	dowildbattle
+	clearflag FLAG_NO_WILD_CATCHING
+	clearflag FLAG_NO_SHINY
+	clearflag FLAG_SPARRING_NO_EVS
+	goto Route34_EventScript_Yami_ApplyTrainingResult
+
+Route34_EventScript_Yami_BattleMachamp::
+	bufferspeciesname STR_VAR_2, SPECIES_MACHAMP
+	msgbox Route34_Text_Yami_ComienzaSparring, MSGBOX_DEFAULT
+	setflag FLAG_NO_WILD_CATCHING
+	setflag FLAG_NO_SHINY
+	setflag FLAG_SPARRING_NO_EVS
+	setwildbattle SPECIES_MACHAMP, 35, ITEM_NONE
+	dowildbattle
+	clearflag FLAG_NO_WILD_CATCHING
+	clearflag FLAG_NO_SHINY
+	clearflag FLAG_SPARRING_NO_EVS
+	goto Route34_EventScript_Yami_ApplyTrainingResult
+
+Route34_EventScript_Yami_BattleGolem::
+	bufferspeciesname STR_VAR_2, SPECIES_GOLEM
+	msgbox Route34_Text_Yami_ComienzaSparring, MSGBOX_DEFAULT
+	setflag FLAG_NO_WILD_CATCHING
+	setflag FLAG_NO_SHINY
+	setflag FLAG_SPARRING_NO_EVS
+	setwildbattle SPECIES_GOLEM, 35, ITEM_NONE
+	dowildbattle
+	clearflag FLAG_NO_WILD_CATCHING
+	clearflag FLAG_NO_SHINY
+	clearflag FLAG_SPARRING_NO_EVS
+	goto Route34_EventScript_Yami_ApplyTrainingResult
+
+Route34_EventScript_Yami_BattleCrobat::
+	bufferspeciesname STR_VAR_2, SPECIES_CROBAT
+	msgbox Route34_Text_Yami_ComienzaSparring, MSGBOX_DEFAULT
+	setflag FLAG_NO_WILD_CATCHING
+	setflag FLAG_NO_SHINY
+	setflag FLAG_SPARRING_NO_EVS
+	setwildbattle SPECIES_CROBAT, 35, ITEM_NONE
+	dowildbattle
+	clearflag FLAG_NO_WILD_CATCHING
+	clearflag FLAG_NO_SHINY
+	clearflag FLAG_SPARRING_NO_EVS
+	goto Route34_EventScript_Yami_ApplyTrainingResult
+
+Route34_EventScript_Yami_BattleAlakazam::
+	bufferspeciesname STR_VAR_2, SPECIES_ALAKAZAM
+	msgbox Route34_Text_Yami_ComienzaSparring, MSGBOX_DEFAULT
+	setflag FLAG_NO_WILD_CATCHING
+	setflag FLAG_NO_SHINY
+	setflag FLAG_SPARRING_NO_EVS
+	setwildbattle SPECIES_ALAKAZAM, 35, ITEM_NONE
+	dowildbattle
+	clearflag FLAG_NO_WILD_CATCHING
+	clearflag FLAG_NO_SHINY
+	clearflag FLAG_SPARRING_NO_EVS
+	goto Route34_EventScript_Yami_ApplyTrainingResult
+
+Route34_EventScript_Yami_BattleTentacruel::
+	bufferspeciesname STR_VAR_2, SPECIES_TENTACRUEL
+	msgbox Route34_Text_Yami_ComienzaSparring, MSGBOX_DEFAULT
+	setflag FLAG_NO_WILD_CATCHING
+	setflag FLAG_NO_SHINY
+	setflag FLAG_SPARRING_NO_EVS
+	setwildbattle SPECIES_TENTACRUEL, 35, ITEM_NONE
+	dowildbattle
+	clearflag FLAG_NO_WILD_CATCHING
+	clearflag FLAG_NO_SHINY
+	clearflag FLAG_SPARRING_NO_EVS
+	goto Route34_EventScript_Yami_ApplyTrainingResult
+
+Route34_EventScript_Yami_ApplyTrainingResult::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, Route34_EventScript_Yami_SparringIncompleto
+	special YamiSuperTraining_AddEVs
 	playfanfare MUS_LEVEL_UP
 	bufferpartymonnick STR_VAR_1, VAR_0x8004
 	msgbox Route34_Text_Yami_EntrenamientoCompletado, MSGBOX_DEFAULT
 	waitfanfare
+	goto Route34_EventScript_Yami_MenuPrincipal
+	end
+
+Route34_EventScript_Yami_SparringIncompleto::
+	msgbox Route34_Text_Yami_SparringIncompleto, MSGBOX_DEFAULT
 	goto Route34_EventScript_Yami_MenuPrincipal
 	end
 
@@ -438,6 +534,14 @@ Route34_Text_Yami_MenuPrompt:
 Route34_Text_Yami_EligePokemon:
 	.string "YAMI: Elige al POKéMON que se someterá\n"
 	.string "a esta intensa sesión.$"
+
+Route34_Text_Yami_ComienzaSparring:
+	.string "YAMI: ¡Enfréntate a mi {STR_VAR_2}\n"
+	.string "de práctica y reclama tus puntos!$"
+
+Route34_Text_Yami_SparringIncompleto:
+	.string "YAMI: El combate no se ha completado\n"
+	.string "con éxito. No hay ganancia hoy.$"
 
 Route34_Text_Yami_EntrenamientoCompletado:
 	.string "¡Sesión intensa finalizada con éxito!\p"
