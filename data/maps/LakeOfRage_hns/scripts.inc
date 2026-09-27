@@ -121,6 +121,8 @@ LakeOfRage_EventScript_SilverGiftToPC::
 
 LakeOfRage_EventScript_SilverLeave::
 	setflag FLAG_RECEIVED_MEGA_TEST_KIT
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
+	addobject 19
 	applymovement LOCALID_LAKEOFRAGE_SILVER, LakeOfRage_Movement_SilverLeave
 	waitmovement LOCALID_LAKEOFRAGE_SILVER
 	setflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
@@ -129,6 +131,9 @@ LakeOfRage_EventScript_SilverLeave::
 	end
 
 LakeOfRage_EventScript_SilverNoRoom::
+	setflag FLAG_RECEIVED_MEGA_TEST_KIT
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
+	addobject 19
 	msgbox LakeOfRage_Text_SilverNoRoom, MSGBOX_DEFAULT
 	releaseall
 	end
