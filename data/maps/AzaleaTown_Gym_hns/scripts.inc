@@ -6,6 +6,12 @@ AzaleaTown_Gym_OnTransition::
 	setflag FLAG_HIDE_AZALEA_ARIADOS_LEFT
 	setflag FLAG_HIDE_AZALEA_ARIADOS_MID
 	setflag FLAG_HIDE_AZALEA_ARIADOS_RIGHT
+	goto_if_set FLAG_DEFEATED_AZALEA_TOWN_GYM, AzaleaTown_Gym_HideManolin
+	clearflag FLAG_HIDE_MANOLIN_AZALEA
+	end
+
+AzaleaTown_Gym_HideManolin::
+	setflag FLAG_HIDE_MANOLIN_AZALEA
 	end
 
 @ 1-8->5,  5-9->1
@@ -809,3 +815,105 @@ AzaleaTown_Gym_Text_GymGuideWin:
 	.string "entre dos jóvenes promesas.\p"
 	.string "¡Con entrenadores así, el futuro de\n"
 	.string "los POKéMON brilla con fuerza!$"
+
+AzaleaTown_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_AZALEA, AzaleaTown_Gym_EventScript_Manolin_AfterItem
+	msgbox AzaleaTown_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_AZALEA, AzaleaTown_Gym_EventScript_Manolin_ChooseItem
+	msgbox AzaleaTown_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_SUPER_POTION
+	setflag FLAG_MANOLIN_HEAL_AZALEA
+	msgbox AzaleaTown_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+AzaleaTown_Gym_EventScript_Manolin_ChooseItem::
+	msgbox AzaleaTown_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_AZALEA, FALSE
+	switch VAR_RESULT
+	case 0, AzaleaTown_Gym_EventScript_Manolin_GiveWhiteHerb
+	case 1, AzaleaTown_Gym_EventScript_Manolin_GiveMentalHerb
+	case MULTI_B_PRESSED, AzaleaTown_Gym_EventScript_Manolin_NoChoice
+	end
+
+AzaleaTown_Gym_EventScript_Manolin_GiveWhiteHerb::
+	giveitem ITEM_WHITE_HERB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_AZALEA
+	msgbox AzaleaTown_Gym_Text_Manolin_WhiteHerbExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+AzaleaTown_Gym_EventScript_Manolin_GiveMentalHerb::
+	giveitem ITEM_MENTAL_HERB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_AZALEA
+	msgbox AzaleaTown_Gym_Text_Manolin_MentalHerbExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+AzaleaTown_Gym_EventScript_Manolin_NoChoice::
+	msgbox AzaleaTown_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+AzaleaTown_Gym_EventScript_Manolin_AfterItem::
+	msgbox AzaleaTown_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+AzaleaTown_Gym_Text_Manolin_Intro:
+	.string "¡Hostia tú! ¡Sigues vivo en\n"
+	.string "el locke, qué grande!\p"
+	.string "Pensaba que te habían mandado\n"
+	.string "al cementerio en la Cueva Unión.\p"
+	.string "Oye, este sitio huele a bosque\n"
+	.string "y telarañas… Espera, ¿el boss\l"
+	.string "no era un pájaro gigante?\p"
+	.string "Ah, calla… ¡que ese era\n"
+	.string "el anterior!\p"
+	.string "¡Aquí está ANTÓN con los bichos!$"
+
+AzaleaTown_Gym_Text_Manolin_CheckHealth:
+	.string "¡Pero si traes la party temblando!\n"
+	.string "¡Un golpe de viento y wipeas!\p"
+	.string "Deja que te tire una cura rápida\n"
+	.string "antes de entrar a la mazmorra.$"
+
+AzaleaTown_Gym_Text_Manolin_Healed:
+	.string "¡Party restaurada al cien por cien!\p"
+	.string "Toma esta Superpoción para la raid.\n"
+	.string "Considéralo botín adelantado.$"
+
+AzaleaTown_Gym_Text_Manolin_OfferChoices:
+	.string "Para los bichos de ANTÓN tengo dos\n"
+	.string "objetos muy finos de soporte.\p"
+	.string "¿Prefieres limpiar debuffs de stats\n"
+	.string "o anular efectos de control mental?$"
+
+AzaleaTown_Gym_Text_Manolin_WhiteHerbExplain:
+	.string "¡HIERBA BLANCA! Si te bajan las\n"
+	.string "estadísticas con ataques raros,\l"
+	.string "te las resetea al instante.\p"
+	.string "¡Mantén el dps intacto, socio!$"
+
+AzaleaTown_Gym_Text_Manolin_MentalHerbExplain:
+	.string "¡HIERBA MENTAL! Te saca de mofas,\n"
+	.string "ataduras y rollos molestos.\p"
+	.string "¡Ningún bicho te va a silenciar\n"
+	.string "la rotación de hechizos!$"
+
+AzaleaTown_Gym_Text_Manolin_NoChoice:
+	.string "Tranqui, tómate tu tiempo.\n"
+	.string "Yo sigo aquí mirando las arañas.$"
+
+AzaleaTown_Gym_Text_Manolin_AfterItem:
+	.string "¡Revienta a ese Scyther, socio!\n"
+	.string "¡Que no te metan crítico en fase 2!$"

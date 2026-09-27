@@ -1,5 +1,15 @@
 MahoganyTown_Gym_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MahoganyTown_Gym_OnTransition
 	.byte 0
+
+MahoganyTown_Gym_OnTransition::
+	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, MahoganyTown_Gym_HideManolin
+	clearflag FLAG_HIDE_MANOLIN_CAOBA
+	end
+
+MahoganyTown_Gym_HideManolin::
+	setflag FLAG_HIDE_MANOLIN_CAOBA
+	end
 
 
 MahoganyTown_Gym_EventScript_Statue::
@@ -168,3 +178,104 @@ MahoganyTown_Gym_Text_SkierClarissaBeaten:
 	.string "¡Nooo! ¡Me has hecho caer!$"
 MahoganyTown_Gym_Text_SkierClarissaAfter:
 	.string "No debí presumir tanto de mi\ntécnica de esquí…$"
+
+MahoganyTown_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_CAOBA, MahoganyTown_Gym_EventScript_Manolin_AfterItem
+	msgbox MahoganyTown_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_CAOBA, MahoganyTown_Gym_EventScript_Manolin_ChooseItem
+	msgbox MahoganyTown_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_MAX_POTION
+	setflag FLAG_MANOLIN_HEAL_CAOBA
+	msgbox MahoganyTown_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+MahoganyTown_Gym_EventScript_Manolin_ChooseItem::
+	msgbox MahoganyTown_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_CAOBA, FALSE
+	switch VAR_RESULT
+	case 0, MahoganyTown_Gym_EventScript_Manolin_GiveLeftovers
+	case 1, MahoganyTown_Gym_EventScript_Manolin_GiveChoiceScarf
+	case MULTI_B_PRESSED, MahoganyTown_Gym_EventScript_Manolin_NoChoice
+	end
+
+MahoganyTown_Gym_EventScript_Manolin_GiveLeftovers::
+	giveitem ITEM_LEFTOVERS
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_CAOBA
+	msgbox MahoganyTown_Gym_Text_Manolin_LeftoversExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+MahoganyTown_Gym_EventScript_Manolin_GiveChoiceScarf::
+	giveitem ITEM_CHOICE_SCARF
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_CAOBA
+	msgbox MahoganyTown_Gym_Text_Manolin_ChoiceScarfExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+MahoganyTown_Gym_EventScript_Manolin_NoChoice::
+	msgbox MahoganyTown_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+MahoganyTown_Gym_EventScript_Manolin_AfterItem::
+	msgbox MahoganyTown_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+MahoganyTown_Gym_Text_Manolin_Intro:
+	.string "¡Hostia tú! ¡Sigues vivo en\n"
+	.string "el locke, qué grande!\p"
+	.string "Oye, este sitio está congelado…\n"
+	.string "¡Parece Corona de Hielo!\p"
+	.string "¿El boss no era de tipo fuego?\n"
+	.string "Ah, no… ¡que aquí está FREDO con\l"
+	.string "los carámbanos y el granizo!$"
+
+MahoganyTown_Gym_Text_Manolin_CheckHealth:
+	.string "¡Pero si traes la party helada!\n"
+	.string "¡El frío te va a desgastar!\p"
+	.string "Deja que te tire una cura rápida\n"
+	.string "antes de entrar a patinar.$"
+
+MahoganyTown_Gym_Text_Manolin_Healed:
+	.string "¡Party caliente y lista al 100%!\p"
+	.string "Toma esta Poción Máxima.\n"
+	.string "El hielo resbala que da gusto.$"
+
+MahoganyTown_Gym_Text_Manolin_OfferChoices:
+	.string "Para sobrevivir al hielo de FREDO\n"
+	.string "tengo dos opciones muy rotas.\p"
+	.string "¿Prefieres recuperar vida por turno\n"
+	.string "o ganar celeridad pura en\l"
+	.string "velocidad de combate?$"
+
+MahoganyTown_Gym_Text_Manolin_LeftoversExplain:
+	.string "¡RESTOS! Recuperas un poco de\n"
+	.string "vida al final de cada turno.\p"
+	.string "¡Sostén infinito para aguantar\n"
+	.string "la pelea más larga del mundo!$"
+
+MahoganyTown_Gym_Text_Manolin_ChoiceScarfExplain:
+	.string "¡PAÑUELO ELEGIDO! Aumenta un 50%\n"
+	.string "tu Velocidad a cambio de\l"
+	.string "bloquearte en un movimiento.\p"
+	.string "¡Pega el primer golpe antes de\n"
+	.string "que FREDO pueda pestañear!$"
+
+MahoganyTown_Gym_Text_Manolin_NoChoice:
+	.string "Tranqui, decide bien. Que en\n"
+	.string "el hielo un mal paso te frena.$"
+
+MahoganyTown_Gym_Text_Manolin_AfterItem:
+	.string "¡Pega fuego a esa pista, socio!\n"
+	.string "¡Que ese Piloswine no te pare!$"

@@ -1,5 +1,15 @@
 EcruteakCity_Gym_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, EcruteakCity_Gym_OnTransition
 	.byte 0
+
+EcruteakCity_Gym_OnTransition::
+	goto_if_set FLAG_DEFEATED_ECRUTEAK_CITY_GYM, EcruteakCity_Gym_HideManolin
+	clearflag FLAG_HIDE_MANOLIN_IRIS
+	end
+
+EcruteakCity_Gym_HideManolin::
+	setflag FLAG_HIDE_MANOLIN_IRIS
+	end
 
 EcruteakCity_Gym_EventScript_GymGuy::
 	lock
@@ -206,3 +216,102 @@ EcruteakCity_GymClosedText:
 	.string "Lo siento, pero tendrás que\n"
 	.string "marcharte.\p"
 	.string "Jojojojo.$"
+
+EcruteakCity_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_IRIS, EcruteakCity_Gym_EventScript_Manolin_AfterItem
+	msgbox EcruteakCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_IRIS, EcruteakCity_Gym_EventScript_Manolin_ChooseItem
+	msgbox EcruteakCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_HYPER_POTION
+	setflag FLAG_MANOLIN_HEAL_IRIS
+	msgbox EcruteakCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+EcruteakCity_Gym_EventScript_Manolin_ChooseItem::
+	msgbox EcruteakCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_IRIS, FALSE
+	switch VAR_RESULT
+	case 0, EcruteakCity_Gym_EventScript_Manolin_GiveLumBerry
+	case 1, EcruteakCity_Gym_EventScript_Manolin_GiveScopeLens
+	case MULTI_B_PRESSED, EcruteakCity_Gym_EventScript_Manolin_NoChoice
+	end
+
+EcruteakCity_Gym_EventScript_Manolin_GiveLumBerry::
+	giveitem ITEM_LUM_BERRY
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_IRIS
+	msgbox EcruteakCity_Gym_Text_Manolin_LumBerryExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+EcruteakCity_Gym_EventScript_Manolin_GiveScopeLens::
+	giveitem ITEM_SCOPE_LENS
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_IRIS
+	msgbox EcruteakCity_Gym_Text_Manolin_ScopeLensExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+EcruteakCity_Gym_EventScript_Manolin_NoChoice::
+	msgbox EcruteakCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+EcruteakCity_Gym_EventScript_Manolin_AfterItem::
+	msgbox EcruteakCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+EcruteakCity_Gym_Text_Manolin_Intro:
+	.string "¡Hostia tú! ¡Sigues vivo en\n"
+	.string "el locke, qué grande!\p"
+	.string "Oye, este sitio da un mal rollo…\n"
+	.string "¡Parece las Tierras de la Peste!\p"
+	.string "¿El boss no era de tipo eléctrico?\n"
+	.string "Ah, no… ¡que aquí está MORTI con\l"
+	.string "los fantasmas y las sombras!$"
+
+EcruteakCity_Gym_Text_Manolin_CheckHealth:
+	.string "¡Pero si traes la party temblando!\n"
+	.string "¡Un Mal de Ojo y te vas al hoyo!\p"
+	.string "Deja que te tire una cura rápida\n"
+	.string "antes de pisar las sombras.$"
+
+EcruteakCity_Gym_Text_Manolin_Healed:
+	.string "¡Party restaurada al cien por cien!\p"
+	.string "Toma esta Hiperpoción por si las\n"
+	.string "pesadillas se complican.$"
+
+EcruteakCity_Gym_Text_Manolin_OfferChoices:
+	.string "Para los fantasmas de MORTI tengo\n"
+	.string "dos objetos bis muy finos.\p"
+	.string "¿Prefieres disipar estados\n"
+	.string "alterados o meter críticos salvajes\l"
+	.string "con probabilidad aumentada?$"
+
+EcruteakCity_Gym_Text_Manolin_LumBerryExplain:
+	.string "¡BAYA ZIUELA! Te limpia al instante\n"
+	.string "cualquier sueño, quemadura o peste.\p"
+	.string "¡Que no te duerman en fase 1!$"
+
+EcruteakCity_Gym_Text_Manolin_ScopeLensExplain:
+	.string "¡PERISCOPIO! Sube la probabilidad\n"
+	.string "de asestar golpes críticos.\p"
+	.string "¡Revienta a ese Gengar con un\n"
+	.string "burst que lo mande al lobby!$"
+
+EcruteakCity_Gym_Text_Manolin_NoChoice:
+	.string "Tranqui, que a oscuras yo también\n"
+	.string "me pierdo en los menús.$"
+
+EcruteakCity_Gym_Text_Manolin_AfterItem:
+	.string "¡Cuidado dónde pisas! ¡No te caigas\n"
+	.string "al foso que reinicias el pull!$"

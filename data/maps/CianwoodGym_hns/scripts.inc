@@ -1,5 +1,15 @@
 CianwoodGym_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CianwoodGym_OnTransition
 	.byte 0
+
+CianwoodGym_OnTransition::
+	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM, CianwoodGym_HideManolin
+	clearflag FLAG_HIDE_MANOLIN_ORQUIDEA
+	end
+
+CianwoodGym_HideManolin::
+	setflag FLAG_HIDE_MANOLIN_ORQUIDEA
+	end
 
 
 CianwoodGym_EventScript_Statue::
@@ -208,3 +218,104 @@ CianwoodGym_Text_BlackbeltLungBeaten:
 	.string "¡Me han hecho trizas a mí!$"
 CianwoodGym_Text_BlackbeltLungAfter:
 	.string "Mis POKéMON han perdido…\nMi… mi orgullo está destrozado…$"
+
+CianwoodGym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_ORQUIDEA, CianwoodGym_EventScript_Manolin_AfterItem
+	msgbox CianwoodGym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_ORQUIDEA, CianwoodGym_EventScript_Manolin_ChooseItem
+	msgbox CianwoodGym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_HYPER_POTION
+	setflag FLAG_MANOLIN_HEAL_ORQUIDEA
+	msgbox CianwoodGym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+CianwoodGym_EventScript_Manolin_ChooseItem::
+	msgbox CianwoodGym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_ORQUIDEA, FALSE
+	switch VAR_RESULT
+	case 0, CianwoodGym_EventScript_Manolin_GiveFocusBand
+	case 1, CianwoodGym_EventScript_Manolin_GiveChoiceBand
+	case MULTI_B_PRESSED, CianwoodGym_EventScript_Manolin_NoChoice
+	end
+
+CianwoodGym_EventScript_Manolin_GiveFocusBand::
+	giveitem ITEM_FOCUS_BAND
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_ORQUIDEA
+	msgbox CianwoodGym_Text_Manolin_FocusBandExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CianwoodGym_EventScript_Manolin_GiveChoiceBand::
+	giveitem ITEM_CHOICE_BAND
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_ORQUIDEA
+	msgbox CianwoodGym_Text_Manolin_ChoiceBandExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CianwoodGym_EventScript_Manolin_NoChoice::
+	msgbox CianwoodGym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CianwoodGym_EventScript_Manolin_AfterItem::
+	msgbox CianwoodGym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CianwoodGym_Text_Manolin_Intro:
+	.string "¡Ese {PLAYER}! ¡Menudo cruce en\n"
+	.string "barco te has marcado, socio!\p"
+	.string "Oye, este sitio huele a sudor y\n"
+	.string "a gimnasio de barrio.\p"
+	.string "¿El boss no era de tipo psíquico?\n"
+	.string "Ah, no… ¡que aquí está ANÍBAL\l"
+	.string "pegándole puñetazos a las piedras!$"
+
+CianwoodGym_Text_Manolin_CheckHealth:
+	.string "¡Pero si traes la party reventada\n"
+	.string "de surfear entre Tentacool!\p"
+	.string "Como ANÍBAL te enganche un golpe,\n"
+	.string "te borra la cuenta del tirón.\l"
+	.string "¡Déjame tirar una cura tocha!$"
+
+CianwoodGym_Text_Manolin_Healed:
+	.string "¡Party restaurada al cien por cien!\p"
+	.string "Toma esta Hiperpoción por si las\n"
+	.string "tortas de ANÍBAL pican de más.$"
+
+CianwoodGym_Text_Manolin_OfferChoices:
+	.string "Para estos machacas de gimnasio\n"
+	.string "tengo dos cintas competitivas.\p"
+	.string "¿Prefieres probabilidad de aguantar\n"
+	.string "a 1 PS o burst físico brutal?$"
+
+CianwoodGym_Text_Manolin_FocusBandExplain:
+	.string "¡CINTA FOCUS! Tiene probabilidad\n"
+	.string "de salvarte de cualquier KO.\p"
+	.string "¡El trameo milagroso cuando\n"
+	.string "las cosas se ponen feas!$"
+
+CianwoodGym_Text_Manolin_ChoiceBandExplain:
+	.string "¡CINTA ELEGIDA! Aumenta un 50%\n"
+	.string "tu Ataque físico a cambio de\l"
+	.string "bloquearte en un movimiento.\p"
+	.string "¡Pega un tortazo que los mande\n"
+	.string "a la otra punta de la isla!$"
+
+CianwoodGym_Text_Manolin_NoChoice:
+	.string "Tranqui, que yo para elegir ropa\n"
+	.string "también tardo media hora.$"
+
+CianwoodGym_Text_Manolin_AfterItem:
+	.string "¡Pártelo en dos, socio!\n"
+	.string "¡Que muerda el polvo ese Poliwrath!$"

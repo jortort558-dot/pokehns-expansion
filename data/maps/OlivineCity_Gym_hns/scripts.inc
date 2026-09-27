@@ -1,5 +1,15 @@
 OlivineCity_Gym_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, OlivineCity_Gym_OnTransition
 	.byte 0
+
+OlivineCity_Gym_OnTransition::
+	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, OlivineCity_Gym_HideManolin
+	clearflag FLAG_HIDE_MANOLIN_OLIVO
+	end
+
+OlivineCity_Gym_HideManolin::
+	setflag FLAG_HIDE_MANOLIN_OLIVO
+	end
 
 OlivineCity_Gym_EventScript_Gent::
 	lock
@@ -323,3 +333,105 @@ OlivineCity_Gym_Text_JasmineDeclineTrade:
 	.string "…Oh… No pasa nada.\nLo comprendo perfectamente…$"
 OlivineCity_Gym_Text_JasmineTradeCompleted:
 	.string "…¿Cómo está OXIDITO?\nEspero de corazón que lo cuides…$"
+
+OlivineCity_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_OLIVO, OlivineCity_Gym_EventScript_Manolin_AfterItem
+	msgbox OlivineCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_OLIVO, OlivineCity_Gym_EventScript_Manolin_ChooseItem
+	msgbox OlivineCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_MAX_POTION
+	setflag FLAG_MANOLIN_HEAL_OLIVO
+	msgbox OlivineCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+OlivineCity_Gym_EventScript_Manolin_ChooseItem::
+	msgbox OlivineCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_OLIVO, FALSE
+	switch VAR_RESULT
+	case 0, OlivineCity_Gym_EventScript_Manolin_GiveAirBalloon
+	case 1, OlivineCity_Gym_EventScript_Manolin_GiveLifeOrb
+	case MULTI_B_PRESSED, OlivineCity_Gym_EventScript_Manolin_NoChoice
+	end
+
+OlivineCity_Gym_EventScript_Manolin_GiveAirBalloon::
+	giveitem ITEM_AIR_BALLOON
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_OLIVO
+	msgbox OlivineCity_Gym_Text_Manolin_AirBalloonExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+OlivineCity_Gym_EventScript_Manolin_GiveLifeOrb::
+	giveitem ITEM_LIFE_ORB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_OLIVO
+	msgbox OlivineCity_Gym_Text_Manolin_LifeOrbExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+OlivineCity_Gym_EventScript_Manolin_NoChoice::
+	msgbox OlivineCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+OlivineCity_Gym_EventScript_Manolin_AfterItem::
+	msgbox OlivineCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+OlivineCity_Gym_Text_Manolin_Intro:
+	.string "¡Ey! ¡El superviviente del server!\p"
+	.string "Cada vez que te veo vivo me alegro,\n"
+	.string "que este juego no perdona un fallo.\p"
+	.string "Oye, este sitio tiene un brillo\n"
+	.string "metálico muy loco… ¿El boss no era\l"
+	.string "de tipo dragón?\p"
+	.string "Ah, no… ¡que aquí está YASMINA con\n"
+	.string "su Steelix blindado de hierro!$"
+
+OlivineCity_Gym_Text_Manolin_CheckHealth:
+	.string "¡Frena un segundo, mi gente!\n"
+	.string "¡Llevas la barra de vida tiritando!\p"
+	.string "Como Steelix te cuele un Terremoto,\n"
+	.string "te borra la partida del tirón.\l"
+	.string "¡Pega un trago de cura completa!$"
+
+OlivineCity_Gym_Text_Manolin_Healed:
+	.string "¡Party full y lista para tanquear!\p"
+	.string "Toma esta Poción Máxima.\n"
+	.string "El acero de YASMINA pega duro.$"
+
+OlivineCity_Gym_Text_Manolin_OfferChoices:
+	.string "Para tumbar a la mole de YASMINA\n"
+	.string "tengo dos opciones muy tochas.\p"
+	.string "¿Prefieres flotar inmune al suelo\n"
+	.string "o multiplicar tu dps sacrificando\l"
+	.string "un poquito de salud en cada hit?$"
+
+OlivineCity_Gym_Text_Manolin_AirBalloonExplain:
+	.string "¡GLOBO HELIO! Te hace flotar en el\n"
+	.string "aire e inmune a movimientos Tierra.\p"
+	.string "¡El Terremoto de Steelix se va a\n"
+	.string "quedar en nada, socio!$"
+
+OlivineCity_Gym_Text_Manolin_LifeOrbExplain:
+	.string "¡VIDASFERA! Sube un 30% todo el\n"
+	.string "daño de tus ataques directos.\p"
+	.string "¡Derrite ese acero con un burst\n"
+	.string "de Fuego o Agua imparable!$"
+
+OlivineCity_Gym_Text_Manolin_NoChoice:
+	.string "Tranqui, decide bien tu setup.\n"
+	.string "El metal no tiene sentimientos.$"
+
+OlivineCity_Gym_Text_Manolin_AfterItem:
+	.string "¡Funde a ese Steelix, socio!\n"
+	.string "¡Que se note el poder del bateo!$"

@@ -188,6 +188,13 @@
 #define MULTI_GAME_CORNER_DOLLS2           177
 #define MULTI_GYM_TOKEN_SERVICES_HNS        178
 #define MULTI_MANOLIN_MALVA                 179
+#define MULTI_MANOLIN_AZALEA                180
+#define MULTI_MANOLIN_TRIGAL                181
+#define MULTI_MANOLIN_IRIS                  182
+#define MULTI_MANOLIN_ORQUIDEA              183
+#define MULTI_MANOLIN_OLIVO                 184
+#define MULTI_MANOLIN_CAOBA                 185
+#define MULTI_MANOLIN_ENDRINO               186
 
 #define MULTI_NONE 255
 

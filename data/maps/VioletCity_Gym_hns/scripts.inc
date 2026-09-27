@@ -204,7 +204,7 @@ VioletCity_Gym_EventScript_Manolin::
 	special HealPlayerParty
 	playfanfare MUS_HEAL
 	waitfanfare
-	giveitem ITEM_POTION, 2
+	giveitem ITEM_POTION
 	setflag FLAG_MANOLIN_HEAL_MALVA
 	msgbox VioletCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
 
@@ -270,9 +270,9 @@ VioletCity_Gym_Text_Manolin_CheckHealth:
 
 VioletCity_Gym_Text_Manolin_Healed:
 	.string "¡Full vida y maná arriba!\p"
-	.string "Toma un par de Pociones por si el\n"
-	.string "combate se alarga… Aunque oye,\l"
-	.string "¿no te las había dado ya? En fin.$"
+	.string "Toma una Poción por si el combate\n"
+	.string "se alarga… Aunque oye, ¿no te la\l"
+	.string "había dado ya? En fin.$"
 
 VioletCity_Gym_Text_Manolin_OfferChoices:
 	.string "A ver, como dice souzacarlos: ¡esto\n"
