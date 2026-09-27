@@ -348,10 +348,8 @@ Route34_EventScript_Yami_TrainSpDef::
 	goto Route34_EventScript_Yami_ChooseMonToTrain
 
 Route34_EventScript_Yami_ChooseMonToTrain::
-	msgbox Route34_Text_Yami_EligePokemon, MSGBOX_DEFAULT
-	special ChoosePartyMon
-	waitstate
-	goto_if_ge VAR_0x8004, PARTY_SIZE, Route34_EventScript_Yami_MenuPrincipal
+	setvar VAR_0x8004, 0
+	bufferpartymonnick STR_VAR_1, VAR_0x8004
 	special YamiSuperTraining_CanTrainStat
 	goto_if_eq VAR_RESULT, FALSE, Route34_EventScript_Yami_StatMaxed
 	switch VAR_0x8005
@@ -444,6 +442,7 @@ Route34_EventScript_Yami_BattleTentacruel::
 Route34_EventScript_Yami_ApplyTrainingResult::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_WON, Route34_EventScript_Yami_SparringIncompleto
+	setvar VAR_0x8004, 0
 	special YamiSuperTraining_AddEVs
 	playfanfare MUS_LEVEL_UP
 	bufferpartymonnick STR_VAR_1, VAR_0x8004
@@ -464,12 +463,10 @@ Route34_EventScript_Yami_StatMaxed::
 	end
 
 Route34_EventScript_Yami_ResetPrompt::
+	setvar VAR_0x8004, 0
+	bufferpartymonnick STR_VAR_1, VAR_0x8004
 	msgbox Route34_Text_Yami_PreguntaReset, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Route34_EventScript_Yami_MenuPrincipal
-	msgbox Route34_Text_Yami_EligePokemonReset, MSGBOX_DEFAULT
-	special ChoosePartyMon
-	waitstate
-	goto_if_ge VAR_0x8004, PARTY_SIZE, Route34_EventScript_Yami_MenuPrincipal
 	special YamiSuperTraining_ResetEVs
 	goto_if_eq VAR_RESULT, FALSE, Route34_EventScript_Yami_ResetFallo
 	playse SE_PIN
@@ -519,47 +516,44 @@ Route34_Text_Yami_VictoriaJugador:
 	.string "A partir de hoy, pongo a tu\n"
 	.string "disposición mi método secreto:\l"
 	.string "el SUPERENTRENAMIENTO.\p"
-	.string "Con él, puliremos los puntos de\n"
-	.string "esfuerzo de tus compañeros de forma\l"
-	.string "quirúrgica y sin rodeos.$"
+	.string "Mi disciplina se centrará en el\n"
+	.string "primer POKéMON de tu equipo.\p"
+	.string "Puliremos sus puntos de esfuerzo\n"
+	.string "de forma quirúrgica y sin rodeos.$"
 
 Route34_Text_Yami_CuandoEstesListo:
-	.string "YAMI: La templanza también es virtud.\n"
-	.string "Aquí estaré cuando decidas dar el paso.$"
+	.string "YAMI: La templanza también\n"
+	.string "es una virtud.\p"
+	.string "Aquí estaré cuando decidas\n"
+	.string "dar el paso.$"
 
 Route34_Text_Yami_MenuPrompt:
-	.string "YAMI: ¿Qué disciplina deseas\n"
-	.string "perfeccionar hoy en tu equipo?$"
-
-Route34_Text_Yami_EligePokemon:
-	.string "YAMI: Elige al POKéMON que se someterá\n"
-	.string "a esta intensa sesión.$"
+	.string "YAMI: Entrenaré al primer POKéMON\n"
+	.string "de tu equipo.\p"
+	.string "¿Qué disciplina deseas\n"
+	.string "perfeccionar hoy?$"
 
 Route34_Text_Yami_ComienzaSparring:
 	.string "YAMI: ¡Enfréntate a mi {STR_VAR_2}\n"
 	.string "de práctica y reclama tus puntos!$"
 
 Route34_Text_Yami_SparringIncompleto:
-	.string "YAMI: El combate no se ha completado\n"
-	.string "con éxito. No hay ganancia hoy.$"
+	.string "YAMI: El combate no concluyó.\n"
+	.string "No hay ganancia en esta sesión.$"
 
 Route34_Text_Yami_EntrenamientoCompletado:
-	.string "¡Sesión intensa finalizada con éxito!\p"
+	.string "¡Sesión finalizada con éxito!\p"
 	.string "{STR_VAR_1} ha recibido +64 puntos\n"
 	.string "de esfuerzo en la cualidad elegida.$"
 
 Route34_Text_Yami_StatAlMaximo:
-	.string "YAMI: {STR_VAR_1} ya ha alcanzado el\n"
+	.string "YAMI: {STR_VAR_1} ya alcanzó el\n"
 	.string "límite posible en esa faceta.$"
 
 Route34_Text_Yami_PreguntaReset:
 	.string "YAMI: ¿Deseas purgar y reiniciar\n"
-	.string "a cero todos los puntos de esfuerzo\l"
-	.string "de un POKéMON para reentrenarlo?$"
-
-Route34_Text_Yami_EligePokemonReset:
-	.string "YAMI: Elige a quién deseas liberar\n"
-	.string "de su carga de entrenamiento.$"
+	.string "a cero los puntos de esfuerzo de\l"
+	.string "{STR_VAR_1} (primer POKéMON)?$"
 
 Route34_Text_Yami_ResetExito:
 	.string "¡Mente y cuerpo despejados!\p"
@@ -567,8 +561,8 @@ Route34_Text_Yami_ResetExito:
 	.string "{STR_VAR_1} han regresado a cero.$"
 
 Route34_Text_Yami_ResetNoPosible:
-	.string "YAMI: No es posible reiniciar los puntos\n"
-	.string "de esfuerzo de ese objetivo.$"
+	.string "YAMI: No es posible reiniciar\n"
+	.string "el esfuerzo de ese objetivo.$"
 
 Route34_Text_Yami_Despedida:
 	.string "YAMI: El esfuerzo constante forja\n"
