@@ -1309,6 +1309,18 @@ static const struct MenuAction MultichoiceList_ManolinEndrino[] =
     {COMPOUND_STRING("CHALECO ASALTO")},
 };
 
+static const struct MenuAction MultichoiceList_YamiTraining[] =
+{
+    {COMPOUND_STRING("PS (+64)")},
+    {COMPOUND_STRING("ATAQUE (+64)")},
+    {COMPOUND_STRING("DEFENSA (+64)")},
+    {COMPOUND_STRING("VELOCIDAD (+64)")},
+    {COMPOUND_STRING("AT. ESP (+64)")},
+    {COMPOUND_STRING("DEF. ESP (+64)")},
+    {COMPOUND_STRING("REINICIAR EVS")},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1509,6 +1521,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_MANOLIN_OLIVO]              = MULTICHOICE(MultichoiceList_ManolinOlivo),
     [MULTI_MANOLIN_CAOBA]              = MULTICHOICE(MultichoiceList_ManolinCaoba),
     [MULTI_MANOLIN_ENDRINO]            = MULTICHOICE(MultichoiceList_ManolinEndrino),
+    [MULTI_YAMI_TRAINING]              = MULTICHOICE(MultichoiceList_YamiTraining),
 };
 
 const u8 *const gStdStrings[] =

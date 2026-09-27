@@ -195,6 +195,7 @@
 #define MULTI_MANOLIN_OLIVO                 184
 #define MULTI_MANOLIN_CAOBA                 185
 #define MULTI_MANOLIN_ENDRINO               186
+#define MULTI_YAMI_TRAINING                 187
 
 #define MULTI_NONE 255
 

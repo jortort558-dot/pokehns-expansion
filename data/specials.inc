@@ -726,3 +726,5 @@ gSpecials::
 	def_special SaveGymTokenTransaction
 	def_special BufferCurrentLevelCap
 	def_special BufferLevelCapSummary
+	def_special YamiSuperTraining_AddEVs
+	def_special YamiSuperTraining_ResetEVs

@@ -17,5 +17,7 @@ void Script_GetChosenMonOffensiveEVs(void);
 void Script_GetChosenMonDefensiveEVs(void);
 void Script_GetChosenMonOffensiveIVs(void);
 void Script_GetChosenMonDefensiveIVs(void);
+void YamiSuperTraining_AddEVs(void);
+void YamiSuperTraining_ResetEVs(void);
 
 #endif // GUARD_SCRIPT_POKEMON_UTIL_H

@@ -16204,3 +16204,79 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Sand Attack
 - Swift
 
+=== TRAINER_YAMI_HNS ===
+Name: YAMI
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Purple
+
+Mienshao @ Life Orb
+Level: 36
+Ability: Regenerator
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Jolly Nature
+- High Jump Kick
+- U-turn
+- Fake Out
+- Knock Off
+
+Lucario @ Expert Belt
+Level: 36
+Ability: Inner Focus
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+- Aura Sphere
+- Flash Cannon
+- Vacuum Wave
+- Nasty Plot
+
+Gengar @ Focus Sash
+Level: 36
+Ability: Cursed Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+- Shadow Ball
+- Sludge Bomb
+- Thunderbolt
+- Destiny Bond
+
+Gliscor @ Toxic Orb
+Level: 36
+Ability: Poison Heal
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 184 Def / 72 Spe
+Impish Nature
+- Earthquake
+- Toxic
+- Protect
+- Roost
+
+Milotic @ Leftovers
+Level: 36
+Ability: Marvel Scale
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 Def / 4 SpA
+Bold Nature
+- Scald
+- Recover
+- Ice Beam
+- Haze
+
+Garchomp @ Yache Berry
+Level: 37
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 Def / 252 Spe
+Jolly Nature
+- Dragon Claw
+- Earthquake
+- Swords Dance
+- Rock Slide
+

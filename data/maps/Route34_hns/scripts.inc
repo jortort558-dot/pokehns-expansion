@@ -282,3 +282,190 @@ Route34_Text_CooltrainerKate_After:
 Route34_Text_Sign_DayCare:
 	.string "GUARDERÍA POKéMON\p"
 	.string "¡CUIDAMOS DE TUS POKéMON CON AMOR!$"
+
+Route34_EventScript_Yami::
+	lock
+	faceplayer
+	goto_if_set FLAG_YAMI_SUPER_TRAINING_UNLOCKED, Route34_EventScript_Yami_MenuPrincipal
+	goto_if_set FLAG_BADGE06_GET, Route34_EventScript_Yami_CheckBattle
+	msgbox Route34_Text_Yami_AunNoEstasListo, MSGBOX_NPC
+	release
+	end
+
+Route34_EventScript_Yami_CheckBattle::
+	msgbox Route34_Text_Yami_RetoIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route34_EventScript_Yami_RechazaCombate
+	msgbox Route34_Text_Yami_EmpiezaCombate, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_YAMI_HNS, Route34_Text_Yami_Derrota
+	setflag FLAG_YAMI_SUPER_TRAINING_UNLOCKED
+	msgbox Route34_Text_Yami_VictoriaJugador, MSGBOX_DEFAULT
+	goto Route34_EventScript_Yami_MenuPrincipal
+	end
+
+Route34_EventScript_Yami_RechazaCombate::
+	msgbox Route34_Text_Yami_CuandoEstesListo, MSGBOX_NPC
+	release
+	end
+
+Route34_EventScript_Yami_MenuPrincipal::
+	message Route34_Text_Yami_MenuPrompt
+	waitmessage
+	multichoice 0, 0, MULTI_YAMI_TRAINING, FALSE
+	switch VAR_RESULT
+	case 0, Route34_EventScript_Yami_TrainHP
+	case 1, Route34_EventScript_Yami_TrainAtk
+	case 2, Route34_EventScript_Yami_TrainDef
+	case 3, Route34_EventScript_Yami_TrainSpeed
+	case 4, Route34_EventScript_Yami_TrainSpAtk
+	case 5, Route34_EventScript_Yami_TrainSpDef
+	case 6, Route34_EventScript_Yami_ResetPrompt
+	case 7, Route34_EventScript_Yami_Despedida
+	case MULTI_B_PRESSED, Route34_EventScript_Yami_Despedida
+	end
+
+Route34_EventScript_Yami_TrainHP::
+	setvar VAR_0x8005, 0
+	goto Route34_EventScript_Yami_ChooseMonToTrain
+
+Route34_EventScript_Yami_TrainAtk::
+	setvar VAR_0x8005, 1
+	goto Route34_EventScript_Yami_ChooseMonToTrain
+
+Route34_EventScript_Yami_TrainDef::
+	setvar VAR_0x8005, 2
+	goto Route34_EventScript_Yami_ChooseMonToTrain
+
+Route34_EventScript_Yami_TrainSpeed::
+	setvar VAR_0x8005, 3
+	goto Route34_EventScript_Yami_ChooseMonToTrain
+
+Route34_EventScript_Yami_TrainSpAtk::
+	setvar VAR_0x8005, 4
+	goto Route34_EventScript_Yami_ChooseMonToTrain
+
+Route34_EventScript_Yami_TrainSpDef::
+	setvar VAR_0x8005, 5
+	goto Route34_EventScript_Yami_ChooseMonToTrain
+
+Route34_EventScript_Yami_ChooseMonToTrain::
+	msgbox Route34_Text_Yami_EligePokemon, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	goto_if_ge VAR_0x8004, PARTY_SIZE, Route34_EventScript_Yami_MenuPrincipal
+	special YamiSuperTraining_AddEVs
+	goto_if_eq VAR_RESULT, FALSE, Route34_EventScript_Yami_StatMaxed
+	playfanfare MUS_LEVEL_UP
+	bufferpartymonnick STR_VAR_1, VAR_0x8004
+	msgbox Route34_Text_Yami_EntrenamientoCompletado, MSGBOX_DEFAULT
+	waitfanfare
+	goto Route34_EventScript_Yami_MenuPrincipal
+	end
+
+Route34_EventScript_Yami_StatMaxed::
+	bufferpartymonnick STR_VAR_1, VAR_0x8004
+	msgbox Route34_Text_Yami_StatAlMaximo, MSGBOX_DEFAULT
+	goto Route34_EventScript_Yami_MenuPrincipal
+	end
+
+Route34_EventScript_Yami_ResetPrompt::
+	msgbox Route34_Text_Yami_PreguntaReset, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route34_EventScript_Yami_MenuPrincipal
+	msgbox Route34_Text_Yami_EligePokemonReset, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	goto_if_ge VAR_0x8004, PARTY_SIZE, Route34_EventScript_Yami_MenuPrincipal
+	special YamiSuperTraining_ResetEVs
+	goto_if_eq VAR_RESULT, FALSE, Route34_EventScript_Yami_ResetFallo
+	playse SE_PIN
+	bufferpartymonnick STR_VAR_1, VAR_0x8004
+	msgbox Route34_Text_Yami_ResetExito, MSGBOX_DEFAULT
+	waitse
+	goto Route34_EventScript_Yami_MenuPrincipal
+	end
+
+Route34_EventScript_Yami_ResetFallo::
+	msgbox Route34_Text_Yami_ResetNoPosible, MSGBOX_DEFAULT
+	goto Route34_EventScript_Yami_MenuPrincipal
+	end
+
+Route34_EventScript_Yami_Despedida::
+	msgbox Route34_Text_Yami_Despedida, MSGBOX_NPC
+	release
+	end
+
+Route34_Text_Yami_AunNoEstasListo:
+	.string "YAMI: Tu espíritu carece del temple\n"
+	.string "necesario.\p"
+	.string "Aún no estás listo para soportar\n"
+	.string "la disciplina de mi entrenamiento.\p"
+	.string "Vuelve cuando hayas conquistado\n"
+	.string "al menos seis medallas de Johto.$"
+
+Route34_Text_Yami_RetoIntro:
+	.string "YAMI: Veo en tus ojos el fulgor\n"
+	.string "de seis medallas de gimnasio.\p"
+	.string "Has recorrido un largo sendero,\n"
+	.string "pero la verdadera maestría exige\l"
+	.string "poner a prueba cada límite.\p"
+	.string "¿Te crees capaz de medir tu fuerza\n"
+	.string "contra mi disciplina marcial?$"
+
+Route34_Text_Yami_EmpiezaCombate:
+	.string "YAMI: ¡Que hable el combate!$"
+
+Route34_Text_Yami_Derrota:
+	.string "Sublime… Tu técnica y temple han\n"
+	.string "superado mis expectativas.$"
+
+Route34_Text_Yami_VictoriaJugador:
+	.string "YAMI: Has demostrado un dominio\n"
+	.string "impecable sobre tus POKéMON.\p"
+	.string "A partir de hoy, pongo a tu\n"
+	.string "disposición mi método secreto:\l"
+	.string "el SUPERENTRENAMIENTO.\p"
+	.string "Con él, puliremos los puntos de\n"
+	.string "esfuerzo de tus compañeros de forma\l"
+	.string "quirúrgica y sin rodeos.$"
+
+Route34_Text_Yami_CuandoEstesListo:
+	.string "YAMI: La templanza también es virtud.\n"
+	.string "Aquí estaré cuando decidas dar el paso.$"
+
+Route34_Text_Yami_MenuPrompt:
+	.string "YAMI: ¿Qué disciplina deseas\n"
+	.string "perfeccionar hoy en tu equipo?$"
+
+Route34_Text_Yami_EligePokemon:
+	.string "YAMI: Elige al POKéMON que se someterá\n"
+	.string "a esta intensa sesión.$"
+
+Route34_Text_Yami_EntrenamientoCompletado:
+	.string "¡Sesión intensa finalizada con éxito!\p"
+	.string "{STR_VAR_1} ha recibido +64 puntos\n"
+	.string "de esfuerzo en la cualidad elegida.$"
+
+Route34_Text_Yami_StatAlMaximo:
+	.string "YAMI: {STR_VAR_1} ya ha alcanzado el\n"
+	.string "límite posible en esa faceta.$"
+
+Route34_Text_Yami_PreguntaReset:
+	.string "YAMI: ¿Deseas purgar y reiniciar\n"
+	.string "a cero todos los puntos de esfuerzo\l"
+	.string "de un POKéMON para reentrenarlo?$"
+
+Route34_Text_Yami_EligePokemonReset:
+	.string "YAMI: Elige a quién deseas liberar\n"
+	.string "de su carga de entrenamiento.$"
+
+Route34_Text_Yami_ResetExito:
+	.string "¡Mente y cuerpo despejados!\p"
+	.string "Todos los puntos de esfuerzo de\n"
+	.string "{STR_VAR_1} han regresado a cero.$"
+
+Route34_Text_Yami_ResetNoPosible:
+	.string "YAMI: No es posible reiniciar los puntos\n"
+	.string "de esfuerzo de ese objetivo.$"
+
+Route34_Text_Yami_Despedida:
+	.string "YAMI: El esfuerzo constante forja\n"
+	.string "a los verdaderos campeones.$"
