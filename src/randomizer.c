@@ -2109,6 +2109,26 @@ static inline bool32 IsAbilityIllegal(u16 ability)
 {
     if (ability == ABILITY_NONE || ability == ABILITY_WONDER_GUARD)
         return TRUE;
+
+    // Habilidades trampa anti-huida (injustas en salvajes y nuzlocke)
+    if (ability == ABILITY_SHADOW_TAG || ability == ABILITY_ARENA_TRAP)
+        return TRUE;
+
+    // Habilidades perjudiciales que arruinan a cualquier Pokémon
+    if (ability == ABILITY_TRUANT || ability == ABILITY_SLOW_START || ability == ABILITY_DEFEATIST)
+        return TRUE;
+
+    // Habilidades dependientes de forma específica que bugean o no funcionan en otros Pokémon
+    if (ability == ABILITY_DISGUISE || ability == ABILITY_BATTLE_BOND 
+     || ability == ABILITY_STANCE_CHANGE || ability == ABILITY_SCHOOLING
+     || ability == ABILITY_GULP_MISSILE || ability == ABILITY_ICE_FACE
+     || ability == ABILITY_ZEN_MODE || ability == ABILITY_SHIELDS_DOWN)
+        return TRUE;
+
+    // Evasión desbalanceada en retos
+    if (ability == ABILITY_MOODY)
+        return TRUE;
+
     return FALSE;
 }
 
@@ -2179,23 +2199,89 @@ u16 RandomizeAbility(u16 species, u8 abilityNum, u16 originalAbility)
 u16 RandomizeMove(u16 move, u16 species)
 {
     struct Sfc32State state;
-    u16 result;
+    u16 result = MOVE_NONE;
     u32 seed;
+    u8 originalPower = 0;
+    u8 monType1 = TYPE_MYSTERY;
+    u8 monType2 = TYPE_MYSTERY;
+    bool8 preferStab = FALSE;
+    u32 attempts;
 
     if (move == MOVE_NONE)
         return MOVE_NONE;
 
+    if (species < NUM_SPECIES)
+    {
+        monType1 = gSpeciesInfo[species].types[0];
+        monType2 = gSpeciesInfo[species].types[1];
+    }
+
+    if (move < MOVES_COUNT)
+        originalPower = gMovesInfo[move].power;
+
     seed = ((u32)move) + species;
     state = RandomizerRandSeed(RANDOMIZER_REASON_LEARNSET, seed, species);
 
-    do
+    // En modo caos total, se mantiene la selección clásica descontrolada
+    if (IsChaosMode())
+    {
+        do
+        {
+            result = RandomizerNextRange(&state, MOVES_COUNT_GEN9 - 1) + 1;
+            if (IsNuzlockeActive() && (result == MOVE_GUILLOTINE || result == MOVE_HORN_DRILL || result == MOVE_FISSURE || result == MOVE_SHEER_COLD))
+                continue;
+        } while (result >= MOVES_COUNT_GEN9 || result > MOVE_MALIGNANT_CHAIN || GetMoveRandomizerInvalid(result));
+
+        return result;
+    }
+
+    // Modo Balanceado (Streamer / Smart Learnset):
+    // 60% de probabilidad de favorecer STAB
+    if (monType1 != TYPE_MYSTERY && (RandomizerNextRange(&state, 100) < 60))
+        preferStab = TRUE;
+
+    for (attempts = 0; attempts < 150; attempts++)
     {
         result = RandomizerNextRange(&state, MOVES_COUNT_GEN9 - 1) + 1;
+
+        if (result >= MOVES_COUNT_GEN9 || result > MOVE_MALIGNANT_CHAIN || GetMoveRandomizerInvalid(result))
+            continue;
+
+        // Baneo absoluto de ataques OHKO en retos
         if (IsNuzlockeActive() && (result == MOVE_GUILLOTINE || result == MOVE_HORN_DRILL || result == MOVE_FISSURE || result == MOVE_SHEER_COLD))
             continue;
-    } while (result >= MOVES_COUNT_GEN9 || result > MOVE_MALIGNANT_CHAIN || GetMoveRandomizerInvalid(result));
 
-    return result;
+        // Filtro de movimientos suicidas en movimientos básicos/tempranos
+        if (originalPower <= 55 && (result == MOVE_SELF_DESTRUCT || result == MOVE_EXPLOSION || result == MOVE_MISTY_EXPLOSION))
+            continue;
+
+        // Filtro por Tier de Potencia:
+        // - Si el movimiento original es de potencia baja (<= 55), evitar ataques destructivos (> 75)
+        if (originalPower > 0 && originalPower <= 55)
+        {
+            if (gMovesInfo[result].power > 75)
+                continue;
+        }
+        // - Si el movimiento original es de potencia alta (>= 80), evitar movimientos extremadamente débiles (< 40 con daño)
+        else if (originalPower >= 80)
+        {
+            if (gMovesInfo[result].power > 0 && gMovesInfo[result].power < 50)
+                continue;
+        }
+
+        // Filtro de afinidad STAB si se activó la preferencia
+        if (preferStab && attempts < 80)
+        {
+            u8 moveType = gMovesInfo[result].type;
+            if (moveType != monType1 && moveType != monType2)
+                continue;
+        }
+
+        return result;
+    }
+
+    // Fallback seguro en caso de agotar intentos
+    return (result != MOVE_NONE) ? result : move;
 }
 
 u16 RandomizeEvolution(u16 targetSpecies, u16 originalSpecies)

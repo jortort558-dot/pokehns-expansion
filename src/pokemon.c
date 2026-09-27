@@ -3960,7 +3960,7 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon) //Credit: AsparagusEdua
         if (RandomizerFeatureEnabled(RANDOMIZE_LEARNSET))
         {
             move = RandomizeMove(move, species);
-            if (!FlagGet(FLAG_SYS_POKEMON_GET) && !firstMoveGiven)
+            if ((!FlagGet(FLAG_SYS_POKEMON_GET) || level <= 5) && !firstMoveGiven)
             {
                 u8 attempts;
                 for (attempts = 0; attempts < 100; attempts++)
