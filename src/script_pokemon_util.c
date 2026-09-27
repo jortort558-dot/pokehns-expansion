@@ -738,7 +738,7 @@ u32 ScriptGiveMon(u16 species, u8 level, enum Item item)
     if (!FlagGet(FLAG_SYS_POKEMON_GET))
     {
         if (RandomizerFeatureEnabled(RANDOMIZE_STARTER_AND_GIFT_MON))
-            species = RandomizeMon(RANDOMIZER_REASON_STARTER_AND_GIFT_MON, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);
+            species = RandomizeMon(RANDOMIZER_REASON_STARTER_MON, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);
     }
     else
     {

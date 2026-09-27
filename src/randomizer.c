@@ -1037,6 +1037,25 @@ static u16 RandomizeMonFromSeed(struct Sfc32State *state, enum RandomizerSpecies
 
 }
 
+static bool32 IsThreeStageStarter(u16 species)
+{
+    const struct Evolution *firstEvolutions = GetSpeciesEvolutions(species);
+    u32 i;
+
+    if (firstEvolutions == NULL)
+        return FALSE;
+
+    for (i = 0; firstEvolutions[i].method != EVOLUTIONS_END; i++)
+    {
+        const struct Evolution *secondEvolutions = GetSpeciesEvolutions(firstEvolutions[i].targetSpecies);
+
+        if (secondEvolutions != NULL && secondEvolutions[0].method != EVOLUTIONS_END)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void GetUniqueMonList(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, u32 seed1, u16 seed2, u8 count, const u16 *originalSpecies, u16 *resultSpecies)
 {
     u32 i, curMon;
@@ -1140,6 +1159,7 @@ static u16 ChooseFormSpecial(struct Sfc32State *state, const u16 baseSpecies)
 u16 RandomizeMon(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, u32 seed, u16 species)
 {
     u32 speciesMode;
+    u32 attempts;
     u16 resultSpecies;
     struct Sfc32State state;
 
@@ -1148,19 +1168,29 @@ u16 RandomizeMon(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, 
 
     state = RandomizerRandSeed(reason, seed, species);
 
-    resultSpecies = RandomizeMonFromSeed(&state, mode, species);
-    speciesMode = gSpeciesInfo[resultSpecies].randomizerMode;
-
-    switch (speciesMode)
+    for (attempts = 0; attempts < RANDOMIZER_SPECIES_COUNT; attempts++)
     {
-        case MON_RANDOMIZER_RANDOM_FORM:
-            return ChooseRandomForm(&state, resultSpecies);
-        case MON_RANDOMIZER_SPECIAL_FORM:
-            return ChooseFormSpecial(&state, resultSpecies);
-        case MON_RANDOMIZER_NORMAL:
-        default:
+        resultSpecies = RandomizeMonFromSeed(&state, mode, species);
+        speciesMode = gSpeciesInfo[resultSpecies].randomizerMode;
+
+        switch (speciesMode)
+        {
+            case MON_RANDOMIZER_RANDOM_FORM:
+                resultSpecies = ChooseRandomForm(&state, resultSpecies);
+                break;
+            case MON_RANDOMIZER_SPECIAL_FORM:
+                resultSpecies = ChooseFormSpecial(&state, resultSpecies);
+                break;
+            case MON_RANDOMIZER_NORMAL:
+            default:
+                break;
+        }
+
+        if (reason != RANDOMIZER_REASON_STARTER_MON || IsThreeStageStarter(resultSpecies))
             return resultSpecies;
     }
+
+    return species;
 }
 
 #define WILD_RANDOMIZER_T1_MAX_BST 320
