@@ -187,6 +187,7 @@
 #define MULTI_FOSSIL_HNS                   176
 #define MULTI_GAME_CORNER_DOLLS2           177
 #define MULTI_GYM_TOKEN_SERVICES_HNS        178
+#define MULTI_MANOLIN_MALVA                 179
 
 #define MULTI_NONE 255
 

@@ -1,5 +1,15 @@
 VioletCity_Gym_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VioletCity_Gym_OnTransition
 	.byte 0
+
+VioletCity_Gym_OnTransition::
+	goto_if_set FLAG_DEFEATED_VIOLET_GYM, VioletCity_Gym_HideManolin
+	clearflag FLAG_HIDE_MANOLIN_MALVA
+	end
+
+VioletCity_Gym_HideManolin::
+	setflag FLAG_HIDE_MANOLIN_MALVA
+	end
 
 VioletCity_Gym_EventScript_GymGuy::
 	lock
@@ -183,3 +193,118 @@ VioletCity_Gym_Text_GymStatueCertified:
 	.string "ENTRENADORES CERTIFICADOS\n"
 	.string "POR PEGASO:\l"
 	.string "{PLAYER}$"
+
+VioletCity_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_MALVA, VioletCity_Gym_EventScript_Manolin_AfterItem
+	msgbox VioletCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_MALVA, VioletCity_Gym_EventScript_Manolin_ChooseItem
+	msgbox VioletCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_POTION, 2
+	setflag FLAG_MANOLIN_HEAL_MALVA
+	msgbox VioletCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+VioletCity_Gym_EventScript_Manolin_ChooseItem::
+	msgbox VioletCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_MALVA, FALSE
+	switch VAR_RESULT
+	case 0, VioletCity_Gym_EventScript_Manolin_GiveWideLens
+	case 1, VioletCity_Gym_EventScript_Manolin_GiveBrightPowder
+	case MULTI_B_PRESSED, VioletCity_Gym_EventScript_Manolin_NoChoice
+	end
+
+VioletCity_Gym_EventScript_Manolin_GiveWideLens::
+	giveitem ITEM_WIDE_LENS
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_MALVA
+	msgbox VioletCity_Gym_Text_Manolin_WideLensExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VioletCity_Gym_EventScript_Manolin_GiveBrightPowder::
+	giveitem ITEM_BRIGHT_POWDER
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_MALVA
+	msgbox VioletCity_Gym_Text_Manolin_BrightPowderExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VioletCity_Gym_EventScript_Manolin_NoChoice::
+	msgbox VioletCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VioletCity_Gym_EventScript_Manolin_AfterItem::
+	msgbox VioletCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VioletCity_Gym_Text_Manolin_Intro:
+	.string "¡Ey! Espera… ¿tú quién eras?\p"
+	.string "¡Ah, sí! ¡El nuevo del server!\n"
+	.string "Me llaman Manolín, pero la peña\l"
+	.string "me conoce como El Bate Mágico.\p"
+	.string "Y no por el béisbol, ¿eh? ¡Que yo\n"
+	.string "soy bateador de míticas en el WoW!\p"
+	.string "Oye, ¿este no era el boss de fuego?\n"
+	.string "Ah, no… qué empanada llevo, socio,\l"
+	.string "¡que aquí está PEGASO con\l"
+	.string "los pájaros!$"
+
+VioletCity_Gym_Text_Manolin_CheckHealth:
+	.string "Hostia tú… ¡pero si llevas a los\n"
+	.string "bichos tiritando de vida!\p"
+	.string "¿Ibas a hacer el pull así? ¡Te van\n"
+	.string "a wipear la party en fase 1!\p"
+	.string "Espera, ¿yo te iba a dar algo o te\n"
+	.string "iba a curar? Bueno, ¡primero barra\l"
+	.string "llena, mi gente!$"
+
+VioletCity_Gym_Text_Manolin_Healed:
+	.string "¡Full vida y maná arriba!\p"
+	.string "Toma un par de Pociones por si el\n"
+	.string "combate se alarga… Aunque oye,\l"
+	.string "¿no te las había dado ya? En fin.$"
+
+VioletCity_Gym_Text_Manolin_OfferChoices:
+	.string "A ver, como dice souzacarlos: ¡esto\n"
+	.string "es un trameo de los buenos!\p"
+	.string "Para tirarle el boss a PEGASO sin\n"
+	.string "sustos necesitas equipo bis.\p"
+	.string "Tengo dos objetos competitivos.\n"
+	.string "¿Prefieres meter dps con precisión\l"
+	.string "o esquivar ataques como un ninja?$"
+
+VioletCity_Gym_Text_Manolin_WideLensExplain:
+	.string "¡La LUPA! Si vas a meterle ataques\n"
+	.string "de Roca o Rayo que suelen fallar,\l"
+	.string "esto te asegura el hit limpio.\p"
+	.string "¡Ni el Rey Exánime aguantaría\n"
+	.string "un burst tan fino!$"
+
+VioletCity_Gym_Text_Manolin_BrightPowderExplain:
+	.string "¡POLVO BRILLO! Hace que el rival\n"
+	.string "falle golpes clave.\p"
+	.string "Cuando PEGASO intente el burst,\n"
+	.string "¡se va a comer un miss legendario!$"
+
+VioletCity_Gym_Text_Manolin_NoChoice:
+	.string "¿No te decides? No te preocupes,\n"
+	.string "que yo a veces olvido\l"
+	.string "qué clase soy.\p"
+	.string "Pásate cuando quieras equiparte.$"
+
+VioletCity_Gym_Text_Manolin_AfterItem:
+	.string "¡Vamos, mi gente! Entra ahí,\n"
+	.string "tramea las mecánicas y sácale\l"
+	.string "la medalla a PEGASO.\p"
+	.string "Nos vemos en la siguiente raid…\n"
+	.string "si me acuerdo de qué pueblo era.$"
