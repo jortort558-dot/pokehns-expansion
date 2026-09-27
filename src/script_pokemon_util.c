@@ -149,7 +149,7 @@ void CreateScriptedWildMon(u16 species, u8 level, enum Item item)
     u8 heldItem[2];
 
     #if RANDOMIZER_AVAILABLE
-    if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
+    if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON) && !FlagGet(FLAG_SPARRING_NO_EVS))
         species = RandomizeMon(RANDOMIZER_REASON_FIXED_ENCOUNTER, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);
     #endif
 

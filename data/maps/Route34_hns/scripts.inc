@@ -369,7 +369,7 @@ Route34_EventScript_Yami_BattleBlissey::
 	setflag FLAG_NO_WILD_CATCHING
 	setflag FLAG_NO_SHINY
 	setflag FLAG_SPARRING_NO_EVS
-	setwildbattle SPECIES_BLISSEY, 35, ITEM_NONE
+	setwildbattle SPECIES_BLISSEY, 1, ITEM_NONE
 	dowildbattle
 	clearflag FLAG_NO_WILD_CATCHING
 	clearflag FLAG_NO_SHINY
@@ -382,7 +382,7 @@ Route34_EventScript_Yami_BattleMachamp::
 	setflag FLAG_NO_WILD_CATCHING
 	setflag FLAG_NO_SHINY
 	setflag FLAG_SPARRING_NO_EVS
-	setwildbattle SPECIES_MACHAMP, 35, ITEM_NONE
+	setwildbattle SPECIES_MACHAMP, 1, ITEM_NONE
 	dowildbattle
 	clearflag FLAG_NO_WILD_CATCHING
 	clearflag FLAG_NO_SHINY
@@ -395,7 +395,7 @@ Route34_EventScript_Yami_BattleGolem::
 	setflag FLAG_NO_WILD_CATCHING
 	setflag FLAG_NO_SHINY
 	setflag FLAG_SPARRING_NO_EVS
-	setwildbattle SPECIES_GOLEM, 35, ITEM_NONE
+	setwildbattle SPECIES_GOLEM, 1, ITEM_NONE
 	dowildbattle
 	clearflag FLAG_NO_WILD_CATCHING
 	clearflag FLAG_NO_SHINY
@@ -408,7 +408,7 @@ Route34_EventScript_Yami_BattleCrobat::
 	setflag FLAG_NO_WILD_CATCHING
 	setflag FLAG_NO_SHINY
 	setflag FLAG_SPARRING_NO_EVS
-	setwildbattle SPECIES_CROBAT, 35, ITEM_NONE
+	setwildbattle SPECIES_CROBAT, 1, ITEM_NONE
 	dowildbattle
 	clearflag FLAG_NO_WILD_CATCHING
 	clearflag FLAG_NO_SHINY
@@ -421,7 +421,7 @@ Route34_EventScript_Yami_BattleAlakazam::
 	setflag FLAG_NO_WILD_CATCHING
 	setflag FLAG_NO_SHINY
 	setflag FLAG_SPARRING_NO_EVS
-	setwildbattle SPECIES_ALAKAZAM, 35, ITEM_NONE
+	setwildbattle SPECIES_ALAKAZAM, 1, ITEM_NONE
 	dowildbattle
 	clearflag FLAG_NO_WILD_CATCHING
 	clearflag FLAG_NO_SHINY
@@ -434,7 +434,7 @@ Route34_EventScript_Yami_BattleTentacruel::
 	setflag FLAG_NO_WILD_CATCHING
 	setflag FLAG_NO_SHINY
 	setflag FLAG_SPARRING_NO_EVS
-	setwildbattle SPECIES_TENTACRUEL, 35, ITEM_NONE
+	setwildbattle SPECIES_TENTACRUEL, 1, ITEM_NONE
 	dowildbattle
 	clearflag FLAG_NO_WILD_CATCHING
 	clearflag FLAG_NO_SHINY
