@@ -229,6 +229,7 @@ GoldenrodDeptStore_Text_2FDirectory:
 GoldenrodDeptStore2_EventScript_ElPiedras::
 	lock
 	faceplayer
+	setflag FLAG_HIDE_VIOLET_SCHOOL_EL_PIEDRAS
 	goto_if_set FLAG_DEFEATED_EL_PIEDRAS_GOLDENROD, GoldenrodDeptStore2_EventScript_ElPiedrasAfter
 	goto_if_set FLAG_BOUGHT_USELESS_STONE, GoldenrodDeptStore2_EventScript_ElPiedrasAlreadyBought
 	showmoneybox 0, 0
@@ -326,4 +327,3 @@ GoldenrodCity_Text_ElPiedrasPostBattle:
 	.string "colega a vaciarle la nevera y a\l"
 	.string "jugar al LoL hasta las tantas.\l"
 	.string "¡Volverás a oír de mis proyectos!$"
-
