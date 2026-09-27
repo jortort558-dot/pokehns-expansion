@@ -86,75 +86,76 @@ Route12_Text_Magikarp:
 	.string "MAGIKARP: Kaaaarp.$"
 
 Route12_Text_NewFisher:
-	.string "Careful, something vicious lives in\n"
-	.string "these waters.$"
+	.string "Cuidado, algo feroz vive en estas\n"
+	.string "aguas.$"
 
 Route12_Text_FisherMartinSeen:
-	.string "Patience is the key to both\n"
-	.string "fishing and POKéMON.$"
-
+	.string "La paciencia es la"
+	.string "\nclave para pescar"
+	.string "\l$y criar POKéMON."
 Route12_Text_FisherMartinBeaten:
 	.string "Gwaaah!$"
 
 Route12_Text_FisherMartinAfterBattle:
-	.string "I'm too impatient for fishing…$"
+	.string "Soy demasiado impaciente para\n"
+	.string "pescar…$"
 
 Route12_Text_FisherStephenSeen:
-	.string "I feel so content, fishing while\n"
-	.string "listening to some tunes on my\l"
-	.string "radio.$"
+	.string "Me encanta pescar mientras escucho\n"
+	.string "música en la radio.$"
 
 Route12_Text_FisherStephenBeaten:
-	.string "My stupid radio distracted me!$"
+	.string "¡Mi estúpida radio me distrajo!$"
 
 Route12_Text_FisherStephenAfterBattle:
-	.string "Have you checked out KANTO's radio\n"
-	.string "programs? We get a good variety\l"
-	.string "here.$"
-
+	.string "¿Conoces las"
+	.string "\nemisoras de"
+	.string "\pradio de KANTO?"
+	.string "\n$Tenemos muchas."
 Route12_Text_FisherBarneySeen:
-	.string "What's most important in our\n"
-	.string "everyday lives?$"
-
+	.string "¿Qué es lo más"
+	.string "\nimportante en"
+	.string "\l$nuestras vidas?"
 Route12_Text_FisherBarneyBeaten:
-	.string "The answer is coming up next!$"
-
+	.string "¡La respuesta"
+	.string "\n$vendrá luego!"
 Route12_Text_FisherBarneyAfterBattle:
-	.string "I think electricity is the most\n"
-	.string "important thing in our daily\l"
-	.string "lives.\p"
-	.string "If it weren't, people wouldn't\n"
-	.string "have made such a fuss when the\l"
-	.string "POWER PLANT went out of\l"
-	.string "commission.$"
-
+	.string "Creo que la"
+	.string "\nelectricidad es lo"
+	.string "\pmás importante en"
+	.string "\nnuestras vidas."
+	.string "\pSi no lo fuera, no"
+	.string "\nse habría montado"
+	.string "\ptanto follón"
+	.string "\ncuando se estropeó"
+	.string "\pla CENTRAL"
+	.string "\n$ENERGÍA."
 Route12_Text_KyleRegister:
-	.string "I'll remember this.\n"
-	.string "Give me your number!$"
+	.string "No olvidaré esto.\n"
+	.string "¡Dame tu número!$"
 
 Route12_Text_KyleRematchIntro:
-	.string "Did you forget?\n"
-	.string "Let's see!$"
+	.string "¿Te habías olvidado?\n"
+	.string "¡Vamos a comprobarlo!$"
 
 Route12_Text_KyleRematchDefeat:
-	.string "You remembered.$"
+	.string "Te acordabas.$"
 
 Route12_Text_KylePostRematch:
-	.string "The thrill of battle is almost\n"
-	.string "as good as a big catch!$"
+	.string "¡La emoción de luchar casi iguala\n"
+	.string "a la de una gran captura!$"
 
 Route12_Text_FisherKyleSeen:
-	.string "Do you remember?$"
-
+	.string "$¿Te acuerdas?"
 Route12_Text_FisherKyleBeaten:
-	.string "You do remember?$"
-
+	.string "$Te acuerdas, ¿no?"
 Route12_Text_FisherKyleAfterBattle:
-	.string "The tug you feel on the ROD when\n"
-	.string "you hook a POKéMON…\p"
-	.string "That's the best feeling ever for\n"
-	.string "an angler like me.$"
-
+	.string "El tirón de la"
+	.string "\nCAÑA cuando ha"
+	.string "\lpicado un POKéMON…"
+	.string "\pÉsa es la mejor"
+	.string "\nsensación para un"
+	.string "\l$pescador como yo."
 Route12_EventScript_Sign::
 	msgbox Route12_Text_Sign, MSGBOX_SIGN
 	end
@@ -164,9 +165,8 @@ Route12_EventScript_FishingSign::
 	end
 
 Route12_Text_Sign:
-	.string "ROUTE 12\p"
-	.string "NORTH TO LAVENDER TOWN$"
-
+	.string "RUTA 12"
+	.string "\pPUEBLO LAVANDA"
+	.string "\n$HACIA EL NORTE"
 Route12_Text_FishingSpotSign:
 	.string "FISHING SPOT$"
-

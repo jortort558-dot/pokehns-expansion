@@ -33,64 +33,66 @@ Route8_EventScript_Tom::
 	end
 
 Route8_Text_BikerDwayneSeen:
-	.string "We're the KANTO POKéMON FEDERATION\n"
-	.string "trainer group.\p"
-	.string "We'll drive you under our wheels!$"
-
+	.string "Somos el grupo de"
+	.string "\nentrenadores de la"
+	.string "\pFEDERACIÓN POKéMON"
+	.string "\nde KANTO."
+	.string "\p¡Te vamos a"
+	.string "\n$arrollar!"
 Route8_Text_BikerDwayneBeaten:
-	.string "S-sorry!$"
-
+	.string "$¡Lo… lo siento!"
 Route8_Text_BikerDwayneAfter:
-	.string "The KANTO POKéMON FEDERATION will\n"
-	.string "never fall!$"
-
+	.string "¡Viva la"
+	.string "\nFEDERACIÓN"
+	.string "\l$POKéMON de KANTO!"
 Route8_Text_BikerHarrisSeen:
-	.string "The cops shut down our\n"
-	.string "UNDERGROUND PATH!\p"
-	.string "That really fries me!$"
-
+	.string "La policía ha"
+	.string "\ncerrado la VÍA"
+	.string "\pSUBTERRÁNEA."
+	.string "\n$¡Qué fastidio!"
 Route8_Text_BikerHarrisBeaten:
-	.string "F-forgive me!$"
+	.string "¡P-perdóname!$"
 
 Route8_Text_BikerHarrisAfter:
-	.string "Wiped out by some punk from\n"
-	.string "JOHTO…$"
-
+	.string "Destruido por"
+	.string "\n$alguien de JOHTO…"
 Route8_Text_BikerZekeSeen:
-	.string "We're the KANTO POKéMON FEDERA-\n"
-	.string "TION!\n"
-	.string "Right on!$"
-
+	.string "Somos la"
+	.string "\nFEDERACIÓN"
+	.string "\pPOKéMON de KANTO."
+	.string "\n$¡Allá vamos!"
 Route8_Text_BikerZekeBeaten:
-	.string "Yikes! Sorry!$"
-
+	.string "$¡Vaya! ¡Perdona!"
 Route8_Text_BikerZekeAfter:
-	.string "We'll try not to disturb anyone\n"
-	.string "from now on…$"
-
+	.string "Intentaremos no"
+	.string "\nmolestar a nadie"
+	.string "\l$a partir de ahora."
 Route8_Text_SupernerdSamSeen:
-	.string "How does the MAGNET TRAIN work?$"
-
+	.string "¿Cómo funciona el"
+	.string "\n$MAGNETOTRÉN?"
 Route8_Text_SupernerdSamBeaten:
-	.string "I just want to see the MAGNET\n"
-	.string "TRAIN…$"
-
+	.string "Quiero ver el"
+	.string "\n$MAGNETOTRÉN…"
 Route8_Text_SupernerdSamAfter:
-	.string "The power of magnets is awesome!$"
+	.string "¡El poder magnético es increíble!$"
 
 Route8_Text_SupernerdTomSeen:
-	.string "Hm… You've got many GYM BADGES.$"
-
+	.string "Mmm… Tienes muchas"
+	.string "\nMEDALLAS de"
+	.string "\l$GIMNASIO."
 Route8_Text_SupernerdTomBeaten:
-	.string "Just as I thought… You're tough!$"
-
+	.string "Tal y como pensé…"
+	.string "\n$¡Eres fuerte!"
 Route8_Text_SupernerdTomAfter:
-	.string "GYM BADGES give you advantages in\n"
-	.string "battles.$"
-
+	.string "Las MEDALLAS de"
+	.string "\nGIMNASIO te dan"
+	.string "\pventaja en los"
+	.string "\n$combates."
 Route8_Text_LockedDoor:
-	.string "It's locked…$"
+	.string "Está cerrado…$"
 
 Route8_Text_UndergroundPathSign:
-	.string "The flyer's torn.\p"
-	.string "It's impossible to read…$"
+	.string "El cartel está"
+	.string "\nroto."
+	.string "\pEs imposible"
+	.string "\n$leerlo…"

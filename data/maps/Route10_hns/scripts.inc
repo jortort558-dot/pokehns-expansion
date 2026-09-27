@@ -21,11 +21,11 @@ Route10_EventScript_Surge::
     end
 
 Route10_Text_Surge:
-    .string "Hey, kid!\p"
-	.string "Keep your guard up out here,\n"
-	.string "this place is cracklin' with power!\p"
-	.string "If you want a rematch, report to\n"
-	.string "the FIGHTING DOJO!$"
+    .string "¡Eh, chaval!\p"
+	.string "¡No bajes la guardia! Este lugar\n"
+	.string "está cargado de electricidad.\p"
+	.string "Si quieres la revancha, ve al\n"
+	.string "DOJO-KARATE.$"
 
 Route10_EventScript_Item_Rock_Polish::
     finditem ITEM_TM_ROCK_POLISH
@@ -80,23 +80,29 @@ Route10_Text_HikerJimBeaten:
 	.string "Hahaha-hachoo!$"
 
 Route10_Text_HikerJimAfter:
-	.string "Hay fever is making me sneeze!\n"
+	.string "¡La alergia me hace estornudar!\n"
 	.string "Ahahah-CHOO!$"
 
 Route10_Text_PokefanmRobertSeen:
-	.string "You like POKéMON, don't you?\p"
-	.string "Me too!$"
-
+	.string "Te gustan los"
+	.string "\nPOKéMON, ¿verdad?"
+	.string "\p$¡A mí también!"
 Route10_Text_PokefanmRobertBeaten:
-	.string "I'd have to say that's my loss.$"
-
+	.string "Debo admitir mi"
+	.string "\n$derrota."
 Route10_Text_PokefanmRobertAfter:
-	.string "Look what you did to my POKéMON…\p"
-	.string "I won't forget this…$"
-
+	.string "Mira lo que le has"
+	.string "\nhecho a mi"
+	.string "\lPOKéMON."
+	.string "\p$No lo olvidaré…"
 Route10_Text_PowerPlant:
-	.string "POWER PLANT$"
-
+	.string "¿Has oído lo del"
+	.string "\naccidente de la"
+	.string "\lCENTRAL ENERGÍA?"
+	.string "\pSe encuentra al"
+	.string "\nEste, cerca de"
+	.string "\l$PUEBLO LAVANDA."
 Route10_Text_Sign:
-	.string "ROUTE 10\p"
-	.string "CERULEAN CITY - LAVENDER TOWN$"
+	.string "RUTA 10"
+	.string "\pCIUDAD CELESTE -"
+	.string "\n$PUEBLO LAVANDA"

@@ -15,12 +15,12 @@ PewterCity_PokemonCenter_EventScript_BugCatcher::
 	end
 
 PewterCity_PokemonCenter1F_Text_Teacher:
-	.string "…Yeah, and the GYM in CINNABAR's gone.\p"
-	.string "I was really amazed.\p"
-	.string "…Yes? I'm on the phone. Go away!$"
+	.string "El GIMNASIO de CANELA ya no está.\p"
+	.string "Me quedé de piedra.\p"
+	.string "¿Qué? Hablo por teléfono. ¡Vete!$"
 
 PewterCity_PokemonCenter1F_Text_Jigglypuff:
-	.string "JIGGLYPUFF: Puu pupuu.$"
+	.string "JIGGLYPUFF: Puu, pupuu.$"
 
 PewterCity_PokemonCenter_EventScript_Mondo::
 	lock
@@ -48,29 +48,29 @@ PewterCity_PokemonCenter_EventScript_TradeCompleted::
 	end
 
 PewterCity_PokemonCenter_Text_WantToTrade:
-	.string "I've been traveling all over, looking\n"
-	.string "for a good {STR_VAR_1}.\p"
-	.string "Would you trade one for my\n"
+	.string "He viajado por doquier buscando\n"
+	.string "un buen {STR_VAR_1}.\p"
+	.string "¿Cambiarías uno por mi\n"
 	.string "{STR_VAR_2}?$"
 
 PewterCity_PokemonCenter_Text_TakeCare:
-	.string "Thanks a bunch!\n"
-	.string "Take good care of my {STR_VAR_1}!$"
+	.string "¡Muchas gracias!\n"
+	.string "¡Cuida bien de mi {STR_VAR_1}!$"
 
 PewterCity_PokemonCenter_Text_DeclineTrade:
-	.string "No? That's too bad…\n"
-	.string "I think you'd like my HAUNTER.$"
+	.string "¿No? Qué lástima…\n"
+	.string "Creo que te gustaría mi HAUNTER.$"
 
 PewterCity_PokemonCenter_Text_NotRequestedMon:
-	.string "Hmm, that's not a {STR_VAR_1}.\n"
-	.string "That's not what I'm looking for.$"
+	.string "Mmm, ese no es un {STR_VAR_1}.\n"
+	.string "No es lo que busco.$"
 
 PewterCity_PokemonCenter_Text_TradeCompleted:
-	.string "How's that HAUNTER treating you?\n"
-	.string "It's a real trickster!$"
+	.string "¿Qué tal te trata HAUNTER?\n"
+	.string "¡Es todo un bromista!$"
 
 PewterCity_PokemonCenter1F_Text_BugCatcher:
-	.string "Most POKéMON get drowsy if they hear a\n"
-	.string "JIGGLYPUFF singing.\p"
-	.string "There are several moves that can be\n"
-	.string "used only while a POKéMON is asleep.$"
+	.string "Casi todos los POKéMON se adormecen\n"
+	.string "al oír cantar a JIGGLYPUFF.\p"
+	.string "Hay movimientos que solo se usan\n"
+	.string "mientras un POKéMON duerme.$"

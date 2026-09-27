@@ -19,16 +19,21 @@ Route5_House_EventScript_Woman::
 	end
 
 Route5_House_Text_Granny1:
-	.string "Eeyaaaah!\p"
-	.string "I sense a sinister shadow\n"
-	.string "hovering over you.\l"
-	.string "Take this to ward it off!$"
-
+	.string "¡Aaaayy!"
+	.string "\pSiento que una"
+	.string "\nsiniestra sombra"
+	.string "\pse cierne sobre"
+	.string "\nti."
+	.string "\p¡Toma esto para"
+	.string "\n$protegerte!"
 Route5_House_Text_Granny2:
-	.string "You were in mortal danger, but\n"
-	.string "you're protected now.$"
-
+	.string "Corrías un peligro"
+	.string "\nmortal, pero ahora"
+	.string "\l$estás a salvo."
 Route5_House_Text_Woman:
-	.string "My grandma is into warding off what\n"
-	.string "she believes to be evil spirits.\p"
-	.string "I'm sorry that she startled you.$"
+	.string "A mi abuela le"
+	.string "\ngusta protegerse"
+	.string "\pcontra supuestos"
+	.string "\nmalos espíritus."
+	.string "\pPerdona si te"
+	.string "\n$ha asustado."
