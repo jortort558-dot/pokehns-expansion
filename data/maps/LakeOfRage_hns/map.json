@@ -250,7 +250,7 @@
       "local_id": "LOCALID_LAKEOFRAGE_SILVER",
       "graphics_id": "OBJ_EVENT_GFX_SILVER_HNS",
       "x": 30,
-      "y": 28,
+      "y": 37,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -259,6 +259,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LakeOfRage_EventScript_Silver",
       "flag": "FLAG_HIDE_LAKE_OF_RAGE_SILVER"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
+      "x": 38,
+      "y": 40,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LakeOfRage_EventScript_ElPiedras",
+      "flag": "FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS"
     }
   ],
   "warp_events": [
@@ -277,53 +290,7 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 29,
-      "y": 38,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "LakeOfRage_EventScript_SilverTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 30,
-      "y": 38,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "LakeOfRage_EventScript_SilverTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 31,
-      "y": 38,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "LakeOfRage_EventScript_SilverTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 32,
-      "y": 38,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "LakeOfRage_EventScript_SilverTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 33,
-      "y": 38,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "LakeOfRage_EventScript_SilverTrigger"
-    }
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

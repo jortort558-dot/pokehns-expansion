@@ -5,6 +5,7 @@ LakeOfRage_hns_MapScripts::
 LakeOfRage_OnTransition::
 	setflag FLAG_VISITED_LAKE_OF_RAGE
 	call LakeOfRage_EventScript_SetupSilver
+	call LakeOfRage_EventScript_SetupElPiedras
 	call_if_lt VAR_MAHOGANY_TOWN_STATE, 2, LakeOfRage_EventScript_HideLois
 	goto_if_lt VAR_MAHOGANY_TOWN_STATE, 14, LakeOfRage_EventScript_SetHighTide
 	special UpdateShoalTideFlag
@@ -32,7 +33,24 @@ LakeOfRage_EventScript_ThunderStorm::
 	end
 
 LakeOfRage_EventScript_SetupSilver::
+	goto_if_set FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_HideSilver
+	goto_if_set FLAG_HIDE_LAKE_OF_RAGE_GYARADOS, LakeOfRage_EventScript_HideSilver
+	goto_if_lt VAR_MAHOGANY_TOWN_STATE, 1, LakeOfRage_EventScript_HideSilver
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
+	return
+
+LakeOfRage_EventScript_HideSilver::
 	setflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
+	return
+
+LakeOfRage_EventScript_SetupElPiedras::
+	goto_if_unset FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_HideElPiedras
+	goto_if_ge VAR_GOLDENROD_CITY_STATE, 10, LakeOfRage_EventScript_HideElPiedras
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
+	return
+
+LakeOfRage_EventScript_HideElPiedras::
+	setflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
 	return
 
 LakeOfRage_EventScript_Pryce::
@@ -51,36 +69,6 @@ LakeOfRage_EventScript_Pryce::
 LakeOfRage_Text_Pryce:
 	.string "{PLAYER}.\pIncluso aquí, el frío me mantiene\ndespejado.\pSi deseas volver a combatir, ven al\nDOJO DE LUCHA.$"
 
-LakeOfRage_EventScript_SilverTrigger::
-	goto_if_set FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_SilverTriggerEnd
-	goto_if_set FLAG_HIDE_LAKE_OF_RAGE_GYARADOS, LakeOfRage_EventScript_SilverTriggerEnd
-	goto_if_lt VAR_MAHOGANY_TOWN_STATE, 1, LakeOfRage_EventScript_SilverTriggerEnd
-	lockall
-	clearflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
-	addobject LOCALID_LAKEOFRAGE_SILVER
-	applymovement LOCALID_LAKEOFRAGE_SILVER, LakeOfRage_Movement_SilverApproach
-	waitmovement LOCALID_LAKEOFRAGE_SILVER
-	turnobject LOCALID_LAKEOFRAGE_SILVER, DIR_NORTH
-	delay 30
-	msgbox LakeOfRage_Text_SilverGyaradosAwesome, MSGBOX_DEFAULT
-	applymovement LOCALID_LAKEOFRAGE_SILVER, Common_Movement_ExclamationMark
-	waitmovement LOCALID_LAKEOFRAGE_SILVER
-	turnobject LOCALID_LAKEOFRAGE_SILVER, DIR_SOUTH
-	msgbox LakeOfRage_Text_SilverNoticePlayer, MSGBOX_DEFAULT
-	goto LakeOfRage_EventScript_SilverBattle
-
-LakeOfRage_EventScript_SilverAtGyaradosTrigger::
-	lockall
-	clearflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
-	addobject LOCALID_LAKEOFRAGE_SILVER
-	turnobject LOCALID_LAKEOFRAGE_SILVER, DIR_NORTH
-	delay 30
-	msgbox LakeOfRage_Text_SilverGyaradosAwesome, MSGBOX_DEFAULT
-	applymovement LOCALID_LAKEOFRAGE_SILVER, Common_Movement_ExclamationMark
-	waitmovement LOCALID_LAKEOFRAGE_SILVER
-	turnobject LOCALID_LAKEOFRAGE_SILVER, DIR_SOUTH
-	msgbox LakeOfRage_Text_SilverNoticePlayer, MSGBOX_DEFAULT
-
 LakeOfRage_EventScript_SilverBattle::
 	setflag FLAG_MEGA_SYSTEM_UNLOCKED
 	call_if_eq VAR_STARTER_MON, 0, LakeOfRage_EventScript_SilverCyndaquil
@@ -89,13 +77,18 @@ LakeOfRage_EventScript_SilverBattle::
 	goto LakeOfRage_EventScript_SilverRewards
 
 LakeOfRage_EventScript_Silver::
-	lock
+	lockall
 	faceplayer
 	goto_if_defeated TRAINER_RIVAL_CHIKORITA_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
 	goto_if_defeated TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
 	goto_if_defeated TRAINER_RIVAL_TOTODILE_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
-	release
-	goto LakeOfRage_EventScript_SilverTrigger
+	delay 30
+	msgbox LakeOfRage_Text_SilverGyaradosAwesome, MSGBOX_DEFAULT
+	applymovement LOCALID_LAKEOFRAGE_SILVER, Common_Movement_ExclamationMark
+	waitmovement LOCALID_LAKEOFRAGE_SILVER
+	faceplayer
+	msgbox LakeOfRage_Text_SilverNoticePlayer, MSGBOX_DEFAULT
+	goto LakeOfRage_EventScript_SilverBattle
 
 LakeOfRage_EventScript_SilverCyndaquil::
 	trainerbattle_no_intro TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS, LakeOfRage_Text_SilverDefeat
@@ -139,21 +132,6 @@ LakeOfRage_EventScript_SilverNoRoom::
 	msgbox LakeOfRage_Text_SilverNoRoom, MSGBOX_DEFAULT
 	releaseall
 	end
-
-LakeOfRage_EventScript_SilverTriggerEnd::
-	end
-
-LakeOfRage_Movement_SilverApproach:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
 
 LakeOfRage_Movement_SilverLeave:
 	walk_left
@@ -213,6 +191,29 @@ LakeOfRage_Text_SilverNoRoom:
 	.string "llenos! Haz sitio y vuelve.\p"
 	.string "No pienso cargar con este trasto\n"
 	.string "eternamente, pringao.$"
+
+LakeOfRage_EventScript_ElPiedras::
+	lock
+	faceplayer
+	msgbox LakeOfRage_Text_ElPiedras, MSGBOX_DEFAULT
+	setflag FLAG_TALKED_EL_PIEDRAS_LAKE_OF_RAGE
+	closemessage
+	release
+	end
+
+LakeOfRage_Text_ElPiedras:
+	.string "¡Hermano! Menuda vista hay aquí.\p"
+	.string "¿Has visto al tipo pelirrojo\n"
+	.string "activar una mega-transformación\l"
+	.string "digna de anime shonen?\p"
+	.string "¡Esas piedras de mega-evolución\n"
+	.string "existen de verdad! ¡El mercado no\l"
+	.string "estaba inflado, socio!\p"
+	.string "Los del Team Rocket salieron por\n"
+	.string "patas dejando suministros.\p"
+	.string "En cuanto los barras de la Torre\n"
+	.string "Radio de Trigal, ¡voy a reventar\l"
+	.string "el monopolio de las tiendas!$"
 LakeOfRage_EventScript_Gramps::
 	goto_if_ge VAR_MAHOGANY_TOWN_STATE, 14, LakeOfRage_EventScript_Gramps2
 	msgbox LakeOfRage_Text_Gramps, MSGBOX_NPC
@@ -250,7 +251,7 @@ LakeOfRage_EventScript_Lois::
 	end
 
 LakeOfRage_EventScript_Gyarados::
-	goto_if_unset FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_SilverAtGyaradosTrigger
+	goto_if_unset FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_TalkToSilverFirst
 	lock
 	faceplayer
 	msgbox LakeOfRage_Text_GyaradosCry, MSGBOX_DEFAULT
@@ -275,6 +276,14 @@ LakeOfRage_EventScript_Defeated_Gyarados::
 	setvar VAR_MAHOGANY_TOWN_STATE, 2
 	release
 	end
+
+LakeOfRage_EventScript_TalkToSilverFirst::
+	msgbox LakeOfRage_Text_TalkToSilverFirst, MSGBOX_NPC
+	end
+
+LakeOfRage_Text_TalkToSilverFirst:
+	.string "El chico pelirrojo no aparta la\n"
+	.string "mirada del GYARADOS rojo.$"
 
 LakeOfRage_EventScript_Ran_Gyarados::
 	release
