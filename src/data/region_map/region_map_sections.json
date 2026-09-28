@@ -1729,15 +1729,6 @@
       "width": 1,
       "height": 1,
       "in_hns": true
-    },
-    {
-      "id": "MAPSEC_GOLDENROD_CITY"
-    },
-    {
-      "id": "MAPSEC_LAKE_OF_RAGE"
-    },
-    {
-      "id": "MAPSEC_ROUTE_43"
     }
   ],
   "hns_map_sections": [
