@@ -2397,3 +2397,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Akala_Cave_hns/scripts.inc"
 
 .endif
+
+	.include "data/maps/GoldenrodCity_House4_hns_/scripts.inc"

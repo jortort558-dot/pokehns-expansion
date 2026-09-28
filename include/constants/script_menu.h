@@ -196,6 +196,7 @@
 #define MULTI_MANOLIN_CAOBA                 185
 #define MULTI_MANOLIN_ENDRINO               186
 #define MULTI_YAMI_TRAINING                 187
+#define MULTI_IGOR_BAR                      188
 
 #define MULTI_NONE 255
 

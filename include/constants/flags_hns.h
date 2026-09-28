@@ -462,8 +462,9 @@
 #define FLAG_ITEM_GS_BALL                           (HNS_ITEM_BALL_START + 231)
 #define FLAG_ITEM_LUCKY_PUNCH                       (HNS_ITEM_BALL_START + 232)
 #define FLAG_HIDDEN_ITEM_MACHINE_PART               (HNS_ITEM_BALL_START + 233)
+#define FLAG_ITEM_GOLDENROD_UNDERGROUND_BAR         (HNS_ITEM_BALL_START + 234)
 
-#define HNS_ITEM_BALL_COUNT                         234
+#define HNS_ITEM_BALL_COUNT                         235
 
 // Quest / Story Progress
 #define HNS_QUEST_START                             0x1D4

@@ -1321,6 +1321,18 @@ static const struct MenuAction MultichoiceList_YamiTraining[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_IgorBar[] =
+{
+    {COMPOUND_STRING("CHUPITO PS (1)")},
+    {COMPOUND_STRING("CHUPITO ATAQUE (1)")},
+    {COMPOUND_STRING("CHUPITO DEFENSA (1)")},
+    {COMPOUND_STRING("CHUPITO AT. ESP (1)")},
+    {COMPOUND_STRING("CHUPITO DEF. ESP (1)")},
+    {COMPOUND_STRING("CHUPITO VELOC. (1)")},
+    {COMPOUND_STRING("CUBATA (6 VALES)")},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1522,6 +1534,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_MANOLIN_CAOBA]              = MULTICHOICE(MultichoiceList_ManolinCaoba),
     [MULTI_MANOLIN_ENDRINO]            = MULTICHOICE(MultichoiceList_ManolinEndrino),
     [MULTI_YAMI_TRAINING]              = MULTICHOICE(MultichoiceList_YamiTraining),
+    [MULTI_IGOR_BAR]                   = MULTICHOICE(MultichoiceList_IgorBar),
 };
 
 const u8 *const gStdStrings[] =

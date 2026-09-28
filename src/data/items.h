@@ -17661,6 +17661,163 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_HardStone,
         .iconPalette = gItemIconPalette_HardStone,
     },
+
+    [ITEM_FESTIVAL_TICKET] =
+    {
+        .name = ITEM_NAME("VALE FIESTA"),
+        .pluralName = ITEM_PLURAL_NAME("VALES FIESTA"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Cupón de fiesta canjeable\n"
+            "en el bar subterráneo por\n"
+            "chupitos que aumentan los\n"
+            "IVs de tus Pokémon."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+        .iconPic = gItemIcon_HnsPass,
+        .iconPalette = gItemIconPalette_HnsPass,
+    },
+
+    [ITEM_CHUPITO_PS] =
+    {
+        .name = ITEM_NAME("CHUPITO PS"),
+        .pluralName = ITEM_PLURAL_NAME("CHUPITOS PS"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Trago tonificante que\n"
+            "maximiza de inmediato los\n"
+            "puntos de salud (IVs de PS\n"
+            "a 31) de un Pokémon."),
+        .pocket = POCKET_MEDICINE,
+        .sortType = ITEM_TYPE_STAT_BOOST_DRINK,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Chupito,
+        .secondaryId = MON_DATA_HP_IV,
+        .flingPower = 30,
+        .iconPic = gItemIcon_HPUp,
+        .iconPalette = gItemIconPalette_HPUp,
+    },
+
+    [ITEM_CHUPITO_ATK] =
+    {
+        .name = ITEM_NAME("CHUPITO ATAQUE"),
+        .pluralName = ITEM_PLURAL_NAME("CHUPITOS ATAQUE"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Trago de fuego que\n"
+            "maximiza la fuerza de un\n"
+            "Pokémon (IVs de Ataque\n"
+            "a 31)."),
+        .pocket = POCKET_MEDICINE,
+        .sortType = ITEM_TYPE_STAT_BOOST_DRINK,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Chupito,
+        .secondaryId = MON_DATA_ATK_IV,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Vitamin,
+        .iconPalette = gItemIconPalette_Protein,
+    },
+
+    [ITEM_CHUPITO_DEF] =
+    {
+        .name = ITEM_NAME("CHUPITO DEFENSA"),
+        .pluralName = ITEM_PLURAL_NAME("CHUPITOS DEFENSA"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Trago denso que maximiza\n"
+            "la solidez de un Pokémon\n"
+            "(IVs de Defensa a 31)."),
+        .pocket = POCKET_MEDICINE,
+        .sortType = ITEM_TYPE_STAT_BOOST_DRINK,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Chupito,
+        .secondaryId = MON_DATA_DEF_IV,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Vitamin,
+        .iconPalette = gItemIconPalette_Iron,
+    },
+
+    [ITEM_CHUPITO_SPATK] =
+    {
+        .name = ITEM_NAME("CHUPITO AT. ESP"),
+        .pluralName = ITEM_PLURAL_NAME("CHUPITOS AT. ESP"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Trago chispeante que\n"
+            "maximiza el poder mental\n"
+            "de un Pokémon (IVs de At.\n"
+            "Especial a 31)."),
+        .pocket = POCKET_MEDICINE,
+        .sortType = ITEM_TYPE_STAT_BOOST_DRINK,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Chupito,
+        .secondaryId = MON_DATA_SPATK_IV,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Vitamin,
+        .iconPalette = gItemIconPalette_Calcium,
+    },
+
+    [ITEM_CHUPITO_SPDEF] =
+    {
+        .name = ITEM_NAME("CHUPITO DEF. ESP"),
+        .pluralName = ITEM_PLURAL_NAME("CHUPITOS DEF. ESP"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Trago aromático que\n"
+            "maximiza el aguante de un\n"
+            "Pokémon (IVs de Def.\n"
+            "Especial a 31)."),
+        .pocket = POCKET_MEDICINE,
+        .sortType = ITEM_TYPE_STAT_BOOST_DRINK,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Chupito,
+        .secondaryId = MON_DATA_SPDEF_IV,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Vitamin,
+        .iconPalette = gItemIconPalette_Zinc,
+    },
+
+    [ITEM_CHUPITO_SPEED] =
+    {
+        .name = ITEM_NAME("CHUPITO VELOCIDAD"),
+        .pluralName = ITEM_PLURAL_NAME("CHUPITOS VELOCIDAD"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Trago efervescente que\n"
+            "maximiza los reflejos de\n"
+            "un Pokémon (IVs de\n"
+            "Velocidad a 31)."),
+        .pocket = POCKET_MEDICINE,
+        .sortType = ITEM_TYPE_STAT_BOOST_DRINK,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Chupito,
+        .secondaryId = MON_DATA_SPEED_IV,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Vitamin,
+        .iconPalette = gItemIconPalette_Carbos,
+    },
+
+    [ITEM_CUBATA] =
+    {
+        .name = ITEM_NAME("CUBATA"),
+        .pluralName = ITEM_PLURAL_NAME("CUBATAS"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "La copa definitiva de\n"
+            "fiesta. Maximiza al\n"
+            "instante las 6 estadísticas\n"
+            "(todos los IVs a 31)."),
+        .pocket = POCKET_MEDICINE,
+        .sortType = ITEM_TYPE_STAT_BOOST_DRINK,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Chupito,
+        .secondaryId = 0xFF,
+        .flingPower = 30,
+        .iconPic = gItemIcon_FreshWater,
+        .iconPalette = gItemIconPalette_SodaPop,
+    },
 };
 
 #undef ITEM_NAME

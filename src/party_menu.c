@@ -5287,6 +5287,151 @@ void ItemUseCB_Mint(u8 taskId, TaskFunc task)
 #undef tNewNature
 #undef tOldFunc
 
+#define tState      data[0]
+#define tMonId      data[1]
+#define tIvType     data[2]
+#define tOldFunc    4
+
+static void Task_Chupito(u8 taskId)
+{
+    static const u8 sText_ChupitoAsk[] = _("¿Quieres darle este trago a\n{STR_VAR_1}?");
+    static const u8 sText_ChupitoDoneSingle[] = _("¡El potencial de {STR_VAR_1} ha\nllegado al máximo (31 IVs)!{PAUSE_UNTIL_PRESS}");
+    static const u8 sText_ChupitoDoneAll[] = _("¡{STR_VAR_1} ha alcanzado la cima!\n¡Todos sus IVs han subido a 31!{PAUSE_UNTIL_PRESS}");
+    s16 *data = gTasks[taskId].data;
+    struct Pokemon *mon = &gPlayerParty[tMonId];
+
+    switch (tState)
+    {
+    case 0:
+        if (GetMonData(mon, MON_DATA_IS_EGG))
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            return;
+        }
+
+        // Check if stats are already 31
+        if (tIvType == 0xFF)
+        {
+            if (GetMonData(mon, MON_DATA_HP_IV) == 31 &&
+                GetMonData(mon, MON_DATA_ATK_IV) == 31 &&
+                GetMonData(mon, MON_DATA_DEF_IV) == 31 &&
+                GetMonData(mon, MON_DATA_SPEED_IV) == 31 &&
+                GetMonData(mon, MON_DATA_SPATK_IV) == 31 &&
+                GetMonData(mon, MON_DATA_SPDEF_IV) == 31)
+            {
+                gPartyMenuUseExitCallback = FALSE;
+                PlaySE(SE_SELECT);
+                DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
+                ScheduleBgCopyTilemapToVram(2);
+                gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+                return;
+            }
+        }
+        else
+        {
+            if (GetMonData(mon, tIvType) == 31)
+            {
+                gPartyMenuUseExitCallback = FALSE;
+                PlaySE(SE_SELECT);
+                DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
+                ScheduleBgCopyTilemapToVram(2);
+                gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+                return;
+            }
+        }
+
+        gPartyMenuUseExitCallback = TRUE;
+        GetMonNickname(mon, gStringVar1);
+        StringExpandPlaceholders(gStringVar4, sText_ChupitoAsk);
+        PlaySE(SE_SELECT);
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);
+        tState++;
+        break;
+    case 1:
+        if (!IsPartyMenuTextPrinterActive())
+        {
+            PartyMenuDisplayYesNoMenu();
+            tState++;
+        }
+        break;
+    case 2:
+        switch (Menu_ProcessInputNoWrapClearOnChoose())
+        {
+        case 0:
+            tState++;
+            break;
+        case 1:
+        case MENU_B_PRESSED:
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            ScheduleBgCopyTilemapToVram(2);
+            ClearStdWindowAndFrameToTransparent(6, 0);
+            ClearWindowTilemap(6);
+            DisplayPartyMenuStdMessage(5);
+            gTasks[taskId].func = (void *)GetWordTaskArg(taskId, tOldFunc);
+            return;
+        }
+        break;
+    case 3:
+        PlaySE(SE_USE_ITEM);
+        if (tIvType == 0xFF)
+            StringExpandPlaceholders(gStringVar4, sText_ChupitoDoneAll);
+        else
+            StringExpandPlaceholders(gStringVar4, sText_ChupitoDoneSingle);
+
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);
+        tState++;
+        break;
+    case 4:
+        if (!IsPartyMenuTextPrinterActive())
+            tState++;
+        break;
+    case 5:
+        {
+            u32 maxIv = 31;
+            if (tIvType == 0xFF)
+            {
+                SetMonData(mon, MON_DATA_HP_IV, &maxIv);
+                SetMonData(mon, MON_DATA_ATK_IV, &maxIv);
+                SetMonData(mon, MON_DATA_DEF_IV, &maxIv);
+                SetMonData(mon, MON_DATA_SPEED_IV, &maxIv);
+                SetMonData(mon, MON_DATA_SPATK_IV, &maxIv);
+                SetMonData(mon, MON_DATA_SPDEF_IV, &maxIv);
+            }
+            else
+            {
+                SetMonData(mon, tIvType, &maxIv);
+            }
+            CalculateMonStats(mon);
+            RemoveBagItem(gSpecialVar_ItemId, 1);
+            gTasks[taskId].func = Task_ClosePartyMenu;
+        }
+        break;
+    }
+}
+
+void ItemUseCB_Chupito(u8 taskId, TaskFunc task)
+{
+    s16 *data = gTasks[taskId].data;
+
+    tState = 0;
+    tMonId = gPartyMenu.slotId;
+    tIvType = GetItemSecondaryId(gSpecialVar_ItemId);
+    SetWordTaskArg(taskId, tOldFunc, (uintptr_t)(gTasks[taskId].func));
+    gTasks[taskId].func = Task_Chupito;
+}
+
+#undef tState
+#undef tMonId
+#undef tIvType
+#undef tOldFunc
+
 static void Task_DisplayHPRestoredMessage(u8 taskId)
 {
     GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);

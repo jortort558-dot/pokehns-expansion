@@ -680,8 +680,10 @@
 #define TRAINER_RIVAL_TOTODILE_LAKE_HNS       656
 #define TRAINER_EL_PIEDRAS_HNS                657
 #define TRAINER_YAMI_HNS                      658
+#define TRAINER_BAR_GUARD1_HNS                659
+#define TRAINER_BAR_GUARD2_HNS                660
 
-#define TRAINERS_COUNT_HNS                       659
+#define TRAINERS_COUNT_HNS                       661
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

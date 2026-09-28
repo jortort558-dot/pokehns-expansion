@@ -16280,3 +16280,69 @@ Jolly Nature
 - Swords Dance
 - Rock Slide
 
+=== TRAINER_BAR_GUARD1_HNS ===
+Name: HÉCTOR
+Class: Super Nerd Hns
+Pic: Super Nerd Hns
+Gender: Male
+Music: Hg Suspicious 1
+Double Battle: No
+AI: Check Bad Move
+
+Koffing
+Level: 19
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Sludge
+- Smokescreen
+- Tackle
+- Assurance
+
+Magnemite
+Level: 19
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Spark
+- Sonic Boom
+- Thunder Wave
+- Supersonic
+
+Grimer
+Level: 20
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Sludge
+- Mud-Slap
+- Harden
+- Disable
+
+=== TRAINER_BAR_GUARD2_HNS ===
+Name: DARIO
+Class: Super Nerd Hns
+Pic: Super Nerd Hns
+Gender: Male
+Music: Hg Suspicious 1
+Double Battle: No
+AI: Check Bad Move
+
+Voltorb
+Level: 19
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Spark
+- Rollout
+- Screech
+- Charge
+
+Porygon
+Level: 19
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Psybeam
+- Recover
+- Agility
+- Tri Attack
+
+Electabuzz
+Level: 20
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Shock Wave
+- Low Kick
+- Swift
+- Light Screen
+

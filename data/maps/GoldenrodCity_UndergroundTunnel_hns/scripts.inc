@@ -402,3 +402,176 @@ GoldenrodUnderground_Text_KeyOpenedDoor:
 	.string "La LLAVE DEL SÓTANO abrió la\npuerta.$"
 GoldenrodUnderground_Text_NoEntry:
 	.string "PROHIBIDO EL PASO A PARTIR DE ESTE\nPUNTO$"
+
+@ --- BAR SUBTERRÁNEO DE TRIGAL ---
+
+GoldenrodCity_UndergroundTunnel_EventScript_Item_BarBall::
+	finditem ITEM_NUGGET
+	end
+
+GoldenrodUnderground_EventScript_BarGuard1::
+	trainerbattle_single TRAINER_BAR_GUARD1_HNS, GoldenrodUnderground_Text_BarGuard1Seen, GoldenrodUnderground_Text_BarGuard1Beaten
+	msgbox GoldenrodUnderground_Text_BarGuard1AfterBattle, MSGBOX_AUTOCLOSE
+	end
+
+GoldenrodUnderground_EventScript_BarGuard2::
+	trainerbattle_single TRAINER_BAR_GUARD2_HNS, GoldenrodUnderground_Text_BarGuard2Seen, GoldenrodUnderground_Text_BarGuard2Beaten
+	msgbox GoldenrodUnderground_Text_BarGuard2AfterBattle, MSGBOX_AUTOCLOSE
+	end
+
+GoldenrodCity_UndergroundTunnel_EventScript_Igor::
+	lock
+	faceplayer
+	msgbox GoldenrodUnderground_Text_IgorWelcome, MSGBOX_DEFAULT
+GoldenrodCity_UndergroundTunnel_EventScript_Igor_Menu::
+	message GoldenrodUnderground_Text_IgorOffer
+	waitmessage
+	multichoice 0, 0, MULTI_IGOR_BAR, FALSE
+	switch VAR_RESULT
+	case 0, GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoPS
+	case 1, GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoAtk
+	case 2, GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoDef
+	case 3, GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoSpAtk
+	case 4, GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoSpDef
+	case 5, GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoSpeed
+	case 6, GoldenrodCity_UndergroundTunnel_EventScript_BuyCubata
+	goto GoldenrodCity_UndergroundTunnel_EventScript_Igor_Exit
+	end
+
+GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoPS::
+	setvar VAR_0x8008, ITEM_CHUPITO_PS
+	goto GoldenrodCity_UndergroundTunnel_EventScript_ProcessSingleChupito
+
+GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoAtk::
+	setvar VAR_0x8008, ITEM_CHUPITO_ATK
+	goto GoldenrodCity_UndergroundTunnel_EventScript_ProcessSingleChupito
+
+GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoDef::
+	setvar VAR_0x8008, ITEM_CHUPITO_DEF
+	goto GoldenrodCity_UndergroundTunnel_EventScript_ProcessSingleChupito
+
+GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoSpAtk::
+	setvar VAR_0x8008, ITEM_CHUPITO_SPATK
+	goto GoldenrodCity_UndergroundTunnel_EventScript_ProcessSingleChupito
+
+GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoSpDef::
+	setvar VAR_0x8008, ITEM_CHUPITO_SPDEF
+	goto GoldenrodCity_UndergroundTunnel_EventScript_ProcessSingleChupito
+
+GoldenrodCity_UndergroundTunnel_EventScript_BuyChupitoSpeed::
+	setvar VAR_0x8008, ITEM_CHUPITO_SPEED
+	goto GoldenrodCity_UndergroundTunnel_EventScript_ProcessSingleChupito
+
+GoldenrodCity_UndergroundTunnel_EventScript_ProcessSingleChupito::
+	checkitem ITEM_FESTIVAL_TICKET, 1
+	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoTickets
+	checkitemspace VAR_0x8008, 1
+	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoRoom
+	removeitem ITEM_FESTIVAL_TICKET, 1
+	giveitem VAR_0x8008, 1
+	msgbox GoldenrodUnderground_Text_IgorDelivered, MSGBOX_DEFAULT
+	goto GoldenrodCity_UndergroundTunnel_EventScript_Igor_Menu
+	end
+
+GoldenrodCity_UndergroundTunnel_EventScript_BuyCubata::
+	checkitem ITEM_FESTIVAL_TICKET, 6
+	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoTicketsCubata
+	checkitemspace ITEM_CUBATA, 1
+	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoRoom
+	removeitem ITEM_FESTIVAL_TICKET, 6
+	giveitem ITEM_CUBATA, 1
+	msgbox GoldenrodUnderground_Text_IgorDeliveredCubata, MSGBOX_DEFAULT
+	goto GoldenrodCity_UndergroundTunnel_EventScript_Igor_Menu
+	end
+
+GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoTickets::
+	msgbox GoldenrodUnderground_Text_IgorNoTickets, MSGBOX_DEFAULT
+	release
+	end
+
+GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoTicketsCubata::
+	msgbox GoldenrodUnderground_Text_IgorNoTicketsCubata, MSGBOX_DEFAULT
+	release
+	end
+
+GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoRoom::
+	msgbox GoldenrodUnderground_Text_IgorNoRoom, MSGBOX_DEFAULT
+	release
+	end
+
+GoldenrodCity_UndergroundTunnel_EventScript_Igor_Exit::
+	msgbox GoldenrodUnderground_Text_IgorGoodbye, MSGBOX_DEFAULT
+	release
+	end
+
+GoldenrodUnderground_Text_BarGuard1Seen:
+	.string "¡Eh, tú! ¿Qué pintas por aquí?\n"
+	.string "Nadie pasa al garito sin mi\l"
+	.string "visto bueno.$"
+
+GoldenrodUnderground_Text_BarGuard1Beaten:
+	.string "¡Vaya paliza me has dado!\n"
+	.string "Tira pa' dentro, fiera.$"
+
+GoldenrodUnderground_Text_BarGuard1AfterBattle:
+	.string "El bar de Igor no es para todo el\n"
+	.string "mundo. Pero tú pareces tener\l"
+	.string "buenas tablas.$"
+
+GoldenrodUnderground_Text_BarGuard2Seen:
+	.string "¡Alto ahí! Para entrar a la barra\n"
+	.string "hay que demostrar que se aguanta\l"
+	.string "el ritmo.$"
+
+GoldenrodUnderground_Text_BarGuard2Beaten:
+	.string "¡Madre mía!\n"
+	.string "Aguantas más de lo que creía.$"
+
+GoldenrodUnderground_Text_BarGuard2AfterBattle:
+	.string "Si traes Vales de Fiesta, habla\n"
+	.string "con el jefe Igor. Sirve unas copas\l"
+	.string "que te pondrán al máximo.$"
+
+GoldenrodUnderground_Text_IgorWelcome:
+	.string "Bienvenido a mi modesto rincón\n"
+	.string "entre las sombras…\p"
+	.string "Me llamo Igor. Este refugio existe\n"
+	.string "para despertar el auténtico\l"
+	.string "potencial de tus acompañantes.$"
+
+GoldenrodUnderground_Text_IgorOffer:
+	.string "Trae tus Vales de Fiesta y te\n"
+	.string "serviré brebajes legendarios.\p"
+	.string "Un Chupito (1 vale) maximiza un\n"
+	.string "atributo (31 IVs).\p"
+	.string "El Cubata (6 vales) alcanzará la\n"
+	.string "perfección absoluta en todos.$"
+
+GoldenrodUnderground_Text_IgorDelivered:
+	.string "Una elección exquisita.\n"
+	.string "Dáselo a un POKéMON y verás cómo\l"
+	.string "su potencial florece.$"
+
+GoldenrodUnderground_Text_IgorDeliveredCubata:
+	.string "¡Ah, la gran obra maestra!\n"
+	.string "Este trago despertará la fuerza\l"
+	.string "completa de quien lo tome.$"
+
+GoldenrodUnderground_Text_IgorNoTickets:
+	.string "Je, je, je… Me temo que no portas\n"
+	.string "suficientes Vales de Fiesta.\p"
+	.string "Vuelve cuando consigas alguno.$"
+
+GoldenrodUnderground_Text_IgorNoTicketsCubata:
+	.string "Para este manjar supremo requiero\n"
+	.string "al menos 6 Vales de Fiesta.\p"
+	.string "Aún te faltan unos cuantos, je, je.$"
+
+GoldenrodUnderground_Text_IgorNoRoom:
+	.string "Tu MOCHILA está a rebosar.\n"
+	.string "Haz hueco antes de brindar.$"
+
+GoldenrodUnderground_Text_IgorGoodbye:
+	.string "Hasta la próxima visita…\n"
+	.string "El destino siempre nos reúne aquí.$"
+
