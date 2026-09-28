@@ -26,26 +26,26 @@ PalletTown_EventScript_OaksLabSign::
 	end	
 
 PalletTown_Text_Teacher:
-	.string "I'm raising POKéMON too.\p"
-	.string "They serve as my private\n"
-	.string "guards.$"
+	.string "También crío POKéMON.\p"
+	.string "Son mis guardaespaldas\n"
+	.string "privados.$"
 
 PalletTown_Text_Fisher:
-	.string "Technology is incredible!\p"
-	.string "You can now trade POKéMON\n"
-	.string "across time like e-mail.$"
+	.string "¡La tecnología es increíble!\p"
+	.string "Puedes intercambiar POKéMON en el\n"
+	.string "tiempo como si fueran correos.$"
 
 PalletTown_Text_Sign:
-	.string "PALLET TOWN\p"
-	.string "A Tranquil Setting of Peace\n"
-	.string "& Purity$"
+	.string "PUEBLO PALETA\p"
+	.string "Un lugar tranquilo de paz\n"
+	.string "y pureza$"
 
 PalletTown_Text_RedsHouseSign:
-	.string "RED'S HOUSE$"
+	.string "CASA DE RED$"
 
 PalletTown_Text_OaksLabSign:
-	.string "OAK POKéMON\n"
-	.string "RESEARCH LAB$"
+	.string "LABORATORIO POKéMON\n"
+	.string "DE OAK$"
 
 PalletTown_Text_BluesHouseSign:
-	.string "BLUE'S HOUSE$"
+	.string "CASA DE BLUE$"

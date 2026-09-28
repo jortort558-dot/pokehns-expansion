@@ -12,31 +12,31 @@ SSAqua_RoomSW_EventScript_Clyde::
 	end
 
 SSAqua_RoomSW_Text_BeautyCassieSeen:
-    .string "I'm trying to forget my woes.\n"
-    .string "Let's battle!$"
+    .string "Intento olvidar mis penas.\n"
+    .string "¡Combatamos!$"
 
 SSAqua_RoomSW_Text_BeautyCassieBeaten:
-    .string "My heart weeps…$"
+    .string "Me llora el corazón…$"
 
 SSAqua_RoomSW_Text_BeautyCassieAfterBattle:
-    .string "A voyage is best for getting over\n"
-    .string "a broken heart.\p"
-    .string "But a FAST SHIP trip is too short\n"
-    .string "for grieving.$"
+    .string "Nada como un viaje para superar\n"
+    .string "un corazón roto.\p"
+    .string "Pero este barco es demasiado\n"
+    .string "rápido para olvidar las penas.$"
 
 SSAqua_RoomSW_Text_GuitaristClydeSeen:
-    .string "I'm going to audition my songs\n"
-    .string "at GOLDENROD's RADIO STATION.$"
+    .string "Voy a presentar mis canciones\n"
+    .string "en la TORRE RADIO de TRIGAL.$"
 
 SSAqua_RoomSW_Text_GuitaristClydeBeaten:
-    .string "Yowza! Total distortion!$"
+    .string "¡Vaya! ¡Distorsión total!$"
 
 SSAqua_RoomSW_Text_GuitaristClydeAfterBattleMobile:
-    .string "I was going to make my debut at\n"
-    .string "the BATTLE TOWER…\p"
-    .string "I should go back to VERMILION and\n"
-    .string "redo my training…$"
+    .string "Iba a debutar en la TORRE BATALLA…\p"
+    .string "Debería volver a CIUDAD CARMÍN\n"
+    .string "y empezar a entrenar de nuevo…$"
 
 SSAqua_RoomSW_Text_GuitaristClydeAfterBattle:
-    .string "Speaking of the RADIO STATION,\n"
-    .string "what's this week's lucky number?$"
+    .string "Hablando de la TORRE RADIO,\n"
+    .string "¿cuál es el número de la suerte\l"
+    .string "de esta semana?$"

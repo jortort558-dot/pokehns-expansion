@@ -248,7 +248,7 @@ MahoganyTown_Movement_PlayerMerchant2:
 	step_end
 
 MahoganyTown_Text_RageCandyBarMerchantTryOne:
-	.string "¡Ey, renacuajo!\pVeo que eres nuevo en PUEBLO CAOBA.\pY si eres nuevo, ¡tienes que probar\nun\ldelicioso CARAMELO FURIA!\p¡Ahora mismo puede ser tuyo por\nsolo\l300¥! ¿Te hace uno?$"
+	.string "¡Hola, renacuajo!\pVeo que eres nuevo en PUEBLO CAOBA.\pEntonces debes probar un delicioso\nCARAMELO FURIA.\p¡Ahora puede ser tuyo por solo\n300¥! ¿Quieres uno?$"
 MahoganyTown_Text_RageCandyBarMerchantSavorIt:
 	.string "¡De perlas! ¡Saboréalo bien!$"
 MahoganyTown_Text_RageCandyBarMerchantNotEnoughMoney:
@@ -258,18 +258,18 @@ MahoganyTown_Text_RageCandyBarMerchantRefused:
 MahoganyTown_Text_RageCandyBarMerchantSoldOut:
 	.string "Los CARAMELOS FURIA se han agotado.\pEstoy recogiendo los bártulos.\nNo molestes, crío.$"
 MahoganyTown_Text_Gramps:
-	.string "¿Vas de camino a ver la furia de\nlos\lGYARADOS en el LAGO?$"
+	.string "¿Vas a ver a los GYARADOS\nenfurecidos del LAGO?$"
 MahoganyTown_Text_GrampsClearedRocketHideout:
-	.string "Los MAGIKARP han vuelto a las aguas\ndel LAGO DE LA FURIA.\pEso seguro que alegra a los\npescadores\lde la zona.$"
+	.string "Los MAGIKARP han vuelto al\nLAGO DE LA FURIA.\pSerá una buena noticia para los\npescadores de allí.$"
 MahoganyTown_Text_Fisher:
-	.string "Ya que has llegado hasta aquí,\naprovecha\lpara hacer un poco de turismo.\pDeberías subir al norte y\ncontemplar el\lLAGO DE LA FURIA ahora mismo.$"
+	.string "Ya que has llegado hasta aquí,\nhaz algo de turismo.\pVe al norte y visita ahora mismo\nel LAGO DE LA FURIA.$"
 MahoganyTown_Text_Lass:
 	.string "Pásate por la tienda de la abuela.\nVende cosas que nadie más tiene.$"
 MahoganyTown_Text_Sign:
-	.string "PUEBLO CAOBA\pBienvenidos al hogar de los ninjas.$"
+	.string "PUEBLO CAOBA\pBienvenidos al hogar ninja$"
 MahoganyTown_Text_RagecandybarSign:
-	.string "¡Si visitas PUEBLO CAOBA, no dejes\nde\lprobar el CARAMELO FURIA!$"
+	.string "¡Si visitas PUEBLO CAOBA, prueba\nun CARAMELO FURIA!$"
 MahoganyTown_Text_GymSign:
-	.string "GIMNASIO POKéMON DE PUEBLO CAOBA\nLÍDER: FREDO\pEl maestro del duro invierno.$"
+	.string "GIMNASIO POKéMON DE PUEBLO CAOBA\pLÍDER: FREDO\pEl maestro del crudo invierno$"
 ElmPhoneRadioTowerRocketTakeoverText:
-	.string "PROF. ELM: ¡{PLAYER}! ¿Cómo te va?\pTe llamo porque está ocurriendo\nalgo muy\lextraño con las emisiones de radio.\pEstaban hablando sobre el TEAM\nROCKET.\p{PLAYER}, ¿tú sabes algo del tema?\p¿Habrá regresado el TEAM ROCKET?\nNo, no puede ser verdad...\pSiento molestarte con esto.\n¡Cuídate mucho!$"
+	.string "PROF. ELM: {PLAYER}, ¿cómo va todo?\pTe llamo porque ocurre algo extraño\ncon las emisiones de radio.\pEstaban hablando del TEAM ROCKET.\p{PLAYER}, ¿sabes algo sobre ello?\pQuizá haya vuelto el TEAM ROCKET.\nNo, no puede ser verdad.\pSiento molestarte.\n¡Cuídate!$"

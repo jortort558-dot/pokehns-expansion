@@ -4,6 +4,8 @@ LakeOfRage_hns_MapScripts::
 
 LakeOfRage_OnTransition::
 	setflag FLAG_VISITED_LAKE_OF_RAGE
+	call LakeOfRage_EventScript_SetupSilver
+	call LakeOfRage_EventScript_SetupElPiedras
 	call_if_lt VAR_MAHOGANY_TOWN_STATE, 2, LakeOfRage_EventScript_HideLois
 	goto_if_lt VAR_MAHOGANY_TOWN_STATE, 14, LakeOfRage_EventScript_SetHighTide
 	special UpdateShoalTideFlag
@@ -30,6 +32,27 @@ LakeOfRage_EventScript_ThunderStorm::
 	setweather WEATHER_RAIN_THUNDERSTORM
 	end
 
+LakeOfRage_EventScript_SetupSilver::
+	goto_if_set FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_HideSilver
+	goto_if_set FLAG_HIDE_LAKE_OF_RAGE_GYARADOS, LakeOfRage_EventScript_HideSilver
+	goto_if_lt VAR_MAHOGANY_TOWN_STATE, 1, LakeOfRage_EventScript_HideSilver
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
+	return
+
+LakeOfRage_EventScript_HideSilver::
+	setflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
+	return
+
+LakeOfRage_EventScript_SetupElPiedras::
+	goto_if_unset FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_HideElPiedras
+	goto_if_ge VAR_GOLDENROD_CITY_STATE, 10, LakeOfRage_EventScript_HideElPiedras
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
+	return
+
+LakeOfRage_EventScript_HideElPiedras::
+	setflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
+	return
+
 LakeOfRage_EventScript_Pryce::
     lock
     faceplayer
@@ -44,7 +67,158 @@ LakeOfRage_EventScript_Pryce::
     end
 
 LakeOfRage_Text_Pryce:
-	.string "{PLAYER}.\pIncluso aquí, el frío mantiene mi\nmente\ldespejada.\pSi deseas volver a combatir,\nbúscame en el\lDOJO de COMBATE.$"
+	.string "{PLAYER}.\pIncluso aquí, el frío me mantiene\ndespejado.\pSi deseas volver a combatir, ven al\nDOJO DE LUCHA.$"
+
+LakeOfRage_EventScript_SilverBattle::
+	setflag FLAG_MEGA_SYSTEM_UNLOCKED
+	call_if_eq VAR_STARTER_MON, 0, LakeOfRage_EventScript_SilverCyndaquil
+	call_if_eq VAR_STARTER_MON, 1, LakeOfRage_EventScript_SilverTotodile
+	call_if_eq VAR_STARTER_MON, 2, LakeOfRage_EventScript_SilverChikorita
+	goto LakeOfRage_EventScript_SilverRewards
+
+LakeOfRage_EventScript_Silver::
+	lockall
+	faceplayer
+	goto_if_defeated TRAINER_RIVAL_CHIKORITA_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
+	goto_if_defeated TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
+	goto_if_defeated TRAINER_RIVAL_TOTODILE_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
+	delay 30
+	msgbox LakeOfRage_Text_SilverGyaradosAwesome, MSGBOX_DEFAULT
+	applymovement LOCALID_LAKEOFRAGE_SILVER, Common_Movement_ExclamationMark
+	waitmovement LOCALID_LAKEOFRAGE_SILVER
+	faceplayer
+	msgbox LakeOfRage_Text_SilverNoticePlayer, MSGBOX_DEFAULT
+	goto LakeOfRage_EventScript_SilverBattle
+
+LakeOfRage_EventScript_SilverCyndaquil::
+	trainerbattle_no_intro TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS, LakeOfRage_Text_SilverDefeat
+	return
+
+LakeOfRage_EventScript_SilverTotodile::
+	trainerbattle_no_intro TRAINER_RIVAL_TOTODILE_LAKE_HNS, LakeOfRage_Text_SilverDefeat
+	return
+
+LakeOfRage_EventScript_SilverChikorita::
+	trainerbattle_no_intro TRAINER_RIVAL_CHIKORITA_LAKE_HNS, LakeOfRage_Text_SilverDefeat
+	return
+
+LakeOfRage_EventScript_SilverRewards::
+	msgbox LakeOfRage_Text_SilverAfterBattle, MSGBOX_DEFAULT
+	checkitem ITEM_MEGA_RING
+	goto_if_eq VAR_RESULT, TRUE, LakeOfRage_EventScript_SilverGiveMon
+	giveitem ITEM_MEGA_RING
+
+LakeOfRage_EventScript_SilverGiveMon::
+	msgbox LakeOfRage_Text_SilverDropMon, MSGBOX_DEFAULT
+	special GiveRandomMegaGift
+	goto_if_eq VAR_RESULT, MON_CANT_GIVE, LakeOfRage_EventScript_SilverNoRoom
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LakeOfRage_EventScript_SilverGiftToPC
+	msgbox LakeOfRage_Text_SilverGiftReceived, MSGBOX_DEFAULT
+	goto LakeOfRage_EventScript_SilverLeave
+
+LakeOfRage_EventScript_SilverGiftToPC::
+	msgbox LakeOfRage_Text_SilverGiftToPC, MSGBOX_DEFAULT
+
+LakeOfRage_EventScript_SilverLeave::
+	setflag FLAG_RECEIVED_MEGA_TEST_KIT
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
+	addobject 19
+	applymovement LOCALID_LAKEOFRAGE_SILVER, LakeOfRage_Movement_SilverLeave
+	waitmovement LOCALID_LAKEOFRAGE_SILVER
+	setflag FLAG_HIDE_LAKE_OF_RAGE_SILVER
+	removeobject LOCALID_LAKEOFRAGE_SILVER
+	releaseall
+	end
+
+LakeOfRage_EventScript_SilverNoRoom::
+	setflag FLAG_RECEIVED_MEGA_TEST_KIT
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
+	addobject 19
+	msgbox LakeOfRage_Text_SilverNoRoom, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LakeOfRage_Movement_SilverLeave:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+LakeOfRage_Text_SilverGyaradosAwesome:
+	.string "Míralo...\p"
+	.string "Ese color rojo sangre...\n"
+	.string "La furia que emana de sus\l"
+	.string "escamas...\p"
+	.string "Es sencillamente...\n"
+	.string "impresionante.$"
+
+LakeOfRage_Text_SilverNoticePlayer:
+	.string "¡¿Eh?! ¡¿Tú otra vez, {PLAYER}?!\p"
+	.string "¿Qué miras, pringao? ¿Te crees\n"
+	.string "que he venido de turismo?\p"
+	.string "Estudiaba la energía del lago.\n"
+	.string "¡He encontrado una fuerza que tú\l"
+	.string "ni en sueños podrás alcanzar!\p"
+	.string "¡Abre bien los ojos y contempla\n"
+	.string "el verdadero poder de combate!$"
+
+LakeOfRage_Text_SilverDefeat:
+	.string "¡¿Qué demonios?!\n"
+	.string "¡¿Cómo ha podido pasar esto?!$"
+
+LakeOfRage_Text_SilverAfterBattle:
+	.string "Tch... No te vengas arriba.\n"
+	.string "Ha sido un fallo técnico.\p"
+	.string "Toma, quédate con esta chatarra.\n"
+	.string "Me dieron dos MEGA-AROS en el\l"
+	.string "laboratorio y no necesito otro\l"
+	.string "para machacarte la próxima.$"
+
+LakeOfRage_Text_SilverDropMon:
+	.string "¡Y quítame esto de la vista!\n"
+	.string "Este bicho con su piedra rara\l"
+	.string "solo me está ocupando sitio.\p"
+	.string "¡La próxima no tendrás tanta\n"
+	.string "suerte, espantapájaros!$"
+
+LakeOfRage_Text_SilverGiftReceived:
+	.string "{STR_VAR_1} se unió a tu equipo\n"
+	.string "con su MEGAPIEDRA equipada.$"
+
+LakeOfRage_Text_SilverGiftToPC:
+	.string "{STR_VAR_1} fue enviado al PC\n"
+	.string "con su MEGAPIEDRA equipada.$"
+
+LakeOfRage_Text_SilverNoRoom:
+	.string "¡Tu equipo y tus cajas están\n"
+	.string "llenos! Haz sitio y vuelve.\p"
+	.string "No pienso cargar con este trasto\n"
+	.string "eternamente, pringao.$"
+
+LakeOfRage_EventScript_ElPiedras::
+	lock
+	faceplayer
+	msgbox LakeOfRage_Text_ElPiedras, MSGBOX_DEFAULT
+	setflag FLAG_TALKED_EL_PIEDRAS_LAKE_OF_RAGE
+	closemessage
+	release
+	end
+
+LakeOfRage_Text_ElPiedras:
+	.string "¡Hermano! Menuda vista hay aquí.\p"
+	.string "¿Has visto al tipo pelirrojo\n"
+	.string "activar una mega-transformación\l"
+	.string "digna de anime shonen?\p"
+	.string "¡Esas piedras de mega-evolución\n"
+	.string "existen de verdad! ¡El mercado no\l"
+	.string "estaba inflado, socio!\p"
+	.string "Los del Team Rocket salieron por\n"
+	.string "patas dejando suministros.\p"
+	.string "En cuanto los barras de la Torre\n"
+	.string "Radio de Trigal, ¡voy a reventar\l"
+	.string "el monopolio de las tiendas!$"
 LakeOfRage_EventScript_Gramps::
 	goto_if_ge VAR_MAHOGANY_TOWN_STATE, 14, LakeOfRage_EventScript_Gramps2
 	msgbox LakeOfRage_Text_Gramps, MSGBOX_NPC
@@ -82,6 +256,7 @@ LakeOfRage_EventScript_Lois::
 	end
 
 LakeOfRage_EventScript_Gyarados::
+	goto_if_unset FLAG_RECEIVED_MEGA_TEST_KIT, LakeOfRage_EventScript_TalkToSilverFirst
 	lock
 	faceplayer
 	msgbox LakeOfRage_Text_GyaradosCry, MSGBOX_DEFAULT
@@ -106,6 +281,14 @@ LakeOfRage_EventScript_Defeated_Gyarados::
 	setvar VAR_MAHOGANY_TOWN_STATE, 2
 	release
 	end
+
+LakeOfRage_EventScript_TalkToSilverFirst::
+	msgbox LakeOfRage_Text_TalkToSilverFirst, MSGBOX_NPC
+	end
+
+LakeOfRage_Text_TalkToSilverFirst:
+	.string "El chico pelirrojo no aparta la\n"
+	.string "mirada del GYARADOS rojo.$"
 
 LakeOfRage_EventScript_Ran_Gyarados::
 	release
@@ -237,19 +420,19 @@ LakeOfRage_Movement_DragoniteLeave:
 LakeOfRage_Text_Dragonite:
 	.string "DRAGONITE: ¡Giafuuuu!$"
 LakeOfRage_Text_LanceForcedToEvolve:
-	.string "Este lago está atestado de GYARADOS\ny de\lnada más…\pAsí que los MAGIKARP están siendo\nforzados\la evolucionar…$"
+	.string "Este lago está lleno de GYARADOS\ny nada más…\pAsí obligan a evolucionar\na los MAGIKARP…$"
 LakeOfRage_Text_LanceIntro1:
-	.string "¿Has venido por los rumores?\p¿Eres {PLAYER}? Yo me llamo LANCE, y\nsoy\lun Entrenador igual que tú.$"
+	.string "¿Has venido por los rumores?\p¿Eres {PLAYER}? Soy LANCE,\nun Entrenador como tú.$"
 LakeOfRage_Text_LanceIntro2:
-	.string "Este hombre de aquí me puso al\ntanto de\lciertos rumores extraños.\pAsí que vinimos a investigar…$"
+	.string "Este hombre me habló de ciertos\nrumores.\pAsí que vinimos a investigar…$"
 LakeOfRage_Text_LanceIntro3:
-	.string "Vi cómo luchaste antes, {PLAYER}.\pSe nota a leguas que eres un\nEntrenador\lde enorme destreza.\pSi no te importa, ¿podrías\nayudarnos a\linvestigar este misterio?$"
+	.string "Vi cómo combatiste antes, {PLAYER}.\pSe nota que eres un Entrenador\nmuy hábil.\pSi no te importa, ¿nos ayudarías\na investigar?$"
 LakeOfRage_Text_LanceRadioSignal:
-	.string "LANCE: ¡Excelente!\pTodo apunta a que los MAGIKARP del\nLAGO\lestán siendo obligados a\levolucionar.\pLa culpable es una misteriosa\nemisión de\lradio que procede de CAOBA.\p¡Te estaremos esperando allí, {PLAYER}!$"
+	.string "LANCE: ¡Excelente!\pParece que están obligando a los\nMAGIKARP del LAGO a evolucionar.\pLa causa es una misteriosa emisión\nde radio procedente de CAOBA.\pTe esperaremos allí,\n{PLAYER}.$"
 LakeOfRage_Text_LanceRefused:
-	.string "Vaya… Bueno, si cambias de parecer,\npor favor ven a echarnos una mano.$"
+	.string "Vaya… Si cambias de opinión,\nayúdanos, por favor.$"
 LakeOfRage_Text_LanceAskHelp:
-	.string "LANCE: ¿Mmm? ¿Te decides a\nayudarnos?$"
+	.string "LANCE: ¿Mmm? ¿Vas a\nayudarnos?$"
 LakeOfRage_Text_GyaradosCry:
 	.string "GYARADOS: ¡Giaaash!$"
 LakeOfRage_Text_Gramps:
@@ -257,29 +440,29 @@ LakeOfRage_Text_Gramps:
 LakeOfRage_Text_GrampsCleared:
 	.string "¡Jajaja! ¡Los MAGIKARP vuelven a\npicar!$"
 LakeOfRage_Text_SuperNerd:
-	.string "Dicen que este lago fue creado por\nuna\lestampida de GYARADOS enfurecidos.\p¿Tendrá relación con este brote\nmasivo que\lhay ahora?$"
+	.string "Dicen que unos GYARADOS enfurecidos\ncrearon este lago.\p¿Tendrá relación con el brote\nque hay ahora?$"
 LakeOfRage_Text_CooltrainerF:
-	.string "¿Me engañan los ojos o vi a un\nGYARADOS\lrojo en el LAGO?\pPero si los GYARADOS son azules de\ntoda\lla vida…$"
+	.string "¿Me engañan los ojos? Vi un\nGYARADOS rojo en el LAGO…\pPero creía que los GYARADOS eran\nazules.$"
 LakeOfRage_Text_FisherAndreSeen:
-	.string "¡Déjame luchar con el POKéMON que\nacabo\lde pescar!$"
+	.string "¡Déjame combatir con el POKéMON\nque acabo de pescar!$"
 LakeOfRage_Text_FisherAndreBeaten:
-	.string "Seré un hacha con la caña, pero\ncomo\lEntrenador doy bastante pena…$"
+	.string "Puede que sea un gran pescador,\npero soy un Entrenador pésimo…$"
 LakeOfRage_Text_FisherAndreAfter:
-	.string "¡Pescando no me gana nadie! Me paso\nel día\lentero sacando POKéMON del agua.$"
+	.string "¡Nadie me gana pescando! Capturo\nPOKéMON todo el día.$"
 LakeOfRage_Text_FisherRaymondSeen:
-	.string "Haga lo que haga, ¡solo pesco los\nmismos\lPOKéMON una y otra vez!$"
+	.string "¡Haga lo que haga, siempre pesco\nlos mismos POKéMON!$"
 LakeOfRage_Text_FisherRaymondBeaten:
 	.string "Se me ha enredado todo el sedal…$"
 LakeOfRage_Text_FisherRaymondAfter:
-	.string "¿Por qué no logro pescar ningún\nPOKéMON en\lcondiciones?$"
+	.string "¿Por qué no pesco ningún\nPOKéMON bueno?$"
 LakeOfRage_Text_CooltrainermAaronSeen:
-	.string "Si un Entrenador cruza la mirada\ncon otro,\lel desafío es inevitable.\pEse es nuestro destino.$"
+	.string "Si un Entrenador ve a otro,\ndebe desafiarlo.\pEse es nuestro destino.$"
 LakeOfRage_Text_CooltrainermAaronBeaten:
 	.string "Uf… Magnífico combate.$"
 LakeOfRage_Text_CooltrainermAaronAfter:
-	.string "Los POKéMON y sus Entrenadores se\nhacen\lfuertes a base de batirse el cobre.$"
+	.string "Los POKéMON y sus Entrenadores se\nfortalecen combatiendo sin cesar.$"
 LakeOfRage_Text_CooltrainerfLoisSeen:
-	.string "¿Qué le ha pasado al GYARADOS rojo?\n¿Ya no está?\n¡Maldición! ¿He venido para nada?\n¡Pues mira, echemos un combate!$"
+	.string "¿Qué pasó con el GYARADOS rojo?\p¿Ya no está?\p¡Maldición! ¿He venido para nada?\p¡Ya sé, combatamos!$"
 LakeOfRage_Text_CooltrainerfLoisBeaten:
 	.string "¡Bien jugado!$"
 LakeOfRage_Text_CooltrainerfLoisAfter:
@@ -329,13 +512,13 @@ LakeOfRage_EventScript_WesleyCompleted::
 	end
 
 LakeOfRage_Text_MeetWesley:
-	.string "MIO: Hola, ¿cómo estás?\p¡Soy de los HERMANOS DE LOS DÍAS!\n¿Adivinas cuál es mi día preferido?$"
+	.string "MIO: Hola, ¿cómo estás?\p¡Soy de los HERMANOS DE LOS DÍAS!\n¿Adivinas mi día preferido?$"
 LakeOfRage_Text_WesleyGivesGift:
-	.string "Encantado de conocerte.\nQuédate con este recuerdo.$"
+	.string "Encantado de conocerte. Acepta\neste recuerdo.$"
 LakeOfRage_Text_WesleyGaveGift:
-	.string "MIO: El CINTURÓN NEGRO potencia los\ngolpes\lde tipo LUCHA.$"
+	.string "MIO: El CINTURÓN NEGRO aumenta la\npotencia de los ataques de LUCHA.$"
 LakeOfRage_Text_WesleyWednesday:
-	.string "MIO: Si me has encontrado, seguro\nque ya\lhas visto a mis hermanos y\lhermanas.\p¿O ha sido pura chiripa?$"
+	.string "MIO: Si me has encontrado, debes\nhaber conocido a mis hermanos y\lhermanas.\p¿O solo has tenido suerte?$"
 LakeOfRage_Text_WesleyNotWednesday:
 	.string "MIO: Pues va a ser que no...$"
 LakeOfRage_EventScript_Sign1::

@@ -149,7 +149,7 @@ void CreateScriptedWildMon(u16 species, u8 level, enum Item item)
     u8 heldItem[2];
 
     #if RANDOMIZER_AVAILABLE
-    if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
+    if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON) && !FlagGet(FLAG_SPARRING_NO_EVS))
         species = RandomizeMon(RANDOMIZER_REASON_FIXED_ENCOUNTER, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);
     #endif
 
@@ -193,7 +193,10 @@ void CreateShinyScriptedMon(u16 species, u8 level, enum Item item)
 
     #if RANDOMIZER_AVAILABLE
     if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
-        species = RandomizeMon(RANDOMIZER_REASON_FIXED_ENCOUNTER, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);
+        species = RandomizeFixedEncounterMon(species,
+            gSaveBlock1Ptr->location.mapNum,
+            gSaveBlock1Ptr->location.mapGroup,
+            gObjectEvents[gSelectedObjectEvent].localId);
     #endif
 
     // TODO: item randomization (HnS randomized the held item under tx_Random_Items)
@@ -735,7 +738,7 @@ u32 ScriptGiveMon(u16 species, u8 level, enum Item item)
     if (!FlagGet(FLAG_SYS_POKEMON_GET))
     {
         if (RandomizerFeatureEnabled(RANDOMIZE_STARTER_AND_GIFT_MON))
-            species = RandomizeMon(RANDOMIZER_REASON_STARTER_AND_GIFT_MON, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);
+            species = RandomizeMon(RANDOMIZER_REASON_STARTER_MON, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);
     }
     else
     {
@@ -955,4 +958,161 @@ void Script_SetKO(struct ScriptContext *ctx)
         u32 hp = 0;
         SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
     }
+}
+
+// Superentrenamiento de Yami
+// gSpecialVar_0x8004: Slot del Pokémon en el equipo (0 a 5)
+// gSpecialVar_0x8005: Stat a entrenar (0=HP, 1=ATK, 2=DEF, 3=SPEED, 4=SPATK, 5=SPDEF)
+// Retorna en gSpecialVar_Result: TRUE si se puede entrenar, FALSE si ya está al máximo (252 o 510 total)
+void YamiSuperTraining_CanTrainStat(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    u8 stat = gSpecialVar_0x8005;
+
+    if (slot >= gPlayerPartyCount || stat >= NUM_STATS)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u8 evField;
+    switch (stat)
+    {
+    case 0: evField = MON_DATA_HP_EV; break;
+    case 1: evField = MON_DATA_ATK_EV; break;
+    case 2: evField = MON_DATA_DEF_EV; break;
+    case 3: evField = MON_DATA_SPEED_EV; break;
+    case 4: evField = MON_DATA_SPATK_EV; break;
+    case 5: evField = MON_DATA_SPDEF_EV; break;
+    default:
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u16 currentStatEv = GetMonData(mon, evField);
+    if (currentStatEv >= MAX_PER_STAT_EVS)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u32 totalEvs = GetMonData(mon, MON_DATA_HP_EV)
+                 + GetMonData(mon, MON_DATA_ATK_EV)
+                 + GetMonData(mon, MON_DATA_DEF_EV)
+                 + GetMonData(mon, MON_DATA_SPEED_EV)
+                 + GetMonData(mon, MON_DATA_SPATK_EV)
+                 + GetMonData(mon, MON_DATA_SPDEF_EV);
+
+    if (totalEvs >= MAX_TOTAL_EVS)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    gSpecialVar_Result = TRUE;
+}
+
+void YamiSuperTraining_AddEVs(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    u8 stat = gSpecialVar_0x8005;
+
+    if (slot >= gPlayerPartyCount || stat >= NUM_STATS)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u8 evField;
+    switch (stat)
+    {
+    case 0: evField = MON_DATA_HP_EV; break;
+    case 1: evField = MON_DATA_ATK_EV; break;
+    case 2: evField = MON_DATA_DEF_EV; break;
+    case 3: evField = MON_DATA_SPEED_EV; break;
+    case 4: evField = MON_DATA_SPATK_EV; break;
+    case 5: evField = MON_DATA_SPDEF_EV; break;
+    default:
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u16 currentStatEv = GetMonData(mon, evField);
+    if (currentStatEv >= MAX_PER_STAT_EVS)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u32 totalEvs = GetMonData(mon, MON_DATA_HP_EV)
+                 + GetMonData(mon, MON_DATA_ATK_EV)
+                 + GetMonData(mon, MON_DATA_DEF_EV)
+                 + GetMonData(mon, MON_DATA_SPEED_EV)
+                 + GetMonData(mon, MON_DATA_SPATK_EV)
+                 + GetMonData(mon, MON_DATA_SPDEF_EV);
+
+    if (totalEvs >= MAX_TOTAL_EVS)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u16 addAmount = 64;
+    if (currentStatEv + addAmount > MAX_PER_STAT_EVS)
+        addAmount = MAX_PER_STAT_EVS - currentStatEv;
+
+    if (totalEvs + addAmount > MAX_TOTAL_EVS)
+        addAmount = MAX_TOTAL_EVS - totalEvs;
+
+    if (addAmount == 0)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u16 newEv = currentStatEv + addAmount;
+    SetMonData(mon, evField, &newEv);
+    CalculateMonStats(mon);
+    gSpecialVar_Result = TRUE;
+}
+
+void YamiSuperTraining_ResetEVs(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    if (slot >= gPlayerPartyCount)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u8 zero = 0;
+    SetMonData(mon, MON_DATA_HP_EV, &zero);
+    SetMonData(mon, MON_DATA_ATK_EV, &zero);
+    SetMonData(mon, MON_DATA_DEF_EV, &zero);
+    SetMonData(mon, MON_DATA_SPEED_EV, &zero);
+    SetMonData(mon, MON_DATA_SPATK_EV, &zero);
+    SetMonData(mon, MON_DATA_SPDEF_EV, &zero);
+    CalculateMonStats(mon);
+    gSpecialVar_Result = TRUE;
 }

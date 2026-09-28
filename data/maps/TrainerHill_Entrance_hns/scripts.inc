@@ -281,115 +281,115 @@ TrainerHill_Entrance_hns_Pokemart_Basic:
 	end
 
 TrainerHill_Entrance_hns_Text_HereToGetMoney:
-	.string "I'm here to make some cash!\n"
-	.string "Why? Because every time you reach\l"
-	.string "the top, you get a money reward!\p"
-	.string "I wonder when they'll finally open.\n"
-	.string "I can't wait!$"
+	.string "¡He venido a ganar dinero!\n"
+	.string "¿Por qué? ¡Porque cada vez que\l"
+	.string "llegas a la cima te dan un premio!\p"
+	.string "¿Cuándo abrirán de una vez?\n"
+	.string "¡Estoy impaciente!$"
 
 TrainerHill_Entrance_hns_Text_Money:
-	.string "Every time you reach the top,\n"
-	.string "you earn some money.\p"
-	.string "I heard you can win up to 1.000.000¥\n"
-	.string "if you finish within ten minutes!\p"
-	.string "But if it takes longer, the reward\n"
-	.string "will be reduced…$"
+	.string "Cada vez que llegas a la cima,\n"
+	.string "ganas algo de dinero.\p"
+	.string "¡Dicen que puedes ganar 1.000.000¥\n"
+	.string "si acabas en menos de diez minutos!\p"
+	.string "Pero, si tardas más, el premio\n"
+	.string "será menor…$"
 
 TrainerHill_Entrance_hns_Text_StillGettingReady:
-	.string "This is the TRAINER HILL where\n"
-	.string "you may enjoy tag battles with many\l"
-	.string "TRAINERS.\p"
-	.string "Unfortunately, we're still getting\n"
-	.string "things ready. Please come back later!$"
+	.string "Esta es la COLINA DESAFÍO, donde\n"
+	.string "puedes librar combates múltiples\l"
+	.string "contra muchos Entrenadores.\p"
+	.string "Por desgracia, aún estamos con los\n"
+	.string "preparativos. ¡Vuelve más tarde!$"
 
 TrainerHill_Entrance_hns_Text_WelcomeToTrainerHill:
-	.string "Welcome!\p"
-	.string "This is the TRAINER HILL where\n"
-	.string "you may enjoy tag battles with many\l"
-	.string "TRAINERS!$"
+	.string "¡Te damos la bienvenida!\p"
+	.string "Esta es la COLINA DESAFÍO, donde\n"
+	.string "puedes librar combates múltiples\l"
+	.string "contra muchos Entrenadores.$"
 
 TrainerHill_Entrance_hns_Text_SaveGameBeforeEnter:
-	.string "Is this your first visit here?\p"
-	.string "Before you enter, please save\n"
-	.string "your game.$"
+	.string "¿Es tu primera visita?\p"
+	.string "Guarda la partida antes de\n"
+	.string "entrar, por favor.$"
 
 TrainerHill_Entrance_hns_Text_TrainersUpToFloorX:
-	.string "Let's see…\n"
-	.string "The TRAINERS here now are…\p"
-	.string "Up to floor no. {STR_VAR_1}.$"
+	.string "Veamos…\n"
+	.string "Los Entrenadores que hay ahora…\p"
+	.string "Llegan hasta la planta {STR_VAR_1}.$"
 
 TrainerHill_Entrance_hns_Text_TrainersInEveryRoom:
-	.string "Let's see…\n"
-	.string "The TRAINERS here now are…\p"
-	.string "There appear to be TRAINERS gathered\n"
-	.string "in every room.$"
+	.string "Veamos…\n"
+	.string "Los Entrenadores que hay ahora…\p"
+	.string "Parece que se han reunido\n"
+	.string "Entrenadores en todas las salas.$"
 
 TrainerHill_Entrance_hns_Text_LikeToChallengeTrainers:
-	.string "Would you like to challenge the\n"
-	.string "waiting TRAINERS?$"
+	.string "¿Quieres desafiar a los\n"
+	.string "Entrenadores que te esperan?$"
 
 TrainerHill_Entrance_hns_Text_TimeProgessGetSetGo:
-	.string "I will time your progress.\n"
-	.string "Best of luck!\p"
-	.string "On your marks…\p"
-	.string "Get set…\p"
-	.string "Go!$"
+	.string "Cronometraré tu progreso.\n"
+	.string "¡Buena suerte!\p"
+	.string "En sus puestos…\p"
+	.string "Preparados…\p"
+	.string "¡Ya!$"
 
 TrainerHill_Entrance_hns_Text_PleaseVisitUsAgain:
-	.string "Please do visit us again!$"
+	.string "¡Vuelve a visitarnos!$"
 
 TrainerHill_Entrance_hns_Text_TooBadTremendousEffort:
-	.string "That was too bad.\p"
-	.string "I think you put in a tremendous\n"
-	.string "effort in your battling.\p"
-	.string "Please come back and try again!$"
+	.string "Qué lástima.\p"
+	.string "Creo que te has esforzado muchísimo\n"
+	.string "en tus combates.\p"
+	.string "¡Vuelve para intentarlo de nuevo!$"
 
 TrainerHill_Entrance_hns_Text_HopeYouGiveItYourBest:
-	.string "I hope you give it your best.$"
+	.string "Espero que des lo mejor de ti.$"
 
 TrainerHill_Entrance_hns_Text_MovedReceptionHereForSwitch:
-	.string "When the TRAINERS switch places,\n"
-	.string "the movement can be hectic.\p"
-	.string "To avoid the stampede, we moved\n"
-	.string "the reception counter here.\p"
-	.string "I'm sorry for the inconvenience.$"
+	.string "Cuando los Entrenadores cambian de\n"
+	.string "lugar, se forma mucho jaleo.\p"
+	.string "Para evitar avalanchas, trasladamos\n"
+	.string "aquí el mostrador de recepción.\p"
+	.string "Lamento las molestias.$"
 
 TrainerHill_Entrance_hns_Text_ThankYouForPlaying:
-	.string "Thank you for playing!$"
+	.string "¡Gracias por participar!$"
 
 TrainerHill_Entrance_hns_Text_ExplainTrainerHill:
-	.string "Here at the TRAINER HILL, we conduct\n"
-	.string "an event called the Time Attack.\p"
-	.string "It is a race that measures how long\n"
-	.string "you take to reach our owner on\l"
-	.string "the rooftop from this counter.\p"
-	.string "The fastest times are posted on\n"
-	.string "the Time Board--try competing with\l"
-	.string "your friends.\p"
-	.string "In TRAINER battles along the way,\n"
-	.string "neither Exp. Points nor money will\l"
-	.string "be awarded.$"
+	.string "En la COLINA DESAFÍO celebramos una\n"
+	.string "prueba llamada Contrarreloj.\p"
+	.string "Es una carrera: mide cuánto tardas\n"
+	.string "desde este mostrador hasta llegar\l"
+	.string "al dueño, en la azotea.\p"
+	.string "Los mejores tiempos aparecen en el\n"
+	.string "Panel de Tiempos. ¡Compite con tus\l"
+	.string "amigos!\p"
+	.string "En los combates del recorrido no\n"
+	.string "obtendrás ni Puntos de Exp. ni\l"
+	.string "dinero.$"
 
 TrainerHill_Entrance_hns_Text_WhatSortOfTrainersAreAhead:
-	.string "Who knows what sort of TRAINERS\n"
-	.string "and POKéMON combos are ahead?\p"
-	.string "All I know is that I'll knock aside\n"
-	.string "anyone that stands in my way!$"
+	.string "¿Qué Entrenadores y parejas\n"
+	.string "de POKéMON habrá más adelante?\p"
+	.string "¡Solo sé que apartaré a cualquiera\n"
+	.string "que se interponga en mi camino!$"
 
 TrainerHill_Entrance_hns_Text_CantWaitToTestTheWaters:
-	.string "I heard tough TRAINERS come to this\n"
-	.string "TRAINER HILL from all over.\p"
-	.string "I can't wait to test the waters!\p"
-	.string "I'll knock aside anyone that stands\n"
-	.string "in my way!$"
+	.string "Dicen que llegan Entrenadores duros\n"
+	.string "de todas partes a COLINA DESAFÍO.\p"
+	.string "¡Estoy deseando probar suerte!\p"
+	.string "¡Apartaré a cualquiera que se\n"
+	.string "interponga en mi camino!$"
 
 TrainerHill_Entrance_hns_Text_FriendsTryingToReachTimeBoardTop:
-	.string "Do you see the Time Board over there?\p"
-	.string "My friends and I are trying to see who\n"
-	.string "can reach the top in the least time.$"
+	.string "¿Ves ese Panel de Tiempos?\p"
+	.string "Mis amigos y yo competimos para ver\n"
+	.string "quién llega antes a la cima.$"
 
 TrainerHill_Entrance_hns_Text_DoYouKnowWhenTheyOpen:
-	.string "Do you know when they're opening\n"
-	.string "this place up?\p"
-	.string "I'm waiting here to be the first\n"
-	.string "challenger ever!$"
+	.string "¿Sabes cuándo abrirán\n"
+	.string "este lugar?\p"
+	.string "¡Espero aquí para ser el primer\n"
+	.string "aspirante de la historia!$"

@@ -84,11 +84,12 @@ Route35GoldenrodGate_Text_RandyAskFavor:
 Route35GoldenrodGate_Text_RandyThanks:
 	.string "¡¿De verdad?! ¡Mil gracias!\p"
 	.string "Mi colega es un tipo regordete que\n"
-	.string "se pasa el día roncando bajo un\nárbol.\p"
+	.string "se pasa el día roncando bajo un\lárbol.\p"
 	.string "¡Lo vas a calar enseguida!$"
 
 Route35GoldenrodGate_Text_ReceivedMonWithMail:
-	.string "{PLAYER} received a POKéMON with MAIL.$"
+	.string "¡{PLAYER} recibió un POKéMON\n"
+	.string "con una CARTA!$"
 
 Route35GoldenrodGate_Text_RandyWeirdTree:
 	.string "¡Ponlo el primero del equipo cuando\n"

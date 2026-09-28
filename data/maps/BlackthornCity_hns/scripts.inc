@@ -220,7 +220,8 @@ BlackthornYoungsterText:
 
 BlackthornCity_MeetSantosText:
 	.string "SANTOS: …\p"
-	.string "Soy SANTOS, de la familia semanal.\p"
+	.string "Soy SANTOS, de los hermanos de\n"
+	.string "los días de la semana.\p"
 	.string "Adivina qué día es hoy.$"
 
 BlackthornCity_SantosGivesGiftText:
@@ -251,11 +252,10 @@ BlackthornCitySignText:
 BlackthornGymSignText:
 	.string "GIMNASIO POKéMON DE ENDRINO\n"
 	.string "LÍDER: DÉBORA\p"
-	.string "La bendecida maestra dragón$"
+	.string "La elegida de los dragones$"
 
 BlackthornCity_Text_MoveDeletersHouseSign:
 	.string "CASA DE LOS MAESTROS DE MOVIMIENTOS$"
 
 BlackthornCity_Text_DragonDenSign:
 	.string "GUARIDA DRAGÓN MÁS ADELANTE$"
-

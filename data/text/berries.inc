@@ -186,18 +186,18 @@ Route104_PrettyPetalFlowerShop_Text_WailmerPailExplanation:
 	.string "It's like they have the will to live.$"
 
 Route104_PrettyPetalFlowerShop_Text_ImGrowingFlowers:
-	.string "I'm trying to be like my big sisters.\n"
-	.string "I'm growing flowers, too!\p"
-	.string "Here you go!\n"
-	.string "It's for you!$"
+	.string "Quiero ser como mis hermanas\n"
+	.string "mayores. ¡También cultivo flores!\p"
+	.string "¡Toma!\n"
+	.string "¡Es para ti!$"
 
 Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries:
-	.string "You can plant a BERRY and grow it big,\n"
-	.string "or you can make a POKéMON hold it.\p"
-	.string "But now they have a machine that mixes\n"
-	.string "up different BERRIES and makes candies\l"
-	.string "for POKéMON.\p"
-	.string "I want some candy, too.$"
+	.string "Puedes plantar una BAYA para que\n"
+	.string "crezca o dársela a un POKéMON.\p"
+	.string "Ahora hay una máquina que mezcla\n"
+	.string "distintas BAYAS y hace caramelos\l"
+	.string "para los POKéMON.\p"
+	.string "¡Yo también quiero uno!$"
 
 SootopolisCity_Text_NameIsKiriHaveOneOfThese:
 	.string "Hi, what's your name?\p"

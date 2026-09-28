@@ -155,7 +155,7 @@ Route34_DayCare_Text_ClerkBefore:
 	.string "Soy el hijo de los dueños de la\n"
 	.string "GUARDERÍA.\p"
 	.string "Apareció un HUEVO RARO junto al\n"
-	.string "POKéMON de un entrenador, pero no\nlo\l"
+	.string "POKéMON de un entrenador, pero no\llo\l"
 	.string "quiso…\p"
 	.string "Te lo daría a ti, pero…\n"
 	.string "¿Cómo sé yo que vas a cuidarlo\l"
@@ -332,9 +332,9 @@ Route34_DayCare_EventScript_ClosedForChallenge::
 	end
 
 Route34_DayCare_Text_ClosedForChallenge:
-	.string "Sorry, we can't look after your\n"
-	.string "POKéMON during a party limit\l"
-	.string "challenge!$"
+	.string "Lo siento, durante un reto con\n"
+	.string "límite de equipo no podemos cuidar\l"
+	.string "de tus POKéMON.$"
 
 Route34_DayCare_EventScript_OnlyOneMon::
 	msgbox Route34_DayCare_Text_YouHaveJustOneMon, MSGBOX_DEFAULT
@@ -470,32 +470,32 @@ Route34_DayCare_EventScript_TwoMonsInDaycare::
 	end
 
 Route34_Text_SeeWifeIfYoudLikeMeToRaiseMon:
-	.string "I'm the DAY-CARE MAN.\p"
-	.string "I help take care of the precious\n"
-	.string "POKéMON of TRAINERS.\p"
-	.string "If you'd like me to raise your\nPOKéMON,\l"
-	.string "have a word with my wife.$"
+	.string "Soy el ENCARGADO de la GUARDERÍA.\p"
+	.string "Cuido con mimo los POKéMON de\n"
+	.string "otros ENTRENADORES.\p"
+	.string "Si quieres que cuide del tuyo,\n"
+	.string "habla con mi mujer.$"
 
 Route34_Text_DoYouWantEgg:
-	.string "Ah, it's you!\p"
-	.string "We were raising your POKéMON,\n"
-	.string "and my goodness, were we surprised!\p"
-	.string "Your POKéMON had an EGG!\p"
-	.string "We don't know how it got there,\n"
-	.string "but your POKéMON had it.\p"
-	.string "You do want it, yes?$"
+	.string "¡Ah, eres tú!\p"
+	.string "Estábamos cuidando de tus POKéMON\n"
+	.string "y nos llevamos una gran sorpresa.\p"
+	.string "¡Tus POKéMON tenían un HUEVO!\p"
+	.string "No sabemos cómo llegó hasta allí,\n"
+	.string "pero era de tus POKéMON.\p"
+	.string "Lo quieres, ¿verdad?$"
 
 Route34_Text_YourMonIsDoingFine:
-	.string "Ah, it's you! Good to see you.\n"
-	.string "Your {STR_VAR_1}'s doing fine.$"
+	.string "¡Ah, eres tú! Me alegro de verte.\n"
+	.string "Tu {STR_VAR_1} está de maravilla.$"
 
 Route34_Text_IllKeepIt:
-	.string "Well then, I'll keep it.\n"
-	.string "Thanks!$"
+	.string "Entonces me lo quedaré.\n"
+	.string "¡Gracias!$"
 
 Route34_Text_YouHaveNoRoomForIt:
-	.string "You have no room for it…\n"
-	.string "Come back when you've made room.$"
+	.string "No tienes sitio para el HUEVO…\n"
+	.string "Vuelve cuando hayas hecho hueco.$"
 
 Route34_Text_ReceivedEgg:
 	.string "{PLAYER} recibió el HUEVO del\n"
@@ -505,16 +505,16 @@ Route34_Text_TakeGoodCareOfIt:
 	.string "Cuídalo muy bien.$"
 
 Route34_Text_FriendlyWithOtherTrainersMon:
-	.string "By the way, about your {STR_VAR_1},\n"
-	.string "it seemed to be friendly with\l"
-	.string "{STR_VAR_2}'s {STR_VAR_3}.\p"
-	.string "I may even have seen it receiving\n"
-	.string "a piece of MAIL.$"
+	.string "Por cierto, tu {STR_VAR_1} parece\n"
+	.string "llevarse bien con el {STR_VAR_3}\l"
+	.string "de {STR_VAR_2}.\p"
+	.string "Creo que incluso recibió una\n"
+	.string "CARTA suya.$"
 
 @ Unused
 Route34_Text_SeeWifeIfYouWantToPickUpMon:
-	.string "If you want to pick up your\nPOKéMON,\l"
-	.string "have a word with my wife.$"
+	.string "Si quieres recoger a tu POKéMON,\n"
+	.string "habla con mi mujer.$"
 
 Route34_Text_YourMonsAreDoingFine:
 	.string "¡Hombre, eres tú! Tus {STR_VAR_1} y\n"
@@ -572,7 +572,7 @@ Route34_DayCare_Text_YourTeamIsFull:
 
 @ Unused
 Route34_DayCare_Text_TakeBackWhichMon:
-	.string "Which POKéMON will you take back?$"
+	.string "¿Qué POKéMON quieres recoger?$"
 
 Route34_DayCare_Text_ItWillCostX:
 	.string "Para retirar a tu {STR_VAR_1},\n"

@@ -6,9 +6,11 @@ Documento central de seguimiento, directrices de localización, inventario de co
 
 ## 📌 Reglas de Oro y Criterios Técnicos del Proyecto
 
-1. **Regla de Nombres vs. Descripciones (Estricta - Anti-Solapamiento)**:
+1. **Regla de Nombres y Descripciones (Estricta - Anti-Solapamiento)**:
    - **NOMBRES en ESPAÑOL**: Movimientos (`Destructor`, `Golpe Kárate`), Habilidades (`Hedor`, `Llovizna`), Objetos (`Poké Ball`, `Superpoción`) y Naturalezas (`FIRME`, `MODESTA`, `ALEGRE`).
-   - **DESCRIPCIONES en INGLÉS**: Movimientos, habilidades y objetos se conservan en inglés canónico upstream para evitar desbordamientos, solapamientos en pantalla de datos y fallos en el motor de batalla.
+   - **DESCRIPCIONES DE OBJETOS en ESPAÑOL ADAPTADO**: deben explicar fielmente el efecto, aunque se aparten de la traducción oficial. No pueden usar más líneas ni más caracteres en cada línea que la descripción inglesa equivalente.
+   - **AUDITORÍA DE OBJETOS**: ejecutar `python tools/auditar_descripciones_objetos.py`; compara `src/data/items.h` con `upstream/master` y falla ante cualquier exceso.
+   - **DESCRIPCIONES DE MOVIMIENTOS Y HABILIDADES en INGLÉS**: se conservan en inglés canónico mientras no exista una auditoría específica equivalente.
 2. **Directrices de UI y Ajustes Visuales**:
    - `PODER` en lugar de _Potencia_ (evita pisar la categoría de daño).
    - `PRECIS.` en lugar de _Precisión_ (evita chocar con el número 100).
@@ -32,8 +34,9 @@ pie title Estado de Contenido Traducido
     "Bloque 1 (Primavera & Cerezo)" : 100
     "Bloque 2 (Malva & Azalea)" : 100
     "Bloque 3 (Trigal & Iris)" : 100
-    "Resto de Johto (Gimnasios 5 a 8)" : 0
-    "Liga Pokémon & Kanto Postgame" : 0
+    "Resto de Johto (Gimnasios 5 a 8)" : 100
+    "Liga Pokémon" : 100
+    "Kanto Postgame" : 0
 ```
 
 ---
@@ -47,7 +50,7 @@ pie title Estado de Contenido Traducido
 | **Nombres de Habilidades**        | `src/data/abilities.h`  | ✅ 100% | Habilidades oficiales traducidas al castellano          |
 | **Descripciones de Habilidades**  | `src/data/abilities.h`  | ✅ 100% | En inglés canónico                                      |
 | **Nombres de Objetos**            | `src/data/items.h`      | ✅ 100% | 860 objetos traducidos al castellano                    |
-| **Descripciones de Objetos**      | `src/data/items.h`      | ✅ 100% | En inglés canónico                                      |
+| **Descripciones de Objetos**      | `src/data/items.h`      | 🟡 En curso | Español adaptado al número de líneas y caracteres del inglés |
 | **Naturalezas Pokémon**           | `src/pokemon.c`         | ✅ 100% | Las 25 naturalezas traducidas (`FIRME`, `ALEGRE`, etc.) |
 | **Mensajes del Motor de Batalla** | `src/battle_message.c`  | ✅ 100% | Mensajes esenciales traducidos al castellano            |
 
@@ -116,12 +119,12 @@ pie title Estado de Contenido Traducido
 
 ### Bloque 3: Tercera y Cuarta Medalla (Trigal e Iris)
 
-- [x] **Encinar (Ilex Forest)**:
+- [x] **Encinar (Ilex Forest)** — tutores compartidos revisados y traducidos:
   - Minijuego de persecución de los Farfetch'd perdidos del carbonero.
   - Entrega de la MO01 Corte por parte del aprendiz de carbonero.
   - Tutor de Cabezazo y Altar del Guardián del Bosque (Celebi).
-- [x] **Ruta 34**: Guardería Pokémon (abuelo y abuela cuidando huevos, enciclopedia de cría), trillizas con Arena Fina y entrenadores.
-- [x] **Ciudad Trigal (Goldenrod City)**:
+- [x] **Ruta 34**: Guardería y fichas de Pokémon bebé revisadas y traducidas.
+- [x] **Ciudad Trigal (Goldenrod City)**: NPC, Centro Comercial, Casino, Torre Radio y zona de conexión revisados.
   - **Centro Comercial de Trigal**: Recepcionista y directorio.
   - **Torre Radio de Trigal**: Tarjeta de Radio (test de preguntas de 5 rondas), programa de radio y entrega de la tarjeta.
   - Floristería: Obtención de la Regadera Squirtbottle tras vencer en el gimnasio y florista de mentas.
@@ -131,13 +134,17 @@ pie title Estado de Contenido Traducido
   - Tienda de Bicis: Préstamo de la bicicleta con selector de marchas.
   - **Gimnasio Trigal**: Entrenadoras, líder **Blanca** (Miltank Desenlace, Medalla Planicie + MT Atracción) y su berrinche al perder.
   - Terminal del Magnetotrén (bloqueado por falta de energía).
+
+> **Revisión 22/09/2026:** corregidos los textos compartidos y secundarios que
+> no reflejaba el porcentaje histórico. La auditoría conjunta de 67 archivos
+> del Bloque 3 terminó sin incidencias.
 - [x] **Ruta 35 y Parque Nacional**: Concurso de captura de bichos (martes, jueves y sábados con Parque Balls), Oficial con la carta de Spearow, dama con Garra Rápida y entrenadores.
 - [x] **Ruta 36**: Encuentro con el árbol bailarín **Sudowoodo** (uso de la Regadera), Karateka de MO Golpe Roca y Arturo del Jueves.
 - [x] **Ruta 37**: Bosque de Bonguris, Domingo con Imán y entrenadoras gemelas Ana y Anita.
 - [x] **Ciudad Iris (Ecruteak City)**:
   - Centro Pokémon: Encuentro con Bill (habilitación del sistema de PC).
   - Teatro de Danza: Las 5 Chicas Kimono (Eeveeluciones), combate contra el Recluta Rocket y entrega de la MO03 Surf.
-  - **Torre Quemada**: Encuentro con Euskadi (Eusine) y Morti, combate contra el Rival Cani con diálogos macarras, descenso al sótano y liberación de Raikou, Entei y Suicune.
+  - **Torre Quemada**: Encuentro con Eusine y Morti, combate contra el Rival Cani con diálogos macarras, descenso al sótano y liberación de Raikou, Entei y Suicune.
   - **Torre Hojalata / Campana**: Acceso custodiado por los sabios del Trío Sabio y Campana Clara.
   - **Gimnasio Iris**: Suelo invisible de abismo, médiums, sabios y líder **Morti** (Medalla Niebla + MT Bola Sombra).
 
@@ -156,11 +163,15 @@ pie title Estado de Contenido Traducido
   - Farmacia con 500 años de historia (obtención de la Medicina Secreta para Amphy).
   - Casa de la esposa de Aníbal (entrega MO Vuelo tras ganar la medalla).
   - Pescador que regala Tentacool y Pokemaníaco asustado que entrega a Shuckle ("Shuckie").
-  - Encuentro con Suicune huyendo por las olas y combate contra Euskadi (Eusine).
+  - Encuentro con Suicune huyendo por las olas y combate contra Eusine.
   - **Gimnasio Orquídea**: Puzle de empujar rocas, káratekas y líder **Aníbal** (Medalla Tormenta + MT Puño Certero).
 - [x] **Regreso a Olivo**:
   - Subida al Faro con la Poción Secreta, curación de Amphy y retorno de Yasmina al gimnasio.
   - **Gimnasio Olivo**: Líder **Yasmina** (Steelix, Medalla Mineral + MT Cola Férrea) e intercambio opcional de su Steelix "Oxidito".
+
+> **Revisión editorial (25/09/2026):** rehechos y auditados todos los diálogos,
+> entrenadores, carteles, ramas y textos contiguos de los 59 mapas del Bloque 4
+> frente a la referencia inglesa `c9d5bb3985`.
 
 ---
 
@@ -189,6 +200,11 @@ pie title Estado de Contenido Traducido
   - Ascenso a la Torre Radio: Derrota de los Ejecutivos Proton, Petrel, Atenea y combate final contra Atlas en el mirador.
   - Disolución final del Team Rocket en Johto y entrega del Ala Arcoíris / Plateada por el Director.
 
+> **Revisión editorial (25/09/2026):** rehechos y auditados los textos de Ruta
+> 42, Monte Mortero, Ruta 43, Lago de la Furia, Pueblo Caoba, Guarida Rocket,
+> Gimnasio Caoba, invasión de Trigal, Torre Radio y subterráneo. Se comprobó su
+> cobertura frente a la referencia inglesa `c9d5bb3985`.
+
 ---
 
 ### Bloque 6: Octava Medalla, Leyenda y Liga Pokémon (Endrino y Meseta Añil)
@@ -207,22 +223,29 @@ pie title Estado de Contenido Traducido
 
 > **Entrega 0.9.0 (20/09/2026):** completados y auditados Ruta 44, Ruta Helada, Ciudad Endrino, Gimnasio Endrino y Guarida Dragón. El Bloque 6 continúa con la invocación legendaria y el camino hacia la Liga.
 
-- [ ] **Invocación del Guardián Legendario**:
+- [x] **Invocación del Guardián Legendario**:
   - Regreso al Teatro de Danza de Iris: Combate consecutivo contra las 5 Chicas Kimono.
   - Evento en la Torre Hojalata (Ho-Oh) o Islas Remolino (Lugia) con cinemáticas y combate legendario.
-- [ ] **Rutas 45, 46 y 27 (Hacia la Liga)**:
+- [x] **Rutas 45, 46 y 27 (Hacia la Liga)**:
   - Cruce de las Cataratas Tohjo (Tojho Falls).
   - Rutas 26 y 27 con entrenadores de alto nivel y casa de descanso de la anciana que cura tu equipo.
   - Control de paso de las 8 medallas oficiales de Johto.
-- [ ] **Calle Victoria (Victory Road)**:
+- [x] **Calle Victoria (Victory Road)**:
   - Laberinto de rocas y túneles oscuros.
   - **Combate final contra el Rival Cani** justo antes de la salida al exterior.
-- [ ] **Meseta Añil (Indigo Plateau)**:
+- [x] **Meseta Añil (Indigo Plateau)**:
   - Tienda y Centro Pokémon de la Liga.
   - **Alto Mando Mento** (Psíquico: Xatu, Jynx, Slowbro).
   - **Alto Mando Koga** (Veneno: Ariados, Forretress, Muk, Crobat).
   - **Alto Mando Bruno** (Lucha: Hitmontop, Hitmonlee, Hitmonchan, Machamp).
   - **Alto Mando Karen** (Siniestro: Umbreon, Gengar, Murkrow, Houndoom).
+  - **Campeón Lance**, ceremonia posterior y registro en el Hall de la Fama.
+
+> **Entrega 0.14.0 (22/09/2026):** traducidos y auditados la invocación de
+> Ho-Oh/Lugia, Ruta 45, Ruta 46, Cataratas Tohjo, Rutas 27 y 26, control de
+> medallas, Calle Victoria, Meseta Añil, Alto Mando, Lance y Hall de la Fama.
+> Auditoría superada sin inglés residual detectado, segmentos de más de 35
+> caracteres ni uso duplicado de `\n` en el lote.
   - **Campeón Lance** (Dragones: Gyarados, Charizard, Aerodactyl y 3 Dragonite).
   - Sala de la Fama y créditos del juego.
 

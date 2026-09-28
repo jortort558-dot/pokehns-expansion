@@ -1252,6 +1252,75 @@ static const struct MenuAction MultichoiceList_BattleModeHns[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_GymTokenServicesHns[] =
+{
+    {COMPOUND_STRING("2.º INTENTO")},
+    {COMPOUND_STRING("INTERCAMBIO")},
+    {COMPOUND_STRING("RESURRECCIÓN")},
+    {COMPOUND_STRING("EXPLICACIÓN")},
+    {gText_Exit},
+};
+
+static const struct MenuAction MultichoiceList_ManolinMalva[] =
+{
+    {COMPOUND_STRING("LUPA")},
+    {COMPOUND_STRING("POLVO BRILLO")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinAzalea[] =
+{
+    {COMPOUND_STRING("HIERBA BLANCA")},
+    {COMPOUND_STRING("HIERBA MENTAL")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinTrigal[] =
+{
+    {COMPOUND_STRING("BANDA FOCUS")},
+    {COMPOUND_STRING("CASCO DENTADO")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinIris[] =
+{
+    {COMPOUND_STRING("BAYA ZIUELA")},
+    {COMPOUND_STRING("PERISCOPIO")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinOrquidea[] =
+{
+    {COMPOUND_STRING("CINTA FOCUS")},
+    {COMPOUND_STRING("CINTA ELEGIDA")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinOlivo[] =
+{
+    {COMPOUND_STRING("GLOBO HELIO")},
+    {COMPOUND_STRING("VIDASFERA")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinCaoba[] =
+{
+    {COMPOUND_STRING("RESTOS")},
+    {COMPOUND_STRING("PAÑUELO ELEGIDO")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinEndrino[] =
+{
+    {COMPOUND_STRING("GAFAS ELEGIDAS")},
+    {COMPOUND_STRING("CHALECO ASALTO")},
+};
+
+static const struct MenuAction MultichoiceList_YamiTraining[] =
+{
+    {COMPOUND_STRING("PS (+64)")},
+    {COMPOUND_STRING("ATAQUE (+64)")},
+    {COMPOUND_STRING("DEFENSA (+64)")},
+    {COMPOUND_STRING("VELOCIDAD (+64)")},
+    {COMPOUND_STRING("AT. ESP (+64)")},
+    {COMPOUND_STRING("DEF. ESP (+64)")},
+    {COMPOUND_STRING("REINICIAR EVS")},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1443,6 +1512,16 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BATTLE_MODE_HNS]            = MULTICHOICE(MultichoiceList_BattleModeHns),
     [MULTI_FOSSIL_HNS]                = MULTICHOICE(MultichoiceList_FossilHns),
     [MULTI_GAME_CORNER_DOLLS2]         = MULTICHOICE(MultichoiceList_GameCornerDolls2),
+    [MULTI_GYM_TOKEN_SERVICES_HNS]     = MULTICHOICE(MultichoiceList_GymTokenServicesHns),
+    [MULTI_MANOLIN_MALVA]              = MULTICHOICE(MultichoiceList_ManolinMalva),
+    [MULTI_MANOLIN_AZALEA]             = MULTICHOICE(MultichoiceList_ManolinAzalea),
+    [MULTI_MANOLIN_TRIGAL]             = MULTICHOICE(MultichoiceList_ManolinTrigal),
+    [MULTI_MANOLIN_IRIS]               = MULTICHOICE(MultichoiceList_ManolinIris),
+    [MULTI_MANOLIN_ORQUIDEA]           = MULTICHOICE(MultichoiceList_ManolinOrquidea),
+    [MULTI_MANOLIN_OLIVO]              = MULTICHOICE(MultichoiceList_ManolinOlivo),
+    [MULTI_MANOLIN_CAOBA]              = MULTICHOICE(MultichoiceList_ManolinCaoba),
+    [MULTI_MANOLIN_ENDRINO]            = MULTICHOICE(MultichoiceList_ManolinEndrino),
+    [MULTI_YAMI_TRAINING]              = MULTICHOICE(MultichoiceList_YamiTraining),
 };
 
 const u8 *const gStdStrings[] =

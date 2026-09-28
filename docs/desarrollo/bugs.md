@@ -6,9 +6,27 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 
 ## 🟢 BUGS RESUELTOS POR VERSIÓN Y COMMITS
 
+### 📦 Versión `pokehns-0.23.0-20260923-fichas-iris-textos-es.gba`
+
+- **Fecha**: 23/09/2026
+- **Commit**: `f6bdce7f05` (`fix: corregir fichas y completar textos de Iris`)
+
+**Incidencias resueltas en esta build:**
+
+- [x] **Crash al canjear una captura**: el selector de rutas reserva una única lista del tamaño exacto, usa los nombres del mapa activo y deja de fragmentar la memoria antes de abrirse.
+- [x] **Intercambio con Fichas Gimnasio**: la partida se guarda antes de iniciar la escena de intercambio y vuelve a guardarse al completarla.
+- [x] **Encuentros estáticos**: los combates salvajes iniciados por script, incluido Sudowoodo, ya no consumen la captura de la ruta.
+- [x] **Textos puntuales**: traducidos la niña de la floristería y el mensaje «¿Usar otro Pokémon?» tras una derrota.
+- [x] **Descripciones de objetos**: las 860 entradas conservan su frase completa y respetan ahora un máximo de 6 líneas de 25 caracteres; corregido el recorte visible de Tecno-ROM y casos equivalentes.
+- [x] **Ciudad Iris**: revisados y reformateados la ciudad, sus edificios, Torre Quemada, Torre Hojalata y rutas próximas; 28 archivos superan la auditoría de longitud, saltos e inglés residual.
+- [x] **Pokégear y acompañante**: traducidos los 156 textos de llamadas y revanchas y las 138 reacciones del Pokémon acompañante.
+- [x] **Validación**: auditorías de textos y descripciones sin incidencias; build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.23.0-20260923-fichas-iris-textos-es.gba` y actualizada `pokehns_fase1.gba`.
+
 ### 📦 Versión `pokehns-0.9.0-20260920-bloque6-endrino-es.gba`
 
 - **Fecha**: 20/09/2026
+- **Commit**: `2552c7f702` (`feat: indicador nuzlocke en start menu, capturas, evolucion, veto OHKO y fixes Azalea`)
 
 **Contenido traducido en esta build:**
 
@@ -21,6 +39,7 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ### 📦 Versión `pokehns-0.8.1-20260920-bloque2-revision-es.gba`
 
 - **Fecha**: 20/09/2026
+- **Commit**: `2552c7f702` (incluye la revisión de mapas y el lote de Endrino)
 
 **Incidencias resueltas en esta build:**
 
@@ -33,6 +52,7 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ### 📦 Versión `pokehns-0.8.0-20260920-nuzlocke-ui-bugfix-es.gba`
 
 - **Fecha**: 20/09/2026
+- **Commit**: `2552c7f702`
 
 **Incidencias resueltas en esta build:**
 
@@ -119,6 +139,8 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 
 ### Versión 0.10.0 (2026-09-20 - Nuzlocke, Combates, Evolución y Ajustes Azalea)
 
+- **Commit**: `2552c7f702`
+
 - [x] **Indicador Nuzlocke en el menú START**: Retirada la Poké Ball del popup de mapa y añadido indicador de zona (`ZONA: LIBRE` en verde / `ZONA: GASTADA` en rojo) en la ventana superior del reloj al abrir el menú START.
 - [x] **Capturas y fallos de Poké Ball**: Traducido `¡Ya está! ¡{STR_VAR_1} atrapado!` (`GOTCHA!`), y mensajes de captura fallida (`¡Casi lo consigues!`, `¡Vaya! ¡El POKéMON se ha escapado!`, etc.).
 - [x] **Combates dobles traducidos**: Mensajes de salida simultánea al combate y retirada traducidos al castellano.
@@ -133,6 +155,16 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 ## 🔴 BUGS PENDIENTES (EN COLA DE RESOLUCIÓN)
 
 - [ ] **Auditoría completa de expansión**: Todavía existen cadenas inglesas no reportadas en sistemas secundarios y mensajes modernos. Se tratarán por bloques para poder revisarlas dentro del juego.
+- [x] **Sprite overworld de Knekro desordenado**: corregido el empaquetado de la hoja horizontal con `-mwidth 2 -mheight 4`; restaurados los nueve frames y sus cuatro orientaciones. La solución anterior de repetir el frame frontal no corregía el `.4bpp` corrupto.
+- [x] **Combate de Knekro cargaba un montañero y datos inválidos**: la definición se había añadido por error a `src/data/trainers.party`, que no forma parte de la build HnS. Trasladada a `src/data/trainers_hns.party`, de modo que `TRAINER_KNEKRO_HNS` carga su sprite frontal y su equipo reales.
+- [x] **Knekro cambiaba de tamaño al girar**: los tres frames laterales ocupaban 25 píxeles de alto frente a los 20–21 de norte/sur. Compactados a 21 píxeles manteniendo los pies alineados y la paleta indexada de 16 colores.
+- [x] **Identidad y acceso al combate de Knekro**: exige la Medalla Planicie de Blanca, avisa de la dificultad y permite rechazar el reto. Su equipo pasa a representar su histórico competitivo con Jolteon, Starmie y Snorlax, acompañado de diálogos y bromas propios.
+- [x] **Extras obligatorios en Nuzlocke**: PokéVial y Fichas Gimnasio disponen ahora de interruptores independientes en el menú de reglas; al apagarlos se desactiva por completo su entrega, interfaz y funcionamiento.
+
+  ![Knekro con el sprite desordenado](images/knekro_sprite_desordenado.png)
+
+### Lote de sistemas auditados — commit `a70c7e43ee`
+
 - [x] **Mensajes de combate secundarios**: Auditadas y traducidas 475 cadenas de estadísticas, habilidades, climas, terrenos, objetos, mecánicas residuales y sistemas modernos.
 - [x] **Almacenamiento y flujo posterior de captura**: Traducidos el envío al PC, el cambio automático de CAJA, las CAJAS llenas y la elección entre equipo y PC.
 - [x] **Menú del Pokégear**: Rótulos gráficos sustituidos por MAPA y PERFIL POKéMON; ayudas, marcas, cintas y descripciones traducidas.
@@ -141,10 +173,130 @@ Este documento recopila las incidencias reportadas, clasificadas por su estado y
 - [x] **Alineación del menú de combate**: MOCHILA y HUIR desplazados cuatro píxeles a la izquierda para evitar el recorte.
 - [x] **Efectos de combate básicos**: Traducidos retroceso, Púas, Drenadoras, clima, objetos dañinos, congelación y Salazón.
 - [x] **Huevos y capturas Nuzlocke**: Eclosionar un huevo ya no consume la captura de la zona ni altera el indicador del menú.
-- [x] **Cargas del PokéVial en START**: Ampliado el panel superior y añadido el contador visible VIAL: actual/máximo.
 
 - [x] **Menú de combate — MOCHILA/HUIR**: Restaurada la separación original de la columna derecha para que el cursor no tape la H.
 - [x] **Madre del jugador**: Traducidos los diálogos del sistema de curación, ahorros, depósitos y retiradas.
 - [x] **PC del dormitorio**: Traducido el arranque del PC y las opciones restantes del buzón.
 - [x] **Orden del panel START**: POKéVIAL aparece encima del estado de captura de la zona; fuera de Nuzlocke ya no queda un hueco sobre el contador.
 - [x] **Controles de combate**: SELECT activa la Mega, START vuelve a mostrar la descripción del movimiento y se desactiva la reordenación de movimientos durante el combate.
+
+### PokéVial — commit `64acf3d547`
+
+- [x] **Cargas del PokéVial en START**: Ampliado el panel superior y añadido el contador visible VIAL: actual/máximo.
+
+### Traducción general y aleatorizador — commits `c5e9635c5e` y `6dc957770b`
+
+- [x] **Nombres de movimientos**: corregida la desalineación desde
+  `MOVE_SHORE_UP`; Campo Psíquico y otros 260 movimientos vuelven a corresponder
+  con su identificador y descripción.
+- [x] **BOLSA**: sustituido todo el texto visible `MOCHILA` por `BOLSA` para
+  evitar problemas de espacio.
+- [x] **Nombres de objetos**: traducidos los objetos estándar que seguían en
+  inglés, incluidos FulgoROM, Blanco, Disco Psíquico y Caña Vieja.
+- [x] **MT/MO aleatorias**: excluidas del aleatorizador de objetos de campo;
+  permanecen en sus ubicaciones originales y todas siguen siendo obtenibles.
+- [x] **Mejora del Bloque 1**: aplicadas las 31 propuestas y superada la
+  auditoría de longitud, saltos e inglés residual.
+
+- [x] **Bloque 3 — tutores de movimientos**: traducidos los once tutores y
+  todas sus ramas, incluidos Golpe Cabeza y Cortefuria.
+- [x] **Bloque 3 — Guardería**: traducidos el encargado, las ramas restantes
+  y las cuatro fichas de Pokémon bebé; el criador exterior ya estaba correcto.
+- [x] **Bloque 3 — conexión**: traducidos el Rincón de Conexión y el archivo
+  compartido `data/text/cable_club.inc` completo.
+- [x] **Bloque 3 — Ciudad Trigal**: revisados calles, Centro Pokémon, Centro
+  Comercial, Casino, Voltorb Flip, Torre Radio y subterráneo.
+
+Validación: auditoría de **67 archivos** del Bloque 3 sin incidencias.
+
+Propuestas y alcance: `docs/traduccion/propuestas_bloque3_textos.md`.
+
+### Versión 0.17.0 (2026-09-22 - Knekro en el Casino de Ciudad Trigal)
+
+- **Commit**: `8581c016ba` (`feat: añadir combate de Knekro al casino`)
+- [x] **Sprite propio**: integrado el overworld animado de Knekro con su paleta.
+- [x] **Retrato de combate**: añadido el frontal personalizado de 64×64.
+- [x] **Combate único**: Knekro utiliza a Meowth, Voltorb y Porygon; la victoria queda registrada mediante su bandera de entrenador.
+- [x] **Recompensa segura**: entrega una sola vez 3.000 fichas del Casino y exige previamente el Monedero y espacio suficiente.
+- [x] **Casino de Trigal**: personaje situado entre las tragaperras con diálogos propios antes y después del combate.
+- [x] **Validación**: textos sin incidencias y build HnS completada correctamente.
+
+### Versión 0.18.0 (2026-09-22 - Prueba de Ficha Gimnasio)
+
+- **Commit**: `5812c5d5b3` (`feat: implementar prueba de ficha gimnasio`).
+- [x] **Recompensa de gimnasios**: las 16 medallas conceden una ficha en Nuzlocke, con máximo 3 y protección contra duplicados.
+- [x] **Segundo intento**: se registran encuentros fallidos y puede recuperarse una vez la zona fallida más antigua.
+- [x] **Intercambio misterioso**: selección desde equipo/PC y sustitución por una especie no legendaria de fuerza igual o superior.
+- [x] **Resurrección**: cura de un Pokémon muerto del PC por 2 fichas, sin permitir una segunda resurrección del mismo ejemplar.
+- [x] **NPC piloto**: los tres servicios se prueban en el Centro Pokémon de Ciudad Trigal.
+- [x] **Guardado**: estado añadido al final de `SaveBlock3` y migración a `SAVE_VERSION` 6.
+- [x] **Interfaz definitiva**: completada en 0.19.0 con elección de ruta, menú único y NPC en los Centros principales.
+- [x] **Reglas avanzadas del intercambio**: completadas en 0.19.0 con OT propio, mediana/tope de nivel, dos IV perfectos y control por familias.
+
+### Versión 0.19.0 (2026-09-22 - Ficha Gimnasio completa)
+
+- **Commit**: `a5e7f0c7c4` (`feat: completar ficha gimnasio y corregir Knekro`).
+- [x] **Menú unificado**: segundo intento, intercambio, resurrección, explicación y salida.
+- [x] **Elección de zona**: el jugador recorre por nombre todas las rutas fallidas disponibles y elige cuál recuperar.
+- [x] **Centros principales**: encargado disponible en las ciudades de los 16 gimnasios.
+- [x] **Intercambio avanzado**: mediana y tope de nivel, OT propio, dos IV perfectos y exclusión de familias capturadas.
+- [x] **Transacciones persistentes**: guardado automático después de cada canje y antes de revelar el intercambio.
+- [x] **Migración retroactiva**: `SAVE_VERSION` 7 reconstruye las medallas y concede hasta 3 fichas en partidas Nuzlocke existentes.
+- [x] **Entrega visible**: cada gimnasio informa si concede la ficha o si el saldo máximo obliga a perderla.
+
+### Versión 0.19.1 (2026-09-23 - Correcciones de Knekro)
+
+- **Commit**: `1f49a349b9` (`fix: corregir sprites y combate de Knekro`).
+- [x] **Overworld reparado desde la fuente**: la tira horizontal se convierte por frames de `16×32`; se recuperan las cuatro orientaciones y sus animaciones.
+- [x] **Combate reparado**: Knekro está definido en `trainers_hns.party`, por lo que carga su retrato y sus tres Pokémon en la ROM HnS.
+- [x] **Documentación preventiva**: la guía explica tanto el empaquetado de hojas horizontales como la tabla de entrenadores que debe editarse.
+- [x] **Validación**: comprobados los frames `.4bpp`, la entrada generada `TRAINER_KNEKRO_HNS` y la build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.19.1-20260923-knekro-fix-es.gba` y actualizada `pokehns_fase1.gba`.
+
+### Versión 0.19.2 (2026-09-23 - Rival histórico Knekro)
+
+- **Commit**: `57bb16e6e3` (`feat: convertir a Knekro en rival histórico`).
+- [x] **Escala del overworld**: los perfiles laterales se han igualado a 21 píxeles de altura sin mover los pies ni alterar los otros seis frames.
+- [x] **Acceso al reto**: exige haber derrotado a Blanca y obtenido la Medalla Planicie; después muestra una advertencia con elección Sí/No.
+- [x] **Equipo representativo**: Jolteon, Starmie y Snorlax sustituyen al equipo provisional y representan tres miembros de su equipo competitivo histórico.
+- [x] **Personalidad**: diálogo propio antes, durante y después del combate, incluida la entrada «¡TERCERO DEL MUNDOOO!».
+- [x] **Validación**: PNG indexado de 4 bits, nueve frames alineados, auditoría de textos sin incidencias y build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.19.2-20260923-knekro-historico-es.gba` y actualizada `pokehns_fase1.gba`.
+
+### Versión 0.20.0 (2026-09-23 - Extras Nuzlocke configurables)
+
+- **Commit**: `b7f6906607` (`feat: hacer opcionales los extras de nuzlocke`).
+- [x] **Menú de reglas**: añadidas las opciones `POKéVIAL` y `FICHAS GIM.` con valores `SÍ/NO` y descripciones completas.
+- [x] **Desactivación integral**: afecta a entrega, uso, recarga, interfaz, recompensas de medalla, registro de encuentros y servicios de canje.
+- [x] **Compatibilidad**: los dos bits ocupan espacio libre de `ChallengeSettings`; `SAVE_VERSION 8` conserva ambos sistemas activos en partidas anteriores.
+- [x] **Política durante la partida**: los extras se pueden apagar, pero no reactivar para evitar ventajas retroactivas.
+- [x] **Validación**: build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.20.0-20260923-extras-nuzlocke-es.gba` y actualizada `pokehns_fase1.gba`.
+
+### Versión 0.20.1 (2026-09-23 - Correcciones de Trigal y Fichas Gimnasio)
+
+- **Commits**: `924a10f83f` (`fix: corregir comercios y fichas de Trigal`) y `167235aaad` (`fix: corregir separador de nombres de MT`).
+- [x] **Tiendas de MT**: las listas muestran el número de la MT seguido del nombre del movimiento, recortado de forma segura al ancho disponible.
+- [x] **Evaluadores de amistad**: traducidas la chica de Ciudad Trigal y la dependienta equivalente de Azulona; revisados también los evaluadores de Ruta 27, Ciudad Orquídea y el Evaluador de Motes.
+- [x] **Comercios de Trigal**: traducidos los diálogos de la herborista del Subsuelo y del mostrador de fichas y premios del Casino.
+- [x] **Segundo intento de captura**: ampliado el registro de 96 a las 112 zonas que usa HnS, conservando la disposición de las partidas existentes mediante campos anexos y migración a `SAVE_VERSION 9`.
+- [x] **Intercambio y resurrección con fichas**: la selección consulta correctamente los PS reconstruidos del Pokémon almacenado; los Pokémon vivos vuelven a poder elegirse para intercambio y los debilitados para resurrección.
+- [x] **Valores iniciales**: PokéVial y Fichas Gimnasio aparecen en `NO` al configurar una partida nueva y al restablecer las opciones de Nuzlocke.
+- [x] **Validación**: JSON de mapas válido, auditoría de textos HnS sin incidencias y build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.20.1-20260923-trigal-fichas-fix-es.gba` y actualizada `pokehns_fase1.gba`.
+
+### Versión 0.20.2 (2026-09-23 - Segundo intento e intercambio)
+
+- **Commit**: `111b4d1e78` (`fix: reparar segundo intento e intercambio`).
+- [x] **Segundo intento sobre rutas consumidas**: el selector consulta directamente las marcas Nuzlocke y permite recuperar una ruta cuyo uso se gastó tanto por captura como por derrota o huida.
+- [x] **Intercambio sin bloqueo**: simplificada la elección a un único recorrido lineal; entrega al azar un Pokémon normal cuya suma de estadísticas base sea igual o superior a la ofrecida.
+- [x] **Validación**: `gym_tokens.c` compilado de forma aislada y build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.20.2-20260923-fichas-rutas-intercambio-es.gba` y actualizada `pokehns_fase1.gba`.
+
+### Versión 0.20.3 (2026-09-23 - Interfaz de Fichas Gimnasio)
+
+- **Commit**: `7776f4c898` (`fix: mejorar selector y escena de fichas`).
+- [x] **Selector real de rutas**: sustituida la cadena de preguntas por una lista desplazable con todas las rutas consumidas y opción de cancelar; ya no se encadenan diálogos ni se reinicia el juego al agotarlos.
+- [x] **Escena de intercambio**: el canje de Ficha Gimnasio utiliza la animación completa de intercambio interno con los nombres y Pokémon generados dinámicamente.
+- [x] **Validación**: auditoría de textos sin incidencias, compilación aislada de selector, scripts y escena de intercambio, y build HnS completa con código 0.
+- [x] **ROM**: publicada como `releases/pokehns-0.20.3-20260923-selector-intercambio-es.gba` y actualizada `pokehns_fase1.gba`.

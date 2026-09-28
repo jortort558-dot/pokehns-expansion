@@ -60,7 +60,8 @@ GoldenrodCity_BillsHouse_EventScript_Bill_Refused::
 	end
 
 BillHouse_Text_TakeThisEevee:
-    .string "BILL: ¡Hola, {PLAYER}! Hazme un favor\n"
+    .string "BILL: ¡Hola, {PLAYER}! Hazme\n"
+    .string "un favor\l"
     .string "y quédate con este EEVEE.\p"
     .string "Nos lo dejaron a cuidar mientras yo\n"
     .string "andaba fuera perfeccionando mi PC.\p"
@@ -80,7 +81,7 @@ BillHouse_Text_ReceivedEevee:
 
 BillHouse_Text_EeveeMayEvolve:
     .string "BILL: El PROF. ELM dice que EEVEE\n"
-    .string "puede evolucionar de formas nuevas\ny\l"
+    .string "puede evolucionar de formas nuevas\ly\l"
     .string "desconocidas.$"
 
 BillHouse_Text_PartyFull:
@@ -92,7 +93,7 @@ BillHouse_Text_NoEevee:
 
 BillHouse_Text_PopWontWork:
     .string "BILL: Mi padre no da un palo al\nagua.\l"
-    .string "Se pasa el día vagueando de un lado\na\l"
+    .string "Se pasa el día vagueando de un lado\la\l"
     .string "otro. Es un caso perdido…$"
 
 BillHouse_Text_MomBeforeEcruteak:
@@ -106,7 +107,7 @@ BillHouse_Text_MomBeforeEcruteak:
 BillHouse_Text_MomAfterEcruteak:
     .string "De joven a mi marido lo llamaban el\n"
     .string "POKéMANÍACO.\p"
-    .string "BILL debió de heredar esa misma\npasión\l"
+    .string "BILL debió de heredar esa misma\lpasión\l"
     .string "por los bichos.$"
 
 BillHouse_Text_SisterUsefulNumber:
@@ -115,7 +116,8 @@ BillHouse_Text_SisterUsefulNumber:
     .string "va a venir de perlas.$"
 
 BillHouse_Text_RecordedBillsNumber:
-    .string "{PLAYER} registró el número de BILL.$"
+    .string "{PLAYER} registró el número\n"
+    .string "de BILL.$"
 
 BillHouse_Text_SisterRefusedNumber:
     .string "Mi hermano creó el sistema de\n"

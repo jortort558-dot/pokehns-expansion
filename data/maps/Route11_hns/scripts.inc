@@ -36,32 +36,33 @@ Route11_EventScript_Item_Grass_Knot::
     end
 
 Route11_Text_Engineer:
-	.string "I saw a strange POKéMON climbing\n"
-	.string "in the trees, but it didn't\l"
-	.string "look like MANKEY...$"
+	.string "Vi un POKéMON extraño trepando\n"
+	.string "por los árboles, pero no parecía\l"
+	.string "un MANKEY…$"
 
 Route11_Text_YoungsterOwenSeen:
-	.string "There's no cheating in POKéMON.\p"
-	.string "Let's keep it fair and square!$"
+	.string "En los combates POKéMON no vale\n"
+	.string "hacer trampas.\p"
+	.string "¡Luchemos limpiamente!$"
 
 Route11_Text_YoungsterOwenBeaten:
-	.string "Huh? How did this happen?$"
+	.string "¿Eh? ¿Cómo ha pasado esto?$"
 
 Route11_Text_YoungsterOwenAfterBattle:
-	.string "I fought fair and square with\n"
-	.string "honor.\p"
-	.string "I don't regret this at all.$"
+	.string "He combatido limpiamente\n"
+	.string "y con honor.\p"
+	.string "No me arrepiento de nada.$"
 
 Route11_Text_YoungsterJasonSeen:
-	.string "It itches and tickles a bit when\n"
-	.string "I wear shorts in the grass.$"
+	.string "La hierba pica y hace cosquillas\n"
+	.string "cuando llevo pantalones cortos.$"
 
 Route11_Text_YoungsterJasonBeaten:
-	.string "Aiyaaah! I got stomped!$"
+	.string "¡Aaaah! ¡Me has aplastado!$"
 
 Route11_Text_YoungsterJasonAfterBattle:
-	.string "I'm going to catch more POKéMON in\n"
-	.string "the grass.$"
+	.string "Voy a capturar más POKéMON\n"
+	.string "entre la hierba.$"
 
 Route11_Text_PsychicHermanSeen:
 	.string "…$"
@@ -71,20 +72,19 @@ Route11_Text_PsychicHermanBeaten:
 
 Route11_Text_PsychicHermanAfterBattle:
 	.string "…\p"
-	.string "I lost while I had my eyes closed…$"
+	.string "He perdido por cerrar los ojos…$"
 
 Route11_Text_PsychicFidelSeen:
-	.string "I can see it…\p"
-	.string "Everything to see about you…$"
+	.string "Puedo verlo…\p"
+	.string "Todo lo que hay que saber de ti…$"
 
 Route11_Text_PsychicFidelBeaten:
-	.string "I couldn't foresee your power…$"
+	.string "No pude prever tu poder…$"
 
 Route11_Text_PsychicFidelAfterBattle:
-	.string "Strength in conviction…\p"
-	.string "You're strong because you believe\n"
-	.string "in your POKéMON.$"
+	.string "La fuerza nace de la convicción…\p"
+	.string "Eres fuerte porque confías\n"
+	.string "en tus POKéMON.$"
 
 Route11_Text_Sign:
-	.string "ROUTE 11$"
-
+	.string "RUTA 11$"

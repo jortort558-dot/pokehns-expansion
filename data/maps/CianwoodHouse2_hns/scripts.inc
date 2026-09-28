@@ -26,8 +26,8 @@ CianwoodHouse2_EventScript_Twin::
 	end
 	
 CianwoodCity_Text_LugiaHouseTeacher:
-	.string "¿Vienes desde OLIVO?\p¿Recuerdas las cuatro islas que hay\nde\lcamino?\pHe oído que en su interior se\nesconde\luna criatura marina legendaria.$"
+	.string "¿Vienes desde OLIVO?\p¿Recuerdas las cuatro islas que hay\npor el camino?\pDicen que una criatura marina\nlegendaria se oculta en ellas.$"
 CianwoodCity_Text_LugiaHouseLass:
-	.string "Dicen que solo podrás verla si\nllevas\lcontigo un ALA PLATEADA.\pDebe de desprender el mismo aroma\nque\lesa criatura.$"
+	.string "Dicen que solo podrás verla si\nllevas un ALA PLATEADA.\pDebe de tener el mismo aroma que\nla criatura.$"
 CianwoodCity_Text_LugiaHouseTwin:
-	.string "He oído que los remolinos que\nrodean\llas islas los provoca esa bestia\lmarina.\pSeguro que necesitas un movimiento\nespecial para sortearlos.$"
+	.string "Dicen que la criatura marina causa\nlos remolinos que rodean las\lislas.\pQuizá necesites un movimiento\nespecial para superarlos.$"

@@ -251,24 +251,24 @@ RocketHideout_B1F_Text_CameraGrunt1Beaten:
 RocketHideout_B1F_Text_CameraGrunt2Seen:
 	.string "¡Ahora me toca a mí! ¡De aquí no\nsales!$"
 RocketHideout_B1F_Text_CameraGrunt2Beaten:
-	.string "Las cámaras de vigilancia están en\nlos ojos\lde las estatuas POKéMON.\lSaldremos sin parar hasta que\ldesactives el\linterruptor secreto.$"
+	.string "Las cámaras están en las\nestatuas POKéMON.\pSeguiremos apareciendo hasta que\nactives un interruptor secreto.$"
 RocketHideout_B1F_EventScript_TrainerJed::
 	trainerbattle_single TRAINER_JED_HNS, RocketHideout_B1F_Text_ScientistJedSeen, RocketHideout_B1F_Text_ScientistJedBeaten
 	msgbox RocketHideout_B1F_Text_ScientistJedAfter, MSGBOX_AUTOCLOSE
 	end
 
 RocketHideout_B1F_Text_ScientistJedSeen:
-	.string "Esto fue un antiguo escondite\nninja.\lHay trampas pensadas para despistar\la los\lintrusos como tú.$"
+	.string "Esto fue una guarida ninja.\pHay trampas para confundir a\nintrusos como tú.$"
 RocketHideout_B1F_Text_ScientistJedBeaten:
 	.string "Entendido…$"
 RocketHideout_B1F_Text_ScientistJedAfter:
-	.string "De acuerdo. Te revelaré un secreto\nde\lnuestra guarida.\lEse panel del suelo de ahí delante\les un\lteletransportador.\lSi lo pisas, te devolverá de golpe\la la\lentrada.$"
+	.string "De acuerdo. Te contaré un secreto\nsobre nuestra guarida.\pEse objeto del suelo es un panel\nteletransportador.\pSi lo pisas, volverás al instante\na la entrada.$"
 RocketHideout_B1F_Text_GruntM16Seen:
 	.string "Je, je. ¿Te sientes con suerte,\nrenacuajo?$"
 RocketHideout_B1F_Text_GruntM16Beaten:
 	.string "¡Bum!$"
 RocketHideout_B1F_Text_GruntM16After:
-	.string "Ni yo mismo sé dónde están\ncolocadas las\ltrampas del suelo.\lTendrás que armarte de valor y\lavanzar.$"
+	.string "Ni yo sé dónde están colocadas\nlas trampas.\pTendrás que armarte de valor\ny avanzar.$"
 RocketHideout_B1F_EventScript_Rocket16::
 	trainerbattle_single TRAINER_GRUNT_13_HNS, RocketHideout_B1F_Text_GruntM16Seen, RocketHideout_B1F_Text_GruntM16Beaten
 	msgbox RocketHideout_B1F_Text_GruntM16After, MSGBOX_AUTOCLOSE

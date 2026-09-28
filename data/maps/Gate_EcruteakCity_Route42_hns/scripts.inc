@@ -10,4 +10,7 @@ Gate_EcruteakCity_Route42_EventScript_Policeman::
 	end
 
 Route42_Text_EcruteakGateOfficer:
-	.string "El MONTE MORTERO es un auténtico\nlaberinto por dentro.\pTen mucho cuidado. ¡No te vayas a\nperder ahí dentro!$"
+	.string "El MONTE MORTERO es un auténtico\n"
+	.string "laberinto por dentro.\p"
+	.string "Ten mucho cuidado. ¡No te vayas\n"
+	.string "a perder ahí dentro!$"

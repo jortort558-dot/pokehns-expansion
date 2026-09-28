@@ -149,7 +149,7 @@ Route44_Text_WiltonGaveItem:
     .string "alguna otra cosa!$"
 
 Route44_Text_WiltonNoRoom:
-    .string "Mmm, tu MOCHILA está llena.\p"
+    .string "Mmm, tu BOLSA está llena.\p"
     .string "Vuelve cuando tengas sitio.$"
 
 Route44_Text_FisherEdgarSeen:

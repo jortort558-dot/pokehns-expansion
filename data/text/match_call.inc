@@ -2039,15 +2039,15 @@ MatchCall_Text_Mom3::
 	.string "they fall apart, honey!$"
 
 MatchCall_Text_Baoba1::
-	.string "BAOBA: {PLAYER}!\n"
-	.string "The SAFARI ZONE is nearly ready!\p"
-	.string "I'll call you first thing when\n"
-	.string "it's finished!$"
+	.string "BAOBA: ¡{PLAYER}!\n"
+	.string "¡La ZONA SAFARI está casi a punto!\p"
+	.string "¡Te llamaré a ti primero en cuanto\n"
+	.string "esté terminada!$"
 
 MatchCall_Text_Baoba2::
-	.string "BAOBA: {PLAYER}!\n"
-	.string "The SAFARI ZONE is open! Come\p"
-	.string "anytime!$"
+	.string "BAOBA: ¡{PLAYER}!\n"
+	.string "¡La ZONA SAFARI está abierta!\p"
+	.string "¡Pásate cuando quieras!$"
 
 MatchCall_Text_Roxanne1::
 	.string "ROXANNE: Oh, hello, {PLAYER}!\p"

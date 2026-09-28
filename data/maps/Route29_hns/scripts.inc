@@ -168,14 +168,14 @@ Route29_Text_OldMan2:
 	.string "a atrapar POKéMON?$"
 
 Route29_Text_OldManExplanation:
-	.string "Si los debilitas primero,\n"
-	.string "los POKéMON son más fáciles de\natrapar.\p"
-	.string "¡Luego, lánzales una BALL de tu\n"
-	.string "mochila! Cualquier BALL servirá.\p"
-	.string "Si quieres aprender más,\n"
-	.string "¡ve a la ACADEMIA de CIUDAD MALVA!\p"
-	.string "Los alumnos de allí saben un montón\n"
-	.string "sobre los POKéMON.$"
+	.string "Si antes los debilitas,\n"
+	.string "será más fácil atraparlos.\p"
+	.string "¡Luego lánzales una BALL\n"
+	.string "desde la BOLSA!\p"
+	.string "Si quieres saber más,\n"
+	.string "ve a la ACADEMIA de MALVA.\p"
+	.string "Sus alumnos saben mucho\n"
+	.string "sobre POKéMON.$"
 
 Route29_Text_OldManDeclined:
 	.string "Ah, bueno, pues nada.\p"
@@ -189,19 +189,19 @@ Route29_Text_OldManDeclined:
 	.string "los POKéMON.$"
 
 Route29_Text_Youngster:
-	.string "¡Buenas! ¿Cómo están tus POKéMON?\p"
-	.string "Si están débiles y no están listos\n"
-	.string "para luchar, no te metas en la\nhierba.$"
+	.string "¡Ey! ¿Cómo están tus POKéMON?\p"
+	.string "Si están débiles, evita\n"
+	.string "meterte en la hierba.$"
 
 Route29_Text_Lass:
 	.string "¿Ves esos desniveles?\n"
-	.string "Da un poco de miedo saltar por\nellos.\p"
+	.string "Da un poco de miedo saltar por\lellos.\p"
 	.string "Pero así puedes volver a PRIMAVERA\n"
 	.string "sin tener que cruzar la hierba.$"
 
 Route29_Text_Girl:
 	.string "Quería tomarme un descanso,\n"
-	.string "así que he guardado para registrar\nmis avances.$"
+	.string "así que guardé mis avances.$"
 
 Route29_Text_Boy_WaitingForDay:
 	.string "Estoy esperando a los POKéMON que\n"
@@ -223,7 +223,7 @@ Route29_Text_TuscanyNope:
 
 Route29_Text_TuscanyGivesGift:
 	.string "¡Sí! Como presentación,\n"
-	.string "por favor, acepta este PAÑUELO\nSEDA.$"
+	.string "por favor, acepta este PAÑUELO\lSEDA.$"
 
 Route29_Text_TuscanyGaveGift:
 	.string "MARTITA: ¿A que es de lo más\nadorable?\p"
@@ -239,4 +239,3 @@ Route29_Text_TuscanyTuesday:
 Route29_Text_Sign1:
 	.string "RUTA 29\p"
 	.string "CIUDAD CEREZO - PUEBLO PRIMAVERA$"
-

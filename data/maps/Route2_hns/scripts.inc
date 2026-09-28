@@ -24,56 +24,56 @@ Route2_EventScript_Nugget::
     end
 
 Route2_Text_RobRegister:
-	.string "Let me get your number!$"
+	.string "¡Dame tu número!$"
 
 Route2_Text_RobRematchIntro:
-	.string "I've caught even more bugs!\n"
-	.string "Check them out!$"
+	.string "¡He atrapado más bichos!\n"
+	.string "¡Échales un vistazo!$"
 
 Route2_Text_RobRematchDefeat:
-	.string "I need better bugs!$"
+	.string "¡Necesito bichos mejores!$"
 
 Route2_Text_RobPostRematch:
-	.string "I caught every bug in VIRIDIAN.\n"
-	.string "Is there a better FOREST somewhere?$"
+	.string "Atrapé todos los bichos de VERDE.\n"
+	.string "¿Habrá otro BOSQUE mejor?$"
 
 Route2_Text_BugCatcherRob_Seen:
-	.string "My bug POKéMON are tough. Prepare to\n"
-	.string "lose!$"
+	.string "Mis POKéMON bicho son muy fuertes.\n"
+	.string "¡Prepárate para perder!$"
 
 Route2_Text_BugCatcherRob_Beaten:
-	.string "I was whipped…$"
+	.string "Me vencieron…$"
 
 Route2_Text_BugCatcherRob_AfterBattle:
-	.string "I'm going to look for stronger bug\n"
-	.string "POKéMON.$"
+	.string "Voy a buscar POKéMON bicho\n"
+	.string "más fuertes.$"
 
 Route2_Text_BugCatcherEd_Seen:
-	.string "If you walk in tall grass wearing\n"
-	.string "shorts, do you get nicks and cuts?$"
+	.string "Si vas en pantalón corto por la\n"
+	.string "hierba alta, ¿no te arañas?$"
 
 Route2_Text_BugCatcherEd_Beaten:
-	.string "Ouch, ouch, ouch!$"
+	.string "¡Au, au, au!$"
 
 Route2_Text_BugCatcherEd_AfterBattle:
-	.string "They'll really sting when you take a\n"
-	.string "bath.$"
+	.string "Seguro que te escuecen cuando te\n"
+	.string "bañas.$"
 
 Route2_Text_BugCatcherDoug_Seen:
-	.string "Why don't girls like bug POKéMON?$"
+	.string "¿Por qué a las chicas no les\n"
+	.string "gustan los POKéMON bicho?$"
 
 Route2_Text_BugCatcherDoug_Beaten:
-	.string "No good!$"
+	.string "¡Muy mal!$"
 
 Route2_Text_BugCatcherDoug_AfterBattle:
-	.string "Bug POKéMON squish like plush toys\n"
-	.string "when you squeeze their bellies.\p"
-	.string "I love how they feel!$"
+	.string "Los POKéMON bicho parecen peluches\n"
+	.string "al apretarles la tripa.\p"
+	.string "¡Me encanta tocarlos!$"
 
 Route2_Text_Sign:
-	.string "ROUTE 2\p"
-	.string "VIRIDIAN CITY - PEWTER CITY$"
+	.string "RUTA 2\p"
+	.string "CIUDAD VERDE - CIUDAD PLATEADA$"
 
 Route2_Text_DiglettsCaveSign:
-	.string "DIGLETT'S CAVE$"
-
+	.string "CUEVA DIGLETT$"

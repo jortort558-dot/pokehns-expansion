@@ -314,6 +314,10 @@ static void CB2_WaitTradeComplete(void);
 static void CB2_SaveAndEndTrade(void);
 static void CB2_FreeTradeAnim(void);
 static void Task_InGameTrade(u8);
+
+static EWRAM_DATA bool8 sCustomInGameTrade = FALSE;
+static EWRAM_DATA u8 sCustomInGameTradeOtName[PLAYER_NAME_LENGTH + 1] = {0};
+static EWRAM_DATA u8 sCustomInGameTradeMonName[POKEMON_NAME_LENGTH + 1] = {0};
 static void CheckPartnersMonForRibbons(void);
 static void Task_AnimateWirelessSignal(u8);
 static void Task_OpenCenterWhiteColumn(u8);
@@ -3348,9 +3352,17 @@ static void BufferTradeSceneStrings(void)
     }
     else
     {
-        ingameTrade = &sIngameTrades[gSpecialVar_0x8005];
-        StringCopy(gStringVar1, ingameTrade->otName);
-        StringCopy_Nickname(gStringVar3, ingameTrade->nickname);
+        if (sCustomInGameTrade)
+        {
+            StringCopy(gStringVar1, sCustomInGameTradeOtName);
+            StringCopy_Nickname(gStringVar3, sCustomInGameTradeMonName);
+        }
+        else
+        {
+            ingameTrade = &sIngameTrades[gSpecialVar_0x8005];
+            StringCopy(gStringVar1, ingameTrade->otName);
+            StringCopy_Nickname(gStringVar3, ingameTrade->nickname);
+        }
         if (gSpecialVar_0x8004 == PC_MON_CHOSEN)
             GetMonData(&gEnemyParty[TRADEMON_FROM_PC], MON_DATA_NICKNAME, name);
         else
@@ -4561,10 +4573,25 @@ u16 GetInGameTradeSpeciesInfo(void)
 static void BufferInGameTradeMonName(void)
 {
     u8 nickname[max(32, POKEMON_NAME_BUFFER_SIZE)];
+
+    if (sCustomInGameTrade)
+    {
+        StringCopy_Nickname(gStringVar1, sCustomInGameTradeMonName);
+        StringCopy_Nickname(gStringVar2, sCustomInGameTradeMonName);
+        sCustomInGameTrade = FALSE;
+        return;
+    }
     const struct InGameTrade *inGameTrade = &sIngameTrades[gSpecialVar_0x8005];
     GetMonData(&gPlayerParty[gSpecialVar_0x8005], MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(gStringVar1, nickname);
     StringCopy(gStringVar2, GetSpeciesName(inGameTrade->species));
+}
+
+void SetCustomInGameTradeScene(void)
+{
+    GetMonData(&gEnemyParty[0], MON_DATA_OT_NAME, sCustomInGameTradeOtName);
+    GetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, sCustomInGameTradeMonName);
+    sCustomInGameTrade = TRUE;
 }
 
 static void CreateInGameTradePokemonInternal(u8 whichPlayerMon, u8 whichInGameTrade)

@@ -67,7 +67,7 @@ NationalPark_Normal_EventScript_Persian::
 
 
 NationalPark_Normal_Text_Lass:
-	.string "¡Mira! ¡Fíjate en mi mochila!\pHe impreso las fotos de mis POKéMON\nfavoritos de la POKéDEX y las he\lpegado por todas partes.$"
+	.string "¡Mira! ¡Fíjate en mi bolsa!\pHe impreso las fotos de mis POKéMON\nfavoritos de la POKéDEX y las he\lpegado por todas partes.$"
 NationalPark_Normal_Text_PokefanF:
 	.string "Esta es una CARTA que me mandó mi\nhija.\l¡Me alegra el día cada vez que la\lleo!$"
 NationalPark_Normal_Text_Teacher1:
@@ -198,4 +198,4 @@ NationalPark_Normal_Text_BeverlyHasItem:
 NationalPark_Normal_Text_BeverlyGaveItem:
 	.string "¡Mis adorables POKéMON y yo te\nestaremos animando!$"
 NationalPark_Normal_Text_BeverlyNoRoom:
-	.string "Vaya, llevas la MOCHILA a tope.\pVuelve cuando tengas algo de hueco.$"
+	.string "Vaya, llevas la BOLSA a tope.\pVuelve cuando tengas algo de hueco.$"

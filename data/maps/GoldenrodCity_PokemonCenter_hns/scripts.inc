@@ -49,7 +49,7 @@ GoldenrodCity_PokemonCenter_EventScript_ChooseTrade::
 	delay 30
 	call CableClub_EventScript_CheckPartyTradeRequirements
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_LinkNpc_End
-	call Common_EventScript_SaveGame
+	special SaveGymTokenTransaction
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_LinkNpc_End
 	message gText_PleaseWaitForLink
 	waitmessage
@@ -104,7 +104,7 @@ GoldenrodCity_PokemonCenter_EventScript_NeedTwoMons::
 	end
 
 GoldenrodCity_PokemonCenter_EventScript_TryEnterColosseum::
-	call Common_EventScript_SaveGame
+	special SaveGymTokenTransaction
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_LinkNpc_End
 	message gText_PleaseWaitForLink
 	waitmessage
@@ -140,23 +140,309 @@ GoldenrodCity_PokemonCenter_EventScript_LinkNpc_End::
 	end
 
 GoldenrodCity_PokemonCenter_LinkNpc_Text_Intro:
-	.string "LINK CORNER\p"
-	.string "SELECT LINK TYPE.$"
+	.string "RINCÓN DE CONEXIÓN\p"
+	.string "ELIGE EL TIPO DE CONEXIÓN.$"
 
 GoldenrodCity_PokemonCenter_LinkNpc_Text_BattleMode:
-	.string "SELECT BATTLE TYPE.$"
+	.string "ELIGE EL TIPO DE COMBATE.$"
 
 GoldenrodCity_PokemonCenter_LinkNpc_Text_Goodbye:
-	.string "GOODBYE.$"
+	.string "HASTA PRONTO.$"
 
 GoldenrodCity_PokemonCenter_EventScript_LinkExplainerNpc::
 	msgbox GoldenrodCity_PokemonCenter_Text_LinkExplainer, MSGBOX_NPC
 	end
 
 GoldenrodCity_PokemonCenter_Text_LinkExplainer:
-	.string "You can use this machine to trade\n"
-	.string "or battle with other local players.\p"
-	.string "Isn't technology wonderful?$"
+	.string "Esta máquina permite intercambiar\n"
+	.string "o combatir con jugadores cercanos.\p"
+	.string "¡La tecnología es increíble!$"
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenClerk::
+	lock
+	faceplayer
+	msgbox GoldenrodCity_PokemonCenter_Text_LockeAssistantIntro, MSGBOX_DEFAULT
+GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu::
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner, 0
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 1
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 2
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionRewards, 3
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionExit, 4
+	dynmultistack 0, 0, FALSE, 5, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	closemessage
+	switch VAR_RESULT
+	case 0, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner
+	case 1, GoldenrodCity_PokemonCenter_EventScript_AssistantGymTokens
+	case 2, GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps
+	case 3, GoldenrodCity_PokemonCenter_EventScript_AssistantRewards
+	case 4, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+
+GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner::
+	message MoveRelearner_Text_WouldLearnNewMoves
+	waitmessage
+	goto Common_EventScript_MoveRelearnerDynMultiChoice
+
+GoldenrodCity_PokemonCenter_EventScript_AssistantGymTokens::
+	special GetGymTokenCount
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenIntro, MSGBOX_DEFAULT
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNone
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu::
+	multichoice 0, 0, MULTI_GYM_TOKEN_SERVICES_HNS, FALSE
+	switch VAR_RESULT
+	case 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry
+	case 1, GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeConfirm
+	case 2, GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveConfirm
+	case 3, GoldenrodCity_PokemonCenter_EventScript_GymTokenExplain
+	case 4, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps::
+	special BufferLevelCapSummary
+	msgbox GoldenrodCity_PokemonCenter_Text_LevelCapSummary, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	msgbox GoldenrodCity_PokemonCenter_Text_LevelCapAllLeaders, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_AssistantRewards::
+	msgbox GoldenrodCity_PokemonCenter_Text_RewardsFuture, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd::
+	msgbox GoldenrodCity_PokemonCenter_Text_LockeAssistantGoodbye, MSGBOX_DEFAULT
+	release
+	end
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenNone::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenNone, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_Text_LockeAssistantIntro:
+	.string "¡Hola! Soy el Asistente del Locke.\p"
+	.string "Ofrezco servicios de apoyo para tu\n"
+	.string "aventura. ¿En qué puedo ayudarte?$"
+
+GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner:
+	.string "Recordar movimientos$"
+
+GoldenrodCity_PokemonCenter_Text_OptionGymTokens:
+	.string "Fichas Gimnasio$"
+
+GoldenrodCity_PokemonCenter_Text_OptionLevelCaps:
+	.string "Info líderes y niveles$"
+
+GoldenrodCity_PokemonCenter_Text_OptionRewards:
+	.string "Recompensas Locke$"
+
+GoldenrodCity_PokemonCenter_Text_OptionExit:
+	.string "Salir$"
+
+GoldenrodCity_PokemonCenter_Text_LockeAssistantGoodbye:
+	.string "¡Mucho ánimo con tu reto!$"
+
+GoldenrodCity_PokemonCenter_Text_LevelCapSummary:
+	.string "DIFICULTAD: {STR_VAR_3}\n"
+	.string "NIVEL MÁXIMO ACTUAL: {STR_VAR_1}\p"
+	.string "Siguiente objetivo:\n"
+	.string "{STR_VAR_2}\p"
+	.string "¿Quieres consultar la lista\n"
+	.string "de límites de cada líder?$"
+
+GoldenrodCity_PokemonCenter_Text_LevelCapAllLeaders:
+	.string "LÍMITES (Normal / Difícil):\p"
+	.string "Pegaso: 11 / 8\n"
+	.string "Antón: 16 / 15\p"
+	.string "Blanca: 21 / 20\n"
+	.string "Morty: 25 / 23\p"
+	.string "Aníbal: 31 / 29\n"
+	.string "Yasmina: 36 / 33\p"
+	.string "Fredo: 38 / 37\n"
+	.string "Débora: 45 / 42\p"
+	.string "Liga Pokémon Johto: 56 / 54\p"
+	.string "Gimnasios Kanto: 70\n"
+	.string "Campeón Kanto: 100$"
+
+GoldenrodCity_PokemonCenter_Text_RewardsFuture:
+	.string "Esta función estará disponible en\n"
+	.string "una próxima actualización.\p"
+	.string "¡Podrás recibir recompensas según\n"
+	.string "tus logros en la partida!$"
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenGachaponIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+	msgbox GoldenrodCity_PokemonCenter_Text_MustSaveBeforeAction, MSGBOX_DEFAULT
+	call Common_EventScript_SaveGame
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenSaveAborted
+	special RollGymTokenGachapon
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry
+	special SaveGymTokenTransaction
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenGachaponSuccess, MSGBOX_DEFAULT
+	waitfanfare
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenNoRetry::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenNoRetry, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeConfirm::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTrade, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+	msgbox GoldenrodCity_PokemonCenter_Text_MustSaveBeforeAction, MSGBOX_DEFAULT
+	call Common_EventScript_SaveGame
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenSaveAborted
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenTrade
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenTrade::
+	chooseboxmon SELECT_PC_MON_GYM_TOKEN_TRADE
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+	special UseGymTokenTrade
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeFailed
+	special DoInGameTradeScene
+	waitstate
+	special FinishGymTokenTrade
+	special SaveGymTokenTransaction
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTradeDone, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenTradeFailed::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenTradeFailed, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveConfirm::
+	special GetGymTokenCount
+	goto_if_lt VAR_RESULT, 2, GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveNotEnough
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenRevive, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+	msgbox GoldenrodCity_PokemonCenter_Text_MustSaveBeforeAction, MSGBOX_DEFAULT
+	call Common_EventScript_SaveGame
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenSaveAborted
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenRevive
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveNotEnough::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenReviveNotEnough, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenRevive::
+	chooseboxmon SELECT_PC_MON_GYM_TOKEN_REVIVE
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+	special UseGymTokenRevive
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveFailed
+	special SaveGymTokenTransaction
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenReviveDone, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenReviveFailed::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenReviveFailed, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenSaveAborted::
+	msgbox GoldenrodCity_PokemonCenter_Text_SaveRequiredNotice, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenExplain::
+	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenExplain, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_GymTokenMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd::
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_Text_GymTokenIntro:
+	.string "Soy el encargado de las\n"
+	.string "FICHAS GIMNASIO.\p"
+	.string "Ahora tienes {STR_VAR_1}.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenNone:
+	.string "Obtendrás una al superar un\n"
+	.string "GIMNASIO en un reto NUZLOCKE.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenGachaponIntro:
+	.string "¡Gachapón de captura!\p"
+	.string "Por 1 FICHA, la ruleta elegirá\n"
+	.string "al azar una zona gastada para que\l"
+	.string "puedas volver a capturar.\p"
+	.string "¿Quieres activar el gachapón?$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenGachaponSuccess:
+	.string "¡Ha salido el premio gordo!\p"
+	.string "¡Has ganado una captura gratis en:\n"
+	.string "{STR_VAR_1}!\p"
+	.string "¡Aprovéchala con cabeza!$"
+
+GoldenrodCity_PokemonCenter_Text_MustSaveBeforeAction:
+	.string "Para evitar paradojas temporales,\n"
+	.string "es obligatorio guardar la partida.\p"
+	.string "¿Deseas guardar ahora?$"
+
+GoldenrodCity_PokemonCenter_Text_SaveRequiredNotice:
+	.string "No se puede realizar esta acción\n"
+	.string "sin guardar previamente la partida.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenTrade:
+	.string "¿Intercambiar un POKéMON vivo y sin\n"
+	.string "objeto por 1 FICHA GIMNASIO?$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenRevive:
+	.string "¿Resucitar un POKéMON debilitado\n"
+	.string "por 2 FICHAS GIMNASIO?$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenReviveNotEnough:
+	.string "La resurrección de un POKéMON\n"
+	.string "requiere 2 FICHAS GIMNASIO.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenNoRetry:
+	.string "No tienes zonas gastadas que se\n"
+	.string "puedan volver a habilitar.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenTradeDone:
+	.string "El intercambio se completó.\n"
+	.string "¡Has recibido a {STR_VAR_3}!$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenTradeFailed:
+	.string "No puedo realizarlo. Debe ser un\n"
+	.string "POKéMON vivo y sin objeto equipado.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenReviveDone:
+	.string "Tu POKéMON vuelve a estar sano.\n"
+	.string "No podrá resucitar otra vez.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenReviveFailed:
+	.string "Necesitas 2 FICHAS y un POKéMON\n"
+	.string "debilitado que no haya vuelto ya.$"
+
+GoldenrodCity_PokemonCenter_Text_GymTokenExplain:
+	.string "Cada medalla da una FICHA.\p"
+	.string "Sirven para recuperar capturas,\n"
+	.string "intercambiar o resucitar.\p"
+	.string "Puedes guardar un máximo de 3.$"
+
+GymToken_EventScript_Award::
+	special AwardGymToken
+	goto_if_eq VAR_RESULT, 1, GymToken_EventScript_AwardReceived
+	goto_if_eq VAR_RESULT, 2, GymToken_EventScript_AwardFull
+	return
+
+GymToken_EventScript_AwardReceived::
+	msgbox GymToken_Text_AwardReceived, MSGBOX_DEFAULT
+	return
+
+GymToken_EventScript_AwardFull::
+	msgbox GymToken_Text_AwardFull, MSGBOX_DEFAULT
+	return
+
+GymToken_Text_AwardReceived:
+	.string "¡Has recibido una FICHA GIMNASIO!\n"
+	.string "Puedes canjearla en un CENTRO.$"
+
+GymToken_Text_AwardFull:
+	.string "Ya tienes 3 FICHAS GIMNASIO.\n"
+	.string "No puedes guardar esta recompensa.$"
 
 GoldenrodCity_PokemonCenter_EventScript_GbaKid1::
 	lock
@@ -200,8 +486,8 @@ GoldenrodCity_PokemonCenter_GameboyKidText1:
     .string "¡El tejado está hecho de oro!$"
 
 GoldenrodCity_PokemonCenter_GameboyKidText2:
-    .string "Le dije a mi hermano que el techo\nes\l"
-    .string "de oro puro. ¡Ese inocentón se\ntraga\l"
+    .string "Le dije a mi hermano que el techo\les\l"
+    .string "de oro puro. ¡Ese inocentón se\ltraga\l"
 	.string "lo que sea!$"
 
 GoldenrodCity_PokemonCenter_LassText:
@@ -213,17 +499,17 @@ GoldenrodCity_PokemonCenter_LassText:
     .string "rey indiscutible.$"
 
 GoldenrodPokeCenter_LinkReceptionistPleaseAcceptGSBallText:
-    .string "{PLAYER}, isn't it?\p"
-    .string "Congratulations!\p"
-    .string "As a special deal, a GS BALL has\n"
-    .string "been sent just for you!\p"
-    .string "Please accept it!$"
+    .string "Tú eres {PLAYER}, ¿verdad?\p"
+    .string "¡Enhorabuena!\p"
+    .string "Como regalo especial, han enviado\n"
+    .string "una GS BALL solo para ti.\p"
+    .string "¡Acéptala, por favor!$"
 
 GoldenrodPokeCenter_LinkReceptionistPleaseDoComeAgainText:
-    .string "Please do come again!$"
+    .string "¡Esperamos volver a verte!$"
 
 GoldenrodCity_PokemonCenter_PokefanFDoYouHaveEonMailText:
-    .string "¡Cielo santo, qué MOCHILA tan\npesada!\p"
+    .string "¡Cielo santo, qué BOLSA tan\npesada!\p"
     .string "¡Oye! ¿Por casualidad tienes una\n"
     .string "CARTA EÓN?\p"
     .string "Mi hija está loca por conseguir\nuna.\p"

@@ -273,6 +273,7 @@ struct ChallengeSettings
     u8 disableMatchCall:1;
     u8 bikeMusic:1;
     u8 surfMusic:1;
+    u8 tx_Random_TrainerPower:2;
     bool8 autoRun;
     // Randomizer
     u8 tx_Random_Chaos:1;
@@ -296,6 +297,7 @@ struct ChallengeSettings
     u8 tx_Challenges_Nuzlocke:1;
     u8 tx_Challenges_NuzlockeHardcore:1;
     u8 tx_Challenges_PartyLimit:3;
+    u8 tx_PokemitosCup:1;
     u8 tx_Challenges_OneTypeChallenge:5;
     u8 tx_Challenges_NoItemPlayer:1;
     u8 tx_Challenges_NoItemTrainer:1;
@@ -319,6 +321,11 @@ struct ChallengeSettings
     u8 tx_Nuzlocke_Deletion:1;
     u8 tx_Nuzlocke_EasyMode:1;
     u8 tx_Nuzlocke_RareCandy:1;
+    u8 tx_Nuzlocke_PokeVial:1;
+    u8 tx_Nuzlocke_GymTokens:1;
+    u8 tx_Random_Items_Competitive:2;   // 0 = NORMAL, 1 = ABUNDANTE, 2 = OFF
+    u8 tx_Random_TrainerItems:2;
+    u8 tx_Random_TrainerMegas:2;
     u8 nuzlockeEncounterFlags[16];
     // Mode / Features
     u8 tx_Mode_InfiniteTMs:1;
@@ -338,6 +345,11 @@ struct ChallengeSettings
     u8 tx_Features_FrontierBans:1;
     u8 tx_Difficulty_EscapeRopeDig:1;
     u8 tx_Features_ShinyChance:4;
+    // Randomizer Items granular settings (fits in remaining 4 bits of this byte)
+    u8 tx_Random_Items_Progression:1;   // 0 = ACTIVADA, 1 = CAÓTICA
+    u8 tx_Random_Items_TMShuffle:1;     // 0 = SÍ, 1 = NO
+    u8 tx_Random_Items_MegaStones:1;    // 0 = POST-LAGO, 1 = DESACTIVADAS
+    u8 tx_Nuzlocke_BanHealingShop:1;    // 0 = PERMITIDAS, 1 = PROHIBIDAS
 };
 
 struct SaveBlock3
@@ -358,6 +370,20 @@ struct SaveBlock3
 #endif
     struct ChallengeSettings challengeSettings;
     u16 registeredItemHold;
+    struct
+    {
+        u8 count;
+        u8 mysteryTrades;
+        u16 awardedBadgeMask;
+        u8 failedEncounterFlags[12];
+        u8 retriedEncounterFlags[12];
+        u32 revivedPersonalities[8];
+        u32 revivedOtIds[8];
+        // Appended to preserve the layout of existing saves. Together with the
+        // original arrays these cover HnS zones 0x00-0x6F.
+        u8 failedEncounterFlagsExt[2];
+        u8 retriedEncounterFlagsExt[2];
+    } gymTokens;
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;

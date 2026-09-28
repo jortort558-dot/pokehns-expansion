@@ -44,7 +44,7 @@ GoldenrodCity_BikeShop_EventScript_Bike::
 GoldenrodCity_BikeShop_Text_Clerk2:
 	.string "Montar en BICI es tan fácil como\n"
 	.string "pulsar un botón si la ASIGNAS\l"
-	.string "desde tu MOCHILA.\p"
+	.string "desde tu BOLSA.\p"
 	.string "¡Y si quieres ir a toda pastilla,\n"
 	.string "primero tienes que frenar del todo!\p"
 	.string "Suena raro, pero solo puedes\ncambiar\l"

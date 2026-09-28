@@ -1077,9 +1077,9 @@ static const struct StorageMessage sMessages[] =
     [MSG_PLEASE_REMOVE_MAIL]   = {COMPOUND_STRING("Por favor, retira la CARTA."),MSG_VAR_NONE},
     [MSG_IS_SELECTED2]         = {gText_PkmnIsSelected,                          MSG_VAR_ITEM_NAME},
     [MSG_GIVE_TO_MON]          = {COMPOUND_STRING("¿DAR a un POKéMON?"),         MSG_VAR_NONE},
-    [MSG_PLACED_IN_BAG]        = {COMPOUND_STRING("Se guardó en la MOCHILA."),   MSG_VAR_ITEM_NAME},
-    [MSG_BAG_FULL]             = {COMPOUND_STRING("La MOCHILA está llena."),     MSG_VAR_NONE},
-    [MSG_PUT_IN_BAG]           = {COMPOUND_STRING("¿Guardar en la MOCHILA?"),    MSG_VAR_NONE},
+    [MSG_PLACED_IN_BAG]        = {COMPOUND_STRING("Se guardó en la BOLSA."),   MSG_VAR_ITEM_NAME},
+    [MSG_BAG_FULL]             = {COMPOUND_STRING("La BOLSA está llena."),     MSG_VAR_NONE},
+    [MSG_PUT_IN_BAG]           = {COMPOUND_STRING("¿Guardar en la BOLSA?"),    MSG_VAR_NONE},
     [MSG_ITEM_IS_HELD]         = {COMPOUND_STRING("{DYNAMIC 0} está equipado."), MSG_VAR_ITEM_NAME},
     [MSG_CHANGED_TO_ITEM]      = {COMPOUND_STRING("Cambiado por {DYNAMIC 0}."),  MSG_VAR_ITEM_NAME},
     [MSG_CANT_STORE_MAIL]      = {COMPOUND_STRING("¡No se guarda la CARTA!"),    MSG_VAR_NONE},
@@ -4564,11 +4564,12 @@ static bool32 ShouldBoxmonSpriteBeTransparent(u32 boxId, u32 boxPosition)
 
     if (IsNuzlockeActive() || IsNuzlockeEasyActive())
     {
-        if ((sStorage->boxOption == OPTION_SELECT_MON
-        || sStorage->boxOption == OPTION_DEPOSIT
-        || sStorage->boxOption == OPTION_WITHDRAW
-        || sStorage->boxOption == OPTION_MOVE_MONS)
-        && GetMonData(&mon, MON_DATA_HP) == 0 && GetMonData(&mon, MON_DATA_IS_EGG) == FALSE)
+        if (GetPcMonSelectionType() != SELECT_PC_MON_GYM_TOKEN_REVIVE
+         && (sStorage->boxOption == OPTION_SELECT_MON
+          || sStorage->boxOption == OPTION_DEPOSIT
+          || sStorage->boxOption == OPTION_WITHDRAW
+          || sStorage->boxOption == OPTION_MOVE_MONS)
+         && GetMonData(&mon, MON_DATA_HP) == 0 && GetMonData(&mon, MON_DATA_IS_EGG) == FALSE)
             return TRUE;
     }
     return FALSE;
@@ -4880,10 +4881,11 @@ static void  CreatePartyMonSprite(u8 partyPosition, bool8 visible)
 
     if (IsNuzlockeActive() || IsNuzlockeEasyActive())
     {
-        if (sStorage->boxOption == OPTION_SELECT_MON
-        || sStorage->boxOption == OPTION_DEPOSIT
-        || sStorage->boxOption == OPTION_WITHDRAW
-        || sStorage->boxOption == OPTION_MOVE_MONS)
+        if (GetPcMonSelectionType() != SELECT_PC_MON_GYM_TOKEN_REVIVE
+         && (sStorage->boxOption == OPTION_SELECT_MON
+          || sStorage->boxOption == OPTION_DEPOSIT
+          || sStorage->boxOption == OPTION_WITHDRAW
+          || sStorage->boxOption == OPTION_MOVE_MONS))
         {
             if (GetMonData(partyPokemon, MON_DATA_HP) == 0 && GetMonData(partyPokemon, MON_DATA_IS_EGG) == FALSE)
                 partySprite->oam.objMode = ST_OAM_OBJ_BLEND;
@@ -4945,14 +4947,17 @@ static void CreatePartyMonsSprites(bool8 visible)
 
     if (IsNuzlockeActive() || IsNuzlockeEasyActive())
     {
-        if (sStorage->boxOption == OPTION_SELECT_MON
-        || sStorage->boxOption == OPTION_DEPOSIT
-        || sStorage->boxOption == OPTION_WITHDRAW
-        || sStorage->boxOption == OPTION_MOVE_MONS)
+        if (GetPcMonSelectionType() != SELECT_PC_MON_GYM_TOKEN_REVIVE
+         && (sStorage->boxOption == OPTION_SELECT_MON
+          || sStorage->boxOption == OPTION_DEPOSIT
+          || sStorage->boxOption == OPTION_WITHDRAW
+          || sStorage->boxOption == OPTION_MOVE_MONS))
         {
             for (i = 0; i < PARTY_SIZE; i++)
             {
-                if (GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0 && GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) == FALSE)
+                if (sStorage->partySprites[i] != NULL
+                 && GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0
+                 && GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) == FALSE)
                     sStorage->partySprites[i]->oam.objMode = ST_OAM_OBJ_BLEND;
             }
         }
@@ -8225,7 +8230,7 @@ static const u8 *const sMenuTexts[] =
     [MENU_GIVE]       = gPCText_Give,
     [MENU_GIVE_2]     = gPCText_Give,
     [MENU_SWITCH]     = COMPOUND_STRING("CAMBIAR"),
-    [MENU_BAG]        = COMPOUND_STRING("MOCHILA"),
+    [MENU_BAG]        = COMPOUND_STRING("BOLSA"),
     [MENU_INFO]       = COMPOUND_STRING("INFO"),
     [MENU_SCENERY_1]  = COMPOUND_STRING("SCENERY 1"),
     [MENU_SCENERY_2]  = COMPOUND_STRING("SCENERY 2"),
@@ -9464,7 +9469,7 @@ static void PrintItemDescription(void)
         description = GetItemDescription(sStorage->displayMonItemId);
 
     FillWindowPixelBuffer(WIN_ITEM_DESC, PIXEL_FILL(1));
-    AddTextPrinterParameterized5(WIN_ITEM_DESC, FONT_NORMAL, description, 4, 0, 0, NULL, 0, 1);
+    AddTextPrinterParameterized5(WIN_ITEM_DESC, FONT_SMALL_NARROWER, description, 4, 0, 0, NULL, 0, 0);
 }
 
 static void InitItemInfoWindow(void)

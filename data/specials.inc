@@ -488,6 +488,7 @@ gSpecials::
 	def_special CreateBPHoldItemShop2
 	def_special CreateBPPowerShop
 	def_special CreateKurtBallShop
+	def_special CreateElPiedrasMegaShop
 	def_special DisplayBerryPowderVendorMenu
 	def_special RemoveBerryPowderVendorMenu
 	def_special HasEnoughBerryPowder
@@ -711,3 +712,20 @@ gSpecials::
 	def_special GetMaxPartySize
 	def_special IsPartyLimitChallengeActive
 	def_special RechargePokeVial
+	def_special CheckPokeVialEnabled
+	def_special AwardGymToken
+	def_special GetGymTokenCount
+	def_special FindNextGymTokenRetry
+	def_special RollGymTokenGachapon
+	def_special BuildGymTokenRetryMenu
+	def_special SelectGymTokenRetry
+	def_special UseSelectedGymTokenRetry
+	def_special UseGymTokenTrade
+	def_special FinishGymTokenTrade
+	def_special UseGymTokenRevive
+	def_special SaveGymTokenTransaction
+	def_special BufferCurrentLevelCap
+	def_special BufferLevelCapSummary
+	def_special YamiSuperTraining_CanTrainStat
+	def_special YamiSuperTraining_AddEVs
+	def_special YamiSuperTraining_ResetEVs

@@ -1,5 +1,15 @@
 CianwoodGym_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CianwoodGym_OnTransition
 	.byte 0
+
+CianwoodGym_OnTransition::
+	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM, CianwoodGym_HideManolin
+	clearflag FLAG_HIDE_MANOLIN_ORQUIDEA
+	end
+
+CianwoodGym_HideManolin::
+	setflag FLAG_HIDE_MANOLIN_ORQUIDEA
+	end
 
 
 CianwoodGym_EventScript_Statue::
@@ -19,7 +29,7 @@ CianwoodGym_EventScript_Statue2::
 CianwoodGym_Text_GymStatue:
 	.string "GIMNASIO POKéMON DE CIUDAD ORQUÍDEA$"
 CianwoodGym_Text_GymStatueCertified:
-	.string "GIMNASIO POKéMON DE CIUDAD ORQUÍDEA\nENTRENADORES CERTIFICADOS POR\lANÍBAL:\l{PLAYER}$"
+	.string "GIMNASIO POKéMON DE CIUDAD ORQUÍDEA\pCERTIFICADOS POR ANÍBAL:\n{PLAYER}$"
 CianwoodGym_EventScript_Chuck::
 	lock
 	faceplayer
@@ -56,6 +66,7 @@ CianwoodGym_EventScript_ChuckVictory::
 	setflag FLAG_BADGE05_GET
 	setflag FLAG_DEFEATED_CIANWOOD_GYM
 	addvar VAR_NUM_BADGES, 1
+	call GymToken_EventScript_Award
 	setvar VAR_0x8008, 5
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_FOCUS_PUNCH
@@ -75,7 +86,7 @@ CianwoodGym_EventScript_ChuckGotoDojo::
 	end
 
 CianwoodGym_Text_ChuckGotoDojo:
-	.string "¡JAJAJAJA, {PLAYER}!\n¡Estoy en pleno entrenamiento!\pSi quieres otra revancha, ¡pásate\npor\lel DOJO de COMBATE en AZAFRÁN!$"
+	.string "¡JA, JA, JA, {PLAYER}!\n¡Estoy en pleno entrenamiento!\pSi quieres otra revancha, ven al\nDOJO DE LUCHA de AZAFRÁN.$"
 CianwoodGym_EventScript_ChuckAtDojo::
 	msgbox CianwoodGym_Text_ChuckAtDojo, MSGBOX_DEFAULT
 	closemessage
@@ -83,7 +94,7 @@ CianwoodGym_EventScript_ChuckAtDojo::
 	end
 
 CianwoodGym_Text_ChuckAtDojo:
-	.string "¡Nos veremos en el DOJO!\n¡JAJAJAJAJAJAJA!$"
+	.string "¡Nos veremos en el DOJO!\n¡JA, JA, JA, JA!$"
 CianwoodGym_EventScript_OlivineCheckMahog::
 	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, CianwoodGym_EventScript_Chuck_Battle3
 	goto CianwoodGym_EventScript_Chuck_Battle2
@@ -119,23 +130,48 @@ CianwoodGym_Movement_ChuckRight:
 	step_end
 
 CianwoodGym_Text_ChuckIntro1:
-	.string "¡JAJAJA!\p¡Conque has llegado hasta aquí!\p¡Te advierto que soy duro de pelar!\p¡Mis POKéMON rompen piedras y\nquiebran\lhuesos con un solo golpe!\p¡Fíjate en esto!$"
+	.string "¡JA, JA, JA!\p"
+	.string "¡Así que has llegado hasta aquí!\p"
+	.string "¡Te advierto que soy muy duro!\p"
+	.string "¡Mis POKéMON trituran piedras\n"
+	.string "y hacen añicos los huesos!\p"
+	.string "¡Mira esto!$"
 CianwoodGym_Text_ChuckIntro2:
-	.string "ANÍBAL: ¡Uaaargh!\n…\n¡¡¡Yaaaaaargh!!!$"
+	.string "ANÍBAL: ¡Urrrgh!\n"
+	.string "…\p"
+	.string "¡¡¡Yaaaargh!!!$"
 CianwoodGym_Text_ChuckIntro3:
-	.string "¡Toma ya! ¿Asustado, eh?\p¿Qué? ¿Que eso no tiene nada que\nver con\llos POKéMON?\p¡Bueno, en eso tienes razón!\p¡Al turrón! ¡Que empiece el\ncombate!$"
+	.string "¡Ahí lo tienes! ¿Te he asustado?\p"
+	.string "¿Qué? ¿Que esto no tiene nada\n"
+	.string "que ver con los POKéMON?\p"
+	.string "¡Pues es verdad!\p"
+	.string "¡Venga, luchemos!$"
 CianwoodGym_Text_ChuckLoss:
-	.string "¿C-cómo? ¿Que he perdido?\p¡Vaya sorpresa!\n¡Eres digno de la MEDALLA TORMENTA!$"
+	.string "¿Qué? ¿Cómo? ¿He perdido?\p"
+	.string "¡Quién lo iba a decir!\n"
+	.string "¡Mereces la MEDALLA TORMENTA!$"
 CianwoodGym_Text_GetStormBadge:
-	.string "¡{PLAYER} recibió la MEDALLA TORMENTA!$"
+	.string "¡MEDALLA TORMENTA para {PLAYER}!$"
 CianwoodGym_Text_ChuckBadgeSpeech:
-	.string "La MEDALLA TORMENTA hace que todos\nlos\lPOKéMON hasta nivel 70 te\lobedezcan,\lincluso los intercambiados.\pAdemás, permite a tus POKéMON usar\nVUELO fuera del combate.\p¡Toma, quédate con esto también!$"
+	.string "Todos los POKéMON hasta Nv. 70 te\n"
+	.string "obedecerán, incluso intercambiados.\p"
+	.string "También podrás usar VUELO fuera\n"
+	.string "de combate.\p"
+	.string "¡Toma esto también!$"
 CianwoodGym_Text_ChuckTMSpeech:
-	.string "Eso es PUÑO CERTERO.\nSe prepara despacio, pero causa un\ldaño\ldevastador. ¡Solo procura que no te\lgolpeen primero!$"
+	.string "Es PUÑO CERTERO.\p"
+	.string "Tarda en atacar, pero hace mucho\n"
+	.string "daño. ¡Que no te golpeen antes!$"
 CianwoodGym_Text_ChuckAfter:
-	.string "¡JAJAJA! ¡He disfrutado muchísimo\ncon\lnuestro combate!\p¡Pero una derrota es una derrota!\p¡A partir de ahora pienso entrenar\nlas\l24 horas del día!$"
+	.string "¡JA, JA, JA! ¡Disfruté luchando!\p"
+	.string "¡Pero una derrota es una derrota!\p"
+	.string "¡Desde ahora entrenaré\n"
+	.string "las veinticuatro horas del día!$"
 CianwoodGym_Text_ChuckRematch:
-	.string "¡JAJAJA! ¡CAMPEÓN DE JOHTO!\n¡Has vuelto con ganas de más\lmarcha!\p¡Veo que tus habilidades han\nmejorado!\l¿Listo para ver quién es más\lfuerte?$"
+	.string "¡JA, JA, JA! ¡CAMPEÓN DE JOHTO!\p"
+	.string "¡Has vuelto a por más!\p"
+	.string "¡Veo que has mejorado mucho!\p"
+	.string "¿Listo para ver quién gana?$"
 CianwoodGym_Text_ChuckRematchDefeat:
 	.string "¿C-cómo? ¿He vuelto a perder?\n¿Otra vez?$"
 CianwoodGym_EventScript_Yoshi::
@@ -144,22 +180,22 @@ CianwoodGym_EventScript_Yoshi::
 	end
 
 CianwoodGym_Text_BlackbeltYoshiSeen:
-	.string "A mis POKéMON y a mí nos une un\nlazo de\lverdadera amistad.\p¡Nuestro vínculo jamás se romperá!$"
+	.string "Mis POKéMON y yo estamos unidos\npor la amistad.\p¡Nuestro vínculo jamás se romperá!$"
 CianwoodGym_Text_BlackbeltYoshiBeaten:
 	.string "¡Esto no puede ser real!$"
 CianwoodGym_Text_BlackbeltYoshiAfter:
-	.string "¡Parece que tú también tienes un\nlazo\linquebrantable con tus POKéMON!$"
+	.string "¡Parece que tú también tienes un\nfuerte vínculo con tus POKéMON!$"
 CianwoodGym_EventScript_Lao::
 	trainerbattle_single TRAINER_LAO_HNS, CianwoodGym_Text_BlackbeltLaoSeen, CianwoodGym_Text_BlackbeltLaoBeaten
 	msgbox CianwoodGym_Text_BlackbeltLaoAfter, MSGBOX_AUTOCLOSE
 	end
 
 CianwoodGym_Text_BlackbeltLaoSeen:
-	.string "¡Los maestros de artes marciales no\nle\ltenemos miedo a nada!$"
+	.string "¡Los maestros de artes marciales\nno tememos a nada!$"
 CianwoodGym_Text_BlackbeltLaoBeaten:
 	.string "¡Qué sorpresa!$"
 CianwoodGym_Text_BlackbeltLaoAfter:
-	.string "A los POKéMON de LUCHA les dan\npavor\llos psíquicos…$"
+	.string "Los POKéMON de LUCHA temen a\nlos psíquicos…$"
 CianwoodGym_EventScript_Nob::
 	trainerbattle_single TRAINER_NOB_HNS, CianwoodGym_Text_BlackbeltNobSeen, CianwoodGym_Text_BlackbeltNobBeaten
 	msgbox CianwoodGym_Text_BlackbeltNobAfter, MSGBOX_AUTOCLOSE
@@ -170,15 +206,116 @@ CianwoodGym_Text_BlackbeltNobSeen:
 CianwoodGym_Text_BlackbeltNobBeaten:
 	.string "…$"
 CianwoodGym_Text_BlackbeltNobAfter:
-	.string "¡He perdido! ¡Me has dejado sin\npalabras!$"
+	.string "¡He perdido! ¡No tengo palabras!$"
 CianwoodGym_EventScript_Lung::
 	trainerbattle_single TRAINER_LUNG_HNS, CianwoodGym_Text_BlackbeltLungSeen, CianwoodGym_Text_BlackbeltLungBeaten
 	msgbox CianwoodGym_Text_BlackbeltLungAfter, MSGBOX_AUTOCLOSE
 	end
 
 CianwoodGym_Text_BlackbeltLungSeen:
-	.string "¡Mis puños demoledores harán trizas\na tus POKéMON!$"
+	.string "¡Mis puños furiosos harán trizas\na tus POKéMON!$"
 CianwoodGym_Text_BlackbeltLungBeaten:
 	.string "¡Me han hecho trizas a mí!$"
 CianwoodGym_Text_BlackbeltLungAfter:
-	.string "Mis POKéMON han perdido…\nMi... mi orgullo está hecho\lpedazos…$"
+	.string "Mis POKéMON han perdido…\nMi… mi orgullo está destrozado…$"
+
+CianwoodGym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_ORQUIDEA, CianwoodGym_EventScript_Manolin_AfterItem
+	msgbox CianwoodGym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_ORQUIDEA, CianwoodGym_EventScript_Manolin_ChooseItem
+	msgbox CianwoodGym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_HYPER_POTION
+	setflag FLAG_MANOLIN_HEAL_ORQUIDEA
+	msgbox CianwoodGym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+CianwoodGym_EventScript_Manolin_ChooseItem::
+	msgbox CianwoodGym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_ORQUIDEA, FALSE
+	switch VAR_RESULT
+	case 0, CianwoodGym_EventScript_Manolin_GiveFocusBand
+	case 1, CianwoodGym_EventScript_Manolin_GiveChoiceBand
+	case MULTI_B_PRESSED, CianwoodGym_EventScript_Manolin_NoChoice
+	end
+
+CianwoodGym_EventScript_Manolin_GiveFocusBand::
+	giveitem ITEM_FOCUS_BAND
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_ORQUIDEA
+	msgbox CianwoodGym_Text_Manolin_FocusBandExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CianwoodGym_EventScript_Manolin_GiveChoiceBand::
+	giveitem ITEM_CHOICE_BAND
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_ORQUIDEA
+	msgbox CianwoodGym_Text_Manolin_ChoiceBandExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CianwoodGym_EventScript_Manolin_NoChoice::
+	msgbox CianwoodGym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CianwoodGym_EventScript_Manolin_AfterItem::
+	msgbox CianwoodGym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CianwoodGym_Text_Manolin_Intro:
+	.string "¡Ese {PLAYER}! ¡Menudo cruce en\n"
+	.string "barco te has marcado, socio!\p"
+	.string "Oye, este sitio huele a sudor y\n"
+	.string "a gimnasio de barrio.\p"
+	.string "¿El boss no era de tipo psíquico?\n"
+	.string "Ah, no… ¡que aquí está ANÍBAL\l"
+	.string "pegándole puñetazos a las piedras!$"
+
+CianwoodGym_Text_Manolin_CheckHealth:
+	.string "¡Pero si traes la party reventada\n"
+	.string "de surfear entre Tentacool!\p"
+	.string "Como ANÍBAL te enganche un golpe,\n"
+	.string "te borra la cuenta del tirón.\l"
+	.string "¡Déjame tirar una cura tocha!$"
+
+CianwoodGym_Text_Manolin_Healed:
+	.string "¡Party restaurada al cien por cien!\p"
+	.string "Toma esta Hiperpoción por si las\n"
+	.string "tortas de ANÍBAL pican de más.$"
+
+CianwoodGym_Text_Manolin_OfferChoices:
+	.string "Para estos machacas de gimnasio\n"
+	.string "tengo dos cintas competitivas.\p"
+	.string "¿Prefieres probabilidad de aguantar\n"
+	.string "a 1 PS o burst físico brutal?$"
+
+CianwoodGym_Text_Manolin_FocusBandExplain:
+	.string "¡CINTA FOCUS! Tiene probabilidad\n"
+	.string "de salvarte de cualquier KO.\p"
+	.string "¡El trameo milagroso cuando\n"
+	.string "las cosas se ponen feas!$"
+
+CianwoodGym_Text_Manolin_ChoiceBandExplain:
+	.string "¡CINTA ELEGIDA! Aumenta un 50%\n"
+	.string "tu Ataque físico a cambio de\l"
+	.string "bloquearte en un movimiento.\p"
+	.string "¡Pega un tortazo que los mande\n"
+	.string "a la otra punta de la isla!$"
+
+CianwoodGym_Text_Manolin_NoChoice:
+	.string "Tranqui, que yo para elegir ropa\n"
+	.string "también tardo media hora.$"
+
+CianwoodGym_Text_Manolin_AfterItem:
+	.string "¡Pártelo en dos, socio!\n"
+	.string "¡Que muerda el polvo ese Poliwrath!$"

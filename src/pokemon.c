@@ -3960,7 +3960,7 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon) //Credit: AsparagusEdua
         if (RandomizerFeatureEnabled(RANDOMIZE_LEARNSET))
         {
             move = RandomizeMove(move, species);
-            if (!FlagGet(FLAG_SYS_POKEMON_GET) && !firstMoveGiven)
+            if ((!FlagGet(FLAG_SYS_POKEMON_GET) || level <= 5) && !firstMoveGiven)
             {
                 u8 attempts;
                 for (attempts = 0; attempts < 100; attempts++)
@@ -7814,6 +7814,10 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
     if (gSaveBlock3Ptr->challengeSettings.tx_Challenges_NoEVs && !FlagGet(FLAG_DEFEATED_RED))
         return;
 
+    // Si es un combate de sparring de superentrenamiento, los EVs se gestionan por script al finalizar
+    if (FlagGet(FLAG_SPARRING_NO_EVS))
+        return;
+
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
     if (heldItem == ITEM_ENIGMA_BERRY_E_READER)
     {
@@ -9206,6 +9210,10 @@ u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove)
              && !(P_EVOLUTION_LEVEL_1_LEARN >= GEN_8 && learnset[sLearningMoveTableID].level == 1))
         {
             gMoveToLearn = learnset[sLearningMoveTableID].move;
+#if RANDOMIZER_AVAILABLE
+            if (RandomizerFeatureEnabled(RANDOMIZE_LEARNSET))
+                gMoveToLearn = RandomizeMove(gMoveToLearn, species);
+#endif
             sLearningMoveTableID++;
             return GiveMoveToMon(mon, gMoveToLearn);
         }

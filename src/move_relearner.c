@@ -28,6 +28,7 @@
 #include "strings.h"
 #include "task.h"
 #include "constants/party_menu.h"
+#include "randomizer.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "data/pokemon/egg_moves.h"
@@ -1185,17 +1186,23 @@ static u32 GetRelearnerLevelUpMoves(struct BoxPokemon *mon, u16 *moves)
             if (learnset[i].level > level)
                 break;
 
-            if (BoxMonKnowsMove(mon, learnset[i].move))
+            u16 move = learnset[i].move;
+#if RANDOMIZER_AVAILABLE
+            if (RandomizerFeatureEnabled(RANDOMIZE_LEARNSET))
+                move = RandomizeMove(move, species);
+#endif
+
+            if (BoxMonKnowsMove(mon, move))
                 continue;
 
             bool32 alreadyInList = FALSE;
             for (u32 j = 0; j < numMoves; j++)
             {
-                if (learnset[i].move == moves[j])
+                if (move == moves[j])
                     alreadyInList = TRUE;
             }
             if (!alreadyInList)
-                moves[numMoves++] = learnset[i].move;
+                moves[numMoves++] = move;
         }
 
         species = (P_PRE_EVO_MOVES ? GetSpeciesPreEvolution(species) : SPECIES_NONE);
@@ -1345,7 +1352,13 @@ static bool32 HasRelearnerLevelUpMoves(struct BoxPokemon *boxMon)
             if (learnset[i].level > level)
                 break;
 
-            if (!BoxMonKnowsMove(boxMon, learnset[i].move))
+            u16 move = learnset[i].move;
+#if RANDOMIZER_AVAILABLE
+            if (RandomizerFeatureEnabled(RANDOMIZE_LEARNSET))
+                move = RandomizeMove(move, species);
+#endif
+
+            if (!BoxMonKnowsMove(boxMon, move))
                 return TRUE;
         }
 

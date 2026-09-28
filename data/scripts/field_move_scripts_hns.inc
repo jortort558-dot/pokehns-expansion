@@ -544,7 +544,7 @@ Text_WantToDive:
 	.string "¿Quieres usar BUCEO?$"
 
 Text_MonUsedDive:
-	.string "¡{STR_VAR_1} usó TORBELLINO!$"
+	.string "¡{STR_VAR_1} usó BUCEO!$"
 
 Text_CantSurface:
 	.string "Llega luz desde arriba.\n"

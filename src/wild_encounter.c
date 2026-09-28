@@ -662,7 +662,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum 
     {
         u16 species = wildMonInfo->wildPokemon[wildMonIndex].species;
         #if RANDOMIZER_AVAILABLE == TRUE
-        species = RandomizeWildEncounter(species, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, area, wildMonIndex);
+        species = RandomizeWildEncounter(species, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, area, wildMonIndex, level);
         #endif
         CreateWildMon(species, level);
     }
@@ -676,7 +676,7 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u8 level = ChooseWildMonLevel(wildMonInfo->wildPokemon, wildMonIndex, WILD_AREA_FISHING);
 
     #if RANDOMIZER_AVAILABLE == TRUE
-    wildMonSpecies = RandomizeWildEncounter(wildMonSpecies, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, WILD_AREA_FISHING, wildMonIndex);
+    wildMonSpecies = RandomizeWildEncounter(wildMonSpecies, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, WILD_AREA_FISHING, wildMonIndex, level);
     #endif
 
     UpdateChainFishingStreak();

@@ -2497,6 +2497,7 @@ bool8 ScrCmd_dynmultichoice(struct ScriptContext *ctx)
     }
     else
     {
+        ScriptReadWord(ctx); // Consume the NULL word emitted by dynmultistack macro
         argc = MultichoiceDynamic_StackSize();
         items = AllocZeroed(sizeof(struct ListMenuItem) * argc);
         for (i = 0; i < argc; ++i)
@@ -2716,7 +2717,7 @@ bool8 ScrCmd_showmonpic(struct ScriptContext *ctx)
         #if RANDOMIZER_AVAILABLE
         if (RandomizerFeatureEnabled(RANDOMIZE_STARTER_AND_GIFT_MON))
         {
-            species = RandomizeMon(RANDOMIZER_REASON_STARTER_AND_GIFT_MON, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), GetRandomizerSeed() ^ species, species);
+            species = RandomizeMon(RANDOMIZER_REASON_STARTER_MON, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), GetRandomizerSeed() ^ species, species);
             if (varId >= VARS_START)
                 VarSet(varId, species);
         }

@@ -39,34 +39,32 @@ PewterCity_Museum_1F_EventScript_Bones::
 	end
 
 PewterCity_Museum_1F_Text_Recptionist:
-	.string "Welcome!\p"
-	.string "Just to let you know, all the large\n"
-	.string "specimens have been taken to the\l"
-	.string "other museums for display.\p"
-	.string "So for now, admission is free of\n"
-	.string "charge!\p"
-	.string "Please go ahead.$"
+	.string "¡Bienvenido!\p"
+	.string "Todos los especímenes grandes se\n"
+	.string "han llevado a otros museos.\p"
+	.string "Así que, por ahora, ¡la entrada\n"
+	.string "es gratis!\p"
+	.string "Puedes pasar.$"
 
 PewterCity_Museum_1F_Text_FossilWoman:
-	.string "You must be a strong trainer.\p"
-	.string "We don't have much use for the\n"
-	.string "fossils on the counter over there.\p"
-	.string "A strange man with silver hair\n"
-	.string "dropped a ton of them off here.\p"
-	.string "Go ahead and take them if you like.$"
+	.string "Debes de ser un Entrenador fuerte.\p"
+	.string "No usamos mucho los fósiles del\n"
+	.string "mostrador.\p"
+	.string "Un extraño peliplata dejó aquí\n"
+	.string "un montón.\p"
+	.string "Puedes llevártelos si quieres.$"
 
 PewterCity_Museum_1F_Text_FossilWomanAfter:
-	.string "We often share research with the\n"
-	.string "RUINS OF ALPH researchers.\p"
-	.string "We even share fossils with them\n"
-	.string "through the PC!$"
+	.string "Compartimos estudios con los\n"
+	.string "investigadores de RUINAS ALFA.\p"
+	.string "¡Hasta intercambiamos fósiles\n"
+	.string "por PC!$"
 
 PewterCity_Museum_1F_Text_Oldman:
-	.string "I should be grateful for my long\n"
-	.string "life.\p"
-	.string "Never did I think I would get to\n"
-	.string "see the bones of a dragon!$"
+	.string "Debo agradecer mi larga vida.\p"
+	.string "¡Nunca pensé que llegaría a ver\n"
+	.string "los huesos de un dragón!$"
 
 PewterCity_Museum_1F_Text_Bones:
-	.string "Bones of an ancient dragon\n"
-	.string "POKéMON.$"
+	.string "Huesos de un antiguo POKéMON\n"
+	.string "dragón.$"

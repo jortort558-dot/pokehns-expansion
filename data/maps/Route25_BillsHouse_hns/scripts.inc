@@ -36,10 +36,10 @@ Route25_BillsHouse_hns_EventScript_TeleporterTest::
 	end
 
 Route25_BillsHouse_Text_Teleporter:
-	.string "THIS MACHINE WILL TRANSFORM\n"
-	.string "A POKéMON INTO ITS GALARIAN FORM\l"
-	.string "THIS PROCESS IS PERMANENT.\l"
-	.string "WOULD YOU LIKE TO PROCEED?$"
+	.string "ESTA MÁQUINA TRANSFORMARÁ UN\n"
+	.string "POKéMON EN SU FORMA DE GALAR.\l"
+	.string "EL PROCESO ES PERMANENTE.\l"
+	.string "¿QUIERES CONTINUAR?$"
 
 Route25_BillsHouse_hns_PickMeowth::
 	setvar VAR_0x8004, SPECIES_MEOWTH
@@ -364,7 +364,7 @@ Route25_BillsHouse_hns_Text_Cancel:
 	.string "CANCEL$"
 
 Route25_BillsHouse_hns_Text_NotInParty:
-	.string "POKéMON NOT DETECTED.$"
+	.string "POKéMON NO DETECTADO.$"
 
 @VAR_BILLS_GRANDPA
 
@@ -536,90 +536,83 @@ Route25_BillsHouse_Movement_MonCelebration:
 	step_end
 
 Route25_BillsHouse_Text_GrandpaIntro:
-	.string "Hm? You know BILL? He's my\n"
-	.string "grandson.\p"
-	.string "He's in JOHTO. He does\n"
-	.string "something with PCs, so I'm\l"
-	.string "housesitting.$"
+	.string "¿Mmm? ¿Conoces a BILL? Es mi\n"
+	.string "nieto.\p"
+	.string "Está en JOHTO. Hace algo con\n"
+	.string "los PC, así que cuido la casa.$"
 
 Route25_BillsHouse_Text_GrampsMeowth:
-	.string "My grandson BILL told me about\n"
-	.string "a POKéMON that has sharp claws,\l"
-	.string "a charm on its head, and is\p"
-	.string "said to bring good fortune.$"
+	.string "Mi nieto BILL me habló de un\n"
+	.string "POKéMON con garras afiladas y\l"
+	.string "un amuleto en la cabeza.\p"
+	.string "Dicen que trae buena suerte.$"
 
 Route25_BillsHouse_Text_GrampsZigzagoon:
-	.string "BILL mentioned a POKéMON that\n"
-	.string "runs around in a zigzag\l"
-	.string "pattern.\p"
-	.string "It's quite the little\n"
-	.string "scavenger, I hear.$"
+	.string "BILL mencionó un POKéMON que\n"
+	.string "corre haciendo zigzag.\p"
+	.string "Dicen que es un pequeño\n"
+	.string "carroñero.$"
 
 Route25_BillsHouse_Text_GrampsPonyta:
-	.string "Do you know of a POKéMON with\n"
-	.string "a fiery mane?\p"
-	.string "I hear it can run faster than\n"
-	.string "most trains.$"
+	.string "¿Conoces un POKéMON con una\n"
+	.string "crin de fuego?\p"
+	.string "Dicen que corre más que la\n"
+	.string "mayoría de los trenes.$"
 
 Route25_BillsHouse_Text_GrampsFarfetchd:
-	.string "BILL told me about a POKéMON\n"
-	.string "that always carries a stalk\l"
-	.string "of leek with it.\p"
-	.string "Quite the peculiar creature.$"
+	.string "BILL me habló de un POKéMON\n"
+	.string "que siempre lleva un puerro.\p"
+	.string "Es una criatura muy peculiar.$"
 
 Route25_BillsHouse_Text_GrampsSlowpoke:
-	.string "Do you know the POKéMON that\n"
-	.string "is always staring blankly?\p"
-	.string "Its tail is often sold on the\n"
-	.string "black market.$"
+	.string "¿Conoces al POKéMON que siempre\n"
+	.string "mira al vacío?\p"
+	.string "Suelen vender su cola en el\n"
+	.string "mercado negro.$"
 
 Route25_BillsHouse_Text_TeleporterUnlocked:
-	.string "Oh, one more thing!\p"
-	.string "BILL's TELEPORTER.\n"
-	.string "That's the big machine over there.\p"
-	.string "He never quite got it working.\p"
-	.string "But it does curious things to\n"
-	.string "POKéMON.\p"
-	.string "You're welcome to try it, if\n"
-	.string "you'd like!\p"
-	.string "Just use that computer over there.$"
+	.string "¡Ah, una cosa más!\p"
+	.string "El TELETRANSPORTADOR de BILL.\n"
+	.string "Esa máquina grande de ahí.\p"
+	.string "Nunca logró hacerlo funcionar.\p"
+	.string "Pero hace cosas curiosas con\n"
+	.string "los POKéMON.\p"
+	.string "¡Puedes probarlo si quieres!\p"
+	.string "Usa ese ordenador de ahí.$"
 
 Route25_BillsHouse_Text_AskToSeeMon:
-	.string "If you have that POKéMON, may I\n"
-	.string "see it, please?$"
+	.string "Si tienes ese POKéMON, ¿podrías\n"
+	.string "enseñármelo?$"
 
 Route25_BillsHouse_Text_ExcitedToSee:
-	.string "You will show me? How good of\n"
-	.string "you!$"
+	.string "¿Me lo enseñarás?\n"
+	.string "¡Qué amable!$"
 
 Route25_BillsHouse_Text_YouDontHaveIt:
-	.string "You don't have it?\n"
-	.string "That's too bad…$"
+	.string "¿No lo tienes?\n"
+	.string "Qué lástima…$"
 
 Route25_BillsHouse_Text_ShownPokemon:
-	.string "Ah, so that is {STR_VAR_1}?\p"
-	.string "Isn't it cute! That's so kind\n"
-	.string "of you.$"
+	.string "Ah, ¿así que es {STR_VAR_1}?\p"
+	.string "¡Qué mono! Eres muy amable.$"
 
 Route25_BillsHouse_Text_Appreciation:
-	.string "Thanks!\p"
-	.string "This is a token of my\n"
-	.string "appreciation.$"
+	.string "¡Gracias!\p"
+	.string "Toma esto como muestra de\n"
+	.string "agradecimiento.$"
 
 Route25_BillsHouse_Text_ComeAgain:
-	.string "Come visit again sometime.$"
+	.string "Vuelve a visitarme algún día.$"
 
 Route25_BillsHouse_Text_ShownAll:
-	.string "Thanks for showing me so many\n"
-	.string "cute POKéMON.\p"
-	.string "I really enjoyed myself. I'm\n"
-	.string "glad I've lived such a long life.\p"
-	.string "Feel free to use the TELEPORTER\n"
-	.string "whenever you like.$"
+	.string "Gracias por enseñarme tantos\n"
+	.string "POKéMON adorables.\p"
+	.string "Me lo he pasado muy bien. Me\n"
+	.string "alegra haber vivido tantos años.\p"
+	.string "Usa el TELETRANSPORTADOR\n"
+	.string "cuando quieras.$"
 
 Route25_BillsHouse_Text_WrongPokemon:
-	.string "Hm?\p"
-	.string "That's not the POKéMON that I\n"
-	.string "was told about.$"
-
-
+	.string "¿Mmm?\p"
+	.string "Ese no es el POKéMON del que\n"
+	.string "me hablaron.$"

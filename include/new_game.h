@@ -13,5 +13,7 @@ void NewGameInitData(void);
 void ResetMenuAndMonGlobals(void);
 void Sav2_ClearSetDefault(void);
 void SetDefaultChallengeSettings(void);
+void ApplyPokemitosCupPreset(void);
+bool8 IsPokemitosCupActive(void);
 
 #endif // GUARD_NEW_GAME_H

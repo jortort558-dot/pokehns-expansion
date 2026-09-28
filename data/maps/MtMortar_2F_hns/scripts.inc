@@ -37,9 +37,9 @@ MtMortar_2F_EventScript_Nerd::
 	end
 
 MtMortar_2F_Text_SupernerdHughSeen::
-	.string "Yo! MARKUS!$"
+	.string "¡Eh, MARKUS!$"
 
 MtMortar_2F_Text_SupernerdHughBeaten:
 	.string "Perdona, fallo mío.\nTe he juzgado mal.$"
 MtMortar_2F_Text_SupernerdHughAfter:
-	.string "Estoy investigando el MONTE\nMORTERO,\lpero mi colega ha desaparecido del\lmapa.\p¿Has visto a un Entrenador con un\nSLOWPOKE que sabe usar FUERZA?$"
+	.string "Investigo el MONTE MORTERO,\npero mi colega ha desaparecido.\p¿Has visto a un Entrenador con un\nSLOWPOKE que sabe usar FUERZA?$"

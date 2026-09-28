@@ -427,4 +427,9 @@ void TryResetConsecutiveUseCounter(enum BattlerId battler);
 void SetOrClearRageVolatile(void);
 enum BattlerId GetTargetBySlot(enum BattlerId battlerAtk, enum BattlerId battlerDef);
 
+// Battle Info UI (Heart & Soul extension)
+// Returns the effective move power factoring in STAB, hold item, weather and type effectiveness vs the current target.
+// Returns 0 for status moves. typeModifier_out (optional) will receive the UQ4.12 type effectiveness value.
+u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, uq4_12_t *typeModifier_out);
+
 #endif // GUARD_BATTLE_UTIL_H

@@ -51,6 +51,7 @@ enum RandomizerReason
     RANDOMIZER_REASON_EVOLUTION,
     RANDOMIZER_REASON_EVO_METHOD,
     RANDOMIZER_REASON_TYPE_EFFECTIVENESS,
+    RANDOMIZER_REASON_STARTER_MON,
 };
 
 enum RandomizerOption {
@@ -65,11 +66,59 @@ enum RandomizerSpeciesMode {
     MAX_MON_MODE
 };
 
+enum WildPowerCategory {
+    CATEGORY_T1,
+    CATEGORY_T2,
+    CATEGORY_T3,
+    CATEGORY_T4,
+    CATEGORY_T5_SL,
+    CATEGORY_T5_L,
+    CATEGORY_MYTHICAL,
+    CATEGORY_COUNT
+};
+
+enum ProgressionBlock {
+    BLOCK_INICIO,           // 0 medallas de Johto
+    BLOCK_EARLY,            // 1-2 medallas de Johto
+    BLOCK_MID,              // 3-4 medallas de Johto
+    BLOCK_LATE_JOHTO,       // 5-6 medallas de Johto
+    BLOCK_PRE_LIGA,         // 7-8 medallas, Liga de Johto no superada
+    BLOCK_LIGA_JOHTO,       // Liga de Johto superada, antes del avance efectivo en Kanto
+    BLOCK_KANTO_TEMPRANO,   // 1-4 medallas de Kanto
+    BLOCK_KANTO_TARDIO,     // 5-8 medallas de Kanto
+    BLOCK_POSTGAME,         // contenido final superado
+    PROGRESSION_BLOCK_COUNT
+};
+
+enum TrainerRandomizerPower {
+    TRAINER_POWER_PROGRESSIVE,
+    TRAINER_POWER_GENTLE,
+    TRAINER_POWER_CHALLENGING,
+    TRAINER_POWER_MAXIMUM,
+};
+
+enum TrainerRandomizerItems {
+    TRAINER_ITEMS_PROGRESSIVE,
+    TRAINER_ITEMS_NONE,
+    TRAINER_ITEMS_BERRIES,
+    TRAINER_ITEMS_COMPETITIVE,
+};
+
+enum TrainerRandomizerMegas {
+    TRAINER_MEGAS_STORY,
+    TRAINER_MEGAS_OFF,
+    TRAINER_MEGAS_BOSSES,
+    TRAINER_MEGAS_ALL,
+};
+
 struct RandomizerGroupSet {
     u16 species;
     u16 minGroup;
     u16 maxGroup;
 };
+
+u8 GetWildRandomizerProgressionBlock(void);
+enum WildPowerCategory GetWildPowerCategory(u16 species);
 
 
 bool8 IsRandomMovesActivated(void);
@@ -98,6 +147,8 @@ static inline u8 RandomizeMonType(u16 species, u8 typeNum)
     return type;
 }
 
+u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId);
+u16 GetRandomizedTM(u16 tmId);
 u16 RandomizeFoundItem(u16 itemId, u8 mapNum, u8 mapGroup, u8 localId);
 void FindItemRandomize_NativeCall(struct ScriptContext *ctx);
 void FindHiddenItemRandomize_NativeCall(struct ScriptContext *ctx);
@@ -106,11 +157,18 @@ void ObtainItemRandomize_NativeCall(struct ScriptContext *ctx);
 u16 RandomizeMon(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, u32 seed, u16 species);
 u16 RandomizeMonBaseForm(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, u32 seed, u16 species);
 
-u16 RandomizeWildEncounter(u16 species, u8 mapNum, u8 mapGroup, enum WildPokemonArea area, u8 slot);
+u16 RandomizeWildEncounter(u16 species, u8 mapNum, u8 mapGroup, enum WildPokemonArea area, u8 slot, u8 level);
 
 bool32 IsRandomizationPossible(u16 tableSpecies, u16 matchSpecies);
 
-u16 RandomizeTrainerMon(u16 trainerId, u8 slot, u8 totalMons, u16 species);
+struct RandomizedTrainerMon
+{
+    u16 species;
+    u16 heldItem;
+};
+
+struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerClass, u8 slot, u8 totalMons, u16 originalSpecies, u16 originalHeldItem, u8 level);
+u16 RandomizeTrainerMon(u16 trainerId, u8 slot, u8 totalMons, u16 species, u8 level);
 
 u16 RandomizeFixedEncounterMon(u16 species, u8 mapNum, u8 mapGroup, u8 localId);
 

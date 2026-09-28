@@ -16,11 +16,11 @@ Route41_EventScript_Charlie::
 	end
 
 Route41_Text_SwimmermCharlieSeen:
-	.string "El agua está templada.\nEstoy ágil y en forma.\p¡Venga, acepto tu reto!$"
+	.string "El agua está templada.\nEstoy ágil y en forma.\p¡Claro, acepto tu reto!$"
 Route41_Text_SwimmermCharlieBeaten:
-	.string "¡Uf! ¡Se me han arrugado las yemas!$"
+	.string "¡Uf! ¡Tengo la piel arrugada!$"
 Route41_Text_SwimmermCharlieAfter:
-	.string "¿A que relaja un montón flotar así?$"
+	.string "¿No es relajante flotar\nasí?$"
 Route41_EventScript_George::
 	trainerbattle_single TRAINER_GEORGE_HNS, Route41_Text_SwimmermGeorgeSeen, Route41_Text_SwimmermGeorgeBeaten
 	msgbox Route41_Text_SwimmermGeorgeAfter, MSGBOX_AUTOCLOSE
@@ -31,95 +31,95 @@ Route41_Text_SwimmermGeorgeSeen:
 Route41_Text_SwimmermGeorgeBeaten:
 	.string "Uf, jadeo, jadeo…$"
 Route41_Text_SwimmermGeorgeAfter:
-	.string "Está lejísimos CIUDAD ORQUÍDEA.\pY volver nadando a OLIVO tampoco es\nnada fácil.\p¿Qué se supone que hago ahora?$"
+	.string "ORQUÍDEA está muy lejos.\pPero tampoco es fácil volver\nnadando hasta OLIVO.\p¿Qué debería hacer?$"
 Route41_EventScript_Berke::
 	trainerbattle_single TRAINER_BERKE_HNS, Route41_Text_SwimmermBerkeSeen, Route41_Text_SwimmermBerkeBeaten
 	msgbox Route41_Text_SwimmermBerkeAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route41_Text_SwimmermBerkeSeen:
-	.string "¿Ves esas islas rodeadas por\ntorbellinos?\l¡Seguro que esconden algún gran\lsecreto!$"
+	.string "¿Ves esas islas bloqueadas\npor torbellinos?\p¡Seguro que esconden un secreto!$"
 Route41_Text_SwimmermBerkeBeaten:
-	.string "¿Cuál es el secreto de tu fuerza?$"
+	.string "¿Cuál es el secreto de\ntu fuerza?$"
 Route41_Text_SwimmermBerkeAfter:
-	.string "Era una noche oscura y de tormenta…\pVi a un POKéMON colosal salir\nvolando\lde las islas.\pIba esparciendo plumas desde sus\nalas\lplateadas.$"
+	.string "Era una noche oscura y tormentosa…\pVi un POKéMON enorme que salía\nvolando de las islas.\pIba esparciendo plumas\nde sus alas plateadas.$"
 Route41_EventScript_Kirk::
 	trainerbattle_single TRAINER_KIRK_HNS, Route41_Text_SwimmermKirkSeen, Route41_Text_SwimmermKirkBeaten
 	msgbox Route41_Text_SwimmermKirkAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route41_Text_SwimmermKirkSeen:
-	.string "Las olas son muy bravas por aquí.\nTe agotan en un santiamén mientras\lnadas.$"
+	.string "Las olas son muy bravas aquí.\pTe agotan mientras\nnadas.$"
 Route41_Text_SwimmermKirkBeaten:
 	.string "¡Estoy machacado!$"
 Route41_Text_SwimmermKirkAfter:
-	.string "Las corrientes marinas me impiden\nalcanzar esa isla.$"
+	.string "Las corrientes me impiden\nllegar a esa isla.$"
 Route41_EventScript_Mathew::
 	trainerbattle_single TRAINER_MATHEW_HNS, Route41_Text_SwimmermMathewSeen, Route41_Text_SwimmermMathewBeaten
 	msgbox Route41_Text_SwimmermMathewAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route41_Text_SwimmermMathewSeen:
-	.string "¿Andas buscando los misterios de\nlas\lISLAS REMOLINO?$"
+	.string "¿Buscas los misterios\nde las ISLAS REMOLINO?$"
 Route41_Text_SwimmermMathewBeaten:
 	.string "¡Oye, tienes un aguante de hierro!$"
 Route41_Text_SwimmermMathewAfter:
-	.string "Un misterio de las ISLAS REMOLINO…\p¡Por dentro reina la más absoluta\noscuridad!$"
+	.string "Un misterio de las ISLAS REMOLINO…\p¡Por dentro está totalmente oscuro!$"
 Route41_EventScript_Kaylee::
 	trainerbattle_single TRAINER_KAYLEE_HNS, Route41_Text_SwimmerfKayleeSeen, Route41_Text_SwimmerfKayleeBeaten
 	msgbox Route41_Text_SwimmerfKayleeAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route41_Text_SwimmerfKayleeSeen:
-	.string "Voy rumbo a las ISLAS REMOLINO.\pHe quedado con unos amigos para ir\na\lexplorar.$"
+	.string "Voy hacia las ISLAS REMOLINO.\pIré a explorarlas con mis amigos.$"
 Route41_Text_SwimmerfKayleeBeaten:
 	.string "¿Así es como se hace?$"
 Route41_Text_SwimmerfKayleeAfter:
-	.string "Dicen que hay un gran POKéMON en\nlas\lprofundidades de las ISLAS\lREMOLINO.\p¿Qué criatura será?$"
+	.string "Dicen que hay un gran POKéMON\nbajo las ISLAS REMOLINO.\p¿Qué criatura será?$"
 Route41_EventScript_Susie::
 	trainerbattle_single TRAINER_SUSIE_HNS, Route41_Text_SwimmerfSusieSeen, Route41_Text_SwimmerfSusieBeaten
 	msgbox Route41_Text_SwimmerfSusieAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route41_Text_SwimmerfSusieSeen:
-	.string "Qué porte tan elegante tienes sobre\ntu POKéMON.$"
+	.string "Qué elegancia tienes\nmontando en tu POKéMON.$"
 Route41_Text_SwimmerfSusieBeaten:
 	.string "¡Me has aplastado…!$"
 Route41_Text_SwimmerfSusieAfter:
-	.string "¿No había una canción famosa sobre\nun niño\la lomos de un LAPRAS?$"
+	.string "¿No había una canción famosa\nsobre un niño montado en LAPRAS?$"
 Route41_EventScript_Denise::
 	trainerbattle_single TRAINER_DENISE_HNS, Route41_Text_SwimmerfDeniseSeen, Route41_Text_SwimmerfDeniseBeaten
 	msgbox Route41_Text_SwimmerfDeniseAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route41_Text_SwimmerfDeniseSeen:
-	.string "Hace un día tan radiante que estoy\nempanada de felicidad.$"
+	.string "Hace un día tan bonito\nque estoy embobada.$"
 Route41_Text_SwimmerfDeniseBeaten:
 	.string "¡Aaaay!$"
 Route41_Text_SwimmerfDeniseAfter:
-	.string "Las quemaduras de sol son lo peor\npara\lla piel.\pPero no me echo crema protectora:\n¡no pienso contaminar el mar!$"
+	.string "El sol es lo peor para la piel.\pPero no uso crema solar.\pNo pienso contaminar el agua.$"
 Route41_EventScript_Kara::
 	trainerbattle_single TRAINER_KARA_HNS, Route41_Text_SwimmerfKaraSeen, Route41_Text_SwimmerfKaraBeaten
 	msgbox Route41_Text_SwimmerfKaraAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route41_Text_SwimmerfKaraSeen:
-	.string "Si necesitas descansar, ponte a\nhacer la\lmuerta.\pRecuperarás el aliento para seguir\nnadando\lcon brío.$"
+	.string "Si necesitas descansar,\nhaz el muerto.\pRecuperarás el aliento\ny podrás seguir con fuerza.$"
 Route41_Text_SwimmerfKaraBeaten:
-	.string "¡Vaya! Tienes bastante más energía\nque yo.$"
+	.string "¡Vaya! Tienes más energía que yo.$"
 Route41_Text_SwimmerfKaraAfter:
-	.string "He escuchado rugidos que venían del\ninterior de las ISLAS.$"
+	.string "Oí rugidos procedentes del\ninterior de las ISLAS.$"
 Route41_EventScript_Wendy::
 	trainerbattle_single TRAINER_WENDY_HNS, Route41_Text_SwimmerfWendySeen, Route41_Text_SwimmerfWendyBeaten
 	msgbox Route41_Text_SwimmerfWendyAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route41_Text_SwimmerfWendySeen:
-	.string "De noche, los STARYU suben a la\nsuperficie del agua.$"
+	.string "De noche, los STARYU se reúnen\ncerca de la superficie.$"
 Route41_Text_SwimmerfWendyBeaten:
 	.string "¡Madre mía…!$"
 Route41_Text_SwimmerfWendyAfter:
-	.string "Los grupos de STARYU se iluminan\ntodos a\lla vez.\pEs tan hermoso que hasta da\nescalofríos.$"
+	.string "Los grupos de STARYU se iluminan\ntodos a la vez.\pEs tan bonito que hasta asusta.$"
 Route41_EventScript_Tentacruel1::
 	lock
 	faceplayer

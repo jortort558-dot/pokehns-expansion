@@ -125,7 +125,7 @@ GoldenrodCity_FlowerShop_Text_Owner1:
 .string "¡Pero no puedo darte una a la\nligera!\l"
 .string "¡Es demasiado arriesgado!\p"
 .string "Bueno, si logras vencer a la líder\n"
-.string "BLANCA en el gimnasio, me lo\npensaré.$"
+.string "BLANCA en el gimnasio, me lo\lpensaré.$"
 
 GoldenrodCity_FlowerShop_Text_Owner2:
 .string "Por lo visto hay un árbol rarísimo\n"
@@ -175,4 +175,3 @@ GoldenrodCity_FlowerShop_EventScript_AlreadyReceivedBerry::
 	msgbox Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries, MSGBOX_DEFAULT
 	release
 	end
-

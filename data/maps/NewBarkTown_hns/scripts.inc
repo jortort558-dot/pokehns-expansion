@@ -234,19 +234,20 @@ NewBarkTown_Text_Wooper:
 	.string "WOOPER: Woooooop.$"
 
 NewBarkTown_Text_FatManState2:
-	.string "¡Vaya, tu POKéGEAR es\nimpresionante!\l"
-	.string "¿Te lo compró tu mamá?$"
+	.string "¡Vaya, qué POKéGEAR tan chulo!\n"
+	.string "¿Te lo ha regalado tu madre?$"
 
 NewBarkTown_Text_FatManState3:
 	.string "¡Ey, {PLAYER}!\p"
-	.string "He oído que el PROF. ELM ha\ndescubierto\l"
-	.string "algunos POKéMON nuevos.$"
+	.string "Dicen que el PROF. ELM halló\n"
+	.string "nuevos POKéMON.$"
 
 NewBarkTown_Text_LassState2:
 	.string "¡Espera, {PLAYER}!\p"
-	.string "¡Es peligroso salir sin un POKéMON!\p"
-	.string "Los POKéMON salvajes saltan de la\n"
-	.string "hierba de camino a la ciudad.$"
+	.string "¡Salir sin un POKéMON puede\n"
+	.string "ser peligroso!\p"
+	.string "Los POKéMON salvajes salen\n"
+	.string "de la hierba camino de CEREZO.$"
 
 NewBarkTown_Text_LassState3:
 	.string "¡Oh! ¡Tu POKéMON es adorable!\n"
@@ -267,9 +268,7 @@ NewBarkTown_Text_Silver1:
 	.string "empollón ese de ELM…?$"
 
 NewBarkTown_Text_Silver2:
-	.string "… ¿Tú qué miras, pringao?\n"
-	.string "¿Quieres que te meta dos yoyas o\nqué?\p"
-	.string "¡Quita de en medio, que te\nreviento!$"
+	.string "…¿Tú qué miras, pringao?$"
 
 NewBarkTown_Text_Sign:
 	.string "PUEBLO PRIMAVERA\p"

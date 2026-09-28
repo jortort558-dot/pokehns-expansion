@@ -6,6 +6,12 @@ AzaleaTown_Gym_OnTransition::
 	setflag FLAG_HIDE_AZALEA_ARIADOS_LEFT
 	setflag FLAG_HIDE_AZALEA_ARIADOS_MID
 	setflag FLAG_HIDE_AZALEA_ARIADOS_RIGHT
+	goto_if_set FLAG_DEFEATED_AZALEA_TOWN_GYM, AzaleaTown_Gym_HideManolin
+	clearflag FLAG_HIDE_MANOLIN_AZALEA
+	end
+
+AzaleaTown_Gym_HideManolin::
+	setflag FLAG_HIDE_MANOLIN_AZALEA
 	end
 
 @ 1-8->5,  5-9->1
@@ -535,6 +541,7 @@ AzaleaTown_Gym_EventScript_Bugsy::
 	setflag FLAG_BADGE02_GET
 	setflag FLAG_DEFEATED_AZALEA_TOWN_GYM
 	addvar VAR_NUM_BADGES, 1
+	call GymToken_EventScript_Award
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_U_TURN
@@ -668,23 +675,26 @@ AzaleaTown_Gym_Text_GymStatueCertified:
 
 AzaleaTown_Gym_Text_BugsyIntro:
 	.string "¡Soy ANTÓN!\p"
-	.string "¡Nadie me supera en lo que toca\n"
-	.string "a los POKéMON bicho!\p"
-	.string "¡Mis estudios me convertirán en la\n"
-	.string "mayor autoridad de este tipo!\p"
+	.string "¡Nadie me supera con los POKéMON\n"
+	.string "de tipo BICHO!\p"
+	.string "¡Mis estudios me convertirán en\n"
+	.string "la mayor autoridad sobre ellos!\p"
+	.string "Por ejemplo, ¿sabías que CORTE\n"
+	.string "es de tipo BICHO?\p"
 	.string "¡Deja que te demuestre todo lo\n"
-	.string "que he descubierto en mis viajes!$"
+	.string "que he aprendido estudiándolos!$"
 
 AzaleaTown_Gym_Text_BugsyBeaten:
 	.string "¡Guau, increíble!\p"
-	.string "¡Eres un as de los combates POKéMON!\p"
-	.string "Parece que a mis estudios aún les\n"
-	.string "queda un largo camino…\p"
+	.string "¡Eres todo un experto en POKéMON!\p"
+	.string "A mis estudios aún les queda\n"
+	.string "un largo camino…\p"
 	.string "De acuerdo, tú ganas.\n"
 	.string "¡Toma esta MEDALLA!$"
 
 AzaleaTown_Gym_Text_ReceivedHiveBadge:
-	.string "¡{PLAYER} recibió la MEDALLA COLMENA!$"
+	.string "¡{PLAYER} recibió la\n"
+	.string "MEDALLA COLMENA!$"
 
 AzaleaTown_Gym_Text_HiveBadgeSpeech:
 	.string "¿Conoces las ventajas de poseer\n"
@@ -722,8 +732,7 @@ AzaleaTown_Gym_Text_BugsyRematchDefeat:
 
 AzaleaTown_Gym_Text_BugCatcherBennySeen:
 	.string "Los POKéMON bicho evolucionan\n"
-	.string "muy pronto. ¡Por eso se hacen\l"
-	.string "fuertes en un abrir y cerrar de\nojos!$"
+	.string "pronto y se fortalecen muy rápido.$"
 
 AzaleaTown_Gym_Text_BugCatcherBennyBeaten:
 	.string "¡Evolucionar pronto no bastaba!$"
@@ -768,31 +777,37 @@ AzaleaTown_Gym_Text_TwinsAmyMay1Beaten:
 AzaleaTown_Gym_Text_TwinsAmyMay1After:
 	.string "AMY: ¡Eres muy fuerte!\p"
 	.string "¡Pero ANTÓN lo es mucho más!\n"
-	.string "¡Su SCYTHER asesta golpes críticos\n"
-	.string "con su afilado ataque!$"
+	.string "¡El CORTE de su SCYTHER casi\l"
+	.string "siempre asesta golpes críticos!$"
 
 AzaleaTown_Gym_Text_TwinsAmyMay2Seen:
 	.string "MAY: ¿Quieres ver al LÍDER?\n"
-	.string "¡Suerte con eso!\p"
-	.string "¡ANTÓN es un hueso duro de roer!$"
+	.string "¡Buena suerte!\p"
+	.string "¡ANTÓN es muy fuerte!\n"
+	.string "¡El CORTE de su SCYTHER parece\l"
+	.string "asestar siempre golpes críticos!$"
 
 AzaleaTown_Gym_Text_TwinsAmyMay2Beaten:
 	.string "AMY & MAY: ¡Vaya chasco por partida\n"
 	.string "doble!$"
 
 AzaleaTown_Gym_Text_TwinsAmyMay2After:
-	.string "MAY: ¡Nuestros POKéMON cayeron!\p"
+	.string "MAY: ¡Nuestros POKéMON bicho\n"
+	.string "han perdido! ¡Qué pena!\p"
 	.string "¡Pero ANTÓN no perderá!\n"
-	.string "¡Tiene grandes trucos bajo la\nmanga!$"
+	.string "¡Su PINECO acaba enseguida\l"
+	.string "con los POKéMON de tipo ROCA!$"
 
 AzaleaTown_Gym_Text_GymGuide:
 	.string "¡Aupa, futuro campeón!\p"
-	.string "ANTÓN es joven, pero su dominio\n"
-	.string "de los POKéMON bicho es tremendo.\p"
-	.string "¡Lo pasarías fatal sin mis\nconsejos!\p"
-	.string "A ver… Su POKéMON oruga conoce un\n"
-	.string "ataque para cubrir su debilidad al\nROCA.\p"
-	.string "¡Y mucho ojo con los golpes\ncríticos!\l"
+	.string "ANTÓN es joven, pero conoce muy\n"
+	.string "bien a los POKéMON de tipo BICHO.\p"
+	.string "Su POKéMON oruga conoce un ataque\n"
+	.string "que cubre su debilidad al ROCA.\p"
+	.string "También usa una nueva versión de\n"
+	.string "CORTE que es de tipo BICHO.\p"
+	.string "¡Y mucho ojo con sus golpes\n"
+	.string "críticos!\l"
 	.string "¡Mucha suerte!$"
 
 AzaleaTown_Gym_Text_GymGuideWin:
@@ -800,3 +815,105 @@ AzaleaTown_Gym_Text_GymGuideWin:
 	.string "entre dos jóvenes promesas.\p"
 	.string "¡Con entrenadores así, el futuro de\n"
 	.string "los POKéMON brilla con fuerza!$"
+
+AzaleaTown_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_AZALEA, AzaleaTown_Gym_EventScript_Manolin_AfterItem
+	msgbox AzaleaTown_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_AZALEA, AzaleaTown_Gym_EventScript_Manolin_ChooseItem
+	msgbox AzaleaTown_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_SUPER_POTION
+	setflag FLAG_MANOLIN_HEAL_AZALEA
+	msgbox AzaleaTown_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+AzaleaTown_Gym_EventScript_Manolin_ChooseItem::
+	msgbox AzaleaTown_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_AZALEA, FALSE
+	switch VAR_RESULT
+	case 0, AzaleaTown_Gym_EventScript_Manolin_GiveWhiteHerb
+	case 1, AzaleaTown_Gym_EventScript_Manolin_GiveMentalHerb
+	case MULTI_B_PRESSED, AzaleaTown_Gym_EventScript_Manolin_NoChoice
+	end
+
+AzaleaTown_Gym_EventScript_Manolin_GiveWhiteHerb::
+	giveitem ITEM_WHITE_HERB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_AZALEA
+	msgbox AzaleaTown_Gym_Text_Manolin_WhiteHerbExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+AzaleaTown_Gym_EventScript_Manolin_GiveMentalHerb::
+	giveitem ITEM_MENTAL_HERB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_AZALEA
+	msgbox AzaleaTown_Gym_Text_Manolin_MentalHerbExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+AzaleaTown_Gym_EventScript_Manolin_NoChoice::
+	msgbox AzaleaTown_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+AzaleaTown_Gym_EventScript_Manolin_AfterItem::
+	msgbox AzaleaTown_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+AzaleaTown_Gym_Text_Manolin_Intro:
+	.string "¡Hostia tú! ¡Sigues vivo en\n"
+	.string "el locke, qué grande!\p"
+	.string "Pensaba que te habían mandado\n"
+	.string "al cementerio en la Cueva Unión.\p"
+	.string "Oye, este sitio huele a bosque\n"
+	.string "y telarañas… Espera, ¿el boss\l"
+	.string "no era un pájaro gigante?\p"
+	.string "Ah, calla… ¡que ese era\n"
+	.string "el anterior!\p"
+	.string "¡Aquí está ANTÓN con los bichos!$"
+
+AzaleaTown_Gym_Text_Manolin_CheckHealth:
+	.string "¡Pero si traes la party temblando!\n"
+	.string "¡Un golpe de viento y wipeas!\p"
+	.string "Deja que te tire una cura rápida\n"
+	.string "antes de entrar a la mazmorra.$"
+
+AzaleaTown_Gym_Text_Manolin_Healed:
+	.string "¡Party restaurada al cien por cien!\p"
+	.string "Toma esta Superpoción para la raid.\n"
+	.string "Considéralo botín adelantado.$"
+
+AzaleaTown_Gym_Text_Manolin_OfferChoices:
+	.string "Para los bichos de ANTÓN tengo dos\n"
+	.string "objetos muy finos de soporte.\p"
+	.string "¿Prefieres limpiar debuffs de stats\n"
+	.string "o anular efectos de control mental?$"
+
+AzaleaTown_Gym_Text_Manolin_WhiteHerbExplain:
+	.string "¡HIERBA BLANCA! Si te bajan las\n"
+	.string "estadísticas con ataques raros,\l"
+	.string "te las resetea al instante.\p"
+	.string "¡Mantén el dps intacto, socio!$"
+
+AzaleaTown_Gym_Text_Manolin_MentalHerbExplain:
+	.string "¡HIERBA MENTAL! Te saca de mofas,\n"
+	.string "ataduras y rollos molestos.\p"
+	.string "¡Ningún bicho te va a silenciar\n"
+	.string "la rotación de hechizos!$"
+
+AzaleaTown_Gym_Text_Manolin_NoChoice:
+	.string "Tranqui, tómate tu tiempo.\n"
+	.string "Yo sigo aquí mirando las arañas.$"
+
+AzaleaTown_Gym_Text_Manolin_AfterItem:
+	.string "¡Revienta a ese Scyther, socio!\n"
+	.string "¡Que no te metan crítico en fase 2!$"

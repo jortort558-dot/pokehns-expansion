@@ -290,56 +290,55 @@ SaffronStation_Movement_SlideLeft:
 	step_end
 
 SaffronMagnetTrainStation_Text_OfficerTrainHasntComeIn:
-    .string "The train hasn't come in…\p"
-    .string "I know! I'll carry the passengers\n"
-    .string "on my back!\p"
-    .string "That won't work.$"
+    .string "El tren no ha llegado…\p"
+    .string "¡Ya sé! ¡Llevaré a los pasajeros\n"
+    .string "a cuestas!\p"
+    .string "No funcionará.$"
 
 SaffronMagnetTrainStation_Text_OfficerComingAboard:
-    .string "We'll soon depart for GOLDENROD.\p"
-    .string "Are you coming aboard?$"
+    .string "Partiremos pronto hacia TRIGAL.\p"
+    .string "¿Quieres subir?$"
 
 SaffronMagnetTrainStation_Text_OfficerRightThisWay:
-    .string "May I see your rail PASS, please?\p"
-    .string "OK. Right this way, please.$"
+    .string "¿Me enseñas tu MAGNETOPASE?\p"
+    .string "Correcto. Pasa por aquí.$"
 
 SaffronMagnetTrainStation_Text_OfficerNoRailPass:
-    .string "Sorry. You don't have a rail PASS.$"
+    .string "Lo siento. No tienes MAGNETOPASE.$"
 
 SaffronMagnetTrainStation_Text_OfficerHopeToSeeYouAgain:
-    .string "We hope to see you again!$"
+    .string "¡Esperamos volver a verte!$"
 
 SaffronMagnetTrainStation_Text_OfficerArrivedInSaffron:
-    .string "We have arrived in SAFFRON.\p"
-    .string "We hope to see you again.$"
+    .string "Hemos llegado a CIUDAD AZAFRÁN.\p"
+    .string "Esperamos volver a verte.$"
 
 @=============================================================================================================================
 
 SaffronMagnetTrainStation_Text_Officer_TrainNotOperating:
-	.string "I'm sorry, but the MAGNET TRAIN\n"
-	.string "isn't operating now.$"
+	.string "Lo siento, pero ahora mismo\n"
+	.string "el MAGNETOTRÉN no funciona.$"
 
 SaffronMagnetTrainStation_Text_GymGuide:
-	.string "The MAGNET TRAIN is a super-modern\n"
-	.string "rail liner that uses electricity\p"
-	.string "and magnets to attain incredible\n"
-	.string "speed.\p"
-	.string "However, if there isn't any\n"
-	.string "electricity…$"
+	.string "El MAGNETOTRÉN es un tren moderno\n"
+	.string "que usa electricidad e imanes\l"
+	.string "para alcanzar velocidades\l"
+	.string "increíbles.\p"
+	.string "Pero si no hay electricidad…$"
 
 SaffronMagnetTrainStation_Text_GymGuide_ReturnedPart:
-	.string "Whew…\p"
-	.string "How many times have I gone back\n"
-	.string "and forth between KANTO and JOHTO?$"
+	.string "Uf…\p"
+	.string "¿Cuántas veces habré viajado ya\n"
+	.string "entre KANTO y JOHTO?$"
 
 SaffronMagnetTrainStation_Text_Teacher:
-	.string "Before the MAGNET TRAIN STATION\n"
-	.string "was built, there was a house there.\p"
-	.string "A little girl named COPYCAT used\n"
-	.string "to live there.$"
+	.string "Antes de construir la estación\n"
+	.string "del MAGNETOTRÉN había una casa.\p"
+	.string "Allí vivía una niña a la que\n"
+	.string "llamaban COPIONA.$"
 
 SaffronMagnetTrainStation_Text_Lass:
-	.string "Hi. Do you have a rail PASS?\n"
-	.string "I have one.\p"
-	.string "All the people in SAFFRON who ride\n"
-	.string "the MAGNET TRAIN have PASSES.$"
+	.string "Hola. ¿Tienes un MAGNETOPASE?\n"
+	.string "Yo sí.\p"
+	.string "Todos los habitantes de AZAFRÁN\n"
+	.string "que usan el MAGNETOTRÉN tienen uno.$"

@@ -315,6 +315,9 @@ bool8 IsNuzlockeNicknamingActive(void)
 
 u8 NuzlockeFlagSet(u16 mapsec)
 {
+    if (!IsNuzlockeEncounterArea(mapsec))
+        return 0;
+
     u16 id = sNuzlockeLUT[mapsec];
     u8 *ptr = &gSaveBlock3Ptr->challengeSettings.nuzlockeEncounterFlags[id / 8];
 
@@ -324,6 +327,9 @@ u8 NuzlockeFlagSet(u16 mapsec)
 
 u8 NuzlockeFlagClear(u16 mapsec)
 {
+    if (!IsNuzlockeEncounterArea(mapsec))
+        return 0;
+
     u16 id = sNuzlockeLUT[mapsec];
     u8 *ptr = &gSaveBlock3Ptr->challengeSettings.nuzlockeEncounterFlags[id / 8];
 
@@ -333,12 +339,39 @@ u8 NuzlockeFlagClear(u16 mapsec)
 
 u8 NuzlockeFlagGet(u16 mapsec)
 {
+    if (!IsNuzlockeEncounterArea(mapsec))
+        return 0;
+
     u16 id = sNuzlockeLUT[mapsec];
     u8 *ptr = &gSaveBlock3Ptr->challengeSettings.nuzlockeEncounterFlags[id / 8];
 
     if (!((*ptr >> (id & 7)) & 1))
         return 0;
     return 1;
+}
+
+u8 NuzlockeGetZoneId(u16 mapsec)
+{
+    if (mapsec >= ARRAY_COUNT(sNuzlockeLUT) || !IsNuzlockeEncounterArea(mapsec))
+        return NUZLOCKE_NUM_ZONES;
+    return sNuzlockeLUT[mapsec];
+}
+
+void NuzlockeFlagClearByZoneId(u8 zone)
+{
+    if (zone < NUZLOCKE_NUM_ZONES)
+        gSaveBlock3Ptr->challengeSettings.nuzlockeEncounterFlags[zone / 8] &= ~(1 << (zone & 7));
+}
+
+u16 NuzlockeGetMapsecByZoneId(u8 zone)
+{
+    u16 mapsec;
+    for (mapsec = 0; mapsec < ARRAY_COUNT(sNuzlockeLUT); mapsec++)
+    {
+        if (IsNuzlockeEncounterArea(mapsec) && sNuzlockeLUT[mapsec] == zone)
+            return mapsec;
+    }
+    return MAPSEC_NONE;
 }
 
 bool8 IsNuzlockeEncounterArea(u16 mapsec)
@@ -350,6 +383,39 @@ bool8 IsNuzlockeEncounterArea(u16 mapsec)
 #else
     return mapsec == MAPSEC_ROUTE_101 || sNuzlockeLUT[mapsec] != 0;
 #endif
+}
+
+void SyncNuzlockeCaughtRoutes(void)
+{
+    u32 i, box, slot;
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        struct Pokemon *mon = &gPlayerParty[i];
+        if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && !GetMonData(mon, MON_DATA_IS_EGG))
+        {
+            u16 mapsec = GetMonData(mon, MON_DATA_MET_LOCATION);
+            if (IsNuzlockeEncounterArea(mapsec))
+                NuzlockeFlagSet(mapsec);
+        }
+    }
+
+    if (gPokemonStoragePtr != NULL)
+    {
+        for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+        {
+            for (slot = 0; slot < IN_BOX_COUNT; slot++)
+            {
+                struct BoxPokemon *boxMon = &gPokemonStoragePtr->boxes[box][slot];
+                if (GetBoxMonData(boxMon, MON_DATA_SPECIES) != SPECIES_NONE && !GetBoxMonData(boxMon, MON_DATA_IS_EGG))
+                {
+                    u16 mapsec = GetBoxMonData(boxMon, MON_DATA_MET_LOCATION);
+                    if (IsNuzlockeEncounterArea(mapsec))
+                        NuzlockeFlagSet(mapsec);
+                }
+            }
+        }
+    }
 }
 
 void NuzlockeDeletePartyMon(u8 position)

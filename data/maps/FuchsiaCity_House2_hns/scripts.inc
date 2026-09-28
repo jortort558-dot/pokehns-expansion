@@ -16,23 +16,23 @@ FuchsiaCity_House2_EventScript_Photo::
 	end
 
 FuchsiaCity_House2_Text_WardensGranddaughter1:
-	.string "My grandpa is the SAFARI ZONE\n"
-	.string "WARDEN.\p"
-	.string "At least he was…\p"
-	.string "He decided to go on a vacation and\n"
-	.string "took off overseas all by himself.\p"
-	.string "He quit running SAFARI ZONE just\n"
-	.string "like that.$"
+	.string "Mi abuelo es el GUARDA de la\n"
+	.string "ZONA SAFARI.\p"
+	.string "O al menos lo era…\p"
+	.string "Decidió irse de vacaciones al\n"
+	.string "extranjero él solo.\p"
+	.string "Dejó la ZONA SAFARI\n"
+	.string "así sin más.$"
 
 FuchsiaCity_House2_Text_WardensGranddaughter2:
-	.string "Many people were disappointed that\n"
-	.string "SAFARI ZONE closed down, but Grandpa\l"
-	.string "is so stubborn…$"
+	.string "A muchos les dolió que cerrase la\n"
+	.string "ZONA SAFARI, pero el abuelo es\l"
+	.string "muy cabezota…$"
 
 FuchsiaCity_House2_Text_WardenPhoto:
-	.string "It's a photo of a grinning old man\n"
-	.string "who's surrounded by POKéMON.$"
+	.string "Es la foto de un anciano sonriente\n"
+	.string "rodeado de POKéMON.$"
 
 FuchsiaCity_House2_Text_SafariZonePhoto:
-	.string "It's a photo of a huge grassy plain\n"
-	.string "with rare POKéMON frolicking in it.$"
+	.string "Es una gran pradera donde juegan\n"
+	.string "POKéMON poco comunes.$"

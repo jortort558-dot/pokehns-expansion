@@ -16,5 +16,6 @@ void CreateBPPokeBallShop(void);
 void CreateBPHoldItemShop2(void);
 void CreateBPPowerShop(void);
 void CreateKurtBallShop(void);
+void CreateElPiedrasMegaShop(void);
 
 #endif // GUARD_SHOP_H

@@ -44,6 +44,7 @@
 #if IS_HNS
 #include "constants/flags.h"
 #include "event_data.h"
+#include "nuzlocke.h"
 #endif
 
 #define TAG_SCROLL_ARROW   2100
@@ -67,6 +68,7 @@ enum {
     WIN_QUANTITY_PRICE,
     WIN_MESSAGE,
     WIN_BERRIES,
+    WIN_POPUP_INFO,
 };
 
 enum {
@@ -83,6 +85,7 @@ enum {
     MART_TYPE_BP,
     MART_TYPE_BP_ITEM,
     MART_TYPE_BP_DECOR,
+    MART_TYPE_MEGA_STONES,
 };
 
 // shop view window NPC info enum
@@ -156,6 +159,7 @@ static void Task_ReturnToShopMenu(u8 taskId);
 static void ShowShopMenuAfterExitingBuyOrSellMenu(u8 taskId);
 static void BuyMenuDrawGraphics(void);
 static void BuyMenuAddScrollIndicatorArrows(void);
+static void BuyMenuRemoveScrollIndicatorArrows(void);
 static void Task_BuyMenu(u8 taskId);
 static void BuyMenuBuildListMenuTemplate(void);
 static void BuyMenuInitBgs(void);
@@ -909,6 +913,15 @@ static const struct WindowTemplate sShopBuyMenuWindowTemplates[] =
         .paletteNum = 15,
         .baseBlock = 0x0222,
     },
+    [WIN_POPUP_INFO] = {
+        .bg = 0,
+        .tilemapLeft = 2,
+        .tilemapTop = 2,
+        .width = 26,
+        .height = 16,
+        .paletteNum = 15,
+        .baseBlock = 0x0240,
+    },
     DUMMY_WIN_TEMPLATE
 };
 
@@ -1181,22 +1194,43 @@ static void BuyMenuFreeMemory(void)
     FreeAllWindowBuffers();
 }
 
+static bool8 IsShopHealingItemBanned(u16 item)
+{
+#if IS_HNS
+    if (sMartInfo.martType != MART_TYPE_NORMAL)
+        return FALSE;
+    if (!gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_BanHealingShop)
+        return FALSE;
+    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive())
+        return FALSE;
+    return (GetItemPocket(item) == POCKET_MEDICINE);
+#else
+    return FALSE;
+#endif
+}
+
 static void BuyMenuBuildListMenuTemplate(void)
 {
     u16 i;
+    u16 validCount = 0;
 
     sListMenuItems = Alloc((sMartInfo.itemCount + 1) * sizeof(*sListMenuItems));
     sItemNames = Alloc((sMartInfo.itemCount + 1) * sizeof(*sItemNames));
     for (i = 0; i < sMartInfo.itemCount; i++)
-        BuyMenuSetListEntry(&sListMenuItems[i], sMartInfo.itemList[i], sItemNames[i]);
+    {
+        if (IsShopHealingItemBanned(sMartInfo.itemList[i]))
+            continue;
+        BuyMenuSetListEntry(&sListMenuItems[validCount], sMartInfo.itemList[i], sItemNames[validCount]);
+        validCount++;
+    }
 
-    StringCopy(sItemNames[i], gText_Cancel2);
-    sListMenuItems[i].name = sItemNames[i];
-    sListMenuItems[i].id = LIST_CANCEL;
+    StringCopy(sItemNames[validCount], gText_Cancel2);
+    sListMenuItems[validCount].name = sItemNames[validCount];
+    sListMenuItems[validCount].id = LIST_CANCEL;
 
     gMultiuseListMenuTemplate = sShopBuyMenuListTemplate;
     gMultiuseListMenuTemplate.items = sListMenuItems;
-    gMultiuseListMenuTemplate.totalItems = sMartInfo.itemCount + 1;
+    gMultiuseListMenuTemplate.totalItems = validCount + 1;
     if (gMultiuseListMenuTemplate.totalItems > MAX_ITEMS_SHOWN)
         gMultiuseListMenuTemplate.maxShowed = MAX_ITEMS_SHOWN;
     else
@@ -1211,7 +1245,19 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, enum Item item, u
         || sMartInfo.martType == MART_TYPE_KURT
         || sMartInfo.martType == MART_TYPE_BP
         || sMartInfo.martType == MART_TYPE_BP_ITEM)
+    {
         CopyItemName(item, name);
+        if (GetItemTMHMIndex(item) != 0)
+        {
+            u8 *dest = name + StringLength(name);
+            const u8 *moveName = GetMoveName(GetItemTMHMMoveId(item));
+
+            *dest++ = CHAR_SPACE;
+            while (dest - name < ITEM_NAME_LENGTH && *moveName != EOS)
+                *dest++ = *moveName++;
+            *dest = EOS;
+        }
+    }
     else
         StringCopy(name, gDecorations[item].name);
 
@@ -1219,9 +1265,202 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, enum Item item, u
     menuItem->id = item;
 }
 
+static const u8 sModalColor_Title[3]  = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED,       TEXT_COLOR_LIGHT_RED};
+static const u8 sModalColor_Pocket[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE,      TEXT_COLOR_LIGHT_BLUE};
+static const u8 sModalColor_Body[3]   = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+static const u8 sModalColor_Footer[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+
+static void WordWrapDescription(const u8 *src, u8 *dst, u32 maxDstSize, u8 fontId, u32 maxPixelWidth)
+{
+    u32 srcIdx = 0, dstIdx = 0;
+    u8 wordBuf[64];
+    u32 wordLen = 0;
+    s32 currentLineWidth = 0;
+    u8 spaceStr[2];
+    s32 spaceWidth;
+
+    spaceStr[0] = CHAR_SPACE;
+    spaceStr[1] = EOS;
+    spaceWidth = GetStringWidth(fontId, spaceStr, 0);
+
+    while (src[srcIdx] != EOS && dstIdx < maxDstSize - 1)
+    {
+        if (src[srcIdx] == CHAR_NEWLINE || src[srcIdx] == CHAR_SPACE)
+        {
+            if (wordLen > 0)
+            {
+                wordBuf[wordLen] = EOS;
+                s32 wordWidth = GetStringWidth(fontId, wordBuf, 0);
+
+                if (currentLineWidth > 0 && (currentLineWidth + spaceWidth + wordWidth) > (s32)maxPixelWidth)
+                {
+                    if (dstIdx < maxDstSize - 1)
+                        dst[dstIdx++] = CHAR_NEWLINE;
+                    currentLineWidth = 0;
+                }
+                else if (currentLineWidth > 0)
+                {
+                    if (dstIdx < maxDstSize - 1)
+                        dst[dstIdx++] = CHAR_SPACE;
+                    currentLineWidth += spaceWidth;
+                }
+
+                u32 w;
+                for (w = 0; w < wordLen && dstIdx < maxDstSize - 1; w++)
+                    dst[dstIdx++] = wordBuf[w];
+                currentLineWidth += wordWidth;
+                wordLen = 0;
+            }
+
+            if (src[srcIdx] == CHAR_NEWLINE && src[srcIdx + 1] == CHAR_NEWLINE)
+            {
+                if (dstIdx < maxDstSize - 1)
+                    dst[dstIdx++] = CHAR_NEWLINE;
+                currentLineWidth = 0;
+                srcIdx++;
+            }
+        }
+        else
+        {
+            if (wordLen < sizeof(wordBuf) - 1)
+                wordBuf[wordLen++] = src[srcIdx];
+        }
+        srcIdx++;
+    }
+
+    if (wordLen > 0)
+    {
+        wordBuf[wordLen] = EOS;
+        s32 wordWidth = GetStringWidth(fontId, wordBuf, 0);
+
+        if (currentLineWidth > 0 && (currentLineWidth + spaceWidth + wordWidth) > (s32)maxPixelWidth)
+        {
+            if (dstIdx < maxDstSize - 1)
+                dst[dstIdx++] = CHAR_NEWLINE;
+        }
+        else if (currentLineWidth > 0)
+        {
+            if (dstIdx < maxDstSize - 1)
+                dst[dstIdx++] = CHAR_SPACE;
+        }
+
+        u32 w;
+        for (w = 0; w < wordLen && dstIdx < maxDstSize - 1; w++)
+            dst[dstIdx++] = wordBuf[w];
+    }
+
+    dst[dstIdx] = EOS;
+}
+
+static void Task_ShopItemPopup_HandleInput(u8 taskId);
+static void CloseShopItemPopupInfo(u8 taskId);
+
+static void OpenShopItemPopupInfo(u8 taskId, u16 itemId)
+{
+    const u8 *desc;
+    u8 pocket;
+    u8 formattedDesc[512];
+    static const u8 sText_ClosePopupHint[] = _("{A_BUTTON}/{B_BUTTON}/{SELECT_BUTTON} VOLVER");
+
+    BuyMenuRemoveScrollIndicatorArrows();
+
+    if (sShopData->itemSpriteIds[0] != SPRITE_NONE)
+        gSprites[sShopData->itemSpriteIds[0]].invisible = TRUE;
+    if (sShopData->itemSpriteIds[1] != SPRITE_NONE)
+        gSprites[sShopData->itemSpriteIds[1]].invisible = TRUE;
+    if (sBerryIconSpriteId != SPRITE_NONE)
+        gSprites[sBerryIconSpriteId].invisible = TRUE;
+
+    DrawStdFrameWithCustomTileAndPalette(WIN_POPUP_INFO, FALSE, 1, 13);
+    PutWindowTilemap(WIN_POPUP_INFO);
+    FillWindowPixelBuffer(WIN_POPUP_INFO, PIXEL_FILL(1));
+
+    // 1. Título con nombre del objeto
+    CopyItemName(itemId, gStringVar1);
+    AddTextPrinterParameterized4(WIN_POPUP_INFO, FONT_NORMAL, 6, 3, 0, 0, sModalColor_Title, TEXT_SKIP_DRAW, gStringVar1);
+
+    // 2. Bolsillo al que pertenece
+    pocket = GetItemPocket(itemId);
+    if (pocket < POCKETS_COUNT)
+    {
+        StringCopy(gStringVar2, gPocketNamesStringsTable[pocket]);
+        AddTextPrinterParameterized4(WIN_POPUP_INFO, FONT_SMALL_NARROWER, 126, 5, 0, 0, sModalColor_Pocket, TEXT_SKIP_DRAW, gStringVar2);
+    }
+
+    // 3. Línea divisoria horizontal
+    FillWindowPixelRect(WIN_POPUP_INFO, PIXEL_FILL(3), 6, 17, 196, 1);
+
+    // 4. Descripción completa con WordWrap limpio
+    desc = GetItemDescription(itemId);
+    if (desc != NULL && desc[0] != EOS)
+    {
+        WordWrapDescription(desc, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 194);
+        AddTextPrinterParameterized4(WIN_POPUP_INFO, FONT_SHORT_COPY_1, 6, 21, 0, 2, sModalColor_Body, TEXT_SKIP_DRAW, formattedDesc);
+    }
+
+    // 5. Pie de página
+    AddTextPrinterParameterized4(WIN_POPUP_INFO, FONT_SMALL_NARROWER, 90, 114, 0, 0, sModalColor_Footer, TEXT_SKIP_DRAW, sText_ClosePopupHint);
+
+    CopyWindowToVram(WIN_POPUP_INFO, COPYWIN_FULL);
+    ScheduleBgCopyTilemapToVram(0);
+
+    gTasks[taskId].func = Task_ShopItemPopup_HandleInput;
+}
+
+static void Task_ShopItemPopup_HandleInput(u8 taskId)
+{
+    if (JOY_NEW(A_BUTTON | B_BUTTON | SELECT_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        CloseShopItemPopupInfo(taskId);
+    }
+}
+
+static void CloseShopItemPopupInfo(u8 taskId)
+{
+    u8 moneyWindowId;
+
+    ClearStdWindowAndFrameToTransparent(WIN_POPUP_INFO, FALSE);
+    ClearWindowTilemap(WIN_POPUP_INFO);
+
+    moneyWindowId = (sMartInfo.martType == MART_TYPE_KURT) ? WIN_BERRIES : WIN_MONEY;
+    PutWindowTilemap(moneyWindowId);
+    PutWindowTilemap(WIN_ITEM_LIST);
+    PutWindowTilemap(WIN_ITEM_DESCRIPTION);
+
+    if (sMartInfo.martType == MART_TYPE_KURT)
+    {
+        DrawStdFrameWithCustomTileAndPalette(WIN_BERRIES, FALSE, 1, 13);
+        if (sKurtCurrentBerry != ITEM_NONE)
+            PrintBerryCount(WIN_BERRIES, sKurtCurrentBerry);
+    }
+    else if (sMartInfo.martType == MART_TYPE_NORMAL)
+    {
+        PrintMoneyAmountInMoneyBoxWithBorder(WIN_MONEY, 1, 13, GetMoney(&gSaveBlock1Ptr->money));
+    }
+    else
+    {
+        DrawStdFrameWithCustomTileAndPalette(WIN_MONEY, FALSE, 1, 13);
+        PrintBPAmountInMoneyBox(WIN_MONEY, gSaveBlock2Ptr->frontier.battlePoints, 0);
+    }
+
+    ScheduleBgCopyTilemapToVram(0);
+
+    if (sShopData->itemSpriteIds[sShopData->iconSlot] != SPRITE_NONE)
+        gSprites[sShopData->itemSpriteIds[sShopData->iconSlot]].invisible = FALSE;
+    if (sBerryIconSpriteId != SPRITE_NONE)
+        gSprites[sBerryIconSpriteId].invisible = FALSE;
+
+    BuyMenuAddScrollIndicatorArrows();
+
+    gTasks[taskId].func = Task_BuyMenu;
+}
+
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list)
 {
     const u8 *description;
+    static u8 sShopItemDescSummaryBuffer[256];
+
     if (onInit != TRUE)
         PlaySECursorMove(SE_SELECT);
 
@@ -1236,14 +1475,36 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     {
         if (sMartInfo.martType == MART_TYPE_NORMAL
             || sMartInfo.martType == MART_TYPE_BP
-            || sMartInfo.martType == MART_TYPE_BP_ITEM)
-            description = GetItemDescription(item);
-        else if (sMartInfo.martType == MART_TYPE_KURT)
+            || sMartInfo.martType == MART_TYPE_BP_ITEM
+            || sMartInfo.martType == MART_TYPE_KURT)
         {
-            description = GetItemDescription(item);
-            sKurtCurrentBerry = GetBerryFromBall(item);
-            PrintBerryCount(WIN_BERRIES, sKurtCurrentBerry);
-            CopyWindowToVram(WIN_BERRIES, COPYWIN_FULL);
+            const u8 *fullDesc = GetItemDescription(item);
+            u32 i = 0, lines = 1;
+
+            while (fullDesc[i] != EOS && i < sizeof(sShopItemDescSummaryBuffer) - 32)
+            {
+                if (fullDesc[i] == CHAR_NEWLINE)
+                {
+                    lines++;
+                    if (lines > 3)
+                        break;
+                }
+                sShopItemDescSummaryBuffer[i] = fullDesc[i];
+                i++;
+            }
+            sShopItemDescSummaryBuffer[i] = EOS;
+
+            static const u8 sText_MoreInfoHint[] = _("\n{SELECT_BUTTON} Más info...");
+            StringAppend(sShopItemDescSummaryBuffer, sText_MoreInfoHint);
+
+            description = sShopItemDescSummaryBuffer;
+
+            if (sMartInfo.martType == MART_TYPE_KURT)
+            {
+                sKurtCurrentBerry = GetBerryFromBall(item);
+                PrintBerryCount(WIN_BERRIES, sKurtCurrentBerry);
+                CopyWindowToVram(WIN_BERRIES, COPYWIN_FULL);
+            }
         }
         else
             description = gDecorations[item].description;
@@ -1261,7 +1522,8 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     }
 
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
-    BuyMenuPrint(WIN_ITEM_DESCRIPTION, description, 3, 1, 0, COLORID_NORMAL);
+    AddTextPrinterParameterized4(WIN_ITEM_DESCRIPTION, FONT_SMALL_NARROWER, 3, 1, 0, 0,
+                                 sShopBuyMenuTextColors[COLORID_NORMAL], 0, description);
 }
 
 static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
@@ -1300,6 +1562,14 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
             ConvertIntToDecimalStringN(
                 gStringVar1,
                 GetItemPrice(itemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT),
+                STR_CONV_MODE_LEFT_ALIGN,
+                6);
+        }
+        else if (sMartInfo.martType == MART_TYPE_MEGA_STONES)
+        {
+            ConvertIntToDecimalStringN(
+                gStringVar1,
+                50000,
                 STR_CONV_MODE_LEFT_ALIGN,
                 6);
         }
@@ -1689,6 +1959,26 @@ static void Task_BuyMenu(u8 taskId)
         switch (itemId)
         {
         case LIST_NOTHING_CHOSEN:
+            if (JOY_NEW(SELECT_BUTTON))
+            {
+                u16 itemIndex = sShopData->scrollOffset + sShopData->selectedRow;
+                if (sListMenuItems != NULL && itemIndex <= sMartInfo.itemCount)
+                {
+                    s32 currentItem = sListMenuItems[itemIndex].id;
+                    if (currentItem != LIST_CANCEL && currentItem != ITEM_LIST_END)
+                    {
+                        if (sMartInfo.martType == MART_TYPE_NORMAL
+                            || sMartInfo.martType == MART_TYPE_BP
+                            || sMartInfo.martType == MART_TYPE_BP_ITEM
+                            || sMartInfo.martType == MART_TYPE_KURT)
+                        {
+                            PlaySE(SE_SELECT);
+                            OpenShopItemPopupInfo(taskId, (u16)currentItem);
+                            return;
+                        }
+                    }
+                }
+            }
             break;
         case LIST_CANCEL:
             PlaySE(SE_SELECT);
@@ -1705,6 +1995,8 @@ static void Task_BuyMenu(u8 taskId)
 
             if (sMartInfo.martType == MART_TYPE_NORMAL)
                 sShopData->totalCost = (GetItemPrice(itemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT));
+            else if (sMartInfo.martType == MART_TYPE_MEGA_STONES)
+                sShopData->totalCost = 50000;
             else if (sMartInfo.martType == MART_TYPE_KURT)
                 sShopData->totalCost = 1;
             else if (sMartInfo.martType == MART_TYPE_BP
@@ -1800,6 +2092,15 @@ static void Task_BuyMenu(u8 taskId)
                     {
                         BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany, Task_BuyHowManyDialogueInit);
                     }
+                }
+                else if (sMartInfo.martType == MART_TYPE_MEGA_STONES)
+                {
+                    CopyItemName(itemId, gStringVar1);
+                    ConvertIntToDecimalStringN(gStringVar2, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
+                    StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2);
+                    tItemCount = 1;
+                    sShopData->totalCost = 50000;
+                    BuyMenuDisplayMessage(taskId, gStringVar4, BuyMenuConfirmPurchase);
                 }
                 else
                 {
@@ -1942,7 +2243,7 @@ static void BuyMenuTryMakePurchase(u8 taskId)
             BuyMenuDisplayMessage(taskId, gText_NoMoreRoomForThis, BuyMenuReturnToItemList);
         }
     }
-    else if (sMartInfo.martType == MART_TYPE_NORMAL)
+    else if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_MEGA_STONES)
     {
         if (AddBagItem(tItemId, tItemCount) == TRUE)
         {
@@ -2025,7 +2326,7 @@ static void BuyMenuSubtractMoney(u8 taskId)
         PlaySE(SE_SHOP);
         PrintMoneyAmountInMoneyBox(WIN_MONEY, GetMoney(&gSaveBlock1Ptr->money), 0);
 
-        if (sMartInfo.martType == MART_TYPE_NORMAL)
+        if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_MEGA_STONES)
             gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;
         else
             gTasks[taskId].func = Task_ReturnToItemListAfterDecorationPurchase;
@@ -2176,7 +2477,8 @@ static void Task_ExitBuyMenu(u8 taskId)
         if (sMartInfo.martType == MART_TYPE_KURT
             || sMartInfo.martType == MART_TYPE_BP
             || sMartInfo.martType == MART_TYPE_BP_ITEM
-            || sMartInfo.martType == MART_TYPE_BP_DECOR)
+            || sMartInfo.martType == MART_TYPE_BP_DECOR
+            || sMartInfo.martType == MART_TYPE_MEGA_STONES)
         {
             UnlockPlayerFieldControls();
             if (sMartInfo.callback)
@@ -2318,3 +2620,122 @@ void CreateKurtBallShop(void)
     gTasks[taskId].func = Task_GoToBuyOrSellMenu;
     FadeScreen(FADE_TO_BLACK, 0);
 }
+
+static const u16 sMegaStonesTier1[] = {
+    ITEM_VENUSAURITE,
+    ITEM_CHARIZARDITE_X,
+    ITEM_CHARIZARDITE_Y,
+    ITEM_BLASTOISINITE,
+    ITEM_BEEDRILLITE,
+    ITEM_PIDGEOTITE,
+    ITEM_ALAKAZITE,
+    ITEM_SLOWBRONITE,
+    ITEM_GENGARITE,
+    ITEM_KANGASKHANITE,
+    ITEM_PINSIRITE,
+    ITEM_GYARADOSITE,
+    ITEM_AERODACTYLITE,
+};
+
+static const u16 sMegaStonesTier2[] = {
+    ITEM_AMPHAROSITE,
+    ITEM_STEELIXITE,
+    ITEM_SCIZORITE,
+    ITEM_HERACRONITE,
+    ITEM_HOUNDOOMINITE,
+    ITEM_TYRANITARITE,
+    ITEM_SCEPTILITE,
+    ITEM_BLAZIKENITE,
+    ITEM_SWAMPERTITE,
+    ITEM_GARDEVOIRITE,
+    ITEM_SABLENITE,
+    ITEM_MAWILITE,
+    ITEM_AGGRONITE,
+    ITEM_MEDICHAMITE,
+    ITEM_MANECTITE,
+    ITEM_SHARPEDONITE,
+    ITEM_CAMERUPTITE,
+    ITEM_ALTARIANITE,
+    ITEM_BANETTITE,
+    ITEM_ABSOLITE,
+    ITEM_GLALITITE,
+};
+
+static const u16 sMegaStonesTier3[] = {
+    ITEM_SALAMENCITE,
+    ITEM_METAGROSSITE,
+    ITEM_LATIASITE,
+    ITEM_LATIOSITE,
+    ITEM_LOPUNNITE,
+    ITEM_GARCHOMPITE,
+    ITEM_LUCARIONITE,
+    ITEM_ABOMASITE,
+    ITEM_GALLADITE,
+    ITEM_AUDINITE,
+    ITEM_DIANCITE,
+    ITEM_MEWTWONITE_X,
+    ITEM_MEWTWONITE_Y,
+};
+
+static EWRAM_DATA u16 sElPiedrasShopList[16] = {0};
+
+void CreateElPiedrasMegaShop(void)
+{
+    u8 taskId;
+    s16 *data;
+    u8 badges = GetNumberOfBadges();
+    u16 pool[64];
+    u16 poolSize = 0;
+    u16 i, j;
+    u16 listCount = 0;
+    u32 seed;
+
+    for (i = 0; i < ARRAY_COUNT(sMegaStonesTier1); i++)
+        pool[poolSize++] = sMegaStonesTier1[i];
+
+    if (badges >= 8)
+    {
+        for (i = 0; i < ARRAY_COUNT(sMegaStonesTier2); i++)
+            pool[poolSize++] = sMegaStonesTier2[i];
+    }
+
+    if (badges >= 12)
+    {
+        for (i = 0; i < ARRAY_COUNT(sMegaStonesTier3); i++)
+            pool[poolSize++] = sMegaStonesTier3[i];
+    }
+
+    seed = (gSaveBlock2Ptr->playerTrainerId[0]
+            | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+            | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+            | (gSaveBlock2Ptr->playerTrainerId[3] << 24))
+            + badges * 17;
+
+    for (i = 0; i < 6 && poolSize > 0 && listCount < ARRAY_COUNT(sElPiedrasShopList) - 1; i++)
+    {
+        seed = 1103515245 * seed + 12345;
+        u16 idx = ((seed >> 16) & 0x7FFF) % poolSize;
+        u16 selected = pool[idx];
+
+        for (j = idx; j < poolSize - 1; j++)
+            pool[j] = pool[j + 1];
+        poolSize--;
+
+        sElPiedrasShopList[listCount++] = selected;
+    }
+    sElPiedrasShopList[listCount] = ITEM_NONE;
+
+    LockPlayerFieldControls();
+    sMartInfo.martType = MART_TYPE_MEGA_STONES;
+    SetShopItemsForSale(sElPiedrasShopList);
+    ClearItemPurchases();
+    SetShopMenuCallback(ScriptContext_Enable);
+
+    taskId = CreateTask(Task_ShopMenu, 8);
+    data = gTasks[taskId].data;
+    data[8] = (u32)CB2_InitBuyMenu >> 16;
+    data[9] = (u32)CB2_InitBuyMenu;
+    gTasks[taskId].func = Task_GoToBuyOrSellMenu;
+    FadeScreen(FADE_TO_BLACK, 0);
+}
+

@@ -16002,3 +16002,281 @@ Tera Type: Fighting
 - Bulk Up  
 - Throat Chop
 
+=== TRAINER_KNEKRO_HNS ===
+Name: KNEKRO
+Class: Pkmn Trainer 1
+Pic: Knekro Hns
+Gender: Male
+Music: Rich
+Double Battle: No
+
+Jolteon
+Level: 22
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Thunder Shock
+- Double Kick
+- Quick Attack
+- Sand Attack
+
+Starmie
+Level: 23
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Water Pulse
+- Swift
+- Psybeam
+- Recover
+
+Snorlax @ Chesto Berry
+Level: 24
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+- Body Slam
+- Yawn
+- Rest
+- Rock Tomb
+
+=== TRAINER_RIVAL_CHIKORITA_LAKE_HNS ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Dark Red
+Items: Hyper Potion
+
+Golbat
+Level: 32
+- Poison Fang
+- Air Cutter
+- Confuse Ray
+- Bite
+
+Pupitar
+Level: 33
+- Rock Slide
+- Bite
+- Screech
+- Scary Face
+
+Octillery
+Level: 32
+- Octazooka
+- Psybeam
+- Aurora Beam
+- Signal Beam
+
+Meganium @ Miracle Seed
+Level: 34
+- Magical Leaf
+- Body Slam
+- Synthesis
+- Poison Powder
+
+Houndoom @ Houndoominite
+Level: 35
+- Flamethrower
+- Crunch
+- Nasty Plot
+- Smog
+
+=== TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Dark Red
+Items: Hyper Potion
+
+Golbat
+Level: 32
+- Poison Fang
+- Air Cutter
+- Confuse Ray
+- Bite
+
+Pupitar
+Level: 33
+- Rock Slide
+- Bite
+- Screech
+- Scary Face
+
+Octillery
+Level: 32
+- Octazooka
+- Psybeam
+- Aurora Beam
+- Signal Beam
+
+Typhlosion @ Charcoal
+Level: 34
+- Flamethrower
+- Swift
+- Smokescreen
+- Thunder Punch
+
+Houndoom @ Houndoominite
+Level: 35
+- Flamethrower
+- Crunch
+- Nasty Plot
+- Smog
+
+=== TRAINER_RIVAL_TOTODILE_LAKE_HNS ===
+Name: {B_RIVAL_NAME}
+Class: Rival Hns
+Pic: Silver Hns
+Gender: Male
+Music: Silver
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Dark Red
+Items: Hyper Potion
+
+Golbat
+Level: 32
+- Poison Fang
+- Air Cutter
+- Confuse Ray
+- Bite
+
+Pupitar
+Level: 33
+- Rock Slide
+- Bite
+- Screech
+- Scary Face
+
+Octillery
+Level: 32
+- Octazooka
+- Psybeam
+- Aurora Beam
+- Signal Beam
+
+Feraligatr @ Mystic Water
+Level: 34
+- Waterfall
+- Ice Fang
+- Crunch
+- Scary Face
+
+Houndoom @ Houndoominite
+Level: 35
+- Flamethrower
+- Crunch
+- Nasty Plot
+- Smog
+
+=== TRAINER_EL_PIEDRAS_HNS ===
+Name: EL PIEDRAS
+Class: Pokemaniac Hns
+Pic: Pokemaniac
+Gender: Male
+Music: Hg Suspicious 1
+Double Battle: No
+
+Chispa (Meowth) (F) @ Amulet Coin
+Level: 19
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Pay Day
+- Bite
+- Fake Out
+- Screech
+
+Geodude
+Level: 18
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Rock Blast
+- Rollout
+- Defense Curl
+- Magnitude
+
+Eevee
+Level: 19
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Quick Attack
+- Bite
+- Sand Attack
+- Swift
+
+=== TRAINER_YAMI_HNS ===
+Name: YAMI
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Basic Trainer
+Mugshot: Purple
+
+Mienshao @ Life Orb
+Level: 36
+Ability: Regenerator
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Jolly Nature
+- High Jump Kick
+- U-turn
+- Fake Out
+- Knock Off
+
+Lucario @ Expert Belt
+Level: 36
+Ability: Inner Focus
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+- Aura Sphere
+- Flash Cannon
+- Vacuum Wave
+- Nasty Plot
+
+Gengar @ Focus Sash
+Level: 36
+Ability: Cursed Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+- Shadow Ball
+- Sludge Bomb
+- Thunderbolt
+- Destiny Bond
+
+Gliscor @ Toxic Orb
+Level: 36
+Ability: Poison Heal
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 184 Def / 72 Spe
+Impish Nature
+- Earthquake
+- Toxic
+- Protect
+- Roost
+
+Milotic @ Leftovers
+Level: 36
+Ability: Marvel Scale
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 Def / 4 SpA
+Bold Nature
+- Scald
+- Recover
+- Ice Beam
+- Haze
+
+Garchomp @ Yache Berry
+Level: 37
+Ability: Rough Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 Def / 252 Spe
+Jolly Nature
+- Dragon Claw
+- Earthquake
+- Swords Dance
+- Rock Slide
+

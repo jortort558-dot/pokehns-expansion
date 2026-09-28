@@ -346,7 +346,7 @@ static void BuildStartMenuActions(void)
     }
     else
     {
-        if (DEBUG_OVERWORLD_MENU == TRUE && DEBUG_OVERWORLD_IN_MENU == TRUE)
+        if (DEBUG_OVERWORLD_MENU == TRUE && DEBUG_OVERWORLD_IN_MENU == TRUE && !IsPokemitosCupActive())
             BuildDebugStartMenu();
         else
             BuildNormalStartMenu();
@@ -555,7 +555,7 @@ static void ShowTimeWindow(void)
         }
     }
 
-    if (CheckBagHasItem(ITEM_POKE_VIAL, 1))
+    if (IsPokeVialEnabled() && CheckBagHasItem(ITEM_POKE_VIAL, 1))
     {
         maxCharges = GetPokeVialMaxCharges();
         currentCharges = VarGet(VAR_POKEVIAL_CHARGES);
@@ -924,7 +924,7 @@ static bool8 StartMenuDebugCallback(void)
     RemoveExtraStartMenuWindows();
     HideStartMenuDebug(); // Hide start menu without enabling movement
 
-    if (DEBUG_OVERWORLD_MENU)
+    if (DEBUG_OVERWORLD_MENU && !IsPokemitosCupActive())
     {
         FreezeObjectEvents();
         Debug_ShowMainMenu();

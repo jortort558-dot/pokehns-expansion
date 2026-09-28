@@ -63,30 +63,27 @@ MtSilver_PokemonCenter_EventScript_Meara_WarpToSinjoh::
 	end
 
 MtSilver_PokemonCenter_Text_Meara1:
-	.string "I'm a researcher from... Uhh...\n"
-	.string "the PEWTER CITY museum!\p"
-	.string "An unusual amount of artifacts have\n"
-	.string "been discovered in this area, so\l"
-	.string "I've come here to investigate.\p"
-	.string "Have you found anything strange\n"
-	.string "in the mountain?\p"
-	.string "Maybe something like a FLUTE?\p"
-	.string "If you do, please show me.$"
+	.string "Soy investigador del… Ejem…\n"
+	.string "¡MUSEO de CIUDAD PLATEADA!\p"
+	.string "Aquí se han descubierto muchísimos\n"
+	.string "artefactos. Vine a estudiarlos.\p"
+	.string "¿Has hallado algo extraño en la\n"
+	.string "montaña?\p"
+	.string "¿Quizá algo parecido a una FLAUTA?\p"
+	.string "Si lo haces, enséñamelo.$"
 
 MtSilver_PokemonCenter_Text_Meara2:
-	.string "That flute!\p"
-	.string "You have the spirit of a true\n"
-	.string "archaeologist!\p"
-	.string "There's a branch of the cave\n"
-	.string "where the POKéMON are too strong\l"
-	.string "for me to safely explore.\p"
-	.string "If I take you there, would you\n"
-	.string "explore it for more artifacts?$"
+	.string "¡Esa flauta!\p"
+	.string "¡Tienes alma de auténtico\n"
+	.string "arqueólogo!\p"
+	.string "Hay un ramal de la cueva con\n"
+	.string "POKéMON demasiado fuertes para mí.\p"
+	.string "Si te llevo, ¿buscarás más\n"
+	.string "artefactos?$"
 
 MtSilver_PokemonCenter_Text_Prompt:
-	.string "If I take you there, would you\n"
-	.string "explore it for more artifacts?$"
+	.string "Si te llevo, ¿buscarás más\n"
+	.string "artefactos?$"
 
 MtSilver_PokemonCenter_Text_Meara3:
-	.string "Ready to search for more artifacts?$"
-
+	.string "¿Listo para buscar más artefactos?$"

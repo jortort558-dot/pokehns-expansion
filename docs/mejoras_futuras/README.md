@@ -2,11 +2,25 @@
 
 Registro de mejoras futuras, pruebas e implementaciones añadidas al proyecto.
 
-## REV. ÚNICO
+## Ficha Gimnasio
+
+El diseño completo del recurso, sus tres usos, persistencia, migración y pruebas está en [Sistema de Ficha Gimnasio](sistema_ficha_gimnasio.md).
+
+### Estado
+
+Implementación completa desde 0.19.0.
+
+## Extras Nuzlocke configurables
+
+PokéVial y Fichas Gimnasio pueden activarse o desactivarse desde la pestaña de
+reglas Nuzlocke. El patrón obligatorio para futuras ayudas está en
+[Configuración de extras Nuzlocke](configuracion_extras_nuzlocke.md).
+
+## REV. ÚNICO (propuesta sustituida)
 
 ### Objetivo
 
-Añadir un recurso limitado que permita recuperar un Pokémon fallecido durante un desafío Nuzlocke.
+Esta propuesta inicial queda conservada como antecedente. Ha sido sustituida por el diseño de Ficha Gimnasio enlazado arriba.
 
 ### Recompensas
 

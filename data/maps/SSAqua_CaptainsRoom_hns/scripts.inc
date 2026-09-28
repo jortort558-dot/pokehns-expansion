@@ -40,23 +40,22 @@ SSAqua_CaptainsRoom_Movement_Jump:
 	step_end
 
 SSAqua_CaptainsRoom_Text_GranddaughterCaptainPlayWithMe:
-	.string "CAPTAIN, play with me, please?\p"
-	.string "I'm bored! I want to play more!$"
+	.string "CAPITÁN, ¿juegas conmigo?\p"
+	.string "¡Me aburro! ¡Quiero jugar más!$"
 
 SSAqua_CaptainsRoom_Text_GranddaughterHasToFindGrandpa:
-	.string "Hi! Will you play with me?\p"
-	.string "…Oh!\p"
-	.string "Grandpa's worried about me?\p"
-	.string "I have to go!\p"
-	.string "I have to go find Grandpa!$"
+	.string "¡Hola! ¿Quieres jugar conmigo?\p"
+	.string "…¡Ah!\p"
+	.string "¿El abuelo está preocupado?\p"
+	.string "¡Tengo que irme!\p"
+	.string "¡Tengo que buscar al abuelo!$"
 
 SSAqua_CaptainsRoom_Text_CaptainExhausting:
-	.string "Whew! Thanks for coming along.\p"
-	.string "Keeping that little girl amused\n"
-	.string "was exhausting.$"
+	.string "¡Uf! Gracias por venir.\p"
+	.string "Ha sido agotador entretener\n"
+	.string "a esa niña.$"
 
 SSAqua_CaptainsRoom_Text_CaptainHowDoYouLike:
-	.string "How do you like S.S.AQUA's ride?\p"
-	.string "She practically skates across\n"
-	.string "the waves.$"
-
+	.string "¿Qué te parece el S.S. AQUA?\p"
+	.string "Parece que se deslice sobre\n"
+	.string "las olas.$"

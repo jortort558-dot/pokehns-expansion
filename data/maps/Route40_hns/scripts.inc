@@ -17,44 +17,44 @@ Route40_EventScript_Simon::
 	end
 
 Route40_Text_SwimmermSimonSeen:
-	.string "Hay que calentar antes de meterse\nen el agua.\pEso es de primero de natación.$"
+	.string "Hay que calentar antes\nde meterse en el agua.\pEs lo más básico.$"
 Route40_Text_SwimmermSimonBeaten:
 	.string "¡Vale! ¡Me rindo! ¡Tú ganas!$"
 Route40_Text_SwimmermSimonAfter:
-	.string "CIUDAD ORQUÍDEA queda a un buen\ntrecho\lde aquí.$"
+	.string "CIUDAD ORQUÍDEA queda bastante\nlejos de aquí.$"
 Route40_EventScript_Randall::
 	trainerbattle_single TRAINER_RANDALL_HNS, Route40_Text_SwimmermRandallSeen, Route40_Text_SwimmermRandallBeaten
 	msgbox Route40_Text_SwimmermRandallAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route40_Text_SwimmermRandallSeen:
-	.string "¡Oye, se te ve joven y con energía!\p¡Nada de montar en tu POKéMON!\n¡Nada tú!$"
+	.string "¡Eh, eres joven y estás en forma!\p¡No montes en tu POKéMON!\n¡Ponte a nadar!$"
 Route40_Text_SwimmermRandallBeaten:
 	.string "Vaya... He perdido…$"
 Route40_Text_SwimmermRandallAfter:
-	.string "Nadar ejercita todo el cuerpo.\nEs sanísimo.$"
+	.string "Nadar ejercita todo\nel cuerpo. Es muy sano.$"
 Route40_EventScript_Elaine::
 	trainerbattle_single TRAINER_ELAINE_HNS, Route40_Text_SwimmerfElaineSeen, Route40_Text_SwimmerfElaineBeaten
 	msgbox Route40_Text_SwimmerfElaineAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route40_Text_SwimmerfElaineSeen:
-	.string "¿Te diriges a CIUDAD ORQUÍDEA?\p¿Qué tal un combatazo rápido\nprimero?$"
+	.string "¿Vas a CIUDAD ORQUÍDEA?\p¿Qué tal un combate rápido\nantes de irte?$"
 Route40_Text_SwimmerfElaineBeaten:
 	.string "¡Esa la he perdido!$"
 Route40_Text_SwimmerfElaineAfter:
-	.string "Yo diría que nado mejor que tú.\n¡Sí señor!$"
+	.string "Diría que nado mejor\nque tú. ¡Sí!$"
 Route40_EventScript_Paula::
 	trainerbattle_single TRAINER_PAULA_HNS, Route40_Text_SwimmerfPaulaSeen, Route40_Text_SwimmerfPaulaBeaten
 	msgbox Route40_Text_SwimmerfPaulaAfter, MSGBOX_AUTOCLOSE
 	end
 
 Route40_Text_SwimmerfPaulaSeen:
-	.string "Nada de flotadores para mí.\p¡Mejor me agarro a un POKéMON\nmarino!$"
+	.string "Yo no necesito flotador.\p¡Me agarro a un POKéMON\nmarino!$"
 Route40_Text_SwimmerfPaulaBeaten:
 	.string "¡Uy, qué mareo me ha entrado!$"
 Route40_Text_SwimmerfPaulaAfter:
-	.string "Mientras floto así, las olas me\nllevan\lde aquí para allá.$"
+	.string "Mientras floto así,\nlas olas me llevan.$"
 Route40_EventScript_Woman1::
 	lock
 	faceplayer
@@ -64,7 +64,7 @@ Route40_EventScript_Woman1::
 	end
 
 Route40_Text_Lass1:
-	.string "Aunque no se distinga desde aquí,\nCIUDAD ORQUÍDEA está al otro lado\ldel\lmar.$"
+	.string "Aunque no se vea desde aquí,\nORQUÍDEA está al otro lado del mar.$"
 Route40_EventScript_Woman2::
 	lock
 	faceplayer
@@ -74,7 +74,7 @@ Route40_EventScript_Woman2::
 	end
 
 Route40_Text_Lass2:
-	.string "Llegué a OLIVO en barco para hacer\nturismo y disfrutar del\lambientillo.\pAl ser un puerto, se respira algo\nmuy\ldistinto a una gran ciudad.$"
+	.string "Vine a OLIVO en barco para ver\nla ciudad y disfrutar\ldel ambiente.\pAl ser un puerto, se siente\nmuy distinta de una gran ciudad.$"
 Route40_EventScript_Youngster::
 	lock
 	faceplayer
@@ -84,17 +84,17 @@ Route40_EventScript_Youngster::
 	end
 
 Route40_Text_StandingYoungster:
-	.string "¿Has ido ya a la COLINA DESAFÍO?\pCreo que se han reunido allí un\nmontón\lde Entrenadores muy curtidos.\pPero con tantas MEDALLAS como\ntienes,\lseguro que das la talla de sobra.$"
+	.string "¿Has ido a la COLINA\nDESAFÍO?\pCreo que ya se han reunido allí\nmuchos Entrenadores fuertes.\pPero con todas esas MEDALLAS\nseguro que lo harás muy bien.$"
 Route40_Text_Monica:
-	.string "LUNA: Encantada de conocerte.\nSoy LUNA, de los HERMANOS DE LOS\lDÍAS.\p¡A que no adivinas cuál es mi día\nfavorito de la semana!$"
+	.string "LUNA: Encantada de conocerte.\nSoy LUNA, de los HERMANOS DEL DÍA.\p¡A que no adivinas cuál es\nmi día favorito de la semana!$"
 Route40_Text_MonicaGivesGift:
-	.string "¡Eso es!\p¡En señal de nuestra amistad, tengo\nun regalo para ti!$"
+	.string "¡Correcto!\pComo muestra de nuestra amistad,\n¡tengo un regalo para ti!$"
 Route40_Text_MonicaGaveGift:
-	.string "LUNA: Es un objeto que potencia los\nataques de tipo VOLADOR.\pDeberías equipárselo a un POKéMON\npájaro.$"
+	.string "LUNA: Este objeto aumenta\nla potencia del tipo VOLADOR.\pDeberías dárselo a un\nPOKéMON pájaro.$"
 Route40_Text_MonicaMonday:
-	.string "LUNA: Mis hermanos y hermanas andan\nrepartidos por todas partes.\p¡A ver si logras encontrarlos a\ntodos!$"
+	.string "LUNA: Mis hermanos están\nrepartidos por todas partes.\p¡A ver si consigues\nencontrarlos a todos!$"
 Route40_Text_MonicaNotMonday:
-	.string "LUNA: Me da a mí que hoy no es\nlunes.\lQué pena…$"
+	.string "LUNA: Creo que hoy no\nes lunes. Qué pena…$"
 Route40_Text_MonicaNope:
 	.string "Ese no es.$"
 Rotue40_EventScript_Monica::

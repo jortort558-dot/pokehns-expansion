@@ -33,9 +33,9 @@ CianwoodPokemoncenter_EventScript_FisherGiveTentacool::
 	end
 
 CianwoodPokemoncenter_Text_Fisher1:
-	.string "En cuanto a POKéMON de agua,\n¡TENTACOOL\les el amo por una milla náutica!$"
+	.string "Entre los POKéMON de agua,\n¡TENTACOOL es el mejor con una\lmilla náutica de ventaja!$"
 CianwoodPokemoncenter_Text_Fisher2:
-	.string "Parece que te vendría bien un\nPOKéMON de\lagua.\p¡Toma, quédate con éste, tengo de\nsobra!$"
+	.string "Parece que necesitas un POKéMON\nde agua.\p¡Toma este, tengo de sobra!$"
 CianwoodPokecenter_EventScript_Lass::
 	lock
 	faceplayer
@@ -45,7 +45,7 @@ CianwoodPokecenter_EventScript_Lass::
 	end
 
 CianwoodCity_Text_PokecenterLass:
-	.string "¿Has conocido al POKéMANÍACO?\nSiempre está fardando de sus\lPOKéMON\lraros.$"
+	.string "¿Has conocido al POKéMANÍACO?\pSiempre presume de sus\nPOKéMON raros.$"
 CianwoodGym_EventScript_GymGuide::
 	lock
 	faceplayer
@@ -62,7 +62,7 @@ CianwoodGym_EventScript_GymGuideAfter::
 	end
 
 CianwoodCity_Text_GymGuide:
-	.string "Los del GIMNASIO de aquí son unos\nmachotes\lbrabucones.\pSi me acerco mucho, igual la toman\nconmigo.\lUn consejo: el LÍDER usa el tipo\lLUCHA.\pAsí que deberías marearlo con\nPOKéMON de\ltipo PSÍQUICO.\lAcaba con ellos antes de que usen\lsu\lfuerza bruta.\p¿Y las rocas del centro del\nGIMNASIO?\lSi no las empujas bien, no llegarás\lhasta\lel LÍDER.\lSi te atascas, sal fuera y vuelve a\lentrar.$"
+	.string "Los Entrenadores de este GIMNASIO\nson unos machotes bravucones.\pSi me quedo, quizá vengan a por mí.\pUn consejo: el LÍDER usa POKéMON\nde tipo LUCHA.\pDesconcértalo con POKéMON de tipo\nPSÍQUICO.\pAcaba con ellos antes de que usen\nsu fuerza física.\p¿Y las rocas del centro del\nGIMNASIO?\pSi no las mueves bien, no llegarás\nal LÍDER.\pSi te atascas, sal fuera.$"
 CianwoodCity_Text_GymGuideWin:
 	.string "¡{PLAYER}! ¡Has ganado!\n¡Se te nota en la cara nada más\lverte!$"
 CianwoodPokecenter_EventScript_Nerd::
@@ -74,4 +74,4 @@ CianwoodPokecenter_EventScript_Nerd::
 	end
 
 CianwoodCity_Text_PokecenterSuperNerd:
-	.string "Me encanta lucir a los POKéMON que\nhe\lcriado con tanto esmero.\l¿A ti no?\l¡Pienso meterme en mil combates\lpara\lpresumir de equipo!$"
+	.string "Me encanta presumir de los POKéMON\nque he criado.\p¿A ti no?\p¡Voy a librar muchos combates para\npresumir de mis POKéMON!$"

@@ -70,18 +70,18 @@ Gate_Route43_Rocket_EventScript_Rockets::
 	end
 
 Gate_Route43_Rocket_Text_TollFee:
-	.string "¡Frena el carro, renacuajo!\pEl peaje para cruzar son 500¥.$"
+	.string "¡Alto ahí, renacuajo!\pEl peaje para cruzar son 500¥.$"
 Gate_Route43_Rocket_Text_ThankYou:
 	.string "¡Muchísimas gracias por su visita!$"
 Gate_Route43_Rocket_Text_AllYouGot:
-	.string "Pues afloja lo que lleves encima,\nanda.$"
+	.string "Entonces paga lo que tengas.$"
 Gate_Route43_Rocket_Text_KickOut:
-	.string "¡Uala!\n¡Si estás tieso del todo!\lCasi me das hasta lástima, oye.\lBueno, puedes pasar...\l¡Pero no se lo chives al otro\lguardia!$"
+	.string "¡Vaya!\p¡Estás sin blanca!\pCasi me das lástima.\pBueno, puedes pasar…\pPero no avises al otro guardia,\n¿vale?$"
 Gate_Route43_Rocket_Text_MakingABundle:
-	.string "Je, je, je. Nos estamos forrando a\nbase\lde bien.\lTodo Dios quiere ver qué se cuece\len el\lLAGO DE LA FURIA.$"
+	.string "Je, je, je. Nos estamos forrando.\pTodo el mundo quiere ver qué pasa\nen el LAGO DE LA FURIA.$"
 Route43Gate_Text_OfficerFoundTM:
-	.string "Esos matones vestidos de negro me\necharon\lde mi propio puesto de guardia.\pSe dejaron esto abandonado al\nmarcharse.\lMe da mal fario, ¿te lo llevas tú?$"
+	.string "Esos matones de negro me echaron\nde mi puesto.\pSe dejaron esto al marcharse.\pMe da mala espina. ¿Podrías\nllevártelo?$"
 Gate_Route43_Text_ReceivedTM30:
 	.string "¡{PLAYER} recibió la MT36!$"
 Gate_Route43_Text_OfficerAvoidGrass:
-	.string "Cruza por este portón para\nahorrarte\ltener que pisar la hierba alta.$"
+	.string "Usa este portón para no tener que\ncruzar la hierba alta.$"

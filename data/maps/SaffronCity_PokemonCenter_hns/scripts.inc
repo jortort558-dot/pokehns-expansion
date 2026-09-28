@@ -23,25 +23,25 @@ SaffronCity_PokemonCenter_EventScript_Youngster::
 	end
 
 SaffronCity_PokemonCenter1F_Text_Teacher:
-	.string "What are JOHTO's POKéMON CENTERS\n"
-	.string "like?\p"
-	.string "…Oh, I see. So they're not much\n"
-	.string "different from the ones in KANTO.\p"
-	.string "I can go to JOHTO without\n"
-	.string "worrying, then!$"
+	.string "¿Cómo son los CENTROS POKéMON\n"
+	.string "de JOHTO?\p"
+	.string "…Ya veo. No son muy distintos\n"
+	.string "de los de KANTO.\p"
+	.string "¡Entonces puedo ir a JOHTO\n"
+	.string "sin preocuparme!$"
 
 SaffronCity_PokemonCenter1F_Text_Fisher:
-	.string "I just happened to come through\n"
-	.string "ROCK TUNNEL.\p"
-	.string "There was some commotion at the\n"
-	.string "POWER PLANT.$"
+	.string "Acabo de atravesar el TÚNEL ROCA.\p"
+	.string "Había cierto revuelo en la\n"
+	.string "CENTRAL DE ENERGÍA.$"
 
 SaffronCity_PokemonCenter1F_Text_Fisher_ReturnedPart:
-	.string "There's an odd cave in CERULEAN.\p"
-	.string "As a pro HIKER, I should explore it,\n"
-	.string "but that place scares even me.$"
+	.string "Hay una cueva rara en CELESTE.\p"
+	.string "Como MONTAÑERO experto debería\n"
+	.string "explorarla, pero hasta a mí\l"
+	.string "me da miedo.$"
 
 SaffronCity_PokemonCenter1F_Text_Youngster:
-	.string "SILPH CO.'s HEAD OFFICE and the\n"
-	.string "MAGNET TRAIN STATION--they're the\l"
-	.string "places to see in SAFFRON.$"
+	.string "La sede de SILPH S.A. y la estación\n"
+	.string "del MAGNETOTRÉN son visitas\l"
+	.string "obligadas en CIUDAD AZAFRÁN.$"

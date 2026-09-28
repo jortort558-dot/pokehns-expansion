@@ -14,6 +14,8 @@
 #include "constants/game_stat.h"
 #include "constants/rematches.h"
 #include "event_data.h"
+#include "gym_tokens.h"
+#include "nuzlocke.h"
 
 static u16 CalculateChecksum(void *, u16);
 static bool8 ReadFlashSector(u8, struct SaveSector *);
@@ -85,12 +87,10 @@ STATIC_ASSERT(sizeof(struct SaveBlock3) <= SAVE_BLOCK_3_CHUNK_SIZE * NUM_SECTORS
 // registeredItemHold, so growing it shifts that member and silently corrupts
 // existing saves. The size is pinned here to turn that into a build error.
 // Note the ABI: CFLAGS uses -mabi=apcs-gnu, which rounds every struct up to a
-// multiple of 4 bytes, so the 31 bytes of fields occupy 32 and the last byte is
-// trailing padding. Headroom before the size actually moves (to 36, not 33):
-// 12 spare bits scattered through the field bytes, wherever a wide bitfield had
-// to skip the tail of a partly-filled byte, plus the 8 bits of trailing padding.
-// If this fires, that headroom is gone and the new setting needs a save
-// migration rather than another field.
+// multiple of 4 bytes. The trainer-randomizer settings use previously unused
+// bits inside existing bytes and are initialized by save migration v10. If
+// this fires, the remaining bitfield headroom is gone and a layout-aware
+// migration is required rather than another field.
 STATIC_ASSERT(sizeof(struct ChallengeSettings) == 32, ChallengeSettingsLayoutPinned);
 STATIC_ASSERT(sizeof(struct SaveBlock2) <= SECTOR_DATA_SIZE, SaveBlock2FreeSpace);
 STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1), SaveBlock1FreeSpace);
@@ -977,6 +977,67 @@ u8 LoadGameSave(u8 saveType)
         VarSet(VAR_VERMILION_CITY_SAMSON, 0);
         VarSet(VAR_ROUTE28_SCIENTIST, 0);
         gSaveBlock1Ptr->saveVersion = 5;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 6)
+    {
+        CpuFill16(0, &gSaveBlock3Ptr->gymTokens, sizeof(gSaveBlock3Ptr->gymTokens));
+        gSaveBlock1Ptr->saveVersion = 6;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 7)
+    {
+#if IS_HNS
+        static const u16 sGymBadgeFlags[] = {
+            FLAG_BADGE01_GET, FLAG_BADGE02_GET, FLAG_BADGE03_GET, FLAG_BADGE04_GET,
+            FLAG_BADGE05_GET, FLAG_BADGE06_GET, FLAG_BADGE07_GET, FLAG_BADGE08_GET,
+            FLAG_BADGE09_GET, FLAG_BADGE10_GET, FLAG_BADGE11_GET, FLAG_BADGE12_GET,
+            FLAG_BADGE13_GET, FLAG_BADGE14_GET, FLAG_BADGE15_GET, FLAG_BADGE16_GET,
+        };
+        u32 i;
+        u8 earned = 0;
+        gSaveBlock3Ptr->gymTokens.awardedBadgeMask = 0;
+        for (i = 0; i < ARRAY_COUNT(sGymBadgeFlags); i++)
+        {
+            if (FlagGet(sGymBadgeFlags[i]))
+            {
+                gSaveBlock3Ptr->gymTokens.awardedBadgeMask |= 1 << i;
+                earned++;
+            }
+        }
+        if ((IsNuzlockeActive() || IsNuzlockeEasyActive()) && gSaveBlock3Ptr->gymTokens.count == 0)
+            gSaveBlock3Ptr->gymTokens.count = min(earned, GYM_TOKEN_MAX);
+#endif
+        gSaveBlock1Ptr->saveVersion = 7;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 8)
+    {
+        // These mechanics existed before their rule toggles, so preserve the
+        // previous behaviour for every existing save.
+        gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_PokeVial = TRUE;
+        gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_GymTokens = TRUE;
+        gSaveBlock1Ptr->saveVersion = 8;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 9)
+    {
+        memset(gSaveBlock3Ptr->gymTokens.failedEncounterFlagsExt, 0,
+               sizeof(gSaveBlock3Ptr->gymTokens.failedEncounterFlagsExt));
+        memset(gSaveBlock3Ptr->gymTokens.retriedEncounterFlagsExt, 0,
+               sizeof(gSaveBlock3Ptr->gymTokens.retriedEncounterFlagsExt));
+        gSaveBlock1Ptr->saveVersion = 9;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 10)
+    {
+        // These fields use bits that were padding in earlier save versions. Do
+        // not interpret their indeterminate contents as randomizer options.
+        gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerPower = 0;
+        gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerItems = 0;
+        gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerMegas = 0;
+        gSaveBlock1Ptr->saveVersion = 10;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 11)
+    {
+        // This bit was padding before the PokemitosCup mode existed.
+        gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup = FALSE;
+        gSaveBlock1Ptr->saveVersion = 11;
     }
 
     // Add version migration steps here:

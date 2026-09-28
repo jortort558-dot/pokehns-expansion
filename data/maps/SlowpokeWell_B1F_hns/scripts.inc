@@ -89,7 +89,7 @@ SlowpokeWell_B1F_Text_KurtIntro:
 	.string "Me he hecho polvo la espalda y no\n"
 	.string "me puedo ni mover… ¡Maldición!\p"
 	.string "Si estuviera entero, mis POKéMON\n"
-	.string "les habrían dado un buen escarmiento.\p"
+	.string "les darían un buen escarmiento.\p"
 	.string "En fin, no queda otra.\p"
 	.string "¡{PLAYER}, demuestra tu valor y\n"
 	.string "dales su merecido por mí!$"
@@ -125,7 +125,7 @@ SlowpokeWell_B1F_Text_ProtonSeen:
 
 SlowpokeWell_B1F_Text_ProtonBeaten:
 	.string "Hoy te ha salido bien la jugada,\n"
-	.string "¡pero no cantes victoria tan pronto!$"
+	.string "¡pero no cantes victoria aún!$"
 
 SlowpokeWell_B1F_Text_ProtonAfter:
 	.string "Sí, el TEAM ROCKET fue disuelto\n"
@@ -164,7 +164,8 @@ SlowpokeWell_B1F_Text_GruntF1Beaten:
 
 SlowpokeWell_B1F_Text_GruntF1After:
 	.string "¡Las COLASLOWPOKE crecen enseguida!\p"
-	.string "¿Qué tiene de malo que saquemos\ntajada?$"
+	.string "¿Qué tiene de malo que saquemos\n"
+	.string "tajada?$"
 
 SlowpokeWell_B1F_Text_SlowpokeWithMail:
 	.string "Un SLOWPOKE con la COLA cortada…\p"
@@ -178,4 +179,5 @@ SlowpokeWell_B1F_Text_SlowpokeMail:
 	.string "Con cariño, Papá.$"
 
 SlowpokeWell_B1F_Text_TaillessSlowpoke:
-	.string "Un pobre SLOWPOKE con la COLA\ncortada…$"
+	.string "Un pobre SLOWPOKE con la COLA\n"
+	.string "cortada…$"

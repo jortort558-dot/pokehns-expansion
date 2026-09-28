@@ -23,9 +23,11 @@
 #include "battle_main.h"
 #include "random.h"
 #include "config/randomizer.h"
+#include "randomizer.h"
 #include "overworld.h"
 #include "script.h"
 #include "challenge_menu.h"
+#include "new_game.h"
 
 
 // =============================================================================
@@ -36,6 +38,7 @@ enum {
     TAB_MODE,
     TAB_FEATURES,
     TAB_RANDOMIZER,
+    TAB_ITEMS,
     TAB_NUZLOCKE,
     TAB_DIFFICULTY,
     TAB_CHALLENGES,
@@ -79,6 +82,9 @@ enum {
     ITEM_RANDOM_WILD_PKMN,
     ITEM_RANDOM_MAP_BASED,
     ITEM_RANDOM_TRAINER,
+    ITEM_RANDOM_TRAINER_POWER,
+    ITEM_RANDOM_TRAINER_ITEMS,
+    ITEM_RANDOM_TRAINER_MEGAS,
     ITEM_RANDOM_STATIC,
     ITEM_RANDOM_SIMILAR,
     ITEM_RANDOM_LEGENDARIES,
@@ -89,10 +95,19 @@ enum {
     ITEM_RANDOM_EVOLUTIONS,
     ITEM_RANDOM_EVO_METHODS,
     ITEM_RANDOM_TYPE_EFFEC,
-    ITEM_RANDOM_ITEMS,
     ITEM_RANDOM_CHAOS,
     ITEM_RANDOM_NEXT,
     ITEM_RANDOM_COUNT,
+};
+
+enum {
+    ITEM_ITEMS_RANDOMIZE,
+    ITEM_ITEMS_PROGRESSION,
+    ITEM_ITEMS_TM_SHUFFLE,
+    ITEM_ITEMS_MEGA_STONES,
+    ITEM_ITEMS_COMPETITIVE,
+    ITEM_ITEMS_NEXT,
+    ITEM_ITEMS_COUNT,
 };
 
 enum {
@@ -102,6 +117,9 @@ enum {
     ITEM_NUZLOCKE_NICKNAMING,
     ITEM_NUZLOCKE_DELETION,
     ITEM_NUZLOCKE_RARE_CANDY,
+    ITEM_NUZLOCKE_POKE_VIAL,
+    ITEM_NUZLOCKE_GYM_TOKENS,
+    ITEM_NUZLOCKE_BAN_HEALING_SHOP,
     ITEM_NUZLOCKE_NEXT,
     ITEM_NUZLOCKE_COUNT,
 };
@@ -183,10 +201,10 @@ static const u8 sMidGameLockPolicy[TAB_COUNT * MAX_ITEMS_PER_TAB] = {
     // TAB_MODE — all free
     // TAB_FEATURES — all free
     // TAB_RANDOMIZER
-    [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_OFF_ON]      = LOCK_ONEWAY_DOWN,
+    [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_OFF_ON]      = LOCK_FREE,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_STARTER]     = LOCK_ONEWAY_DOWN,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_WILD_PKMN]   = LOCK_ONEWAY_DOWN,
-    [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_TRAINER]     = LOCK_ONEWAY_DOWN,
+    [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_TRAINER]     = LOCK_FREE,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_STATIC]      = LOCK_ONEWAY_DOWN,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_LEGENDARIES] = LOCK_ONEWAY_DOWN,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_TYPE]        = LOCK_ONEWAY_DOWN,
@@ -195,8 +213,13 @@ static const u8 sMidGameLockPolicy[TAB_COUNT * MAX_ITEMS_PER_TAB] = {
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_EVOLUTIONS]  = LOCK_ONEWAY_DOWN,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_EVO_METHODS] = LOCK_ONEWAY_DOWN,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_TYPE_EFFEC]  = LOCK_ONEWAY_DOWN,
-    [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_ITEMS]       = LOCK_ONEWAY_DOWN,
     [TAB_RANDOMIZER * MAX_ITEMS_PER_TAB + ITEM_RANDOM_CHAOS]       = LOCK_ONEWAY_DOWN,
+    // TAB_ITEMS
+    [TAB_ITEMS * MAX_ITEMS_PER_TAB + ITEM_ITEMS_RANDOMIZE]        = LOCK_ONEWAY_DOWN,
+    [TAB_ITEMS * MAX_ITEMS_PER_TAB + ITEM_ITEMS_PROGRESSION]      = LOCK_ONEWAY_DOWN,
+    [TAB_ITEMS * MAX_ITEMS_PER_TAB + ITEM_ITEMS_TM_SHUFFLE]       = LOCK_ONEWAY_DOWN,
+    [TAB_ITEMS * MAX_ITEMS_PER_TAB + ITEM_ITEMS_MEGA_STONES]      = LOCK_ONEWAY_DOWN,
+    [TAB_ITEMS * MAX_ITEMS_PER_TAB + ITEM_ITEMS_COMPETITIVE]      = LOCK_ONEWAY_DOWN,
     // MAP_BASED, SIMILAR and GEN_SCOPE are LOCK_FREE (default 0) -- GEN_SCOPE is
     // deliberately adjustable in both directions mid-run.
     // TAB_NUZLOCKE
@@ -206,9 +229,11 @@ static const u8 sMidGameLockPolicy[TAB_COUNT * MAX_ITEMS_PER_TAB] = {
     [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_NICKNAMING]     = LOCK_ONEWAY_DOWN,
     [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_DELETION]       = LOCK_ONEWAY_DOWN,
     [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_RARE_CANDY]     = LOCK_FULL,
+    [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_POKE_VIAL]      = LOCK_ONEWAY_DOWN,
+    [TAB_NUZLOCKE * MAX_ITEMS_PER_TAB + ITEM_NUZLOCKE_GYM_TOKENS]     = LOCK_ONEWAY_DOWN,
     // TAB_DIFFICULTY
     [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_PARTY_LIMIT]    = LOCK_ONEWAY_DOWN,
-    [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_LEVEL_CAP]      = LOCK_ONEWAY_DOWN,
+    [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_LEVEL_CAP]      = LOCK_FREE,
     [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_EXP_MULTIPLIER] = LOCK_FREE,
     [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_ITEM_PLAYER]    = LOCK_ONEWAY_DOWN,
     [TAB_DIFFICULTY * MAX_ITEMS_PER_TAB + ITEM_DIFFICULTY_ITEM_TRAINER]   = LOCK_FREE,
@@ -515,6 +540,53 @@ static const u8 *const sChoices_OffRandom[] = {
     COMPOUND_STRING("ALEATORIO"),
 };
 
+static const u8 *const sChoices_TrainerPower[] = {
+    COMPOUND_STRING("PROG."),
+    COMPOUND_STRING("SUAVE"),
+    COMPOUND_STRING("DIFÍCIL"),
+    COMPOUND_STRING("MÁXIMA"),
+};
+
+static const u8 *const sChoices_TrainerItems[] = {
+    COMPOUND_STRING("PROG."),
+    COMPOUND_STRING("NO"),
+    COMPOUND_STRING("BAYAS"),
+    COMPOUND_STRING("COMBATE"),
+};
+
+static const u8 *const sChoices_TrainerMegas[] = {
+    COMPOUND_STRING("TRAMA"),
+    COMPOUND_STRING("NO"),
+    COMPOUND_STRING("JEFES"),
+    COMPOUND_STRING("TODOS"),
+};
+
+static const u8 *const sChoices_WildPower[] = {
+    COMPOUND_STRING("PROG."),
+    COMPOUND_STRING("CAÓTICA"),
+};
+
+static const u8 *const sChoices_Progression[] = {
+    COMPOUND_STRING("ACTIVADA"),
+    COMPOUND_STRING("CAÓTICA"),
+};
+
+static const u8 *const sChoices_TMShuffle[] = {
+    COMPOUND_STRING("SÍ"),
+    COMPOUND_STRING("NO"),
+};
+
+static const u8 *const sChoices_MegaStones[] = {
+    COMPOUND_STRING("POST-LAGO"),
+    COMPOUND_STRING("OFF"),
+};
+
+static const u8 *const sChoices_Competitive[] = {
+    COMPOUND_STRING("NORMAL"),
+    COMPOUND_STRING("ABUNDANTE"),
+    COMPOUND_STRING("OFF"),
+};
+
 static const u8 *const sChoices_GenScope[] = {
     COMPOUND_STRING("GEN 1-9"),
     COMPOUND_STRING("GEN 1-3"),
@@ -713,7 +785,7 @@ static const u8 *const sDesc_RandomStarter[] = {
 };
 static const u8 *const sDesc_RandomWild[] = {
     COMPOUND_STRING("Encuentros salvajes habituales."),
-    COMPOUND_STRING("POKéMON salvajes aleatorios."),
+    COMPOUND_STRING("Aleatoriza solo la especie.\nSlots, nivel y frecuencia no cambian."),
 };
 static const u8 *const sDesc_RandomMapBased[] = {
     COMPOUND_STRING("Encuentros salvajes totalmente\naleatorios en todo momento."),
@@ -723,13 +795,31 @@ static const u8 *const sDesc_RandomTrainer[] = {
     COMPOUND_STRING("Entrenadores con equipos normales."),
     COMPOUND_STRING("Equipos de entrenadores aleatorios."),
 };
+static const u8 *const sDesc_RandomTrainerPower[] = {
+    COMPOUND_STRING("Potencia ajustada al progreso."),
+    COMPOUND_STRING("Equipos de una etapa anterior."),
+    COMPOUND_STRING("Equipos de una etapa posterior."),
+    COMPOUND_STRING("Máxima potencia desde el inicio."),
+};
+static const u8 *const sDesc_RandomTrainerItems[] = {
+    COMPOUND_STRING("Objetos según rival y progreso."),
+    COMPOUND_STRING("Sin objetos, salvo Megapiedras."),
+    COMPOUND_STRING("Todos llevan una baya útil."),
+    COMPOUND_STRING("Todos llevan objetos de combate."),
+};
+static const u8 *const sDesc_RandomTrainerMegas[] = {
+    COMPOUND_STRING("Jefes tras desbloquear las Megas."),
+    COMPOUND_STRING("Ningún entrenador usa Megas."),
+    COMPOUND_STRING("Los jefes usan Mega desde el inicio."),
+    COMPOUND_STRING("Todo equipo tiene una Mega final."),
+};
 static const u8 *const sDesc_RandomStatic[] = {
     COMPOUND_STRING("Encuentros estáticos normales."),
-    COMPOUND_STRING("Especiales, casino, errantes y\nestáticos sin cambios."),
+    COMPOUND_STRING("Aleatoriza especiales, casino,\nerrantes y encuentros estáticos."),
 };
 static const u8 *const sDesc_RandomSimilar[] = {
-    COMPOUND_STRING("Reemplazo por nivel similar (según\netapa evolutiva)."),
-    COMPOUND_STRING("Distribución no equilibrada por\npoder."),
+    COMPOUND_STRING("Especies acordes al progreso actual."),
+    COMPOUND_STRING("Cualquier potencia desde el inicio."),
 };
 static const u8 *const sDesc_RandomLegendaries[] = {
     COMPOUND_STRING("Legendarios excluidos de aleatorizar."),
@@ -763,16 +853,12 @@ static const u8 *const sDesc_RandomTypeEffec[] = {
     COMPOUND_STRING("Tabla de tipos sin cambios."),
     COMPOUND_STRING("Aleatorizar la tabla de tipos.\n¡ATENCIÓN: PUEDE TENER FALLOS!"),
 };
-static const u8 *const sDesc_RandomItems[] = {
-    COMPOUND_STRING("Objetos encontrados sin cambios."),
-    COMPOUND_STRING("Objetos tirados/ocultos aleatorios.\n¡Objetos CLAVE excluidos!"),
-};
 static const u8 *const sDesc_RandomChaos[] = {
     COMPOUND_STRING("Modo caos desactivado."),
     COMPOUND_STRING("Opciones elegidas muy caóticas.\n¡NO recomendado!"),
 };
 static const u8 *const sDesc_RandomNext[] = {
-    COMPOUND_STRING("Continuar a opciones Nuzlocke."),
+    COMPOUND_STRING("Continuar a opciones de Objetos."),
 };
 
 static const struct ChallengeMenuItem sTabItems_Randomizer[] = {
@@ -806,6 +892,24 @@ static const struct ChallengeMenuItem sTabItems_Randomizer[] = {
         .numChoices   = 2,
         .choiceNames  = sChoices_OffRandom,
     },
+    [ITEM_RANDOM_TRAINER_POWER] = {
+        .name         = COMPOUND_STRING("POTENCIA RIVAL"),
+        .descriptions = sDesc_RandomTrainerPower,
+        .numChoices   = 4,
+        .choiceNames  = sChoices_TrainerPower,
+    },
+    [ITEM_RANDOM_TRAINER_ITEMS] = {
+        .name         = COMPOUND_STRING("OBJETOS RIVAL"),
+        .descriptions = sDesc_RandomTrainerItems,
+        .numChoices   = 4,
+        .choiceNames  = sChoices_TrainerItems,
+    },
+    [ITEM_RANDOM_TRAINER_MEGAS] = {
+        .name         = COMPOUND_STRING("MEGAS RIVAL"),
+        .descriptions = sDesc_RandomTrainerMegas,
+        .numChoices   = 4,
+        .choiceNames  = sChoices_TrainerMegas,
+    },
     [ITEM_RANDOM_STATIC] = {
         .name         = COMPOUND_STRING("ESTÁTICOS"),
         .descriptions = sDesc_RandomStatic,
@@ -813,10 +917,10 @@ static const struct ChallengeMenuItem sTabItems_Randomizer[] = {
         .choiceNames  = sChoices_OffRandom,
     },
     [ITEM_RANDOM_SIMILAR] = {
-        .name         = COMPOUND_STRING("EQUILIBRIO"),
+        .name         = COMPOUND_STRING("POTENCIA SALVAJE"),
         .descriptions = sDesc_RandomSimilar,
         .numChoices   = 2,
-        .choiceNames  = sChoices_OnOff,
+        .choiceNames  = sChoices_WildPower,
     },
     [ITEM_RANDOM_LEGENDARIES] = {
         .name         = COMPOUND_STRING("LEGENDARIOS"),
@@ -866,12 +970,6 @@ static const struct ChallengeMenuItem sTabItems_Randomizer[] = {
         .numChoices   = 2,
         .choiceNames  = sChoices_OffRandom,
     },
-    [ITEM_RANDOM_ITEMS] = {
-        .name         = COMPOUND_STRING("OBJETOS"),
-        .descriptions = sDesc_RandomItems,
-        .numChoices   = 2,
-        .choiceNames  = sChoices_OffRandom,
-    },
     [ITEM_RANDOM_CHAOS] = {
         .name         = COMPOUND_STRING("MODO CAOS"),
         .descriptions = sDesc_RandomChaos,
@@ -881,6 +979,74 @@ static const struct ChallengeMenuItem sTabItems_Randomizer[] = {
     [ITEM_RANDOM_NEXT] = {
         .name         = COMPOUND_STRING("SIGUIENTE"),
         .descriptions = sDesc_RandomNext,
+        .numChoices   = 0,
+        .choiceNames  = NULL,
+    },
+};
+
+// =============================================================================
+// ITEMS descriptions + table
+// =============================================================================
+
+static const u8 *const sDesc_Items_Randomize[] = {
+    COMPOUND_STRING("Los objetos del suelo no cambian."),
+    COMPOUND_STRING("Aleatoriza objetos del suelo.\nObjetos clave y MO se conservan."),
+};
+static const u8 *const sDesc_Items_Progression[] = {
+    COMPOUND_STRING("Mejores objetos según la zona\ny el progreso de la aventura."),
+    COMPOUND_STRING("Cualquier objeto puede aparecer\ndesde la primera ruta."),
+};
+static const u8 *const sDesc_Items_TMShuffle[] = {
+    COMPOUND_STRING("Baraja todas las MTs del juego entre sí\nsin repetición."),
+    COMPOUND_STRING("Cada MT permanece en su ubicación original."),
+};
+static const u8 *const sDesc_Items_MegaStones[] = {
+    COMPOUND_STRING("Permite encontrar Megapiedras en suelo\ntras los eventos del Lago de la Furia."),
+    COMPOUND_STRING("No aparecen Megapiedras en el suelo."),
+};
+static const u8 *const sDesc_Items_Competitive[] = {
+    COMPOUND_STRING("Frecuencia normal de objetos\ncomo Restos o Vidasfera."),
+    COMPOUND_STRING("Aumenta los objetos útiles\npara combates exigentes."),
+    COMPOUND_STRING("No aparecen objetos competitivos\nen el suelo."),
+};
+static const u8 *const sDesc_Items_Next[] = {
+    COMPOUND_STRING("Continuar a opciones Nuzlocke."),
+};
+
+static const struct ChallengeMenuItem sTabItems_Items[] = {
+    [ITEM_ITEMS_RANDOMIZE] = {
+        .name         = COMPOUND_STRING("RANDOM OBJETOS"),
+        .descriptions = sDesc_Items_Randomize,
+        .numChoices   = 2,
+        .choiceNames  = sChoices_OffOn,
+    },
+    [ITEM_ITEMS_PROGRESSION] = {
+        .name         = COMPOUND_STRING("PROGRESIÓN"),
+        .descriptions = sDesc_Items_Progression,
+        .numChoices   = 2,
+        .choiceNames  = sChoices_Progression,
+    },
+    [ITEM_ITEMS_TM_SHUFFLE] = {
+        .name         = COMPOUND_STRING("SHUFFLE MT"),
+        .descriptions = sDesc_Items_TMShuffle,
+        .numChoices   = 2,
+        .choiceNames  = sChoices_TMShuffle,
+    },
+    [ITEM_ITEMS_MEGA_STONES] = {
+        .name         = COMPOUND_STRING("MEGAPIEDRAS"),
+        .descriptions = sDesc_Items_MegaStones,
+        .numChoices   = 2,
+        .choiceNames  = sChoices_MegaStones,
+    },
+    [ITEM_ITEMS_COMPETITIVE] = {
+        .name         = COMPOUND_STRING("COMPETITIVOS"),
+        .descriptions = sDesc_Items_Competitive,
+        .numChoices   = 3,
+        .choiceNames  = sChoices_Competitive,
+    },
+    [ITEM_ITEMS_NEXT] = {
+        .name         = COMPOUND_STRING("SIGUIENTE"),
+        .descriptions = sDesc_Items_Next,
         .numChoices   = 0,
         .choiceNames  = NULL,
     },
@@ -915,6 +1081,18 @@ static const u8 *const sDesc_Deletion[] = {
 static const u8 *const sDesc_RareCandy[] = {
     COMPOUND_STRING("Carameloraros infinitos en el PC al\nempezar la partida."),
     COMPOUND_STRING("Sin acceso a Carameloraros infinitos."),
+};
+static const u8 *const sDesc_PokeVial[] = {
+    COMPOUND_STRING("Entrega el PokéVial y permite\nrecargarlo en Centros POKéMON."),
+    COMPOUND_STRING("No entrega ni permite utilizar\nel PokéVial durante el reto."),
+};
+static const u8 *const sDesc_GymTokens[] = {
+    COMPOUND_STRING("Las medallas dan Fichas Gimnasio\npara canjear ayudas Nuzlocke."),
+    COMPOUND_STRING("Las medallas no dan fichas ni se\npueden usar sus servicios."),
+};
+static const u8 *const sDesc_BanHealingShop[] = {
+    COMPOUND_STRING("Las tiendas no venden curas ni pociones\ndurante el reto Nuzlocke."),
+    COMPOUND_STRING("Las tiendas venden objetos curativos\ncon normalidad."),
 };
 static const u8 *const sDesc_NuzlockeNext[] = {
     COMPOUND_STRING("Continuar a opciones de dificultad."),
@@ -956,6 +1134,24 @@ static const struct ChallengeMenuItem sTabItems_Nuzlocke[] = {
         .descriptions = sDesc_RareCandy,
         .numChoices   = 2,
         .choiceNames  = sChoices_OnOff,
+    },
+    [ITEM_NUZLOCKE_POKE_VIAL] = {
+        .name         = COMPOUND_STRING("POKéVIAL"),
+        .descriptions = sDesc_PokeVial,
+        .numChoices   = 2,
+        .choiceNames  = sChoices_OnOff,
+    },
+    [ITEM_NUZLOCKE_GYM_TOKENS] = {
+        .name         = COMPOUND_STRING("FICHAS GIM."),
+        .descriptions = sDesc_GymTokens,
+        .numChoices   = 2,
+        .choiceNames  = sChoices_OnOff,
+    },
+    [ITEM_NUZLOCKE_BAN_HEALING_SHOP] = {
+        .name         = COMPOUND_STRING("CURAS TIENDA"),
+        .descriptions = sDesc_BanHealingShop,
+        .numChoices   = 2,
+        .choiceNames  = sChoices_BanUnban,
     },
     [ITEM_NUZLOCKE_NEXT] = {
         .name         = COMPOUND_STRING("SIGUIENTE"),
@@ -1212,6 +1408,7 @@ static const struct TabDef sTabs[TAB_COUNT] = {
     [TAB_MODE]       = { COMPOUND_STRING("MODO"),       sTabItems_Mode,       ITEM_MODE_COUNT },
     [TAB_FEATURES]   = { COMPOUND_STRING("FUNCIONES"),   sTabItems_Features,   ITEM_FEATURES_COUNT },
     [TAB_RANDOMIZER] = { COMPOUND_STRING("RANDOMIZER"), sTabItems_Randomizer, ITEM_RANDOM_COUNT },
+    [TAB_ITEMS]      = { COMPOUND_STRING("OBJETOS"),    sTabItems_Items,      ITEM_ITEMS_COUNT },
     [TAB_NUZLOCKE]   = { COMPOUND_STRING("NUZLOCKE"),   sTabItems_Nuzlocke,   ITEM_NUZLOCKE_COUNT },
     [TAB_DIFFICULTY] = { COMPOUND_STRING("DIFICULTAD"),  sTabItems_Difficulty, ITEM_DIFFICULTY_COUNT },
     [TAB_CHALLENGES] = { COMPOUND_STRING("DESAFÍOS"),   sTabItems_Challenges, ITEM_CHALLENGES_COUNT },
@@ -1307,8 +1504,13 @@ static bool8 CheckConditions(u8 tab, u8 itemIndex)
             return TRUE;
         case ITEM_RANDOM_MAP_BASED:
             return masterOn && *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_WILD_PKMN);
+        case ITEM_RANDOM_TRAINER_POWER:
+        case ITEM_RANDOM_TRAINER_ITEMS:
+        case ITEM_RANDOM_TRAINER_MEGAS:
+            return masterOn && *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER);
         case ITEM_RANDOM_SIMILAR:
-            return masterOn && anyPkmn && !(*GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_CHAOS));
+            return masterOn && *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_WILD_PKMN)
+                && !(*GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_CHAOS));
         case ITEM_RANDOM_LEGENDARIES:
         case ITEM_RANDOM_GEN_SCOPE:
             return masterOn && anyPkmn;
@@ -1324,6 +1526,18 @@ static bool8 CheckConditions(u8 tab, u8 itemIndex)
             return masterOn;
         }
     }
+    case TAB_ITEMS:
+    {
+        u8 itemsOn = *GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_RANDOMIZE);
+        switch (itemIndex)
+        {
+        case ITEM_ITEMS_RANDOMIZE:
+        case ITEM_ITEMS_NEXT:
+            return TRUE;
+        default:
+            return itemsOn == 1;
+        }
+    }
     case TAB_NUZLOCKE:
     {
         u8 nuzSel = *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_NUZLOCKE);
@@ -1333,6 +1547,8 @@ static bool8 CheckConditions(u8 tab, u8 itemIndex)
         case ITEM_NUZLOCKE_NEXT:
             return TRUE;
         case ITEM_NUZLOCKE_RARE_CANDY:
+        case ITEM_NUZLOCKE_POKE_VIAL:
+        case ITEM_NUZLOCKE_GYM_TOKENS:
             return nuzSel > 0;
         default:
             if (nuzSel == 1) // EASY — lock all sub-options except RARE_CANDY
@@ -1833,6 +2049,8 @@ static void ProcessLeftRight(void)
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_NICKNAMING)     = 0; // ON
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_DELETION)       = 0; // CEMETERY
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_RARE_CANDY)     = 1; // OFF
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_POKE_VIAL)      = 1; // OFF
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_GYM_TOKENS)     = 1; // OFF
         }
 
         // If Fairy monotype challenge set, force "Add Fairy Type" on
@@ -1990,6 +2208,9 @@ static void Task_ConfirmSaveYes(u8 taskId)
         cs->tx_Random_WildPokemon      = 0;
         cs->tx_Random_MapBased         = 0;
         cs->tx_Random_Trainer          = 0;
+        cs->tx_Random_TrainerPower     = TRAINER_POWER_PROGRESSIVE;
+        cs->tx_Random_TrainerItems     = TRAINER_ITEMS_PROGRESSIVE;
+        cs->tx_Random_TrainerMegas     = TRAINER_MEGAS_STORY;
         cs->tx_Random_Static           = 0;
         cs->tx_Random_Similar          = 0;
         cs->tx_Random_IncludeLegendaries = 0;
@@ -2013,6 +2234,9 @@ static void Task_ConfirmSaveYes(u8 taskId)
         cs->tx_Random_WildPokemon      = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_WILD_PKMN);
         cs->tx_Random_MapBased         = cs->tx_Random_WildPokemon ? *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_MAP_BASED) : 0;
         cs->tx_Random_Trainer          = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER);
+        cs->tx_Random_TrainerPower     = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_POWER);
+        cs->tx_Random_TrainerItems     = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_ITEMS);
+        cs->tx_Random_TrainerMegas     = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_MEGAS);
         cs->tx_Random_Static           = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_STATIC);
         cs->tx_Random_Similar          = !(*GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_SIMILAR));
         cs->tx_Random_IncludeLegendaries = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_LEGENDARIES);
@@ -2023,8 +2247,25 @@ static void Task_ConfirmSaveYes(u8 taskId)
         cs->tx_Random_Evolutions       = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_EVOLUTIONS);
         cs->tx_Random_EvolutionMethods = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_EVO_METHODS);
         cs->tx_Random_TypeEffectiveness= *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TYPE_EFFEC);
-        cs->tx_Random_Items            = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_ITEMS);
         cs->tx_Random_Chaos            = *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_CHAOS);
+    }
+
+    // Items tab
+    if (*GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_RANDOMIZE) == 0)
+    {
+        cs->tx_Random_Items             = 0;
+        cs->tx_Random_Items_Progression = 0;
+        cs->tx_Random_Items_TMShuffle   = 0;
+        cs->tx_Random_Items_MegaStones  = 0;
+        cs->tx_Random_Items_Competitive = 0;
+    }
+    else
+    {
+        cs->tx_Random_Items             = 1;
+        cs->tx_Random_Items_Progression = *GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_PROGRESSION);
+        cs->tx_Random_Items_TMShuffle   = *GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_TM_SHUFFLE);
+        cs->tx_Random_Items_MegaStones  = *GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_MEGA_STONES);
+        cs->tx_Random_Items_Competitive = *GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_COMPETITIVE);
     }
 
     // Nuzlocke tab — decompose selection back to 3 bits (matches HnS encoding)
@@ -2033,6 +2274,9 @@ static void Task_ConfirmSaveYes(u8 taskId)
         cs->tx_Challenges_Nuzlocke         = (nuzSel >= 2) ? 1 : 0;
         cs->tx_Nuzlocke_EasyMode           = (nuzSel == 1) ? 1 : 0;
         cs->tx_Challenges_NuzlockeHardcore = (nuzSel == 3) ? 1 : 0;
+        cs->tx_Nuzlocke_PokeVial           = !(*GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_POKE_VIAL));
+        cs->tx_Nuzlocke_GymTokens          = !(*GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_GYM_TOKENS));
+        cs->tx_Nuzlocke_BanHealingShop     = (*GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_BAN_HEALING_SHOP) == 0) ? 1 : 0;
 
         if (nuzSel == 0) // OFF — clear sub-options
         {
@@ -2228,14 +2472,18 @@ void CB2_InitChallengeMenu(void)
               || cs->tx_Random_Trainer || cs->tx_Random_Static
               || cs->tx_Random_Type || cs->tx_Random_Moves
               || cs->tx_Random_Abilities || cs->tx_Random_Evolutions
-              || cs->tx_Random_EvolutionMethods || cs->tx_Random_TypeEffectiveness
-              || cs->tx_Random_Items) ? 1 : 0;
+              || cs->tx_Random_EvolutionMethods || cs->tx_Random_TypeEffectiveness) ? 1 : 0;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_STARTER)     = cs->tx_Random_Starter;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_WILD_PKMN)   = cs->tx_Random_WildPokemon;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_MAP_BASED)  = cs->tx_Random_MapBased;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER)     = cs->tx_Random_Trainer;
+            *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_POWER) = cs->tx_Random_TrainerPower;
+            *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_ITEMS) = cs->tx_Random_TrainerItems;
+            *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TRAINER_MEGAS) = cs->tx_Random_TrainerMegas;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_STATIC)      = cs->tx_Random_Static;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_SIMILAR)     = !cs->tx_Random_Similar;
+            if (sIsInitialSetup && *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_OFF_ON) == 0)
+                *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_SIMILAR) = 0;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_LEGENDARIES) = cs->tx_Random_IncludeLegendaries;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_GEN_SCOPE)   = cs->tx_Random_GenScope;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TYPE)        = cs->tx_Random_Type;
@@ -2244,8 +2492,14 @@ void CB2_InitChallengeMenu(void)
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_EVOLUTIONS)  = cs->tx_Random_Evolutions;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_EVO_METHODS) = cs->tx_Random_EvolutionMethods;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_TYPE_EFFEC)  = cs->tx_Random_TypeEffectiveness;
-            *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_ITEMS)       = cs->tx_Random_Items;
             *GetSelectionPtr(TAB_RANDOMIZER, ITEM_RANDOM_CHAOS)       = cs->tx_Random_Chaos;
+
+            // Items tab
+            *GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_RANDOMIZE)   = cs->tx_Random_Items;
+            *GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_PROGRESSION) = cs->tx_Random_Items_Progression;
+            *GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_TM_SHUFFLE)  = cs->tx_Random_Items_TMShuffle;
+            *GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_MEGA_STONES) = cs->tx_Random_Items_MegaStones;
+            *GetSelectionPtr(TAB_ITEMS, ITEM_ITEMS_COMPETITIVE) = cs->tx_Random_Items_Competitive;
 
             // Nuzlocke tab — 3 bits → 4 selection states (matches HnS encoding)
             if (cs->tx_Challenges_Nuzlocke && cs->tx_Challenges_NuzlockeHardcore)
@@ -2262,6 +2516,9 @@ void CB2_InitChallengeMenu(void)
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_NICKNAMING)     = !cs->tx_Nuzlocke_Nicknaming;
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_DELETION)       = cs->tx_Nuzlocke_Deletion;
             *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_RARE_CANDY)     = !cs->tx_Nuzlocke_RareCandy;
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_POKE_VIAL)      = !cs->tx_Nuzlocke_PokeVial;
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_GYM_TOKENS)     = !cs->tx_Nuzlocke_GymTokens;
+            *GetSelectionPtr(TAB_NUZLOCKE, ITEM_NUZLOCKE_BAN_HEALING_SHOP) = cs->tx_Nuzlocke_BanHealingShop ? 0 : 1;
 
             // Difficulty tab
             *GetSelectionPtr(TAB_DIFFICULTY, ITEM_DIFFICULTY_PARTY_LIMIT)    = cs->tx_Challenges_PartyLimit;
@@ -2336,6 +2593,11 @@ void Script_OpenChallengeMenu(struct ScriptContext *ctx)
     ScriptContext_Stop();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     SetMainCallback2(CB2_InitChallengeMenu);
+}
+
+void Script_CheckPokemitosCupActive(struct ScriptContext *ctx)
+{
+    gSpecialVar_Result = IsPokemitosCupActive();
 }
 
 bool32 HMsOverwriteOptionActive(void)

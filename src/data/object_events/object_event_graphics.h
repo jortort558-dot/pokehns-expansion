@@ -852,6 +852,13 @@ const u16 gObjectEventPal_Will_hns[] = INCBIN_U16("graphics/object_events/palett
 const u32 gObjectEventPic_NurseChansey_hns[] = INCBIN_U32("graphics/object_events/pics/misc/nurse_chansey_hns.4bpp");
 const u16 gObjectEventPal_AlolaOak_hns[] = INCBIN_U16("graphics/object_events/palettes/alola_oak_hns.gbapal");
 
+const u32 gObjectEventPic_Knekro_hns[] =
+    INCBIN_U32("graphics/object_events/pics/people/custom/knekro_hns.4bpp");
+
+const u16 gObjectEventPal_Knekro_hns[] =
+    INCBIN_U16("graphics/object_events/palettes/knekro_hns.gbapal");
+
+
 // HnS protagonist sprite data
 const u32 gObjectEventPic_GoldNormalRunning_hns[] = INCBIN_U32("graphics/object_events/pics/people/gold/walking_hns.4bpp", "graphics/object_events/pics/people/gold/running_hns.4bpp");
 const u16 gObjectEventPal_Gold_hns[] = INCBIN_U16("graphics/object_events/palettes/gold_hns.gbapal");

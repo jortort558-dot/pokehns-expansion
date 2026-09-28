@@ -291,15 +291,15 @@ CherrygroveCity_Text_GuideGentTourStart:
 
 CherrygroveCity_Text_GuideGentPokecenter:
 	.string "Esto es un CENTRO POKéMON.\p"
-	.string "Curarán a tus POKéMON en un abrir\n"
-	.string "y cerrar de ojos.\p"
-	.string "Dependerás mucho de ellos,\n"
-	.string "así que será mejor que los conozcas\nbien.$"
+	.string "Curan a tus POKéMON en\n"
+	.string "un momento.\p"
+	.string "Los usarás a menudo,\n"
+	.string "así que conviene conocerlos.$"
 
 CherrygroveCity_Text_GuideGentMart:
 	.string "Esto es una TIENDA POKéMON.\p"
-	.string "Venden BALLS para atrapar POKéMON\n"
-	.string "salvajes y otros objetos muy\nútiles.$"
+	.string "Venden BALLS y otros objetos\n"
+	.string "que te serán muy útiles.$"
 
 CherrygroveCity_Text_GuideGentRoute30:
 	.string "La RUTA 30 sale por aquí.\p"
@@ -324,19 +324,13 @@ CherrygroveCity_Text_GuideGentDecline:
 
 CherrygroveCity_Text_RivalSeen:
 	.string "… … … … … … … …\p"
-	.string "¿Qué pasa, fantasma?\n"
-	.string "¿Te han regalao un bicho en\l"
-	.string "el laboratorio?\p"
-	.string "Menudo desperdicio, tete.\n"
-	.string "Pa' un mierdas como tú…\p"
+	.string "Te dieron un POKéMON en el LAB.\p"
+	.string "Menudo desperdicio.\n"
+	.string "Con un pringao como tú.\p"
 	.string "… … … … … … … …\p"
-	.string "¿Qué me miras con esa cara\n"
-	.string "empanada? ¿No te enteras de\l"
-	.string "lo que te digo?\p"
-	.string "Pues yo también me he pillao\n"
-	.string "un bicho to' guapo, chaval.\p"
-	.string "¡Te voy a abrir la cabeza\n"
-	.string "pa' que espabiles!$"
+	.string "¿No pillas lo que te digo?\n"
+	.string "Yo sí tengo un POKéMON bueno.\p"
+	.string "¡Mira y aprende, payaso!$"
 
 CherrygroveCity_Text_SilverWin:
 	.string "Tsk… ¡De potra, payaso!\n"
@@ -344,12 +338,9 @@ CherrygroveCity_Text_SilverWin:
 
 CherrygroveCity_Text_RivalAfter:
 	.string "… … … … … … … …\p"
-	.string "¿Qué pasa, quieres saber quién\n"
-	.string "soy pa' chivarte a los secretas?\p"
-	.string "¡Me la suda!\n"
-	.string "¡Voy a ser el puto amo de\l"
-	.string "todos los entrenadores de este\l"
-	.string "barrio y del mundo entero!$"
+	.string "¿Quieres saber quién soy?\p"
+	.string "Voy a ser el puto amo de\n"
+	.string "todos los entrenadores.$"
 
 CherrygroveCity_Text_RivalID:
 	.string "¡Suelta eso, mangante!\n"
@@ -366,11 +357,11 @@ CherrygroveCity_Text_YoungsterNoPokedex:
 	.string "un poco más adelante.$"
 
 CherrygroveCity_Text_YoungsterHavePokedex:
-	.string "He luchado contra los entrenadores\ndel\l"
-	.string "camino.\p"
-	.string "Mis POKéMON han perdido. ¡Están\npara el\l"
-	.string "arrastre! Tengo que llevarlos\npitando al\l"
-	.string "CENTRO POKéMON.$"
+	.string "Combatí con los entrenadores\n"
+	.string "del camino.\p"
+	.string "Mis POKéMON perdieron. ¡Están\n"
+	.string "hechos polvo! Debo llevarlos\l"
+	.string "al CENTRO POKéMON.$"
 
 CherrygroveCity_Text_MysticWaterGuyBefore:
 	.string "Un POKéMON que atrapé llevaba un\nobjeto.\p"

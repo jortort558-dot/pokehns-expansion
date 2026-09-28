@@ -74,22 +74,23 @@ BlackthornCity_MoveDeletersHouse_Text_ICanMakeMonForgetMove:
 	.string "¿Quieres que lo haga?$"
 
 BlackthornCity_MoveDeletersHouse_Text_WhichMonShouldForget:
-	.string "¿Qué POKéMON debe olvidar algo?$"
+	.string "¿Qué POKéMON debe olvidar\n"
+	.string "un movimiento?$"
 
 BlackthornCity_MoveDeletersHouse_Text_WhichMoveShouldBeForgotten:
 	.string "¿Qué movimiento debe olvidar?$"
 
 BlackthornCity_MoveDeletersHouse_Text_MonOnlyKnowsOneMove:
-	.string "{STR_VAR_1} solo conoce un movimiento,\n"
+	.string "{STR_VAR_1} solo sabe un movimiento\n"
 	.string "así que no puede olvidarlo…$"
 
 BlackthornCity_MoveDeletersHouse_Text_MonsMoveShouldBeForgotten:
-	.string "¡Mmm! ¿El {STR_VAR_2} de {STR_VAR_1}?\n"
+	.string "Mmm… ¿{STR_VAR_2} de {STR_VAR_1}?\n"
 	.string "¿Quieres que lo olvide?$"
 
 BlackthornCity_MoveDeletersHouse_Text_MonHasForgottenMove:
 	.string "¡Ha salido a la perfección!\p"
-	.string "{STR_VAR_1} ha olvidado por completo\n"
+	.string "{STR_VAR_1} ha olvidado del todo\n"
 	.string "{STR_VAR_2}.$"
 
 BlackthornCity_MoveDeletersHouse_Text_ComeAgain:
@@ -102,7 +103,7 @@ BlackthornCity_MoveDeletersHouse_Text_EggCantForgetMoves:
 
 BlackthornCity_MoveDeletersHouse_Text_CantForgetSurf:
 	.string "¡Mmm!\p"
-	.string "Tu {STR_VAR_1} no parece dispuesto a\n"
+	.string "Tu {STR_VAR_1} no quiere\n"
 	.string "olvidar SURF.$"
 
 BlackthornCity_MoveRelearnersHouse_EventScript_MoveRelearner::
@@ -211,6 +212,3 @@ BlackthornCity_MoveRelearnersHouse_Text_ComeBackWithHeartScale:
 BlackthornCity_MoveRelearnersHouse_Text_CantTeachEgg:
 	.string "¿Eh? No puedo enseñar ningún\n"
 	.string "movimiento a un HUEVO.$"
-
-
-

@@ -99,13 +99,13 @@ GoldenrodCity_RadioTower_5F_Movement_Spin2:
 GoldenrodCity_RadioTower_5F_Text_FakeDirector1:
 	.string "¡T-tú! ¿Has venido a rescatarme?$"
 GoldenrodCity_RadioTower_5F_Text_FakeDirector2:
-	.string "¿Eso era lo que esperabas escuchar?\n¡Pues te equivocas! ¡Soy un\limpostor!\lMe disfracé de DIRECTOR para\lpreparar la toma\lde la torre.\l¿Quieres saber dónde encerramos al\lauténtico?\lClaro que te lo diré. ¡Pero solo si\llogras\lvencerme en combate!$"
+	.string "¿Eso esperabas oír?\p¡Te equivocas! ¡Soy un impostor!\pMe hice pasar por el DIRECTOR para\npreparar nuestra toma de la torre.\p¿Quieres saber dónde escondimos\nal verdadero DIRECTOR?\pTe lo diré si consigues vencerme.$"
 GoldenrodCity_RadioTower_5F_Text_FakeDirectorWin:
 	.string "¡Vale, vale! Te diré dónde está.$"
 GoldenrodCity_RadioTower_5F_Text_FakeDirectorAfter:
-	.string "El jefe encerró al DIRECTOR en los\nALMACENES\lSUBTERRÁNEOS.\lQuedan al fondo del todo del\lSUBTERRÁNEO.\lComo soy un trozo de pan, te daré\lla LLAVE\lDEL SÓTANO para entrar.\lAunque dudo horrores que llegues\lcon vida.$"
+	.string "El jefe encerró al DIRECTOR en los\nALMACENES SUBTERRÁNEOS.\pEstán al fondo del SUBTERRÁNEO.\pComo soy buena persona, te daré la\nLLAVE DEL SÓTANO para entrar.\pPero dudo que llegues tan lejos.$"
 GoldenrodCity_RadioTower_5F_Text_FakeDirectorAfter2:
-	.string "El jefe metió al DIRECTOR en los\nALMACENES\lSUBTERRÁNEOS.\lQuedan al fondo del SUBTERRÁNEO.\lPuedes usar la LLAVE DEL SÓTANO\lpara abrir\lla puerta, ¡pero dudo que llegues\ltan lejos!$"
+	.string "El jefe encerró al DIRECTOR en los\nALMACENES SUBTERRÁNEOS.\pEstán al fondo del SUBTERRÁNEO.\pPuedes usar la LLAVE DEL SÓTANO\npara llegar hasta allí.\pPero dudo que llegues tan lejos.$"
 @=======[STUDIO]==============================================================================================================================
 
 GoldenrodCity_RadioTower_5F_EventScript_Ben::
@@ -298,29 +298,29 @@ GoldenrodCity_RadioTower_5F_Movement_Leave2:
 	step_end
 
 GoldenrodCity_RadioTower_5F_Text_ExecutiveF1Seen:
-	.string "¿Te acuerdas de mí de la GUARIDA de\nPUEBLO\lCAOBA?\lMi jefe me echó una bronca de aúpa,\lpero me he\lvuelto mucho más fuerte.\lPerdí entonces, ¡pero hoy no se\lrepetirá!$"
+	.string "¿Me recuerdas de la GUARIDA de\nPUEBLO CAOBA?\pMi jefe me reprendió, pero ahora\nsoy mucho más fuerte.\pPerdí entonces, pero hoy no.$"
 GoldenrodCity_RadioTower_5F_Text_ExecutiveF1Beaten:
-	.string "¡Esto no puede estar pasando!\nHe luchado con todo... y aun así\lperdí…\lPerdóneme, señor GIOVANNI…$"
+	.string "¡Esto no puede estar pasando!\pLuché con todas mis fuerzas,\npero aun así perdí…\pLo siento, GIOVANNI…$"
 GoldenrodCity_RadioTower_5F_Text_ExecutiveF1After:
-	.string "Te llamas {PLAYER}, ¿cierto?\nUn mico como tú jamás comprenderá\lla grandeza\ldel TEAM ROCKET.\lEs una lástima. Admiro tu fuerza.$"
+	.string "Te llamas {PLAYER}, ¿verdad?\pUn crío como tú no apreciará la\ngrandeza del TEAM ROCKET.\pEs una lástima. Admiro tu poder.$"
 GoldenrodCity_RadioTower_5F_Text_RocketBossSeen:
-	.string "¿Oh? ¿Has logrado llegar hasta aquí\narriba?\lSin duda eres un Entrenador\lformidable.\lPretendemos tomar esta EMISORA DE\lRADIO para\lproclamar nuestro triunfal regreso.\lEso hará que nuestro líder GIOVANNI\lregrese de\lsu entrenamiento en soledad.\l¡Recuperaremos nuestra antigua\lgloria...!\l¡No consentiré que arruines\lnuestros minuciosos\lplanes!$"
+	.string "¿Oh? ¿Has llegado hasta aquí?\pDebes de ser un gran Entrenador.\pTomaremos esta EMISORA para\nanunciar nuestro regreso.\pAsí, nuestro jefe GIOVANNI volverá\nde su entrenamiento en soledad.\pRecuperaremos nuestra antigua\ngloria…\p¡No interferirás en nuestros\nmeticulosos planes!$"
 GoldenrodCity_RadioTower_5F_Text_RocketBossBeaten:
 	.string "¡No! ¡Perdóname, señor GIOVANNI!$"
 GoldenrodCity_RadioTower_5F_Text_RocketBossAfter:
-	.string "¿Cómo ha podido suceder esto?\nNuestros anhelos se han esfumado en\lla nada.\lAl final no estuve a la altura del\lcargo.\lTal y como hizo GIOVANNI en su día,\lhoy disuelvo\lal TEAM ROCKET de forma definitiva.\lAdiós.$"
+	.string "¿Cómo ha podido ocurrir?\pNuestros sueños no serán realidad.\pNo estuve a la altura de la tarea.\pComo hizo GIOVANNI antes que yo,\nhoy disuelvo el TEAM ROCKET.\pAdiós.$"
 GoldenrodCity_RadioTower_5F_Text_DirectorThanks:
-	.string "DIRECTOR: ¡{PLAYER}, muchísimas\ngracias!\lTu coraje y valentía han salvado a\llos\lPOKéMON de todo el país.\lSé que no es gran cosa, pero por\lfavor quédate\lcon esto.$"
+	.string "DIRECTOR: ¡Gracias, {PLAYER}!\pTus valientes actos han salvado a\nlos POKéMON de todo el país.\pSé que no es mucho, pero acepta\nesto, por favor.$"
 GoldenrodCity_RadioTower_5F_Text_DirectorClearWingExplanation:
-	.string "Antiguamente se alzaba una torre\naquí mismo\len CIUDAD TRIGAL.\lPero era vetusta y crujía entera.\lAsí que la sustituimos por la TORRE\lRADIO.\lExcavamos esa pluma durante las\lobras.\lDicen que antaño convivían toda\lclase de\lPOKéMON en TRIGAL.\lQuizás... esa pluma guarde relación\lcon la\lTORRE HOJALATA de CIUDAD IRIS…\lBueno, será mejor que regrese a mi\lDESPACHO.$"
+	.string "Antes había una torre aquí mismo,\nen CIUDAD TRIGAL.\pPero era vieja y crujía.\pLa sustituimos por la TORRE RADIO.\pDesenterramos esa pluma durante\nlas obras.\pDicen que antes vivían muchos\nPOKéMON en TRIGAL.\pQuizá…\pEsa pluma tenga relación con la\nTORRE HOJALATA de CIUDAD IRIS…\pSerá mejor volver a mi DESPACHO.$"
 GoldenrodCity_RadioTower_5F_Text_DirectorTidalWingExplanation:
-	.string "Antiguamente se alzaba una torre\naquí mismo\len CIUDAD TRIGAL.\lPero era muy vieja y crujía entera.\lAsí que la sustituimos por la TORRE\lRADIO.\lExcavamos esa pluma durante las\lobras.\lDicen que antaño convivían toda\lclase de\lPOKéMON en TRIGAL.\lQuizás... esa pluma tenga conexión\lcon las\lISLAS REMOLINO cerca de CIUDAD\lORQUÍDEA…\lBueno, será mejor que vuelva a mi\lDESPACHO.$"
+	.string "Antes había una torre aquí mismo,\nen CIUDAD TRIGAL.\pPero era vieja y crujía.\pLa sustituimos por la TORRE RADIO.\pDesenterramos esa pluma durante\nlas obras.\pDicen que antes vivían muchos\nPOKéMON en TRIGAL.\pQuizá…\pEsa pluma tenga relación con las\nISLAS REMOLINO, cerca de ORQUÍDEA…\pSerá mejor volver a mi DESPACHO.$"
 GoldenrodCity_RadioTower_5F_Text_DirectorLegendary:
-	.string "¡Ah!\nEso me recuerda…\lEsa pluma que te di... creo que\lguarda\lrelación con el POKéMON LEGENDARIO.\l¡Pero el LEGENDARIO no se mostrará\lsolo con\lla pluma...!\lAl parecer hace falta algo más... O\lalgo así.\lMe pregunto qué sería... Ya no me\lacuerdo.$"
+	.string "¡Ah!\pEso me recuerda…\pLa pluma que te di… Creo que tiene\nrelación con el POKéMON LEGENDARIO.\pPero el LEGENDARIO no aparecerá\nsolo con esa pluma…\pParece que hace falta algo más…\nO algo así.\p¿Qué sería?\pNo lo recuerdo.$"
 GoldenrodCity_RadioTower_5F_Text_DirectorFakeout:
-	.string "¿Esperabas algo? A esto lo llaman\nSORPRESA.\lDe verdad tengo que volver a mi\lDESPACHO.\l¡Nos vemos!$"
+	.string "¿Esperabas algo?\nA esto lo llaman SORPRESA.\pDe verdad debo volver al DESPACHO.\n¡Nos vemos!$"
 GoldenrodCity_RadioTower_5F_Text_DirectorIntro:
-	.string "DIRECTOR: ¡Hola, {PLAYER}!\nMe apasionan los POKéMON.\lConstruí esta TORRE RADIO para\lproclamar mi\lamor hacia ellos por las ondas.\lSería maravilloso que la gente\ldisfrute con\lnuestra programación.$"
+	.string "DIRECTOR: ¡Hola, {PLAYER}!\pMe encantan los POKéMON.\pConstruí esta TORRE RADIO para\nexpresar mi amor por ellos.\pOjalá la gente disfrute con\nnuestros programas.$"
 GoldenrodCity_RadioTower_5F_Text_Ben:
 	.string "BEN: ¿Escuchas nuestra música?$"
 GoldenrodCity_RadioTower_5F_Text_DirectorOfficeSign:

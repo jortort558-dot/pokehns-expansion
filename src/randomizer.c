@@ -16,6 +16,11 @@
 #include "data/randomizer/ability_whitelist.h"
 #include "move.h"
 #include "nuzlocke.h"
+#include "constants/opponents.h"
+#include "constants/trainers.h"
+#include "difficulty.h"
+
+#define TRAINER_RANDOMIZER_VERSION 1
 
 const u16 gStarterAndGiftMonTable[STARTER_AND_GIFT_MON_COUNT] =
 {
@@ -455,11 +460,6 @@ static inline bool32 IsItemTMHM(u16 itemId)
     return gItemsInfo[itemId].pocket == POCKET_TM_HM;
 }
 
-static inline bool32 IsItemHM(u16 itemId)
-{
-    return itemId >= ITEM_HM01 && IsItemTMHM(itemId);
-}
-
 static inline bool32 IsKeyItem(u16 itemId)
 {
     return gItemsInfo[itemId].pocket == POCKET_KEY_ITEMS;
@@ -470,35 +470,167 @@ static inline bool32 ShouldRandomizeItem(u16 itemId)
     // ITEM_GS_BALL sits in POCKET_POKE_BALLS rather than POCKET_KEY_ITEMS, so the key-item
     // check below doesn't cover it. It gates Kurt's Celebi chain (checkitem/removeitem in
     // AzaleaTown_KurtsHouse_hns), so rolling it into something else softlocks that quest.
-    return !(IsItemHM(itemId) || IsKeyItem(itemId) || itemId == ITEM_GS_BALL || itemId == ITEM_NONE);
+    // Keep every TM/HM in its original location. Randomizing TMs independently
+    // can create duplicates and make some moves unobtainable in a playthrough.
+    return !(IsItemTMHM(itemId) || IsKeyItem(itemId) || itemId == ITEM_GS_BALL || itemId == ITEM_NONE);
 }
 
-#include "data/randomizer/item_whitelist.h"
+#include "data/randomizer/item_tiers.h"
+
+u16 GetRandomizedTM(u16 tmId)
+{
+    u8 permutation[100];
+    u32 i;
+    struct Sfc32State state;
+
+    if (tmId < ITEM_TM01 || tmId > ITEM_TM100)
+        return tmId;
+
+    // Si el shuffle de MTs está desactivado (1 = NO), devolver la MT original
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_TMShuffle != 0)
+        return tmId;
+
+    state = RandomizerRandSeed(RANDOMIZER_REASON_FIELD_ITEM, 0x544D5348 /* "TMSH" */, 0x9E3779B9);
+    for (i = 0; i < 100; i++)
+        permutation[i] = (u8)i;
+
+    // Fisher-Yates shuffle determinista según la seed
+    for (i = 99; i > 0; i--)
+    {
+        u32 j = RandomizerNextRange(&state, i + 1);
+        u8 temp = permutation[i];
+        permutation[i] = permutation[j];
+        permutation[j] = temp;
+    }
+
+    return ITEM_TM01 + permutation[tmId - ITEM_TM01];
+}
+
+u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
+{
+    struct Sfc32State state;
+    u32 mapSeed;
+    u32 roll;
+    enum ItemProgressionTier progTier;
+    u16 wT1, wT2, wT3, wT4, wT5;
+    u16 totalWeight;
+
+    if (originalItem == ITEM_NONE)
+        return ITEM_NONE;
+
+    // MTs: barajadas si el shuffle de MTs está activo
+    if (originalItem >= ITEM_TM01 && originalItem <= ITEM_TM100)
+        return GetRandomizedTM(originalItem);
+
+    // HMs y Objetos Clave / Historia: NUNCA se tocan
+    if ((originalItem >= ITEM_HM01 && originalItem <= ITEM_HM08)
+     || IsKeyItem(originalItem)
+     || originalItem == ITEM_GS_BALL)
+    {
+        return originalItem;
+    }
+
+    // Hash determinista: semilla + grupo mapa + num mapa + id local
+    mapSeed = (((u32)mapGroup) << 24) | (((u32)mapNum) << 16) | (((u32)localId) << 8);
+    mapSeed ^= (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Progression << 3)
+             | (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_MegaStones << 2)
+             | (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Competitive);
+
+    state = RandomizerRandSeed(RANDOMIZER_REASON_FIELD_ITEM, mapSeed, originalItem);
+
+    progTier = GetMapProgressionTier(mapGroup, mapNum);
+
+    // 1. MEGAPIEDRAS (Pool Separada)
+    // Solo post-Lago de la Furia si la opción está en POST-LAGO (0)
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_MegaStones == 0
+        && IsLocationPostLakeOfRage(mapGroup, mapNum))
+    {
+        u32 megaRate;
+        if (progTier == ITEM_PROG_POSTGAME)
+            megaRate = 120; // 12% en Kanto / Postgame
+        else
+            megaRate = 100; // 10% en Mid (Lago/Rocket) y Late game
+
+        if (RandomizerNextRange(&state, 1000) < megaRate)
+        {
+            u32 megaIndex = RandomizerNextRange(&state, ARRAY_COUNT(sMegaStonesPool));
+            return sMegaStonesPool[megaIndex];
+        }
+    }
+
+    // 2. TABLA DE PESOS DE TIERS SEGÚN PROGRESIÓN (O MODO CAÓTICO)
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Progression != 0)
+    {
+        // Modo CAÓTICO: distribución plana uniforme
+        wT1 = 250;
+        wT2 = 250;
+        wT3 = 250;
+        wT4 = 250;
+        wT5 = (progTier >= ITEM_PROG_LATE) ? 5 : 0;
+    }
+    else
+    {
+        // Curva de progresión ACTIVADA (items.md)
+        switch (progTier)
+        {
+        case ITEM_PROG_EARLY:
+            wT1 = 600; wT2 = 300; wT3 = 90;  wT4 = 10;  wT5 = 0;
+            break;
+        case ITEM_PROG_EARLY_MID:
+            wT1 = 450; wT2 = 320; wT3 = 180; wT4 = 50;  wT5 = 0;
+            break;
+        case ITEM_PROG_MID:
+            wT1 = 300; wT2 = 320; wT3 = 250; wT4 = 120; wT5 = 0;
+            break;
+        case ITEM_PROG_LATE:
+            wT1 = 180; wT2 = 270; wT3 = 300; wT4 = 245; wT5 = 5; // 0.5% Master Ball
+            break;
+        case ITEM_PROG_POSTGAME:
+        default:
+            wT1 = 100; wT2 = 200; wT3 = 300; wT4 = 390; wT5 = 10; // 1.0% Master Ball
+            break;
+        }
+    }
+
+    // Modificador de Objetos Competitivos (T4):
+    // 0 = NORMAL, 1 = ABUNDANTE (+100 = +10%), 2 = OFF
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Competitive == 1)
+    {
+        wT4 += 100;
+        if (wT1 >= 50) wT1 -= 50;
+        if (wT2 >= 50) wT2 -= 50;
+    }
+    else if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Competitive == 2)
+    {
+        wT3 += wT4;
+        wT4 = 0;
+    }
+
+    totalWeight = wT1 + wT2 + wT3 + wT4 + wT5;
+    roll = RandomizerNextRange(&state, totalWeight);
+
+    // 3. ELECCIÓN DE OBJETO DENTRO DEL TIER SELECCIONADO
+    if (roll < wT1)
+        return sItemTier1[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier1))];
+    roll -= wT1;
+
+    if (roll < wT2)
+        return sItemTier2[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier2))];
+    roll -= wT2;
+
+    if (roll < wT3)
+        return sItemTier3[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier3))];
+    roll -= wT3;
+
+    if (roll < wT4)
+        return sItemTier4[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier4))];
+
+    return sItemTier5[0];
+}
 
 u16 RandomizeFoundItem(u16 itemId, u8 mapNum, u8 mapGroup, u8 localId)
 {
-    struct Sfc32State state;
-    u16 result;
-    u32 mapSeed;
-
-    if (!ShouldRandomizeItem(itemId))
-        return itemId;
-
-    mapSeed = ((u32)mapGroup) << 16;
-    mapSeed |= ((u32)mapNum) << 8;
-    mapSeed |= localId;
-
-    state = RandomizerRandSeed(RANDOMIZER_REASON_FIELD_ITEM, mapSeed, itemId);
-
-    if (IsItemTMHM(itemId))
-        return RandomizerNextRange(&state, RANDOMIZER_MAX_TM - ITEM_TM01 + 1) + ITEM_TM01;
-
-    do {
-        result = sRandomizerItemWhitelist[RandomizerNextRange(&state, ITEM_WHITELIST_SIZE)];
-    } while(!ShouldRandomizeItem(result) || IsItemTMHM(result));
-
-    return result;
-
+    return GetRandomizedFieldItem(itemId, mapGroup, mapNum, localId);
 }
 
 static inline void RandomizeFoundItemScript(u16 *scriptVar)
@@ -506,7 +638,7 @@ static inline void RandomizeFoundItemScript(u16 *scriptVar)
     if (RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS))
     {
         u8 objEvent = gSelectedObjectEvent;
-        *scriptVar = RandomizeFoundItem(
+        *scriptVar = GetRandomizedFieldItem(
             *scriptVar,
             gObjectEvents[objEvent].mapGroup,
             gObjectEvents[objEvent].mapNum,
@@ -524,17 +656,17 @@ void FindHiddenItemRandomize_NativeCall(struct ScriptContext *ctx)
     RandomizeFoundItemScript(&gSpecialVar_0x8005);
 }
 
-// Items handed over by NPCs (the `giveitem` macro / STD_OBTAIN_ITEM). These have no
-// object event of their own, so seed off the current map plus the NPC being talked to.
+// Items entregados por NPCs (STD_OBTAIN_ITEM / giveitem).
+// Según items.md: Regalos ordinarios de NPCs permanecen VANILLA.
+// Únicamente las MTs entregadas por líderes y entrenadores entran en el shuffle de MTs.
 void ObtainItemRandomize_NativeCall(struct ScriptContext *ctx)
 {
     if (RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS))
     {
-        gSpecialVar_0x8000 = RandomizeFoundItem(
-            gSpecialVar_0x8000,
-            gSaveBlock1Ptr->location.mapNum,
-            gSaveBlock1Ptr->location.mapGroup,
-            gSpecialVar_LastTalked);
+        if (gSpecialVar_0x8000 >= ITEM_TM01 && gSpecialVar_0x8000 <= ITEM_TM100)
+        {
+            gSpecialVar_0x8000 = GetRandomizedTM(gSpecialVar_0x8000);
+        }
     }
 }
 
@@ -905,6 +1037,25 @@ static u16 RandomizeMonFromSeed(struct Sfc32State *state, enum RandomizerSpecies
 
 }
 
+static bool32 IsThreeStageStarter(u16 species)
+{
+    const struct Evolution *firstEvolutions = GetSpeciesEvolutions(species);
+    u32 i;
+
+    if (firstEvolutions == NULL)
+        return FALSE;
+
+    for (i = 0; firstEvolutions[i].method != EVOLUTIONS_END; i++)
+    {
+        const struct Evolution *secondEvolutions = GetSpeciesEvolutions(firstEvolutions[i].targetSpecies);
+
+        if (secondEvolutions != NULL && secondEvolutions[0].method != EVOLUTIONS_END)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void GetUniqueMonList(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, u32 seed1, u16 seed2, u8 count, const u16 *originalSpecies, u16 *resultSpecies)
 {
     u32 i, curMon;
@@ -1008,6 +1159,7 @@ static u16 ChooseFormSpecial(struct Sfc32State *state, const u16 baseSpecies)
 u16 RandomizeMon(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, u32 seed, u16 species)
 {
     u32 speciesMode;
+    u32 attempts;
     u16 resultSpecies;
     struct Sfc32State state;
 
@@ -1016,35 +1168,489 @@ u16 RandomizeMon(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, 
 
     state = RandomizerRandSeed(reason, seed, species);
 
-    resultSpecies = RandomizeMonFromSeed(&state, mode, species);
-    speciesMode = gSpeciesInfo[resultSpecies].randomizerMode;
-
-    switch (speciesMode)
+    for (attempts = 0; attempts < RANDOMIZER_SPECIES_COUNT; attempts++)
     {
-        case MON_RANDOMIZER_RANDOM_FORM:
-            return ChooseRandomForm(&state, resultSpecies);
-        case MON_RANDOMIZER_SPECIAL_FORM:
-            return ChooseFormSpecial(&state, resultSpecies);
-        case MON_RANDOMIZER_NORMAL:
-        default:
+        resultSpecies = RandomizeMonFromSeed(&state, mode, species);
+        speciesMode = gSpeciesInfo[resultSpecies].randomizerMode;
+
+        switch (speciesMode)
+        {
+            case MON_RANDOMIZER_RANDOM_FORM:
+                resultSpecies = ChooseRandomForm(&state, resultSpecies);
+                break;
+            case MON_RANDOMIZER_SPECIAL_FORM:
+                resultSpecies = ChooseFormSpecial(&state, resultSpecies);
+                break;
+            case MON_RANDOMIZER_NORMAL:
+            default:
+                break;
+        }
+
+        if (reason != RANDOMIZER_REASON_STARTER_MON || IsThreeStageStarter(resultSpecies))
             return resultSpecies;
-    }
-}
-
-u16 RandomizeWildEncounter(u16 species, u8 mapNum, u8 mapGroup, enum WildPokemonArea area, u8 slot)
-{
-    if (RandomizerFeatureEnabled(RANDOMIZE_WILD_MON))
-    {
-        u32 seed;
-        if (gSaveBlock3Ptr->challengeSettings.tx_Random_MapBased)
-            seed = GetRandomizerSeed() ^ (mapGroup << 24 | mapNum << 16 | area << 8 | slot);
-        else
-            seed = Random32();
-        return RandomizeMon(RANDOMIZER_REASON_WILD_ENCOUNTER, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), seed, species);
     }
 
     return species;
 }
+
+#define WILD_RANDOMIZER_T1_MAX_BST 320
+#define WILD_SPECIES_POOL_MAX 1200
+
+static const u16 sFinalPseudoLegendaries[] = {
+    SPECIES_DRAGONITE,
+    SPECIES_TYRANITAR,
+    SPECIES_SALAMENCE,
+    SPECIES_METAGROSS,
+    SPECIES_GARCHOMP,
+    SPECIES_HYDREIGON,
+    SPECIES_GOODRA,
+    SPECIES_GOODRA_HISUI,
+    SPECIES_KOMMO_O,
+    SPECIES_DRAGAPULT,
+    SPECIES_BAXCALIBUR,
+};
+
+static const u16 sCoverLegendaries[] = {
+    SPECIES_MEWTWO,
+    SPECIES_LUGIA,
+    SPECIES_HO_OH,
+    SPECIES_KYOGRE,
+    SPECIES_GROUDON,
+    SPECIES_RAYQUAZA,
+    SPECIES_DIALGA,
+    SPECIES_DIALGA_ORIGIN,
+    SPECIES_PALKIA,
+    SPECIES_PALKIA_ORIGIN,
+    SPECIES_GIRATINA_ALTERED,
+    SPECIES_GIRATINA_ORIGIN,
+    SPECIES_RESHIRAM,
+    SPECIES_ZEKROM,
+    SPECIES_KYUREM,
+    SPECIES_KYUREM_BLACK,
+    SPECIES_KYUREM_WHITE,
+    SPECIES_XERNEAS,
+    SPECIES_YVELTAL,
+    SPECIES_ZYGARDE_50,
+    SPECIES_ZYGARDE_10,
+    SPECIES_ZYGARDE_COMPLETE,
+    SPECIES_SOLGALEO,
+    SPECIES_LUNALA,
+    SPECIES_NECROZMA,
+    SPECIES_NECROZMA_DUSK_MANE,
+    SPECIES_NECROZMA_DAWN_WINGS,
+    SPECIES_NECROZMA_ULTRA,
+    SPECIES_ZACIAN_HERO,
+    SPECIES_ZACIAN_CROWNED,
+    SPECIES_ZAMAZENTA_HERO,
+    SPECIES_ZAMAZENTA_CROWNED,
+    SPECIES_ETERNATUS,
+    SPECIES_ETERNATUS_ETERNAMAX,
+    SPECIES_CALYREX,
+    SPECIES_CALYREX_ICE,
+    SPECIES_CALYREX_SHADOW,
+    SPECIES_KORAIDON,
+    SPECIES_MIRAIDON,
+};
+
+static const u16 sWildProgressionWeights[PROGRESSION_BLOCK_COUNT][CATEGORY_COUNT] = {
+    /* BLOCK_INICIO */         {700, 250,  48,   2,   0,   0},
+    /* BLOCK_EARLY */          {450, 380, 140,  30,   0,   0},
+    /* BLOCK_MID */            {250, 350, 280, 119,   1,   0},
+    /* BLOCK_LATE_JOHTO */     {120, 250, 350, 270,   9,   1},
+    /* BLOCK_PRE_LIGA */       { 50, 150, 380, 395,  20,   5},
+    /* BLOCK_LIGA_JOHTO */     { 20, 100, 350, 485,  40,   5},
+    /* BLOCK_KANTO_TEMPRANO */ { 20, 100, 300, 535,  40,   5},
+    /* BLOCK_KANTO_TARDIO */   {  0,  50, 250, 640,  50,  10},
+    /* BLOCK_POSTGAME */       {  0,  20, 180, 720,  60,  20},
+};
+
+// Flat power distribution used by POTENCIA SALVAJE: CAÓTICA. It changes only
+// the chosen species category; encounter slots, levels and rates stay intact.
+static const u16 sWildChaoticWeights[CATEGORY_COUNT] = {200, 200, 250, 270, 60, 20};
+
+struct WildRandomizerPools
+{
+    bool8 initialized;
+    bool8 genScopeRestricted;
+    bool8 includeLegendaries;
+    u16 counts[CATEGORY_COUNT];
+    u16 offsets[CATEGORY_COUNT];
+    u16 species[WILD_SPECIES_POOL_MAX];
+};
+
+EWRAM_DATA static struct WildRandomizerPools sWildPools = {0};
+
+static inline u16 GetSpeciesBST(u16 species)
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[species];
+    return info->baseHP + info->baseAttack + info->baseDefense
+         + info->baseSpeed + info->baseSpAttack + info->baseSpDefense;
+}
+
+static bool32 IsCoverLegendary(u16 species)
+{
+    u32 i;
+    for (i = 0; i < ARRAY_COUNT(sCoverLegendaries); i++)
+    {
+        if (sCoverLegendaries[i] == species)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+static bool32 IsFinalPseudoLegendary(u16 species)
+{
+    u32 i;
+    for (i = 0; i < ARRAY_COUNT(sFinalPseudoLegendaries); i++)
+    {
+        if (sFinalPseudoLegendaries[i] == species)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+enum WildPowerCategory GetWildPowerCategory(u16 species)
+{
+    if (gSpeciesInfo[species].isMythical)
+        return CATEGORY_MYTHICAL;
+    if (IsCoverLegendary(species))
+        return CATEGORY_T5_L;
+    if (gSpeciesInfo[species].isRestrictedLegendary || gSpeciesInfo[species].isSubLegendary || gSpeciesInfo[species].isUltraBeast)
+        return CATEGORY_T5_SL;
+
+    u16 bst = GetSpeciesBST(species);
+    if (bst <= WILD_RANDOMIZER_T1_MAX_BST)
+        return CATEGORY_T1;
+    if (bst <= 419)
+        return CATEGORY_T2;
+    if (bst <= 499)
+        return CATEGORY_T3;
+    return CATEGORY_T4;
+}
+
+static bool32 IsSpeciesValidForWildRandomizer(u16 species)
+{
+    if (!IsSpeciesValidForRandomizer(species))
+        return FALSE;
+
+    if (!IsSpeciesInGenScope(species))
+        return FALSE;
+
+    const struct SpeciesInfo *info = &gSpeciesInfo[species];
+
+    if (info->randomizerMode == MON_RANDOMIZER_INVALID)
+        return FALSE;
+
+    if (info->isMegaEvolution
+     || info->isPrimalReversion
+     || info->isUltraBurst
+     || info->isGigantamax
+     || info->isTeraForm
+     || info->isTotem)
+        return FALSE;
+
+    if (info->isMythical)
+        return FALSE;
+
+    return TRUE;
+}
+
+static u8 GetJohtoBadgeCount(void)
+{
+    u8 count = 0;
+    u16 flag;
+    for (flag = FLAG_BADGE01_GET; flag <= FLAG_BADGE08_GET; flag++)
+    {
+        if (FlagGet(flag))
+            count++;
+    }
+    return count;
+}
+
+static u8 GetKantoBadgeCount(void)
+{
+    u8 count = 0;
+    u16 flag;
+    for (flag = FLAG_BADGE09_GET; flag <= FLAG_BADGE16_GET; flag++)
+    {
+        if (FlagGet(flag))
+            count++;
+    }
+    return count;
+}
+
+static bool32 HasBeatenJohtoLeague(void)
+{
+    return FlagGet(FLAG_IS_CHAMPION);
+}
+
+static bool32 HasBeatenFinalLeague(void)
+{
+#if IS_HNS
+    return FlagGet(TRAINER_FLAGS_START + TRAINER_RED_HNS)
+        || FlagGet(TRAINER_FLAGS_START + TRAINER_RED_POSTOBC_HNS);
+#else
+    return FlagGet(FLAG_IS_CHAMPION);
+#endif
+}
+
+u8 GetWildRandomizerProgressionBlock(void)
+{
+    if (HasBeatenFinalLeague())
+        return BLOCK_POSTGAME;
+    if (GetKantoBadgeCount() >= 5)
+        return BLOCK_KANTO_TARDIO;
+    if (GetKantoBadgeCount() >= 1)
+        return BLOCK_KANTO_TEMPRANO;
+    if (HasBeatenJohtoLeague())
+        return BLOCK_LIGA_JOHTO;
+
+    u8 badges = GetJohtoBadgeCount();
+    if (badges == 0)
+        return BLOCK_INICIO;
+    if (badges <= 2)
+        return BLOCK_EARLY;
+    if (badges <= 4)
+        return BLOCK_MID;
+    if (badges <= 6)
+        return BLOCK_LATE_JOHTO;
+    return BLOCK_PRE_LIGA;
+}
+
+static void BuildWildSpeciesPools(void)
+{
+    u16 i, species;
+    u16 currentOffset = 0;
+    u16 catCur[CATEGORY_COUNT] = {0};
+    bool32 includeLegendaries = gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries;
+
+    memset(sWildPools.counts, 0, sizeof(sWildPools.counts));
+
+    for (species = 1; species < RANDOMIZER_SPECIES_COUNT; species++)
+    {
+        enum WildPowerCategory cat;
+
+        if (!IsSpeciesValidForWildRandomizer(species))
+            continue;
+
+        cat = GetWildPowerCategory(species);
+        if (cat >= CATEGORY_COUNT)
+            continue;
+
+        if ((cat == CATEGORY_T5_SL || cat == CATEGORY_T5_L) && !includeLegendaries)
+            continue;
+
+        sWildPools.counts[cat]++;
+    }
+
+    for (i = 0; i < CATEGORY_COUNT; i++)
+    {
+        sWildPools.offsets[i] = currentOffset;
+        currentOffset += sWildPools.counts[i];
+    }
+
+    for (species = 1; species < RANDOMIZER_SPECIES_COUNT; species++)
+    {
+        enum WildPowerCategory cat;
+
+        if (!IsSpeciesValidForWildRandomizer(species))
+            continue;
+
+        cat = GetWildPowerCategory(species);
+        if (cat >= CATEGORY_COUNT)
+            continue;
+
+        if ((cat == CATEGORY_T5_SL || cat == CATEGORY_T5_L) && !includeLegendaries)
+            continue;
+
+        if (sWildPools.offsets[cat] + catCur[cat] < WILD_SPECIES_POOL_MAX)
+        {
+            sWildPools.species[sWildPools.offsets[cat] + catCur[cat]] = species;
+            catCur[cat]++;
+        }
+    }
+
+    sWildPools.initialized = TRUE;
+    sWildPools.genScopeRestricted = IsGenScopeRestricted();
+    sWildPools.includeLegendaries = includeLegendaries;
+}
+
+static u16 ChooseWildForm(struct Sfc32State *state, u16 baseSpecies)
+{
+    u32 speciesMode = gSpeciesInfo[baseSpecies].randomizerMode;
+    u16 candidate = baseSpecies;
+
+    if (speciesMode == MON_RANDOMIZER_RANDOM_FORM)
+    {
+        const u16 *formsTable = gSpeciesInfo[baseSpecies].formSpeciesIdTable;
+        if (formsTable)
+        {
+            u16 validForms[32];
+            u32 validCount = 0;
+            u32 i = 0;
+            while (formsTable[i] != FORM_SPECIES_END && validCount < ARRAY_COUNT(validForms))
+            {
+                u16 f = formsTable[i];
+                const struct SpeciesInfo *fInfo = &gSpeciesInfo[f];
+                if (!fInfo->isMegaEvolution
+                 && !fInfo->isPrimalReversion
+                 && !fInfo->isUltraBurst
+                 && !fInfo->isGigantamax
+                 && !fInfo->isTeraForm
+                 && !fInfo->isTotem
+                 && fInfo->randomizerMode != MON_RANDOMIZER_INVALID)
+                {
+                    validForms[validCount++] = f;
+                }
+                i++;
+            }
+            if (validCount > 0)
+                candidate = validForms[RandomizerNextRange(state, validCount)];
+        }
+    }
+    else if (speciesMode == MON_RANDOMIZER_SPECIAL_FORM)
+    {
+        candidate = ChooseFormSpecial(state, baseSpecies);
+        const struct SpeciesInfo *cstInfo = &gSpeciesInfo[candidate];
+        if (cstInfo->isMegaEvolution
+         || cstInfo->isPrimalReversion
+         || cstInfo->isUltraBurst
+         || cstInfo->isGigantamax
+         || cstInfo->isTeraForm
+         || cstInfo->isTotem
+         || cstInfo->randomizerMode == MON_RANDOMIZER_INVALID)
+        {
+            candidate = baseSpecies;
+        }
+    }
+
+    return candidate;
+}
+
+static enum WildPowerCategory WeightedCategoryRoll(const u16 *weights, struct Sfc32State *state)
+{
+    u32 roll = RandomizerNextRange(state, 1000);
+    u32 accum = 0;
+    u32 i;
+
+    for (i = 0; i < CATEGORY_COUNT; i++)
+    {
+        accum += weights[i];
+        if (roll < accum)
+            return (enum WildPowerCategory)i;
+    }
+    return CATEGORY_T1;
+}
+
+static u16 ChooseWildSpecies(enum WildPowerCategory category, struct Sfc32State *state, u16 fallbackSpecies)
+{
+    if (sWildPools.counts[category] == 0)
+    {
+        s32 c;
+        bool32 found = FALSE;
+
+        for (c = (s32)category - 1; c >= 0; c--)
+        {
+            if (sWildPools.counts[c] > 0)
+            {
+                category = (enum WildPowerCategory)c;
+                found = TRUE;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            for (c = (s32)category + 1; c < CATEGORY_COUNT; c++)
+            {
+                if (sWildPools.counts[c] > 0)
+                {
+                    category = (enum WildPowerCategory)c;
+                    found = TRUE;
+                    break;
+                }
+            }
+        }
+
+        if (!found)
+            return fallbackSpecies;
+    }
+
+    u16 index = RandomizerNextRange(state, sWildPools.counts[category]);
+    u16 baseSpecies = sWildPools.species[sWildPools.offsets[category] + index];
+    return ChooseWildForm(state, baseSpecies);
+}
+
+static u16 AdjustWildSpeciesEvolutionStage(u16 species, u8 level)
+{
+    if (level == 0)
+        return species;
+
+    u16 preEvo1 = GetSpeciesPreEvolution(species);
+    if (preEvo1 == SPECIES_NONE)
+        return species;
+
+    u16 preEvo2 = GetSpeciesPreEvolution(preEvo1);
+    bool32 isThreeStage = (preEvo2 != SPECIES_NONE);
+    bool32 isPseudo = IsFinalPseudoLegendary(species);
+
+    if (level < 30)
+    {
+        if (isPseudo || isThreeStage)
+            return isThreeStage ? preEvo2 : preEvo1;
+    }
+    else if (level < 45)
+    {
+        if (isPseudo && isThreeStage)
+            return preEvo1;
+    }
+
+    return species;
+}
+
+u16 RandomizeWildEncounter(u16 species, u8 mapNum, u8 mapGroup, enum WildPokemonArea area, u8 slot, u8 level)
+{
+    if (!RandomizerFeatureEnabled(RANDOMIZE_WILD_MON) || !IsSpeciesValidForRandomizer(species))
+        return species;
+
+    u8 block = GetWildRandomizerProgressionBlock();
+    struct Sfc32State state;
+
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_MapBased)
+    {
+        u32 slotKey = (((u32)mapGroup) << 24)
+                    | (((u32)mapNum) << 16)
+                    | (((u32)area) << 10)
+                    | (((u32)slot) << 4)
+                    | (u32)block;
+        state = RandomizerRandSeed(RANDOMIZER_REASON_WILD_ENCOUNTER, slotKey, (u32)species);
+    }
+    else
+    {
+        state.a = Random32();
+        state.b = Random32();
+        state.c = Random32();
+        state.ctr = RANDOMIZER_STREAM;
+        u32 i;
+        for (i = 0; i < 10; i++)
+            _SFC32_Next_Stream(&state, RANDOMIZER_STREAM);
+    }
+
+    if (!sWildPools.initialized
+     || sWildPools.genScopeRestricted != IsGenScopeRestricted()
+     || sWildPools.includeLegendaries != gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries)
+    {
+        BuildWildSpeciesPools();
+    }
+
+    const u16 *weights = gSaveBlock3Ptr->challengeSettings.tx_Random_Similar
+                       ? sWildProgressionWeights[block]
+                       : sWildChaoticWeights;
+    enum WildPowerCategory category = WeightedCategoryRoll(weights, &state);
+    u16 chosenSpecies = ChooseWildSpecies(category, &state, species);
+    return AdjustWildSpeciesEvolutionStage(chosenSpecies, level);
+}
+
 
 
 bool32 IsRandomizationPossible(u16 originalSpecies, u16 targetSpecies)
@@ -1072,19 +1678,392 @@ bool32 IsRandomizationPossible(u16 originalSpecies, u16 targetSpecies)
     return TRUE;
 }
 
-u16 RandomizeTrainerMon(u16 trainerId, u8 slot, u8 totalMons, u16 species)
+enum TrainerPowerTier
 {
-    if (RandomizerFeatureEnabled(RANDOMIZE_TRAINER_MON))
-    {
-        u32 seed;
-        seed = (u32)trainerId << 16;
-        seed |= (u32)totalMons << 8;
-        seed |= slot;
+    TRAINER_TIER_REGULAR,
+    TRAINER_TIER_ACE,
+    TRAINER_TIER_BOSS,
+};
 
-        return RandomizeMon(RANDOMIZER_REASON_TRAINER_PARTY, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), seed, species);
+static const u16 sTrainerBossProgressionWeights[PROGRESSION_BLOCK_COUNT][CATEGORY_COUNT] = {
+    /* INICIO */         {300, 500, 180,  20,   0,   0},
+    /* EARLY */          {100, 450, 380,  80,   0,   0},
+    /* MID */            {  0, 200, 480, 310,   9,   1},
+    /* LATE_JOHTO */     {  0,  40, 330, 560,  60,  10},
+    /* PRE_LIGA */       {  0,  10, 150, 710, 110,  20},
+    /* LIGA_JOHTO */     {  0,   0,  30, 670, 230,  70},
+    /* KANTO_TEMPRANO */ {  0,   0,  20, 660, 240,  80},
+    /* KANTO_TARDIO */   {  0,   0,   0, 600, 300, 100},
+    /* POSTGAME */       {  0,   0,   0, 500, 400, 100},
+};
+
+struct MegaPair
+{
+    u16 species;
+    u16 stone;
+};
+
+static const struct MegaPair sTrainerMegaPairs[] =
+{
+    {SPECIES_VENUSAUR, ITEM_VENUSAURITE},
+    {SPECIES_CHARIZARD, ITEM_CHARIZARDITE_X},
+    {SPECIES_CHARIZARD, ITEM_CHARIZARDITE_Y},
+    {SPECIES_BLASTOISE, ITEM_BLASTOISINITE},
+    {SPECIES_BEEDRILL, ITEM_BEEDRILLITE},
+    {SPECIES_PIDGEOT, ITEM_PIDGEOTITE},
+    {SPECIES_ALAKAZAM, ITEM_ALAKAZITE},
+    {SPECIES_SLOWBRO, ITEM_SLOWBRONITE},
+    {SPECIES_GENGAR, ITEM_GENGARITE},
+    {SPECIES_KANGASKHAN, ITEM_KANGASKHANITE},
+    {SPECIES_PINSIR, ITEM_PINSIRITE},
+    {SPECIES_GYARADOS, ITEM_GYARADOSITE},
+    {SPECIES_AERODACTYL, ITEM_AERODACTYLITE},
+    {SPECIES_AMPHAROS, ITEM_AMPHAROSITE},
+    {SPECIES_STEELIX, ITEM_STEELIXITE},
+    {SPECIES_SCIZOR, ITEM_SCIZORITE},
+    {SPECIES_HERACROSS, ITEM_HERACRONITE},
+    {SPECIES_HOUNDOOM, ITEM_HOUNDOOMINITE},
+    {SPECIES_TYRANITAR, ITEM_TYRANITARITE},
+    {SPECIES_SCEPTILE, ITEM_SCEPTILITE},
+    {SPECIES_BLAZIKEN, ITEM_BLAZIKENITE},
+    {SPECIES_SWAMPERT, ITEM_SWAMPERTITE},
+    {SPECIES_GARDEVOIR, ITEM_GARDEVOIRITE},
+    {SPECIES_SABLEYE, ITEM_SABLENITE},
+    {SPECIES_MAWILE, ITEM_MAWILITE},
+    {SPECIES_AGGRON, ITEM_AGGRONITE},
+    {SPECIES_MEDICHAM, ITEM_MEDICHAMITE},
+    {SPECIES_MANECTRIC, ITEM_MANECTITE},
+    {SPECIES_SHARPEDO, ITEM_SHARPEDONITE},
+    {SPECIES_CAMERUPT, ITEM_CAMERUPTITE},
+    {SPECIES_ALTARIA, ITEM_ALTARIANITE},
+    {SPECIES_BANETTE, ITEM_BANETTITE},
+    {SPECIES_ABSOL, ITEM_ABSOLITE},
+    {SPECIES_GLALIE, ITEM_GLALITITE},
+    {SPECIES_SALAMENCE, ITEM_SALAMENCITE},
+    {SPECIES_METAGROSS, ITEM_METAGROSSITE},
+    {SPECIES_LOPUNNY, ITEM_LOPUNNITE},
+    {SPECIES_GARCHOMP, ITEM_GARCHOMPITE},
+    {SPECIES_LUCARIO, ITEM_LUCARIONITE},
+    {SPECIES_ABOMASNOW, ITEM_ABOMASITE},
+    {SPECIES_GALLADE, ITEM_GALLADITE},
+    {SPECIES_AUDINO, ITEM_AUDINITE},
+};
+
+static bool32 IsCustomMegaTrainer(u16 trainerId)
+{
+    // Hook extensible para que el usuario pueda añadir combates y entrenadores especiales que usen Mega
+    return FALSE;
+}
+
+static bool32 IsConfiguredMegaBoss(u16 trainerId, u8 trainerClass)
+{
+    if (IsCustomMegaTrainer(trainerId))
+        return TRUE;
+
+    switch (trainerClass)
+    {
+    case TRAINER_CLASS_LEADER_HNS:
+    case TRAINER_CLASS_LEADER_KANTO_HNS:
+    case TRAINER_CLASS_ELITE_FOUR_HNS:
+    case TRAINER_CLASS_CHAMPION_HNS:
+    case TRAINER_CLASS_ROCKET_ADMIN_HNS:
+    case TRAINER_CLASS_RIVAL_HNS:
+        return TRUE;
     }
 
-    return species;
+    switch (trainerId)
+    {
+    case TRAINER_RED_HNS:
+    case TRAINER_RED_POSTOBC_HNS:
+    case TRAINER_GIOVANNI_HNS:
+    case TRAINER_EUSINE_HNS:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool32 ShouldTrainerUseMega(u16 trainerId, u8 trainerClass)
+{
+    switch (gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerMegas)
+    {
+    case TRAINER_MEGAS_OFF:
+        return FALSE;
+    case TRAINER_MEGAS_BOSSES:
+        return IsConfiguredMegaBoss(trainerId, trainerClass);
+    case TRAINER_MEGAS_ALL:
+        return TRUE;
+    case TRAINER_MEGAS_STORY:
+    default:
+        return FlagGet(FLAG_MEGA_SYSTEM_UNLOCKED) && IsConfiguredMegaBoss(trainerId, trainerClass);
+    }
+}
+
+static enum TrainerPowerTier GetTrainerPowerTier(u16 trainerId, u8 trainerClass)
+{
+    switch (trainerId)
+    {
+    case TRAINER_WILL_1_HNS:
+    case TRAINER_WILL_2_HNS:
+    case TRAINER_WILL_POSTOBC_HNS:
+    case TRAINER_KOGA_1_HNS:
+    case TRAINER_KOGA_2_HNS:
+    case TRAINER_KOGA_POSTOBC_HNS:
+    case TRAINER_BRUNO_1_HNS:
+    case TRAINER_BRUNO_2_HNS:
+    case TRAINER_BRUNO_POSTOBC_HNS:
+    case TRAINER_KAREN_1_HNS:
+    case TRAINER_KAREN_2_HNS:
+    case TRAINER_KAREN_POSTOBC_HNS:
+    case TRAINER_LANCE_1_HNS:
+    case TRAINER_LANCE_2_HNS:
+    case TRAINER_LANCE_3_HNS:
+    case TRAINER_LANCE_POSTOBC_HNS:
+    case TRAINER_RED_HNS:
+    case TRAINER_RED_POSTOBC_HNS:
+        return TRAINER_TIER_BOSS;
+    }
+
+    if (FlagGet(FLAG_MEGA_SYSTEM_UNLOCKED))
+    {
+        if (trainerClass == TRAINER_CLASS_LEADER_HNS
+         || trainerClass == TRAINER_CLASS_LEADER_KANTO_HNS)
+            return TRAINER_TIER_ACE;
+    }
+
+    return TRAINER_TIER_REGULAR;
+}
+
+static bool32 CanTrainerSpeciesEvolve(u16 species)
+{
+    const struct Evolution *evolutions = GetSpeciesEvolutions(species);
+    return (evolutions != NULL && evolutions[0].method != EVOLUTIONS_END);
+}
+
+static u16 PromoteSpeciesForLevel(u16 species, u8 level)
+{
+    u32 i;
+    u16 current = species;
+
+    for (i = 0; i < 2; i++)
+    {
+        const struct Evolution *evos = GetSpeciesEvolutions(current);
+        u16 target = SPECIES_NONE;
+        u32 j;
+
+        if (evos == NULL)
+            break;
+
+        for (j = 0; evos[j].method != EVOLUTIONS_END; j++)
+        {
+            if (evos[j].method == EVO_LEVEL || evos[j].method == EVO_LEVEL_BATTLE_ONLY)
+            {
+                u16 reqLvl = (evos[j].param == 0) ? 16 : evos[j].param;
+                if (level >= reqLvl)
+                {
+                    target = evos[j].targetSpecies;
+                    break;
+                }
+            }
+            else if ((evos[j].method == EVO_ITEM || evos[j].method == EVO_TRADE || evos[j].method == EVO_SPLIT_FROM_EVO || evos[j].method == EVO_SPIN) && level >= 30)
+            {
+                target = evos[j].targetSpecies;
+                break;
+            }
+        }
+
+        if (target != SPECIES_NONE && target < RANDOMIZER_SPECIES_COUNT && IsSpeciesPermitted(target))
+            current = target;
+        else
+            break;
+    }
+
+    return current;
+}
+
+static u16 RollCompatibleTrainerItem(u16 species, enum TrainerPowerTier tier, u8 block, enum DifficultyLevel difficulty, struct Sfc32State *state)
+{
+    u32 roll = RandomizerNextRange(state, 100);
+    u32 berryChance = 0;
+    u32 safeChance = 0;
+    u8 itemMode = gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerItems;
+
+    if (itemMode == TRAINER_ITEMS_NONE)
+        return ITEM_NONE;
+    if (itemMode == TRAINER_ITEMS_BERRIES)
+        berryChance = 100;
+    else if (itemMode == TRAINER_ITEMS_COMPETITIVE)
+        safeChance = 100;
+
+    if (itemMode == TRAINER_ITEMS_PROGRESSIVE)
+    {
+        switch (tier)
+        {
+        case TRAINER_TIER_REGULAR:
+            if (block == BLOCK_MID)
+                berryChance = 20;
+            else if (block == BLOCK_LATE_JOHTO)
+                berryChance = 30;
+            else if (block > BLOCK_LATE_JOHTO)
+                safeChance = 50;
+            break;
+        case TRAINER_TIER_ACE:
+            if (block <= BLOCK_EARLY)
+                berryChance = 20;
+            else if (block == BLOCK_MID)
+                safeChance = 50;
+            else if (block == BLOCK_LATE_JOHTO)
+                safeChance = 70;
+            else
+                safeChance = 100;
+            break;
+        case TRAINER_TIER_BOSS:
+        default:
+            if (block <= BLOCK_EARLY)
+                berryChance = 100;
+            else
+                safeChance = 100;
+            break;
+        }
+
+        if (difficulty == DIFFICULTY_EASY)
+        {
+            safeChance = 0;
+            if (berryChance == 0 && tier >= TRAINER_TIER_ACE)
+                berryChance = 30;
+        }
+    }
+
+    if (roll < berryChance)
+    {
+        static const u16 sTrainerBerries[] = {
+            ITEM_SITRUS_BERRY, ITEM_LUM_BERRY, ITEM_ORAN_BERRY, ITEM_CHERI_BERRY, ITEM_CHESTO_BERRY, ITEM_PECHA_BERRY
+        };
+        return sTrainerBerries[RandomizerNextRange(state, ARRAY_COUNT(sTrainerBerries))];
+    }
+    else if (roll < (berryChance + safeChance))
+    {
+        static const u16 sTrainerSafeItems[] = {
+            ITEM_LEFTOVERS, ITEM_FOCUS_SASH, ITEM_ROCKY_HELMET, ITEM_LIFE_ORB, ITEM_EXPERT_BELT
+        };
+        if (CanTrainerSpeciesEvolve(species))
+        {
+            if (RandomizerNextRange(state, 100) < 35)
+                return ITEM_EVIOLITE;
+        }
+        return sTrainerSafeItems[RandomizerNextRange(state, ARRAY_COUNT(sTrainerSafeItems))];
+    }
+
+    return ITEM_NONE;
+}
+
+struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerClass, u8 slot, u8 totalMons, u16 originalSpecies, u16 originalHeldItem, u8 level)
+{
+    struct RandomizedTrainerMon result;
+    result.species = originalSpecies;
+    result.heldItem = originalHeldItem;
+
+    if (!RandomizerFeatureEnabled(RANDOMIZE_TRAINER_MON) || !IsSpeciesValidForRandomizer(originalSpecies))
+        return result;
+
+    u8 block = GetWildRandomizerProgressionBlock();
+    enum DifficultyLevel difficulty = GetCurrentDifficultyLevel();
+    enum TrainerPowerTier tier = GetTrainerPowerTier(trainerId, trainerClass);
+
+    u32 slotKey = (((u32)trainerId) << 16) | (((u32)block) << 8) | (u32)slot;
+    slotKey ^= TRAINER_RANDOMIZER_VERSION * 0x9E3779B9;
+    struct Sfc32State state = RandomizerRandSeed(RANDOMIZER_REASON_TRAINER_PARTY, slotKey, (u32)originalSpecies);
+
+    if (!sWildPools.initialized
+     || sWildPools.genScopeRestricted != IsGenScopeRestricted()
+     || sWildPools.includeLegendaries != gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries)
+    {
+        BuildWildSpeciesPools();
+    }
+
+    s8 megaSlot = -1;
+    s8 specialSlot = -1;
+
+    if (ShouldTrainerUseMega(trainerId, trainerClass) && totalMons > 0)
+    {
+        megaSlot = totalMons - 1;
+    }
+
+    if (tier == TRAINER_TIER_BOSS && totalMons >= 2)
+    {
+        specialSlot = (megaSlot == totalMons - 1) ? (totalMons - 2) : (totalMons - 1);
+    }
+
+    if (slot == megaSlot)
+    {
+        u32 pairIndex = RandomizerNextRange(&state, ARRAY_COUNT(sTrainerMegaPairs));
+        result.species = sTrainerMegaPairs[pairIndex].species;
+        result.heldItem = sTrainerMegaPairs[pairIndex].stone;
+        return result;
+    }
+
+    if (slot == specialSlot)
+    {
+        bool32 includeLegendaries = gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries;
+        enum WildPowerCategory cat;
+        if (trainerId == TRAINER_LANCE_1_HNS || trainerId == TRAINER_LANCE_2_HNS || trainerId == TRAINER_LANCE_3_HNS || trainerId == TRAINER_LANCE_POSTOBC_HNS)
+            cat = includeLegendaries ? CATEGORY_T5_L : CATEGORY_T4;
+        else
+            cat = includeLegendaries ? CATEGORY_T5_SL : CATEGORY_T4;
+
+        result.species = ChooseWildSpecies(cat, &state, originalSpecies);
+        if (tier >= TRAINER_TIER_ACE || level >= 25)
+            result.species = PromoteSpeciesForLevel(result.species, level);
+        result.heldItem = RollCompatibleTrainerItem(result.species, tier, block, difficulty, &state);
+        return result;
+    }
+
+    u8 effectiveBlock = block;
+    const u16 (*weights)[CATEGORY_COUNT] = sWildProgressionWeights;
+
+    switch (gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerPower)
+    {
+    case TRAINER_POWER_GENTLE:
+        if (effectiveBlock > BLOCK_INICIO)
+            effectiveBlock--;
+        break;
+    case TRAINER_POWER_CHALLENGING:
+        effectiveBlock = min(effectiveBlock + 1, BLOCK_POSTGAME);
+        break;
+    case TRAINER_POWER_MAXIMUM:
+        effectiveBlock = BLOCK_POSTGAME;
+        break;
+    case TRAINER_POWER_PROGRESSIVE:
+    default:
+        break;
+    }
+
+    if (tier == TRAINER_TIER_ACE)
+    {
+        effectiveBlock = min(effectiveBlock + 1, BLOCK_POSTGAME);
+    }
+    else if (tier == TRAINER_TIER_BOSS)
+    {
+        weights = sTrainerBossProgressionWeights;
+        if (trainerClass == TRAINER_CLASS_ELITE_FOUR_HNS || trainerClass == TRAINER_CLASS_CHAMPION_HNS)
+            effectiveBlock = max(effectiveBlock, BLOCK_LIGA_JOHTO);
+        else if (trainerClass == TRAINER_CLASS_LEADER_KANTO_HNS || trainerId == TRAINER_RED_HNS || trainerId == TRAINER_RED_POSTOBC_HNS)
+            effectiveBlock = max(effectiveBlock, BLOCK_KANTO_TARDIO);
+    }
+
+    enum WildPowerCategory category = WeightedCategoryRoll(weights[effectiveBlock], &state);
+    result.species = ChooseWildSpecies(category, &state, originalSpecies);
+    if (tier >= TRAINER_TIER_ACE || level >= 25)
+        result.species = PromoteSpeciesForLevel(result.species, level);
+    result.heldItem = RollCompatibleTrainerItem(result.species, tier, block, difficulty, &state);
+
+    return result;
+}
+
+u16 RandomizeTrainerMon(u16 trainerId, u8 slot, u8 totalMons, u16 species, u8 level)
+{
+    struct RandomizedTrainerMon randMon = RandomizeTrainerPartyMon(trainerId, 0, slot, totalMons, species, ITEM_NONE, level);
+    return randMon.species;
 }
 
 u16 RandomizeFixedEncounterMon(u16 species, u8 mapNum, u8 mapGroup, u8 localId)
@@ -1160,6 +2139,26 @@ static inline bool32 IsAbilityIllegal(u16 ability)
 {
     if (ability == ABILITY_NONE || ability == ABILITY_WONDER_GUARD)
         return TRUE;
+
+    // Habilidades trampa anti-huida (injustas en salvajes y nuzlocke)
+    if (ability == ABILITY_SHADOW_TAG || ability == ABILITY_ARENA_TRAP)
+        return TRUE;
+
+    // Habilidades perjudiciales que arruinan a cualquier Pokémon
+    if (ability == ABILITY_TRUANT || ability == ABILITY_SLOW_START || ability == ABILITY_DEFEATIST)
+        return TRUE;
+
+    // Habilidades dependientes de forma específica que bugean o no funcionan en otros Pokémon
+    if (ability == ABILITY_DISGUISE || ability == ABILITY_BATTLE_BOND 
+     || ability == ABILITY_STANCE_CHANGE || ability == ABILITY_SCHOOLING
+     || ability == ABILITY_GULP_MISSILE || ability == ABILITY_ICE_FACE
+     || ability == ABILITY_ZEN_MODE || ability == ABILITY_SHIELDS_DOWN)
+        return TRUE;
+
+    // Evasión desbalanceada en retos
+    if (ability == ABILITY_MOODY)
+        return TRUE;
+
     return FALSE;
 }
 
@@ -1230,23 +2229,89 @@ u16 RandomizeAbility(u16 species, u8 abilityNum, u16 originalAbility)
 u16 RandomizeMove(u16 move, u16 species)
 {
     struct Sfc32State state;
-    u16 result;
+    u16 result = MOVE_NONE;
     u32 seed;
+    u8 originalPower = 0;
+    u8 monType1 = TYPE_MYSTERY;
+    u8 monType2 = TYPE_MYSTERY;
+    bool8 preferStab = FALSE;
+    u32 attempts;
 
     if (move == MOVE_NONE)
         return MOVE_NONE;
 
+    if (species < NUM_SPECIES)
+    {
+        monType1 = gSpeciesInfo[species].types[0];
+        monType2 = gSpeciesInfo[species].types[1];
+    }
+
+    if (move < MOVES_COUNT)
+        originalPower = gMovesInfo[move].power;
+
     seed = ((u32)move) + species;
     state = RandomizerRandSeed(RANDOMIZER_REASON_LEARNSET, seed, species);
 
-    do
+    // En modo caos total, se mantiene la selección clásica descontrolada
+    if (IsChaosMode())
+    {
+        do
+        {
+            result = RandomizerNextRange(&state, MOVES_COUNT_GEN9 - 1) + 1;
+            if (IsNuzlockeActive() && (result == MOVE_GUILLOTINE || result == MOVE_HORN_DRILL || result == MOVE_FISSURE || result == MOVE_SHEER_COLD))
+                continue;
+        } while (result >= MOVES_COUNT_GEN9 || result > MOVE_MALIGNANT_CHAIN || GetMoveRandomizerInvalid(result));
+
+        return result;
+    }
+
+    // Modo Balanceado (Streamer / Smart Learnset):
+    // 60% de probabilidad de favorecer STAB
+    if (monType1 != TYPE_MYSTERY && (RandomizerNextRange(&state, 100) < 60))
+        preferStab = TRUE;
+
+    for (attempts = 0; attempts < 150; attempts++)
     {
         result = RandomizerNextRange(&state, MOVES_COUNT_GEN9 - 1) + 1;
+
+        if (result >= MOVES_COUNT_GEN9 || result > MOVE_MALIGNANT_CHAIN || GetMoveRandomizerInvalid(result))
+            continue;
+
+        // Baneo absoluto de ataques OHKO en retos
         if (IsNuzlockeActive() && (result == MOVE_GUILLOTINE || result == MOVE_HORN_DRILL || result == MOVE_FISSURE || result == MOVE_SHEER_COLD))
             continue;
-    } while (result >= MOVES_COUNT_GEN9 || result > MOVE_MALIGNANT_CHAIN || GetMoveRandomizerInvalid(result));
 
-    return result;
+        // Filtro de movimientos suicidas en movimientos básicos/tempranos
+        if (originalPower <= 55 && (result == MOVE_SELF_DESTRUCT || result == MOVE_EXPLOSION || result == MOVE_MISTY_EXPLOSION))
+            continue;
+
+        // Filtro por Tier de Potencia:
+        // - Si el movimiento original es de potencia baja (<= 55), evitar ataques destructivos (> 75)
+        if (originalPower > 0 && originalPower <= 55)
+        {
+            if (gMovesInfo[result].power > 75)
+                continue;
+        }
+        // - Si el movimiento original es de potencia alta (>= 80), evitar movimientos extremadamente débiles (< 40 con daño)
+        else if (originalPower >= 80)
+        {
+            if (gMovesInfo[result].power > 0 && gMovesInfo[result].power < 50)
+                continue;
+        }
+
+        // Filtro de afinidad STAB si se activó la preferencia
+        if (preferStab && attempts < 80)
+        {
+            u8 moveType = gMovesInfo[result].type;
+            if (moveType != monType1 && moveType != monType2)
+                continue;
+        }
+
+        return result;
+    }
+
+    // Fallback seguro en caso de agotar intentos
+    return (result != MOVE_NONE) ? result : move;
 }
 
 u16 RandomizeEvolution(u16 targetSpecies, u16 originalSpecies)

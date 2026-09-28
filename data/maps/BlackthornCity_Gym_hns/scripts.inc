@@ -1,6 +1,16 @@
 BlackthornCity_Gym_hns_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, BlackthornGym_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, BlackthornGym_OnTransition
 	.byte 0
+
+BlackthornGym_OnTransition::
+	goto_if_set FLAG_DEFEATED_BLACKTHORN_GYM, BlackthornGym_HideManolin
+	clearflag FLAG_HIDE_MANOLIN_ENDRINO
+	end
+
+BlackthornGym_HideManolin::
+	setflag FLAG_HIDE_MANOLIN_ENDRINO
+	end
 
 BlackthornGym_OnLoad::
 	call_if_eq VAR_BLACKTHORN_GYM_STATE, 1, BlackthornGym_MapScript_Var1
@@ -237,7 +247,7 @@ BlackthornGym_Text_ClairIntroText:
 	.string "La mejor maestra dragón del mundo.\p"
 	.string "Puedo plantar cara incluso al\n"
 	.string "ALTO MANDO de la LIGA POKéMON.\p"
-	.string "¿Aun así quieres desafiarme?\p"
+	.string "¿Aún así quieres desafiarme?\p"
 	.string "…Bien. ¡Adelante!\p"
 	.string "Como LÍDER DE GIMNASIO, lucharé\n"
 	.string "con todas mis fuerzas.$"
@@ -250,7 +260,7 @@ BlackthornGym_Text_ClairWinText:
 BlackthornGym_Text_ClairText_GoToDragonsDen:
 	.string "No pienso aceptarlo.\p"
 	.string "Puede que haya perdido, pero aún no\n"
-	.string "estás listo para la LIGA POKéMON.\p"
+	.string "tienes nivel para la LIGA POKéMON.\p"
 	.string "Ya sé. Supera la prueba del clan\n"
 	.string "dragón.\p"
 	.string "Tras este GIMNASIO se encuentra la\n"
@@ -435,3 +445,106 @@ BlackthornGym_Text_GymStatueCertified:
 	.string "GIMNASIO POKéMON DE ENDRINO\p"
 	.string "ENTRENADORES VICTORIOSOS:\n"
 	.string "{PLAYER}$"
+
+BlackthornCity_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_ENDRINO, BlackthornCity_Gym_EventScript_Manolin_AfterItem
+	msgbox BlackthornCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_ENDRINO, BlackthornCity_Gym_EventScript_Manolin_ChooseItem
+	msgbox BlackthornCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_FULL_RESTORE
+	setflag FLAG_MANOLIN_HEAL_ENDRINO
+	msgbox BlackthornCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+BlackthornCity_Gym_EventScript_Manolin_ChooseItem::
+	msgbox BlackthornCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_ENDRINO, FALSE
+	switch VAR_RESULT
+	case 0, BlackthornCity_Gym_EventScript_Manolin_GiveChoiceSpecs
+	case 1, BlackthornCity_Gym_EventScript_Manolin_GiveAssaultVest
+	case MULTI_B_PRESSED, BlackthornCity_Gym_EventScript_Manolin_NoChoice
+	end
+
+BlackthornCity_Gym_EventScript_Manolin_GiveChoiceSpecs::
+	giveitem ITEM_CHOICE_SPECS
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_ENDRINO
+	msgbox BlackthornCity_Gym_Text_Manolin_ChoiceSpecsExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+BlackthornCity_Gym_EventScript_Manolin_GiveAssaultVest::
+	giveitem ITEM_ASSAULT_VEST
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_ENDRINO
+	msgbox BlackthornCity_Gym_Text_Manolin_AssaultVestExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+BlackthornCity_Gym_EventScript_Manolin_NoChoice::
+	msgbox BlackthornCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+BlackthornCity_Gym_EventScript_Manolin_AfterItem::
+	msgbox BlackthornCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+BlackthornCity_Gym_Text_Manolin_Intro:
+	.string "¡Hostia tú! ¡Llegaste a la\n"
+	.string "última raid de Johto con vida!\p"
+	.string "¡Qué locura de locke te estás\n"
+	.string "marcando, socio!\p"
+	.string "Oye, este sitio huele a lava y\n"
+	.string "escamas… ¿El boss no era de agua?\p"
+	.string "Ah, no… ¡que aquí está DÉBORA con\n"
+	.string "los dragones enfurecidos!$"
+
+BlackthornCity_Gym_Text_Manolin_CheckHealth:
+	.string "¡Pero si traes la party tocadísima!\n"
+	.string "¡Un Enfado de Kingdra te wipea!\p"
+	.string "Deja que te tire una cura tocha\n"
+	.string "antes de cruzar la lava.$"
+
+BlackthornCity_Gym_Text_Manolin_Healed:
+	.string "¡Party full y maná al máximo!\p"
+	.string "Toma este Restaura Todo para la\n"
+	.string "pelea final. ¡Te lo has ganado!$"
+
+BlackthornCity_Gym_Text_Manolin_OfferChoices:
+	.string "Para los dragones de DÉBORA tengo\n"
+	.string "dos de los mejores objetos bis.\p"
+	.string "¿Prefieres daño especial tocho\n"
+	.string "o aguantar como un paladín\l"
+	.string "frente a los elementos?$"
+
+BlackthornCity_Gym_Text_Manolin_ChoiceSpecsExplain:
+	.string "¡GAFAS ELEGIDAS! Aumenta un 50%\n"
+	.string "tu Ataque Especial a cambio de\l"
+	.string "bloquearte en un movimiento.\p"
+	.string "¡Metes un Rayo Hielo que apaga\n"
+	.string "la lava del tirón!$"
+
+BlackthornCity_Gym_Text_Manolin_AssaultVestExplain:
+	.string "¡CHALECO ASALTO! Sube un 50% tu\n"
+	.string "Defensa Especial si solo usas\l"
+	.string "movimientos de ataque directo.\p"
+	.string "¡Los cometas y dragos de DÉBORA\n"
+	.string "te harán cosquillas!$"
+
+BlackthornCity_Gym_Text_Manolin_NoChoice:
+	.string "Tranqui, que equiparse bien para\n"
+	.string "el último boss lleva su tiempo.$"
+
+BlackthornCity_Gym_Text_Manolin_AfterItem:
+	.string "¡Revienta a esos dragones, socio!\n"
+	.string "¡Nos vemos en la Meseta Añil!$"

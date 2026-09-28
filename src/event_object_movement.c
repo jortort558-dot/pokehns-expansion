@@ -22,6 +22,7 @@
 #include "follower_helper.h"
 #include "gpu_regs.h"
 #include "graphics.h"
+#include "item.h"
 #include "mauville_old_man.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
@@ -30,6 +31,7 @@
 #include "pokemon.h"
 #include "pokeball.h"
 #include "random.h"
+#include "randomizer.h"
 #include "region_map.h"
 #include "rtc.h"
 #include "script.h"
@@ -41,6 +43,7 @@
 #include "util.h"
 #include "wild_encounter.h"
 #include "constants/event_object_movement.h"
+#include "constants/script_commands.h"
 #include "constants/abilities.h"
 #include "constants/battle.h"
 #include "constants/event_objects.h"
@@ -585,6 +588,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Kris_hns, OBJ_EVENT_PAL_TAG_KRIS_HNS},
     {gObjectEventPal_KrisReflection_hns, OBJ_EVENT_PAL_TAG_KRIS_REFLECTION_HNS},
     {gObjectEventPal_AlolaOak_hns, OBJ_EVENT_PAL_TAG_ALOLA_OAK_HNS},
+    {gObjectEventPal_Knekro_hns, OBJ_EVENT_PAL_TAG_KNEKRO_HNS},
 #endif // IS_HNS
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
@@ -1734,6 +1738,14 @@ static u8 InitObjectEventStateFromTemplate(const struct ObjectEventTemplate *tem
     objectEvent->trainerType = template->trainerType;
     objectEvent->mapNum = mapNum;
     objectEvent->trainerRange_berryTreeId = template->trainerRange_berryTreeId;
+    if ((objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL || objectEvent->graphicsId == OBJ_EVENT_GFX_POKE_BALL)
+        && objectEvent->trainerRange_berryTreeId == ITEM_NONE
+        && template->script != NULL && template->script[0] == SCR_OP_SETORCOPYVAR && T1_READ_16(&template->script[1]) == VAR_0x8000)
+    {
+        u16 itemId = T1_READ_16(&template->script[3]);
+        if (itemId < ITEMS_COUNT)
+            objectEvent->trainerRange_berryTreeId = itemId;
+    }
     objectEvent->previousMovementDirection = gInitialMovementTypeFacingDirections[template->movementType];
     SetObjectEventDirection(objectEvent, objectEvent->previousMovementDirection);
     if (sMovementTypeHasRange[objectEvent->movementType])
@@ -1962,20 +1974,18 @@ u16 LoadSheetGraphicsInfo(const struct ObjectEventGraphicsInfo *info, u16 uuid, 
     return tag;
 }
 
-static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEventTemplate, struct SpriteTemplate *spriteTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
+static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEventTemplate, struct SpriteTemplate *spriteTemplate, const struct ObjectEventGraphicsInfo *graphicsInfo, u16 graphicsUuid, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
     u8 spriteId;
     u8 objectEventId;
     struct Sprite *sprite;
     struct ObjectEvent *objectEvent;
-    const struct ObjectEventGraphicsInfo *graphicsInfo;
 
     objectEventId = InitObjectEventStateFromTemplate(objectEventTemplate, mapNum, mapGroup);
     if (objectEventId == OBJECT_EVENTS_COUNT)
         return OBJECT_EVENTS_COUNT;
 
     objectEvent = &gObjectEvents[objectEventId];
-    graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
     if (spriteTemplate->paletteTag != TAG_NONE && spriteTemplate->paletteTag != OBJ_EVENT_PAL_TAG_DYNAMIC)
         LoadObjectEventPalette(spriteTemplate->paletteTag);
 
@@ -1983,7 +1993,7 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
         objectEvent->invisible = TRUE;
 
     if (OW_GFX_COMPRESS)
-        spriteTemplate->tileTag = LoadSheetGraphicsInfo(graphicsInfo, objectEvent->graphicsId, NULL);
+        spriteTemplate->tileTag = LoadSheetGraphicsInfo(graphicsInfo, graphicsUuid, NULL);
 
     if (objectEvent->graphicsId & OBJ_EVENT_MON && objectEvent->graphicsId & OBJ_EVENT_MON_SHINY)
         objectEvent->shiny = TRUE;
@@ -2024,6 +2034,26 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     return objectEventId;
 }
 
+static u16 GetItemBallItemId(const struct ObjectEventTemplate *template, u8 mapNum, u8 mapGroup)
+{
+    u16 itemId = ITEM_NONE;
+
+    if (template->trainerRange_berryTreeId != ITEM_NONE && template->trainerRange_berryTreeId < ITEMS_COUNT)
+        itemId = template->trainerRange_berryTreeId;
+    else if (template->script != NULL && template->script[0] == SCR_OP_SETORCOPYVAR && T1_READ_16(&template->script[1]) == VAR_0x8000)
+    {
+        u16 scriptItemId = T1_READ_16(&template->script[3]);
+        if (scriptItemId < ITEMS_COUNT)
+            itemId = scriptItemId;
+    }
+
+#if RANDOMIZER_AVAILABLE
+    if (itemId != ITEM_NONE && RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS))
+        itemId = RandomizeFoundItem(itemId, mapNum, mapGroup, template->localId);
+#endif
+    return itemId;
+}
+
 u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
     u8 objectEventId;
@@ -2032,12 +2062,28 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
     struct SpriteFrameImage spriteFrameImage;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
     const struct SubspriteTable *subspriteTables = NULL;
+    u16 graphicsUuid = graphicsId;
 
     graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
     CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(graphicsId, objectEventTemplate->movementType, &spriteTemplate, &subspriteTables);
+
+    // Si es un objeto de suelo (Item Ball) y contiene exclusivamente una MT o MO, usar el sprite de Poké Ball amarilla
+    if (graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || graphicsId == OBJ_EVENT_GFX_ITEM_BALL || graphicsId == OBJ_EVENT_GFX_POKE_BALL)
+    {
+        u16 itemId = GetItemBallItemId(objectEventTemplate, mapNum, mapGroup);
+        if (itemId != ITEM_NONE && GetItemPocket(itemId) == POCKET_TM_HM)
+        {
+            graphicsInfo = &gPokeballGraphics[BALL_LEVEL];
+            graphicsUuid = NUM_OBJ_EVENT_GFX;
+            spriteTemplate.paletteTag = graphicsInfo->paletteTag;
+            spriteTemplate.images = graphicsInfo->images;
+            subspriteTables = graphicsInfo->subspriteTables;
+        }
+    }
+
     spriteFrameImage.size = graphicsInfo->size;
     spriteTemplate.images = &spriteFrameImage;
-    objectEventId = TrySetupObjectEventSprite(objectEventTemplate, &spriteTemplate, mapNum, mapGroup, cameraX, cameraY);
+    objectEventId = TrySetupObjectEventSprite(objectEventTemplate, &spriteTemplate, graphicsInfo, graphicsUuid, mapNum, mapGroup, cameraX, cameraY);
     if (objectEventId == OBJECT_EVENTS_COUNT)
         return OBJECT_EVENTS_COUNT;
 
@@ -3244,6 +3290,7 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
     struct SpriteFrameImage spriteFrameImage;
     const struct SubspriteTable *subspriteTables;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
+    u16 graphicsUuid;
 
     for (i = 0; i < ARRAY_COUNT(gLinkPlayerObjectEvents); i++)
     {
@@ -3253,13 +3300,34 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
 
     objectEvent = &gObjectEvents[objectEventId];
     subspriteTables = NULL;
+    graphicsUuid = objectEvent->graphicsId;
     graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
     CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(objectEvent->graphicsId, objectEvent->movementType, &spriteTemplate, &subspriteTables);
+
+    if ((objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL_HNS || objectEvent->graphicsId == OBJ_EVENT_GFX_ITEM_BALL || objectEvent->graphicsId == OBJ_EVENT_GFX_POKE_BALL)
+        && objectEvent->trainerRange_berryTreeId != ITEM_NONE
+        && objectEvent->trainerRange_berryTreeId < ITEMS_COUNT)
+    {
+        u16 itemId = objectEvent->trainerRange_berryTreeId;
+#if RANDOMIZER_AVAILABLE
+        if (RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS))
+            itemId = RandomizeFoundItem(itemId, objectEvent->mapNum, objectEvent->mapGroup, objectEvent->localId);
+#endif
+        if (GetItemPocket(itemId) == POCKET_TM_HM)
+        {
+            graphicsInfo = &gPokeballGraphics[BALL_LEVEL];
+            graphicsUuid = NUM_OBJ_EVENT_GFX;
+            spriteTemplate.paletteTag = graphicsInfo->paletteTag;
+            spriteTemplate.images = graphicsInfo->images;
+            subspriteTables = graphicsInfo->subspriteTables;
+        }
+    }
+
     spriteFrameImage.size = graphicsInfo->size;
     spriteTemplate.images = &spriteFrameImage;
 
     if (OW_GFX_COMPRESS)
-        spriteTemplate.tileTag = LoadSheetGraphicsInfo(graphicsInfo, objectEvent->graphicsId, NULL);
+        spriteTemplate.tileTag = LoadSheetGraphicsInfo(graphicsInfo, graphicsUuid, NULL);
 
     if (spriteTemplate.paletteTag == OBJ_EVENT_PAL_TAG_DYNAMIC)
     {

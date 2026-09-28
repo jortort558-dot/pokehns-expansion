@@ -29,35 +29,32 @@ SaffronCity_Tunnel_NS_EventScript_BaldingManAfter::
 	end
 
 SaffronCity_Tunnel_NS_Text_BaldingManIntro:
-	.string "Don't be afraid, I'm not a bad\n"
-	.string "person.\p"
-	.string "A place like this...\n"
-	.string "attracts mean people.\p"
-	.string "They would eventually cause\n"
-	.string "trouble...\p"
-	.string "It makes me mad just thinking about\n"
-	.string "it.$"
+	.string "No tengas miedo, no soy malo.\p"
+	.string "Un lugar así atrae a gente\n"
+	.string "desagradable.\p"
+	.string "Al final causarían problemas…\p"
+	.string "Solo pensarlo me pone furioso.$"
 
 SaffronCity_Tunnel_NS_Text_BaldingManCandybarDetected:
-	.string "Aha!\n"
-	.string "That's a RAGE CANDYBAR!\p"
-	.string "Can I have it?\n"
-	.string "Please!$"
+	.string "¡Ajá!\n"
+	.string "¡Eso es un CARAMELO FURIA!\p"
+	.string "¿Me lo das?\n"
+	.string "¡Por favor!$"
 
 SaffronCity_Tunnel_NS_Text_BaldingManGaveCandybar:
-	.string "{PLAYER} Gave the RageCandyBar to the\n"
-	.string "guy at the underground path.\p"
-	.string "Munch!\p"
-	.string "How upsetting!\p"
-	.string "But this is so good!\p"
-	.string "Munch munch!\p"
-	.string "Aargh! It makes me mad!\p"
-	.string "Munch munch!\p"
-	.string "Aargh...\p"
-	.string "...................Phew!\p"
-	.string "I am feeling much better!\n"
-	.string "Thank you for your candy!\l"
-	.string "I want you to have this!$"
+	.string "{PLAYER} le dio el CARAMELO FURIA\n"
+	.string "al hombre del pasadizo.\p"
+	.string "¡Ñam!\p"
+	.string "¡Qué irritante!\p"
+	.string "¡Pero está buenísimo!\p"
+	.string "¡Ñam, ñam!\p"
+	.string "¡Argh! ¡Me pone furioso!\p"
+	.string "¡Ñam, ñam!\p"
+	.string "Argh…\p"
+	.string "...................¡Uf!\p"
+	.string "¡Ahora me siento mucho mejor!\n"
+	.string "¡Gracias por el caramelo!\l"
+	.string "¡Quiero que te quedes esto!$"
 
 SaffronCity_Tunnel_NS_Text_BaldingManGaveTm:
 	.string "TM 64 contains........\p"
@@ -73,4 +70,3 @@ SaffronCity_Tunnel_NS_Text_BaldingManGaveTm:
 	.string "......................\l"
 	.string "......................\l"
 	.string "KA-BOOM!!!$"	
-
