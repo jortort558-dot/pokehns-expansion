@@ -16346,3 +16346,73 @@ IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Swift
 - Light Screen
 
+=== TRAINER_JUANRA_HNS ===
+Name: JUANRA
+Class: Gentleman Hns
+Pic: Gentleman
+Gender: Male
+Music: Hg Champion
+Double Battle: No
+AI: Smart Trainer / Prediction
+Items: Full Restore / Full Restore
+
+Mewtwo @ Life Orb
+Ability: Pressure
+Level: 99
+Nature: Timid
+EVs: 252 SpA / 4 SpD / 252 Spe
+- Psystrike
+- Aura Sphere
+- Ice Beam
+- Recover
+
+Dragonite @ Lum Berry
+Ability: Multiscale
+Level: 99
+Nature: Adamant
+EVs: 252 Atk / 4 SpD / 252 Spe
+- Dragon Dance
+- Dragon Claw
+- Extreme Speed
+- Fire Punch
+
+Tyranitar @ Assault Vest
+Ability: Sand Stream
+Level: 99
+Nature: Adamant
+EVs: 252 HP / 252 Atk / 4 SpD
+- Stone Edge
+- Crunch
+- Earthquake
+- Ice Punch
+
+Garchomp @ Yache Berry
+Ability: Rough Skin
+Level: 99
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+- Swords Dance
+- Earthquake
+- Dragon Claw
+- Poison Jab
+
+Aegislash @ Leftovers
+Ability: Stance Change
+Level: 99
+Nature: Brave
+EVs: 252 HP / 252 Atk / 4 SpD
+IVs: 0 Spe
+- King's Shield
+- Shadow Sneak
+- Sacred Sword
+- Iron Head
+
+Metagross @ Metagrossite
+Ability: Clear Body
+Level: 99
+Nature: Jolly
+EVs: 252 Atk / 4 SpD / 252 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch

@@ -1,4 +1,4 @@
-#include "global.h"
+﻿#include "global.h"
 #include "nuzlocke.h"
 #include "challenge_menu.h"
 #include "event_data.h"
@@ -15,6 +15,7 @@
 #include "constants/pokedex.h"
 #include "battle.h"
 #include "bug_contest.h"
+#include "nuzlocke_tracker.h"
 
 EWRAM_DATA u8 NuzlockeIsCaptureBlocked = FALSE;
 EWRAM_DATA u8 NuzlockeIsSpeciesClauseActive = FALSE;
@@ -440,7 +441,8 @@ void NuzlockeDeleteFaintedPartyPokemon(void)
     u8 i;
     struct Pokemon *pokemon;
     u16 item = ITEM_NONE;
-    struct ChallengeSettings *cs = &gSaveBlock3Ptr->challengeSettings;
+    if (gBattleTypeFlags & BATTLE_TYPE_NO_NUZLOCKE_DEATH)
+        return;
 
     // The Bug Contest lends the player a one-mon party (SavePlayerParty on entry,
     // LoadPlayerParty on exit), so a faint there is not a real death -- the mon
@@ -463,6 +465,7 @@ void NuzlockeDeleteFaintedPartyPokemon(void)
                     AddBagItem(monItem, 1);
                     SetMonData(pokemon, MON_DATA_HELD_ITEM, &item);
                 }
+                Tracker_EmitFaint(i);
                 if (IsNuzlockeEasyActive())
                     NuzlockeDeletePartyMonOption(i);
                 else

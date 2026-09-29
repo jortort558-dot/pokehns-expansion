@@ -186,19 +186,6 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD_HNS",
-      "x": 4,
-      "y": 30,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 3,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "GoldenrodUnderground_EventScript_Issac",
-      "flag": "FLAG_HIDE_GOLDENROD_NPCS"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD_HNS",
       "x": 6,
       "y": 31,
       "elevation": 0,
@@ -225,19 +212,6 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL_HNS",
-      "x": 1,
-      "y": 8,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "GoldenrodCity_UndergroundTunnel_EventScript_Item_ParalyzeHeal",
-      "flag": "FLAG_ITEM_GOLDENROD_UNDERGROUND_PARALYZE_HEAL"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
       "x": 13,
       "y": 33,
       "elevation": 0,
@@ -291,6 +265,15 @@
       "var": "VAR_GOLDENROD_CITY_STATE",
       "var_value": "7",
       "script": "GoldenrodCity_UndergroundTunnel_EventScript_KimonoTriggerBot"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 31,
+      "elevation": 0,
+      "var": "VAR_IGOR_TUTORIAL_STATE",
+      "var_value": "1",
+      "script": "GoldenrodCity_UndergroundTunnel_EventScript_Igor_Barrier"
     }
   ],
   "bg_events": [

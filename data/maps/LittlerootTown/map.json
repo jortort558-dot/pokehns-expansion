@@ -1,7 +1,6 @@
 {
   "id": "MAP_LITTLEROOT_TOWN",
   "name": "LittlerootTown",
-  "game_version": "emerald",
   "layout": "LAYOUT_LITTLEROOT_TOWN",
   "music": "MUS_LITTLEROOT",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
@@ -269,5 +268,6 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LittlerootTown_EventScript_MaysHouseSign"
     }
-  ]
+  ],
+  "game_version": "emerald"
 }

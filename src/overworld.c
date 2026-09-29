@@ -1,5 +1,6 @@
 #include "global.h"
 #include "overworld.h"
+#include "battle.h"
 #include "constants/heal_locations.h"
 #include "battle_pyramid.h"
 #include "battle_setup.h"
@@ -394,7 +395,8 @@ static void (*const sMovementStatusHandler[])(struct LinkPlayerObjectEvent *, st
 // code
 void DoWhiteOut(void)
 {
-    if (IsNuzlockeActive() || IsNuzlockeEasyActive())
+    if ((IsNuzlockeActive() || IsNuzlockeEasyActive())
+     && !(gBattleTypeFlags & BATTLE_TYPE_NO_NUZLOCKE_DEATH))
     {
         if (GetFirstAliveBoxPokemon() == IN_BOX_COUNT * TOTAL_BOXES_COUNT)
         {

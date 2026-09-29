@@ -2399,3 +2399,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 .endif
 
 	.include "data/maps/GoldenrodCity_House4_hns_/scripts.inc"
+
+	.include "data/maps/GoldenrodCity_House4_hns/scripts.inc"

@@ -1,7 +1,6 @@
 {
   "id": "MAP_OLDALE_TOWN",
   "name": "OldaleTown",
-  "game_version": "emerald",
   "layout": "LAYOUT_OLDALE_TOWN",
   "music": "MUS_OLDALE",
   "region_map_section": "MAPSEC_OLDALE_TOWN",
@@ -196,5 +195,6 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
     }
-  ]
+  ],
+  "game_version": "emerald"
 }

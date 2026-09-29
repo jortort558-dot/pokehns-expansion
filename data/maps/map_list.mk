@@ -467,6 +467,7 @@ MAP_JSONS := \
   data/maps/GoldenrodCity_House1_hns/map.json \
   data/maps/GoldenrodCity_House2_hns/map.json \
   data/maps/GoldenrodCity_House3_hns/map.json \
+  data/maps/GoldenrodCity_House4_hns/map.json \
   data/maps/GoldenrodCity_PokemonCenter_hns/map.json \
   data/maps/GoldenrodCity_RadioTower_1F_hns/map.json \
   data/maps/GoldenrodCity_RadioTower_2F_hns/map.json \

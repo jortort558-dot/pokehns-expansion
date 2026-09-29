@@ -249,6 +249,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RuinsOfAlph_PuzzleAndRewardChambers_MapScript_StatueDescription"
+    },
+    {
+      "type": "hidden_item",
+      "x": 24,
+      "y": 6,
+      "elevation": 0,
+      "item": "ITEM_BURN_HEAL",
+      "flag": "FLAG_HIDDEN_ITEM_BURNED_TOWER_1F_BURN_HEAL"
     }
   ],
   "game_version": "hns",

@@ -659,6 +659,13 @@
       "elevation": 0,
       "dest_map": "MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE_HNS",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 22,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_GOLDENROD_CITY_HOUSE4_HNS",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

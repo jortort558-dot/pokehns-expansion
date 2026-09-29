@@ -17,7 +17,7 @@
     {
       "local_id": "LOCALID_BURNEDTOWER_ENTEI",
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_ENTEI",
-      "x": 18,
+      "x": 15,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -179,7 +179,24 @@
     }
   ],
   "coord_events": [],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 11,
+      "y": 15,
+      "elevation": 0,
+      "item": "ITEM_ETHER",
+      "flag": "FLAG_HIDDEN_ITEM_BURNED_TOWER_B1F_ETHER"
+    },
+    {
+      "type": "hidden_item",
+      "x": 9,
+      "y": 4,
+      "elevation": 0,
+      "item": "ITEM_RARE_CANDY",
+      "flag": "FLAG_HIDDEN_ITEM_BURNED_TOWER_B1F_RARE_CANDY"
+    }
+  ],
   "game_version": "hns",
   "region": "REGION_JOHTO"
 }

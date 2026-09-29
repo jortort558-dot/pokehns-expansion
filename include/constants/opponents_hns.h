@@ -682,8 +682,9 @@
 #define TRAINER_YAMI_HNS                      658
 #define TRAINER_BAR_GUARD1_HNS                659
 #define TRAINER_BAR_GUARD2_HNS                660
+#define TRAINER_JUANRA_HNS                    661
 
-#define TRAINERS_COUNT_HNS                       661
+#define TRAINERS_COUNT_HNS                       662
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

@@ -1963,6 +1963,9 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     result.species = originalSpecies;
     result.heldItem = originalHeldItem;
 
+    if (trainerId == TRAINER_JUANRA_HNS)
+        return result;
+
     if (!RandomizerFeatureEnabled(RANDOMIZE_TRAINER_MON) || !IsSpeciesValidForRandomizer(originalSpecies))
         return result;
 
