@@ -26,10 +26,10 @@
 #include "constants/pokemon.h"
 
 /* Solo compilar en builds de depuracion con mGBA activo. */
+#include "config/general.h"
+
 #ifndef NDEBUG
 #if (LOG_HANDLER == LOG_HANDLER_MGBA_PRINT)
-
-#include "config/general.h"
 
 /* MgbaPrintf esta declarada en libisagbprn.c.
  * No tiene header propio: la declaramos extern aqui para no incluir
