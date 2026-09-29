@@ -48,6 +48,7 @@
 #include "random.h"
 #include "randomizer.h"
 #include "nuzlocke.h"
+#include "nuzlocke_tracker.h"
 #include "gym_tokens.h"
 #include "caps.h"
 #include "recorded_battle.h"
@@ -540,6 +541,7 @@ const u8 *const gStatusConditionStringsTable[][2] =
 
 void CB2_InitBattle(void)
 {
+    Tracker_DumpParty();
     if (!gTestRunnerEnabled)
         MoveSaveBlocks_ResetHeap();
     AllocateBattleResources();

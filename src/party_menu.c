@@ -48,6 +48,7 @@
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
+#include "nuzlocke_tracker.h"
 #include "player_pc.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
@@ -736,6 +737,7 @@ static bool8 ShowPartyMenu(void)
     default:
         SetVBlankCallback(VBlankCB_PartyMenu);
         SetMainCallback2(CB2_UpdatePartyMenu);
+        Tracker_DumpParty();
         return TRUE;
     }
     return FALSE;
