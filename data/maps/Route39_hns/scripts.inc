@@ -5,7 +5,33 @@ Route39_hns_MapScripts::
 
 Route39_OnTransition: 
 	callnative SetTimeBasedEncounters
+	goto_if_unset FLAG_DEFEATED_EL_PIEDRAS_GOLDENROD, Route39_HideElPiedras
+	goto_if_set FLAG_RECEIVED_MEGA_TEST_KIT, Route39_HideElPiedras
+	clearflag FLAG_HIDE_ROUTE39_EL_PIEDRAS
 	end
+
+Route39_HideElPiedras:
+	setflag FLAG_HIDE_ROUTE39_EL_PIEDRAS
+	end
+
+Route39_EventScript_ElPiedras::
+	lock
+	faceplayer
+	msgbox Route39_Text_ElPiedras, MSGBOX_DEFAULT
+	release
+	end
+
+Route39_Text_ElPiedras:
+	.string "Me echaron del TEATRO de IRIS por\n"
+	.string "un supuesto problema de higiene.\p"
+	.string "Ahora diversifico cartera comiendo\n"
+	.string "bayas gratis en esta granja.\p"
+	.string "Dicen que en CAOBA hay tipos de\n"
+	.string "negro emitiendo ondas extrañas\l"
+	.string "y un GYARADOS rojo disparando su\l"
+	.string "valor de mercado.\p"
+	.string "Voy al LAGO DE LA FURIA antes de\n"
+	.string "que nerfeen el beneficio, socio.$"
 
 Route39_EventScript_Item_TM::
 	finditem ITEM_TM_DRAIN_PUNCH

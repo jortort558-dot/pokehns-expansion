@@ -275,6 +275,19 @@
       "flag": "FLAG_ITEM_ROUTE39_NUGGET"
     },
     {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
+      "x": 14,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route39_EventScript_ElPiedras",
+      "flag": "FLAG_HIDE_ROUTE39_EL_PIEDRAS"
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_3_HNS",
       "x": 37,
       "y": 30,

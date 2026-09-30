@@ -25,6 +25,7 @@
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
+#include "rtc.h"
 #include "scanline_effect.h"
 #include "script.h"
 #include "shop.h"
@@ -2691,47 +2692,48 @@ static const u16 sMegaStonesTier3[] = {
 };
 
 static EWRAM_DATA u16 sElPiedrasShopList[16] = {0};
+static EWRAM_DATA u16 sElPiedrasMegaPool[64] = {0};
 
 void CreateElPiedrasMegaShop(void)
 {
     u8 taskId;
     s16 *data;
     u8 badges = GetNumberOfBadges();
-    u16 pool[64];
     u16 poolSize = 0;
     u16 i, j;
     u16 listCount = 0;
     u32 seed;
 
     for (i = 0; i < ARRAY_COUNT(sMegaStonesTier1); i++)
-        pool[poolSize++] = sMegaStonesTier1[i];
+        sElPiedrasMegaPool[poolSize++] = sMegaStonesTier1[i];
 
     if (badges >= 8)
     {
         for (i = 0; i < ARRAY_COUNT(sMegaStonesTier2); i++)
-            pool[poolSize++] = sMegaStonesTier2[i];
+            sElPiedrasMegaPool[poolSize++] = sMegaStonesTier2[i];
     }
 
     if (badges >= 12)
     {
         for (i = 0; i < ARRAY_COUNT(sMegaStonesTier3); i++)
-            pool[poolSize++] = sMegaStonesTier3[i];
+            sElPiedrasMegaPool[poolSize++] = sMegaStonesTier3[i];
     }
 
     seed = (gSaveBlock2Ptr->playerTrainerId[0]
             | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
             | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
             | (gSaveBlock2Ptr->playerTrainerId[3] << 24))
-            + badges * 17;
+            + badges * 17
+            + RtcGetLocalDayCount() * 31;
 
     for (i = 0; i < 6 && poolSize > 0 && listCount < ARRAY_COUNT(sElPiedrasShopList) - 1; i++)
     {
         seed = 1103515245 * seed + 12345;
         u16 idx = ((seed >> 16) & 0x7FFF) % poolSize;
-        u16 selected = pool[idx];
+        u16 selected = sElPiedrasMegaPool[idx];
 
         for (j = idx; j < poolSize - 1; j++)
-            pool[j] = pool[j + 1];
+            sElPiedrasMegaPool[j] = sElPiedrasMegaPool[j + 1];
         poolSize--;
 
         sElPiedrasShopList[listCount++] = selected;
