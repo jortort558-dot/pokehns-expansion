@@ -76,11 +76,16 @@ MoveRelearner_EventScript_TeachMove::
 	call_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, MoveRelearner_EventScript_AnythingElse
 	special IsSelectedMonEgg
 	call_if_eq VAR_RESULT, TRUE, MoveRelearner_EventScript_CantTeachMoveToEgg
+	copyvar VAR_0x8009, VAR_0x8004
+
+MoveRelearner_EventScript_TeachAnotherMove::
+	copyvar VAR_0x8004, VAR_0x8009
 	special HasMovesToRelearn
 	call_if_eq VAR_RESULT, FALSE, MoveRelearner_EventScript_CantTeachMoveToPkmn
 	msgbox MoveRelearner_Text_WhichXmoveShouldTeach, MSGBOX_DEFAULT
 	special TeachMoveRelearnerMove
 	waitstate
+	goto_if_eq VAR_0x8004, TRUE, MoveRelearner_EventScript_TeachAnotherMove
 	goto MoveRelearner_EventScript_AnythingElse
 	end
 

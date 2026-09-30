@@ -2269,8 +2269,9 @@ u16 RandomizeMove(u16 move, u16 species)
     }
 
     // Modo Balanceado (Streamer / Smart Learnset):
-    // 60% de probabilidad de favorecer STAB
-    if (monType1 != TYPE_MYSTERY && (RandomizerNextRange(&state, 100) < 60))
+    // 35% de probabilidad de favorecer STAB para conservar identidad de tipo
+    // sin desplazar en exceso movimientos de cobertura, estado y utilidad.
+    if (monType1 != TYPE_MYSTERY && (RandomizerNextRange(&state, 100) < 35))
         preferStab = TRUE;
 
     for (attempts = 0; attempts < 150; attempts++)
