@@ -145,6 +145,184 @@ VioletCity_EventScript_Lass::
 	release
 	end
 
+VioletCity_EventScript_Gustal::
+	lock
+	faceplayer
+	goto_if_set FLAG_VIOLET_LAMP_PUZZLE_SOLVED, VioletCity_EventScript_GustalSolved
+	msgbox VioletCity_Text_GustalHint, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_GustalSolved::
+	msgbox VioletCity_Text_GustalSolved, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_Maelle::
+	lock
+	faceplayer
+	goto_if_set FLAG_VIOLET_LAMP_PUZZLE_SOLVED, VioletCity_EventScript_MaelleSolved
+	msgbox VioletCity_Text_MaelleHint, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_MaelleSolved::
+	msgbox VioletCity_Text_MaelleSolved, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_Verson::
+	lock
+	faceplayer
+	goto_if_set FLAG_VIOLET_LAMP_PUZZLE_SOLVED, VioletCity_EventScript_VersonSolved
+	msgbox VioletCity_Text_VersonHint, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_VersonSolved::
+	msgbox VioletCity_Text_VersonSolved, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_LampAcademy::
+	lock
+	goto_if_unset FLAG_BADGE04_GET, VioletCity_EventScript_LampDormant
+	goto_if_set FLAG_VIOLET_LAMP_PUZZLE_SOLVED, VioletCity_EventScript_LampSolved
+	goto_if_eq VAR_VIOLET_LAMP_SEQUENCE, 0, VioletCity_EventScript_LampAcademyFirst
+	goto_if_eq VAR_VIOLET_LAMP_SEQUENCE, 1, VioletCity_EventScript_LampAcademySecond
+	goto VioletCity_EventScript_LampWrong
+
+VioletCity_EventScript_LampAcademyFirst::
+	setvar VAR_VIOLET_LAMP_SEQUENCE, 1
+	goto VioletCity_EventScript_LampCorrect
+
+VioletCity_EventScript_LampAcademySecond::
+	setvar VAR_VIOLET_LAMP_SEQUENCE, 2
+	goto VioletCity_EventScript_LampCorrect
+
+VioletCity_EventScript_LampCanal::
+	lock
+	goto_if_unset FLAG_BADGE04_GET, VioletCity_EventScript_LampDormant
+	goto_if_set FLAG_VIOLET_LAMP_PUZZLE_SOLVED, VioletCity_EventScript_LampSolved
+	goto_if_eq VAR_VIOLET_LAMP_SEQUENCE, 2, VioletCity_EventScript_LampCanalCorrect
+	goto VioletCity_EventScript_LampWrong
+
+VioletCity_EventScript_LampCanalCorrect::
+	setvar VAR_VIOLET_LAMP_SEQUENCE, 3
+	goto VioletCity_EventScript_LampCorrect
+
+VioletCity_EventScript_LampTower::
+	lock
+	goto_if_unset FLAG_BADGE04_GET, VioletCity_EventScript_LampDormant
+	goto_if_set FLAG_VIOLET_LAMP_PUZZLE_SOLVED, VioletCity_EventScript_LampSolved
+	goto_if_eq VAR_VIOLET_LAMP_SEQUENCE, 3, VioletCity_EventScript_LampComplete
+	goto VioletCity_EventScript_LampWrong
+
+VioletCity_EventScript_LampCorrect::
+	playse SE_PIN
+	msgbox VioletCity_Text_LampCorrect, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_LampWrong::
+	setvar VAR_VIOLET_LAMP_SEQUENCE, 0
+	playse SE_FAILURE
+	msgbox VioletCity_Text_LampWrong, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_LampComplete::
+	setvar VAR_VIOLET_LAMP_SEQUENCE, 4
+	setflag FLAG_VIOLET_LAMP_PUZZLE_SOLVED
+	playse SE_M_PETAL_DANCE
+	special DoSealedChamberShakingEffect_Short
+	waitstate
+	msgbox VioletCity_Text_LampComplete, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_LampDormant::
+	msgbox VioletCity_Text_LampDormant, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_LampSolved::
+	msgbox VioletCity_Text_LampSolved, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_SecretCaveEntrance::
+	lockall
+	goto_if_set FLAG_VIOLET_LAMP_PUZZLE_SOLVED, VioletCity_EventScript_SecretCaveOpen
+	msgbox VioletCity_Text_SecretCaveClosed, MSGBOX_DEFAULT
+	releaseall
+	end
+
+VioletCity_EventScript_SecretCaveOpen::
+	msgbox VioletCity_Text_SecretCaveOpen, MSGBOX_DEFAULT
+	releaseall
+	end
+
+VioletCity_Text_GustalHint:
+	.string "Somos parisinos de KALOS.\n"
+	.string "Mi expedición sigue el 33:\l"
+	.string "la tercera luz, dos veces.\p"
+	.string "Aquí la tercera es la que\n"
+	.string "vigila la ACADEMIA.$"
+
+VioletCity_Text_GustalSolved:
+	.string "Has trazado tu propio lienzo.\n"
+	.string "Expedición MALVA 33...\l"
+	.string "Suena bastante elegante.$"
+
+VioletCity_Text_MaelleHint:
+	.string "Después del 33 viene el trazo.\n"
+	.string "Busca la luz cuyo reflejo\l"
+	.string "tiembla sobre el canal.$"
+
+VioletCity_Text_MaelleSolved:
+	.string "Ni el Gommage habría borrado\n"
+	.string "una secuencia tan limpia.$"
+
+VioletCity_Text_VersonHint:
+	.string "El último Chroma duerme junto\n"
+	.string "a la torre que araña el cielo.\p"
+	.string "Academia dos veces, canal\n"
+	.string "y finalmente la torre.$"
+
+VioletCity_Text_VersonSolved:
+	.string "El Monolito habría respondido\n"
+	.string "con una nota menos alegre.$"
+
+VioletCity_Text_LampDormant:
+	.string "La lámpara está cubierta por\n"
+	.string "una humedad extraña.$"
+
+VioletCity_Text_LampCorrect:
+	.string "La lámpara absorbe un destello\n"
+	.string "de Chroma y queda encendida.$"
+
+VioletCity_Text_LampWrong:
+	.string "La luz parpadea y se apaga.\n"
+	.string "La secuencia se ha reiniciado.$"
+
+VioletCity_Text_LampComplete:
+	.string "Las luces forman un 33.\n"
+	.string "Algo se abre al norte de MALVA.$"
+
+VioletCity_Text_LampSolved:
+	.string "La lámpara conserva un brillo\n"
+	.string "de Chroma permanente.$"
+
+VioletCity_Text_SecretCaveClosed:
+	.string "Las piedras encajan sin dejar\n"
+	.string "ninguna entrada visible.$"
+
+VioletCity_Text_SecretCaveOpen:
+	.string "Las piedras se han separado.\n"
+	.string "Un túnel inundado desciende,\l"
+	.string "pero aún no puede explorarse.$"
+
 VioletCity_EventScript_Pichu::
 	lock
 	faceplayer
@@ -492,4 +670,3 @@ VioletCity_Text_Kimono_Girl3:
 
 VioletCity_Text_Kimono_Girl4:
 .string "Confío plenamente en ti.$"
-

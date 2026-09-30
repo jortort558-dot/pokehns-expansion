@@ -111,7 +111,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
-      "x": 17,
+      "x": 21,
       "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -254,8 +254,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_HAUNTER",
-      "x": 19,
-      "y": 9,
+      "x": 17,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -358,8 +358,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_BELLSPROUT",
-      "x": 34,
-      "y": 16,
+      "x": 45,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -549,7 +549,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "VioletCity_EventScript_LampAcademy",
       "flag": "0"
     },
     {
@@ -731,7 +731,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "VioletCity_EventScript_LampTower",
       "flag": "0"
     },
     {
@@ -744,7 +744,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "VioletCity_EventScript_LampCanal",
       "flag": "0"
     },
     {
@@ -758,6 +758,45 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN_HNS",
+      "x": 35,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VioletCity_EventScript_Gustal",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3_HNS",
+      "x": 25,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VioletCity_EventScript_Maelle",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ROCKER_HNS",
+      "x": 26,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VioletCity_EventScript_Verson",
       "flag": "0"
     }
   ],
@@ -856,6 +895,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VioletCity_EventScript_GymSign"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VioletCity_EventScript_SecretCaveEntrance"
     }
   ],
   "game_version": "hns",

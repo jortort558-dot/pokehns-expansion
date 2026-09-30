@@ -93,7 +93,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MahoganyTown_EventScript_AipomSecond",
       "flag": "0"
     },
     {
@@ -106,7 +106,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MahoganyTown_EventScript_AipomFinal",
       "flag": "0"
     },
     {
@@ -119,7 +119,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MahoganyTown_EventScript_AipomThird",
       "flag": "0"
     },
     {
@@ -132,7 +132,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MahoganyTown_EventScript_AipomFirst",
       "flag": "0"
     },
     {
@@ -183,6 +183,13 @@
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_MAHOGANY_TOWN_POKEMON_CENTER_HNS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_MAHOGANY_TOWN_HOUSE2_HNS",
       "dest_warp_id": "0"
     }
   ],
@@ -644,6 +651,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MahoganyTown_EventScript_GymSign"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MahoganyTown_EventScript_SecretHouseDoor"
     }
   ],
   "game_version": "hns",

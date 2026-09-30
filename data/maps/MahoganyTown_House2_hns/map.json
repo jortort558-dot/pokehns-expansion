@@ -1,0 +1,30 @@
+{
+  "id": "MAP_MAHOGANY_TOWN_HOUSE2_HNS",
+  "name": "MahoganyTown_House2_hns",
+  "layout": "LAYOUT_MAHOGANY_TOWN_HOUSE2_HNS",
+  "music": "MUS_HG_CHERRYGROVE",
+  "region_map_section": "MAPSEC_MAHOGANY_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_MAHOGANYTOWN_HNS",
+      "dest_warp_id": "5"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [],
+  "game_version": "hns",
+  "region": "REGION_JOHTO"
+}

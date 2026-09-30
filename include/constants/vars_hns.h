@@ -171,8 +171,8 @@
 
 #define VAR_UNUSED_HNS_0x40F7                            0x40F7 // VAR_POKEVIAL_CHARGES (PokéVial system)
 #define VAR_JUANRA_STATE                                 0x40F8
-#define VAR_UNUSED_HNS_0x40F9                            0x40F9 // Emerald VAR_UNUSED_0x40F9 - no references in any build
-#define VAR_UNUSED_HNS_0x40FA                            0x40FA // Emerald VAR_UNUSED_0x40FA - no references in any build
+#define VAR_VIOLET_LAMP_SEQUENCE                         0x40F9
+#define VAR_MAHOGANY_AIPOM_KEY                           0x40FA
 #define VAR_UNUSED_HNS_0x40FB                            0x40FB // Emerald VAR_UNUSED_0x40FB - no references in any build
 #define VAR_UNUSED_HNS_0x40FC                            0x40FC // Emerald VAR_UNUSED_0x40FC - no references in any build
 

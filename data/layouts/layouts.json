@@ -16215,6 +16215,18 @@
       "blockdata_filepath": "data/layouts/GoldenrodCity_House4_hns/map.bin",
       "game_version": "hns",
       "layout_version": "hns"
+    },
+    {
+      "id": "LAYOUT_MAHOGANY_TOWN_HOUSE2_HNS",
+      "name": "MahoganyTown_House2_hns_Layout",
+      "width": 26,
+      "height": 10,
+      "primary_tileset": "gTileset_Johto_Building_Hns",
+      "secondary_tileset": "gTileset_House_Lab_Hns",
+      "border_filepath": "data/layouts/MahoganyTown_House2_hns/border.bin",
+      "blockdata_filepath": "data/layouts/MahoganyTown_House2_hns/map.bin",
+      "game_version": "hns",
+      "layout_version": "hns"
     }
   ]
 }

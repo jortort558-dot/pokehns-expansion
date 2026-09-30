@@ -12,6 +12,137 @@ MahoganyTown_EventScript_FixTree::
 	setmetatile 19, 8, 0x379, FALSE
 	end
 
+MahoganyTown_EventScript_AipomFirst::
+	lock
+	faceplayer
+	goto_if_set FLAG_MAHOGANY_SECRET_HOUSE_OPEN, MahoganyTown_EventScript_AipomAfter
+	goto_if_ne VAR_MAHOGANY_AIPOM_KEY, 0, MahoganyTown_EventScript_AipomWrong
+	playmoncry SPECIES_AIPOM, CRY_MODE_NORMAL
+	setvar VAR_MAHOGANY_AIPOM_KEY, 1
+	msgbox MahoganyTown_Text_AipomFirst, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_EventScript_AipomSecond::
+	lock
+	faceplayer
+	goto_if_set FLAG_MAHOGANY_SECRET_HOUSE_OPEN, MahoganyTown_EventScript_AipomAfter
+	goto_if_ne VAR_MAHOGANY_AIPOM_KEY, 1, MahoganyTown_EventScript_AipomWrong
+	playmoncry SPECIES_AIPOM, CRY_MODE_NORMAL
+	setvar VAR_MAHOGANY_AIPOM_KEY, 2
+	msgbox MahoganyTown_Text_AipomSecond, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_EventScript_AipomThird::
+	lock
+	faceplayer
+	goto_if_set FLAG_MAHOGANY_SECRET_HOUSE_OPEN, MahoganyTown_EventScript_AipomAfter
+	goto_if_ne VAR_MAHOGANY_AIPOM_KEY, 2, MahoganyTown_EventScript_AipomWrong
+	playmoncry SPECIES_AIPOM, CRY_MODE_NORMAL
+	setvar VAR_MAHOGANY_AIPOM_KEY, 3
+	msgbox MahoganyTown_Text_AipomThird, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_EventScript_AipomFinal::
+	lock
+	faceplayer
+	goto_if_set FLAG_MAHOGANY_SECRET_HOUSE_OPEN, MahoganyTown_EventScript_AipomAfter
+	goto_if_eq VAR_MAHOGANY_AIPOM_KEY, 4, MahoganyTown_EventScript_AipomHasKey
+	goto_if_ne VAR_MAHOGANY_AIPOM_KEY, 3, MahoganyTown_EventScript_AipomWrong
+	playmoncry SPECIES_AIPOM, CRY_MODE_NORMAL
+	msgbox MahoganyTown_Text_AipomFinal, MSGBOX_DEFAULT
+	giveitem ITEM_SECRET_KEY
+	goto_if_eq VAR_RESULT, FALSE, MahoganyTown_EventScript_AipomBagFull
+	setvar VAR_MAHOGANY_AIPOM_KEY, 4
+	release
+	end
+
+MahoganyTown_EventScript_AipomBagFull::
+	msgbox MahoganyTown_Text_AipomBagFull, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_EventScript_AipomHasKey::
+	msgbox MahoganyTown_Text_AipomHasKey, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_EventScript_AipomWrong::
+	playmoncry SPECIES_AIPOM, CRY_MODE_NORMAL
+	msgbox MahoganyTown_Text_AipomWrong, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_EventScript_AipomAfter::
+	playmoncry SPECIES_AIPOM, CRY_MODE_NORMAL
+	msgbox MahoganyTown_Text_AipomAfter, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_EventScript_SecretHouseDoor::
+	lockall
+	goto_if_set FLAG_MAHOGANY_SECRET_HOUSE_OPEN, MahoganyTown_EventScript_EnterSecretHouse
+	checkitem ITEM_SECRET_KEY
+	goto_if_eq VAR_RESULT, 0, MahoganyTown_EventScript_SecretHouseLocked
+	msgbox MahoganyTown_Text_UseSecretKey, MSGBOX_DEFAULT
+	removeitem ITEM_SECRET_KEY
+	setflag FLAG_MAHOGANY_SECRET_HOUSE_OPEN
+	setvar VAR_MAHOGANY_AIPOM_KEY, 5
+
+MahoganyTown_EventScript_EnterSecretHouse::
+	warp MAP_MAHOGANY_TOWN_HOUSE2_HNS, 0, 4, 7
+	waitstate
+	releaseall
+	end
+
+MahoganyTown_EventScript_SecretHouseLocked::
+	msgbox MahoganyTown_Text_SecretHouseLocked, MSGBOX_DEFAULT
+	releaseall
+	end
+
+MahoganyTown_Text_AipomFirst:
+	.string "¡Ai, ai! Lleva una llave, pero\n"
+	.string "se la lanza al AIPOM del pueblo.$"
+
+MahoganyTown_Text_AipomSecond:
+	.string "Atrapa la llave con la cola\n"
+	.string "y la pasa hacia el gimnasio.$"
+
+MahoganyTown_Text_AipomThird:
+	.string "El AIPOM ríe y lanza la llave\n"
+	.string "hacia la casa cerrada.$"
+
+MahoganyTown_Text_AipomFinal:
+	.string "El último AIPOM se rinde\n"
+	.string "y te ofrece la llave.$"
+
+MahoganyTown_Text_AipomBagFull:
+	.string "Quiere darte la llave, pero\n"
+	.string "no tienes espacio para ella.$"
+
+MahoganyTown_Text_AipomHasKey:
+	.string "El AIPOM señala satisfecho\n"
+	.string "la casa de la esquina.$"
+
+MahoganyTown_Text_AipomWrong:
+	.string "Este AIPOM no tiene la llave.\n"
+	.string "Mira hacia otro de la manada.$"
+
+MahoganyTown_Text_AipomAfter:
+	.string "¡Ai, aipom! La casa ya está\n"
+	.string "abierta gracias a la manada.$"
+
+MahoganyTown_Text_UseSecretKey:
+	.string "La LLAVE SECRETA emite una\n"
+	.string "señal y desaparece al usarse.$"
+
+MahoganyTown_Text_SecretHouseLocked:
+	.string "La puerta está cerrada.\n"
+	.string "La cerradura tiene arañazos\l"
+	.string "y varios pelos morados.$"
+
 Mahoganytown_OnFrame::
 	map_script_2 VAR_TRIGGER_ELM_ROCKET_CALL, 1, Mahoganytown_EventScript_RocketTrigger
 	.2byte 0

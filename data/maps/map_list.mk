@@ -567,6 +567,7 @@ MAP_JSONS := \
   data/maps/MagmaHideout_4F/map.json \
   data/maps/MahoganyTown_Gym_hns/map.json \
   data/maps/MahoganyTown_House1_hns/map.json \
+  data/maps/MahoganyTown_House2_hns/map.json \
   data/maps/MahoganyTown_PokemonCenter_hns/map.json \
   data/maps/MahoganyTown_Shop_hns/map.json \
   data/maps/Mahoganytown_hns/map.json \
