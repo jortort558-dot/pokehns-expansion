@@ -1399,7 +1399,9 @@ static void OpenShopItemPopupInfo(u8 taskId, u16 itemId)
     }
 
     // 5. Pie de página
-    AddTextPrinterParameterized4(WIN_POPUP_INFO, FONT_SMALL_NARROWER, 90, 114, 0, 0, sModalColor_Footer, TEXT_SKIP_DRAW, sText_ClosePopupHint);
+    AddTextPrinterParameterized4(WIN_POPUP_INFO, FONT_SMALL_NARROWER,
+                                 6 + GetStringCenterAlignXOffset(FONT_SMALL_NARROWER, sText_ClosePopupHint, 196),
+                                 114, 0, 0, sModalColor_Footer, TEXT_SKIP_DRAW, sText_ClosePopupHint);
 
     CopyWindowToVram(WIN_POPUP_INFO, COPYWIN_FULL);
     ScheduleBgCopyTilemapToVram(0);
@@ -1478,18 +1480,19 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
             || sMartInfo.martType == MART_TYPE_BP_ITEM
             || sMartInfo.martType == MART_TYPE_KURT)
         {
-            const u8 *fullDesc = GetItemDescription(item);
+            u8 wrappedDesc[256];
             u32 i = 0, lines = 1;
 
-            while (fullDesc[i] != EOS && i < sizeof(sShopItemDescSummaryBuffer) - 32)
+            WordWrapDescription(GetItemDescription(item), wrappedDesc, sizeof(wrappedDesc), FONT_SMALL_NARROWER, 106);
+            while (wrappedDesc[i] != EOS && i < sizeof(sShopItemDescSummaryBuffer) - 32)
             {
-                if (fullDesc[i] == CHAR_NEWLINE)
+                if (wrappedDesc[i] == CHAR_NEWLINE)
                 {
                     lines++;
-                    if (lines > 3)
+                    if (lines > 4)
                         break;
                 }
-                sShopItemDescSummaryBuffer[i] = fullDesc[i];
+                sShopItemDescSummaryBuffer[i] = wrappedDesc[i];
                 i++;
             }
             sShopItemDescSummaryBuffer[i] = EOS;
@@ -2738,4 +2741,3 @@ void CreateElPiedrasMegaShop(void)
     gTasks[taskId].func = Task_GoToBuyOrSellMenu;
     FadeScreen(FADE_TO_BLACK, 0);
 }
-

@@ -727,6 +727,7 @@ gSpecials::
 	def_special BufferCurrentLevelCap
 	def_special BufferLevelCapSummary
 	def_special BufferFestivalTicketCount
+	def_special AllowNuzlockeStaticCapture
 	def_special YamiSuperTraining_CanTrainStat
 	def_special YamiSuperTraining_AddEVs
 	def_special YamiSuperTraining_ResetEVs

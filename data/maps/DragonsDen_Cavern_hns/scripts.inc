@@ -212,18 +212,18 @@ DragonsDen_Cavern_Text_DragonShrineSign:
 
 DragonsDen_Cavern_Text_SilverTraining1:
 	.string "…\n"
-	.string "¿Qué? ¿{PLAYER}?\p"
-	.string "…No, ahora no combatiré contigo…\p"
+	.string "¿Qué miras, {PLAYER}?\p"
+	.string "Ahora paso de luchar contigo.\p"
 	.string "Mis POKéMON aún no están listos\n"
 	.string "para derrotarte.\p"
 	.string "No puedo exigirles demasiado.\p"
-	.string "Debo ser disciplinado para llegar\n"
-	.string "a ser el mejor Entrenador…$"
+	.string "Me toca currármelo de verdad si\n"
+	.string "quiero ser el mejor Entrenador.$"
 
 DragonsDen_Cavern_Text_SilverTraining2:
 	.string "…\p"
 	.string "Uf…\p"
-	.string "Aprende a no meterte en mi camino…$"
+	.string "No te metas en mi camino, pesado.$"
 
 DragonsDen_Cavern_Text_CooltrainermDarinSeen:
 	.string "¡Tú! ¿Cómo te atreves a entrar\n"

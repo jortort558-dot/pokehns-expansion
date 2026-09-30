@@ -2572,7 +2572,22 @@ static u32 CheckTypeEffectiveness(enum BattlerId battlerAtk, enum BattlerId batt
     ctx.holdEffectAtk = GetBattlerHoldEffect(battlerAtk);
     ctx.holdEffectDef = GetBattlerHoldEffect(battlerDef);
 
-    uq4_12_t modifier = CalcTypeEffectivenessMultiplier(&ctx);
+    u32 illusionSpecies = GetIllusionMonSpecies(battlerDef);
+    uq4_12_t modifier;
+
+    if (illusionSpecies != SPECIES_NONE)
+    {
+        enum Type type1 = GetSpeciesType(illusionSpecies, 0);
+        enum Type type2 = GetSpeciesType(illusionSpecies, 1);
+
+        modifier = GetTypeModifier(ctx.moveType, type1);
+        if (type2 != type1)
+            modifier = uq4_12_multiply(modifier, GetTypeModifier(ctx.moveType, type2));
+    }
+    else
+    {
+        modifier = CalcTypeEffectivenessMultiplier(&ctx);
+    }
 
     if (!ShouldShowTypeEffectiveness(battlerDef))
         return EFFECTIVENESS_CANNOT_VIEW;

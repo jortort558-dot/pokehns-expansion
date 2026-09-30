@@ -33,6 +33,7 @@
 #include "menu.h"
 #include "metatile_behavior.h"
 #include "mystery_gift.h"
+#include "nuzlocke.h"
 #include "overworld.h"
 #include "party_menu.h"
 #include "pokeblock.h"
@@ -6160,4 +6161,9 @@ void GivePartyMonNationalRibbon(void)
 void BufferFestivalTicketCount(void)
 {
     ConvertIntToDecimalStringN(gStringVar1, CountTotalItemQuantityInBag(ITEM_FESTIVAL_TICKET), STR_CONV_MODE_LEFT_ALIGN, 3);
+}
+
+void AllowNuzlockeStaticCapture(void)
+{
+    NuzlockeIsCaptureBlocked = FALSE;
 }

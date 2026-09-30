@@ -85,7 +85,7 @@ IndigoPlateau_Silver_Battle_Chikorita::
 	return
 
 IndigoPlateau_Text_RivalEntrance1:
-    .string "Quieto ahí.\p"
+    .string "¡Quieto ahí, flipao!\p"
     .string "¿Ahora vas a desafiar a la LIGA?\p"
     .string "Eso no va a pasar.\p"
     .string "Mis POKéMON superentrenados\n"
@@ -93,14 +93,15 @@ IndigoPlateau_Text_RivalEntrance1:
     .string "¡{PLAYER}! ¡Te desafío!$"
 
 IndigoPlateau_Text_RivalWin:
-    .string "…\p"
-    .string "Vale… He perdido…$"
+    .string "¡Me cago en todo…!\p"
+    .string "Vale. He perdido.$"
 
 IndigoPlateau_Text_RivalAfter:
     .string "Maldición… Sigo sin poder ganar…\p"
     .string "Tengo que pensar más en mis\n"
     .string "POKéMON…\p"
-    .string "¡Bah! ¡Procura no perder!$"
+    .string "¡Bah! ¡Procura no perder, que no\n"
+    .string "quiero haberte machacado en vano!$"
 
 IndigoPlateau_EventScript_Psychic::
 	lock

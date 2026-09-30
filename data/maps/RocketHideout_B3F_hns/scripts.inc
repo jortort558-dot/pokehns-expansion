@@ -530,7 +530,7 @@ RocketHideout_B3F_Text_PetrelIntro:
 RocketHideout_B3F_Text_PetrelDisbelief:
 	.string "…¿Eh?\n¿No me parezco en nada a\lGIOVANNI?\p¿Ni siquiera tengo su aspecto?\n¿Cómo puede ser? ¡Me he esforzado\ltanto para imitarlo!$"
 RocketHideout_B3F_Text_PetrelReveal:
-	.string "PETREL: ¡Soy Ejecutivo del\nTEAM ROCKET!\pIntentas colarte en la sala del\ntransmisor de radio.\pPues no va a ocurrir. La protege\nuna contraseña especial.\pLa clave es: ¡Viva GIOVANNI!\n¿Te sorprende que te la diga?\pPero conocerla no te servirá.\pSolo se abre si la digo yo.\nLa puerta reacciona a mi voz.$"
+	.string "PETREL: ¡Soy Ejecutivo del\nTEAM ROCKET!\pIntentas colarte en la sala del\ntransmisor de radio.\pPues no va a ocurrir. La protege\nuna contraseña especial.\pLa clave es: ¡VIVA ER BETI!\n¿Te sorprende que te la diga?\pPero conocerla no te servirá.\pSolo se abre si la digo yo.\nLa puerta reacciona a mi voz.$"
 RocketHideout_B3F_Text_PetrelBeaten:
 	.string "Yo… No pude hacer nada…\pGIOVANNI, perdóname…$"
 RocketHideout_B3F_Text_PetrelAfterBattle:
@@ -546,11 +546,11 @@ RocketHideout_B3F_EventScript_Murkrow::
 	end
 
 RocketHideout_B3F_Text_MurkrowSpeak1:
-	.string "MURKROW: ¡Viva GIOVANNI!$"
+	.string "MURKROW: ¡VIVA ER BETI!$"
 RocketHideout_B3F_Text_MurkrowMimic:
 	.string "¡MURKROW imita la voz de PETREL!\p¡Quizá puedas usarlo para…!$"
 RocketHideout_B3F_Text_Murkrow:
-	.string "MURKROW: La contraseña es…\p¡VIVA GIOVANNI!$"
+	.string "MURKROW: La contraseña es…\p¡VIVA ER BETI!$"
 RocketHideout_B3F_Text_GruntF5Seen:
 	.string "¿Que si sé la contraseña?\pPuede.\p¡Pero ningún débil me la sacará!$"
 RocketHideout_B3F_Text_GruntF5Beaten:
@@ -562,7 +562,7 @@ RocketHideout_B3F_Text_GruntM28Seen:
 RocketHideout_B3F_Text_GruntM28Beaten:
 	.string "¡Jia, jia, jia! ¡Eres una máquina!$"
 RocketHideout_B3F_Text_GruntM28After:
-	.string "¡Jia, jia, jia!\pLa contraseña de la sala del jefe…\pMmm… Creo que es NATACION93.$"
+	.string "¡Jia, jia, jia!\pLa contraseña de la sala del jefe…\pMmm… Es MBAPPE MBAPPE.$"
 RocketHideout_B3F_Text_ScientistRossSeen:
 	.string "Antes trabajaba para SILPH, pero\nahora trabajo para el TEAM ROCKET.\pUn crío entrometido como tú merece\nun castigo.$"
 RocketHideout_B3F_Text_ScientistRossBeaten:

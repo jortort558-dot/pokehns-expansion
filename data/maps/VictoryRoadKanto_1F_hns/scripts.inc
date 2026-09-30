@@ -127,10 +127,10 @@ VictoryRoadKanto_1F_Movement_SilverLeave:
 	step_end
 
 VictoryRoad_Text_RivalBefore:
-    .string "Quieto ahí.\p"
+    .string "¡Quieto ahí, pringao!\p"
     .string "¿Vas a desafiar a la LIGA POKéMON?\p"
     .string "No me hagas reír.\n"
-    .string "Eres mucho más débil que yo.\p"
+    .string "Sigues siendo más flojo que yo.\p"
     .string "Ya no soy el de antes.\n"
     .string "Ahora llevo conmigo a los POKéMON\l"
     .string "más fuertes y mejores.\p"
@@ -138,7 +138,7 @@ VictoryRoad_Text_RivalBefore:
     .string "¡{PLAYER}! ¡Te desafío!$"
 
 VictoryRoad_Text_RivalDefeat:
-    .string "No he podido ganar…\p"
+    .string "¡Me cago en…! No he podido ganar.\p"
     .string "Lo he dado todo…\p"
     .string "Lo que tú tienes y a mí me falta…\p"
     .string "Empiezo a entender lo que me dijo\n"
@@ -151,4 +151,5 @@ VictoryRoad_Text_RivalAfter:
     .string "y me haré más fuerte…\p"
     .string "Entonces volveré a desafiarte\n"
     .string "y te machacaré con todo mi poder.\p"
-    .string "¡Bah! Entrena hasta entonces.$"
+    .string "¡Bah! Entrena hasta entonces,\n"
+    .string "que luego no quiero excusas.$"

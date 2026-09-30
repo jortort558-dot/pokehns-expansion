@@ -85,33 +85,34 @@ MtMoon_Cave_Movement_SilverLeave:
 	step_end
 
 MtMoon_Cave_Text_Rival_Before:
-	.string "..................................\p"
-	.string "Cuánto tiempo, {PLAYER}.\p"
+	.string "Cuánto tiempo, {PLAYER}.\n"
+	.string "Ya echabas de menos mi cara, ¿eh?\p"
 	.string "Desde que perdí contra ti, pensé\n"
 	.string "qué les faltaba a mis POKéMON…\p"
 	.string "Y encontramos una respuesta.\p"
-	.string "¡{PLAYER}, ahora te la mostraremos!$"
+	.string "¡Prepárate, que te la vamos a\n"
+	.string "enseñar por las malas!$"
 
 MtMoon_Cave_Text_Rival_Win:
-	.string "..................................\p"
+	.string "¡Me cago en todo…!\p"
 	.string "Creía haber criado a mis POKéMON\n"
 	.string "para que fueran los mejores…\p"
 	.string "Pero aún no ha bastado…$"
 
 MtMoon_Cave_Text_Rival_After:
-	.string "..................................\p"
-	.string "Has ganado limpiamente.\p"
+	.string "Has ganado limpiamente, sí.\n"
+	.string "Pero no te vengas arriba.\p"
 	.string "Lo admito. Pero esto no ha acabado.\p"
 	.string "Seré el mejor Entrenador POKéMON\n"
 	.string "de la historia.\p"
 	.string "Porque ellos me apoyan.\p"
 	.string "Escucha, {PLAYER}.\p"
-	.string "Algún día demostraré lo bueno que\n"
-	.string "soy derrotándote.$"
+	.string "Algún día te cerraré la boca\n"
+	.string "derrotándote como toca.$"
 
 MtMoon_Cave_Text_Rival_Loss:
-	.string "..................................\p"
-	.string "Ya he saldado mi deuda contigo.\p"
+	.string "¡Ja! Ya he saldado mi deuda\n"
+	.string "contigo, pringao.\p"
 	.string "Con mis POKéMON venceré al CAMPEÓN\n"
 	.string "y seré el mejor Entrenador.$"
 

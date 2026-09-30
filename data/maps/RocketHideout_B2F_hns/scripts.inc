@@ -276,7 +276,7 @@ RocketHideout_B2F_EventScript_DoLanceMultiBattle::
 	applymovement LOCALID_ROCKETHIDEOUT2_GRUNT, Common_Movement_WalkUp1
 	waitmovement 0
 	turnobject LOCALID_ROCKETHIDEOUT2_GRUNT, DIR_WEST
-	multi_2_vs_2 TRAINER_ARIANA_1_HNS, Debug_Text_ArianaDefeat, TRAINER_GRUNT_23_HNS, Debug_Text_Grunt23Defeat, PARTNER_LANCE_HNS
+	multi_2_vs_2 TRAINER_ARIANA_1_HNS, RocketHideout_B2F_Text_ArianaDefeat, TRAINER_GRUNT_23_HNS, RocketHideout_B2F_Text_GruntDefeat, PARTNER_LANCE_HNS
 	@ special DoSpecialTrainerBattle
 	@ waitstate
 	@ frontier_saveparty
@@ -431,6 +431,7 @@ RocketHideout_B2F_EventScript_Electrode::
 	delay 40
 	waitmoncry
 	setwildbattle SPECIES_ELECTRODE, 30
+	special AllowNuzlockeStaticCapture
 	dowildbattle
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, RocketHideout_B2F_EventScript_Ran_Electrode
@@ -556,6 +557,12 @@ RocketHideout_B2F_Movement_DragoniteFinalExit:
 
 RocketHideout_B2F_Text_GruntLoss:
 	.string "....................$"
+RocketHideout_B2F_Text_ArianaDefeat:
+	.string "¡Esto no se quedará así!$"
+
+RocketHideout_B2F_Text_GruntDefeat:
+	.string "¡No pienso aceptar esta derrota!$"
+
 RocketHideout_B2F_Text_ArianaLoss:
 	.string "Tsk… Eres realmente fuerte.\nEs una lástima.\pSi te unieras al TEAM ROCKET,\npodrías ser Ejecutivo.$"
 RocketHideout_Text_ArianaRetreat:
