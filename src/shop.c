@@ -1478,7 +1478,8 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
         if (sMartInfo.martType == MART_TYPE_NORMAL
             || sMartInfo.martType == MART_TYPE_BP
             || sMartInfo.martType == MART_TYPE_BP_ITEM
-            || sMartInfo.martType == MART_TYPE_KURT)
+            || sMartInfo.martType == MART_TYPE_KURT
+            || sMartInfo.martType == MART_TYPE_MEGA_STONES)
         {
             u8 wrappedDesc[256];
             u32 i = 0, lines = 1;
@@ -1528,7 +1529,8 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
         && (sMartInfo.martType == MART_TYPE_NORMAL
          || sMartInfo.martType == MART_TYPE_BP
          || sMartInfo.martType == MART_TYPE_BP_ITEM
-         || sMartInfo.martType == MART_TYPE_KURT))
+         || sMartInfo.martType == MART_TYPE_KURT
+         || sMartInfo.martType == MART_TYPE_MEGA_STONES))
     {
         static const u8 sText_MoreInfoHint[] = _("{SELECT_BUTTON} Más info...");
         AddTextPrinterParameterized4(WIN_ITEM_DESCRIPTION, FONT_SMALL_NARROWER, 3, 35, 0, 0,
@@ -1980,7 +1982,8 @@ static void Task_BuyMenu(u8 taskId)
                         if (sMartInfo.martType == MART_TYPE_NORMAL
                             || sMartInfo.martType == MART_TYPE_BP
                             || sMartInfo.martType == MART_TYPE_BP_ITEM
-                            || sMartInfo.martType == MART_TYPE_KURT)
+                            || sMartInfo.martType == MART_TYPE_KURT
+                            || sMartInfo.martType == MART_TYPE_MEGA_STONES)
                         {
                             PlaySE(SE_SELECT);
                             OpenShopItemPopupInfo(taskId, (u16)currentItem);
