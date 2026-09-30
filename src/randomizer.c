@@ -30,6 +30,89 @@ enum RandomizerOffensiveProfile
     RANDOMIZER_PROFILE_UTILITY,
 };
 
+static bool32 IsMoveInSpeciesTeachableLearnset(u16 species, u16 move)
+{
+    const u16 *learnset = GetSpeciesTeachableLearnset(species);
+
+    for (u32 i = 0; learnset[i] != MOVE_UNAVAILABLE; i++)
+    {
+        if (learnset[i] == move)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static enum RandomizerOffensiveProfile GetRandomizerOffensiveProfile(u16 species)
+{
+    u16 baseAttack = gSpeciesInfo[species].baseAttack;
+    u16 baseSpAttack = gSpeciesInfo[species].baseSpAttack;
+
+    if (baseAttack < 60 && baseSpAttack < 60)
+        return RANDOMIZER_PROFILE_UTILITY;
+    if (baseAttack * 100 >= baseSpAttack * 120)
+        return RANDOMIZER_PROFILE_PHYSICAL;
+    if (baseSpAttack * 100 >= baseAttack * 120)
+        return RANDOMIZER_PROFILE_SPECIAL;
+    return RANDOMIZER_PROFILE_MIXED;
+}
+
+static u32 GetTMCompatibilityWeight(u16 species, u16 move)
+{
+    enum DamageCategory category = GetMoveCategory(move);
+    enum RandomizerOffensiveProfile profile = GetRandomizerOffensiveProfile(species);
+    u8 moveType = gMovesInfo[move].type;
+
+    if (category == DAMAGE_CATEGORY_STATUS)
+        return 45;
+    if (moveType == gSpeciesInfo[species].types[0] || moveType == gSpeciesInfo[species].types[1])
+        return 75;
+    if (profile == RANDOMIZER_PROFILE_MIXED)
+        return 35;
+    if (profile == RANDOMIZER_PROFILE_PHYSICAL)
+        return category == DAMAGE_CATEGORY_PHYSICAL ? 40 : 20;
+    if (profile == RANDOMIZER_PROFILE_SPECIAL)
+        return category == DAMAGE_CATEGORY_SPECIAL ? 40 : 20;
+    return 20;
+}
+
+static u32 GetTMCompatibilityScore(u16 species, u16 move)
+{
+    u32 value = GetRandomizerSeed() ^ ((u32)species * 0x45D9F3Bu) ^ ((u32)move * 0x119DE1F3u);
+
+    value ^= value >> 16;
+    value *= 0x7FEB352Du;
+    value ^= value >> 15;
+    value *= 0x846CA68Bu;
+    value ^= value >> 16;
+    return ((value & 0xFFFF) + 1) * GetTMCompatibilityWeight(species, move);
+}
+
+bool32 IsRandomizedTMCompatible(u16 species, u16 move)
+{
+    u32 compatibleTMCount = 0;
+    u32 higherScoreCount = 0;
+    u32 candidateScore;
+
+    species = SanitizeSpeciesId(species);
+    if (species == SPECIES_NONE || species == SPECIES_EGG)
+        return FALSE;
+
+    candidateScore = GetTMCompatibilityScore(species, move);
+    for (u32 i = 0; i < 100; i++)
+    {
+        u16 tmMove = GetItemTMHMMoveId(ITEM_TM01 + i);
+        u32 tmScore = GetTMCompatibilityScore(species, tmMove);
+
+        if (IsMoveInSpeciesTeachableLearnset(species, tmMove))
+            compatibleTMCount++;
+        if (tmScore > candidateScore || (tmScore == candidateScore && tmMove < move))
+            higherScoreCount++;
+    }
+
+    return higherScoreCount < compatibleTMCount;
+}
+
 const u16 gStarterAndGiftMonTable[STARTER_AND_GIFT_MON_COUNT] =
 {
     SPECIES_CYNDAQUIL,
@@ -2256,18 +2339,9 @@ u16 RandomizeMove(u16 move, u16 species)
 
     if (species < NUM_SPECIES)
     {
-        u16 baseAttack = gSpeciesInfo[species].baseAttack;
-        u16 baseSpAttack = gSpeciesInfo[species].baseSpAttack;
-
         monType1 = gSpeciesInfo[species].types[0];
         monType2 = gSpeciesInfo[species].types[1];
-
-        if (baseAttack < 60 && baseSpAttack < 60)
-            offensiveProfile = RANDOMIZER_PROFILE_UTILITY;
-        else if (baseAttack * 100 >= baseSpAttack * 120)
-            offensiveProfile = RANDOMIZER_PROFILE_PHYSICAL;
-        else if (baseSpAttack * 100 >= baseAttack * 120)
-            offensiveProfile = RANDOMIZER_PROFILE_SPECIAL;
+        offensiveProfile = GetRandomizerOffensiveProfile(species);
     }
 
     if (move < MOVES_COUNT)

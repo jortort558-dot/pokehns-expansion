@@ -179,6 +179,7 @@ u16 RandomizeEggMon(u16 originalSlot, const u16* originalEggMons);
 u16 RandomizeAbility(u16 species, u8 abilityNum, u16 originalAbility);
 
 u16 RandomizeMove(u16 move, u16 species);
+bool32 IsRandomizedTMCompatible(u16 species, u16 move);
 
 u16 RandomizeEvolution(u16 targetSpecies, u16 originalSpecies);
 

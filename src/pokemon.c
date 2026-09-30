@@ -7952,7 +7952,25 @@ u8 CanLearnTeachableMove(u16 species, enum Move move)
     const u16 *teachableLearnset;
 #if RANDOMIZER_AVAILABLE
     if (RandomizerFeatureEnabled(RANDOMIZE_LEARNSET))
+    {
+        if (IsMoveHM(move))
+        {
+            const u16 *originalLearnset = GetSpeciesTeachableLearnset(species);
+
+            for (u32 i = 0; originalLearnset[i] != MOVE_UNAVAILABLE; i++)
+            {
+                if (originalLearnset[i] == move)
+                    return TRUE;
+            }
+            return FALSE;
+        }
+        for (u32 i = 0; i < 100; i++)
+        {
+            if (GetItemTMHMMoveId(ITEM_TM01 + i) == move)
+                return IsRandomizedTMCompatible(species, move);
+        }
         species = RandomizeMonBaseForm(RANDOMIZER_REASON_LEARNSET, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), species, species);
+    }
 #endif
     teachableLearnset = GetSpeciesTeachableLearnset(species);
     if (species == SPECIES_EGG)

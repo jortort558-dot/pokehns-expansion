@@ -68,9 +68,6 @@ CherryGrove_Pokecenter_Text_MegaResearcherIntro:
 	.string "LAGO DE LA FURIA.\p"
 	.string "Pero un chico pelirrojo robó dos\n"
 	.string "prototipos del laboratorio...$"
-	.string "su MEGAPIEDRA equipada.\p"
-	.string "Pulsa SELECT antes de elegir un\n"
-	.string "movimiento para megaevolucionar.$"
 
 CherryGrove_Pokecenter_Text_Chansey:
 	.string "CHANSEY: Chaan! Sii!$"
