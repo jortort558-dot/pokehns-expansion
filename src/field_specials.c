@@ -6156,3 +6156,8 @@ void GivePartyMonNationalRibbon(void)
             TryPutSpotTheCutiesOnAir(mon, MON_DATA_NATIONAL_RIBBON);
     }
 }
+
+void BufferFestivalTicketCount(void)
+{
+    ConvertIntToDecimalStringN(gStringVar1, CountTotalItemQuantityInBag(ITEM_FESTIVAL_TICKET), STR_CONV_MODE_LEFT_ALIGN, 3);
+}

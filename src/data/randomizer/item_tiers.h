@@ -56,6 +56,8 @@ static const u16 sItemTier1[] =
 // =============================================================================
 static const u16 sItemTier2[] =
 {
+    ITEM_FESTIVAL_TICKET,
+
     // Poké Balls
     ITEM_GREAT_BALL,
     ITEM_NEST_BALL,
@@ -292,6 +294,13 @@ static const u16 sItemTier3[] =
 // =============================================================================
 static const u16 sItemTier4[] =
 {
+    ITEM_CHUPITO_PS,
+    ITEM_CHUPITO_ATK,
+    ITEM_CHUPITO_DEF,
+    ITEM_CHUPITO_SPATK,
+    ITEM_CHUPITO_SPDEF,
+    ITEM_CHUPITO_SPEED,
+
     // Held Items Élite
     ITEM_LEFTOVERS,
     ITEM_LIFE_ORB,

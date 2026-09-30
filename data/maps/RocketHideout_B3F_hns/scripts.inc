@@ -556,13 +556,13 @@ RocketHideout_B3F_Text_GruntF5Seen:
 RocketHideout_B3F_Text_GruntF5Beaten:
 	.string "¡Vale, vale! ¡Para! Te la digo.$"
 RocketHideout_B3F_Text_GruntF5After:
-	.string "La contraseña de la sala del jefe\nes COLASLOWPOKE.\pPero no sirve si no tienes\nlas dos claves.$"
+	.string "La contraseña de la sala del jefe\nes CLARO CABRÓN.\pPero no sirve si no tienes\nlas dos claves.$"
 RocketHideout_B3F_Text_GruntM28Seen:
 	.string "¡Jia, jia, jia!\p¡Te recuerdo del pozo!\p¿Vuelves a desafiarme?\p¡Estás loco, pero tienes agallas!\p¡Te aviso: he mejorado!\pSi me vences, te diré una clave\nde la sala del jefe.$"
 RocketHideout_B3F_Text_GruntM28Beaten:
 	.string "¡Jia, jia, jia! ¡Eres una máquina!$"
 RocketHideout_B3F_Text_GruntM28After:
-	.string "¡Jia, jia, jia!\pLa contraseña de la sala del jefe…\pMmm… Creo que es COLARATICATE.$"
+	.string "¡Jia, jia, jia!\pLa contraseña de la sala del jefe…\pMmm… Creo que es NATACION93.$"
 RocketHideout_B3F_Text_ScientistRossSeen:
 	.string "Antes trabajaba para SILPH, pero\nahora trabajo para el TEAM ROCKET.\pUn crío entrometido como tú merece\nun castigo.$"
 RocketHideout_B3F_Text_ScientistRossBeaten:

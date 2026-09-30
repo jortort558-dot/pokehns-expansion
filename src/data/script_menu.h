@@ -1329,7 +1329,7 @@ static const struct MenuAction MultichoiceList_IgorBar[] =
     {COMPOUND_STRING("CHUPITO AT. ESP (1)")},
     {COMPOUND_STRING("CHUPITO DEF. ESP (1)")},
     {COMPOUND_STRING("CHUPITO VELOC. (1)")},
-    {COMPOUND_STRING("CUBATA (6 VALES)")},
+    {COMPOUND_STRING("CUBATA (5 VALES)")},
     {gText_Exit},
 };
 

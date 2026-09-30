@@ -426,6 +426,7 @@ GoldenrodCity_UndergroundTunnel_EventScript_Igor::
 	goto_if_eq GoldenrodCity_UndergroundTunnel_EventScript_Igor_Intro
 	msgbox GoldenrodUnderground_Text_IgorWelcome, MSGBOX_DEFAULT
 GoldenrodCity_UndergroundTunnel_EventScript_Igor_Menu::
+	special BufferFestivalTicketCount
 	message GoldenrodUnderground_Text_IgorOffer
 	waitmessage
 	multichoice 0, 0, MULTI_IGOR_BAR, FALSE
@@ -492,6 +493,9 @@ GoldenrodCity_UndergroundTunnel_EventScript_ProcessSingleChupito::
 	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoTickets
 	checkitemspace VAR_0x8008, 1
 	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoRoom
+	bufferitemname STR_VAR_2, VAR_0x8008
+	msgbox GoldenrodUnderground_Text_IgorConfirmChupito, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_UndergroundTunnel_EventScript_Igor_Menu
 	removeitem ITEM_FESTIVAL_TICKET, 1
 	giveitem VAR_0x8008, 1
 	compare VAR_IGOR_TUTORIAL_STATE, 1
@@ -511,6 +515,8 @@ GoldenrodCity_UndergroundTunnel_EventScript_BuyCubata::
 	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoTicketsCubata
 	checkitemspace ITEM_CUBATA, 1
 	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_UndergroundTunnel_EventScript_Igor_NoRoom
+	msgbox GoldenrodUnderground_Text_IgorConfirmCubata, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_UndergroundTunnel_EventScript_Igor_Menu
 	removeitem ITEM_FESTIVAL_TICKET, 5
 	giveitem ITEM_CUBATA, 1
 	msgbox GoldenrodUnderground_Text_IgorDeliveredCubata, MSGBOX_DEFAULT
@@ -600,12 +606,21 @@ GoldenrodUnderground_Text_IgorBarrier:
 	.string "Hay más vales en tu camino.$"
 
 GoldenrodUnderground_Text_IgorOffer:
-	.string "Trae tus Vales de Fiesta y te\n"
-	.string "serviré brebajes legendarios.\p"
+	.string "Vales disponibles: {STR_VAR_1}.\p"
+	.string "Tráemelos y te serviré\n"
+	.string "brebajes legendarios.\p"
 	.string "Un Chupito (1 vale) maximiza un\n"
 	.string "atributo (31 IVs).\p"
 	.string "El Cubata (5 vales) alcanzará la\n"
 	.string "perfección absoluta en todos.$"
+
+GoldenrodUnderground_Text_IgorConfirmChupito:
+	.string "¿Canjeas 1 Vale de Fiesta por\n"
+	.string "{STR_VAR_2}?$"
+
+GoldenrodUnderground_Text_IgorConfirmCubata:
+	.string "¿Canjeas 5 Vales de Fiesta por\n"
+	.string "un CUBATA?$"
 
 GoldenrodUnderground_Text_IgorDelivered:
 	.string "Una elección exquisita.\n"

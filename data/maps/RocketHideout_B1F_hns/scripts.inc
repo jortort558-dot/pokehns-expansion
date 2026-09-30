@@ -70,6 +70,8 @@ RocketHideout_B1F_Trigger_SpawnGruntStatue1::
 
 RocketHideout_B1F_Trigger_Statue1::
 	lock
+	setvar VAR_TEMP_3, TRAINER_GRUNT_13_HNS
+	setvar VAR_TEMP_4, TRAINER_GRUNT_14_HNS
 	setvar VAR_TEMP_0, LOCALID_ROCKETHIDEOUT_GRUNTM1
 	call RocketHideout_B1F_EventScript_SpawnGruntLeft
 	call RocketHideout_B1F_EventScript_SpawnGruntRight
@@ -91,6 +93,8 @@ RocketHideout_B1F_Trigger_SpawnGruntStatue2::
 
 RocketHideout_B1F_Trigger_Statue2::
 	lock
+	setvar VAR_TEMP_3, TRAINER_GRUNT_15_HNS
+	setvar VAR_TEMP_4, TRAINER_GRUNT_16_HNS
 	setvar VAR_TEMP_0, LOCALID_ROCKETHIDEOUT_GRUNTM2
 	call RocketHideout_B1F_EventScript_SpawnGruntLeft
 	call RocketHideout_B1F_EventScript_SpawnGruntRight
@@ -112,6 +116,8 @@ RocketHideout_B1F_Trigger_SpawnGruntStatue3::
 
 RocketHideout_B1F_Trigger_Statue3::
 	lock
+	setvar VAR_TEMP_3, TRAINER_GRUNT_17_HNS
+	setvar VAR_TEMP_4, TRAINER_GRUNT_18_HNS
 	setvar VAR_TEMP_0, LOCALID_ROCKETHIDEOUT_GRUNTM3
 	call RocketHideout_B1F_EventScript_SpawnGruntLeft
 	call RocketHideout_B1F_EventScript_SpawnGruntRight
@@ -133,6 +139,8 @@ RocketHideout_B1F_Trigger_SpawnGruntStatue4::
 
 RocketHideout_B1F_Trigger_Statue4::
 	lock
+	setvar VAR_TEMP_3, TRAINER_GRUNT_13_HNS
+	setvar VAR_TEMP_4, TRAINER_GRUNT_16_HNS
 	setvar VAR_TEMP_0, LOCALID_ROCKETHIDEOUT_GRUNTM4
 	call RocketHideout_B1F_EventScript_SpawnGruntLeft
 	call RocketHideout_B1F_EventScript_SpawnGruntRight
@@ -154,6 +162,8 @@ RocketHideout_B1F_Trigger_SpawnGruntStatue5::
 
 RocketHideout_B1F_Trigger_Statue5::
 	lock
+	setvar VAR_TEMP_3, TRAINER_GRUNT_15_HNS
+	setvar VAR_TEMP_4, TRAINER_GRUNT_18_HNS
 	setvar VAR_TEMP_0, LOCALID_ROCKETHIDEOUT_GRUNTM4
 	call RocketHideout_B1F_EventScript_SpawnGruntLeft
 	call RocketHideout_B1F_EventScript_SpawnGruntRight
@@ -179,14 +189,14 @@ RocketHideout_B1F_Trigger_StatueGruntLeft::
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	msgbox RocketHideout_B1F_Text_CameraGrunt1Seen, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_17_HNS, RocketHideout_B1F_Text_CameraGrunt1Beaten
+	trainerbattle_no_intro VAR_TEMP_3, RocketHideout_B1F_Text_CameraGrunt1Beaten
 	applymovement VAR_TEMP_0, RocketHideout_B1F_Movement_GruntWalkLeft
 	waitmovement 0
 	delay 55
 	applymovement VAR_TEMP_0, RocketHideout_B1F_Movement_GruntWalkRight
 	waitmovement 0
 	msgbox RocketHideout_B1F_Text_CameraGrunt2Seen, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_18_HNS, RocketHideout_B1F_Text_CameraGrunt2Beaten
+	trainerbattle_no_intro VAR_TEMP_4, RocketHideout_B1F_Text_CameraGrunt2Beaten
 	applymovement VAR_TEMP_0, RocketHideout_B1F_Movement_GruntWalkLeft
 	waitmovement 0
 	setflag FLAG_HIDE_ROCKETHIDEOUT_ROCKETS
@@ -206,14 +216,14 @@ RocketHideout_B1F_Trigger_StatueGruntRight::
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	msgbox RocketHideout_B1F_Text_CameraGrunt1Seen, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_17_HNS, RocketHideout_B1F_Text_CameraGrunt1Beaten
+	trainerbattle_no_intro VAR_TEMP_3, RocketHideout_B1F_Text_CameraGrunt1Beaten
 	applymovement VAR_TEMP_0, RocketHideout_B1F_Movement_GruntWalkRight
 	waitmovement 0
 	delay 55
 	applymovement VAR_TEMP_0, RocketHideout_B1F_Movement_GruntWalkLeft
 	waitmovement 0
 	msgbox RocketHideout_B1F_Text_CameraGrunt2Seen, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_18_HNS, RocketHideout_B1F_Text_CameraGrunt2Beaten
+	trainerbattle_no_intro VAR_TEMP_4, RocketHideout_B1F_Text_CameraGrunt2Beaten
 	applymovement VAR_TEMP_0, RocketHideout_B1F_Movement_GruntWalkRight
 	waitmovement 0
 	setflag FLAG_HIDE_ROCKETHIDEOUT_ROCKETS
