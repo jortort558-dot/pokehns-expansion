@@ -21,6 +21,7 @@
 #define KANTO_MAX_LEVEL 70
 
 u32 GetCurrentLevelCap(void);
+u32 GetPreviousLevelCap(void);
 u32 GetSoftLevelCapExpValue(u32 level, u32 expValue);
 u32 GetCurrentEVCap(void);
 void BufferCurrentLevelCap(void);

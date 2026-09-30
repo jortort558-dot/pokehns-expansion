@@ -2069,8 +2069,12 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         }
 
         u32 currentCap = GetCurrentLevelCap();
-        bool32 canScale = (currentCap > 0 && currentCap < KANTO_MAX_LEVEL && !IsTrainerExemptFromScaling(trainerId, trainer->trainerClass));
-        s32 targetMaxLevel = (s32)currentCap - 2;
+        u32 previousCap = GetPreviousLevelCap();
+        bool32 canScale = (previousCap > 2 && currentCap < KANTO_MAX_LEVEL && !IsTrainerExemptFromScaling(trainerId, trainer->trainerClass));
+        s32 targetMaxLevel = (s32)previousCap - 2;
+        s32 currentStageCeiling = (s32)currentCap - 2;
+        if (targetMaxLevel > currentStageCeiling)
+            targetMaxLevel = currentStageCeiling;
         if (canScale && targetMaxLevel < maxPartyLevel)
             canScale = FALSE;
 

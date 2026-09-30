@@ -43,25 +43,25 @@ static const u8 sLevelCapTable_Hard[] =
     [8] = 54,
 };
 
+static const u32 sLevelCapFlagMap[][2] =
+{
+    {FLAG_BADGE01_GET, 15},
+    {FLAG_BADGE02_GET, 19},
+    {FLAG_BADGE03_GET, 24},
+    {FLAG_BADGE04_GET, 29},
+    {FLAG_BADGE05_GET, 31},
+    {FLAG_BADGE06_GET, 33},
+    {FLAG_BADGE07_GET, 42},
+    {FLAG_BADGE08_GET, 46},
+    {FLAG_IS_CHAMPION, 58},
+};
+
 #ifndef KANTO_MAX_LEVEL
 #define KANTO_MAX_LEVEL 70
 #endif
 
 u32 GetCurrentLevelCap(void)
 {
-    static const u32 sLevelCapFlagMap[][2] =
-    {
-        {FLAG_BADGE01_GET, 15},
-        {FLAG_BADGE02_GET, 19},
-        {FLAG_BADGE03_GET, 24},
-        {FLAG_BADGE04_GET, 29},
-        {FLAG_BADGE05_GET, 31},
-        {FLAG_BADGE06_GET, 33},
-        {FLAG_BADGE07_GET, 42},
-        {FLAG_BADGE08_GET, 46},
-        {FLAG_IS_CHAMPION, 58},
-    };
-
     u8 challengeLevelCap = gSaveBlock3Ptr->challengeSettings.tx_Challenges_LevelCap;
 
     if (challengeLevelCap != 0)
@@ -103,6 +103,42 @@ u32 GetCurrentLevelCap(void)
     }
 
     return MAX_LEVEL;
+}
+
+u32 GetPreviousLevelCap(void)
+{
+    u8 challengeLevelCap = gSaveBlock3Ptr->challengeSettings.tx_Challenges_LevelCap;
+
+#if IS_HNS
+    if (FlagGet(FLAG_IS_CHAMPION))
+        return 0;
+#endif
+
+    if (challengeLevelCap != 0)
+    {
+        u8 badgeCount = GetCurrentBadgeCount();
+        if (badgeCount == 0)
+            return 0;
+        if (badgeCount > 8)
+            badgeCount = 8;
+
+        if (challengeLevelCap == 1)
+            return sLevelCapTable_Normal[badgeCount - 1];
+        else
+            return sLevelCapTable_Hard[badgeCount - 1];
+    }
+
+    if (B_LEVEL_CAP_TYPE == LEVEL_CAP_FLAG_LIST)
+    {
+        u32 i;
+        for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap); i++)
+        {
+            if (!FlagGet(sLevelCapFlagMap[i][0]))
+                return i == 0 ? 0 : sLevelCapFlagMap[i - 1][1];
+        }
+    }
+
+    return 0;
 }
 
 u32 GetSoftLevelCapExpValue(u32 level, u32 expValue)
