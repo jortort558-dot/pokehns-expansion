@@ -251,6 +251,12 @@ VioletCity_EventScript_LampSolved::
 	release
 	end
 
+VioletCity_EventScript_LampInactive::
+	lock
+	msgbox VioletCity_Text_LampInactive, MSGBOX_DEFAULT
+	release
+	end
+
 VioletCity_EventScript_SecretCaveEntrance::
 	lockall
 	goto_if_set FLAG_VIOLET_LAMP_PUZZLE_SOLVED, VioletCity_EventScript_SecretCaveOpen
@@ -313,6 +319,10 @@ VioletCity_Text_LampComplete:
 VioletCity_Text_LampSolved:
 	.string "La lámpara conserva un brillo\n"
 	.string "de Chroma permanente.$"
+
+VioletCity_Text_LampInactive:
+	.string "Esta lámpara no reacciona.\n"
+	.string "No forma parte del lienzo.$"
 
 VioletCity_Text_SecretCaveClosed:
 	.string "Las piedras encajan sin dejar\n"
