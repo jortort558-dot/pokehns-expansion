@@ -1489,7 +1489,7 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
                 if (wrappedDesc[i] == CHAR_NEWLINE)
                 {
                     lines++;
-                    if (lines > 4)
+                    if (lines > 2)
                         break;
                 }
                 sShopItemDescSummaryBuffer[i] = wrappedDesc[i];
