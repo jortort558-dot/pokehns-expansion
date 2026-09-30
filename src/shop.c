@@ -1497,9 +1497,6 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
             }
             sShopItemDescSummaryBuffer[i] = EOS;
 
-            static const u8 sText_MoreInfoHint[] = _("\n{SELECT_BUTTON} Más info...");
-            StringAppend(sShopItemDescSummaryBuffer, sText_MoreInfoHint);
-
             description = sShopItemDescSummaryBuffer;
 
             if (sMartInfo.martType == MART_TYPE_KURT)
@@ -1527,6 +1524,16 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
     AddTextPrinterParameterized4(WIN_ITEM_DESCRIPTION, FONT_SMALL_NARROWER, 3, 1, 0, 0,
                                  sShopBuyMenuTextColors[COLORID_NORMAL], 0, description);
+    if (item != LIST_CANCEL
+        && (sMartInfo.martType == MART_TYPE_NORMAL
+         || sMartInfo.martType == MART_TYPE_BP
+         || sMartInfo.martType == MART_TYPE_BP_ITEM
+         || sMartInfo.martType == MART_TYPE_KURT))
+    {
+        static const u8 sText_MoreInfoHint[] = _("{SELECT_BUTTON} Más info...");
+        AddTextPrinterParameterized4(WIN_ITEM_DESCRIPTION, FONT_SMALL_NARROWER, 3, 35, 0, 0,
+                                     sShopBuyMenuTextColors[COLORID_NORMAL], 0, sText_MoreInfoHint);
+    }
 }
 
 static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)

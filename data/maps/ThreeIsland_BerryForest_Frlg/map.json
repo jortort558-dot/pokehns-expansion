@@ -1,10 +1,8 @@
 {
   "id": "MAP_THREE_ISLAND_BERRY_FOREST",
   "name": "ThreeIsland_BerryForest_Frlg",
-  "game_version": "frlg",
   "layout": "LAYOUT_THREE_ISLAND_BERRY_FOREST",
   "music": "MUS_RG_VIRIDIAN_FOREST",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_BERRY_FOREST",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
@@ -13,13 +11,11 @@
   "allow_escaping": true,
   "allow_running": true,
   "show_map_name": true,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_BERRY_FOREST_LOSTELLE",
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL_FRLG",
       "x": 4,
       "y": 8,
@@ -33,7 +29,6 @@
       "flag": "FLAG_HIDE_LOSTELLE_IN_BERRY_FOREST"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
       "x": 12,
       "y": 11,
@@ -47,7 +42,6 @@
       "flag": "FLAG_TEMP_12"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
       "x": 19,
       "y": 7,
@@ -61,7 +55,6 @@
       "flag": "FLAG_TEMP_13"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
       "x": 23,
       "y": 17,
@@ -75,7 +68,6 @@
       "flag": "FLAG_TEMP_14"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
       "x": 38,
       "y": 23,
@@ -89,7 +81,6 @@
       "flag": "FLAG_TEMP_15"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
       "x": 44,
       "y": 23,
@@ -103,7 +94,6 @@
       "flag": "FLAG_TEMP_16"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
       "x": 44,
       "y": 29,
@@ -117,7 +107,6 @@
       "flag": "FLAG_TEMP_17"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
       "x": 16,
       "y": 43,
@@ -131,7 +120,6 @@
       "flag": "FLAG_TEMP_18"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
       "x": 17,
       "y": 39,
@@ -145,7 +133,6 @@
       "flag": "FLAG_TEMP_19"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
       "x": 14,
       "y": 39,
@@ -159,7 +146,6 @@
       "flag": "FLAG_TEMP_1A"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
       "x": 11,
       "y": 39,
@@ -173,7 +159,6 @@
       "flag": "FLAG_TEMP_1B"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 12,
       "y": 5,
@@ -187,7 +172,6 @@
       "flag": "FLAG_HIDE_THREE_ISLAND_BERRY_FOREST_MAX_ETHER"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 27,
       "y": 11,
@@ -201,7 +185,6 @@
       "flag": "FLAG_HIDE_THREE_ISLAND_BERRY_FOREST_FULL_HEAL"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 12,
       "y": 43,
@@ -386,5 +369,8 @@
       "quantity": 1,
       "underfoot": false
     }
-  ]
+  ],
+  "floor_number": 0,
+  "game_version": "frlg",
+  "region": "REGION_KANTO"
 }

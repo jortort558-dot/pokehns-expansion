@@ -79,8 +79,8 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "AzaleaPokeCenter_EventScript_Gentleman",
       "flag": "0"
-    }
-    ,{
+    },
+    {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN_HNS",
       "x": 10,
       "y": 5,

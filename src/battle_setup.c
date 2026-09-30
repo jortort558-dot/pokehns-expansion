@@ -1608,9 +1608,6 @@ void BattleSetup_StartTrainerBattle(void)
     if (GetTrainerBattleMode() == TRAINER_BATTLE_EARLY_RIVAL && GetRivalBattleFlags() & RIVAL_BATTLE_TUTORIAL)
         gBattleTypeFlags |= BATTLE_TYPE_FIRST_BATTLE;
 
-    if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_JUANRA_HNS)
-        gBattleTypeFlags |= BATTLE_TYPE_NO_NUZLOCKE_DEATH;
-
     if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)
     {
         VarSet(VAR_TEMP_PLAYING_PYRAMID_MUSIC, 0);

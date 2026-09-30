@@ -10603,13 +10603,13 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ice Punch
 - Thrash
 
-Rhydon
+Gengar @ Gengarite
 Level: 38
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Earthquake
-- Drill Run
-- Fissure
-- Rock Slide
+- Sludge Bomb
+- Shadow Ball
+- Thunderbolt
+- Destiny Bond
 
 === TRAINER_ARCHER_HNS ===
 Name: ARCHER
@@ -10654,7 +10654,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Roar
 - Flamethrower
 
-Slowbro
+Slowbro @ Slowbronite
 Level: 40
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Zen Headbutt
@@ -10861,7 +10861,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Spikes
 - Spike Cannon
 
-Pupitar
+Tyranitar @ Tyranitarite
 Level: 38
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
@@ -10955,7 +10955,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Stun Spore
 - Giga Drain
 
-Gyarados
+Gyarados @ Gyaradosite
 Level: 40
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Strength

@@ -1,10 +1,8 @@
 {
   "id": "MAP_FIVE_ISLAND_WATER_LABYRINTH",
   "name": "FiveIsland_WaterLabyrinth_Frlg",
-  "game_version": "frlg",
   "layout": "LAYOUT_FIVE_ISLAND_WATER_LABYRINTH",
   "music": "MUS_RG_SEVII_ROUTE",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_WATER_LABYRINTH",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -13,7 +11,6 @@
   "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
-  "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
@@ -29,7 +26,6 @@
   ],
   "object_events": [
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN_FRLG",
       "x": 14,
       "y": 11,
@@ -43,7 +39,6 @@
       "flag": "0"
     },
     {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2_FRLG",
       "x": 9,
       "y": 7,
@@ -59,5 +54,8 @@
   ],
   "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "floor_number": 0,
+  "game_version": "frlg",
+  "region": "REGION_KANTO"
 }

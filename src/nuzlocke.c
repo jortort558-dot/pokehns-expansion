@@ -441,9 +441,6 @@ void NuzlockeDeleteFaintedPartyPokemon(void)
     u8 i;
     struct Pokemon *pokemon;
     u16 item = ITEM_NONE;
-    if (gBattleTypeFlags & BATTLE_TYPE_NO_NUZLOCKE_DEATH)
-        return;
-
     // The Bug Contest lends the player a one-mon party (SavePlayerParty on entry,
     // LoadPlayerParty on exit), so a faint there is not a real death -- the mon
     // comes back with the restored party. Deleting it here would only leave a

@@ -34,6 +34,7 @@
 /* MgbaPrintf esta declarada en libisagbprn.c.
  * No tiene header propio: la declaramos extern aqui para no incluir
  * todo libisagbprn.h (que no existe) y minimizar dependencias. */
+extern bool32 MgbaOpen(void);
 extern void MgbaPrintf(s32 level, const char *ptr, ...);
 
 #define TRACKER_LOG_LEVEL   MGBA_LOG_INFO
@@ -77,6 +78,7 @@ static const char *AilmentToStr(u32 ailment)
  * ------------------------------------------------------------------------- */
 void Tracker_DumpParty(void)
 {
+    MgbaOpen();
     u8 i;
     char buf[TRACKER_BUF_SIZE];
     s32 offset = 0;
@@ -100,10 +102,9 @@ void Tracker_DumpParty(void)
         /* Mote (hasta 10 chars) */
         u8 nickname[POKEMON_NAME_LENGTH + 1];
         GetMonData(mon, MON_DATA_NICKNAME, nickname);
-        nickname[POKEMON_NAME_LENGTH] = '\0';
 
         offset += TrackerSnprintf(buf + offset, TRACKER_BUF_SIZE - offset,
-            "|%d,%d,%d,%d,%d,%s,%s",
+            "|%d,%d,%d,%d,%d,%S,%s",
             i, (int)species, (int)level, (int)hp, (int)maxHp,
             (const char *)nickname,
             AilmentToStr(ailment));
@@ -130,10 +131,9 @@ void Tracker_EmitFaint(u8 position)
     u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
     u8 nickname[POKEMON_NAME_LENGTH + 1];
     GetMonData(mon, MON_DATA_NICKNAME, nickname);
-    nickname[POKEMON_NAME_LENGTH] = '\0';
 
     MgbaPrintf(TRACKER_LOG_LEVEL,
-        "TRACKER:FAINT:%d,%d,%d,%s",
+        "TRACKER:FAINT:%d,%d,%d,%S",
         (int)position, (int)species, (int)level, (const char *)nickname);
 
     /* Despues de emitir la muerte, actualizamos el equipo completo */
@@ -155,10 +155,9 @@ void Tracker_EmitCapture(u8 position)
     u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
     u8 nickname[POKEMON_NAME_LENGTH + 1];
     GetMonData(mon, MON_DATA_NICKNAME, nickname);
-    nickname[POKEMON_NAME_LENGTH] = '\0';
 
     MgbaPrintf(TRACKER_LOG_LEVEL,
-        "TRACKER:CAPTURE:%d,%d,%d,%s",
+        "TRACKER:CAPTURE:%d,%d,%d,%S",
         (int)position, (int)species, (int)level, (const char *)nickname);
 
     Tracker_DumpParty();

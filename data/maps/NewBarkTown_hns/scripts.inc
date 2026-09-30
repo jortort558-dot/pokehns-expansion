@@ -171,6 +171,32 @@ NewBarkTown_EventScript_Door::
 	msgbox NewBarkTown_Text_Door, MSGBOX_SIGN
 	end
 
+NewBarkTown_EventScript_SecretGardenEntrance::
+	compare VAR_NEWBARK_TOWN_STATE, 3
+	goto_if_lt NewBarkTown_EventScript_SecretGardenBlocked
+	msgbox NewBarkTown_Text_SecretGardenEntrance, MSGBOX_SIGN
+	warp MAP_NEW_BARK_TOWN_HNS, 14, 34
+	waitstate
+	end
+
+NewBarkTown_EventScript_SecretGardenBlocked::
+	msgbox NewBarkTown_Text_SecretGardenBlocked, MSGBOX_SIGN
+	end
+
+NewBarkTown_EventScript_SecretGardenExit::
+	msgbox NewBarkTown_Text_SecretGardenExit, MSGBOX_SIGN
+	warp MAP_NEW_BARK_TOWN_HNS, 6, 8
+	waitstate
+	end
+
+NewBarkTown_EventScript_SecretGardenDiary::
+	msgbox NewBarkTown_Text_SecretGardenDiary, MSGBOX_SIGN
+	end
+
+NewBarkTown_EventScript_SecretGardenLookout::
+	msgbox NewBarkTown_Text_SecretGardenLookout, MSGBOX_SIGN
+	end
+
 NewBarkTown_EventScript_TestMan1::
 	givebp 4
 	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_GETPOINTS
@@ -230,6 +256,34 @@ NewBarkTown_Text_LabSign:
 NewBarkTown_Text_Door:
 	.string "La puerta está cerrada.$"
 
+NewBarkTown_Text_SecretGardenEntrance:
+	.string "Entre las ramas se cuela una\n"
+	.string "corriente de aire.\p"
+	.string "Hay un paso estrecho tras el\n"
+	.string "laboratorio...$"
+
+NewBarkTown_Text_SecretGardenBlocked:
+	.string "Las ramas son demasiado densas.\n"
+	.string "No parece seguro pasar sin un\l"
+	.string "POKéMON.$"
+
+NewBarkTown_Text_SecretGardenExit:
+	.string "El sendero regresa al pueblo.$"
+
+NewBarkTown_Text_SecretGardenDiary:
+	.string "Es el diario de un investigador.\p"
+	.string "'El viento guía cada primavera\n"
+	.string "a las aves hacia TOHJO.\p"
+	.string "Algún día seguiré su viaje'.\p"
+	.string "Las últimas páginas están\n"
+	.string "cubiertas de sal.$"
+
+NewBarkTown_Text_SecretGardenLookout:
+	.string "Un viejo catalejo apunta hacia\n"
+	.string "el horizonte.\p"
+	.string "A lo lejos se distingue la bruma\n"
+	.string "de las CATARATAS TOHJO.$"
+
 NewBarkTown_Text_Wooper:
 	.string "WOOPER: Woooooop.$"
 
@@ -288,4 +342,3 @@ NewBarkTown_Text_PlayersHouse:
 
 NewBarkTown_Text_ElmsHouse:
 	.string "CASA DEL PROF. ELM$"
-

@@ -29,6 +29,7 @@ MAP_JSONS := \
   data/maps/ArtisanCave_B1F/map.json \
   data/maps/AzaleaTown_Gym_hns/map.json \
   data/maps/AzaleaTown_House1_hns/map.json \
+  data/maps/AzaleaTown_House2_hns/map.json \
   data/maps/AzaleaTown_KurtsHouse_hns/map.json \
   data/maps/AzaleaTown_Mart_hns/map.json \
   data/maps/AzaleaTown_PokemonCenter_hns/map.json \
