@@ -1437,7 +1437,8 @@ static void CloseShopItemPopupInfo(u8 taskId)
         if (sKurtCurrentBerry != ITEM_NONE)
             PrintBerryCount(WIN_BERRIES, sKurtCurrentBerry);
     }
-    else if (sMartInfo.martType == MART_TYPE_NORMAL)
+    else if (sMartInfo.martType == MART_TYPE_NORMAL
+          || sMartInfo.martType == MART_TYPE_MEGA_STONES)
     {
         PrintMoneyAmountInMoneyBoxWithBorder(WIN_MONEY, 1, 13, GetMoney(&gSaveBlock1Ptr->money));
     }
@@ -1454,6 +1455,9 @@ static void CloseShopItemPopupInfo(u8 taskId)
     if (sBerryIconSpriteId != SPRITE_NONE)
         gSprites[sBerryIconSpriteId].invisible = FALSE;
 
+    CopyWindowToVram(moneyWindowId, COPYWIN_FULL);
+    CopyWindowToVram(WIN_ITEM_LIST, COPYWIN_FULL);
+    CopyWindowToVram(WIN_ITEM_DESCRIPTION, COPYWIN_FULL);
     BuyMenuAddScrollIndicatorArrows();
 
     gTasks[taskId].func = Task_BuyMenu;
@@ -1537,6 +1541,7 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
         AddTextPrinterParameterized4(WIN_ITEM_DESCRIPTION, FONT_SMALL_NARROWER, 3, 35, 0, 0,
                                      sShopBuyMenuTextColors[COLORID_NORMAL], 0, sText_MoreInfoHint);
     }
+    CopyWindowToVram(WIN_ITEM_DESCRIPTION, COPYWIN_FULL);
 }
 
 static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
