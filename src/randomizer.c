@@ -22,6 +22,14 @@
 
 #define TRAINER_RANDOMIZER_VERSION 1
 
+enum RandomizerOffensiveProfile
+{
+    RANDOMIZER_PROFILE_PHYSICAL,
+    RANDOMIZER_PROFILE_SPECIAL,
+    RANDOMIZER_PROFILE_MIXED,
+    RANDOMIZER_PROFILE_UTILITY,
+};
+
 const u16 gStarterAndGiftMonTable[STARTER_AND_GIFT_MON_COUNT] =
 {
     SPECIES_CYNDAQUIL,
@@ -2237,7 +2245,10 @@ u16 RandomizeMove(u16 move, u16 species)
     u8 originalPower = 0;
     u8 monType1 = TYPE_MYSTERY;
     u8 monType2 = TYPE_MYSTERY;
+    enum RandomizerOffensiveProfile offensiveProfile = RANDOMIZER_PROFILE_MIXED;
+    enum DamageCategory preferredCategory = DAMAGE_CATEGORY_STATUS;
     bool8 preferStab = FALSE;
+    bool8 preferCategory = FALSE;
     u32 attempts;
 
     if (move == MOVE_NONE)
@@ -2245,8 +2256,18 @@ u16 RandomizeMove(u16 move, u16 species)
 
     if (species < NUM_SPECIES)
     {
+        u16 baseAttack = gSpeciesInfo[species].baseAttack;
+        u16 baseSpAttack = gSpeciesInfo[species].baseSpAttack;
+
         monType1 = gSpeciesInfo[species].types[0];
         monType2 = gSpeciesInfo[species].types[1];
+
+        if (baseAttack < 60 && baseSpAttack < 60)
+            offensiveProfile = RANDOMIZER_PROFILE_UTILITY;
+        else if (baseAttack * 100 >= baseSpAttack * 120)
+            offensiveProfile = RANDOMIZER_PROFILE_PHYSICAL;
+        else if (baseSpAttack * 100 >= baseAttack * 120)
+            offensiveProfile = RANDOMIZER_PROFILE_SPECIAL;
     }
 
     if (move < MOVES_COUNT)
@@ -2274,6 +2295,29 @@ u16 RandomizeMove(u16 move, u16 species)
     // No se filtra por categoría para mantener viables atacantes mixtos.
     if (monType1 != TYPE_MYSTERY && (RandomizerNextRange(&state, 100) < 40))
         preferStab = TRUE;
+
+    if (offensiveProfile == RANDOMIZER_PROFILE_UTILITY)
+    {
+        if (RandomizerNextRange(&state, 100) < 60)
+        {
+            preferredCategory = DAMAGE_CATEGORY_STATUS;
+            preferCategory = TRUE;
+        }
+    }
+    else
+    {
+        u8 physicalChance = 50;
+
+        if (offensiveProfile == RANDOMIZER_PROFILE_PHYSICAL)
+            physicalChance = 70;
+        else if (offensiveProfile == RANDOMIZER_PROFILE_SPECIAL)
+            physicalChance = 30;
+
+        preferredCategory = RandomizerNextRange(&state, 100) < physicalChance
+                          ? DAMAGE_CATEGORY_PHYSICAL
+                          : DAMAGE_CATEGORY_SPECIAL;
+        preferCategory = TRUE;
+    }
 
     for (attempts = 0; attempts < 150; attempts++)
     {
@@ -2310,6 +2354,23 @@ u16 RandomizeMove(u16 move, u16 species)
             u8 moveType = gMovesInfo[result].type;
             if (moveType != monType1 && moveType != monType2)
                 continue;
+        }
+
+        // Los movimientos de estado quedan libres salvo en el perfil de utilidad.
+        // Entre movimientos con daño, se respeta el reparto 70/30 o 50/50.
+        if (preferCategory && attempts < 80)
+        {
+            enum DamageCategory moveCategory = GetMoveCategory(result);
+
+            if (preferredCategory == DAMAGE_CATEGORY_STATUS)
+            {
+                if (moveCategory != DAMAGE_CATEGORY_STATUS)
+                    continue;
+            }
+            else if (moveCategory != DAMAGE_CATEGORY_STATUS && moveCategory != preferredCategory)
+            {
+                continue;
+            }
         }
 
         return result;
