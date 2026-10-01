@@ -1245,7 +1245,8 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, enum Item item, u
     if (sMartInfo.martType == MART_TYPE_NORMAL
         || sMartInfo.martType == MART_TYPE_KURT
         || sMartInfo.martType == MART_TYPE_BP
-        || sMartInfo.martType == MART_TYPE_BP_ITEM)
+        || sMartInfo.martType == MART_TYPE_BP_ITEM
+        || sMartInfo.martType == MART_TYPE_MEGA_STONES)
     {
         CopyItemName(item, name);
         if (GetItemTMHMIndex(item) != 0)
