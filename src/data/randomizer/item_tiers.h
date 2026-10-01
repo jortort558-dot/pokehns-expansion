@@ -292,16 +292,9 @@ static const u16 sItemTier3[] =
 // =============================================================================
 // TIER 4: Competitivo / Élite / Raro
 // =============================================================================
-static const u16 sItemTier4[] =
+// Held Items Competitivos de Élite (Sujetos a Drop Singular / Sin Repetición)
+static const u16 sCompetitiveItemsPool[] =
 {
-    ITEM_CHUPITO_PS,
-    ITEM_CHUPITO_ATK,
-    ITEM_CHUPITO_DEF,
-    ITEM_CHUPITO_SPATK,
-    ITEM_CHUPITO_SPDEF,
-    ITEM_CHUPITO_SPEED,
-
-    // Held Items Élite
     ITEM_LEFTOVERS,
     ITEM_LIFE_ORB,
     ITEM_CHOICE_BAND,
@@ -326,6 +319,30 @@ static const u16 sItemTier4[] =
     ITEM_BLUNDER_POLICY,
     ITEM_FLAME_ORB,
     ITEM_TOXIC_ORB,
+};
+
+#define NUM_COMPETITIVE_ITEMS ARRAY_COUNT(sCompetitiveItemsPool)
+
+static inline s32 GetCompetitiveItemIndex(u16 itemId)
+{
+    u32 i;
+    for (i = 0; i < ARRAY_COUNT(sCompetitiveItemsPool); i++)
+    {
+        if (sCompetitiveItemsPool[i] == itemId)
+            return (s32)i;
+    }
+    return -1;
+}
+
+// Consumibles y Tesoros de Tier 4 (no sujetos a exclusividad singular)
+static const u16 sItemTier4General[] =
+{
+    ITEM_CHUPITO_PS,
+    ITEM_CHUPITO_ATK,
+    ITEM_CHUPITO_DEF,
+    ITEM_CHUPITO_SPATK,
+    ITEM_CHUPITO_SPDEF,
+    ITEM_CHUPITO_SPEED,
 
     // Consumibles de Élite
     ITEM_SACRED_ASH,

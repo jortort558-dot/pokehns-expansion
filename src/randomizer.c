@@ -601,6 +601,37 @@ u16 GetRandomizedTM(u16 tmId)
     return ITEM_TM01 + permutation[tmId - ITEM_TM01];
 }
 
+u16 GetRandomizedCompetitiveItem(u16 competitiveItem)
+{
+    u8 permutation[NUM_COMPETITIVE_ITEMS];
+    u32 i;
+    s32 compIdx;
+    struct Sfc32State state;
+
+    compIdx = GetCompetitiveItemIndex(competitiveItem);
+    if (compIdx < 0)
+        return competitiveItem;
+
+    // Si los competitivos están desactivados (2 = OFF), devolver el original
+    if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Competitive == 2)
+        return competitiveItem;
+
+    state = RandomizerRandSeed(RANDOMIZER_REASON_FIELD_ITEM, 0x434F4D50 /* "COMP" */, 0x504F4F4C /* "POOL" */);
+    for (i = 0; i < NUM_COMPETITIVE_ITEMS; i++)
+        permutation[i] = (u8)i;
+
+    // Fisher-Yates shuffle determinista según la seed de la partida
+    for (i = NUM_COMPETITIVE_ITEMS - 1; i > 0; i--)
+    {
+        u32 j = RandomizerNextRange(&state, i + 1);
+        u8 temp = permutation[i];
+        permutation[i] = permutation[j];
+        permutation[j] = temp;
+    }
+
+    return sCompetitiveItemsPool[permutation[compIdx]];
+}
+
 u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
 {
     struct Sfc32State state;
@@ -616,6 +647,11 @@ u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
     // MTs: barajadas si el shuffle de MTs está activo
     if (originalItem >= ITEM_TM01 && originalItem <= ITEM_TM100)
         return GetRandomizedTM(originalItem);
+
+    // Held items competitivos de élite: Shuffle determinista 1 a 1 sin repetición
+    // Cada objeto competitivo del juego aparece garantizado exactamente 1 vez.
+    if (GetCompetitiveItemIndex(originalItem) >= 0)
+        return GetRandomizedCompetitiveItem(originalItem);
 
     // HMs y Objetos Clave / Historia: NUNCA se tocan
     if ((originalItem >= ITEM_HM01 && originalItem <= ITEM_HM08)
@@ -718,7 +754,7 @@ u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
     roll -= wT3;
 
     if (roll < wT4)
-        return sItemTier4[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier4))];
+        return sItemTier4General[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier4General))];
 
     return sItemTier5[0];
 }

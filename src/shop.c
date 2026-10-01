@@ -1433,24 +1433,7 @@ static void CloseShopItemPopupInfo(u8 taskId)
     PutWindowTilemap(WIN_ITEM_LIST);
     PutWindowTilemap(WIN_ITEM_DESCRIPTION);
 
-    if (sMartInfo.martType == MART_TYPE_KURT)
-    {
-        DrawStdFrameWithCustomTileAndPalette(WIN_BERRIES, FALSE, 1, 13);
-        if (sKurtCurrentBerry != ITEM_NONE)
-            PrintBerryCount(WIN_BERRIES, sKurtCurrentBerry);
-    }
-    else if (sMartInfo.martType == MART_TYPE_NORMAL
-          || sMartInfo.martType == MART_TYPE_MEGA_STONES)
-    {
-        PrintMoneyAmountInMoneyBoxWithBorder(WIN_MONEY, 1, 13, GetMoney(&gSaveBlock1Ptr->money));
-    }
-    else
-    {
-        DrawStdFrameWithCustomTileAndPalette(WIN_MONEY, FALSE, 1, 13);
-        PrintBPAmountInMoneyBox(WIN_MONEY, gSaveBlock2Ptr->frontier.battlePoints, 0);
-    }
-
-    ScheduleBgCopyTilemapToVram(0);
+    BuyMenuDrawGraphics();
 
     if (sShopData->itemSpriteIds[sShopData->iconSlot] != SPRITE_NONE)
         gSprites[sShopData->itemSpriteIds[sShopData->iconSlot]].invisible = FALSE;
@@ -1657,6 +1640,7 @@ static void BuyMenuAddItemIcon(enum Item item, u8 iconSlot)
         || sMartInfo.martType == MART_TYPE_KURT
         || sMartInfo.martType == MART_TYPE_BP
         || sMartInfo.martType == MART_TYPE_BP_ITEM
+        || sMartInfo.martType == MART_TYPE_MEGA_STONES
         || item == ITEM_LIST_END)
     {
         spriteId = AddItemIconSprite(iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE, item);
