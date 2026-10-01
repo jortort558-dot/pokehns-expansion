@@ -1881,6 +1881,12 @@ static void DisplayBattleInfoPanel(enum BattlerId battler)
     enum BattlerId opponent = GetOpposingSideBattler(battler);
     s32 stat;
 
+    if (gCategoryIconSpriteId != 0xFF)
+    {
+        DestroySprite(&gSprites[gCategoryIconSpriteId]);
+        gCategoryIconSpriteId = 0xFF;
+    }
+
     LoadMessageBoxAndBorderGfx();
     DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
 

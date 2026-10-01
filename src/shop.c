@@ -1424,8 +1424,9 @@ static void CloseShopItemPopupInfo(u8 taskId)
 {
     u8 moneyWindowId;
 
-    ClearStdWindowAndFrameToTransparent(WIN_POPUP_INFO, FALSE);
+    ClearStdWindowAndFrameToTransparent(WIN_POPUP_INFO, TRUE);
     ClearWindowTilemap(WIN_POPUP_INFO);
+    CopyWindowToVram(WIN_POPUP_INFO, COPYWIN_MAP);
 
     moneyWindowId = (sMartInfo.martType == MART_TYPE_KURT) ? WIN_BERRIES : WIN_MONEY;
     PutWindowTilemap(moneyWindowId);
@@ -1467,6 +1468,7 @@ static void CloseShopItemPopupInfo(u8 taskId)
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list)
 {
     const u8 *description;
+    static u8 sShopItemDescSummaryBuffer[256];
 
     if (onInit != TRUE)
         PlaySECursorMove(SE_SELECT);
@@ -1511,6 +1513,28 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     }
 
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
+    if (item != LIST_CANCEL
+        && (sMartInfo.martType == MART_TYPE_NORMAL
+         || sMartInfo.martType == MART_TYPE_BP
+         || sMartInfo.martType == MART_TYPE_BP_ITEM
+         || sMartInfo.martType == MART_TYPE_KURT
+         || sMartInfo.martType == MART_TYPE_MEGA_STONES))
+    {
+        u8 wrappedDesc[256];
+        u32 src = 0;
+        u32 dst = 0;
+        u32 lines = 1;
+
+        WordWrapDescription(description, wrappedDesc, sizeof(wrappedDesc), FONT_NORMAL, 106);
+        while (wrappedDesc[src] != EOS && dst < sizeof(sShopItemDescSummaryBuffer) - 1)
+        {
+            if (wrappedDesc[src] == CHAR_NEWLINE && ++lines > 2)
+                break;
+            sShopItemDescSummaryBuffer[dst++] = wrappedDesc[src++];
+        }
+        sShopItemDescSummaryBuffer[dst] = EOS;
+        description = sShopItemDescSummaryBuffer;
+    }
     BuyMenuPrint(WIN_ITEM_DESCRIPTION, description, 3, 1, 0, COLORID_NORMAL);
     if (item != LIST_CANCEL
         && (sMartInfo.martType == MART_TYPE_NORMAL
