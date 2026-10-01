@@ -354,8 +354,8 @@ NewBarkTown_PlayersHouse_1F_Text_SwitchShoesWithRunningShoes:
 	.string "ZAPATILLAS DE DEPORTE!$"
 
 NewBarkTown_PlayersHouse_1F_Text_ExplainRunningShoes:
-	.string "MAMÁ: {PLAYER}, ¡mantén pulsado el\n"
-	.string "Botón B para correr rápido!$"
+	.string "MAMÁ: {PLAYER}, ¡mantén pulsado B\n"
+	.string "para correr más rápido!$"
 
 NewBarkTown_PlayersHouse_1F_Text_GivePokeVial:
 	.string "MAMÁ: ¡Y toma esto también!\n"
@@ -371,7 +371,8 @@ NewBarkTown_PlayersHouse_1F_Text_ExplainPokeVial:
 	.string "CENTRO POKéMON.$"
 
 NewBarkTown_PlayersHouse_1F_Text_MomHurryUpElmIsWaiting:
-	.string "MAMÁ: El PROF. ELM te está\nesperando.\p"
+	.string "MAMÁ: El PROF. ELM te está\n"
+	.string "esperando.\p"
 	.string "¡Date prisa, cielo!$"
 
 NewBarkTown_PlayersHouse_1F_Text_MomsFriend:

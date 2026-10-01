@@ -298,12 +298,13 @@ CherrygroveCity_Text_GuideGentPokecenter:
 
 CherrygroveCity_Text_GuideGentMart:
 	.string "Esto es una TIENDA POKéMON.\p"
-	.string "Venden BALLS y otros objetos\n"
+	.string "Venden POKé BALLS y otros objetos\n"
 	.string "que te serán muy útiles.$"
 
 CherrygroveCity_Text_GuideGentRoute30:
 	.string "La RUTA 30 sale por aquí.\p"
-	.string "Allí los entrenadores ponen a\nprueba\l"
+	.string "Allí los entrenadores ponen a\n"
+	.string "prueba\l"
 	.string "a sus queridos POKéMON en combate.$"
 
 CherrygroveCity_Text_GuideGentSea:
@@ -313,14 +314,17 @@ CherrygroveCity_Text_GuideGentSea:
 
 CherrygroveCity_Text_GuideGentMap:
 	.string "Y aquí…\p"
-	.string "¡Es mi casa! Gracias por tu\ncompañía.\p"
-	.string "¡Ah, y si alguna vez te pierdes,\nconsulta\l"
+	.string "¡Es mi casa! Gracias por tu\n"
+	.string "compañía.\p"
+	.string "¡Ah! Si alguna vez te pierdes,\n"
+	.string "consulta\l"
 	.string "el MAPA en tu POKéGEAR!\p"
 	.string "¡Te deseo mucha suerte en tu viaje!$"
 
 CherrygroveCity_Text_GuideGentDecline:
 	.string "Vaya… Es algo que me encanta hacer…\p"
-	.string "Bueno. Pásate a verme cuando\nquieras.$"
+	.string "Bueno. Pásate a verme cuando\n"
+	.string "quieras.$"
 
 CherrygroveCity_Text_RivalSeen:
 	.string "… … … … … … … …\p"
@@ -364,9 +368,11 @@ CherrygroveCity_Text_YoungsterHavePokedex:
 	.string "al CENTRO POKéMON.$"
 
 CherrygroveCity_Text_MysticWaterGuyBefore:
-	.string "Un POKéMON que atrapé llevaba un\nobjeto.\p"
+	.string "Un POKéMON que atrapé llevaba un\n"
+	.string "objeto.\p"
 	.string "Creo que es AGUA MÍSTICA.\p"
-	.string "A mí no me hace falta, ¿la quieres\ntú?$"
+	.string "A mí no me hace falta.\n"
+	.string "¿La quieres tú?$"
 
 CherrygroveCity_Text_MysticWaterGuyAfter:
 	.string "Bueno, pues a seguir pescando.$"

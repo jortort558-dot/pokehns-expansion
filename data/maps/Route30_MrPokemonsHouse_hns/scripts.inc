@@ -150,42 +150,50 @@ MrPokemonHouse_Movement_MrPokemon_Leave:
 
 MrPokemonHouse_Text_Intro1:
 	.string "¡Hola! Tú debes de ser {PLAYER}.\p"
-	.string "El PROF. ELM me avisó de que\nvendrías.$"
+	.string "El PROF. ELM me avisó de que\n"
+	.string "vendrías.$"
 
 MrPokemonHouse_Text_Intro2:
-	.string "Esto es lo que quiero que examine\nel\l"
-	.string "PROF. ELM.$"
+	.string "Quiero que el PROF. ELM examine\n"
+	.string "esto.$"
 
 MrPokemonHouse_Text_GotEgg:
 	.string "¡Recibes el HUEVO MISTERIOSO!$"
 
 MrPokemonHouse_Text_Intro3:
-	.string "Conozco a una pareja que regenta\nuna\l"
+	.string "Conozco a una pareja que regenta\n"
+	.string "una\l"
 	.string "GUARDERÍA POKéMON.\p"
 	.string "Ellos me dieron ese HUEVO.\p"
-	.string "Sentí curiosidad, así que le envié\nun e-mail\l"
+	.string "Sentí curiosidad, así que envié\n"
+	.string "un correo\l"
 	.string "al PROF. ELM.\p"
-	.string "En temas de evolución POKéMON, el\nPROF. ELM\l"
+	.string "En evolución POKéMON, el\n"
+	.string "PROF. ELM\l"
 	.string "es la máxima autoridad.$"
 
 
 MrPokemonHouse_Text_Intro4:
-	.string "Hasta el PROF. OAK reconoce su\ntalento.$"
+	.string "Hasta el PROF. OAK reconoce su\n"
+	.string "talento.$"
 
 MrPokemonHouse_Text_Intro5:
-	.string "Si mi hipótesis es correcta, el\nPROF. ELM\l"
+	.string "Si mi hipótesis es correcta, el\n"
+	.string "PROF. ELM\l"
 	.string "sabrá descubrirlo.$"
 
 MrPokemonHouse_Text_Heal:
 	.string "¿Vas a volver con el PROF. ELM?\p"
-	.string "Espera. Tus POKéMON deberían\ndescansar un poco.$"
+	.string "Espera. Tus POKéMON deberían\n"
+	.string "descansar un poco.$"
 
 MrPokemonHouse_Text_DependingOnYou:
 	.string "¡Cuento contigo!$"
 
 MrPokemonHouse_Text_AlwaysNewDiscoveries:
 	.string "¡La vida es maravillosa!\n"
-	.string "Siempre hay nuevos descubrimientos\lque hacer.$"
+	.string "Siempre hay nuevos descubrimientos\l"
+	.string "que hacer.$"
 
 MrPokemonHouse_Text_OakIntro:
 	.string "OAK: ¡Ajá! ¡Así que eres {PLAYER}!\p"
@@ -230,7 +238,8 @@ MrPokemonHouse_Text_GimmeTheScale:
 	.string "¿De un GYARADOS rojo?\p"
 	.string "¡Qué rareza! La… la quiero…\p"
 	.string "{PLAYER}, ¿te gustaría cambiármela?\p"
-	.string "Puedo darte este REPARTIR EXP que\nme dio\l"
+	.string "Puedo darte este REPARTIR EXP que\n"
+	.string "me dio\l"
 	.string "el PROF. OAK.$"
 
 MrPokemonHouse_Text_Disappointed:
@@ -238,7 +247,8 @@ MrPokemonHouse_Text_Disappointed:
 	.string "Es algo extraordinariamente raro.$"
 
 MrPokemonHouse_Text_ExpShare:
-	.string "También tengo un objeto especial\npara ti.$"
+	.string "También tengo un objeto especial\n"
+	.string "para ti.$"
 
 MrPokemonHouse_Text_ForeignMagazines:
 	.string "Está repleto de revistas\nextranjeras.\l"

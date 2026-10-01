@@ -58,9 +58,11 @@ Cherrygrove_Pokemart_Text_CooltrainerM_PokeBallsInStock:
 	.string "¡Por fin podré atrapar POKéMON!$"
 
 Cherrygrove_Pokemart_Text_Youngster:
-	.string "Paseando por la hierba, ¡un POKéMON\nbicho\l"
+	.string "Paseando por la hierba, un POKéMON\n"
+	.string "bicho\l"
 	.string "envenenó al mío!\p"
-	.string "Seguí caminando como si nada y mi\nPOKéMON\l"
+	.string "Seguí caminando como si nada y mi\n"
+	.string "POKéMON\l"
 	.string "se debilitó.\p"
 	.string "Deberías llevar siempre un ANTÍDOTO\n"
 	.string "encima.$"

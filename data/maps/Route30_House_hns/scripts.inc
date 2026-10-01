@@ -25,7 +25,8 @@ Route30_BerryHouse_Text_MonEatBerries:
 	.string "cuando comen BAYAS.\p"
 	.string "También pueden comer las que\n"
 	.string "lleven durante el combate.\p"
-	.string "CÉSAR fabrica BALLS con BAYAS\n"
+	.string "CÉSAR fabrica POKé BALLS\n"
+	.string "con BONGURIS\l"
 	.string "en PUEBLO AZALEA.\p"
 	.string "¡Toma, te regalo una!$"
 

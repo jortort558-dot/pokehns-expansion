@@ -677,17 +677,17 @@ NewBarkTown_Lab_Text_ElmAccepted:
 	.string "¡Eres de gran ayuda!$"
 
 NewBarkTown_Lab_Text_ElmRefused:
-	.string "Pero… ¡Por favor, necesito tu\nayuda!$"
+	.string "Pero… ¡Por favor, necesito\n"
+	.string "tu ayuda!$"
 
 NewBarkTown_Lab_Text_ElmResearchAmbitions:
 	.string "Cuando anuncie mis hallazgos,\n"
-	.string "estoy seguro de que profundizaremos\p"
-	.string "en los muchos misterios de los\n"
-	.string "POKéMON.\p"
+	.string "seguro que comprenderemos mejor\l"
+	.string "los misterios de los POKéMON.\p"
 	.string "¡Puedes contar con ello!$"
 
 NewBarkTown_Lab_Text_ElmGotAnEmail:
-	.string "¡Oh, mira! ¡He recibido un e-mail!\p"
+	.string "¡Oh, mira! ¡He recibido un correo!\p"
 	.string "… … … … … … … …\n"
 	.string "Hm… Ajá…\p"
 	.string "De acuerdo…$"
@@ -709,10 +709,10 @@ NewBarkTown_Lab_Text_ElmMissionFromMrPokemon:
 	.string "en nuestro lugar?$"
 
 NewBarkTown_Lab_Text_ElmChooseAPokemon:
-	.string "Quiero que cries a uno de los\nPOKéMON\l"
-	.string "que están en estas BALLS.\p"
-	.string "¡Serás el primer compañero de ese\n"
-	.string "POKéMON, {PLAYER}!\p"
+	.string "Quiero que críes a uno de los\n"
+	.string "POKéMON de estas POKé BALLS.\p"
+	.string "¡Serás su primer compañero,\n"
+	.string "{PLAYER}!\p"
 	.string "Adelante. ¡Elige uno!$"
 
 NewBarkTown_Lab_Text_ElmWhereGoing:
@@ -746,9 +746,8 @@ NewBarkTown_Lab_Text_Nickname:
 	.string "{STR_VAR_1}?$"
 
 NewBarkTown_Lab_Text_ElmDirections1:
-	.string "El SR. POKéMON vive algo más\n"
-	.string "allá de CEREZO, en la\l"
-	.string "ciudad siguiente.\p"
+	.string "El SR. POKéMON vive al norte\n"
+	.string "de CEREZO, en la RUTA 30.\p"
 	.string "El camino es casi recto,\n"
 	.string "no tiene pérdida.\p"
 	.string "Por si acaso, tienes mi\n"
@@ -756,14 +755,12 @@ NewBarkTown_Lab_Text_ElmDirections1:
 	.string "ocurre cualquier cosa!$"
 
 NewBarkTown_Lab_Text_ElmDirections1_Register:
-	.string "El SR. POKéMON vive algo más\n"
-	.string "allá de CEREZO, en la ciudad\l"
-	.string "siguiente.\p"
+	.string "El SR. POKéMON vive al norte\n"
+	.string "de CEREZO, en la RUTA 30.\p"
 	.string "Es un camino casi directo,\n"
 	.string "no tiene pérdida.\p"
-	.string "Pero por si acaso, aquí tienes mi\n"
-	.string "número de teléfono. ¡Llámame si\l"
-	.string "pasa algo!$"
+	.string "Por si acaso, aquí tienes mi\n"
+	.string "número. ¡Llámame si pasa algo!$"
 
 NewBarkTown_Lab_Text_RegisteredElm:
 	.string "Registrado el PROF. ELM\n"
@@ -787,10 +784,10 @@ NewBarkTown_Lab_Text_GotElmsNumber:
 	.string "teléfono de ELM.$"
 
 NewBarkTown_Lab_Text_ElmDescribesMrPokemon:
-	.string "El SR. POKéMON viaja a todas partes\n"
-	.string "y encuentra rarezas.\p"
-	.string "Lástima que sean solo raras y no\n"
-	.string "muy útiles…$"
+	.string "El SR. POKéMON viaja por todas\n"
+	.string "partes buscando rarezas.\p"
+	.string "Lástima que casi nunca sean\n"
+	.string "demasiado útiles…$"
 
 NewBarkTown_Lab_Text_ElmPokeBall:
 	.string "Contiene un POKéMON capturado\n"
@@ -835,8 +832,8 @@ NewBarkTown_Lab_Text_ElmAfterTheft4:
 
 NewBarkTown_Lab_Text_ElmStudyingEgg:
 	.string "ELM: ¡No te rindas!\n"
-	.string "¡Te llamaré si me entero de algo\lsobre\l"
-	.string "ese HUEVO!$"
+	.string "¡Te llamaré si descubro algo\l"
+	.string "sobre ese HUEVO!$"
 
 NewBarkTown_Lab_Text_ElmAideHasEgg:
 	.string "ELM: ¿{PLAYER}? ¿No viste\n"
@@ -848,8 +845,8 @@ NewBarkTown_Lab_Text_ElmAideHasEgg:
 	.string "Intenta encontrarlo allí.$"
 
 NewBarkTown_Lab_Text_ElmWaitingEggHatch:
-	.string "ELM: Oye, ¿ha cambiado en algo ese\n"
-	.string "HUEVO?$"
+	.string "ELM: Oye, ¿has notado algún\n"
+	.string "cambio en ese HUEVO?$"
 
 NewBarkTown_Lab_Text_ElmThoughtEggHatched:
 	.string "{PLAYER}? Pensé que el HUEVO había\n"
@@ -857,7 +854,7 @@ NewBarkTown_Lab_Text_ElmThoughtEggHatched:
 	.string "¿Dónde está el POKéMON?$"
 
 NewBarkTown_Lab_Text_ShowTogepi1:
-	.string "ELM: ¡{PLAYER}, te ves genial!$"
+	.string "ELM: ¡Ese POKéMON está genial!$"
 
 NewBarkTown_Lab_Text_ShowTogepi2:
 	.string "¡¿Qué?! ¡¿Ese POKéMON?!$"
@@ -865,15 +862,17 @@ NewBarkTown_Lab_Text_ShowTogepi2:
 NewBarkTown_Lab_Text_ShowTogepi3:
 	.string "¡El HUEVO eclosionó! Así que los\n"
 	.string "POKéMON nacen de HUEVOS…\p"
-	.string "Bueno, tal vez no todos los\nPOKéMON.\p"
-	.string "Vaya, aún queda mucho por\ninvestigar.$"
+	.string "Bueno, tal vez no todos los\n"
+	.string "POKéMON.\p"
+	.string "Vaya, aún queda mucho por\n"
+	.string "investigar.$"
 
 NewBarkTown_Lab_Text_ElmGiveEverstone1:
 	.string "¡Gracias, {PLAYER}! Nos ayudas\n"
 	.string "a desentrañar los misterios\l"
-	.string "POKéMON.\p"
-	.string "Quiero que tengas esto como muestra\n"
-	.string "de nuestro agradecimiento.$"
+	.string "de los POKéMON.\p"
+	.string "Quiero darte esto como muestra\n"
+	.string "de agradecimiento.$"
 
 NewBarkTown_Lab_Text_ElmGiveEverstone2:
 	.string "Es una PIEDRAETERNA.\p"
@@ -885,56 +884,61 @@ NewBarkTown_Lab_Text_ElmGiveEverstone2:
 	.string "que evolucione.$"
 
 NewBarkTown_Lab_Text_ElmCallYou:
-	.string "ELM: {PLAYER}, te llamaré si surge\ncualquier\l"
-	.string "cosa.$"
+	.string "ELM: {PLAYER}, te llamaré si\n"
+	.string "surge cualquier cosa.$"
 
 NewBarkTown_Lab_Text_AideAfterTheft:
-	.string "… Suspiro… Ese POKéMON robado.\p"
+	.string "…Ese POKéMON robado…\p"
 	.string "Me pregunto cómo le irá.\p"
-	.string "Dicen que un POKéMON criado por una\n"
-	.string "mala persona se vuelve malo\ltambién.$"
+	.string "Dicen que un POKéMON criado por\n"
+	.string "alguien malo también se vuelve\l"
+	.string "malo.$"
 
 NewBarkTown_Lab_Text_ElmGiveMasterBall1:
 	.string "ELM: ¡Hola, {PLAYER}!\p"
-	.string "¡Gracias a ti, mi investigación va\ngenial!\p"
+	.string "¡Gracias a ti, mi investigación\n"
+	.string "va genial!\p"
 	.string "Toma esto como muestra de mi\n"
 	.string "agradecimiento.$"
 
 NewBarkTown_Lab_Text_ElmGiveMasterBall2:
 	.string "¡La MASTER BALL es la mejor!\p"
-	.string "¡Es la BALL definitiva! Atrapará a\n"
+	.string "¡Es la POKé BALL definitiva!\n"
 	.string "cualquier POKéMON sin fallar.\p"
-	.string "Solo se otorga a investigadores\nPOKéMON\l"
-	.string "reconocidos.\p"
-	.string "¡Creo que tú le darás mucho mejor\nuso\l"
+	.string "Solo se entrega a investigadores\n"
+	.string "POKéMON reconocidos.\p"
+	.string "¡Creo que tú le darás mejor uso\n"
 	.string "que yo, {PLAYER}!$"
 
 NewBarkTown_Lab_Text_KimonoGirls:
-	.string "Por cierto...\n"
-	.string "Un grupo de hermosas CHICAS KIMONO\lte\l"
-	.string "estaban buscando.\p"
-	.string "Me dijeron que te están esperando\nen el\l"
-	.string "TEATRO DE DANZA de CIUDAD IRIS.\p"
-	.string "Sé que has pasado por muchas cosas\ndesde\l"
-	.string "que ese HUEVO te involucró en todo\lesto...\p"
+	.string "Por cierto…\n"
+	.string "Un grupo de CHICAS KIMONO muy\l"
+	.string "elegantes te estaba buscando.\p"
+	.string "Te esperan en el TEATRO DE DANZA\n"
+	.string "de CIUDAD IRIS.\p"
+	.string "Has pasado por muchas cosas desde\n"
+	.string "que aquel HUEVO te metió en todo\l"
+	.string "esto…\p"
 	.string "Espero que salgas adelante.$"
 
 NewBarkTown_Lab_Text_KimonoWaiting:
-	.string "PROF. ELM: Las CHICAS KIMONO te\nestán\l"
-	.string "esperando en el TEATRO DE DANZA de\l"
-	.string "CIUDAD IRIS.$"
+	.string "PROF. ELM: Las CHICAS KIMONO te\n"
+	.string "esperan en el TEATRO DE DANZA\l"
+	.string "de CIUDAD IRIS.$"
 
 NewBarkTown_Lab_Text_League:
-	.string "PROF. ELM: Jajaja...\n"
+	.string "PROF. ELM: Jajaja…\n"
 	.string "¡Buen trabajo!\p"
 	.string "Ese HUEVO raro te trajo bastantes\n"
 	.string "problemas, ¿eh?\p"
-	.string "¿Las CHICAS KIMONO dijeron algo\nsobre mí?\p"
+	.string "¿Las CHICAS KIMONO dijeron algo\n"
+	.string "sobre mí?\p"
 	.string "Yo no tengo nada que ver con eso.\p"
-	.string "Tú tomaste tu decisión y seguiste\nadelante.\p"
-	.string "Habiendo hecho tanto, ¡deberías\npoder\l"
-	.string "enfrentarte a la LIGA ahora!\p"
-	.string "¡Deberías poner rumbo a la MESETA\nAÑIL!\p"
+	.string "Tú tomaste tu decisión y seguiste\n"
+	.string "adelante.\p"
+	.string "Después de todo lo que has hecho,\n"
+	.string "¡ya puedes enfrentarte a la LIGA!\p"
+	.string "¡Pon rumbo a la MESETA AÑIL!\p"
 	.string "¿Sabes cómo llegar?\n"
 	.string "Sigue la RUTA 27 hasta la RUTA 26.\p"
 	.string "Una vez allí, ¡ve recto al norte!$"
@@ -944,14 +948,16 @@ NewBarkTown_Lab_Text_ElmGiveTicket1:
 	.string "ELM: ¡{PLAYER}! ¡Ahí estás!\p"
 	.string "Te llamé porque tengo algo para ti.\p"
 	.string "¿Ves? Es un TICKET BARCO.\p"
-	.string "Ahora puedes atrapar POKéMON en\nKANTO.$"
+	.string "Ahora puedes atrapar POKéMON\n"
+	.string "en KANTO.$"
 
 NewBarkTown_Lab_Text_ElmGiveTicket2:
 	.string "El barco sale de CIUDAD OLIVO.\p"
 	.string "Pero eso ya lo sabías, {PLAYER}.\p"
-	.string "Después de todo, has viajado por\ntodas\l"
-	.string "partes con tus POKéMON.\p"
-	.string "¡Dale mis recuerdos al PROF. OAK en\nKANTO!$"
+	.string "Después de todo, has viajado por\n"
+	.string "todas partes con tus POKéMON.\p"
+	.string "¡Dale recuerdos al PROF. OAK\n"
+	.string "cuando llegues a KANTO!$"
 
 NewBarkTown_Lab_Text_LabMonEgg:
 	.string "Es el HUEVO POKéMON que está siendo\n"
@@ -962,14 +968,14 @@ NewBarkTown_Lab_Text_AideGivePotion:
 	.string "tu recado.$"
 
 NewBarkTown_Lab_Text_AideAlwaysBusy:
-	.string "Solo somos tres, así que siempre\nestamos\l"
-	.string "ocupados.$"
+	.string "Solo somos tres, así que siempre\n"
+	.string "estamos ocupados.$"
 
 NewBarkTown_Lab_Text_AideSave:
 	.string "¡No olvides guardar tu partida\n"
 	.string "regularmente!\p"
-	.string "¡Pulsa el botón START y luego\nGUARDA\l"
-	.string "la partida!$"
+	.string "¡Pulsa START y elige GUARDAR\n"
+	.string "para hacerlo!$"
 
 NewBarkTown_Lab_Text_AideTheftTestimony:
 	.string "Se oyó un ruido muy fuerte\n"
@@ -985,36 +991,41 @@ NewBarkTown_Lab_Text_AideTheftTestimony:
 
 NewBarkTown_Lab_Text_AideGiveBalls:
 	.string "¡{PLAYER}!\p"
-	.string "¡Usa esto en tu búsqueda para\ncompletar\l"
+	.string "¡Usa esto para completar\n"
 	.string "la POKéDEX!$"
 
 NewBarkTown_Lab_Text_AideExplainBalls:
-	.string "Para añadir a tu POKéDEX, tienes\nque\l"
-	.string "atrapar POKéMON.\p"
-	.string "Lanza POKé BALLS a los POKéMON\nsalvajes\l"
-	.string "para atraparlos.$"
+	.string "Para completar la POKéDEX, tienes\n"
+	.string "que atrapar POKéMON.\p"
+	.string "Lanza POKé BALLS a los POKéMON\n"
+	.string "salvajes para atraparlos.$"
 
 NewBarkTown_Lab_Text_Officer1:
-	.string "He oído que han robado un POKéMON\naquí…\p"
+	.string "He oído que han robado un POKéMON\n"
+	.string "aquí…\p"
 	.string "Estaba obteniendo información del\n"
 	.string "PROF. ELM.\p"
 	.string "Al parecer, era un varón joven con\n"
 	.string "cabello largo y rojo…\p"
 	.string "¿Qué?\p"
 	.string "¿Luchaste contra un entrenador así?\p"
-	.string "¿Por casualidad conseguiste su\nnombre?$"
+	.string "¿Por casualidad averiguaste su\n"
+	.string "nombre?$"
 
 NewBarkTown_Lab_Text_Officer2_1:
-	.string "¡De acuerdo! ¿Así que se llamaba\n{RIVAL}?$"
+	.string "¡De acuerdo! ¿Así que se llamaba\n"
+	.string "{RIVAL}?$"
 
 NewBarkTown_Lab_Text_Officer2:
-	.string "¡Gracias por ayudar en mi\ninvestigación!$"
+	.string "¡Gracias por ayudarme con la\n"
+	.string "investigación!$"
 
 NewBarkTown_Lab_Text_OfficerNo:
-	.string "¡¿Seguro que no conseguiste su\nnombre?!$"
+	.string "¡¿Seguro que no averiguaste su\n"
+	.string "nombre?!$"
 
 NewBarkTown_Lab_Text_Elm_CallMe:
 	.string "¡Ah, {PLAYER}!\p"
 	.string "¿Qué tal va tu POKéDEX?\n"
-	.string "Ahora estoy ocupado, ¡pero llámame\len otro\l"
-	.string "momento y comprobaré tus avances!$"
+	.string "Ahora estoy ocupado, pero llámame\l"
+	.string "luego y comprobaré tus avances.$"

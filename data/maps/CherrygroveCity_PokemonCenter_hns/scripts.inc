@@ -48,7 +48,8 @@ CherryGrove_Pokecenter_Chansey::
 	end
 
 CherryGrove_Pokecenter_Text_Fisher:
-	.string "Es una maravilla. Puedo guardar\ntantos\l"
+	.string "Es una maravilla. Puedo guardar\n"
+	.string "tantos\l"
 	.string "POKéMON como quiera, y es gratis.$"
 
 CherryGrove_Pokecenter_Text_Gentleman:
@@ -67,7 +68,7 @@ CherryGrove_Pokecenter_Text_MegaResearcherIntro:
 	.string "La señal más intensa viene del\n"
 	.string "LAGO DE LA FURIA.\p"
 	.string "Pero un chico pelirrojo robó dos\n"
-	.string "prototipos del laboratorio...$"
+	.string "prototipos del laboratorio…$"
 
 CherryGrove_Pokecenter_Text_Chansey:
 	.string "CHANSEY: Chaan! Sii!$"
@@ -114,7 +115,7 @@ CherryGrove_Pokecenter_EventScript_VagrantDone::
 	end
 
 CherryGrove_Pokecenter_Text_Vagrant1:
-	.string "Las baldosas saben cosas, colega...\p"
+	.string "Las baldosas saben cosas, colega…\p"
 	.string "Pero solo hablan cuando trapean.$"
 
 CherryGrove_Pokecenter_Text_Vagrant2:
@@ -122,7 +123,7 @@ CherryGrove_Pokecenter_Text_Vagrant2:
 	.string "Igual era una ventana cerrada.$"
 
 CherryGrove_Pokecenter_Text_Vagrant3:
-	.string "Si una POKé BALL gira mucho...\p"
+	.string "Si una POKé BALL gira mucho…\p"
 	.string "¿se marea el POKéMON o el mundo?$"
 
 CherryGrove_Pokecenter_Text_Vagrant4:
@@ -131,7 +132,7 @@ CherryGrove_Pokecenter_Text_Vagrant4:
 
 CherryGrove_Pokecenter_Text_Vagrant5:
 	.string "Mi barba predice el tiempo.\p"
-	.string "Hoy anuncia... sopa con viento.$"
+	.string "Hoy anuncia… sopa con viento.$"
 
 CherryGrove_Pokecenter_Text_VagrantPotion:
 	.string "Toma esta POCIÓN.\p"

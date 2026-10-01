@@ -10,7 +10,8 @@ CherrygroveCity_House2_EventScript_GuideGent::
 	end
 
 CherrygroveCity_GuideHouse_Text_GuideGent:
-	.string "¡Cuando era un chavalín, era un\nentrenador\l"
+	.string "¡Cuando era un chaval, era un\n"
+	.string "entrenador\l"
 	.string "de primera!\p"
 	.string "Te daré un consejo:\n"
 	.string "¡Atrapa un montón de POKéMON!\p"

@@ -20,7 +20,7 @@ NewBarkTown_EventScript_ElmCallAfterLeague::
 	end
 
 NewBarkTown_Text_ElmName:
-	.string "PROF.ELM$"
+	.string "PROF. ELM$"
 
 NewBarkTown_OnTransition::
 	goto_if_eq VAR_NEWBARK_TOWN_STATE, 2, NewBarkTown_Set_TalkToElm
@@ -260,7 +260,7 @@ NewBarkTown_Text_SecretGardenEntrance:
 	.string "Entre las ramas se cuela una\n"
 	.string "corriente de aire.\p"
 	.string "Hay un paso estrecho tras el\n"
-	.string "laboratorio...$"
+	.string "laboratorio…$"
 
 NewBarkTown_Text_SecretGardenBlocked:
 	.string "Las ramas son demasiado densas.\n"
@@ -314,7 +314,7 @@ NewBarkTown_Text_LassState4:
 
 NewBarkTown_Text_LassState5:
 	.string "Llama a tu madre por el POKéGEAR\n"
-	.string "para contarle qué tal te va.$\p"
+	.string "para contarle qué tal te va.$"
 
 NewBarkTown_Text_Silver1:
 	.string "… … …\p"

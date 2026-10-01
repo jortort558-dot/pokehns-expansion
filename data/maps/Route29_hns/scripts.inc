@@ -158,7 +158,8 @@ Route29_EventScript_ItemPotion::
 	end
 
 Route29_Text_OldMan1:
-	.string "Los POKéMON se esconden en la\nhierba.\l"
+	.string "Los POKéMON se esconden en la\n"
+	.string "hierba.\l"
 	.string "¡Quién sabe cuándo saldrán!$"
 
 Route29_Text_OldMan2:
@@ -170,7 +171,7 @@ Route29_Text_OldMan2:
 Route29_Text_OldManExplanation:
 	.string "Si antes los debilitas,\n"
 	.string "será más fácil atraparlos.\p"
-	.string "¡Luego lánzales una BALL\n"
+	.string "¡Luego lánzales una POKé BALL\n"
 	.string "desde la BOLSA!\p"
 	.string "Si quieres saber más,\n"
 	.string "ve a la ACADEMIA de MALVA.\p"
@@ -195,7 +196,8 @@ Route29_Text_Youngster:
 
 Route29_Text_Lass:
 	.string "¿Ves esos desniveles?\n"
-	.string "Da un poco de miedo saltar por\lellos.\p"
+	.string "Da un poco de miedo saltar por\l"
+	.string "ellos.\p"
 	.string "Pero así puedes volver a PRIMAVERA\n"
 	.string "sin tener que cruzar la hierba.$"
 
@@ -223,11 +225,13 @@ Route29_Text_TuscanyNope:
 
 Route29_Text_TuscanyGivesGift:
 	.string "¡Sí! Como presentación,\n"
-	.string "por favor, acepta este PAÑUELO\lSEDA.$"
+	.string "acepta este PAÑUELO SEDA.$"
 
 Route29_Text_TuscanyGaveGift:
-	.string "MARTITA: ¿A que es de lo más\nadorable?\p"
-	.string "Potencia los ataques de tipo\nNORMAL.\p"
+	.string "MARTITA: ¿A que es de lo más\n"
+	.string "adorable?\p"
+	.string "Potencia los ataques de tipo\n"
+	.string "NORMAL.\p"
 	.string "Seguro que te vendrá de perlas.$"
 
 Route29_Text_TuscanyTuesday:
