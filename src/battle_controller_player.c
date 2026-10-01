@@ -1845,18 +1845,6 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
 // Battle Info UI — Panel B: Stat stages + field conditions
 // ---------------------------------------------------------------------------
 
-// Stat name abbreviations (7 stats: ATK DEF SPA SPD SPE ACC EVA)
-static const u8 sStatNames[NUM_BATTLE_STATS][6] =
-{
-    [STAT_ATK] = _("ATK "),
-    [STAT_DEF] = _("DEF "),
-    [STAT_SPATK] = _("SPA "),
-    [STAT_SPDEF] = _("SPD "),
-    [STAT_SPEED] = _("SPE "),
-    [STAT_ACC] = _("ACC "),
-    [STAT_EVASION] = _("EVA "),
-};
-
 static const u8 sStageStrings[][4] =
 {
     [0]  = _("-6"),
@@ -1890,39 +1878,35 @@ static const u8 sWeatherNames[][6] =
 
 static void DisplayBattleInfoPanel(enum BattlerId battler)
 {
-    s32 i;
     enum BattlerId opponent = GetOpposingSideBattler(battler);
+    s32 stat;
 
     LoadMessageBoxAndBorderGfx();
     DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
 
-    // --- Line 1: Header ---
-    StringCopy(gDisplayedStringBattle, COMPOUND_STRING("  TU       RIVAL"));
+    // --- Line 1: Compact headers for all seven battle stats ---
+    StringCopy(gDisplayedStringBattle, COMPOUND_STRING("   AT DF AE DE VL PR EV"));
     StringAppend(gDisplayedStringBattle, gText_NewLine);
 
-    // --- Lines 2-8: Stats ATK DEF SPA SPD SPE ACC EVA ---
-    for (i = STAT_ATK; i < NUM_BATTLE_STATS; i++)
+    // --- Line 2: Player stages ---
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("TU "));
+    for (stat = STAT_ATK; stat < NUM_BATTLE_STATS; stat++)
     {
-        s8 playerStage = gBattleMons[battler].statStages[i];
-        s8 enemyStage  = gBattleMons[opponent].statStages[i];
-
-        if (playerStage < 0) playerStage = 0;
-        if (playerStage > 12) playerStage = 12;
-        if (enemyStage < 0) enemyStage = 0;
-        if (enemyStage > 12) enemyStage = 12;
-
-        // Stat name (4 chars)
-        StringAppend(gDisplayedStringBattle, sStatNames[i]);
-
-        // Player stage
-        StringAppend(gDisplayedStringBattle, sStageStrings[playerStage]);
-        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" / "));
-        // Enemy stage
-        StringAppend(gDisplayedStringBattle, sStageStrings[enemyStage]);
-        StringAppend(gDisplayedStringBattle, gText_NewLine);
+        StringAppend(gDisplayedStringBattle, sStageStrings[gBattleMons[battler].statStages[stat]]);
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" "));
     }
+    StringAppend(gDisplayedStringBattle, gText_NewLine);
 
-    // --- Final line: Weather ---
+    // --- Line 3: Opponent stages ---
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("RV "));
+    for (stat = STAT_ATK; stat < NUM_BATTLE_STATS; stat++)
+    {
+        StringAppend(gDisplayedStringBattle, sStageStrings[gBattleMons[opponent].statStages[stat]]);
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" "));
+    }
+    StringAppend(gDisplayedStringBattle, gText_NewLine);
+
+    // --- Line 4: Weather and screens ---
     StringAppend(gDisplayedStringBattle, COMPOUND_STRING("Clima: "));
     if (gBattleWeather == B_WEATHER_NONE)
     {

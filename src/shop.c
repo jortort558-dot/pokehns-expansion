@@ -1466,7 +1466,6 @@ static void CloseShopItemPopupInfo(u8 taskId)
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list)
 {
     const u8 *description;
-    static u8 sShopItemDescSummaryBuffer[256];
 
     if (onInit != TRUE)
         PlaySECursorMove(SE_SELECT);
@@ -1486,24 +1485,7 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
             || sMartInfo.martType == MART_TYPE_KURT
             || sMartInfo.martType == MART_TYPE_MEGA_STONES)
         {
-            u8 wrappedDesc[256];
-            u32 i = 0, lines = 1;
-
-            WordWrapDescription(GetItemDescription(item), wrappedDesc, sizeof(wrappedDesc), FONT_SMALL_NARROWER, 106);
-            while (wrappedDesc[i] != EOS && i < sizeof(sShopItemDescSummaryBuffer) - 32)
-            {
-                if (wrappedDesc[i] == CHAR_NEWLINE)
-                {
-                    lines++;
-                    if (lines > 2)
-                        break;
-                }
-                sShopItemDescSummaryBuffer[i] = wrappedDesc[i];
-                i++;
-            }
-            sShopItemDescSummaryBuffer[i] = EOS;
-
-            description = sShopItemDescSummaryBuffer;
+            description = GetItemDescription(item);
 
             if (sMartInfo.martType == MART_TYPE_KURT)
             {
@@ -1528,8 +1510,7 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     }
 
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
-    AddTextPrinterParameterized4(WIN_ITEM_DESCRIPTION, FONT_SMALL_NARROWER, 3, 1, 0, 0,
-                                 sShopBuyMenuTextColors[COLORID_NORMAL], 0, description);
+    BuyMenuPrint(WIN_ITEM_DESCRIPTION, description, 3, 1, 0, COLORID_NORMAL);
     if (item != LIST_CANCEL
         && (sMartInfo.martType == MART_TYPE_NORMAL
          || sMartInfo.martType == MART_TYPE_BP

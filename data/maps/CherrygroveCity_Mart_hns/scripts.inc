@@ -7,9 +7,10 @@ Cherrygrove_Pokemart_EventScript_Clerk::
 	message gText_HowMayIServeYou
 	waitmessage
 	goto_if_ge VAR_NEWBARK_TOWN_STATE, 5, Cherrygrove_Pokemart_EventScript_Clerk2
+	goto_if_ge VAR_GOLDENROD_CITY_STATE, 10, Cherrygrove_Pokemart_EventScript_ElPiedrasOffer
+Cherrygrove_Pokemart_EventScript_OpenRegularShop::
 	pokemart Cherrygrove_Pokemart_Pokemart
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	call_if_ge VAR_GOLDENROD_CITY_STATE, 10, Cherrygrove_Pokemart_EventScript_ElPiedrasOffer
 	release
 	end
 
@@ -37,22 +38,26 @@ Cherrygrove_Pokemart_EventScript_Bugcatcher2::
 	end
 
 Cherrygrove_Pokemart_EventScript_Clerk2::
+	goto_if_ge VAR_GOLDENROD_CITY_STATE, 10, Cherrygrove_Pokemart_EventScript_ElPiedrasOffer
+Cherrygrove_Pokemart_EventScript_OpenRegularShop2::
 	pokemart 0
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	call_if_ge VAR_GOLDENROD_CITY_STATE, 10, Cherrygrove_Pokemart_EventScript_ElPiedrasOffer
 	release
 	end
 
 Cherrygrove_Pokemart_EventScript_ElPiedrasOffer::
 	msgbox Cherrygrove_Pokemart_Text_ElPiedrasOffer, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Cherrygrove_Pokemart_EventScript_ElPiedrasOfferEnd
+	goto_if_eq VAR_RESULT, NO, Cherrygrove_Pokemart_EventScript_OpenRegularShopByProgress
 	msgbox Cherrygrove_Pokemart_Text_ElPiedrasIntro, MSGBOX_DEFAULT
 	special CreateElPiedrasMegaShop
 	waitstate
 	msgbox Cherrygrove_Pokemart_Text_ElPiedrasFarewell, MSGBOX_DEFAULT
+	release
+	end
 
-Cherrygrove_Pokemart_EventScript_ElPiedrasOfferEnd:
-	return
+Cherrygrove_Pokemart_EventScript_OpenRegularShopByProgress::
+	goto_if_ge VAR_NEWBARK_TOWN_STATE, 5, Cherrygrove_Pokemart_EventScript_OpenRegularShop2
+	goto Cherrygrove_Pokemart_EventScript_OpenRegularShop
 
 Cherrygrove_Pokemart_Text_ElPiedrasOffer:
 	.string "EL PIEDRAS ha alquilado un rincón\n"
