@@ -2450,7 +2450,8 @@ static void ExitBuyMenu(u8 taskId)
     if (sMartInfo.martType != MART_TYPE_KURT
         && sMartInfo.martType != MART_TYPE_BP
         && sMartInfo.martType != MART_TYPE_BP_ITEM
-        && sMartInfo.martType != MART_TYPE_BP_DECOR)
+        && sMartInfo.martType != MART_TYPE_BP_DECOR
+        && sMartInfo.martType != MART_TYPE_MEGA_STONES)
         gFieldCallback = MapPostLoadHook_ReturnToShopMenu;
 
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);

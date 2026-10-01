@@ -1810,6 +1810,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/mauville_man.inc"
 #if IS_HNS
 	.include "data/scripts/field_move_scripts_hns.inc"
+	.include "data/scripts/el_piedras_shop.inc"
 #else
 	.include "data/scripts/field_move_scripts.inc"
 #endif
