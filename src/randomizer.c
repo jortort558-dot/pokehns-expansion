@@ -110,6 +110,10 @@ bool32 IsRandomizedTMCompatible(u16 species, u16 move)
             higherScoreCount++;
     }
 
+    compatibleTMCount += (compatibleTMCount + 9) / 10;
+    if (compatibleTMCount > 100)
+        compatibleTMCount = 100;
+
     return higherScoreCount < compatibleTMCount;
 }
 
@@ -2364,10 +2368,10 @@ u16 RandomizeMove(u16 move, u16 species)
     }
 
     // Modo Balanceado (Streamer / Smart Learnset):
-    // 40% de probabilidad de favorecer STAB para conservar identidad de tipo
+    // 50% de probabilidad de favorecer STAB para conservar identidad de tipo
     // sin desplazar en exceso movimientos de cobertura, estado y utilidad.
     // No se filtra por categoría para mantener viables atacantes mixtos.
-    if (monType1 != TYPE_MYSTERY && (RandomizerNextRange(&state, 100) < 40))
+    if (monType1 != TYPE_MYSTERY && (RandomizerNextRange(&state, 100) < 50))
         preferStab = TRUE;
 
     if (offensiveProfile == RANDOMIZER_PROFILE_UTILITY)
