@@ -2928,6 +2928,21 @@ static void Task_HandleReplaceMoveInput(u8 taskId)
             {
                 ChangePage(taskId, 1);
             }
+            else if (JOY_NEW(SELECT_BUTTON))
+            {
+                if (sMonSummaryScreen->firstMoveIndex < MAX_MON_MOVES && sMonSummaryScreen->summary.moves[sMonSummaryScreen->firstMoveIndex] != MOVE_NONE)
+                {
+                    PlaySE(SE_SELECT);
+                    OpenMovePopup(taskId, sMonSummaryScreen->firstMoveIndex);
+                    return;
+                }
+                else if (sMonSummaryScreen->firstMoveIndex == MAX_MON_MOVES && sMonSummaryScreen->newMove != MOVE_NONE)
+                {
+                    PlaySE(SE_SELECT);
+                    OpenMovePopup(taskId, MAX_MON_MOVES);
+                    return;
+                }
+            }
             else if (JOY_NEW(A_BUTTON))
             {
                 if (CanReplaceMove() == TRUE)
@@ -5069,7 +5084,7 @@ static inline void ShowUtilityPrompt(s16 mode)
     if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES
      || sMonSummaryScreen->currPageIndex == PSS_PAGE_CONTEST_MOVES)
     {
-        if (mode == SUMMARY_MODE_SELECT_MOVE && !sMonSummaryScreen->lockMovesFlag)
+        if (mode == SUMMARY_MODE_SELECT_MOVE && !sMonSummaryScreen->lockMovesFlag && sMonSummaryScreen->newMove == MOVE_NONE)
             promptText = gText_Switch;
         else
             promptText = gText_Info;
@@ -5404,7 +5419,10 @@ static void RenderMovePopupContent(u8 windowId)
 
     FillWindowPixelRect(windowId, PIXEL_FILL(4), 6, 25, 180, 1);
 
-    move = sMonSummaryScreen->summary.moves[sSummaryPopupMoveIndex];
+    if (sSummaryPopupMoveIndex == MAX_MON_MOVES)
+        move = sMonSummaryScreen->newMove;
+    else
+        move = sMonSummaryScreen->summary.moves[sSummaryPopupMoveIndex];
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -5414,6 +5432,13 @@ static void RenderMovePopupContent(u8 windowId)
             if (i == sSummaryPopupMoveIndex)
                 currentPos = validMovesCount;
         }
+    }
+
+    if (sMonSummaryScreen->newMove != MOVE_NONE)
+    {
+        validMovesCount++;
+        if (sSummaryPopupMoveIndex == MAX_MON_MOVES)
+            currentPos = validMovesCount;
     }
 
     {
@@ -5444,7 +5469,7 @@ static void RenderMovePopupContent(u8 windowId)
 
         u32 power = GetMovePower(move);
         u32 acc = GetMoveAccuracy(move);
-        u32 curPp = sMonSummaryScreen->summary.pp[sSummaryPopupMoveIndex];
+        u32 curPp = (sSummaryPopupMoveIndex == MAX_MON_MOVES) ? GetMovePP(move) : sMonSummaryScreen->summary.pp[sSummaryPopupMoveIndex];
         u32 maxPp = GetMovePP(move);
 
         ptr = StringCopy(statsBuffer, gTypesInfo[GetMoveType(move)].name);
@@ -5539,17 +5564,25 @@ static void Task_SummaryPopup_MoveInput(u8 taskId)
     if (JOY_NEW(DPAD_LEFT | DPAD_UP))
     {
         s8 nextIdx = sSummaryPopupMoveIndex;
+        u8 maxLimit = (sMonSummaryScreen->newMove != MOVE_NONE) ? (MAX_MON_MOVES + 1) : MAX_MON_MOVES;
         u8 count = 0;
-        while (count < MAX_MON_MOVES)
+        while (count < maxLimit)
         {
             nextIdx--;
             if (nextIdx < 0)
-                nextIdx = MAX_MON_MOVES - 1;
-            if (sMonSummaryScreen->summary.moves[nextIdx] != MOVE_NONE)
+                nextIdx = maxLimit - 1;
+            if (nextIdx == MAX_MON_MOVES)
+            {
+                if (sMonSummaryScreen->newMove != MOVE_NONE)
+                    break;
+            }
+            else if (sMonSummaryScreen->summary.moves[nextIdx] != MOVE_NONE)
+            {
                 break;
+            }
             count++;
         }
-        if (nextIdx != sSummaryPopupMoveIndex && sMonSummaryScreen->summary.moves[nextIdx] != MOVE_NONE)
+        if (nextIdx != sSummaryPopupMoveIndex)
         {
             PlaySE(SE_SELECT);
             sSummaryPopupMoveIndex = nextIdx;
@@ -5559,17 +5592,25 @@ static void Task_SummaryPopup_MoveInput(u8 taskId)
     else if (JOY_NEW(DPAD_RIGHT | DPAD_DOWN))
     {
         s8 nextIdx = sSummaryPopupMoveIndex;
+        u8 maxLimit = (sMonSummaryScreen->newMove != MOVE_NONE) ? (MAX_MON_MOVES + 1) : MAX_MON_MOVES;
         u8 count = 0;
-        while (count < MAX_MON_MOVES)
+        while (count < maxLimit)
         {
             nextIdx++;
-            if (nextIdx >= MAX_MON_MOVES)
+            if (nextIdx >= maxLimit)
                 nextIdx = 0;
-            if (sMonSummaryScreen->summary.moves[nextIdx] != MOVE_NONE)
+            if (nextIdx == MAX_MON_MOVES)
+            {
+                if (sMonSummaryScreen->newMove != MOVE_NONE)
+                    break;
+            }
+            else if (sMonSummaryScreen->summary.moves[nextIdx] != MOVE_NONE)
+            {
                 break;
+            }
             count++;
         }
-        if (nextIdx != sSummaryPopupMoveIndex && sMonSummaryScreen->summary.moves[nextIdx] != MOVE_NONE)
+        if (nextIdx != sSummaryPopupMoveIndex)
         {
             PlaySE(SE_SELECT);
             sSummaryPopupMoveIndex = nextIdx;
@@ -5617,11 +5658,14 @@ static void CloseMovePopup(u8 taskId)
     SetFriendshipSprite();
     ShowShinyStarObjIfMonShiny();
 
-    if (sSummaryPopupReturnTask == Task_HandleInput_MoveSelect)
+    if (sSummaryPopupReturnTask == Task_HandleInput_MoveSelect || sSummaryPopupReturnTask == Task_HandleReplaceMoveInput)
     {
         sMonSummaryScreen->firstMoveIndex = sSummaryPopupMoveIndex;
         KeepMoveSelectorVisible(SPRITE_ARR_ID_MOVE_SELECTOR1);
-        PrintMoveDetails(sMonSummaryScreen->summary.moves[sSummaryPopupMoveIndex]);
+        if (sSummaryPopupMoveIndex == MAX_MON_MOVES)
+            PrintMoveDetails(sMonSummaryScreen->newMove);
+        else
+            PrintMoveDetails(sMonSummaryScreen->summary.moves[sSummaryPopupMoveIndex]);
     }
 
     ScheduleBgCopyTilemapToVram(0);

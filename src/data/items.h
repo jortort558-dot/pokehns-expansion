@@ -113,16 +113,16 @@ static const u8 sOddIncenseDesc[]     = _("potencia\n"
                                           "psíquico.");
 
 static const u8 sRockIncenseDesc[]    = _("Potencia\n"
-                                          "a\n"
-                                          "Rock-type moves.");
+                                          "ataques de\n"
+                                          "tipo Roca.");
 
 static const u8 sFullIncenseDesc[]    = _("hace quien\n"
                                           "posee mueva\n"
                                           "más lento.");
 
 static const u8 sRoseIncenseDesc[]    = _("Potencia\n"
-                                          "a\n"
-                                          "Grass-type moves.");
+                                          "ataques de\n"
+                                          "tipo Planta.");
 
 static const u8 sLuckIncenseDesc[]    = _("Duplica\n"
                                           "el\n"
@@ -174,7 +174,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_STRANGE_BALL] =
     {
-        .name = ITEM_NAME("Extraña Ball"),
+        .name = ITEM_NAME("EXTRAÑA BALL"),
         .price = 0,
         .description = COMPOUND_STRING(
             "Una Poké Ball extraña que\n"
@@ -1616,7 +1616,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_HEALTH_FEATHER] =
     {
-        .name = ITEM_NAME("Pluma Ímpetu"),
+        .name = ITEM_NAME("PLUMA VIGOR"),
         .price = (I_PRICE >= GEN_7) ? 300 : 3000,
         .description = COMPOUND_STRING(
             "Pluma que aumenta un poco\n"
@@ -1634,7 +1634,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_MUSCLE_FEATHER] =
     {
-        .name = ITEM_NAME("Pluma Músculo"),
+        .name = ITEM_NAME("PLUMA MÚSCULO"),
         .price = (I_PRICE >= GEN_7) ? 300 : 3000,
         .description = COMPOUND_STRING(
             "Pluma que aumenta un poco\n"
@@ -1652,7 +1652,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_RESIST_FEATHER] =
     {
-        .name = ITEM_NAME("Pluma Resiste"),
+        .name = ITEM_NAME("PLUMA RESISTE"),
         .price = (I_PRICE >= GEN_7) ? 300 : 3000,
         .description = COMPOUND_STRING(
             "Pluma que aumenta un poco\n"
@@ -1670,7 +1670,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_GENIUS_FEATHER] =
     {
-        .name = ITEM_NAME("Pluma Intelecto"),
+        .name = ITEM_NAME("PLUMA INTELECTO"),
         .price = (I_PRICE >= GEN_7) ? 300 : 3000,
         .description = COMPOUND_STRING(
             "Pluma que aumenta un poco\n"
@@ -1688,7 +1688,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_CLEVER_FEATHER] =
     {
-        .name = ITEM_NAME("Pluma Mente"),
+        .name = ITEM_NAME("PLUMA MENTE"),
         .price = (I_PRICE >= GEN_7) ? 300 : 3000,
         .description = COMPOUND_STRING(
             "Pluma que aumenta un poco\n"
@@ -1706,7 +1706,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_SWIFT_FEATHER] =
     {
-        .name = ITEM_NAME("Pluma Brío"),
+        .name = ITEM_NAME("PLUMA ÍMPETU"),
         .price = (I_PRICE >= GEN_7) ? 300 : 3000,
         .description = COMPOUND_STRING(
             "Pluma que aumenta un poco\n"
@@ -3306,7 +3306,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_PRETTY_FEATHER] =
     {
-        .name = ITEM_NAME("Pluma Bella"),
+        .name = ITEM_NAME("PLUMA BELLA"),
         .price = (I_PRICE >= GEN_7) ? 1000 * TREASURE_FACTOR: 200,
         .description = COMPOUND_STRING(
             "Pluma normal y corriente.\n"
@@ -13095,8 +13095,8 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_ENIGMA_BERRY_E_READER] =
     {
-        .name = ITEM_NAME("Baya Enigma"),
-        .pluralName = ITEM_PLURAL_NAME("Baya Enigma"),
+        .name = ITEM_NAME("BAYA ENIGMA"),
+        .pluralName = ITEM_PLURAL_NAME("BAYA ENIGMA"),
         .price = (I_BERRY_PRICE >= GEN_8) ? 80 : 20,
         .description = COMPOUND_STRING(
             "Ingrediente para\n"
@@ -14092,8 +14092,8 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("MT67"),
         .price = 3000,
         .description = COMPOUND_STRING(
-            "Recycles a used item\n"
-            "for one more use."),
+            "Recicla un objeto usado\n"
+            "para usarlo de nuevo."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -14148,9 +14148,9 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("MT70"),
         .price = 3000,
         .description = COMPOUND_STRING(
-            "Looses a powerful\n"
-            "blast of light that\n"
-            "cuts accuracy."),
+            "Emite una luz brillante\n"
+            "que reduce la Precisión\n"
+            "del rival."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -17208,7 +17208,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_POKESHI_DOLL] =
     {
-        .name = ITEM_NAME("POKéSHI DOLL"),
+        .name = ITEM_NAME("POKÉSHI DOLL"),
         .price = 2000,
         .description = COMPOUND_STRING(
             "Juguete de madera con\n"
@@ -17257,7 +17257,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_EXP_SHARE_SMALL] =
     {
-        .name = ITEM_NAME("Repartir Exp. S"),
+        .name = ITEM_NAME("REPARTIR EXP. S"),
         .price = 6000,
         .holdEffect = HOLD_EFFECT_EXP_SHARE,
         .description = COMPOUND_STRING(
@@ -17290,7 +17290,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_INFINITE_REPEL] =
     {
-        .name = ITEM_NAME("Repelente Inf."),
+        .name = ITEM_NAME("REPELENTE INF."),
         .price = 0,
         .description = COMPOUND_STRING(
             "Repele permanentemente a\n"
@@ -17306,7 +17306,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_INFINITE_RARE_CANDIES] =
     {
-        .name = ITEM_NAME("Caja C. Raros"),
+        .name = ITEM_NAME("CAJA C. RAROS"),
         .price = 0,
         .description = COMPOUND_STRING(
             "Caja de Caramelos Raros\n"
@@ -17578,7 +17578,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_UNUSED_BERRY_1] =
     {
-        .name = ITEM_NAME("Baya Zidra"),
+        .name = ITEM_NAME("BAYA ZIDRA"),
         .price = 20,
         .holdEffect = HOLD_EFFECT_RESTORE_HP,
         .holdEffectParam = 30,
@@ -17595,7 +17595,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_POKE_VIAL] =
     {
-        .name = ITEM_NAME("PokéVial"),
+        .name = ITEM_NAME("POKÉVIAL"),
         .price = 0,
         .description = COMPOUND_STRING(
             "Cura los PS y problemas\n"
