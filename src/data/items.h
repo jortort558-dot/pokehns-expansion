@@ -4740,7 +4740,7 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_UPGRADE] =
     {
-        .name = ITEM_NAME("Mejora"),
+        .name = ITEM_NAME("MEJORA"),
         .price = 20000,
         .description = COMPOUND_STRING(
             "Peculiar dispositivo\n"
