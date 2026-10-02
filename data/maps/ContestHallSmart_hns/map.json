@@ -1,7 +1,6 @@
 {
   "id": "MAP_CONTEST_HALL_SMART_HNS",
   "name": "ContestHallSmart_hns",
-  "game_version": "hns",
   "layout": "LAYOUT_CONTEST_HALL_SMART_HNS",
   "music": "MUS_CONTEST",
   "region_map_section": "MAPSEC_DYNAMIC",
@@ -13,11 +12,8 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "shared_events_map": "ContestHall_hns",
   "shared_scripts_map": "ContestHall_hns",
-  "object_events": [],
-  "warp_events": [],
-  "bg_events": [],
-  "coord_events": []
+  "game_version": "hns"
 }

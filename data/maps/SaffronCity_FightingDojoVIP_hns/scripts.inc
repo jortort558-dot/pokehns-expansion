@@ -890,7 +890,7 @@ SaffronCity_FightingDojoVIP_Text_Janine_Rematch:
 	.string "¿Quieres volver a combatir?$"
 
 SaffronCity_FightingDojoVIP_Text_Janine_RematchDefeat:
-	.string "JANINE: ¡Sigues siendo igual de\n"
+	.string "SACHIKO: ¡Sigues siendo igual de\n"
 	.string "fuerte!\p"
 	.string "Has ganado sin ninguna duda…$"
 

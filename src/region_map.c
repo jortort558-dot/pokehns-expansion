@@ -155,7 +155,7 @@ static const u8 sRegionMapPlayerIcon_KrisGfx[] = INCBIN_U8("graphics/pokenav/reg
 // Johto-only map coordinates (before FLAG_VISITED_KANTO is set).
 // The auto-generated gRegionMapEntries has JK combined coordinates.
 static const struct RegionMapLocation sRegionMapEntries_Johto[] = {
-    [MAPSEC_VIOLET_CITY]       = { 7,  5,  1, 1, COMPOUND_STRING("CIUDAD MALVALONA") },
+    [MAPSEC_VIOLET_CITY]       = { 7,  5,  1, 1, COMPOUND_STRING("CIUDAD MALVA") },
     [MAPSEC_AZALEA_TOWN]       = { 6,  12, 1, 1, COMPOUND_STRING("PUEBLO AZALEA") },
     [MAPSEC_GOLDENROD_CITY]    = { 5,  7,  1, 2, COMPOUND_STRING("CIUDAD TRIGAL") },
     [MAPSEC_ECRUTEAK_CITY]     = { 6,  3,  1, 1, COMPOUND_STRING("CIUDAD IRIS") },

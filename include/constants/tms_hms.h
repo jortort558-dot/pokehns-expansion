@@ -95,7 +95,15 @@
     F(U_TURN) \
     F(SUBSTITUTE) \
     F(FLASH_CANNON) \
-    F(TRICK_ROOM)
+    F(TRICK_ROOM) \
+    F(EERIE_IMPULSE) \
+    F(HOLD_BACK) \
+    F(AIR_CUTTER) \
+    F(SMART_STRIKE) \
+    F(BRUTAL_SWING) \
+    F(STOMPING_TANTRUM) \
+    F(BREAKING_SWIPE) \
+    F(CONFIDE)
 
 #define FOREACH_HM(F) \
     F(CUT) \

@@ -14466,7 +14466,7 @@ const struct ItemInfo gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM93] =
+    [ITEM_TM_EERIE_IMPULSE] = // MT93
     {
         .name = ITEM_NAME("MT93"),
         .price = 3000,
@@ -14475,28 +14475,28 @@ const struct ItemInfo gItemsInfo[] =
             "raras ondas que, al\n"
             "alcanzar a un oponente,\n"
             "hacen que disminuya mucho\n"
-            "su Ataque Especial."), // Todo
+            "su Ataque Especial."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM94] =
+    [ITEM_TM_HOLD_BACK] = // MT94
     {
         .name = ITEM_NAME("MT94"),
         .price = 3000,
         .description = COMPOUND_STRING(
             "Ataque moderado que no\n"
             "debilita al objetivo y le\n"
-            "deja al menos 1 PS."), // Todo
+            "deja al menos 1 PS."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM95] =
+    [ITEM_TM_AIR_CUTTER] = // MT95
     {
         .name = ITEM_NAME("MT95"),
         .price = 3000,
@@ -14504,14 +14504,14 @@ const struct ItemInfo gItemsInfo[] =
             "Ataca con un viento\n"
             "afilado que incluso corta\n"
             "el aire. También puede\n"
-            "amedrentar al objetivo."), // Todo
+            "amedrentar al objetivo."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM96] =
+    [ITEM_TM_SMART_STRIKE] = // MT96
     {
         .name = ITEM_NAME("MT96"),
         .price = 3000,
@@ -14520,28 +14520,28 @@ const struct ItemInfo gItemsInfo[] =
             "adversario con su afilada\n"
             "cornamenta. Este\n"
             "movimiento acierta\n"
-            "siempre."), // Todo
+            "siempre."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM97] =
+    [ITEM_TM_BRUTAL_SWING] = // MT97
     {
         .name = ITEM_NAME("MT97"),
         .price = 3000,
         .description = COMPOUND_STRING(
             "Hace pivotar su cuerpo\n"
             "para causar daño a su\n"
-            "alrededor."), // Todo
+            "alrededor."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM98] =
+    [ITEM_TM_STOMPING_TANTRUM] = // MT98
     {
         .name = ITEM_NAME("MT98"),
         .price = 3000,
@@ -14551,14 +14551,14 @@ const struct ItemInfo gItemsInfo[] =
             "potencia de Pataleta se\n"
             "duplica si el usuario ha\n"
             "fallado el último\n"
-            "movimiento usado."), // Todo
+            "movimiento usado."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM99] =
+    [ITEM_TM_BREAKING_SWIPE] = // MT99
     {
         .name = ITEM_NAME("MT99"),
         .price = 3000,
@@ -14567,14 +14567,14 @@ const struct ItemInfo gItemsInfo[] =
             "violentamente su enorme\n"
             "cola para golpear a todos\n"
             "los rivales y reducir su\n"
-            "Ataque a la par."), // Todo
+            "Ataque a la par."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM100] =
+    [ITEM_TM_CONFIDE] = // MT100
     {
         .name = ITEM_NAME("MT100"),
         .price = 3000,
@@ -14583,7 +14583,7 @@ const struct ItemInfo gItemsInfo[] =
             "pierda la concentración\n"
             "contándole un secreto.\n"
             "Disminuye el Ataque\n"
-            "Especial del oponente."), // Todo
+            "Especial del oponente."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
