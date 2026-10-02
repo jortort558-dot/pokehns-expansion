@@ -231,6 +231,12 @@ static EWRAM_DATA u16 sPartyMenuItemId = 0;
 EWRAM_DATA u8 gBattlePartyCurrentOrder[PARTY_SIZE / 2] = {0}; // bits 0-3 are the current pos of Slot 1, 4-7 are Slot 2, and so on
 static EWRAM_DATA u8 sInitialLevel = 0;
 static EWRAM_DATA u8 sFinalLevel = 0;
+static EWRAM_DATA s16 sRareCandyQuantity = 0;
+static EWRAM_DATA u16 sRareCandyMaxQuantity = 0;
+static EWRAM_DATA u16 sRareCandyRemainingQuantity = 0;
+static EWRAM_DATA bool8 sRareCandyBatchActive = FALSE;
+static EWRAM_DATA TaskFunc sRareCandyReturnTask = NULL;
+static EWRAM_DATA MainCallback sRareCandyExitCallback = NULL;
 
 // IWRAM common
 COMMON_DATA void (*gItemUseCB)(u8, TaskFunc) = NULL;
@@ -417,6 +423,12 @@ static void Task_HandleStopLearningMoveYesNoInput(u8);
 static void Task_TryLearningNextMoveAfterText(u8);
 static void BufferMonStatsToTaskData(struct Pokemon *, s16 *);
 static void UpdateMonDisplayInfoAfterRareCandy(u8, struct Pokemon *);
+static void ShowRareCandyQuantitySelector(u8, TaskFunc);
+static void Task_ChooseRareCandyQuantity(u8);
+static void PrintRareCandyQuantity(void);
+static u16 GetRareCandySegmentQuantity(struct Pokemon *, u16);
+static void Task_ContinueRareCandyBatch(u8);
+static void CB2_ContinueRareCandyBatch(void);
 static void Task_DisplayLevelUpStatsPg1(u8);
 static void DisplayLevelUpStatsPg1(u8);
 static void Task_DisplayLevelUpStatsPg2(u8);
@@ -518,6 +530,7 @@ static const u8 sText_doneText[] = _("¡La habilidad de {STR_VAR_1} ahora\nes {S
 static const u8 sText_BasePointsResetToZero[] = _("¡Los puntos base de {STR_VAR_1}\nhan vuelto a cero!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_CannotSendMonToBoxHM[] = _("No puedes enviar este Pokémon a la\ncaja porque conoce una MO.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_CannotSendMonToBoxPartner[] = _("No puedes enviar a la caja un\nPokémon que no te pertenece.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_RareCandyHowMany[] = _("¿Cuántos CARAMELOS RAROS\nquieres usar?");
 
 // static const data
 #include "data/party_menu.h"
@@ -4761,7 +4774,15 @@ void CB2_ShowPartyMenuForItemUse(void)
         else
             msgId = PARTY_MSG_USE_ON_WHICH_MON;
 
-        task = Task_HandleChooseMonInput;
+        if (gSpecialVar_ItemId == ITEM_RARE_CANDY && sRareCandyRemainingQuantity > 0)
+        {
+            msgId = PARTY_MSG_NONE;
+            task = Task_ContinueRareCandyBatch;
+        }
+        else
+        {
+            task = Task_HandleChooseMonInput;
+        }
     }
 
     InitPartyMenu(menuType, partyLayout, PARTY_ACTION_USE_ITEM, TRUE, msgId, task, callback);
@@ -6016,12 +6037,44 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     u16 *itemPtr = &gSpecialVar_ItemId;
     bool8 cannotUseEffect;
     u8 holdEffectParam = GetItemHoldEffectParam(*itemPtr);
+    u16 usedQuantity = 1;
 
     sInitialLevel = GetMonData(mon, MON_DATA_LEVEL);
+    if (holdEffectParam == 0 && sRareCandyRemainingQuantity == 0)
+    {
+        u16 maxLevel = MAX_LEVEL;
+
+        if (B_RARE_CANDY_CAP || gSaveBlock3Ptr->challengeSettings.tx_Challenges_LevelCap)
+            maxLevel = min(GetCurrentLevelCap(), MAX_LEVEL);
+
+        if (sInitialLevel < maxLevel)
+        {
+            sRareCandyMaxQuantity = min(CountTotalItemQuantityInBag(*itemPtr), maxLevel - sInitialLevel);
+            ShowRareCandyQuantitySelector(taskId, task);
+            return;
+        }
+    }
+
+    if (holdEffectParam == 0 && sRareCandyRemainingQuantity > 0)
+        usedQuantity = GetRareCandySegmentQuantity(mon, sRareCandyRemainingQuantity);
+
     if (!((B_RARE_CANDY_CAP || gSaveBlock3Ptr->challengeSettings.tx_Challenges_LevelCap) && sInitialLevel >= GetCurrentLevelCap()))
     {
         BufferMonStatsToTaskData(mon, arrayPtr);
-        cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
+        if (holdEffectParam == 0 && usedQuantity > 1)
+        {
+            u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            u32 targetLevel = min(sInitialLevel + usedQuantity, MAX_LEVEL);
+            u32 experience = gExperienceTables[gSpeciesInfo[species].growthRate][targetLevel];
+
+            SetMonData(mon, MON_DATA_EXP, &experience);
+            CalculateMonStats(mon);
+            cannotUseEffect = FALSE;
+        }
+        else
+        {
+            cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
+        }
         BufferMonStatsToTaskData(mon, &ptr->data[NUM_STATS]);
     }
     else
@@ -6063,9 +6116,13 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     else
     {
         sFinalLevel = GetMonData(mon, MON_DATA_LEVEL);
+        if (holdEffectParam == 0 && sRareCandyRemainingQuantity >= usedQuantity)
+            sRareCandyRemainingQuantity -= usedQuantity;
+        sRareCandyBatchActive = sRareCandyRemainingQuantity > 0;
+        sRareCandyQuantity = 0;
         gPartyMenuUseExitCallback = TRUE;
         UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
-        RemoveBagItem(gSpecialVar_ItemId, 1);
+        RemoveBagItem(gSpecialVar_ItemId, usedQuantity);
         GetMonNickname(mon, gStringVar1);
         if (sFinalLevel > sInitialLevel)
         {
@@ -6097,6 +6154,77 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
             gTasks[taskId].func = task;
         }
     }
+}
+
+static void ShowRareCandyQuantitySelector(u8 taskId, TaskFunc task)
+{
+    sRareCandyQuantity = 1;
+    sRareCandyReturnTask = task;
+    DisplayPartyMenuMessage(sText_RareCandyHowMany, TRUE);
+    sPartyMenuInternal->windowId[0] = AddWindow(&sRareCandyQuantityWindowTemplate);
+    DrawStdFrameWithCustomTileAndPalette(sPartyMenuInternal->windowId[0], FALSE, 0x4F, 13);
+    PrintRareCandyQuantity();
+    ScheduleBgCopyTilemapToVram(2);
+    gTasks[taskId].func = Task_ChooseRareCandyQuantity;
+}
+
+static void PrintRareCandyQuantity(void)
+{
+    u8 text[8];
+
+    FillWindowPixelRect(sPartyMenuInternal->windowId[0], PIXEL_FILL(1), 2, 2, 52, 28);
+    StringCopy(text, COMPOUND_STRING("×"));
+    ConvertIntToDecimalStringN(text + StringLength(text), sRareCandyQuantity, STR_CONV_MODE_LEADING_ZEROS, 3);
+    AddTextPrinterParameterized(sPartyMenuInternal->windowId[0], FONT_NORMAL, text, 8, 6, TEXT_SKIP_DRAW, NULL);
+    CopyWindowToVram(sPartyMenuInternal->windowId[0], COPYWIN_GFX);
+}
+
+static void Task_ChooseRareCandyQuantity(u8 taskId)
+{
+    if (IsPartyMenuTextPrinterActive())
+        return;
+
+    if (AdjustQuantityAccordingToDPadInput(&sRareCandyQuantity, sRareCandyMaxQuantity))
+    {
+        PrintRareCandyQuantity();
+    }
+    else if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        sRareCandyRemainingQuantity = sRareCandyQuantity;
+        sRareCandyQuantity = 0;
+        ClearWindowTilemap(sPartyMenuInternal->windowId[0]);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+        ItemUseCB_RareCandy(taskId, sRareCandyReturnTask);
+    }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        sRareCandyQuantity = 0;
+        ClearWindowTilemap(sPartyMenuInternal->windowId[0]);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+        DisplayPartyMenuStdMessage(PARTY_MSG_USE_ON_WHICH_MON);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = sRareCandyReturnTask;
+    }
+}
+
+static u16 GetRareCandySegmentQuantity(struct Pokemon *mon, u16 quantity)
+{
+    struct Pokemon testMon = *mon;
+    u32 initialLevel = GetMonData(mon, MON_DATA_LEVEL);
+    u32 targetLevel = min(initialLevel + quantity, MAX_LEVEL);
+
+    for (u32 level = initialLevel + 1; level <= targetLevel; level++)
+    {
+        bool32 canStopEvo = TRUE;
+
+        SetMonData(&testMon, MON_DATA_LEVEL, &level);
+        if (GetEvolutionTargetSpecies(&testMon, EVO_MODE_NORMAL, ITEM_NONE, NULL, &canStopEvo, CHECK_EVO) != SPECIES_NONE)
+            return level - initialLevel;
+    }
+
+    return targetLevel - initialLevel;
 }
 
 static void UpdateMonDisplayInfoAfterRareCandy(u8 slot, struct Pokemon *mon)
@@ -6220,6 +6348,24 @@ static void CB2_ReturnToPartyMenuUsingRareCandy(void)
     SetMainCallback2(CB2_ShowPartyMenuForItemUse);
 }
 
+static void CB2_ContinueRareCandyBatch(void)
+{
+    if (sRareCandyRemainingQuantity > 0 && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        CB2_ReturnToPartyMenuUsingRareCandy();
+    else
+    {
+        sRareCandyBatchActive = FALSE;
+        sRareCandyRemainingQuantity = 0;
+        SetMainCallback2(sRareCandyExitCallback);
+    }
+}
+
+static void Task_ContinueRareCandyBatch(u8 taskId)
+{
+    if (!gPaletteFade.active)
+        gItemUseCB(taskId, Task_HandleChooseMonInput);
+}
+
 static void PartyMenuTryEvolution(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
@@ -6235,8 +6381,11 @@ static void PartyMenuTryEvolution(u8 taskId)
     if (targetSpecies != SPECIES_NONE)
     {
         GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL, &canStopEvo, DO_EVO);
+        sRareCandyExitCallback = gPartyMenu.exitCallback;
         FreePartyPointers();
-        if (GetItemFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_RareCandy && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        if (sRareCandyBatchActive)
+            gCB2_AfterEvolution = CB2_ContinueRareCandyBatch;
+        else if (GetItemFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_RareCandy && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
             gCB2_AfterEvolution = CB2_ReturnToPartyMenuUsingRareCandy;
         else
             gCB2_AfterEvolution = gPartyMenu.exitCallback;
@@ -6245,6 +6394,8 @@ static void PartyMenuTryEvolution(u8 taskId)
     }
     else
     {
+        sRareCandyBatchActive = FALSE;
+        sRareCandyRemainingQuantity = 0;
         if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         else
