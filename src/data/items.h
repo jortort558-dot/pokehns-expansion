@@ -16165,13 +16165,12 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("MANUSCRITO SOMBRAS"),
         .pluralName = ITEM_PLURAL_NAME("MANUSCRITO SOMBRAS"),
-        .price = 0,
+        .price = 20000,
         .description = COMPOUND_STRING(
             "Curioso manuscrito que\n"
             "permite cambiar a Urshifu\n"
             "a su forma Estilo brusco."),
-        .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
@@ -16184,13 +16183,12 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("MANUSCRITO AGUAS"),
         .pluralName = ITEM_PLURAL_NAME("MANUSCRITO AGUAS"),
-        .price = 0,
+        .price = 20000,
         .description = COMPOUND_STRING(
             "Curioso manuscrito que\n"
             "permite cambiar a Urshifu\n"
             "a su forma Estilo fluido."),
-        .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_EVOLUTION_ITEM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,

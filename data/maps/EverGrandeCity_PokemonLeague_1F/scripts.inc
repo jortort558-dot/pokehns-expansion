@@ -43,6 +43,63 @@ EverGrandeCity_PokemonLeague_1F_Pokemart:
 	.2byte ITEM_MAX_REPEL
 	pokemartlistend
 
+EverGrandeCity_PokemonLeague_1F_EventScript_Metacaballero::
+	lock
+	faceplayer
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_MetacaballeroIntro, MSGBOX_DEFAULT
+	pokemart EverGrandeCity_PokemonLeague_1F_MetacaballeroShop
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_MetacaballeroFarewell, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+EverGrandeCity_PokemonLeague_1F_MetacaballeroShop:
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_THUNDER_STONE
+	.2byte ITEM_LEAF_STONE
+	.2byte ITEM_ICE_STONE
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_SHINY_STONE
+	.2byte ITEM_DUSK_STONE
+	.2byte ITEM_DAWN_STONE
+	.2byte ITEM_OVAL_STONE
+	.2byte ITEM_LINKING_CORD
+	.2byte ITEM_DRAGON_SCALE
+	.2byte ITEM_UPGRADE
+	.2byte ITEM_DUBIOUS_DISC
+	.2byte ITEM_PROTECTOR
+	.2byte ITEM_ELECTIRIZER
+	.2byte ITEM_MAGMARIZER
+	.2byte ITEM_REAPER_CLOTH
+	.2byte ITEM_PRISM_SCALE
+	.2byte ITEM_WHIPPED_DREAM
+	.2byte ITEM_SACHET
+	.2byte ITEM_KINGS_ROCK
+	.2byte ITEM_METAL_COAT
+	.2byte ITEM_RAZOR_CLAW
+	.2byte ITEM_RAZOR_FANG
+	.2byte ITEM_DEEP_SEA_SCALE
+	.2byte ITEM_DEEP_SEA_TOOTH
+	.2byte ITEM_SWEET_APPLE
+	.2byte ITEM_TART_APPLE
+	.2byte ITEM_SYRUPY_APPLE
+	.2byte ITEM_CRACKED_POT
+	.2byte ITEM_CHIPPED_POT
+	.2byte ITEM_UNREMARKABLE_TEACUP
+	.2byte ITEM_MASTERPIECE_TEACUP
+	.2byte ITEM_BLACK_AUGURITE
+	.2byte ITEM_PEAT_BLOCK
+	.2byte ITEM_METAL_ALLOY
+	.2byte ITEM_GALARICA_CUFF
+	.2byte ITEM_GALARICA_WREATH
+	.2byte ITEM_AUSPICIOUS_ARMOR
+	.2byte ITEM_MALICIOUS_ARMOR
+	.2byte ITEM_SCROLL_OF_DARKNESS
+	.2byte ITEM_SCROLL_OF_WATERS
+	pokemartlistend
+
 @ The door guards only check for FLAG_BADGE06_GET because Winonas badge is the only one that can be skipped
 @ Its assumed the player has the remaining badges
 EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard::
@@ -135,3 +192,12 @@ EverGrandeCity_PokemonLeague_1F_Text_GoForth:
 	.string "TRAINER! Believe in yourself and your\n"
 	.string "POKéMON, and go forth!$"
 
+EverGrandeCity_PokemonLeague_1F_Text_MetacaballeroIntro:
+	.string "Toda evolución exige recursos.\n"
+	.string "Yo los gestiono sin desperdicio.\p"
+	.string "Inventario, ruta, coste, retorno...\n"
+	.string "Nada se deja al azar. ¿Compras?$"
+
+EverGrandeCity_PokemonLeague_1F_Text_MetacaballeroFarewell:
+	.string "Optimiza cada turno.\n"
+	.string "La mediocridad sale cara.$"
