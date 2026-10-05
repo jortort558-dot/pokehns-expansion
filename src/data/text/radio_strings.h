@@ -360,8 +360,19 @@ static const u8 sOPT_Report_Tentacruel_7[]  = _("sin atacar…");
 static const u8 sOPT_Report_Tentacruel_8[]  = _("OAK: Como si protegieran algo");
 static const u8 sOPT_Report_Tentacruel_9[]  = _("en las profundidades.");
 
+static const u8 sOPT_Report_KalosViolet_0[]  = _("MARY: ¡Rumores insólitos llegan");
+static const u8 sOPT_Report_KalosViolet_1[]  = _("desde CIUDAD MALVA!");
+static const u8 sOPT_Report_KalosViolet_2[]  = _("OAK: Viajeros de LUMINALIA,");
+static const u8 sOPT_Report_KalosViolet_3[]  = _("en KALOS, han sido vistos allí.");
+static const u8 sOPT_Report_KalosViolet_4[]  = _("Examinan con gran fascinación");
+static const u8 sOPT_Report_KalosViolet_5[]  = _("las farolas tradicionales.");
+static const u8 sOPT_Report_KalosViolet_6[]  = _("MARY: Murmuran sobre un trazo");
+static const u8 sOPT_Report_KalosViolet_7[]  = _("y el misterioso número 33…");
+static const u8 sOPT_Report_KalosViolet_8[]  = _("OAK: ¡Parece que investigan un");
+static const u8 sOPT_Report_KalosViolet_9[]  = _("antiguo secreto de la ciudad!");
+
 #define OPT_REPORT_LINES 10
-#define NUM_OPT_REPORTS 10
+#define NUM_OPT_REPORTS 11
 
 static const u8 *const sOPT_Reports[NUM_OPT_REPORTS][OPT_REPORT_LINES] =
 {
@@ -375,6 +386,7 @@ static const u8 *const sOPT_Reports[NUM_OPT_REPORTS][OPT_REPORT_LINES] =
     { sOPT_Report_Slowpoke_0, sOPT_Report_Slowpoke_1, sOPT_Report_Slowpoke_2, sOPT_Report_Slowpoke_3, sOPT_Report_Slowpoke_4, sOPT_Report_Slowpoke_5, sOPT_Report_Slowpoke_6, sOPT_Report_Slowpoke_7, sOPT_Report_Slowpoke_8, sOPT_Report_Slowpoke_9 },
     { sOPT_Report_LavenderTower_0, sOPT_Report_LavenderTower_1, sOPT_Report_LavenderTower_2, sOPT_Report_LavenderTower_3, sOPT_Report_LavenderTower_4, sOPT_Report_LavenderTower_5, sOPT_Report_LavenderTower_6, sOPT_Report_LavenderTower_7, sOPT_Report_LavenderTower_8, sOPT_Report_LavenderTower_9 },
     { sOPT_Report_Tentacruel_0, sOPT_Report_Tentacruel_1, sOPT_Report_Tentacruel_2, sOPT_Report_Tentacruel_3, sOPT_Report_Tentacruel_4, sOPT_Report_Tentacruel_5, sOPT_Report_Tentacruel_6, sOPT_Report_Tentacruel_7, sOPT_Report_Tentacruel_8, sOPT_Report_Tentacruel_9 },
+    { sOPT_Report_KalosViolet_0, sOPT_Report_KalosViolet_1, sOPT_Report_KalosViolet_2, sOPT_Report_KalosViolet_3, sOPT_Report_KalosViolet_4, sOPT_Report_KalosViolet_5, sOPT_Report_KalosViolet_6, sOPT_Report_KalosViolet_7, sOPT_Report_KalosViolet_8, sOPT_Report_KalosViolet_9 },
 };
 
 #endif // GUARD_DATA_TEXT_RADIO_STRINGS_H

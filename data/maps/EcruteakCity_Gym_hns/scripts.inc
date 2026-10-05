@@ -66,6 +66,14 @@ EcruteakCity_Gym_EventScript_Morty::
 	msgbox MortyText_ShadowBallSpeech, MSGBOX_DEFAULT
 	setvar VAR_ECRUTEAK_CITY_STATE, 4
 	closemessage
+	goto_if_set FLAG_VIOLET_KALOS_CALL_TRIGGERED, EcruteakCity_Gym_EventScript_Morty_SkipCall
+	setflag FLAG_VIOLET_KALOS_CALL_TRIGGERED
+	playse SE_POKENAV_CALL
+	waitse
+	pokenavcall EcruteakCity_Gym_Text_PokegearKalosRumorCall
+	waitmessage
+	delay 30
+EcruteakCity_Gym_EventScript_Morty_SkipCall::
 	release
 	end
 
@@ -317,3 +325,12 @@ EcruteakCity_Gym_Text_Manolin_NoChoice:
 EcruteakCity_Gym_Text_Manolin_AfterItem:
 	.string "¡Cuidado dónde pisas! ¡No te caigas\n"
 	.string "al foso que reinicias el pull!$"
+
+EcruteakCity_Gym_Text_PokegearKalosRumorCall:
+	.string "POKéGEAR: ¡Bip, bip!\p"
+	.string "BOLETÍN RADIO JOHTO:\n"
+	.string "“¡Interrumpimos la emisión!\p"
+	.string "Llegan rumores desde CIUDAD MALVA\n"
+	.string "sobre viajeros de KALOS.\p"
+	.string "¡Sintoniza la RADIO del POKéGEAR\n"
+	.string "para conocer los detalles!”$"

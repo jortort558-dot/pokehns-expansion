@@ -270,8 +270,9 @@ VioletCity_EventScript_SecretCaveOpen::
 	end
 
 VioletCity_Text_GustalHint:
-	.string "Somos parisinos de KALOS.\n"
-	.string "Mi expedición sigue el 33:\l"
+	.string "Somos de CIUDAD LUMINALIA,\n"
+	.string "en la bella región de KALOS.\p"
+	.string "Mi expedición sigue el 33:\n"
 	.string "la tercera luz, dos veces.\p"
 	.string "Aquí la tercera es la que\n"
 	.string "vigila la ACADEMIA.$"

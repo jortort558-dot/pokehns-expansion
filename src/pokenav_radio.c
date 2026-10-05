@@ -533,8 +533,12 @@ static void GenerateOPTSegment(struct Pokenav_Radio *radio)
 
     case OPT_PHASE_REPORT:
     {
-        u32 reportIdx = Random() % NUM_OPT_REPORTS;
+        u32 reportIdx;
         u32 i;
+        if (FlagGet(FLAG_BADGE04_GET) && !FlagGet(FLAG_VIOLET_LAMP_PUZZLE_SOLVED) && (Random() % 2 == 0))
+            reportIdx = 10; // Reporte de los viajeros de Luminalia en Malva
+        else
+            reportIdx = Random() % NUM_OPT_REPORTS;
         PlayNewMapMusic(MUS_HG_RADIO_OAK);
         radio->currentMusic = MUS_HG_RADIO_OAK;
         for (i = 0; i < OPT_REPORT_LINES; i++)
