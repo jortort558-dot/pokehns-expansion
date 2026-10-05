@@ -2524,6 +2524,238 @@ u16 RandomizeMove(u16 move, u16 species)
     return (result != MOVE_NONE) ? result : move;
 }
 
+enum RandomizerLearnsetRole
+{
+    RANDOMIZER_LEARNSET_STAB,
+    RANDOMIZER_LEARNSET_STATUS,
+    RANDOMIZER_LEARNSET_COVERAGE,
+};
+
+static EWRAM_DATA u16 sBalancedLearnset[MAX_LEVEL_UP_MOVES];
+static EWRAM_DATA u16 sBalancedLearnsetSpecies = SPECIES_NONE;
+static EWRAM_DATA u32 sBalancedLearnsetSeed;
+static EWRAM_DATA u8 sBalancedLearnsetCount;
+static EWRAM_DATA bool8 sBalancedLearnsetModernMoves;
+static EWRAM_DATA bool8 sBalancedLearnsetChaosMode;
+
+static enum RandomizerLearnsetRole GetBalancedLearnsetRole(u16 species, u32 index, u32 count)
+{
+    u32 quotas[3];
+    u32 assigned[3] = {0};
+    u32 tieOffset = RandomizerRandRange(RANDOMIZER_REASON_LEARNSET, species, count, 3);
+
+    quotas[RANDOMIZER_LEARNSET_STAB] = (count * 2 + 2) / 5;
+    if (count != 0 && quotas[RANDOMIZER_LEARNSET_STAB] == 0)
+        quotas[RANDOMIZER_LEARNSET_STAB] = 1;
+    quotas[RANDOMIZER_LEARNSET_STATUS] = (count + 2) / 4;
+    if (quotas[RANDOMIZER_LEARNSET_STAB] + quotas[RANDOMIZER_LEARNSET_STATUS] > count)
+        quotas[RANDOMIZER_LEARNSET_STATUS] = count - quotas[RANDOMIZER_LEARNSET_STAB];
+    quotas[RANDOMIZER_LEARNSET_COVERAGE] = count - quotas[RANDOMIZER_LEARNSET_STAB] - quotas[RANDOMIZER_LEARNSET_STATUS];
+
+    for (u32 position = 0; position <= index; position++)
+    {
+        enum RandomizerLearnsetRole selectedRole = RANDOMIZER_LEARNSET_STAB;
+        s32 bestDeficit = -0x7FFFFFFF;
+
+        if (position == 0)
+        {
+            assigned[RANDOMIZER_LEARNSET_STAB]++;
+            if (position == index)
+                return RANDOMIZER_LEARNSET_STAB;
+            continue;
+        }
+
+        for (u32 roleOffset = 0; roleOffset < 3; roleOffset++)
+        {
+            enum RandomizerLearnsetRole role = (roleOffset + tieOffset) % 3;
+            s32 deficit;
+
+            if (assigned[role] >= quotas[role])
+                continue;
+
+            deficit = (s32)((position + 1) * quotas[role]) - (s32)(assigned[role] * count);
+            if (deficit > bestDeficit)
+            {
+                bestDeficit = deficit;
+                selectedRole = role;
+            }
+        }
+
+        assigned[selectedRole]++;
+        if (position == index)
+            return selectedRole;
+    }
+
+    return RANDOMIZER_LEARNSET_COVERAGE;
+}
+
+static bool32 IsBalancedLearnsetMoveDuplicate(u16 move, u32 generatedCount)
+{
+    for (u32 i = 0; i < generatedCount; i++)
+    {
+        if (sBalancedLearnset[i] == move)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+static u16 GetBalancedLearnsetPowerLimit(u8 level, u8 originalPower)
+{
+    u16 levelLimit;
+
+    if (level <= 10)
+        levelLimit = 60;
+    else if (level <= 20)
+        levelLimit = 75;
+    else if (level <= 35)
+        levelLimit = 90;
+    else
+        levelLimit = 130;
+
+    if (originalPower > 0 && originalPower <= 55 && levelLimit > 75)
+        levelLimit = 75;
+
+    return levelLimit;
+}
+
+static bool32 IsValidBalancedLearnsetMove(u16 move, u16 species, enum RandomizerLearnsetRole role,
+                                         u8 stabType, u16 powerLimit, bool32 enforceCategory,
+                                         enum DamageCategory preferredCategory, u32 generatedCount)
+{
+    enum DamageCategory category;
+    u8 moveType;
+
+    if (move == MOVE_NONE || move >= MOVES_COUNT_GEN9 || move > MOVE_MALIGNANT_CHAIN || GetMoveRandomizerInvalid(move))
+        return FALSE;
+    if (IsBalancedLearnsetMoveDuplicate(move, generatedCount))
+        return FALSE;
+    if (IsNuzlockeActive() && (move == MOVE_GUILLOTINE || move == MOVE_HORN_DRILL || move == MOVE_FISSURE || move == MOVE_SHEER_COLD))
+        return FALSE;
+
+    category = GetMoveCategory(move);
+    moveType = gMovesInfo[move].type;
+
+    if (role == RANDOMIZER_LEARNSET_STATUS)
+        return category == DAMAGE_CATEGORY_STATUS;
+    if (category == DAMAGE_CATEGORY_STATUS || gMovesInfo[move].power <= 1 || gMovesInfo[move].power > powerLimit)
+        return FALSE;
+    if (move == MOVE_SELF_DESTRUCT || move == MOVE_EXPLOSION || move == MOVE_MISTY_EXPLOSION)
+        return FALSE;
+    if (role == RANDOMIZER_LEARNSET_STAB && moveType != stabType)
+        return FALSE;
+    if (role == RANDOMIZER_LEARNSET_COVERAGE
+     && (moveType == gSpeciesInfo[species].types[0] || moveType == gSpeciesInfo[species].types[1]))
+        return FALSE;
+    if (enforceCategory && category != preferredCategory)
+        return FALSE;
+
+    return TRUE;
+}
+
+static u16 GenerateBalancedLearnsetMove(u16 species, const struct LevelUpMove *learnset,
+                                        u32 index, u32 count, u32 stabIndex)
+{
+    struct Sfc32State state;
+    u16 originalMove = learnset[index].move;
+    u8 originalPower = originalMove < MOVES_COUNT ? gMovesInfo[originalMove].power : 0;
+    u16 powerLimit = GetBalancedLearnsetPowerLimit(learnset[index].level, originalPower);
+    enum RandomizerLearnsetRole role = GetBalancedLearnsetRole(species, index, count);
+    enum RandomizerOffensiveProfile profile = GetRandomizerOffensiveProfile(species);
+    enum DamageCategory preferredCategory;
+    u8 stabType = gSpeciesInfo[species].types[0];
+    u8 physicalChance = 50;
+
+    state = RandomizerRandSeed(RANDOMIZER_REASON_LEARNSET, ((u32)species << 16) | index, originalMove);
+    if (IsChaosMode())
+        return RandomizeMove(originalMove, species);
+
+    if (role == RANDOMIZER_LEARNSET_STAB && gSpeciesInfo[species].types[1] != gSpeciesInfo[species].types[0])
+        stabType = (stabIndex & 1) ? gSpeciesInfo[species].types[1] : gSpeciesInfo[species].types[0];
+
+    if (profile == RANDOMIZER_PROFILE_PHYSICAL)
+        physicalChance = 70;
+    else if (profile == RANDOMIZER_PROFILE_SPECIAL)
+        physicalChance = 30;
+    preferredCategory = RandomizerNextRange(&state, 100) < physicalChance
+                      ? DAMAGE_CATEGORY_PHYSICAL
+                      : DAMAGE_CATEGORY_SPECIAL;
+
+    for (u32 pass = 0; pass < 4; pass++)
+    {
+        bool32 enforceCategory = pass == 0;
+        u16 passPowerLimit = powerLimit + (pass >= 2 ? 15 : 0);
+        u8 passStabType = stabType;
+
+        if (pass == 3 && role == RANDOMIZER_LEARNSET_STAB)
+        {
+            u8 type1 = gSpeciesInfo[species].types[0];
+            u8 type2 = gSpeciesInfo[species].types[1];
+            passStabType = stabType == type1 ? type2 : type1;
+        }
+
+        for (u32 attempt = 0; attempt < 200; attempt++)
+        {
+            u16 result = RandomizerNextRange(&state, MOVES_COUNT_GEN9 - 1) + 1;
+
+            if (!IsValidBalancedLearnsetMove(result, species, role, passStabType, passPowerLimit,
+                                             enforceCategory, preferredCategory, index))
+                continue;
+            if (originalPower >= 80 && pass < 2 && gMovesInfo[result].power < 50)
+                continue;
+            return result;
+        }
+    }
+
+    for (u16 result = 1; result < MOVES_COUNT_GEN9 && result <= MOVE_MALIGNANT_CHAIN; result++)
+    {
+        if (IsValidBalancedLearnsetMove(result, species, role, stabType, powerLimit + 30,
+                                        FALSE, preferredCategory, index))
+            return result;
+    }
+
+    return originalMove;
+}
+
+static void GenerateBalancedLearnset(u16 species)
+{
+    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
+    u32 count = 0;
+    u32 stabIndex = 0;
+
+    while (count < MAX_LEVEL_UP_MOVES && learnset[count].move != LEVEL_UP_MOVE_END)
+        count++;
+
+    for (u32 i = 0; i < count; i++)
+    {
+        enum RandomizerLearnsetRole role = GetBalancedLearnsetRole(species, i, count);
+        sBalancedLearnset[i] = GenerateBalancedLearnsetMove(species, learnset, i, count, stabIndex);
+        if (role == RANDOMIZER_LEARNSET_STAB)
+            stabIndex++;
+    }
+
+    sBalancedLearnsetSpecies = species;
+    sBalancedLearnsetSeed = GetRandomizerSeed();
+    sBalancedLearnsetCount = count;
+    sBalancedLearnsetModernMoves = gSaveBlock3Ptr->challengeSettings.tx_Mode_Modern_Moves;
+    sBalancedLearnsetChaosMode = IsChaosMode();
+}
+
+u16 RandomizeLevelUpMove(u16 species, u32 learnsetIndex)
+{
+    species = SanitizeSpeciesId(species);
+
+    if (sBalancedLearnsetSpecies != species
+     || sBalancedLearnsetSeed != GetRandomizerSeed()
+     || sBalancedLearnsetModernMoves != gSaveBlock3Ptr->challengeSettings.tx_Mode_Modern_Moves
+     || sBalancedLearnsetChaosMode != IsChaosMode())
+        GenerateBalancedLearnset(species);
+
+    if (learnsetIndex < sBalancedLearnsetCount)
+        return sBalancedLearnset[learnsetIndex];
+
+    return MOVE_NONE;
+}
+
 u16 RandomizeEvolution(u16 targetSpecies, u16 originalSpecies)
 {
     struct Sfc32State state;

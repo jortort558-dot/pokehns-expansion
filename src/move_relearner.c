@@ -1189,7 +1189,7 @@ static u32 GetRelearnerLevelUpMoves(struct BoxPokemon *mon, u16 *moves)
             u16 move = learnset[i].move;
 #if RANDOMIZER_AVAILABLE
             if (RandomizerFeatureEnabled(RANDOMIZE_LEARNSET))
-                move = RandomizeMove(move, species);
+                move = RandomizeLevelUpMove(species, i);
 #endif
 
             if (BoxMonKnowsMove(mon, move))
@@ -1355,7 +1355,7 @@ static bool32 HasRelearnerLevelUpMoves(struct BoxPokemon *boxMon)
             u16 move = learnset[i].move;
 #if RANDOMIZER_AVAILABLE
             if (RandomizerFeatureEnabled(RANDOMIZE_LEARNSET))
-                move = RandomizeMove(move, species);
+                move = RandomizeLevelUpMove(species, i);
 #endif
 
             if (!BoxMonKnowsMove(boxMon, move))
