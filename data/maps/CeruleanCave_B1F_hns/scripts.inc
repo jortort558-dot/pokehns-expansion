@@ -2,7 +2,7 @@ CeruleanCave_B1F_hns_MapScripts::
 	.byte 0
 
 CeruleanCave2_EventScript_Zinc::
-    finditem ITEM_ZINC
+    finditem ITEM_MEWTWONITE_Y
     end
 
 CeruleanCave2_EventScript_Protein::

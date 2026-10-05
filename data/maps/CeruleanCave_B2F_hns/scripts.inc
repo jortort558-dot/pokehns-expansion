@@ -23,10 +23,9 @@ CeruleanCave3_EventScript_MewtwoRan::
 	end
 
 CeruleanCave3_EventScript_MaxRevive::
-    finditem ITEM_MAX_REVIVE
+    finditem ITEM_ALAKAZITE
     end
 
 CeruleanCave3_EventScript_UltraBall::
     finditem ITEM_ULTRA_BALL
     end
-

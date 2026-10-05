@@ -68,7 +68,7 @@ Route27_Movement_WalkBot:
     step_end
 
 Route27_EventScript_Item_Moonstone::
-    finditem ITEM_MOON_STONE
+    finditem ITEM_CHARIZARDITE_X
     end
 
 Route27_EventScript_Item_RareCandy::

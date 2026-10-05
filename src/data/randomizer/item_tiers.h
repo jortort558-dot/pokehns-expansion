@@ -410,13 +410,49 @@ static const u16 sMegaStonesPool[] =
     ITEM_GLALITITE,
     ITEM_SALAMENCITE,
     ITEM_METAGROSSITE,
+    ITEM_LATIASITE,
+    ITEM_LATIOSITE,
     ITEM_LOPUNNITE,
     ITEM_GARCHOMPITE,
     ITEM_LUCARIONITE,
     ITEM_ABOMASITE,
     ITEM_GALLADITE,
     ITEM_AUDINITE,
+    ITEM_DIANCITE,
+    ITEM_MEWTWONITE_X,
+    ITEM_MEWTWONITE_Y,
 };
+
+// Anclas de exploración: fijas en partida normal y permutadas sin repetición
+// entre las 47 megapiedras cuando se randomizan los objetos de campo.
+static const u16 sExplorationMegaStones[] =
+{
+    ITEM_GYARADOSITE,
+    ITEM_STEELIXITE,
+    ITEM_CHARIZARDITE_X,
+    ITEM_AERODACTYLITE,
+    ITEM_TYRANITARITE,
+    ITEM_LUCARIONITE,
+    ITEM_MEWTWONITE_X,
+    ITEM_MEWTWONITE_Y,
+    ITEM_ALAKAZITE,
+    ITEM_SALAMENCITE,
+    ITEM_ABOMASITE,
+    ITEM_BLASTOISINITE,
+};
+
+static inline s32 GetExplorationMegaStoneIndex(u16 itemId)
+{
+    u32 i;
+
+    for (i = 0; i < ARRAY_COUNT(sExplorationMegaStones); i++)
+    {
+        if (sExplorationMegaStones[i] == itemId)
+            return i;
+    }
+
+    return -1;
+}
 
 // =============================================================================
 // Mapeo de Mapas a Tier de Progresión

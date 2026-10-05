@@ -4,7 +4,7 @@ Route20_hns_MapScripts::
 	.byte 0
 
 Route20_EventScript_ShellBell::
-	finditem ITEM_SHELL_BELL
+	finditem ITEM_BLASTOISINITE
 	end
 
 Route20_OnTransition:

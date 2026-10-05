@@ -8,7 +8,7 @@ MtSilver_Snow_OnTransition:
 	end
 
 MtSilver_Snow_EventScript_RareCandy::
-	finditem ITEM_RARE_CANDY
+	finditem ITEM_ABOMASITE
 	end
 MtSilver_Snow_EventScript_NevermeltIce::	
 	finditem ITEM_NEVER_MELT_ICE

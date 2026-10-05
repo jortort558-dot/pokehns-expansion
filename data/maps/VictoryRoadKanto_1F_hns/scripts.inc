@@ -2,7 +2,7 @@ VictoryRoadKanto_1F_hns_MapScripts::
 	.byte 0
 
 VictoryRoadKanto_1F_EventScript_Item_RareCandy::
-	finditem ITEM_RARE_CANDY
+	finditem ITEM_AERODACTYLITE
 	end
 VictoryRoadKanto_1F_EventScript_Item_MaxEther::
 	finditem ITEM_MAX_ETHER

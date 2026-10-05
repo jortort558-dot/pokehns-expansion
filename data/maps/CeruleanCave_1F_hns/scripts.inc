@@ -3,7 +3,7 @@ CeruleanCave_1F_hns_MapScripts::
 
 
 CeruleanCave1_EventScript_MaxElixir::
-    finditem ITEM_MAX_ELIXIR
+    finditem ITEM_MEWTWONITE_X
     end
 
 CeruleanCave1_EventScript_RareCandy::
@@ -13,4 +13,3 @@ CeruleanCave1_EventScript_RareCandy::
 CeruleanCave1_EventScript_PpUp::
     finditem ITEM_PP_UP
     end
-

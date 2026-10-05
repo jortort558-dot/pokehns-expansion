@@ -8,7 +8,7 @@ IcePath_1F_OnTransition:
 	end
 
 IcePath_1F_EventScript_Item_PpUp::
-	finditem ITEM_PP_UP
+	finditem ITEM_STEELIXITE
 	end
 IcePath_1F_EventScript_Item_Protein::
 	finditem ITEM_PROTEIN

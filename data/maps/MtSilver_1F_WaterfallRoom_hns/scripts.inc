@@ -56,7 +56,7 @@ MtSilver_1F_WaterfallRoom_OnTransition:
 	end
 
 MtSilver_1F_WaterfallRoom_EventScript_MaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_SALAMENCITE
 	end
 
 MtSilver_1F_WaterfallRoom_EventScript_DireHit::

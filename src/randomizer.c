@@ -632,6 +632,31 @@ u16 GetRandomizedCompetitiveItem(u16 competitiveItem)
     return sCompetitiveItemsPool[permutation[compIdx]];
 }
 
+static u16 GetRandomizedExplorationMegaStone(u16 megaStone)
+{
+    u8 permutation[ARRAY_COUNT(sMegaStonesPool)];
+    s32 anchorIndex = GetExplorationMegaStoneIndex(megaStone);
+    struct Sfc32State state;
+    u32 i;
+
+    if (anchorIndex < 0)
+        return megaStone;
+
+    state = RandomizerRandSeed(RANDOMIZER_REASON_FIELD_ITEM, 0x4D454741 /* "MEGA" */, 0x414E4348 /* "ANCH" */);
+    for (i = 0; i < ARRAY_COUNT(sMegaStonesPool); i++)
+        permutation[i] = i;
+
+    for (i = ARRAY_COUNT(sMegaStonesPool) - 1; i > 0; i--)
+    {
+        u32 j = RandomizerNextRange(&state, i + 1);
+        u8 temp = permutation[i];
+        permutation[i] = permutation[j];
+        permutation[j] = temp;
+    }
+
+    return sMegaStonesPool[permutation[anchorIndex]];
+}
+
 u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
 {
     struct Sfc32State state;
@@ -643,6 +668,11 @@ u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
 
     if (originalItem == ITEM_NONE)
         return ITEM_NONE;
+
+    // Las 12 anclas conservan su piedra temática en normal. Cuando los objetos
+    // están randomizados, forman una selección cerrada sin repetición.
+    if (GetExplorationMegaStoneIndex(originalItem) >= 0)
+        return GetRandomizedExplorationMegaStone(originalItem);
 
     // MTs: barajadas si el shuffle de MTs está activo
     if (originalItem >= ITEM_TM01 && originalItem <= ITEM_TM100)

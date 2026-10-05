@@ -94,7 +94,7 @@ Route44_EventScript_Sign2::
 	end
 
 Route44_EventScript_Item_MaxRepel::
-	finditem ITEM_MAX_REPEL
+	finditem ITEM_GYARADOSITE
 	end
 
 Route44_EventScript_Item_UltraBall::
@@ -257,4 +257,3 @@ Route44_Text_Sign1:
 Route44_Text_Sign2:
     .string "RUTA 44\p"
     .string "PUEBLO CAOBA - CIUDAD ENDRINO$"
-

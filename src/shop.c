@@ -2687,8 +2687,39 @@ static const u16 sMegaStonesTier3[] = {
     ITEM_MEWTWONITE_Y,
 };
 
-static EWRAM_DATA u16 sElPiedrasShopList[16] = {0};
+static EWRAM_DATA u16 sElPiedrasShopList[48] = {0};
 static EWRAM_DATA u16 sElPiedrasMegaPool[64] = {0};
+
+static bool32 IsElPiedrasExplorationExclusive(u16 itemId)
+{
+    switch (itemId)
+    {
+    case ITEM_GYARADOSITE:
+    case ITEM_STEELIXITE:
+    case ITEM_CHARIZARDITE_X:
+    case ITEM_AERODACTYLITE:
+    case ITEM_TYRANITARITE:
+    case ITEM_LUCARIONITE:
+    case ITEM_MEWTWONITE_X:
+    case ITEM_MEWTWONITE_Y:
+    case ITEM_ALAKAZITE:
+    case ITEM_SALAMENCITE:
+    case ITEM_ABOMASITE:
+    case ITEM_BLASTOISINITE:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
+static u16 GetElPiedrasUnlockedCount(u8 badges, bool32 randomItems)
+{
+    static const u8 sNormalUnlocks[] = {3, 7, 11, 15, 19, 23, 27, 30, 32, 35};
+    static const u8 sRandomUnlocks[] = {5, 10, 15, 20, 25, 30, 35, 39, 43, 47};
+    u8 progress = badges > 7 ? min(badges - 7, 9) : 0;
+
+    return randomItems ? sRandomUnlocks[progress] : sNormalUnlocks[progress];
+}
 
 void CreateElPiedrasMegaShop(void)
 {
@@ -2696,43 +2727,24 @@ void CreateElPiedrasMegaShop(void)
     s16 *data;
     u8 badges = GetNumberOfBadges();
     u16 poolSize = 0;
-    u16 i, j;
+    u16 i;
     u16 listCount = 0;
-    u32 seed;
+    bool32 randomItems = gSaveBlock3Ptr->challengeSettings.tx_Random_Items;
+    u16 unlockedCount = GetElPiedrasUnlockedCount(badges, randomItems);
 
     for (i = 0; i < ARRAY_COUNT(sMegaStonesTier1); i++)
         sElPiedrasMegaPool[poolSize++] = sMegaStonesTier1[i];
 
-    if (badges >= 8)
+    for (i = 0; i < ARRAY_COUNT(sMegaStonesTier2); i++)
+        sElPiedrasMegaPool[poolSize++] = sMegaStonesTier2[i];
+
+    for (i = 0; i < ARRAY_COUNT(sMegaStonesTier3); i++)
+        sElPiedrasMegaPool[poolSize++] = sMegaStonesTier3[i];
+
+    for (i = 0; i < poolSize && listCount < unlockedCount; i++)
     {
-        for (i = 0; i < ARRAY_COUNT(sMegaStonesTier2); i++)
-            sElPiedrasMegaPool[poolSize++] = sMegaStonesTier2[i];
-    }
-
-    if (badges >= 12)
-    {
-        for (i = 0; i < ARRAY_COUNT(sMegaStonesTier3); i++)
-            sElPiedrasMegaPool[poolSize++] = sMegaStonesTier3[i];
-    }
-
-    seed = (gSaveBlock2Ptr->playerTrainerId[0]
-            | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
-            | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
-            | (gSaveBlock2Ptr->playerTrainerId[3] << 24))
-            + badges * 17
-            + RtcGetLocalDayCount() * 31;
-
-    for (i = 0; i < 6 && poolSize > 0 && listCount < ARRAY_COUNT(sElPiedrasShopList) - 1; i++)
-    {
-        seed = 1103515245 * seed + 12345;
-        u16 idx = ((seed >> 16) & 0x7FFF) % poolSize;
-        u16 selected = sElPiedrasMegaPool[idx];
-
-        for (j = idx; j < poolSize - 1; j++)
-            sElPiedrasMegaPool[j] = sElPiedrasMegaPool[j + 1];
-        poolSize--;
-
-        sElPiedrasShopList[listCount++] = selected;
+        if (randomItems || !IsElPiedrasExplorationExclusive(sElPiedrasMegaPool[i]))
+            sElPiedrasShopList[listCount++] = sElPiedrasMegaPool[i];
     }
     sElPiedrasShopList[listCount] = ITEM_NONE;
 
