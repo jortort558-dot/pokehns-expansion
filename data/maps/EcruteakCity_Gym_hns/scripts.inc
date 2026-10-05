@@ -332,5 +332,5 @@ EcruteakCity_Gym_Text_PokegearKalosRumorCall:
 	.string "“¡Interrumpimos la emisión!\p"
 	.string "Llegan rumores desde CIUDAD MALVA\n"
 	.string "sobre viajeros de KALOS.\p"
-	.string "¡Sintoniza la RADIO del POKéGEAR\n"
-	.string "para conocer los detalles!”$"
+	.string "¡Mueve el dial hasta el final\n"
+	.string "a SECRETOS DE JOHTO para oírlos!”$"

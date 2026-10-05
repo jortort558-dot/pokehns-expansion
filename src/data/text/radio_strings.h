@@ -19,6 +19,26 @@ static const u8 sRadioStationName_LetsAllSing[]     = _("¡Cantemos todos!");
 static const u8 sRadioStationName_PokeFlute[]       = _("POKé FLAUTA");
 
 static const u8 sRadioStationName_HoennSound[]  = _("Sonidos de Hoenn");
+static const u8 sRadioStationName_SecretsOfJohto[] = _("Secretos de Johto");
+
+// ==========================================================
+// Secretos de Johto
+// ==========================================================
+
+static const u8 sRadioText_Secrets_Intro1[] = _("SECRETOS DE JOHTO: ¡Misterios");
+static const u8 sRadioText_Secrets_Intro2[] = _("y leyendas de nuestra tierra!");
+
+static const u8 sRadioText_Secrets_Default1[] = _("No hay rumores nuevos en");
+static const u8 sRadioText_Secrets_Default2[] = _("este momento… ¡Sigue explorando!");
+
+static const u8 sRadioText_Secrets_Violet1[] = _("CRÓNICA DE CIUDAD MALVA:");
+static const u8 sRadioText_Secrets_Violet2[] = _("Viajeros de CIUDAD LUMINALIA");
+static const u8 sRadioText_Secrets_Violet3[] = _("investigan farolas antiguas.");
+static const u8 sRadioText_Secrets_Violet4[] = _("Hablan del misterioso número 33:");
+static const u8 sRadioText_Secrets_Violet5[] = _("pulsar la luz de la ACADEMIA dos");
+static const u8 sRadioText_Secrets_Violet6[] = _("veces, el reflejo del CANAL y");
+static const u8 sRadioText_Secrets_Violet7[] = _("la entrada a TORRE BELLSPROUT.");
+static const u8 sRadioText_Secrets_Violet8[] = _("¡Dicen que abre un camino oculto!");
 
 // ==========================================================
 // Hoenn Sound

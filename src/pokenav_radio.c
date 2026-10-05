@@ -70,6 +70,7 @@ enum RadioStation
     RADIO_STATION_EVOLUTION,
     RADIO_STATION_ROCKET,
     RADIO_STATION_HOENN_SOUND,
+    RADIO_STATION_SECRETS_OF_JOHTO,
     NUM_RADIO_STATIONS,
 };
 
@@ -160,7 +161,7 @@ static const struct RadioChannelEntry sRadioChannels[] =
     { .tuningPos = 50, .station = RADIO_STATION_PLACES_AND_PEOPLE,.name = sRadioStationName_PlacesAndPeople },
     { .tuningPos = 57, .station = RADIO_STATION_LETS_ALL_SING,    .name = sRadioStationName_LetsAllSing },
     { .tuningPos = 61, .station = RADIO_STATION_POKE_FLUTE,       .name = sRadioStationName_PokeFlute },
-    { .tuningPos = 63, .station = RADIO_STATION_EVOLUTION,        .name = sRadioStationName_Unown },
+    { .tuningPos = 63, .station = RADIO_STATION_SECRETS_OF_JOHTO, .name = sRadioStationName_SecretsOfJohto },
 };
 
 static const u8 sRadioText_NoStation[] = _("- - - -");
@@ -180,6 +181,7 @@ static const u16 sRadioStationMusic[NUM_RADIO_STATIONS] =
     [RADIO_STATION_EVOLUTION]        = MUS_HG_RADIO_ROCKET,
     [RADIO_STATION_ROCKET]           = MUS_HG_ROCKET_TAKEOVER,
     [RADIO_STATION_HOENN_SOUND]      = MUS_HG_RADIO_ROUTE101,
+    [RADIO_STATION_SECRETS_OF_JOHTO] = MUS_HG_RADIO_OAK,
 };
 
 static const u16 sHoennSoundSongs[] =
@@ -898,6 +900,27 @@ static void GenerateStationContent(struct Pokenav_Radio *radio, u8 station)
         radio->lines[n++] = sRadioText_Hoenn4;
         break;
 
+    case RADIO_STATION_SECRETS_OF_JOHTO:
+        radio->lines[n++] = sRadioText_Secrets_Intro1;
+        radio->lines[n++] = sRadioText_Secrets_Intro2;
+        if (FlagGet(FLAG_BADGE04_GET) && !FlagGet(FLAG_VIOLET_LAMP_PUZZLE_SOLVED))
+        {
+            radio->lines[n++] = sRadioText_Secrets_Violet1;
+            radio->lines[n++] = sRadioText_Secrets_Violet2;
+            radio->lines[n++] = sRadioText_Secrets_Violet3;
+            radio->lines[n++] = sRadioText_Secrets_Violet4;
+            radio->lines[n++] = sRadioText_Secrets_Violet5;
+            radio->lines[n++] = sRadioText_Secrets_Violet6;
+            radio->lines[n++] = sRadioText_Secrets_Violet7;
+            radio->lines[n++] = sRadioText_Secrets_Violet8;
+        }
+        else
+        {
+            radio->lines[n++] = sRadioText_Secrets_Default1;
+            radio->lines[n++] = sRadioText_Secrets_Default2;
+        }
+        break;
+
     case RADIO_STATION_UNOWN:
     case RADIO_STATION_POKE_FLUTE:
     case RADIO_STATION_EVOLUTION:
@@ -1015,6 +1038,9 @@ static bool8 IsStationAvailable(u8 station)
     case RADIO_STATION_HOENN_SOUND:
         return !IsPlayerInJohto() && FlagGet(FLAG_KANTO_RADIO_GOT);
 
+    case RADIO_STATION_SECRETS_OF_JOHTO:
+        return IsPlayerInJohto();
+
     default:
         return TRUE;
     }
@@ -1040,14 +1066,15 @@ static u8 FindStation(s32 tuningPos)
                 return RADIO_STATION_NONE;
 
             // Rocket takeover overrides normal Johto stations
-            // but not location-locked ones (Unown, Poke Flute, Evolution)
+            // but not location-locked ones (Unown, Poke Flute, Evolution, Secrets)
             if (!FlagGet(FLAG_HIDE_GOLDENROD_ROCKETS)
                 && station != RADIO_STATION_UNOWN
                 && station != RADIO_STATION_POKE_FLUTE
                 && station != RADIO_STATION_EVOLUTION
                 && station != RADIO_STATION_PLACES_AND_PEOPLE
                 && station != RADIO_STATION_LETS_ALL_SING
-                && station != RADIO_STATION_HOENN_SOUND)
+                && station != RADIO_STATION_HOENN_SOUND
+                && station != RADIO_STATION_SECRETS_OF_JOHTO)
             {
                 return RADIO_STATION_ROCKET;
             }
