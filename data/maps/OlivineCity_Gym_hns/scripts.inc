@@ -208,6 +208,8 @@ OlivineCity_Gym_EventScript_JasmineVictory::
 	setvar VAR_0x8008, 6
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_IRON_TAIL
+	giveitem ITEM_ABILITY_CAPSULE, 1
+	giveitem ITEM_FESTIVAL_TICKET, 1
 	msgbox OlivineCity_Gym_Text_JasmineIronTailSpeech, MSGBOX_DEFAULT
 	setvar VAR_OLIVINE_CITY_STATE, 8
 	setrespawn HEAL_LOCATION_OLIVINE_CITY_HNS

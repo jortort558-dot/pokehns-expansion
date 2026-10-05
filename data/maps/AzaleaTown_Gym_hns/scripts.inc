@@ -545,6 +545,7 @@ AzaleaTown_Gym_EventScript_Bugsy::
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_U_TURN
+	call Common_EventScript_AwardRandomMint
 	msgbox AzaleaTown_Gym_Text_FuryCutterSpeech, MSGBOX_DEFAULT
 	setvar VAR_AZALEA_TOWN_STATE, 5
 	closemessage

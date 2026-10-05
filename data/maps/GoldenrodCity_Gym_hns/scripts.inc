@@ -86,6 +86,8 @@ GoldenrodCity_Gym_EventScript_WhitneyBadge::
 	setvar VAR_0x8008, 3
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_ATTRACT
+	call Common_EventScript_AwardRandomMint
+	giveitem ITEM_FESTIVAL_TICKET, 1
 	msgbox GoldenrodCity_Gym_Text_WhitneyAttract, MSGBOX_DEFAULT
 	setvar VAR_GOLDENROD_CITY_STATE, 5
 	closemessage

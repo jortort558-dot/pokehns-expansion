@@ -40,6 +40,13 @@ PokemonLeague_BrunosRoom_EventScript_BrunoRematchPostOBC::
 
 PokemonLeague_BrunosRoom_EventScript_BrunoOnDefeat::
 	clearflag FLAG_TEMP_5	
+	goto_if_set FLAG_REWARD_E4_BRUNO, PokemonLeague_BrunosRoom_EventScript_BrunoSkipReward
+	setflag FLAG_REWARD_E4_BRUNO
+	msgbox PokemonLeague_BrunosRoom_Text_RewardIntro, MSGBOX_DEFAULT
+	giveitem ITEM_FESTIVAL_TICKET, 2
+	giveitem ITEM_CHUPITO_ATK, 1
+	giveitem ITEM_ADAMANT_MINT, 1
+PokemonLeague_BrunosRoom_EventScript_BrunoSkipReward::
 	msgbox PokemonLeague_BrunosRoom_Text_Defeat, MSGBOX_DEFAULT
 	closemessage
 	setmetatile 6, 1, 0x28E, FALSE
@@ -91,3 +98,7 @@ PokemonLeague_BrunosRoom_Text_Defeat:
     .string "Tras perder, no tengo derecho\n"
     .string "a decir nada…\p"
     .string "¡Ve y afronta tu próximo desafío!$"
+
+PokemonLeague_BrunosRoom_Text_RewardIntro:
+    .string "¡Menuda fuerza y disciplina!\n"
+    .string "¡Te has ganado esta recompensa!$"

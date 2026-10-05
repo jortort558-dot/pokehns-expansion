@@ -317,12 +317,12 @@ SinjohRuins_ArceusRoom_EventScript_ArceusRan::
 	end
 
 SinjohRuins_ArceusRoom_Text_CryArceus:
-    .string "ARCEUS: Dodogyuuun!$"
+    .string "ARCEUS: ¡Dodogyuuun!$"
 
 SinjohRuins_ArceusRoom_Text_CryArceus2:
-	.string "ARCEUS: Dodogyuuun!\p"
-	.string "The ARCEUS is weakened...\n"
-	.string "Can be caught?$"
+	.string "ARCEUS: ¡Dodogyuuun!\p"
+	.string "ARCEUS se ha debilitado...\n"
+	.string "¿Podrá ser capturado?$"
 
 SinjohRuins_ArceusRoom_TriggerSteven::
 	lock
@@ -358,23 +358,24 @@ SinjohRuins_ArceusRoom_Movement_StevenWalkDown:
 	step_end
 
 SinjohRuins_ArceusRoom_Text_StevenCongrats:
-    .string "STEVEN: You did it, {PLAYER}!\p"
-	.string "That battle was breathtaking.\p"
-	.string "Seeing your power made me realize.\p"
-	.string "The KIMONO GIRLS didn't send you\n"
-	.string "to help our research.\p"
-	.string "I think they sent you because\n"
-	.string "you were the only one worthy of\l"
-	.string "taming the legendary POKéMON.\p"
-	.string "They didn't trust my team and I\n"
-	.string "to handle it.\p"
-	.string "And after what I've just seen...\p"
-	.string "I think they were right.\p"
-	.string "I've brought a lot of unwanted\n"
-	.string "attention to this town.\p"
-	.string "I think I'll spend some time\n"
-	.string "with the locals.\p"
-	.string "After all of this, you and your\n"
-	.string "POKéMON deserve some rest.\p"
-	.string "I'll be at the village if you need me.\p"
-	.string "Fufufu, what could you need from me?$"
+    .string "MÁXIMO: ¡Lo lograste, {PLAYER}!\p"
+	.string "Ese combate ha sido sobrecogedor.\p"
+	.string "Ver tu poder me abrió los ojos.\p"
+	.string "Las CHICAS KIMONO no te enviaron\n"
+	.string "a colaborar en el proyecto.\p"
+	.string "Te enviaron porque eras la única\n"
+	.string "persona digna de calmar a los\l"
+	.string "POKéMON legendarios.\p"
+	.string "No confiaban en que mi equipo y yo\n"
+	.string "fuéramos capaces de lograrlo.\p"
+	.string "Y tras lo que acabo de ver...\p"
+	.string "creo que tenían toda la razón.\p"
+	.string "He atraído demasiada atención no\n"
+	.string "deseada a este pueblo.\p"
+	.string "Creo que pasaré un tiempo con la\n"
+	.string "gente de la aldea.\p"
+	.string "Después de todo esto, tus POKéMON\n"
+	.string "y tú os merecéis un buen descanso.\p"
+	.string "Estaré en la aldea si me necesitas.\p"
+	.string "Je, je, je...\n"
+	.string "¿qué podrías necesitar de mí ahora?$"

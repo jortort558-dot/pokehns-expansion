@@ -90,6 +90,8 @@ MahoganyTown_Gym_EventScript_PryceVictory::
 	setvar VAR_0x8008, 7
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_HAIL
+	giveitem ITEM_ABILITY_CAPSULE, 1
+	giveitem ITEM_FESTIVAL_TICKET, 1
 	msgbox MahoganyTown_Gym_Text_HailSpeech, MSGBOX_DEFAULT
 	setvar VAR_MAHOGANY_TOWN_STATE, 15
     setrespawn HEAL_LOCATION_MAHOGANY_TOWN_HNS

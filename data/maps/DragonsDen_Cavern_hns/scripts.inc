@@ -90,6 +90,8 @@ DragonsDen_Cavern_EventScript_Clair::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	msgbox DragonsDen_Cavern_Text_Clair_GiveTM, MSGBOX_DEFAULT
 	giveitem ITEM_TM_DRAGON_PULSE
+	giveitem ITEM_ABILITY_PATCH, 1
+	giveitem ITEM_FESTIVAL_TICKET, 2
 	msgbox DragonsDen_Cavern_Text_Clair_ExplainTM, MSGBOX_DEFAULT
 	closemessage
 	delay 30

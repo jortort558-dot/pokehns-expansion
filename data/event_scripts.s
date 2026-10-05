@@ -1255,6 +1255,12 @@ Common_EventScript_PlayGymBadgeFanfare::
 	waitfanfare
 	return
 
+Common_EventScript_AwardRandomMint::
+	random 21
+	addvar VAR_RESULT, ITEM_LONELY_MINT
+	giveitem VAR_RESULT
+	return
+
 Common_EventScript_OutOfCenterPartyHeal::
 	fadescreenswapbuffers FADE_TO_BLACK
 	playfanfare MUS_HEAL

@@ -40,6 +40,13 @@ PokemonLeague_KarensRoom_EventScript_KarenRematchPostOBC::
 
 PokemonLeague_KarensRoom_EventScript_KarenOnDefeat::
     clearflag FLAG_TEMP_5
+	goto_if_set FLAG_REWARD_E4_KAREN, PokemonLeague_KarensRoom_EventScript_KarenSkipReward
+	setflag FLAG_REWARD_E4_KAREN
+	msgbox PokemonLeague_KarensRoom_Text_RewardIntro, MSGBOX_DEFAULT
+	giveitem ITEM_FESTIVAL_TICKET, 2
+	giveitem ITEM_CHUPITO_SPDEF, 1
+	giveitem ITEM_ABILITY_CAPSULE, 1
+PokemonLeague_KarensRoom_EventScript_KarenSkipReward::
 	msgbox PokemonLeague_KarensRoom_Text_Defeat, MSGBOX_DEFAULT
 	closemessage
 	setmetatile 6, 1, 0x28E, FALSE
@@ -99,3 +106,7 @@ PokemonLeague_KarensRoom_Text_Defeat:
     .string "Me gusta tu estilo. Entiendes\n"
     .string "lo que de verdad importa.\p"
     .string "Adelante. El CAMPEÓN te espera.$"
+
+PokemonLeague_KarensRoom_Text_RewardIntro:
+    .string "Luchas con verdadera pasión.\n"
+    .string "Quédate con esto para tu camino.$"

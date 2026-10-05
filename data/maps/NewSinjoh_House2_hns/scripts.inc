@@ -4,18 +4,19 @@ NewSinjoh_House2_hns_MapScripts::
 
 NewSinjoh_House2_EventScripts_DeskLady::
     lock
-	msgbox NewSinjoh_House2_DeskLady_Text MSGBOX_DEFAULT
+	msgbox NewSinjoh_House2_DeskLady_Text, MSGBOX_DEFAULT
 	release
 	end
 
 NewSinjoh_House2_DeskLady_Text::
-    .string "Hello, little one..\p"
-	.string "Welcome to New Sinjoh's...\n"
-	.string "Well, you might call it a library.\p"
-	.string "Really, this is where we keep all\n"
-	.string "the records of our town's history,\l"
-	.string "as well as any literature we\l"
-	.string "import from other regions..$"
+    .string "Hola, criatura…\p"
+	.string "Te doy la bienvenida a la…\n"
+	.string "bueno, podrías llamarlo biblioteca\l"
+	.string "de Nuevo Sinjoh.\p"
+	.string "En realidad, aquí guardamos la\n"
+	.string "crónica histórica del pueblo,\l"
+	.string "así como libros que traemos\l"
+	.string "de otras regiones…$"
 
 NewSinjoh_House2_EventScript_Torkoal::
 	lock
@@ -28,26 +29,27 @@ NewSinjoh_House2_EventScript_Torkoal::
 	end
 
 NewSinjoh_Hosue2_Text_CryTorkoal:
-	.string "Tooor?$"
+	.string "¡Tooor!$"
 
 NewSinjoh_House2_EventScript_BookShelf_North::
     lock
-	msgbox NewSinjoh_House2_Text_Bookshelf_North MSGBOX_DEFAULT
+	msgbox NewSinjoh_House2_Text_Bookshelf_North, MSGBOX_DEFAULT
 	release
 	end
 
 NewSinjoh_House2_Text_Bookshelf_North:
-    .string "It's crammed full of ancient\n"
-	.string "leather-bound books.\p"
-	.string "The language is unrecognizeable.$"
+    .string "Está repleta de libros antiguos\n"
+	.string "con encuadernación de cuero.\p"
+	.string "El idioma resulta irreconocible.$"
 
 NewSinjoh_House2_EventScript_BookShelf_South::
     lock
-	msgbox NewSinjoh_House2_Text_Bookshelf_South MSGBOX_DEFAULT
+	msgbox NewSinjoh_House2_Text_Bookshelf_South, MSGBOX_DEFAULT
 	release
 	end
 
 NewSinjoh_House2_Text_Bookshelf_South:
-    .string "It's crammed full of POKéMON\n"
-	.string "books.\p"
-	.string "These look newer and more familiar.$"
+    .string "Está repleta de libros\n"
+	.string "sobre POKéMON.\p"
+	.string "Estos parecen más recientes\n"
+	.string "y familiares.$"

@@ -70,6 +70,8 @@ CianwoodGym_EventScript_ChuckVictory::
 	setvar VAR_0x8008, 5
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_FOCUS_PUNCH
+	call Common_EventScript_AwardRandomMint
+	giveitem ITEM_FESTIVAL_TICKET, 1
 	msgbox CianwoodGym_Text_ChuckTMSpeech, MSGBOX_DEFAULT
 	setvar VAR_GETFLY, 1
 	setrespawn HEAL_LOCATION_CIANWOOD_CITY_HNS

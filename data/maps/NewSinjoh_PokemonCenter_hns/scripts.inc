@@ -39,29 +39,30 @@ NewSinjoh_PokemonCenter_hns_Map::
 	end
 
 NewSinjoh_PokemonCenter_Text_Skiier:
-	.string "The snow makes it hard to navigate\n"
-	.string "this place.\p"
-	.string "It all looks the same.\p"
-	.string "So this map is a big help!\p"
-	.string "What a beautiful region!$"
+	.string "La nieve dificulta bastante\n"
+	.string "orientarse por estos lares.\p"
+	.string "Todo parece idéntico.\p"
+	.string "¡Este mapa es una gran ayuda!\p"
+	.string "¡Qué región tan hermosa!$"
 
 NewSinjoh_Text_Artist:
-	.string "I've found great inspiration in\n"
-	.string "this hidden town!\p"
-	.string "Don't you think the landscape\n"
-    .string "is breathtaking?$"
+	.string "¡He hallado una gran inspiración en\n"
+	.string "este pueblo oculto!\p"
+	.string "¿No crees que el paisaje es\n"
+    .string "impresionante?$"
 
 Text_ItemGiveaway:
-	.string "I see!\n"
-	.string "You must be an artist as well!\p"
-	.string "I happen to have an extra something\n"
-	.string "that'll help you notice the tiny\l"
-    .string "details of life!$"
+	.string "¡Ya veo!\n"
+	.string "¡Tú también tienes alma de artista!\p"
+	.string "Resulta que me sobra algo que te\n"
+	.string "ayudará a captar los pequeños\l"
+    .string "detalles de la vida.$"
 
 NewSinjoh_Text_Artist_No:
-    .string "You aren't one of those anti-tourist\n"
-    .string "types are you?\n"
-	.string "Beauty is meant to be shared.$"
+    .string "¿No serás de los que detestan a los\n"
+    .string "turistas, verdad?\p"
+	.string "La belleza está hecha para\n"
+	.string "compartirla.$"
 
 NewSinjoh_EventScript_ZoomLens_No::
 	msgbox NewSinjoh_Text_Artist_No, MSGBOX_DEFAULT
@@ -74,19 +75,19 @@ NewSinjoh_EventScript_ZoomLens_Gotten::
 	end
 
 Text_WasGiven_ZoomLensAlready:
-	.string "I hope you enjoy that lens!$"
+	.string "¡Espero que disfrutes de ese lente!$"
 
 NewSinjoh_EventScript_FemAce::
 	msgbox NewSinjoh_Text_FemAce, MSGBOX_NPC
 	end
 
 NewSinjoh_Text_FemAce:
-	.string "We don't have many modern\n"
-	.string "commodities in NEW SINJOH.\p"
-	.string "But at least we have this\n"
-	.string "POKéMON CENTER.$"
+	.string "No tenemos demasiadas comodidades\n"
+	.string "modernas en NUEVO SINJOH.\p"
+	.string "Pero al menos contamos con este\n"
+	.string "CENTRO POKéMON.$"
 
 
 NewSinjoh_PokemonCenter_hns_Text_0:
-	.string "{PLAYER} took a closer look at the\n"
-	.string "SINJOH map.$"
+	.string "{PLAYER} miró con atención el mapa\n"
+	.string "de SINJOH.$"

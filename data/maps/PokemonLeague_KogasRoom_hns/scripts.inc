@@ -40,6 +40,13 @@ PokemonLeague_KogasRoom_EventScript_KogaRematchPostOBC::
 
 PokemonLeague_KogasRoom_EventScript_KogaOnDefeat::
 	clearflag FLAG_TEMP_5
+	goto_if_set FLAG_REWARD_E4_KOGA, PokemonLeague_KogasRoom_EventScript_KogaSkipReward
+	setflag FLAG_REWARD_E4_KOGA
+	msgbox PokemonLeague_KogasRoom_Text_RewardIntro, MSGBOX_DEFAULT
+	giveitem ITEM_FESTIVAL_TICKET, 2
+	giveitem ITEM_CHUPITO_SPEED, 1
+	giveitem ITEM_ABILITY_CAPSULE, 1
+PokemonLeague_KogasRoom_EventScript_KogaSkipReward::
 	msgbox PokemonLeague_KogasRoom_Text_Defeat, MSGBOX_DEFAULT
 	closemessage
 	setmetatile 6, 1, 0x28E, FALSE
@@ -95,3 +102,7 @@ PokemonLeague_KogasRoom_Text_Defeat:
     .string "mis habilidades.\p"
     .string "¡Ve a la sala siguiente y pon\n"
     .string "a prueba tu destreza!$"
+
+PokemonLeague_KogasRoom_Text_RewardIntro:
+    .string "Tu técnica ninja supera la mía.\n"
+    .string "Acepta estos presentes de honor.$"

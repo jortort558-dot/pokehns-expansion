@@ -82,6 +82,13 @@ PokemonLeague_WillsRoom_EventScript_WillRematchPostOBC::
 
 PokemonLeague_WillsRoom_EventScript_WillOnDefeat::
 	clearflag FLAG_TEMP_5
+	goto_if_set FLAG_REWARD_E4_WILL, PokemonLeague_WillsRoom_EventScript_WillSkipReward
+	setflag FLAG_REWARD_E4_WILL
+	msgbox PokemonLeague_WillsRoom_Text_RewardIntro, MSGBOX_DEFAULT
+	giveitem ITEM_FESTIVAL_TICKET, 2
+	giveitem ITEM_CHUPITO_SPATK, 1
+	giveitem ITEM_MODEST_MINT, 1
+PokemonLeague_WillsRoom_EventScript_WillSkipReward::
 	msgbox PokemonLeague_WillsRoom_Text_Defeat, MSGBOX_DEFAULT
 	closemessage
 	setmetatile 6, 1, 0x28E, FALSE
@@ -136,3 +143,7 @@ PokemonLeague_WillsRoom_Text_RematchBefore:
     .string "Prepárate para un combate de\n"
     .string "estrategia y poder mejorados.\p"
     .string "Veamos si tu visión iguala la mía.$"
+
+PokemonLeague_WillsRoom_Text_RewardIntro:
+    .string "Has demostrado una mente brillante.\n"
+    .string "Toma esto como reconocimiento.$"

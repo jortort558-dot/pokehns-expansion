@@ -61,6 +61,8 @@ EcruteakCity_Gym_EventScript_Morty::
 	setvar VAR_0x8008, 4
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_SHADOW_BALL
+	call Common_EventScript_AwardRandomMint
+	giveitem ITEM_FESTIVAL_TICKET, 1
 	msgbox MortyText_ShadowBallSpeech, MSGBOX_DEFAULT
 	setvar VAR_ECRUTEAK_CITY_STATE, 4
 	closemessage

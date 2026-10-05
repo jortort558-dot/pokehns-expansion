@@ -52,6 +52,7 @@ VioletCity_Gym_EventScript_Falkner::
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers_hns
 	giveitem ITEM_TM_ROOST
+	call Common_EventScript_AwardRandomMint
 	msgbox VioletGym_Text_Falkner_TMExplain, MSGBOX_DEFAULT
 	setvar VAR_VIOLET_CITY_STATE, 3
 	setrespawn HEAL_LOCATION_VIOLET_CITY_HNS

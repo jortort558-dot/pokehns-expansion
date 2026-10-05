@@ -71,6 +71,13 @@ PokemonLeague_WillsRoom_EventScript_LanceRematchPostOBC::
 
 PokemonLeague_WillsRoom_EventScript_LanceOnDefeatJohto::
 	clearflag FLAG_TEMP_5
+	goto_if_set FLAG_REWARD_CHAMPION_LANCE, PokemonLeague_ChampionsRoom_EventScript_LanceSkipReward
+	setflag FLAG_REWARD_CHAMPION_LANCE
+	msgbox PokemonLeague_ChampionsRoom_Text_RewardIntro, MSGBOX_DEFAULT
+	giveitem ITEM_FESTIVAL_TICKET, 3
+	giveitem ITEM_CUBATA, 1
+	giveitem ITEM_ABILITY_PATCH, 1
+PokemonLeague_ChampionsRoom_EventScript_LanceSkipReward::
 	msgbox PokemonLeague_ChampionsRoom_Text_BattleAfter, MSGBOX_DEFAULT
 	closemessage
 	setmetatile 6, 1, 0x3F2, FALSE
@@ -422,3 +429,8 @@ PokemonLeague_ChampionsRoom_Text_MaryNoInterview:
 PokemonLeague_ChampionsRoom_Text_RematchMaryNoInterview:
     .string "MARY: ¡Vamos! ¡No puedes volver\n"
     .string "a escaquearte de la entrevista!$"
+
+PokemonLeague_ChampionsRoom_Text_RewardIntro:
+    .string "LANCE: ¡Un combate legendario!\n"
+    .string "Como nuevo CAMPEÓN, te corresponde\l"
+    .string "este galardón de la cumbre.$"

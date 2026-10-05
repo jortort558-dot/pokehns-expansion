@@ -154,21 +154,21 @@ SinjohRuins_StairsScene::
     end
 
 SinjohRuins_Text_StevenGotoStairs1:
-    .string "STEVEN: This could only mean one thing.$"
+    .string "MÁXIMO: Esto solo puede significar\n"
+    .string "una cosa.$"
 
 SinjohRuins_Text_StevenGotoStairs2:
-    .string "{PLAYER}. We were able to decipher\n"
-    .string "the rest of the glyphs...\p"
-    .string "If the translation is right, \n"
-    .string "the POKéMON at the top of that\l"
-    .string "staircase is the most powerful\l"
-    .string "being in the universe.\p"
-    .string "And it is my duty as former\n"
-    .string "CHAMPION of the HOENN LEAGUE\l"
-    .string "to make sure you are strong\l"
-    .string "enough to face it.\p"
-    .string "Meet me at that landing\n"
-    .string "when you are ready.$"
+    .string "{PLAYER}. Hemos podido descifrar\n"
+    .string "el resto de los glifos...\p"
+    .string "Si la traducción es correcta,\n"
+    .string "el ser en la cima de esa escalera\l"
+    .string "es el más poderoso del universo.\p"
+    .string "Y es mi deber como antiguo CAMPEÓN\n"
+    .string "de la LIGA HOENN asegurarme de que\l"
+    .string "posees la fuerza necesaria para\l"
+    .string "hacerle frente.\p"
+    .string "Búscame en ese rellano cuando te\n"
+    .string "hayas preparado.$"
 
 SinjohRuins_Movement_StevenGoesToStairs:
     walk_up
@@ -321,35 +321,35 @@ SinjohRuins_EventScript_StevenBattle::
     return
 
 SinjohRuins_Text_HealParty::
-    .string "STEVEN: Let me heal your POKéMON\n"
-    .string "before you go.$"
+    .string "MÁXIMO: Deja que cure a tus\n"
+    .string "POKéMON antes de que vayas.$"
 
 SinjohRuins_Text_StevenAfterPlate:
-    .string "STEVEN: Good luck, {PLAYER}\p"
-    .string "Go on, I'm right behind you.$"
+    .string "MÁXIMO: ¡Mucha suerte, {PLAYER}!\p"
+    .string "Adelante, te sigo de cerca.$"
 
 SinjohRuins_Text_StevenAfterBattle:
-	.string "STEVEN: To think, another trainer \n"
-	.string "would defeat me like this.\p"
-    .string "Incredible.\p"
-	.string "Take this, it's the final plate.$"
+	.string "MÁXIMO: Pensar que otro entrenador\n"
+	.string "volvería a vencerme así...\p"
+    .string "Sencillamente increíble.\p"
+	.string "Toma esto, es la última tabla.$"
 
 SinjohRuins_Text_StevenReadytoBattle:
-    .string "STEVEN: {PLAYER}.\p"
-    .string "Ever since I first saw the\n"
-    .string "determination in your eyes,\l"
-    .string "I felt it would lead to this.\p"
-    .string "I will test the bond between you\n"
-    .string "and your POKéMON.\p"
-    .string "Are you ready?$"
+    .string "MÁXIMO: {PLAYER}.\p"
+    .string "Desde la primera vez que vi la\n"
+    .string "determinación en tus ojos, supe que\l"
+    .string "este momento llegaría.\p"
+    .string "Pondré a prueba el vínculo que te\n"
+    .string "une a tus POKéMON.\p"
+    .string "¿Todo a punto?$"
 
 SinjohRuins_Text_ChallengeSteven:
-	.string "Okay, {PLAYER}{KUN}, if you're going to mount\n"
-	.string "a serious challenge, expect the worst!$"
+	.string "¡De acuerdo, {PLAYER}!\n"
+	.string "¡Si das la cara, prepárate bien!$"
 
 SinjohRuins_Text_StevenDefeat:
-	.string "You...\n"
-	.string "You are ready.$"
+	.string "Tú...\n"
+	.string "Estás a la altura.$"
 
 SinjohRuins_EventScript_Steven::
     msgbox SinjohRuins_Text_StevenAfterPlate, MSGBOX_NPC
@@ -360,5 +360,5 @@ SinjohRuins_EventScript_Sign::
     end
 
 SinjohRuins_Text_Sign:
-    .string "SINJOH RUINS$"
+    .string "RUINAS SINJOH$"
 
