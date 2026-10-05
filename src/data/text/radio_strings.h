@@ -33,12 +33,12 @@ static const u8 sRadioText_Secrets_Default2[] = _("este momento… ¡Sigue explo
 
 static const u8 sRadioText_Secrets_Violet1[] = _("CRÓNICA DE CIUDAD MALVA:");
 static const u8 sRadioText_Secrets_Violet2[] = _("Viajeros de CIUDAD LUMINALIA");
-static const u8 sRadioText_Secrets_Violet3[] = _("investigan farolas antiguas.");
-static const u8 sRadioText_Secrets_Violet4[] = _("Hablan del misterioso número 33:");
-static const u8 sRadioText_Secrets_Violet5[] = _("pulsar la luz de la ACADEMIA dos");
-static const u8 sRadioText_Secrets_Violet6[] = _("veces, el reflejo del CANAL y");
-static const u8 sRadioText_Secrets_Violet7[] = _("la entrada a TORRE BELLSPROUT.");
-static const u8 sRadioText_Secrets_Violet8[] = _("¡Dicen que abre un camino oculto!");
+static const u8 sRadioText_Secrets_Violet3[] = _("estudian sus farolas antiguas.");
+static const u8 sRadioText_Secrets_Violet4[] = _("Se les ha visto por las calles.");
+static const u8 sRadioText_Secrets_Violet5[] = _("Cada uno guarda una pista.");
+static const u8 sRadioText_Secrets_Violet6[] = _("Hablan de una entrada oculta");
+static const u8 sRadioText_Secrets_Violet7[] = _("que solo responde ante el SURF.");
+static const u8 sRadioText_Secrets_Violet8[] = _("MALVA aún guarda ese secreto.");
 
 // ==========================================================
 // Hoenn Sound

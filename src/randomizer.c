@@ -657,6 +657,47 @@ static u16 GetRandomizedExplorationMegaStone(u16 megaStone)
     return sMegaStonesPool[permutation[anchorIndex]];
 }
 
+static const u16 sEarlyHealingItems[] =
+{
+    ITEM_POTION,
+    ITEM_FRESH_WATER,
+    ITEM_ANTIDOTE,
+    ITEM_PARALYZE_HEAL,
+    ITEM_BURN_HEAL,
+    ITEM_AWAKENING,
+};
+
+static const u16 sMidHealingItems[] =
+{
+    ITEM_SUPER_POTION,
+    ITEM_SODA_POP,
+    ITEM_LEMONADE,
+    ITEM_MOOMOO_MILK,
+    ITEM_FULL_HEAL,
+    ITEM_HEAL_POWDER,
+    ITEM_ETHER,
+};
+
+static const u16 sLateHealingItems[] =
+{
+    ITEM_HYPER_POTION,
+    ITEM_MAX_POTION,
+    ITEM_FULL_RESTORE,
+    ITEM_ENERGY_ROOT,
+    ITEM_MAX_ETHER,
+    ITEM_ELIXIR,
+    ITEM_MAX_ELIXIR,
+};
+
+static u16 GetRandomizedHealingItem(struct Sfc32State *state, enum ItemProgressionTier tier)
+{
+    if (tier == ITEM_PROG_EARLY)
+        return sEarlyHealingItems[RandomizerNextRange(state, ARRAY_COUNT(sEarlyHealingItems))];
+    if (tier == ITEM_PROG_EARLY_MID || tier == ITEM_PROG_MID)
+        return sMidHealingItems[RandomizerNextRange(state, ARRAY_COUNT(sMidHealingItems))];
+    return sLateHealingItems[RandomizerNextRange(state, ARRAY_COUNT(sLateHealingItems))];
+}
+
 u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
 {
     struct Sfc32State state;
@@ -718,6 +759,12 @@ u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
             return sMegaStonesPool[megaIndex];
         }
     }
+
+    // Las medicinas no pueden comprarse en el preset de la Pokemitos Cup.
+    // Reserva una quinta parte de los objetos ordinarios para curación y PP,
+    // siempre ajustados al punto de la aventura y sin incluir Revivir.
+    if (RandomizerNextRange(&state, 100) < 20)
+        return GetRandomizedHealingItem(&state, progTier);
 
     // 2. TABLA DE PESOS DE TIERS SEGÚN PROGRESIÓN (O MODO CAÓTICO)
     if (gSaveBlock3Ptr->challengeSettings.tx_Random_Items_Progression != 0)
