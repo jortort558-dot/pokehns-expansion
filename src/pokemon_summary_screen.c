@@ -54,6 +54,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "nuzlocke.h"
+#include "data/advanced_summary_info.h"
 
 // Screen titles (upper left)
 #define PSS_LABEL_WINDOW_POKEMON_INFO_TITLE 0
@@ -5585,88 +5586,16 @@ static void RenderMovePopupContent(u8 windowId)
 
 static const u8 *GetAdvancedAbilityDescription(enum Ability ability)
 {
-    static const u8 sTechnicianDetails[] = _(
-        "Aumenta x1,5 la potencia base\n"
-        "de movimientos de potencia 60\n"
-        "o menos. Se aplica después de\n"
-        "calcular la potencia variable.");
-    static const u8 sIntimidateDetails[] = _(
-        "Al entrar, baja 1 nivel el Ataque\n"
-        "de cada rival sin Sustituto.\n"
-        "No afecta a Foco Interno,\n"
-        "Revoltoso, Ritmo Propio u Oblivio.");
-    static const u8 sDroughtDetails[] = _(
-        "Al entrar, activa el sol 5 turnos;\n"
-        "8 si lleva Roca Calor.\n"
-        "Fuego x1,5 y Agua x0,5\n"
-        "para ambos bandos.");
-    static const u8 sWaterVeilDetails[] = _(
-        "Evita cualquier quemadura.\n"
-        "Si obtiene o recupera Velo Agua\n"
-        "estando quemado, elimina ese\n"
-        "estado.");
-
-    switch (ability)
-    {
-    case ABILITY_TECHNICIAN:
-        return sTechnicianDetails;
-    case ABILITY_INTIMIDATE:
-        return sIntimidateDetails;
-    case ABILITY_DROUGHT:
-        return sDroughtDetails;
-    case ABILITY_WATER_VEIL:
-        return sWaterVeilDetails;
-    default:
+    if (ability >= ABILITIES_COUNT)
         return NULL;
-    }
+    return sAdvancedAbilityDescriptions[ability];
 }
 
 static const u8 *GetAdvancedMoveDescription(enum Move move)
 {
-    static const u8 sFlamethrowerDetails[] = _(
-        "10% de quemar al objetivo.\n"
-        "No hace contacto. Lo bloquean\n"
-        "Protección y efectos equivalentes.");
-    static const u8 sRainDanceDetails[] = _(
-        "Lluvia: 5 turnos; 8 con Roca\n"
-        "Lluvia. Agua x1,5 y Fuego x0,5.\n"
-        "Afecta a ambos bandos.");
-    static const u8 sAcrobaticsDetails[] = _(
-        "Potencia 110 si no lleva objeto\n"
-        "o si consume una Gema Voladora.\n"
-        "Hace contacto. Prioridad 0.");
-    static const u8 sProtectDetails[] = _(
-        "Prioridad +4. Bloquea casi todos\n"
-        "los ataques durante ese turno.\n"
-        "Repetir: 100%, 33%, 11% y 4%.");
-    static const u8 sBulletSeedDetails[] = _(
-        "Golpea 2-5 veces: 35%, 35%,\n"
-        "15% y 15%. Cada golpe: 25.\n"
-        "Dado Trucado: 4-5; Enlace\n"
-        "Destreza: 5. Es balístico.");
-    static const u8 sPsychicDetails[] = _(
-        "10% de bajar 1 nivel la Defensa\n"
-        "Especial rival. No hace contacto.\n"
-        "Lo bloquean Protección y efectos\n"
-        "equivalentes.");
-
-    switch (move)
-    {
-    case MOVE_FLAMETHROWER:
-        return sFlamethrowerDetails;
-    case MOVE_RAIN_DANCE:
-        return sRainDanceDetails;
-    case MOVE_ACROBATICS:
-        return sAcrobaticsDetails;
-    case MOVE_PROTECT:
-        return sProtectDetails;
-    case MOVE_BULLET_SEED:
-        return sBulletSeedDetails;
-    case MOVE_PSYCHIC:
-        return sPsychicDetails;
-    default:
+    if (move >= MOVES_COUNT_ALL)
         return NULL;
-    }
+    return sAdvancedMoveDescriptions[move];
 }
 
 static void OpenMovePopup(u8 taskId, u8 moveIndex)
