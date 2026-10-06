@@ -142,8 +142,9 @@ static const u8 *const sAdvancedAbilityDescriptions[ABILITIES_COUNT] =
 
 static const u8 sAdvancedMove_Flamethrower[] = _(
     "10% de quemar al objetivo.\n"
-    "No hace contacto. Lo bloquean\n"
-    "Protección y efectos equivalentes.");
+    "La quemadura causa daño al final\n"
+    "del turno y reduce a la mitad\n"
+    "el daño de ataques físicos.");
 static const u8 sAdvancedMove_RainDance[] = _(
     "Lluvia: 5 turnos; 8 con Roca\n"
     "Lluvia. Agua x1,5 y Fuego x0,5.\n"
@@ -151,7 +152,8 @@ static const u8 sAdvancedMove_RainDance[] = _(
 static const u8 sAdvancedMove_Acrobatics[] = _(
     "Potencia 110 si no lleva objeto\n"
     "o si consume una Gema Voladora.\n"
-    "Hace contacto. Prioridad 0.");
+    "La bonificación se calcula antes\n"
+    "de aplicar otros modificadores.");
 static const u8 sAdvancedMove_Protect[] = _(
     "Prioridad +4. Bloquea casi todos\n"
     "los ataques durante ese turno.\n"
@@ -163,17 +165,17 @@ static const u8 sAdvancedMove_BulletSeed[] = _(
     "Destreza: 5. Es balístico.");
 static const u8 sAdvancedMove_Psychic[] = _(
     "10% de bajar 1 nivel la Defensa\n"
-    "Especial rival. No hace contacto.\n"
-    "Lo bloquean Protección y efectos\n"
-    "equivalentes.");
+    "Especial rival. Cada nivel reduce\n"
+    "el valor y aumenta el daño especial\n"
+    "que recibe el objetivo.");
 static const u8 sAdvancedMove_Thunderbolt[] = _(
     "10% de paralizar al objetivo.\n"
-    "No hace contacto. Lo bloquean\n"
-    "Protección y efectos equivalentes.");
+    "La parálisis reduce a la mitad la\n"
+    "Velocidad y puede impedir atacar.");
 static const u8 sAdvancedMove_IceBeam[] = _(
     "10% de causar helada al objetivo.\n"
-    "No hace contacto. Lo bloquean\n"
-    "Protección y efectos equivalentes.");
+    "La helada causa daño cada turno y\n"
+    "reduce el daño de ataques especiales.");
 static const u8 sAdvancedMove_SludgeBomb[] = _(
     "30% de envenenar al objetivo.\n"
     "Es un movimiento balístico y no\n"
