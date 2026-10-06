@@ -5614,13 +5614,449 @@ static void BuildAdvancedAbilityDescription(enum Ability ability, u8 *dst)
         StringCopy(dst, gAbilitiesInfo[ability].description);
 }
 
+static void AppendAdvancedSummaryLine(u8 *dst, const u8 *text)
+{
+    static const u8 sNewline[] = _("\n");
+
+    if (dst[0] != EOS)
+        StringAppend(dst, sNewline);
+    StringAppend(dst, text);
+}
+
+static const u8 *GetAdvancedMoveEffectText(enum MoveEffect effect)
+{
+    static const u8 sSleep[] = _("dormir al objetivo");
+    static const u8 sPoison[] = _("envenenar al objetivo");
+    static const u8 sBurn[] = _("quemar al objetivo");
+    static const u8 sFrostbite[] = _("causar helada al objetivo");
+    static const u8 sParalysis[] = _("paralizar al objetivo");
+    static const u8 sToxic[] = _("causar veneno grave");
+    static const u8 sConfusion[] = _("confundir al objetivo");
+    static const u8 sFlinch[] = _("hacer retroceder");
+    static const u8 sAtkUp1[] = _("subir Ataque propio +1");
+    static const u8 sDefUp1[] = _("subir Defensa propia +1");
+    static const u8 sSpeedUp1[] = _("subir Velocidad propia +1");
+    static const u8 sSpAtkUp1[] = _("subir At. Esp. propio +1");
+    static const u8 sSpDefUp1[] = _("subir Def. Esp. propia +1");
+    static const u8 sAccUp1[] = _("subir Precisión propia +1");
+    static const u8 sEvaUp1[] = _("subir Evasión propia +1");
+    static const u8 sAtkDown1[] = _("bajar Ataque rival -1");
+    static const u8 sDefDown1[] = _("bajar Defensa rival -1");
+    static const u8 sSpeedDown1[] = _("bajar Velocidad rival -1");
+    static const u8 sSpAtkDown1[] = _("bajar At. Esp. rival -1");
+    static const u8 sSpDefDown1[] = _("bajar Def. Esp. rival -1");
+    static const u8 sAccDown1[] = _("bajar Precisión rival -1");
+    static const u8 sEvaDown1[] = _("bajar Evasión rival -1");
+    static const u8 sAtkUp2[] = _("subir Ataque propio +2");
+    static const u8 sDefUp2[] = _("subir Defensa propia +2");
+    static const u8 sSpeedUp2[] = _("subir Velocidad propia +2");
+    static const u8 sSpAtkUp2[] = _("subir At. Esp. propio +2");
+    static const u8 sSpDefUp2[] = _("subir Def. Esp. propia +2");
+    static const u8 sAccUp2[] = _("subir Precisión propia +2");
+    static const u8 sEvaUp2[] = _("subir Evasión propia +2");
+    static const u8 sAtkDown2[] = _("bajar Ataque rival -2");
+    static const u8 sDefDown2[] = _("bajar Defensa rival -2");
+    static const u8 sSpeedDown2[] = _("bajar Velocidad rival -2");
+    static const u8 sSpAtkDown2[] = _("bajar At. Esp. rival -2");
+    static const u8 sSpDefDown2[] = _("bajar Def. Esp. rival -2");
+    static const u8 sAccDown2[] = _("bajar Precisión rival -2");
+    static const u8 sEvaDown2[] = _("bajar Evasión rival -2");
+
+    switch (effect)
+    {
+    case MOVE_EFFECT_SLEEP: return sSleep;
+    case MOVE_EFFECT_POISON: return sPoison;
+    case MOVE_EFFECT_BURN: return sBurn;
+    case MOVE_EFFECT_FREEZE:
+    case MOVE_EFFECT_FROSTBITE: return sFrostbite;
+    case MOVE_EFFECT_PARALYSIS: return sParalysis;
+    case MOVE_EFFECT_TOXIC: return sToxic;
+    case MOVE_EFFECT_CONFUSION: return sConfusion;
+    case MOVE_EFFECT_FLINCH: return sFlinch;
+    case MOVE_EFFECT_ATK_PLUS_1: return sAtkUp1;
+    case MOVE_EFFECT_DEF_PLUS_1: return sDefUp1;
+    case MOVE_EFFECT_SPD_PLUS_1: return sSpeedUp1;
+    case MOVE_EFFECT_SP_ATK_PLUS_1: return sSpAtkUp1;
+    case MOVE_EFFECT_SP_DEF_PLUS_1: return sSpDefUp1;
+    case MOVE_EFFECT_ACC_PLUS_1: return sAccUp1;
+    case MOVE_EFFECT_EVS_PLUS_1: return sEvaUp1;
+    case MOVE_EFFECT_ATK_MINUS_1: return sAtkDown1;
+    case MOVE_EFFECT_DEF_MINUS_1: return sDefDown1;
+    case MOVE_EFFECT_SPD_MINUS_1: return sSpeedDown1;
+    case MOVE_EFFECT_SP_ATK_MINUS_1: return sSpAtkDown1;
+    case MOVE_EFFECT_SP_DEF_MINUS_1: return sSpDefDown1;
+    case MOVE_EFFECT_ACC_MINUS_1: return sAccDown1;
+    case MOVE_EFFECT_EVS_MINUS_1: return sEvaDown1;
+    case MOVE_EFFECT_ATK_PLUS_2: return sAtkUp2;
+    case MOVE_EFFECT_DEF_PLUS_2: return sDefUp2;
+    case MOVE_EFFECT_SPD_PLUS_2: return sSpeedUp2;
+    case MOVE_EFFECT_SP_ATK_PLUS_2: return sSpAtkUp2;
+    case MOVE_EFFECT_SP_DEF_PLUS_2: return sSpDefUp2;
+    case MOVE_EFFECT_ACC_PLUS_2: return sAccUp2;
+    case MOVE_EFFECT_EVS_PLUS_2: return sEvaUp2;
+    case MOVE_EFFECT_ATK_MINUS_2: return sAtkDown2;
+    case MOVE_EFFECT_DEF_MINUS_2: return sDefDown2;
+    case MOVE_EFFECT_SPD_MINUS_2: return sSpeedDown2;
+    case MOVE_EFFECT_SP_ATK_MINUS_2: return sSpAtkDown2;
+    case MOVE_EFFECT_SP_DEF_MINUS_2: return sSpDefDown2;
+    case MOVE_EFFECT_ACC_MINUS_2: return sAccDown2;
+    case MOVE_EFFECT_EVS_MINUS_2: return sEvaDown2;
+    default: return NULL;
+    }
+}
+
+static bool32 AppendAdvancedMoveEffect(u8 *dst, const struct AdditionalEffect *effect)
+{
+    const u8 *effectText;
+    u8 number[4];
+    static const u8 sNewline[] = _("\n");
+    static const u8 sPercent[] = _("% de ");
+    static const u8 sGuaranteed[] = _("Al acertar: ");
+    static const u8 sPeriod[] = _(".");
+    static const u8 sOwnAtkDown1[] = _("bajar Ataque propio -1");
+    static const u8 sOwnDefDown1[] = _("bajar Defensa propia -1");
+    static const u8 sOwnSpeedDown1[] = _("bajar Velocidad propia -1");
+    static const u8 sOwnSpAtkDown1[] = _("bajar At. Esp. propio -1");
+    static const u8 sOwnSpDefDown1[] = _("bajar Def. Esp. propia -1");
+    static const u8 sOwnAtkDown2[] = _("bajar Ataque propio -2");
+    static const u8 sOwnDefDown2[] = _("bajar Defensa propia -2");
+    static const u8 sOwnSpeedDown2[] = _("bajar Velocidad propia -2");
+    static const u8 sOwnSpAtkDown2[] = _("bajar At. Esp. propio -2");
+    static const u8 sOwnSpDefDown2[] = _("bajar Def. Esp. propia -2");
+
+    if (effect->self)
+    {
+        switch (effect->moveEffect)
+        {
+        case MOVE_EFFECT_ATK_MINUS_1: effectText = sOwnAtkDown1; break;
+        case MOVE_EFFECT_DEF_MINUS_1: effectText = sOwnDefDown1; break;
+        case MOVE_EFFECT_SPD_MINUS_1: effectText = sOwnSpeedDown1; break;
+        case MOVE_EFFECT_SP_ATK_MINUS_1: effectText = sOwnSpAtkDown1; break;
+        case MOVE_EFFECT_SP_DEF_MINUS_1: effectText = sOwnSpDefDown1; break;
+        case MOVE_EFFECT_ATK_MINUS_2: effectText = sOwnAtkDown2; break;
+        case MOVE_EFFECT_DEF_MINUS_2: effectText = sOwnDefDown2; break;
+        case MOVE_EFFECT_SPD_MINUS_2: effectText = sOwnSpeedDown2; break;
+        case MOVE_EFFECT_SP_ATK_MINUS_2: effectText = sOwnSpAtkDown2; break;
+        case MOVE_EFFECT_SP_DEF_MINUS_2: effectText = sOwnSpDefDown2; break;
+        default: effectText = GetAdvancedMoveEffectText(effect->moveEffect); break;
+        }
+    }
+    else
+    {
+        effectText = GetAdvancedMoveEffectText(effect->moveEffect);
+    }
+
+    if (effectText == NULL)
+        return FALSE;
+
+    if (dst[0] != EOS)
+        StringAppend(dst, sNewline);
+    if (effect->chance != 0)
+    {
+        ConvertIntToDecimalStringN(number, effect->chance, STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringAppend(dst, number);
+        StringAppend(dst, sPercent);
+    }
+    else
+    {
+        StringAppend(dst, sGuaranteed);
+    }
+    StringAppend(dst, effectText);
+    StringAppend(dst, sPeriod);
+    return TRUE;
+}
+
+static bool32 AppendAdvancedPrimaryMoveEffect(enum Move move, u8 *dst)
+{
+    enum BattleMoveEffects effect = GetMoveEffect(move);
+    const u8 *effectText;
+    u8 number[5];
+    static const u8 sGuaranteed[] = _("Al acertar: ");
+    static const u8 sPeriod[] = _(".");
+    static const u8 sAbsorbPrefix[] = _("Recupera el ");
+    static const u8 sAbsorbSuffix[] = _("% del daño causado.");
+    static const u8 sRecoilPrefix[] = _("Recibe el ");
+    static const u8 sRecoilSuffix[] = _("% del daño como retroceso.");
+    static const u8 sFixedHpPrefix[] = _("Causa siempre ");
+    static const u8 sFixedHpSuffix[] = _(" PS de daño.");
+    static const u8 sFixedPercentPrefix[] = _("Quita siempre el ");
+    static const u8 sFixedPercentSuffix[] = _("% de los PS actuales.");
+    static const u8 sLevelDamage[] = _("Causa tantos PS de daño como nivel.");
+    static const u8 sRestoreHp[] = _("Recupera el 50% de los PS máximos.");
+    static const u8 sOhko[] = _("Debilita de un golpe si acierta.");
+    static const u8 sConfuse[] = _("Confunde siempre al objetivo.");
+    static const u8 sAtkUp1[] = _("Sube el Ataque propio 1 nivel.");
+    static const u8 sDefUp1[] = _("Sube la Defensa propia 1 nivel.");
+    static const u8 sSpeedUp1[] = _("Sube la Velocidad propia 1 nivel.");
+    static const u8 sSpAtkUp1[] = _("Sube el At. Esp. propio 1 nivel.");
+    static const u8 sSpDefUp1[] = _("Sube la Def. Esp. propia 1 nivel.");
+    static const u8 sAccUp1[] = _("Sube la Precisión propia 1 nivel.");
+    static const u8 sEvaUp1[] = _("Sube la Evasión propia 1 nivel.");
+    static const u8 sAtkUp2[] = _("Sube el Ataque propio 2 niveles.");
+    static const u8 sDefUp2[] = _("Sube la Defensa propia 2 niveles.");
+    static const u8 sSpeedUp2[] = _("Sube la Velocidad propia 2 niveles.");
+    static const u8 sSpAtkUp2[] = _("Sube el At. Esp. propio 2 niveles.");
+    static const u8 sSpDefUp2[] = _("Sube la Def. Esp. propia 2 niveles.");
+    static const u8 sAccUp2[] = _("Sube la Precisión propia 2 niveles.");
+    static const u8 sEvaUp2[] = _("Sube la Evasión propia 2 niveles.");
+    static const u8 sAtkDown1[] = _("Baja el Ataque rival 1 nivel.");
+    static const u8 sDefDown1[] = _("Baja la Defensa rival 1 nivel.");
+    static const u8 sSpeedDown1[] = _("Baja la Velocidad rival 1 nivel.");
+    static const u8 sSpAtkDown1[] = _("Baja el At. Esp. rival 1 nivel.");
+    static const u8 sSpDefDown1[] = _("Baja la Def. Esp. rival 1 nivel.");
+    static const u8 sAccDown1[] = _("Baja la Precisión rival 1 nivel.");
+    static const u8 sEvaDown1[] = _("Baja la Evasión rival 1 nivel.");
+    static const u8 sAtkDown2[] = _("Baja el Ataque rival 2 niveles.");
+    static const u8 sDefDown2[] = _("Baja la Defensa rival 2 niveles.");
+    static const u8 sSpeedDown2[] = _("Baja la Velocidad rival 2 niveles.");
+    static const u8 sSpAtkDown2[] = _("Baja el At. Esp. rival 2 niveles.");
+    static const u8 sSpDefDown2[] = _("Baja la Def. Esp. rival 2 niveles.");
+    static const u8 sAccDown2[] = _("Baja la Precisión rival 2 niveles.");
+    static const u8 sEvaDown2[] = _("Baja la Evasión rival 2 niveles.");
+
+    if (effect == EFFECT_NON_VOLATILE_STATUS)
+    {
+        effectText = GetAdvancedMoveEffectText(GetMoveNonVolatileStatus(move));
+        if (effectText == NULL)
+            return FALSE;
+        AppendAdvancedSummaryLine(dst, sGuaranteed);
+        StringAppend(dst, effectText);
+        StringAppend(dst, sPeriod);
+        return TRUE;
+    }
+
+    switch (effect)
+    {
+    case EFFECT_ABSORB:
+    case EFFECT_DREAM_EATER:
+        AppendAdvancedSummaryLine(dst, sAbsorbPrefix);
+        ConvertIntToDecimalStringN(number, GetMoveAbsorbPercentage(move), STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringAppend(dst, number);
+        StringAppend(dst, sAbsorbSuffix);
+        return TRUE;
+    case EFFECT_RECOIL:
+        AppendAdvancedSummaryLine(dst, sRecoilPrefix);
+        ConvertIntToDecimalStringN(number, GetMoveRecoil(move), STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringAppend(dst, number);
+        StringAppend(dst, sRecoilSuffix);
+        return TRUE;
+    case EFFECT_FIXED_HP_DAMAGE:
+        AppendAdvancedSummaryLine(dst, sFixedHpPrefix);
+        ConvertIntToDecimalStringN(number, GetMoveFixedHPDamage(move), STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringAppend(dst, number);
+        StringAppend(dst, sFixedHpSuffix);
+        return TRUE;
+    case EFFECT_FIXED_PERCENT_DAMAGE:
+        AppendAdvancedSummaryLine(dst, sFixedPercentPrefix);
+        ConvertIntToDecimalStringN(number, GetMoveDamagePercentage(move), STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringAppend(dst, number);
+        StringAppend(dst, sFixedPercentSuffix);
+        return TRUE;
+    case EFFECT_LEVEL_DAMAGE: AppendAdvancedSummaryLine(dst, sLevelDamage); return TRUE;
+    case EFFECT_RESTORE_HP: AppendAdvancedSummaryLine(dst, sRestoreHp); return TRUE;
+    case EFFECT_OHKO: AppendAdvancedSummaryLine(dst, sOhko); return TRUE;
+    case EFFECT_CONFUSE: AppendAdvancedSummaryLine(dst, sConfuse); return TRUE;
+    case EFFECT_ATTACK_UP: AppendAdvancedSummaryLine(dst, sAtkUp1); return TRUE;
+    case EFFECT_DEFENSE_UP: AppendAdvancedSummaryLine(dst, sDefUp1); return TRUE;
+    case EFFECT_SPEED_UP: AppendAdvancedSummaryLine(dst, sSpeedUp1); return TRUE;
+    case EFFECT_SPECIAL_ATTACK_UP: AppendAdvancedSummaryLine(dst, sSpAtkUp1); return TRUE;
+    case EFFECT_SPECIAL_DEFENSE_UP: AppendAdvancedSummaryLine(dst, sSpDefUp1); return TRUE;
+    case EFFECT_ACCURACY_UP: AppendAdvancedSummaryLine(dst, sAccUp1); return TRUE;
+    case EFFECT_EVASION_UP: AppendAdvancedSummaryLine(dst, sEvaUp1); return TRUE;
+    case EFFECT_ATTACK_UP_2: AppendAdvancedSummaryLine(dst, sAtkUp2); return TRUE;
+    case EFFECT_DEFENSE_UP_2: AppendAdvancedSummaryLine(dst, sDefUp2); return TRUE;
+    case EFFECT_SPEED_UP_2: AppendAdvancedSummaryLine(dst, sSpeedUp2); return TRUE;
+    case EFFECT_SPECIAL_ATTACK_UP_2: AppendAdvancedSummaryLine(dst, sSpAtkUp2); return TRUE;
+    case EFFECT_SPECIAL_DEFENSE_UP_2: AppendAdvancedSummaryLine(dst, sSpDefUp2); return TRUE;
+    case EFFECT_ACCURACY_UP_2: AppendAdvancedSummaryLine(dst, sAccUp2); return TRUE;
+    case EFFECT_EVASION_UP_2: AppendAdvancedSummaryLine(dst, sEvaUp2); return TRUE;
+    case EFFECT_ATTACK_DOWN: AppendAdvancedSummaryLine(dst, sAtkDown1); return TRUE;
+    case EFFECT_DEFENSE_DOWN: AppendAdvancedSummaryLine(dst, sDefDown1); return TRUE;
+    case EFFECT_SPEED_DOWN: AppendAdvancedSummaryLine(dst, sSpeedDown1); return TRUE;
+    case EFFECT_SPECIAL_ATTACK_DOWN: AppendAdvancedSummaryLine(dst, sSpAtkDown1); return TRUE;
+    case EFFECT_SPECIAL_DEFENSE_DOWN: AppendAdvancedSummaryLine(dst, sSpDefDown1); return TRUE;
+    case EFFECT_ACCURACY_DOWN: AppendAdvancedSummaryLine(dst, sAccDown1); return TRUE;
+    case EFFECT_EVASION_DOWN: AppendAdvancedSummaryLine(dst, sEvaDown1); return TRUE;
+    case EFFECT_ATTACK_DOWN_2: AppendAdvancedSummaryLine(dst, sAtkDown2); return TRUE;
+    case EFFECT_DEFENSE_DOWN_2: AppendAdvancedSummaryLine(dst, sDefDown2); return TRUE;
+    case EFFECT_SPEED_DOWN_2: AppendAdvancedSummaryLine(dst, sSpeedDown2); return TRUE;
+    case EFFECT_SPECIAL_ATTACK_DOWN_2: AppendAdvancedSummaryLine(dst, sSpAtkDown2); return TRUE;
+    case EFFECT_SPECIAL_DEFENSE_DOWN_2: AppendAdvancedSummaryLine(dst, sSpDefDown2); return TRUE;
+    case EFFECT_ACCURACY_DOWN_2: AppendAdvancedSummaryLine(dst, sAccDown2); return TRUE;
+    case EFFECT_EVASION_DOWN_2: AppendAdvancedSummaryLine(dst, sEvaDown2); return TRUE;
+    default: return FALSE;
+    }
+}
+
 static void BuildAdvancedMoveDescription(enum Move move, u8 *dst)
 {
     const u8 *curated = GetAdvancedMoveDescription(move);
+    u32 effectId;
+    u8 number[4];
+    u8 factCount = 0;
+    static const u8 sPriority[] = _("Prioridad ");
+    static const u8 sPositive[] = _("+");
+    static const u8 sPeriod[] = _(".");
+    static const u8 sMultiHit[] = _("Da 2-5 golpes: 35/35/15/15%.");
+    static const u8 sFixedHits[] = _("Número fijo de golpes: ");
+    static const u8 sAlwaysCritical[] = _("Siempre asesta un golpe crítico.");
+    static const u8 sHighCritical[] = _("Mayor probabilidad de crítico.");
+    static const u8 sTechnician[] = _("Técnico x1,5 si queda en 60 o menos.");
+    static const u8 sSecondaryBoosts[] = _("Don Serenidad x2; Fuerza Bruta x1,3 sin efecto.");
+    static const u8 sIronFist[] = _("Puño Férreo aumenta potencia x1,2.");
+    static const u8 sPunchingGlove[] = _("Guante de Boxeo x1,1; sin contacto.");
+    static const u8 sStrongJaw[] = _("Mandíbula Fuerte aumenta potencia x1,5.");
+    static const u8 sMegaLauncher[] = _("Megalanzador aumenta potencia x1,5.");
+    static const u8 sPunkRock[] = _("Punk Rock aumenta potencia x1,3.");
+    static const u8 sSound[] = _("Atraviesa Sustituto; Insonorización lo anula.");
+    static const u8 sSharpness[] = _("Filo aumenta su potencia x1,5.");
+    static const u8 sBallistic[] = _("Antibalas otorga inmunidad total.");
+    static const u8 sPowder[] = _("No afecta con Planta, Sobretodo o Gafa Protectora.");
+    static const u8 sDance[] = _("Bailarín copia este movimiento.");
+    static const u8 sWind[] = _("Activa Poder del Viento y Jinete Viento.");
+    static const u8 sTriage[] = _("Triaje le añade prioridad +3.");
+    static const u8 sContact[] = _("Activa objetos y habilidades al contacto.");
 
     if (curated != NULL)
+    {
         StringCopy(dst, curated);
-    else
+        return;
+    }
+
+    dst[0] = EOS;
+
+    if (GetMovePriority(move) != 0)
+    {
+        StringAppend(dst, sPriority);
+        if (GetMovePriority(move) > 0)
+            StringAppend(dst, sPositive);
+        ConvertIntToDecimalStringN(number, GetMovePriority(move), STR_CONV_MODE_LEFT_ALIGN, 2);
+        StringAppend(dst, number);
+        StringAppend(dst, sPeriod);
+        factCount++;
+    }
+
+    if (factCount < 3 && AppendAdvancedPrimaryMoveEffect(move, dst))
+        factCount++;
+
+    for (effectId = 0; effectId < GetMoveAdditionalEffectCount(move) && factCount < 3; effectId++)
+    {
+        if (AppendAdvancedMoveEffect(dst, GetMoveAdditionalEffectById(move, effectId)))
+            factCount++;
+    }
+
+    if (factCount < 3 && IsMultiHitMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sMultiHit);
+        factCount++;
+    }
+    else if (factCount < 3 && GetMoveStrikeCount(move) > 1)
+    {
+        AppendAdvancedSummaryLine(dst, sFixedHits);
+        ConvertIntToDecimalStringN(number, GetMoveStrikeCount(move), STR_CONV_MODE_LEFT_ALIGN, 2);
+        StringAppend(dst, number);
+        StringAppend(dst, sPeriod);
+        factCount++;
+    }
+
+    if (factCount < 3 && MoveAlwaysCrits(move))
+    {
+        AppendAdvancedSummaryLine(dst, sAlwaysCritical);
+        factCount++;
+    }
+    else if (factCount < 3 && GetMoveCriticalHitStage(move) > 0)
+    {
+        AppendAdvancedSummaryLine(dst, sHighCritical);
+        factCount++;
+    }
+
+    if (factCount < 4
+     && GetMoveCategory(move) != DAMAGE_CATEGORY_STATUS
+     && GetMovePower(move) > 0
+     && GetMovePower(move) <= 60
+     && GetMoveEffect(move) != EFFECT_FIXED_HP_DAMAGE
+     && GetMoveEffect(move) != EFFECT_FIXED_PERCENT_DAMAGE
+     && GetMoveEffect(move) != EFFECT_LEVEL_DAMAGE
+     && GetMoveEffect(move) != EFFECT_OHKO)
+    {
+        AppendAdvancedSummaryLine(dst, sTechnician);
+        factCount++;
+    }
+
+    if (factCount < 4 && IsPunchingMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sIronFist);
+        factCount++;
+        if (factCount < 4)
+        {
+            AppendAdvancedSummaryLine(dst, sPunchingGlove);
+            factCount++;
+        }
+    }
+    else if (factCount < 4 && IsBitingMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sStrongJaw);
+        factCount++;
+    }
+    else if (factCount < 4 && IsPulseMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sMegaLauncher);
+        factCount++;
+    }
+    else if (factCount < 4 && IsSoundMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sPunkRock);
+        factCount++;
+        if (factCount < 4)
+        {
+            AppendAdvancedSummaryLine(dst, sSound);
+            factCount++;
+        }
+    }
+    else if (factCount < 4 && IsSlicingMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sSharpness);
+        factCount++;
+    }
+    else if (factCount < 4 && IsBallisticMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sBallistic);
+        factCount++;
+    }
+    else if (factCount < 4 && IsPowderMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sPowder);
+        factCount++;
+    }
+    else if (factCount < 4 && IsDanceMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sDance);
+        factCount++;
+    }
+    else if (factCount < 4 && IsWindMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sWind);
+        factCount++;
+    }
+    else if (factCount < 4 && IsHealingMove(move))
+    {
+        AppendAdvancedSummaryLine(dst, sTriage);
+        factCount++;
+    }
+
+    if (factCount < 4 && GetMoveAdditionalEffectCount(move) > 0)
+    {
+        AppendAdvancedSummaryLine(dst, sSecondaryBoosts);
+        factCount++;
+    }
+
+    if (factCount == 0 && MoveMakesContact(move))
+    {
+        AppendAdvancedSummaryLine(dst, sContact);
+        factCount++;
+    }
+
+    if (factCount == 0)
         StringCopy(dst, GetMoveDescription(move));
 }
 

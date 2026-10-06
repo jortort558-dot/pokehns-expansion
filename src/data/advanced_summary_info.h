@@ -110,6 +110,49 @@ static const u8 sAdvancedAbility_Prankster[] = _(
     "Suma +1 de prioridad a movimientos\n"
     "de estado. Los dirigidos contra un\n"
     "rival Siniestro no le afectan.");
+static const u8 sAdvancedAbility_IronFist[] = _(
+    "Multiplica x1,2 la potencia de\n"
+    "todos los movimientos de puño.\n"
+    "Se acumula con Técnico y con el\n"
+    "Guante de Boxeo.");
+static const u8 sAdvancedAbility_StrongJaw[] = _(
+    "Multiplica x1,5 la potencia de\n"
+    "todos los movimientos de mordisco.");
+static const u8 sAdvancedAbility_MegaLauncher[] = _(
+    "Multiplica x1,5 la potencia de\n"
+    "movimientos de pulso y aura.\n"
+    "Pulso Cura recupera más PS.");
+static const u8 sAdvancedAbility_PunkRock[] = _(
+    "Multiplica x1,3 sus movimientos\n"
+    "sonoros y reduce a la mitad el\n"
+    "daño sonoro que recibe.");
+static const u8 sAdvancedAbility_Sharpness[] = _(
+    "Multiplica x1,5 la potencia de\n"
+    "todos los movimientos de corte.");
+static const u8 sAdvancedAbility_SkillLink[] = _(
+    "Los movimientos de 2 a 5 golpes\n"
+    "aciertan siempre 5 veces.");
+static const u8 sAdvancedAbility_SereneGrace[] = _(
+    "Duplica la probabilidad de los\n"
+    "efectos secundarios del movimiento,\n"
+    "hasta un máximo del 100%.");
+static const u8 sAdvancedAbility_SheerForce[] = _(
+    "Potencia x1,3 los ataques con\n"
+    "efecto secundario, pero elimina\n"
+    "la activación de dicho efecto.");
+static const u8 sAdvancedAbility_Soundproof[] = _(
+    "Otorga inmunidad a movimientos\n"
+    "sonoros, incluso si no hacen daño.");
+static const u8 sAdvancedAbility_Bulletproof[] = _(
+    "Otorga inmunidad a movimientos\n"
+    "balísticos, de bombas o proyectiles.");
+static const u8 sAdvancedAbility_Triage[] = _(
+    "Suma +3 de prioridad a movimientos\n"
+    "que curan o absorben PS.");
+static const u8 sAdvancedAbility_Dancer[] = _(
+    "Copia inmediatamente cualquier\n"
+    "movimiento de danza usado por otro\n"
+    "Pokémon en el campo.");
 
 static const u8 *const sAdvancedAbilityDescriptions[ABILITIES_COUNT] =
 {
@@ -138,6 +181,18 @@ static const u8 *const sAdvancedAbilityDescriptions[ABILITIES_COUNT] =
     [ABILITY_POISON_HEAL] = sAdvancedAbility_PoisonHeal,
     [ABILITY_MULTISCALE] = sAdvancedAbility_Multiscale,
     [ABILITY_PRANKSTER] = sAdvancedAbility_Prankster,
+    [ABILITY_IRON_FIST] = sAdvancedAbility_IronFist,
+    [ABILITY_STRONG_JAW] = sAdvancedAbility_StrongJaw,
+    [ABILITY_MEGA_LAUNCHER] = sAdvancedAbility_MegaLauncher,
+    [ABILITY_PUNK_ROCK] = sAdvancedAbility_PunkRock,
+    [ABILITY_SHARPNESS] = sAdvancedAbility_Sharpness,
+    [ABILITY_SKILL_LINK] = sAdvancedAbility_SkillLink,
+    [ABILITY_SERENE_GRACE] = sAdvancedAbility_SereneGrace,
+    [ABILITY_SHEER_FORCE] = sAdvancedAbility_SheerForce,
+    [ABILITY_SOUNDPROOF] = sAdvancedAbility_Soundproof,
+    [ABILITY_BULLETPROOF] = sAdvancedAbility_Bulletproof,
+    [ABILITY_TRIAGE] = sAdvancedAbility_Triage,
+    [ABILITY_DANCER] = sAdvancedAbility_Dancer,
 };
 
 static const u8 sAdvancedMove_Flamethrower[] = _(
@@ -261,6 +316,11 @@ static const u8 sAdvancedMove_DragonDance[] = _(
     "Sube 1 nivel el Ataque y la Velocidad\n"
     "del usuario, hasta un máximo de +6.\n"
     "Cuenta como movimiento de danza.");
+static const u8 sAdvancedMove_BulletPunch[] = _(
+    "Prioridad +1: suele atacar antes.\n"
+    "Técnico aumenta su potencia x1,5.\n"
+    "Puño Férreo la aumenta x1,2.\n"
+    "Guante de Boxeo x1,1; sin contacto.");
 
 static const u8 *const sAdvancedMoveDescriptions[MOVES_COUNT_ALL] =
 {
@@ -293,4 +353,5 @@ static const u8 *const sAdvancedMoveDescriptions[MOVES_COUNT_ALL] =
     [MOVE_NASTY_PLOT] = sAdvancedMove_NastyPlot,
     [MOVE_CALM_MIND] = sAdvancedMove_CalmMind,
     [MOVE_DRAGON_DANCE] = sAdvancedMove_DragonDance,
+    [MOVE_BULLET_PUNCH] = sAdvancedMove_BulletPunch,
 };
