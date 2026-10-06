@@ -148,6 +148,7 @@ static void Task_BagMenu_HandleInput(u8);
 static void OpenItemPopupInfo(u8 taskId, u16 itemId);
 static void Task_ItemPopup_HandleInput(u8 taskId);
 static void CloseItemPopupInfo(u8 taskId);
+static void WordWrapDescription(const u8 *src, u8 *dst, u32 maxDstSize, u8 fontId, u32 maxPixelWidth);
 static void GetItemNameFromPocket(u8 *dest, enum Item itemId);
 static void PrintItemDescription(int);
 static void BagMenu_PrintCursorAtPos(u8, u8);
@@ -1081,33 +1082,56 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
     }
 }
 
-#if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
-static const u8 sText_MoreInfoHint[] = _("{SELECT_BUTTON} Más info...");
 static EWRAM_DATA u8 sItemDescSummaryBuffer[256] = {0};
 
-static void CopyDescriptionPreview(const u8 *src, u8 *dst, u32 dstSize, u8 descriptionLines)
+#if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
+static const u8 sText_MoreInfoHint[] = _("{SELECT_BUTTON} Más info...");
+
+static void ReplaceDescriptionFinalLine(u8 *text, u32 textSize, u8 descriptionLines)
 {
-    u32 srcIndex = 0;
-    u32 dstIndex = 0;
+    u32 index = 0;
     u8 line = 1;
 
-    while (src[srcIndex] != EOS && dstIndex < dstSize - 2)
+    while (text[index] != EOS)
     {
-        if (src[srcIndex] == CHAR_NEWLINE && line >= descriptionLines)
-            break;
-
-        dst[dstIndex++] = src[srcIndex];
-        if (src[srcIndex++] == CHAR_NEWLINE)
+        if (text[index] == CHAR_NEWLINE)
+        {
+            if (line >= descriptionLines)
+            {
+                text[index] = EOS;
+                break;
+            }
             line++;
+        }
+        index++;
     }
 
-    if (dstIndex > 0 && dst[dstIndex - 1] != CHAR_NEWLINE)
-        dst[dstIndex++] = CHAR_NEWLINE;
-    dst[dstIndex] = EOS;
-    StringAppend(dst, sText_MoreInfoHint);
+    index = StringLength(text);
+    if (index < textSize - 1)
+    {
+        text[index++] = CHAR_NEWLINE;
+        text[index] = EOS;
+    }
+    StringAppend(text, sText_MoreInfoHint);
 }
 #else
 static const u8 sText_SelectInfoHint[] = _("{SELECT_BUTTON} INFO");
+
+static void LimitDescriptionLines(u8 *text, u8 maxLines)
+{
+    u32 index = 0;
+    u8 line = 1;
+
+    while (text[index] != EOS)
+    {
+        if (text[index] == CHAR_NEWLINE && line++ >= maxLines)
+        {
+            text[index] = EOS;
+            return;
+        }
+        index++;
+    }
+}
 #endif
 
 static void PrintBagInfoHint(bool32 show)
@@ -1129,12 +1153,13 @@ static void PrintItemDescription(int itemIndex)
     {
         u16 itemId = GetBagItemId(gBagPosition.pocket, itemIndex);
         const u8 *fullDesc = GetItemDescription(itemId);
+        WordWrapDescription(fullDesc, sItemDescSummaryBuffer, sizeof(sItemDescSummaryBuffer), FONT_NORMAL, WindowWidthPx(WIN_DESCRIPTION) - 6);
 #if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
-        CopyDescriptionPreview(fullDesc, sItemDescSummaryBuffer, sizeof(sItemDescSummaryBuffer), 2);
-        str = sItemDescSummaryBuffer;
+        ReplaceDescriptionFinalLine(sItemDescSummaryBuffer, sizeof(sItemDescSummaryBuffer), 2);
 #else
-        str = fullDesc;
+        LimitDescriptionLines(sItemDescSummaryBuffer, 3);
 #endif
+        str = sItemDescSummaryBuffer;
         PrintBagInfoHint(TRUE);
     }
     else

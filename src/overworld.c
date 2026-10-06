@@ -3782,49 +3782,62 @@ static void DestroyItemIconSprite(void);
 
 static u8 ReformatItemDescription(enum Item item, u8 *dest)
 {
-    u8 count = 0;
+    const u8 *desc = GetItemDescription(item);
+    u8 word[64];
+    u8 wordLength = 0;
     u8 numLines = 1;
-    u8 maxChars = 32;
-    u8 *desc = (u8 *)GetItemDescription(item);
+    u8 space[] = {CHAR_SPACE, EOS};
+    u32 destIndex = 0;
+    s32 currentLineWidth = 0;
+    s32 spaceWidth = GetStringWidth(FONT_NORMAL, space, 0);
+    const s32 maxPixelWidth = 192;
 
-    while (*desc != EOS)
+    while (TRUE)
     {
-        if (count >= maxChars)
+        if (*desc == CHAR_SPACE || *desc == CHAR_NEWLINE || *desc == EOS)
         {
-            while (*desc != EOS && *desc != CHAR_SPACE && *desc != CHAR_NEWLINE)
+            if (wordLength > 0)
             {
-                *dest = *desc;  //finish word
-                dest++;
-                desc++;
+                s32 wordWidth;
+                u8 i;
+
+                word[wordLength] = EOS;
+                wordWidth = GetStringWidth(FONT_NORMAL, word, 0);
+
+                if (currentLineWidth > 0 && currentLineWidth + spaceWidth + wordWidth > maxPixelWidth)
+                {
+                    if (numLines % 2 == 0)
+                        dest[destIndex++] = CHAR_PROMPT_CLEAR;
+                    else
+                        dest[destIndex++] = CHAR_NEWLINE;
+                    numLines++;
+                    currentLineWidth = 0;
+                }
+                else if (currentLineWidth > 0)
+                {
+                    dest[destIndex++] = CHAR_SPACE;
+                    currentLineWidth += spaceWidth;
+                }
+
+                for (i = 0; i < wordLength && destIndex < 0xFE; i++)
+                    dest[destIndex++] = word[i];
+                currentLineWidth += wordWidth;
+                wordLength = 0;
             }
 
             if (*desc == EOS)
                 break;
-
-            if (numLines % 2 == 0)
-                *dest = CHAR_PROMPT_CLEAR;
-            else
-                *dest = CHAR_NEWLINE;
-            count = 0;
-            numLines++;
-            dest++;
-            desc++;
-            continue;
         }
-
-        *dest = *desc;
-        if (*desc == CHAR_NEWLINE)
+        else if (wordLength < ARRAY_COUNT(word) - 1)
         {
-            *dest = CHAR_SPACE;
+            word[wordLength++] = *desc;
         }
 
-        dest++;
         desc++;
-        count++;
     }
 
-    *dest++ = CHAR_PROMPT_CLEAR;
-    *dest = EOS;
+    dest[destIndex++] = CHAR_PROMPT_CLEAR;
+    dest[destIndex] = EOS;
     return numLines;
 }
 
