@@ -1,4 +1,4 @@
-﻿#include "global.h"
+#include "global.h"
 #include "nuzlocke.h"
 #include "challenge_menu.h"
 #include "event_data.h"
@@ -16,6 +16,7 @@
 #include "battle.h"
 #include "bug_contest.h"
 #include "nuzlocke_tracker.h"
+#include "save.h"
 
 EWRAM_DATA u8 NuzlockeIsCaptureBlocked = FALSE;
 EWRAM_DATA u8 NuzlockeIsSpeciesClauseActive = FALSE;
@@ -543,4 +544,130 @@ void SetNuzlockeChecks(void)
         NuzlockeIsCaptureBlocked = FALSE;
         NuzlockeIsSpeciesClauseActive = FALSE;
     }
+}
+
+static u16 CalcGraveyardChecksum(const struct NuzlockeGraveyard *gy)
+{
+    u32 sum = 0;
+    const u8 *ptr = (const u8 *)gy->entries;
+    u32 size = gy->count * sizeof(struct NuzlockeGraveyardEntry);
+    u32 i;
+
+    for (i = 0; i < size; i++)
+        sum += ptr[i];
+
+    return (u16)(sum + gy->count);
+}
+
+void NuzlockeGraveyard_RecordFaint(struct Pokemon *mon)
+{
+    struct NuzlockeGraveyard gy;
+    u32 personality;
+    u32 otId;
+    u16 i;
+
+    if (!mon || !GetMonData(mon, MON_DATA_SANITY_HAS_SPECIES, NULL) || GetMonData(mon, MON_DATA_IS_EGG, NULL))
+        return;
+
+    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive())
+        return;
+
+    personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
+    otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
+
+    memset(&gy, 0, sizeof(gy));
+
+    if (TryReadSpecialSaveSector(SECTOR_ID_TRAINER_HILL, (u8 *)&gy) != SAVE_STATUS_OK
+        || gy.magic != NUZLOCKE_GRAVEYARD_MAGIC
+        || gy.count > NUZLOCKE_GRAVEYARD_MAX_ENTRIES
+        || gy.checksum != CalcGraveyardChecksum(&gy))
+    {
+        gy.magic = NUZLOCKE_GRAVEYARD_MAGIC;
+        gy.count = 0;
+        gy.checksum = 0;
+    }
+
+    // Check if already in graveyard
+    for (i = 0; i < gy.count; i++)
+    {
+        if (gy.entries[i].personality == personality && gy.entries[i].otId == otId)
+            return;
+    }
+
+    if (gy.count < NUZLOCKE_GRAVEYARD_MAX_ENTRIES)
+    {
+        gy.entries[gy.count].personality = personality;
+        gy.entries[gy.count].otId = otId;
+        gy.count++;
+        gy.checksum = CalcGraveyardChecksum(&gy);
+
+        TryWriteSpecialSaveSector(SECTOR_ID_TRAINER_HILL, (u8 *)&gy);
+    }
+}
+
+void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
+{
+    struct NuzlockeGraveyard gy;
+    u16 i, j;
+    bool8 modified = FALSE;
+
+    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive())
+        return;
+
+    if (TryReadSpecialSaveSector(SECTOR_ID_TRAINER_HILL, (u8 *)&gy) != SAVE_STATUS_OK)
+        return;
+
+    if (gy.magic != NUZLOCKE_GRAVEYARD_MAGIC
+        || gy.count > NUZLOCKE_GRAVEYARD_MAX_ENTRIES
+        || gy.checksum != CalcGraveyardChecksum(&gy))
+        return;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        struct Pokemon *mon = &gPlayerParty[i];
+        u32 personality;
+        u32 otId;
+
+        if (!GetMonData(mon, MON_DATA_SANITY_HAS_SPECIES, NULL) || GetMonData(mon, MON_DATA_IS_EGG, NULL))
+            continue;
+
+        personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
+        otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
+
+        for (j = 0; j < gy.count; j++)
+        {
+            if (gy.entries[j].personality == personality && gy.entries[j].otId == otId)
+            {
+                // Pokemon fainted during battle before an emulator reset!
+                u32 monItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
+                u16 noneItem = ITEM_NONE;
+                if (monItem != ITEM_NONE)
+                {
+                    AddBagItem(monItem, 1);
+                    SetMonData(mon, MON_DATA_HELD_ITEM, &noneItem);
+                }
+
+                if (IsNuzlockeEasyActive())
+                    NuzlockeDeletePartyMonOption(i);
+                else
+                    NuzlockeDeletePartyMon(i);
+
+                modified = TRUE;
+                break;
+            }
+        }
+    }
+
+    if (modified)
+        CompactPartySlots();
+}
+
+void NuzlockeGraveyard_Clear(void)
+{
+    struct NuzlockeGraveyard gy;
+    memset(&gy, 0, sizeof(gy));
+    gy.magic = NUZLOCKE_GRAVEYARD_MAGIC;
+    gy.count = 0;
+    gy.checksum = CalcGraveyardChecksum(&gy);
+    TryWriteSpecialSaveSector(SECTOR_ID_TRAINER_HILL, (u8 *)&gy);
 }

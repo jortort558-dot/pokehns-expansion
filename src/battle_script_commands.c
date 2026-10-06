@@ -54,6 +54,7 @@
 #include "data.h"
 #include "generational_changes.h"
 #include "move.h"
+#include "nuzlocke.h"
 #include "constants/abilities.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_move_effects.h"
@@ -3875,6 +3876,20 @@ static void Cmd_tryfaintmon(void)
                     gBattleResults.playerFaintCounter++;
                 AdjustFriendshipOnBattleFaint(battler);
                 gSideTimers[B_SIDE_PLAYER].retaliateTimer = 2;
+
+                if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
+                                          | BATTLE_TYPE_LINK_IN_BATTLE
+                                          | BATTLE_TYPE_FIRST_BATTLE
+                                          | BATTLE_TYPE_CATCH_TUTORIAL
+                                          | BATTLE_TYPE_INGAME_PARTNER
+                                          | BATTLE_TYPE_TOWER_LINK_MULTI
+                                          | BATTLE_TYPE_RECORDED_LINK
+                                          | BATTLE_TYPE_FRONTIER
+                                          | BATTLE_TYPE_TRAINER_HILL
+                                          | BATTLE_TYPE_NO_NUZLOCKE_DEATH)))
+                {
+                    NuzlockeGraveyard_RecordFaint(GetBattlerMon(battler));
+                }
             }
             else
             {
