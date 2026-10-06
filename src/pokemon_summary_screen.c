@@ -5600,6 +5600,11 @@ static const u8 *GetAdvancedAbilityDescription(enum Ability ability)
         "8 si lleva Roca Calor.\n"
         "Fuego x1,5 y Agua x0,5\n"
         "para ambos bandos.");
+    static const u8 sWaterVeilDetails[] = _(
+        "Evita cualquier quemadura.\n"
+        "Si obtiene o recupera Velo Agua\n"
+        "estando quemado, elimina ese\n"
+        "estado.");
 
     switch (ability)
     {
@@ -5609,6 +5614,8 @@ static const u8 *GetAdvancedAbilityDescription(enum Ability ability)
         return sIntimidateDetails;
     case ABILITY_DROUGHT:
         return sDroughtDetails;
+    case ABILITY_WATER_VEIL:
+        return sWaterVeilDetails;
     default:
         return NULL;
     }
@@ -5637,6 +5644,11 @@ static const u8 *GetAdvancedMoveDescription(enum Move move)
         "15% y 15%. Cada golpe: 25.\n"
         "Dado Trucado: 4-5; Enlace\n"
         "Destreza: 5. Es balístico.");
+    static const u8 sPsychicDetails[] = _(
+        "10% de bajar 1 nivel la Defensa\n"
+        "Especial rival. No hace contacto.\n"
+        "Lo bloquean Protección y efectos\n"
+        "equivalentes.");
 
     switch (move)
     {
@@ -5650,6 +5662,8 @@ static const u8 *GetAdvancedMoveDescription(enum Move move)
         return sProtectDetails;
     case MOVE_BULLET_SEED:
         return sBulletSeedDetails;
+    case MOVE_PSYCHIC:
+        return sPsychicDetails;
     default:
         return NULL;
     }

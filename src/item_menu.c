@@ -1153,7 +1153,7 @@ static void PrintItemDescription(int itemIndex)
     {
         u16 itemId = GetBagItemId(gBagPosition.pocket, itemIndex);
         const u8 *fullDesc = GetItemDescription(itemId);
-        WordWrapDescription(fullDesc, sItemDescSummaryBuffer, sizeof(sItemDescSummaryBuffer), FONT_NORMAL, WindowWidthPx(WIN_DESCRIPTION) - 6);
+        WordWrapDescription(fullDesc, sItemDescSummaryBuffer, sizeof(sItemDescSummaryBuffer), FONT_NORMAL, WindowWidthPx(WIN_DESCRIPTION) - 7);
 #if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
         ReplaceDescriptionFinalLine(sItemDescSummaryBuffer, sizeof(sItemDescSummaryBuffer), 2);
 #else

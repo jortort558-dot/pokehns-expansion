@@ -3892,7 +3892,7 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
         textY = 0;
 
     ShowItemIconSprite(item, TRUE, handleFlash);
-    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_NORMAL, dst, ITEM_ICON_X + 2, textY, 0, NULL);
+    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_NORMAL, dst, ITEM_ICON_X + 2, textY, 1, NULL);
     SetupNativeScript(ctx, IsItemDescriptionPrinterFinished);
 }
 
