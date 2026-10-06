@@ -1046,10 +1046,6 @@ u8 LoadGameSave(u8 saveType)
     //     /* migration code */
     //     gSaveBlock1Ptr->saveVersion = 1;
     // }
-
-    if (saveType == SAVE_NORMAL)
-        NuzlockeGraveyard_CheckAndApplyOnLoad();
-
     return status;
 }
 
