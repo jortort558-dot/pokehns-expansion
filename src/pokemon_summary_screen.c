@@ -241,8 +241,11 @@ static void RenderMovePopupContent(u8 windowId);
 static void CloseMovePopup(u8 taskId);
 static void Task_SummaryPopup_MoveInput(u8 taskId);
 static void WordWrapDescription(const u8 *src, u8 *dst, u32 maxDstSize, u8 fontId, u32 maxPixelWidth);
+static void LimitAdvancedDescriptionLines(u8 *text, u8 maxLines);
 static const u8 *GetAdvancedAbilityDescription(enum Ability ability);
 static const u8 *GetAdvancedMoveDescription(enum Move move);
+static void BuildAdvancedAbilityDescription(enum Ability ability, u8 *dst);
+static void BuildAdvancedMoveDescription(enum Move move, u8 *dst);
 static bool8 HasMoreThanOneMove(void);
 static void ChangeSelectedMove(s16 *, s8, u8 *);
 static void CloseMoveSelectMode(u8);
@@ -5321,13 +5324,10 @@ static void OpenAbilityPopup(u8 taskId)
 {
     u8 windowId;
     u8 formattedDesc[512];
-    const u8 *description;
-    const u8 *header;
     enum Ability ability;
     u32 i;
     void *bg0Buf;
     static const u8 sText_AbilityHeader[] = _("DATOS AVANZADOS");
-    static const u8 sText_AbilityFallbackHeader[] = _("DESCRIPCIÓN");
     static const u8 sText_ClosePopupHint[] = _("{A_BUTTON}/{B_BUTTON}/{SELECT_BUTTON} VOLVER");
 
     bg0Buf = GetBgTilemapBuffer(0);
@@ -5372,21 +5372,13 @@ static void OpenAbilityPopup(u8 taskId)
     FillWindowPixelRect(windowId, PIXEL_FILL(4), 6, 25, 180, 1);
 
     ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
-    description = GetAdvancedAbilityDescription(ability);
-    if (description == NULL)
-    {
-        description = gAbilitiesInfo[ability].description;
-        header = sText_AbilityFallbackHeader;
-    }
-    else
-    {
-        header = sText_AbilityHeader;
-    }
+    BuildAdvancedAbilityDescription(ability, gStringVar4);
 
     AddTextPrinterParameterized4(windowId, FONT_NORMAL, 6, 3, 0, 0, sSummaryModalColor_Title, 0, gAbilitiesInfo[ability].name);
-    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, header);
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, sText_AbilityHeader);
 
-    WordWrapDescription(description, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
+    WordWrapDescription(gStringVar4, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
+    LimitAdvancedDescriptionLines(formattedDesc, 4);
     AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 28, 0, 1, sSummaryModalColor_Body, 0, formattedDesc);
 
     AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 44, 83, 0, 0, sSummaryModalColor_Footer, 0, sText_ClosePopupHint);
@@ -5449,7 +5441,6 @@ static void CloseAbilityPopup(u8 taskId)
 static void RenderMovePopupContent(u8 windowId)
 {
     u8 formattedDesc[512];
-    const u8 *description;
     enum Move move;
     u8 validMovesCount = 0, currentPos = 0, i;
     static const u8 sText_MovePopupNavHint[] = _("{DPAD_LEFTRIGHT} OTRO ATAQUE   {B_BUTTON} VOLVER");
@@ -5565,10 +5556,9 @@ static void RenderMovePopupContent(u8 windowId)
 
         AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, statsBuffer);
 
-        description = GetAdvancedMoveDescription(move);
-        if (description == NULL)
-            description = GetMoveDescription(move);
-        WordWrapDescription(description, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
+        BuildAdvancedMoveDescription(move, gStringVar4);
+        WordWrapDescription(gStringVar4, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
+        LimitAdvancedDescriptionLines(formattedDesc, 4);
         AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 28, 0, 1, sSummaryModalColor_Body, 0, formattedDesc);
     }
     else
@@ -5596,6 +5586,293 @@ static const u8 *GetAdvancedMoveDescription(enum Move move)
     if (move >= MOVES_COUNT_ALL)
         return NULL;
     return sAdvancedMoveDescriptions[move];
+}
+
+static void LimitAdvancedDescriptionLines(u8 *text, u8 maxLines)
+{
+    u32 index = 0;
+    u8 line = 1;
+
+    while (text[index] != EOS)
+    {
+        if (text[index] == CHAR_NEWLINE && line++ >= maxLines)
+        {
+            text[index] = EOS;
+            return;
+        }
+        index++;
+    }
+}
+
+static const u8 *GetAdvancedMoveTargetName(enum MoveTarget target)
+{
+    static const u8 sTargetSelected[] = _("un rival");
+    static const u8 sTargetBoth[] = _("ambos rivales");
+    static const u8 sTargetUser[] = _("usuario");
+    static const u8 sTargetAlly[] = _("aliado");
+    static const u8 sTargetUserAndAlly[] = _("usuario y aliado");
+    static const u8 sTargetFoesAndAlly[] = _("todos menos usuario");
+    static const u8 sTargetField[] = _("campo");
+    static const u8 sTargetOpponentsField[] = _("campo rival");
+    static const u8 sTargetAll[] = _("todos");
+    static const u8 sTargetVariable[] = _("variable");
+
+    switch (target)
+    {
+    case TARGET_SELECTED:
+    case TARGET_SMART:
+    case TARGET_OPPONENT:
+        return sTargetSelected;
+    case TARGET_BOTH:
+        return sTargetBoth;
+    case TARGET_USER:
+        return sTargetUser;
+    case TARGET_ALLY:
+        return sTargetAlly;
+    case TARGET_USER_AND_ALLY:
+    case TARGET_USER_OR_ALLY:
+        return sTargetUserAndAlly;
+    case TARGET_FOES_AND_ALLY:
+        return sTargetFoesAndAlly;
+    case TARGET_FIELD:
+        return sTargetField;
+    case TARGET_OPPONENTS_FIELD:
+        return sTargetOpponentsField;
+    case TARGET_ALL_BATTLERS:
+        return sTargetAll;
+    default:
+        return sTargetVariable;
+    }
+}
+
+static const u8 *GetAdvancedMoveEffectName(enum MoveEffect effect)
+{
+    static const u8 sEffectSleep[] = _("dormir");
+    static const u8 sEffectPoison[] = _("envenenar");
+    static const u8 sEffectBurn[] = _("quemar");
+    static const u8 sEffectFrostbite[] = _("causar helada");
+    static const u8 sEffectParalysis[] = _("paralizar");
+    static const u8 sEffectToxic[] = _("envenenar grave");
+    static const u8 sEffectConfusion[] = _("confundir");
+    static const u8 sEffectFlinch[] = _("hacer retroceder");
+    static const u8 sEffectAtkUp[] = _("subir Ataque");
+    static const u8 sEffectDefUp[] = _("subir Defensa");
+    static const u8 sEffectSpeedUp[] = _("subir Velocidad");
+    static const u8 sEffectSpAtkUp[] = _("subir At. Esp.");
+    static const u8 sEffectSpDefUp[] = _("subir Def. Esp.");
+    static const u8 sEffectAccUp[] = _("subir Precisión");
+    static const u8 sEffectEvaUp[] = _("subir Evasión");
+    static const u8 sEffectAtkDown[] = _("bajar Ataque");
+    static const u8 sEffectDefDown[] = _("bajar Defensa");
+    static const u8 sEffectSpeedDown[] = _("bajar Velocidad");
+    static const u8 sEffectSpAtkDown[] = _("bajar At. Esp.");
+    static const u8 sEffectSpDefDown[] = _("bajar Def. Esp.");
+    static const u8 sEffectAccDown[] = _("bajar Precisión");
+    static const u8 sEffectEvaDown[] = _("bajar Evasión");
+    static const u8 sEffectAllStatsUp[] = _("subir todas estadísticas");
+    static const u8 sEffectRemoveStatus[] = _("eliminar estado");
+    static const u8 sEffectSpecial[] = _("efecto especial");
+
+    switch (effect)
+    {
+    case MOVE_EFFECT_SLEEP: return sEffectSleep;
+    case MOVE_EFFECT_POISON: return sEffectPoison;
+    case MOVE_EFFECT_BURN: return sEffectBurn;
+    case MOVE_EFFECT_FREEZE:
+    case MOVE_EFFECT_FROSTBITE: return sEffectFrostbite;
+    case MOVE_EFFECT_PARALYSIS: return sEffectParalysis;
+    case MOVE_EFFECT_TOXIC: return sEffectToxic;
+    case MOVE_EFFECT_CONFUSION: return sEffectConfusion;
+    case MOVE_EFFECT_FLINCH: return sEffectFlinch;
+    case MOVE_EFFECT_ATK_PLUS_1:
+    case MOVE_EFFECT_ATK_PLUS_2: return sEffectAtkUp;
+    case MOVE_EFFECT_DEF_PLUS_1:
+    case MOVE_EFFECT_DEF_PLUS_2: return sEffectDefUp;
+    case MOVE_EFFECT_SPD_PLUS_1:
+    case MOVE_EFFECT_SPD_PLUS_2: return sEffectSpeedUp;
+    case MOVE_EFFECT_SP_ATK_PLUS_1:
+    case MOVE_EFFECT_SP_ATK_PLUS_2: return sEffectSpAtkUp;
+    case MOVE_EFFECT_SP_DEF_PLUS_1:
+    case MOVE_EFFECT_SP_DEF_PLUS_2: return sEffectSpDefUp;
+    case MOVE_EFFECT_ACC_PLUS_1:
+    case MOVE_EFFECT_ACC_PLUS_2: return sEffectAccUp;
+    case MOVE_EFFECT_EVS_PLUS_1:
+    case MOVE_EFFECT_EVS_PLUS_2: return sEffectEvaUp;
+    case MOVE_EFFECT_ATK_MINUS_1:
+    case MOVE_EFFECT_ATK_MINUS_2: return sEffectAtkDown;
+    case MOVE_EFFECT_DEF_MINUS_1:
+    case MOVE_EFFECT_DEF_MINUS_2: return sEffectDefDown;
+    case MOVE_EFFECT_SPD_MINUS_1:
+    case MOVE_EFFECT_SPD_MINUS_2: return sEffectSpeedDown;
+    case MOVE_EFFECT_SP_ATK_MINUS_1:
+    case MOVE_EFFECT_SP_ATK_MINUS_2: return sEffectSpAtkDown;
+    case MOVE_EFFECT_SP_DEF_MINUS_1:
+    case MOVE_EFFECT_SP_DEF_MINUS_2: return sEffectSpDefDown;
+    case MOVE_EFFECT_ACC_MINUS_1:
+    case MOVE_EFFECT_ACC_MINUS_2: return sEffectAccDown;
+    case MOVE_EFFECT_EVS_MINUS_1:
+    case MOVE_EFFECT_EVS_MINUS_2: return sEffectEvaDown;
+    case MOVE_EFFECT_ALL_STATS_UP: return sEffectAllStatsUp;
+    case MOVE_EFFECT_REMOVE_STATUS: return sEffectRemoveStatus;
+    default: return sEffectSpecial;
+    }
+}
+
+static const u8 *GetAdvancedMoveTraitName(enum Move move)
+{
+    static const u8 sTraitSound[] = _("sonido");
+    static const u8 sTraitPunch[] = _("puño");
+    static const u8 sTraitBite[] = _("mordisco");
+    static const u8 sTraitPulse[] = _("pulso");
+    static const u8 sTraitBallistic[] = _("balístico");
+    static const u8 sTraitPowder[] = _("polvo");
+    static const u8 sTraitDance[] = _("danza");
+    static const u8 sTraitWind[] = _("viento");
+    static const u8 sTraitSlicing[] = _("corte");
+    static const u8 sTraitHealing[] = _("curación");
+    static const u8 sTraitNone[] = _("ninguno");
+
+    if (IsSoundMove(move)) return sTraitSound;
+    if (IsPunchingMove(move)) return sTraitPunch;
+    if (IsBitingMove(move)) return sTraitBite;
+    if (IsPulseMove(move)) return sTraitPulse;
+    if (IsBallisticMove(move)) return sTraitBallistic;
+    if (IsPowderMove(move)) return sTraitPowder;
+    if (IsDanceMove(move)) return sTraitDance;
+    if (IsWindMove(move)) return sTraitWind;
+    if (IsSlicingMove(move)) return sTraitSlicing;
+    if (IsHealingMove(move)) return sTraitHealing;
+    return sTraitNone;
+}
+
+static void BuildAdvancedAbilityDescription(enum Ability ability, u8 *dst)
+{
+    const u8 *curated = GetAdvancedAbilityDescription(ability);
+    static const u8 sBreakableYes[] = _("Rompemoldes: la ignora.\n");
+    static const u8 sBreakableNo[] = _("Rompemoldes: no la ignora.\n");
+    static const u8 sCopyYes[] = _("Copiar: sí. ");
+    static const u8 sCopyNo[] = _("Copiar: no. ");
+    static const u8 sTraceYes[] = _("Rastrear: sí.\n");
+    static const u8 sTraceNo[] = _("Rastrear: no.\n");
+    static const u8 sSwapYes[] = _("Cambiar: sí. ");
+    static const u8 sSwapNo[] = _("Cambiar: no. ");
+    static const u8 sSuppressYes[] = _("Anular: sí.\n");
+    static const u8 sSuppressNo[] = _("Anular: no.\n");
+    static const u8 sOverwriteYes[] = _("Sobrescribir: sí.");
+    static const u8 sOverwriteNo[] = _("Sobrescribir: no.");
+
+    if (curated != NULL)
+    {
+        StringCopy(dst, curated);
+        return;
+    }
+
+    StringCopy(dst, gAbilitiesInfo[ability].breakable ? sBreakableYes : sBreakableNo);
+    StringAppend(dst, gAbilitiesInfo[ability].cantBeCopied ? sCopyNo : sCopyYes);
+    StringAppend(dst, gAbilitiesInfo[ability].cantBeTraced ? sTraceNo : sTraceYes);
+    StringAppend(dst, gAbilitiesInfo[ability].cantBeSwapped ? sSwapNo : sSwapYes);
+    StringAppend(dst, gAbilitiesInfo[ability].cantBeSuppressed ? sSuppressNo : sSuppressYes);
+    StringAppend(dst, gAbilitiesInfo[ability].cantBeOverwritten ? sOverwriteNo : sOverwriteYes);
+}
+
+static void BuildAdvancedMoveDescription(enum Move move, u8 *dst)
+{
+    const u8 *curated = GetAdvancedMoveDescription(move);
+    u8 number[16];
+    u32 additionalEffectCount;
+    static const u8 sTarget[] = _("Objetivo: ");
+    static const u8 sPriority[] = _(". Prioridad: ");
+    static const u8 sPositive[] = _("+");
+    static const u8 sPeriodNewline[] = _(".\n");
+    static const u8 sExtra[] = _("Extra ");
+    static const u8 sPercentColon[] = _("%: ");
+    static const u8 sCertain[] = _("Efecto seguro: ");
+    static const u8 sOwn[] = _(" propio");
+    static const u8 sMultiHit[] = _("Golpes: 2-5; 35/35/15/15%.\n");
+    static const u8 sFixedHits[] = _("Golpes fijos: ");
+    static const u8 sAlwaysCritical[] = _("Crítico garantizado.\n");
+    static const u8 sCriticalStage[] = _("Índice crítico: +");
+    static const u8 sNoExtra[] = _("Sin efecto porcentual adicional.\n");
+    static const u8 sContactYes[] = _("Contacto: sí. Rasgo: ");
+    static const u8 sContactNo[] = _("Contacto: no. Rasgo: ");
+    static const u8 sIgnorePrefix[] = _("Ignora Prot/Sust/Hab: ");
+    static const u8 sYes[] = _("sí");
+    static const u8 sNo[] = _("no");
+    static const u8 sSlash[] = _("/");
+    static const u8 sPeriod[] = _(".");
+
+    if (curated != NULL)
+    {
+        StringCopy(dst, curated);
+        return;
+    }
+
+    StringCopy(dst, sTarget);
+    StringAppend(dst, GetAdvancedMoveTargetName(GetMoveTarget(move)));
+    StringAppend(dst, sPriority);
+    if (GetMovePriority(move) >= 0)
+        StringAppend(dst, sPositive);
+    ConvertIntToDecimalStringN(number, GetMovePriority(move), STR_CONV_MODE_LEFT_ALIGN, 2);
+    StringAppend(dst, number);
+    StringAppend(dst, sPeriodNewline);
+
+    additionalEffectCount = GetMoveAdditionalEffectCount(move);
+    if (additionalEffectCount > 0)
+    {
+        const struct AdditionalEffect *effect = GetMoveAdditionalEffectById(move, 0);
+        if (effect->chance > 0)
+        {
+            StringAppend(dst, sExtra);
+            ConvertIntToDecimalStringN(number, effect->chance, STR_CONV_MODE_LEFT_ALIGN, 3);
+            StringAppend(dst, number);
+            StringAppend(dst, sPercentColon);
+        }
+        else
+        {
+            StringAppend(dst, sCertain);
+        }
+        StringAppend(dst, GetAdvancedMoveEffectName(effect->moveEffect));
+        if (effect->self)
+            StringAppend(dst, sOwn);
+        StringAppend(dst, sPeriodNewline);
+    }
+    else if (IsMultiHitMove(move))
+    {
+        StringAppend(dst, sMultiHit);
+    }
+    else if (GetMoveStrikeCount(move) > 1)
+    {
+        StringAppend(dst, sFixedHits);
+        ConvertIntToDecimalStringN(number, GetMoveStrikeCount(move), STR_CONV_MODE_LEFT_ALIGN, 2);
+        StringAppend(dst, number);
+        StringAppend(dst, sPeriodNewline);
+    }
+    else if (MoveAlwaysCrits(move))
+    {
+        StringAppend(dst, sAlwaysCritical);
+    }
+    else if (GetMoveCriticalHitStage(move) > 0)
+    {
+        StringAppend(dst, sCriticalStage);
+        ConvertIntToDecimalStringN(number, GetMoveCriticalHitStage(move), STR_CONV_MODE_LEFT_ALIGN, 1);
+        StringAppend(dst, number);
+        StringAppend(dst, sPeriodNewline);
+    }
+    else
+    {
+        StringAppend(dst, sNoExtra);
+    }
+
+    StringAppend(dst, MoveMakesContact(move) ? sContactYes : sContactNo);
+    StringAppend(dst, GetAdvancedMoveTraitName(move));
+    StringAppend(dst, sPeriodNewline);
+    StringAppend(dst, sIgnorePrefix);
+    StringAppend(dst, MoveIgnoresProtect(move) ? sYes : sNo);
+    StringAppend(dst, sSlash);
+    StringAppend(dst, MoveIgnoresSubstitute(move) ? sYes : sNo);
+    StringAppend(dst, sSlash);
+    StringAppend(dst, MoveIgnoresTargetAbility(move) ? sYes : sNo);
+    StringAppend(dst, sPeriod);
 }
 
 static void OpenMovePopup(u8 taskId, u8 moveIndex)
