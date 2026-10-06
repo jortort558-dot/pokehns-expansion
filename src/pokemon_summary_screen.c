@@ -240,6 +240,8 @@ static void RenderMovePopupContent(u8 windowId);
 static void CloseMovePopup(u8 taskId);
 static void Task_SummaryPopup_MoveInput(u8 taskId);
 static void WordWrapDescription(const u8 *src, u8 *dst, u32 maxDstSize, u8 fontId, u32 maxPixelWidth);
+static const u8 *GetAdvancedAbilityDescription(enum Ability ability);
+static const u8 *GetAdvancedMoveDescription(enum Move move);
 static bool8 HasMoreThanOneMove(void);
 static void ChangeSelectedMove(s16 *, s8, u8 *);
 static void CloseMoveSelectMode(u8);
@@ -5318,10 +5320,13 @@ static void OpenAbilityPopup(u8 taskId)
 {
     u8 windowId;
     u8 formattedDesc[512];
+    const u8 *description;
+    const u8 *header;
     enum Ability ability;
     u32 i;
     void *bg0Buf;
-    static const u8 sText_AbilityHeader[] = _("HABILIDAD POKÉMON");
+    static const u8 sText_AbilityHeader[] = _("DATOS AVANZADOS");
+    static const u8 sText_AbilityFallbackHeader[] = _("DESCRIPCIÓN");
     static const u8 sText_ClosePopupHint[] = _("{A_BUTTON}/{B_BUTTON}/{SELECT_BUTTON} VOLVER");
 
     bg0Buf = GetBgTilemapBuffer(0);
@@ -5366,11 +5371,21 @@ static void OpenAbilityPopup(u8 taskId)
     FillWindowPixelRect(windowId, PIXEL_FILL(4), 6, 25, 180, 1);
 
     ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    description = GetAdvancedAbilityDescription(ability);
+    if (description == NULL)
+    {
+        description = gAbilitiesInfo[ability].description;
+        header = sText_AbilityFallbackHeader;
+    }
+    else
+    {
+        header = sText_AbilityHeader;
+    }
 
     AddTextPrinterParameterized4(windowId, FONT_NORMAL, 6, 3, 0, 0, sSummaryModalColor_Title, 0, gAbilitiesInfo[ability].name);
-    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, sText_AbilityHeader);
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, header);
 
-    WordWrapDescription(gAbilitiesInfo[ability].description, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
+    WordWrapDescription(description, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
     AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 28, 0, 1, sSummaryModalColor_Body, 0, formattedDesc);
 
     AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 44, 83, 0, 0, sSummaryModalColor_Footer, 0, sText_ClosePopupHint);
@@ -5433,6 +5448,7 @@ static void CloseAbilityPopup(u8 taskId)
 static void RenderMovePopupContent(u8 windowId)
 {
     u8 formattedDesc[512];
+    const u8 *description;
     enum Move move;
     u8 validMovesCount = 0, currentPos = 0, i;
     static const u8 sText_MovePopupNavHint[] = _("{DPAD_LEFTRIGHT} OTRO ATAQUE   {B_BUTTON} VOLVER");
@@ -5548,7 +5564,10 @@ static void RenderMovePopupContent(u8 windowId)
 
         AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, statsBuffer);
 
-        WordWrapDescription(GetMoveDescription(move), formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
+        description = GetAdvancedMoveDescription(move);
+        if (description == NULL)
+            description = GetMoveDescription(move);
+        WordWrapDescription(description, formattedDesc, sizeof(formattedDesc), FONT_SHORT_COPY_1, 180);
         AddTextPrinterParameterized4(windowId, FONT_SHORT_COPY_1, 6, 28, 0, 1, sSummaryModalColor_Body, 0, formattedDesc);
     }
     else
@@ -5562,6 +5581,78 @@ static void RenderMovePopupContent(u8 windowId)
     PutWindowTilemap(windowId);
     CopyWindowToVram(windowId, COPYWIN_FULL);
     ScheduleBgCopyTilemapToVram(0);
+}
+
+static const u8 *GetAdvancedAbilityDescription(enum Ability ability)
+{
+    static const u8 sTechnicianDetails[] = _(
+        "Aumenta x1,5 la potencia base\n"
+        "de movimientos de potencia 60\n"
+        "o menos. Se aplica después de\n"
+        "calcular la potencia variable.");
+    static const u8 sIntimidateDetails[] = _(
+        "Al entrar, baja 1 nivel el Ataque\n"
+        "de cada rival sin Sustituto.\n"
+        "No afecta a Foco Interno,\n"
+        "Revoltoso, Ritmo Propio u Oblivio.");
+    static const u8 sDroughtDetails[] = _(
+        "Al entrar, activa el sol 5 turnos;\n"
+        "8 si lleva Roca Calor.\n"
+        "Fuego x1,5 y Agua x0,5\n"
+        "para ambos bandos.");
+
+    switch (ability)
+    {
+    case ABILITY_TECHNICIAN:
+        return sTechnicianDetails;
+    case ABILITY_INTIMIDATE:
+        return sIntimidateDetails;
+    case ABILITY_DROUGHT:
+        return sDroughtDetails;
+    default:
+        return NULL;
+    }
+}
+
+static const u8 *GetAdvancedMoveDescription(enum Move move)
+{
+    static const u8 sFlamethrowerDetails[] = _(
+        "10% de quemar al objetivo.\n"
+        "No hace contacto. Lo bloquean\n"
+        "Protección y efectos equivalentes.");
+    static const u8 sRainDanceDetails[] = _(
+        "Lluvia: 5 turnos; 8 con Roca\n"
+        "Lluvia. Agua x1,5 y Fuego x0,5.\n"
+        "Afecta a ambos bandos.");
+    static const u8 sAcrobaticsDetails[] = _(
+        "Potencia 110 si no lleva objeto\n"
+        "o si consume una Gema Voladora.\n"
+        "Hace contacto. Prioridad 0.");
+    static const u8 sProtectDetails[] = _(
+        "Prioridad +4. Bloquea casi todos\n"
+        "los ataques durante ese turno.\n"
+        "Repetir: 100%, 33%, 11% y 4%.");
+    static const u8 sBulletSeedDetails[] = _(
+        "Golpea 2-5 veces: 35%, 35%,\n"
+        "15% y 15%. Cada golpe: 25.\n"
+        "Dado Trucado: 4-5; Enlace\n"
+        "Destreza: 5. Es balístico.");
+
+    switch (move)
+    {
+    case MOVE_FLAMETHROWER:
+        return sFlamethrowerDetails;
+    case MOVE_RAIN_DANCE:
+        return sRainDanceDetails;
+    case MOVE_ACROBATICS:
+        return sAcrobaticsDetails;
+    case MOVE_PROTECT:
+        return sProtectDetails;
+    case MOVE_BULLET_SEED:
+        return sBulletSeedDetails;
+    default:
+        return NULL;
+    }
 }
 
 static void OpenMovePopup(u8 taskId, u8 moveIndex)
