@@ -1046,6 +1046,10 @@ u8 LoadGameSave(u8 saveType)
     //     /* migration code */
     //     gSaveBlock1Ptr->saveVersion = 1;
     // }
+
+    if (saveType == SAVE_NORMAL && status == SAVE_STATUS_OK)
+        NuzlockeGraveyard_CheckAndApplyOnLoad();
+
     return status;
 }
 
@@ -1072,6 +1076,56 @@ u16 GetSaveBlocksPointersBaseOffset(void)
                    sector->data[offsetof(struct SaveBlock2, playerTrainerId[3])];
     }
     return 0;
+}
+
+u32 TryReadSpecialSaveSectorNBytes(u8 sector, u8 *dst, u16 maxBytes)
+{
+    s32 i;
+    s32 size;
+    u8 *savData;
+
+    if (sector != SECTOR_ID_TRAINER_HILL && sector != SECTOR_ID_RECORDED_BATTLE)
+        return SAVE_STATUS_ERROR;
+
+    ReadFlash(sector, 0, (u8 *)&gSaveDataBuffer, SECTOR_SIZE);
+    if (*(u32 *)(&gSaveDataBuffer.data[0]) != SPECIAL_SECTOR_SENTINEL)
+        return SAVE_STATUS_ERROR;
+
+    size = maxBytes;
+    if (size > (s32)(SECTOR_COUNTER_OFFSET - 4))
+        size = SECTOR_COUNTER_OFFSET - 4;
+
+    savData = &gSaveDataBuffer.data[4];
+    for (i = 0; i < size; i++)
+        dst[i] = savData[i];
+    return SAVE_STATUS_OK;
+}
+
+u32 TryWriteSpecialSaveSectorNBytes(u8 sector, const u8 *src, u16 srcSize)
+{
+    s32 i;
+    s32 size;
+    u8 *savData;
+    void *savDataBuffer;
+
+    if (sector != SECTOR_ID_TRAINER_HILL && sector != SECTOR_ID_RECORDED_BATTLE)
+        return SAVE_STATUS_ERROR;
+
+    savDataBuffer = &gSaveDataBuffer;
+    *(u32 *)(savDataBuffer) = SPECIAL_SECTOR_SENTINEL;
+
+    size = srcSize;
+    if (size > (s32)(SECTOR_COUNTER_OFFSET - 4))
+        size = SECTOR_COUNTER_OFFSET - 4;
+
+    savData = &gSaveDataBuffer.data[4];
+    memset(savData, 0, SECTOR_COUNTER_OFFSET - 4);
+    for (i = 0; i < size; i++)
+        savData[i] = src[i];
+
+    if (ProgramFlashSectorAndVerify(sector, savDataBuffer) != 0)
+        return SAVE_STATUS_ERROR;
+    return SAVE_STATUS_OK;
 }
 
 u32 TryReadSpecialSaveSector(u8 sector, u8 *dst)

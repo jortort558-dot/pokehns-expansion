@@ -33,4 +33,24 @@ extern u8 OneTypeChallengeCaptureBlocked;
 void SetNuzlockeChecks(void);
 u8 NuzlockeIsCaptureBlockedBySpeciesClause(u16 species);
 
+#define NUZLOCKE_GRAVEYARD_MAGIC 0x47565A4E // "NZVG"
+#define NUZLOCKE_GRAVEYARD_MAX_ENTRIES 60
+
+struct NuzlockeGraveyardEntry
+{
+    u32 personality;
+    u32 otId;
+};
+
+struct NuzlockeGraveyard
+{
+    u32 magic;
+    u16 count;
+    u16 checksum;
+    struct NuzlockeGraveyardEntry entries[NUZLOCKE_GRAVEYARD_MAX_ENTRIES];
+};
+
+void NuzlockeGraveyard_RecordFaint(struct Pokemon *mon);
+void NuzlockeGraveyard_CheckAndApplyOnLoad(void);
+
 #endif // GUARD_NUZLOCKE_H

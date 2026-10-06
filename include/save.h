@@ -111,6 +111,8 @@ u8 LoadGameSave(u8 saveType);
 u16 GetSaveBlocksPointersBaseOffset(void);
 u32 TryReadSpecialSaveSector(u8 sector, u8 *dst);
 u32 TryWriteSpecialSaveSector(u8 sector, u8 *src);
+u32 TryReadSpecialSaveSectorNBytes(u8 sector, u8 *dst, u16 maxBytes);
+u32 TryWriteSpecialSaveSectorNBytes(u8 sector, const u8 *src, u16 srcSize);
 void Task_LinkFullSave(u8 taskId);
 
 // save_failed_screen.c

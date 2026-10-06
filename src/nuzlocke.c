@@ -1,4 +1,4 @@
-﻿#include "global.h"
+#include "global.h"
 #include "nuzlocke.h"
 #include "challenge_menu.h"
 #include "event_data.h"
@@ -16,6 +16,7 @@
 #include "battle.h"
 #include "bug_contest.h"
 #include "nuzlocke_tracker.h"
+#include "save.h"
 
 EWRAM_DATA u8 NuzlockeIsCaptureBlocked = FALSE;
 EWRAM_DATA u8 NuzlockeIsSpeciesClauseActive = FALSE;
@@ -543,4 +544,125 @@ void SetNuzlockeChecks(void)
         NuzlockeIsCaptureBlocked = FALSE;
         NuzlockeIsSpeciesClauseActive = FALSE;
     }
+}
+
+EWRAM_DATA static struct NuzlockeGraveyard sGraveyardBuffer;
+
+static u16 Graveyard_CalculateChecksum(const struct NuzlockeGraveyard *gy)
+{
+    u16 checksum = 0;
+    u16 i;
+    const u8 *bytes = (const u8 *)gy->entries;
+    u32 len = gy->count * sizeof(struct NuzlockeGraveyardEntry);
+
+    for (i = 0; i < len; i++)
+        checksum += bytes[i];
+    return checksum;
+}
+
+void NuzlockeGraveyard_RecordFaint(struct Pokemon *mon)
+{
+    u32 personality;
+    u32 otId;
+    u16 i;
+
+    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive())
+        return;
+
+    if (mon == NULL)
+        return;
+
+    if (!GetMonData(mon, MON_DATA_SANITY_HAS_SPECIES, NULL) || GetMonData(mon, MON_DATA_IS_EGG, NULL))
+        return;
+
+    personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
+    otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
+
+    memset(&sGraveyardBuffer, 0, sizeof(sGraveyardBuffer));
+    if (TryReadSpecialSaveSectorNBytes(SECTOR_ID_TRAINER_HILL, (u8 *)&sGraveyardBuffer, sizeof(sGraveyardBuffer)) != SAVE_STATUS_OK
+        || sGraveyardBuffer.magic != NUZLOCKE_GRAVEYARD_MAGIC)
+    {
+        sGraveyardBuffer.magic = NUZLOCKE_GRAVEYARD_MAGIC;
+        sGraveyardBuffer.count = 0;
+    }
+
+    if (sGraveyardBuffer.count > NUZLOCKE_GRAVEYARD_MAX_ENTRIES)
+        sGraveyardBuffer.count = 0;
+
+    for (i = 0; i < sGraveyardBuffer.count; i++)
+    {
+        if (sGraveyardBuffer.entries[i].personality == personality && sGraveyardBuffer.entries[i].otId == otId)
+            return;
+    }
+
+    if (sGraveyardBuffer.count >= NUZLOCKE_GRAVEYARD_MAX_ENTRIES)
+    {
+        for (i = 0; i < NUZLOCKE_GRAVEYARD_MAX_ENTRIES - 1; i++)
+            sGraveyardBuffer.entries[i] = sGraveyardBuffer.entries[i + 1];
+        sGraveyardBuffer.count = NUZLOCKE_GRAVEYARD_MAX_ENTRIES - 1;
+    }
+
+    sGraveyardBuffer.entries[sGraveyardBuffer.count].personality = personality;
+    sGraveyardBuffer.entries[sGraveyardBuffer.count].otId = otId;
+    sGraveyardBuffer.count++;
+    sGraveyardBuffer.checksum = Graveyard_CalculateChecksum(&sGraveyardBuffer);
+
+    TryWriteSpecialSaveSectorNBytes(SECTOR_ID_TRAINER_HILL, (const u8 *)&sGraveyardBuffer, sizeof(sGraveyardBuffer));
+}
+
+void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
+{
+    u16 g, p;
+    bool8 changed = FALSE;
+
+    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive())
+        return;
+
+    memset(&sGraveyardBuffer, 0, sizeof(sGraveyardBuffer));
+    if (TryReadSpecialSaveSectorNBytes(SECTOR_ID_TRAINER_HILL, (u8 *)&sGraveyardBuffer, sizeof(sGraveyardBuffer)) != SAVE_STATUS_OK)
+        return;
+
+    if (sGraveyardBuffer.magic != NUZLOCKE_GRAVEYARD_MAGIC)
+        return;
+
+    if (sGraveyardBuffer.count > NUZLOCKE_GRAVEYARD_MAX_ENTRIES)
+        return;
+
+    if (sGraveyardBuffer.checksum != Graveyard_CalculateChecksum(&sGraveyardBuffer))
+        return;
+
+    for (g = 0; g < sGraveyardBuffer.count; g++)
+    {
+        u32 deadPersonality = sGraveyardBuffer.entries[g].personality;
+        u32 deadOtId = sGraveyardBuffer.entries[g].otId;
+
+        for (p = 0; p < PARTY_SIZE; p++)
+        {
+            struct Pokemon *mon = &gPlayerParty[p];
+            if (GetMonData(mon, MON_DATA_SANITY_HAS_SPECIES, NULL) && !GetMonData(mon, MON_DATA_IS_EGG, NULL))
+            {
+                if (GetMonData(mon, MON_DATA_PERSONALITY, NULL) == deadPersonality
+                    && GetMonData(mon, MON_DATA_OT_ID, NULL) == deadOtId)
+                {
+                    u16 item = ITEM_NONE;
+                    u32 monItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
+                    if (monItem != ITEM_NONE)
+                    {
+                        AddBagItem(monItem, 1);
+                        SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+                    }
+                    Tracker_EmitFaint(p);
+                    if (IsNuzlockeEasyActive())
+                        NuzlockeDeletePartyMonOption(p);
+                    else
+                        NuzlockeDeletePartyMon(p);
+                    changed = TRUE;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (changed)
+        CompactPartySlots();
 }
