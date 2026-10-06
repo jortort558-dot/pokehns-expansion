@@ -3791,14 +3791,20 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest)
     {
         if (count >= maxChars)
         {
-            while (*desc != CHAR_SPACE && *desc != CHAR_NEWLINE)
+            while (*desc != EOS && *desc != CHAR_SPACE && *desc != CHAR_NEWLINE)
             {
                 *dest = *desc;  //finish word
                 dest++;
                 desc++;
             }
 
-            *dest = CHAR_NEWLINE;
+            if (*desc == EOS)
+                break;
+
+            if (numLines % 2 == 0)
+                *dest = CHAR_PROMPT_CLEAR;
+            else
+                *dest = CHAR_NEWLINE;
             count = 0;
             numLines++;
             dest++;
@@ -3817,9 +3823,14 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest)
         count++;
     }
 
-    // finish string
+    *dest++ = CHAR_PROMPT_CLEAR;
     *dest = EOS;
     return numLines;
+}
+
+static bool8 IsItemDescriptionPrinterFinished(void)
+{
+    return !IsTextPrinterActiveOnWindow(sHeaderBoxWindowId);
 }
 
 void ScriptShowItemDescription(struct ScriptContext *ctx)
@@ -3854,7 +3865,7 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
         return; //no box if item obtained previously
     }
 
-    SetWindowTemplateFields(&template, 0, 1, 1, 28, 8, 15, 8);
+    SetWindowTemplateFields(&template, 0, 1, 1, 28, 4, 15, 8);
     sHeaderBoxWindowId = AddWindow(&template);
     FillWindowPixelBuffer(sHeaderBoxWindowId, PIXEL_FILL(0));
     PutWindowTilemap(sHeaderBoxWindowId);
@@ -3863,12 +3874,13 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
     DrawStdFrameWithCustomTileAndPalette(sHeaderBoxWindowId, FALSE, 0x214, 14);
 
     if (ReformatItemDescription(item, dst) == 1)
-        textY = 4;
+        textY = 8;
     else
         textY = 0;
 
     ShowItemIconSprite(item, TRUE, handleFlash);
-    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_SMALL_NARROWER, dst, ITEM_ICON_X + 2, textY, 0, NULL);
+    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_NORMAL, dst, ITEM_ICON_X + 2, textY, 0, NULL);
+    SetupNativeScript(ctx, IsItemDescriptionPrinterFinished);
 }
 
 void ScriptHideItemDescription(struct ScriptContext *ctx)

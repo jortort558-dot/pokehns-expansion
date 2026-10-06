@@ -794,8 +794,15 @@ static EWRAM_DATA TaskFunc sSummaryPopupReturnTask = NULL;
 static EWRAM_DATA bool8 sSummaryPopupHiddenSprites[SPRITE_ARR_ID_COUNT] = {0};
 static EWRAM_DATA s16 sSummaryPopupSavedMonY = 0;
 static EWRAM_DATA bool8 sSummaryPopupCategoryIconHidden = FALSE;
+#if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
 static EWRAM_DATA u8 sMoveDescSummaryBuffer[256] = {0};
+#endif
 static EWRAM_DATA u16 sSummaryBg0TilemapBackup[32 * 32] = {0};
+#if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
+static const u8 sText_MoreInfoHint[] = _("{SELECT_BUTTON} Más info...");
+#else
+static const u8 sText_SelectInfoPrompt[] = _("{SELECT_BUTTON} INFO");
+#endif
 
 static void (*const sTextPrinterFunctions[])(void) =
 {
@@ -3854,12 +3861,14 @@ static void PrintMonAbilityName(void)
 
 static void PrintMonAbilityDescription(void)
 {
-    enum Ability ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
     u8 windowId = AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY);
-    static const u8 sText_AbilityMoreInfoHint[] = _("{SELECT_BUTTON} Más info...");
 
-    PrintTextOnWindowWithFont(windowId, gAbilitiesInfo[ability].description, 0, 14, 0, 0, FONT_SMALL_NARROWER);
-    PrintTextOnWindowWithFont(windowId, sText_AbilityMoreInfoHint, 0, 23, 0, 1, FONT_SMALL_NARROWER);
+#if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
+    PrintTextOnWindowToFit(windowId, sText_MoreInfoHint, 0, 17, 0, 0);
+#else
+    enum Ability ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    PrintTextOnWindowToFit(windowId, gAbilitiesInfo[ability].description, 0, 17, 0, 0);
+#endif
 }
 
 static void BufferMonTrainerMemo(void)
@@ -4487,6 +4496,35 @@ static void Task_PrintContestMoves(u8 taskId)
     data[0]++;
 }
 
+#if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
+static void CopyMoveDescriptionPreview(const u8 *src)
+{
+    u32 srcIndex = 0;
+    u32 dstIndex = 0;
+
+    while (src[srcIndex] != EOS
+        && src[srcIndex] != CHAR_NEWLINE
+        && dstIndex < sizeof(sMoveDescSummaryBuffer) - 2)
+    {
+        sMoveDescSummaryBuffer[dstIndex++] = src[srcIndex++];
+    }
+
+    sMoveDescSummaryBuffer[dstIndex++] = CHAR_NEWLINE;
+    sMoveDescSummaryBuffer[dstIndex] = EOS;
+    StringAppend(sMoveDescSummaryBuffer, sText_MoreInfoHint);
+}
+#endif
+
+static void PrintMoveDescriptionWithHint(u8 windowId, const u8 *description)
+{
+#if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
+    CopyMoveDescriptionPreview(description);
+    PrintTextOnWindowToFit(windowId, sMoveDescSummaryBuffer, 6, 1, 0, 0);
+#else
+    PrintTextOnWindowToFit(windowId, description, 6, 1, 0, 0);
+#endif
+}
+
 static void PrintContestMoveDescription(u8 moveSlot)
 {
     enum Move move;
@@ -4499,7 +4537,7 @@ static void PrintContestMoveDescription(u8 moveSlot)
     if (move != MOVE_NONE)
     {
         u8 windowId = AddWindowFromTemplateList(sPageMovesTemplate, PSS_DATA_WINDOW_MOVE_DESCRIPTION);
-        PrintTextOnWindowToFit(windowId, gContestEffects[GetMoveContestEffect(move)].description, 6, 1, 0, 0);
+        PrintMoveDescriptionWithHint(windowId, gContestEffects[GetMoveContestEffect(move)].description);
     }
 }
 
@@ -4509,9 +4547,7 @@ static void PrintMoveDetails(enum Move move)
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
     if (move != MOVE_NONE)
     {
-        static const u8 sText_MoveMoreInfoHint[] = _("\n{SELECT_BUTTON} Más info...");
         const u8 *fullDesc;
-        u32 i = 0, lines = 1;
 
         if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
         {
@@ -4525,21 +4561,7 @@ static void PrintMoveDetails(enum Move move)
             fullDesc = gContestEffects[GetMoveContestEffect(move)].description;
         }
 
-        while (fullDesc[i] != EOS && i < sizeof(sMoveDescSummaryBuffer) - 32)
-        {
-            if (fullDesc[i] == CHAR_NEWLINE)
-            {
-                lines++;
-                if (lines > 2)
-                    break;
-            }
-            sMoveDescSummaryBuffer[i] = fullDesc[i];
-            i++;
-        }
-        sMoveDescSummaryBuffer[i] = EOS;
-        StringAppend(sMoveDescSummaryBuffer, sText_MoveMoreInfoHint);
-
-        PrintTextOnWindowWithFont(windowId, sMoveDescSummaryBuffer, 6, 1, 0, 0, FONT_SMALL_NARROWER);
+        PrintMoveDescriptionWithHint(windowId, fullDesc);
         PutWindowTilemap(windowId);
     }
     else
@@ -5080,6 +5102,19 @@ static inline bool32 ShouldShowMoveRelearner(void)
 static inline void ShowUtilityPrompt(s16 mode)
 {
     const u8* promptText = NULL;
+    bool32 useSelectIcon = FALSE;
+
+#if P_INFO_HINT_STYLE == P_INFO_HINT_INDEPENDENT
+    if (!sMonSummaryScreen->summary.isEgg
+     && (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO
+      || sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES
+      || sMonSummaryScreen->currPageIndex == PSS_PAGE_CONTEST_MOVES))
+    {
+        promptText = sText_SelectInfoPrompt;
+        useSelectIcon = TRUE;
+    }
+    else
+#endif
 
     if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES
      || sMonSummaryScreen->currPageIndex == PSS_PAGE_CONTEST_MOVES)
@@ -5106,13 +5141,21 @@ static inline void ShowUtilityPrompt(s16 mode)
     FillWindowPixelBuffer(PSS_LABEL_WINDOW_PROMPT_UTILITY, PIXEL_FILL(0));
     PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_UTILITY);
 
-    int stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, promptText, 62);
-    int iconXPos = stringXPos - 16;
-    if (iconXPos < 0)
-        iconXPos = 0;
+    if (useSelectIcon)
+    {
+        int stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, promptText, 62);
+        PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_UTILITY, promptText, stringXPos, 1, 0, 0);
+    }
+    else
+    {
+        int stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, promptText, 62);
+        int iconXPos = stringXPos - 16;
+        if (iconXPos < 0)
+            iconXPos = 0;
 
-    PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_UTILITY, FALSE, iconXPos);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_UTILITY, promptText, stringXPos, 1, 0, 0);
+        PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_UTILITY, FALSE, iconXPos);
+        PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_UTILITY, promptText, stringXPos, 1, 0, 0);
+    }
 }
 
 static void ShowRelearnPrompt(void)

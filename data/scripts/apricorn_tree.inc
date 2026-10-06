@@ -36,13 +36,14 @@ ApricornTree_EventScript_PickApricorn::
 	playfanfare MUS_OBTAIN_BERRY
 	waitmessage
 	waitfanfare
+.if OW_SHOW_ITEM_DESCRIPTIONS != OW_ITEM_DESCRIPTIONS_OFF
+	hideitemdescription
+.else
 	waitbuttonpress
+.endif
 	message ApricornTree_Text_PutAwayApricorn
 	waitmessage
 	waitbuttonpress
-.if OW_SHOW_ITEM_DESCRIPTIONS != OW_ITEM_DESCRIPTIONS_OFF
-	hideitemdescription
-.endif
 	release
 	end
 

@@ -5,6 +5,12 @@
 #define P_SUMMARY_SCREEN_NATURE_COLORS   TRUE   // If TRUE, nature-based stat boosts and reductions will be red and blue in the summary screen.
 #define P_SUMMARY_SCREEN_RENAME          FALSE  // If TRUE, an option to change Pokémon nicknames replaces the cancel prompt on the summary screen info page.
 
+#define P_INFO_HINT_INDEPENDENT          0
+#define P_INFO_HINT_LAST_LINE            1
+#ifndef P_INFO_HINT_STYLE
+#define P_INFO_HINT_STYLE                P_INFO_HINT_INDEPENDENT // Controls whether SELECT info prompts use a separate UI area or replace the final description line.
+#endif
+
 // IV/EV settings
 #define P_SUMMARY_SCREEN_IV_HYPERTRAIN   TRUE   // If TRUE, stats that have been hyper trained will show as 31/S when viewing them in the summary screen
 #define P_SUMMARY_SCREEN_IV_EV_VALUES    TRUE   // If TRUE, will show the actual IV value instead of the letter grade.

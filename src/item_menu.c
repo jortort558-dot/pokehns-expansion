@@ -105,6 +105,7 @@ enum {
     WIN_TMHM_INFO_ICONS,
     WIN_TMHM_INFO,
     WIN_MESSAGE, // Identical to ITEMWIN_MESSAGE. Unused?
+    WIN_INFO_HINT,
 };
 
 // Item list ID for toSwapPos to indicate an item is not currently being swapped
@@ -512,6 +513,15 @@ static const struct WindowTemplate sDefaultBagWindows[] =
         .width = 27,
         .height = 4,
         .paletteNum = 15,
+        .baseBlock = 0x1B1,
+    },
+    [WIN_INFO_HINT] = {
+        .bg = 0,
+        .tilemapLeft = 0,
+        .tilemapTop = 4,
+        .width = 8,
+        .height = 2,
+        .paletteNum = 1,
         .baseBlock = 0x1B1,
     },
     DUMMY_WIN_TEMPLATE,
@@ -1071,7 +1081,46 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
     }
 }
 
+#if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
+static const u8 sText_MoreInfoHint[] = _("{SELECT_BUTTON} Más info...");
 static EWRAM_DATA u8 sItemDescSummaryBuffer[256] = {0};
+
+static void CopyDescriptionPreview(const u8 *src, u8 *dst, u32 dstSize, u8 descriptionLines)
+{
+    u32 srcIndex = 0;
+    u32 dstIndex = 0;
+    u8 line = 1;
+
+    while (src[srcIndex] != EOS && dstIndex < dstSize - 2)
+    {
+        if (src[srcIndex] == CHAR_NEWLINE && line >= descriptionLines)
+            break;
+
+        dst[dstIndex++] = src[srcIndex];
+        if (src[srcIndex++] == CHAR_NEWLINE)
+            line++;
+    }
+
+    if (dstIndex > 0 && dst[dstIndex - 1] != CHAR_NEWLINE)
+        dst[dstIndex++] = CHAR_NEWLINE;
+    dst[dstIndex] = EOS;
+    StringAppend(dst, sText_MoreInfoHint);
+}
+#else
+static const u8 sText_SelectInfoHint[] = _("{SELECT_BUTTON} INFO");
+#endif
+
+static void PrintBagInfoHint(bool32 show)
+{
+#if P_INFO_HINT_STYLE == P_INFO_HINT_INDEPENDENT
+    FillWindowPixelBuffer(WIN_INFO_HINT, PIXEL_FILL(0));
+    if (show)
+        BagMenu_Print(WIN_INFO_HINT, FONT_SMALL_NARROWER, sText_SelectInfoHint, 0, 4, 0, 0, 0, COLORID_NORMAL);
+    CopyWindowToVram(WIN_INFO_HINT, COPYWIN_GFX);
+#else
+    (void)show;
+#endif
+}
 
 static void PrintItemDescription(int itemIndex)
 {
@@ -1080,25 +1129,13 @@ static void PrintItemDescription(int itemIndex)
     {
         u16 itemId = GetBagItemId(gBagPosition.pocket, itemIndex);
         const u8 *fullDesc = GetItemDescription(itemId);
-        u32 i = 0, lines = 1;
-
-        while (fullDesc[i] != EOS && i < sizeof(sItemDescSummaryBuffer) - 32)
-        {
-            if (fullDesc[i] == CHAR_NEWLINE)
-            {
-                lines++;
-                if (lines > 3)
-                    break;
-            }
-            sItemDescSummaryBuffer[i] = fullDesc[i];
-            i++;
-        }
-        sItemDescSummaryBuffer[i] = EOS;
-
-        static const u8 sText_MoreInfoHint[] = _("\n{SELECT_BUTTON} Más info...");
-        StringAppend(sItemDescSummaryBuffer, sText_MoreInfoHint);
-
+#if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
+        CopyDescriptionPreview(fullDesc, sItemDescSummaryBuffer, sizeof(sItemDescSummaryBuffer), 2);
         str = sItemDescSummaryBuffer;
+#else
+        str = fullDesc;
+#endif
+        PrintBagInfoHint(TRUE);
     }
     else
     {
@@ -1106,9 +1143,10 @@ static void PrintItemDescription(int itemIndex)
         StringCopy(gStringVar1, gBagMenu_ReturnToStrings[gBagPosition.location]);
         StringExpandPlaceholders(gStringVar4, gText_ReturnToVar1);
         str = gStringVar4;
+        PrintBagInfoHint(FALSE);
     }
     FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
-    BagMenu_Print(WIN_DESCRIPTION, FONT_SMALL_NARROWER, str, 3, 1, 0, 0, 0, COLORID_NORMAL);
+    BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, str, 3, 1, 0, 0, 0, COLORID_NORMAL);
 }
 
 static void BagMenu_PrintCursor(u8 listTaskId, u8 colorIndex)
@@ -1548,6 +1586,7 @@ static void OpenItemPopupInfo(u8 taskId, u16 itemId)
 
     BagDestroyPocketScrollArrowPair();
     DestroyPocketSwitchArrowPair();
+    PrintBagInfoHint(FALSE);
     for (i = 0; i < ITEMMENUSPRITE_COUNT; i++)
     {
         if (gBagMenu->spriteIds[i] != SPRITE_NONE)
@@ -1613,6 +1652,7 @@ static void CloseItemPopupInfo(u8 taskId)
 
     CreatePocketScrollArrowPair();
     CreatePocketSwitchArrowPair();
+    PrintBagInfoHint(TRUE);
     ScheduleBgCopyTilemapToVram(0);
 
     gTasks[taskId].func = Task_BagMenu_HandleInput;
@@ -2908,6 +2948,10 @@ static void LoadBagMenuTextWindows(void)
         FillWindowPixelBuffer(i, PIXEL_FILL(0));
         PutWindowTilemap(i);
     }
+#if P_INFO_HINT_STYLE == P_INFO_HINT_INDEPENDENT
+    FillWindowPixelBuffer(WIN_INFO_HINT, PIXEL_FILL(0));
+    PutWindowTilemap(WIN_INFO_HINT);
+#endif
     ScheduleBgCopyTilemapToVram(0);
     ScheduleBgCopyTilemapToVram(1);
 }
