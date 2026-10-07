@@ -3784,40 +3784,59 @@ static void DestroyItemIconSprite(void);
 
 static u8 ReformatItemDescription(enum Item item, u8 *dest)
 {
-    u8 count = 0;
-    u8 numLines = 1;
-    u8 maxChars = 32;
     const u8 *desc = GetItemDescription(item);
+    u8 word[64];
+    u8 wordLength = 0;
+    u8 numLines = 1;
+    u8 space[] = {CHAR_SPACE, EOS};
+    u32 destIndex = 0;
+    s32 currentLineWidth = 0;
+    s32 spaceWidth = GetStringWidth(FONT_NORMAL, space, 0);
+    const s32 maxPixelWidth = 192;
 
-    while (*desc != EOS)
+    while (TRUE)
     {
-        if (count >= maxChars)
+        if (*desc == CHAR_SPACE || *desc == CHAR_NEWLINE || *desc == EOS)
         {
-            while (*desc != EOS && *desc != CHAR_SPACE && *desc != CHAR_NEWLINE)
+            if (wordLength > 0)
             {
-                *dest++ = *desc++;
+                s32 wordWidth;
+                u8 i;
+
+                word[wordLength] = EOS;
+                wordWidth = GetStringWidth(FONT_NORMAL, word, 0);
+                if (currentLineWidth > 0 && currentLineWidth + spaceWidth + wordWidth > maxPixelWidth)
+                {
+                    if (numLines == 4)
+                        break;
+                    dest[destIndex++] = CHAR_NEWLINE;
+                    numLines++;
+                    currentLineWidth = 0;
+                }
+                else if (currentLineWidth > 0)
+                {
+                    dest[destIndex++] = CHAR_SPACE;
+                    currentLineWidth += spaceWidth;
+                }
+
+                for (i = 0; i < wordLength && destIndex < 0xFE; i++)
+                    dest[destIndex++] = word[i];
+                currentLineWidth += wordWidth;
+                wordLength = 0;
             }
 
             if (*desc == EOS)
                 break;
-
-            *dest++ = CHAR_NEWLINE;
-            count = 0;
-            numLines++;
-            desc++;
-            continue;
+        }
+        else if (wordLength < ARRAY_COUNT(word) - 1)
+        {
+            word[wordLength++] = *desc;
         }
 
-        *dest = *desc;
-        if (*desc == CHAR_NEWLINE)
-            *dest = CHAR_SPACE;
-
-        dest++;
         desc++;
-        count++;
     }
 
-    *dest = EOS;
+    dest[destIndex] = EOS;
     return numLines;
 }
 
@@ -3854,7 +3873,7 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
         return; //no box if item obtained previously
     }
 
-    SetWindowTemplateFields(&template, 0, 1, 1, 28, 6, 15, 8);
+    SetWindowTemplateFields(&template, 0, 1, 1, 28, 8, 15, 8);
     sHeaderBoxWindowId = AddWindow(&template);
     FillWindowPixelBuffer(sHeaderBoxWindowId, PIXEL_FILL(0));
     PutWindowTilemap(sHeaderBoxWindowId);
@@ -3863,15 +3882,10 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
     DrawStdFrameWithCustomTileAndPalette(sHeaderBoxWindowId, FALSE, 0x214, 14);
 
     numLines = ReformatItemDescription(item, dst);
-    if (numLines == 1)
-        textY = 16;
-    else if (numLines == 2)
-        textY = 8;
-    else
-        textY = 0;
+    textY = (4 - numLines) * 8;
 
     ShowItemIconSprite(item, TRUE, handleFlash);
-    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_SMALL_NARROWER, dst, ITEM_ICON_X + 2, textY, 0, NULL);
+    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_NORMAL, dst, ITEM_ICON_X + 2, textY, 0, NULL);
 }
 
 void ScriptHideItemDescription(struct ScriptContext *ctx)
