@@ -3754,7 +3754,6 @@ static void SpriteCB_LinkPlayer(struct Sprite *sprite)
 // Item Description Header
 
 #define ITEM_ICON_X     26
-#define ITEM_ICON_Y     24
 #define ITEM_TAG        0x2722 //same as money label
 
 bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId)
@@ -3776,6 +3775,7 @@ bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId)
 }
 
 EWRAM_DATA static u8 sHeaderBoxWindowId = 0;
+EWRAM_DATA static u8 sHeaderBoxHeight = 8;
 EWRAM_DATA u8 sItemIconSpriteId = 0;
 EWRAM_DATA u8 sItemIconSpriteId2 = 0;
 
@@ -3873,7 +3873,9 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
         return; //no box if item obtained previously
     }
 
-    SetWindowTemplateFields(&template, 0, 1, 1, 28, 8, 15, 8);
+    numLines = ReformatItemDescription(item, dst);
+    sHeaderBoxHeight = max(4, numLines * 2);
+    SetWindowTemplateFields(&template, 0, 1, 1, 28, sHeaderBoxHeight, 15, 8);
     sHeaderBoxWindowId = AddWindow(&template);
     FillWindowPixelBuffer(sHeaderBoxWindowId, PIXEL_FILL(0));
     PutWindowTilemap(sHeaderBoxWindowId);
@@ -3881,8 +3883,7 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
     SetStandardWindowBorderStyle(sHeaderBoxWindowId, FALSE);
     DrawStdFrameWithCustomTileAndPalette(sHeaderBoxWindowId, FALSE, 0x214, 14);
 
-    numLines = ReformatItemDescription(item, dst);
-    textY = (4 - numLines) * 8;
+    textY = (sHeaderBoxHeight - numLines * 2) * 4;
 
     ShowItemIconSprite(item, TRUE, handleFlash);
     AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_NORMAL, dst, ITEM_ICON_X + 2, textY, 0, NULL);
@@ -3934,7 +3935,7 @@ static void ShowItemIconSprite(enum Item item, bool8 firstTime, bool8 flash)
         {
             // show in header box
             x = ITEM_ICON_X;
-            y = ITEM_ICON_Y;
+            y = sHeaderBoxHeight * 4 - 8;
         }
 
         gSprites[iconSpriteId].x2 = x;
