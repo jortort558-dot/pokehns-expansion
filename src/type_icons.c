@@ -197,7 +197,7 @@ const struct OamData sOamData_TypeIcons =
     .objMode = ST_OAM_OBJ_NORMAL,
     .shape = SPRITE_SHAPE(8x16),
     .size = SPRITE_SIZE(8x16),
-    .priority = 1,
+    .priority = 0,
 };
 
 const struct CompressedSpriteSheet sSpriteSheet_TypeIcons2 =

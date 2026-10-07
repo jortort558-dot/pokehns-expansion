@@ -1765,7 +1765,9 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleResources->bufferA[battler][4]);
     enum Move move = moveInfo->moves[gMoveSelectionCursor[battler]];
     u16 pwr = GetMovePower(move);
+    u32 realPwr = pwr;
     u16 acc = GetMoveAccuracy(move);
+    uq4_12_t typeMod = UQ_4_12(1.0);
     enum DamageCategory cat = GetBattleMoveCategory(move);
 
     if (GetActiveGimmick(battler) == GIMMICK_DYNAMAX || IsGimmickSelected(battler, GIMMICK_DYNAMAX))
@@ -1790,8 +1792,7 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
     {
         // Find the active opponent battler to compute effectiveness against
         enum BattlerId target = GetOpposingSideBattler(battler);
-        uq4_12_t typeMod = UQ_4_12(1.0);
-        u32 realPwr = CalculateRealMovePower(battler, target, move, &typeMod);
+        realPwr = CalculateRealMovePower(battler, target, move, &typeMod);
 
         if (realPwr != pwr) // Show only the effective power, colored by the change
         {
@@ -1831,6 +1832,52 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
     StringAppend(gDisplayedStringBattle, acc_num);
     StringAppend(gDisplayedStringBattle, gText_NewLine);
     StringAppend(gDisplayedStringBattle, GetMoveDescription(move));
+    if (pwr >= 2 && realPwr != pwr && GetMoveCategory(move) != DAMAGE_CATEGORY_STATUS)
+    {
+        enum Type moveType = GetBattleMoveType(move);
+        enum Type battlerTypes[3];
+        enum HoldEffect holdEffect = GetBattlerHoldEffect(battler);
+        u8 number[12];
+        u32 i;
+        bool32 hasStab = FALSE;
+        bool32 hasItemBoost = FALSE;
+        bool32 hasWeatherBoost = FALSE;
+
+        GetBattlerTypes(battler, FALSE, battlerTypes);
+        for (i = 0; i < ARRAY_COUNT(battlerTypes); i++)
+            if (battlerTypes[i] == moveType && moveType != TYPE_MYSTERY)
+                hasStab = TRUE;
+
+        if (holdEffect == HOLD_EFFECT_LIFE_ORB
+         || (holdEffect == HOLD_EFFECT_CHOICE_BAND && IsBattleMovePhysical(move))
+         || (holdEffect == HOLD_EFFECT_CHOICE_SPECS && IsBattleMoveSpecial(move))
+         || (holdEffect == HOLD_EFFECT_EXPERT_BELT && typeMod > UQ_4_12(1.0))
+         || ((holdEffect == HOLD_EFFECT_TYPE_POWER || holdEffect == HOLD_EFFECT_PLATE)
+          && moveType == (enum Type)GetItemSecondaryId(gBattleMons[battler].item)))
+            hasItemBoost = TRUE;
+
+        if ((gBattleWeather & B_WEATHER_SUN && (moveType == TYPE_FIRE || moveType == TYPE_WATER))
+         || (gBattleWeather & B_WEATHER_RAIN && (moveType == TYPE_WATER || moveType == TYPE_FIRE))
+         || (gBattleWeather & B_WEATHER_SANDSTORM && (moveType == TYPE_ROCK || moveType == TYPE_STEEL || moveType == TYPE_GROUND)))
+            hasWeatherBoost = TRUE;
+
+        StringAppend(gDisplayedStringBattle, gText_NewLine);
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("PWR: "));
+        ConvertIntToDecimalStringN(number, pwr, STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringAppend(gDisplayedStringBattle, number);
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" base"));
+        if (hasStab)
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" + STAB"));
+        if (hasItemBoost)
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" + objeto"));
+        if (hasWeatherBoost)
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" + clima"));
+        if (typeMod != UQ_4_12(1.0))
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" + tipo"));
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" = "));
+        ConvertIntToDecimalStringN(number, realPwr, STR_CONV_MODE_LEFT_ALIGN, 4);
+        StringAppend(gDisplayedStringBattle, number);
+    }
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
 
     if (gCategoryIconSpriteId == 0xFF)
