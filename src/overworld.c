@@ -3810,10 +3810,9 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
 
                 if (currentLineWidth > 0 && currentLineWidth + spaceWidth + wordWidth > maxPixelWidth)
                 {
-                    if (numLines % 2 == 0)
-                        dest[destIndex++] = CHAR_PROMPT_CLEAR;
-                    else
-                        dest[destIndex++] = CHAR_NEWLINE;
+                    if (numLines >= 2)
+                        break; // El banner superior tiene 4 tiles de alto (32px), exactamente 2 líneas legibles
+                    dest[destIndex++] = CHAR_NEWLINE;
                     numLines++;
                     currentLineWidth = 0;
                 }
@@ -3840,8 +3839,6 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
         desc++;
     }
 
-    // Removido el CHAR_PROMPT_CLEAR final para que el último párrafo de texto no se borre
-    // ni quede esperando una pulsación vacía.
     dest[destIndex] = EOS;
     return numLines;
 }
@@ -3849,15 +3846,7 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
 static bool8 IsItemDescriptionPrinterFinished(void)
 {
     RunTextPrinters();
-    if (IsTextPrinterActiveOnWindow(sHeaderBoxWindowId))
-        return FALSE;
-
-    // Cuando termina de imprimirse la última página de la descripción,
-    // esperar a que el jugador pulse A o B para leerla antes de cerrar el panel.
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
-        return TRUE;
-
-    return FALSE;
+    return !IsTextPrinterActiveOnWindow(sHeaderBoxWindowId);
 }
 
 void ScriptShowItemDescription(struct ScriptContext *ctx)
