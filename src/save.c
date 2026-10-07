@@ -1,6 +1,7 @@
 #include "global.h"
 #include "agb_flash.h"
 #include "gba/flash_internal.h"
+#include "gba/m4a_internal.h"
 #include "fieldmap.h"
 #include "save.h"
 #include "task.h"
@@ -1107,6 +1108,7 @@ u32 TryWriteSpecialSaveSectorNBytes(u8 sector, const u8 *src, u16 srcSize)
     s32 size;
     u8 *savData;
     void *savDataBuffer;
+    u32 result;
 
     if (sector != SECTOR_ID_TRAINER_HILL && sector != SECTOR_ID_RECORDED_BATTLE)
         return SAVE_STATUS_ERROR;
@@ -1123,7 +1125,14 @@ u32 TryWriteSpecialSaveSectorNBytes(u8 sector, const u8 *src, u16 srcSize)
     for (i = 0; i < size; i++)
         savData[i] = src[i];
 
-    if (ProgramFlashSectorAndVerify(sector, savDataBuffer) != 0)
+    m4aSoundVSyncOff();
+    result = ProgramFlashSectorAndVerify(sector, savDataBuffer);
+    if (gFlash && gFlash->romSize == FLASH_ROM_SIZE_1M)
+        SwitchFlashBank(0);
+    REG_WAITCNT = (REG_WAITCNT & ~WAITCNT_SRAM_MASK) | WAITCNT_SRAM_8;
+    m4aSoundVSyncOn();
+
+    if (result != 0)
         return SAVE_STATUS_ERROR;
     return SAVE_STATUS_OK;
 }
@@ -1138,6 +1147,10 @@ u32 TryReadSpecialSaveSector(u8 sector, u8 *dst)
         return SAVE_STATUS_ERROR;
 
     ReadFlash(sector, 0, (u8 *)&gSaveDataBuffer, SECTOR_SIZE);
+    if (gFlash && gFlash->romSize == FLASH_ROM_SIZE_1M)
+        SwitchFlashBank(0);
+    REG_WAITCNT = (REG_WAITCNT & ~WAITCNT_SRAM_MASK) | WAITCNT_SRAM_8;
+
     if (*(u32 *)(&gSaveDataBuffer.data[0]) != SPECIAL_SECTOR_SENTINEL)
         return SAVE_STATUS_ERROR;
 
@@ -1156,6 +1169,7 @@ u32 TryWriteSpecialSaveSector(u8 sector, u8 *src)
     s32 size;
     u8 *savData;
     void *savDataBuffer;
+    u32 result;
 
     if (sector != SECTOR_ID_TRAINER_HILL && sector != SECTOR_ID_RECORDED_BATTLE)
         return SAVE_STATUS_ERROR;
@@ -1169,7 +1183,15 @@ u32 TryWriteSpecialSaveSector(u8 sector, u8 *src)
     savData = &gSaveDataBuffer.data[4]; // data[4] to skip past SPECIAL_SECTOR_SENTINEL
     for (; i <= size; i++)
         savData[i] = src[i];
-    if (ProgramFlashSectorAndVerify(sector, savDataBuffer) != 0)
+
+    m4aSoundVSyncOff();
+    result = ProgramFlashSectorAndVerify(sector, savDataBuffer);
+    if (gFlash && gFlash->romSize == FLASH_ROM_SIZE_1M)
+        SwitchFlashBank(0);
+    REG_WAITCNT = (REG_WAITCNT & ~WAITCNT_SRAM_MASK) | WAITCNT_SRAM_8;
+    m4aSoundVSyncOn();
+
+    if (result != 0)
         return SAVE_STATUS_ERROR;
     return SAVE_STATUS_OK;
 }

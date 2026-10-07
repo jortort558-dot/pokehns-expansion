@@ -18,6 +18,7 @@
 #include "nuzlocke_tracker.h"
 #include "save.h"
 #include "load_save.h"
+#include "script_pokemon_util.h"
 
 EWRAM_DATA u8 NuzlockeIsCaptureBlocked = FALSE;
 EWRAM_DATA u8 NuzlockeIsSpeciesClauseActive = FALSE;
@@ -427,6 +428,10 @@ void NuzlockeDeletePartyMon(u8 position)
 
     if (!cs->tx_Nuzlocke_Deletion)
     {
+        u16 zero = 0;
+        u32 maxHp = GetMonData(&gPlayerParty[position], MON_DATA_MAX_HP, NULL);
+        SetMonData(&gPlayerParty[position], MON_DATA_HP, &zero);
+        SetBoxMonData(&gPlayerParty[position].box, MON_DATA_HP_LOST, &maxHp);
         CopyMonToPC(&gPlayerParty[position]);
     }
     PurgeMonOrBoxMon(TOTAL_BOXES_COUNT, position);
@@ -434,6 +439,10 @@ void NuzlockeDeletePartyMon(u8 position)
 
 void NuzlockeDeletePartyMonOption(u8 position)
 {
+    u16 zero = 0;
+    u32 maxHp = GetMonData(&gPlayerParty[position], MON_DATA_MAX_HP, NULL);
+    SetMonData(&gPlayerParty[position], MON_DATA_HP, &zero);
+    SetBoxMonData(&gPlayerParty[position].box, MON_DATA_HP_LOST, &maxHp);
     CopyMonToPC(&gPlayerParty[position]);
     PurgeMonOrBoxMon(TOTAL_BOXES_COUNT, position);
 }
@@ -670,8 +679,40 @@ void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
 
     if (changed)
     {
+        bool8 hasAliveMon = FALSE;
         CompactPartySlots();
         CalculatePlayerPartyCount();
+
+        for (p = 0; p < gPlayerPartyCount; p++)
+        {
+            if (GetMonData(&gPlayerParty[p], MON_DATA_SANITY_HAS_SPECIES, NULL)
+                && !GetMonData(&gPlayerParty[p], MON_DATA_IS_EGG, NULL)
+                && GetMonData(&gPlayerParty[p], MON_DATA_HP, NULL) > 0)
+            {
+                hasAliveMon = TRUE;
+                break;
+            }
+        }
+
+        // Evitar que el jugador quede con 0 Pokémon o todos debilitados, lo cual crashearía
+        // encuentros salvajes, menús y movimiento por el overworld.
+        if (gPlayerPartyCount == 0 || !hasAliveMon)
+        {
+            if (GetFirstAliveBoxPokemon() != IN_BOX_COUNT * TOTAL_BOXES_COUNT)
+            {
+                MoveFirstBoxPokemonToParty();
+            }
+            else
+            {
+                ZeroPlayerPartyMons();
+                CreateMon(&gPlayerParty[0], SPECIES_RATTATA, 1, 0, OTID_STRUCT_PLAYER_ID);
+                CalculateMonStats(&gPlayerParty[0]);
+            }
+            HealPlayerParty();
+            CompactPartySlots();
+            CalculatePlayerPartyCount();
+        }
+
         SavePlayerParty();
     }
 }
