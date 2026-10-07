@@ -13,6 +13,7 @@ struct MoveLearnUI {
 u32 IsBoxMonExcluded(struct BoxPokemon *boxmon);
 bool32 CanBoxMonBeSelected(struct BoxPokemon *boxmon);
 u8 GetPcMonSelectionType(void);
+void ResetPcMonSelectionType(void);
 s32 LearnMove(const struct MoveLearnUI *ui, u8 taskId);
 s32 GetLearnMoveStartState(void);
 s32 GetLearnMoveResumeAfterSummaryScreenState(void);

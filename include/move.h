@@ -801,6 +801,11 @@ static inline const bool32 GetMoveRandomizerInvalid(enum Move moveId)
 {
     if (moveId == MOVE_NONE || moveId >= MOVES_COUNT_GEN9 || moveId > MOVE_MALIGNANT_CHAIN)
         return TRUE;
+    if (moveId == MOVE_DYNAMAX_CANNON
+     || moveId == MOVE_BEHEMOTH_BLADE
+     || moveId == MOVE_BEHEMOTH_BASH
+     || moveId == MOVE_ETERNABEAM)
+        return TRUE;
     return gMovesInfo[SanitizeMoveId(moveId)].randomizerInvalid;
 }
 

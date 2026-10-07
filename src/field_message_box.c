@@ -10,6 +10,8 @@
 #include "field_name_box.h"
 
 static EWRAM_DATA u8 sFieldMessageBoxMode = 0;
+static EWRAM_DATA bool8 sCompactItemMessagePending = FALSE;
+static EWRAM_DATA bool8 sCompactItemMessageActive = FALSE;
 EWRAM_DATA u8 gWalkAwayFromSignpostTimer = 0;
 
 static void ExpandStringAndStartDrawFieldMessage(const u8 *, bool32);
@@ -22,6 +24,23 @@ void InitFieldMessageBox(void)
     gTextFlags.useAlternateDownArrow = FALSE;
     gTextFlags.autoScroll = FALSE;
     gTextFlags.forceMidTextSpeed = FALSE;
+    sCompactItemMessagePending = FALSE;
+    sCompactItemMessageActive = FALSE;
+}
+
+void EnableCompactItemMessageBox(void)
+{
+    sCompactItemMessagePending = TRUE;
+}
+
+static void RestoreStandardFieldMessageBox(void)
+{
+    if (sCompactItemMessageActive)
+    {
+        SetWindowAttribute(0, WINDOW_TILEMAP_TOP, 15);
+        SetWindowAttribute(0, WINDOW_HEIGHT, 4);
+        sCompactItemMessageActive = FALSE;
+    }
 }
 
 #define tState data[0]
@@ -51,6 +70,7 @@ static void Task_DrawFieldMessage(u8 taskId)
     case 2:
         if (RunTextPrintersAndIsPrinter0Active() != TRUE)
         {
+            RestoreStandardFieldMessageBox();
             sFieldMessageBoxMode = FIELD_MESSAGE_BOX_HIDDEN;
             DestroyTask(taskId);
         }
@@ -129,8 +149,23 @@ bool8 ShowFieldMessageFromBuffer(void)
 
 static void ExpandStringAndStartDrawFieldMessage(const u8 *str, bool32 allowSkippingDelayWithButtonPress)
 {
+    const u8 *text;
+
     TrySpawnNamebox(NAME_BOX_BASE_TILE_NUM);
     StringExpandPlaceholders(gStringVar4, str);
+    if (sCompactItemMessagePending)
+    {
+        sCompactItemMessagePending = FALSE;
+        for (text = gStringVar4; *text != EOS && *text != CHAR_NEWLINE
+          && *text != CHAR_PROMPT_SCROLL && *text != CHAR_PROMPT_CLEAR; text++)
+            ;
+        if (*text == EOS)
+        {
+            SetWindowAttribute(0, WINDOW_TILEMAP_TOP, 16);
+            SetWindowAttribute(0, WINDOW_HEIGHT, 3);
+            sCompactItemMessageActive = TRUE;
+        }
+    }
     AddTextPrinterForMessage(allowSkippingDelayWithButtonPress);
     CreateTask_DrawFieldMessage();
 }
@@ -146,6 +181,7 @@ void HideFieldMessageBox(void)
     DestroyTask_DrawFieldMessage();
     ClearDialogWindowAndFrame(0, TRUE);
     DestroyNamebox();
+    RestoreStandardFieldMessageBox();
     sFieldMessageBoxMode = FIELD_MESSAGE_BOX_HIDDEN;
 }
 

@@ -2,6 +2,7 @@
 #include "gym_tokens.h"
 #include "event_data.h"
 #include "caps.h"
+#include "chooseboxmon.h"
 #include "malloc.h"
 #include "nuzlocke.h"
 #include "pokedex.h"
@@ -357,6 +358,7 @@ void UseGymTokenTrade(void)
     };
     static const u8 sClerkName[] = _("CANJE");
 
+    ResetPcMonSelectionType();
     gSpecialVar_Result = 0;
     if (gSaveBlock3Ptr->gymTokens.count == 0
      || !GymTokenCanTradeMon(boxMon))
@@ -416,6 +418,7 @@ void UseGymTokenRevive(void)
     struct BoxPokemon *boxMon = GetSelectedBoxMonFromPcOrParty();
     u32 i;
 
+    ResetPcMonSelectionType();
     gSpecialVar_Result = 0;
     if (gSaveBlock3Ptr->gymTokens.count < GYM_TOKEN_REVIVE_COST || !GymTokenCanReviveMon(boxMon))
         return;

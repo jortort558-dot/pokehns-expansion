@@ -276,6 +276,11 @@ u8 GetPcMonSelectionType(void)
     return sSelectionType;
 }
 
+void ResetPcMonSelectionType(void)
+{
+    sSelectionType = SELECT_PC_MON_NORMAL;
+}
+
 static void Task_ChooseBoxMon(u8 taskId)
 {
     if (!gPaletteFade.active)

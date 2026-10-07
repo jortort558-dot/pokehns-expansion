@@ -74,6 +74,7 @@ EventScript_BufferTreasuresPocket::
 	return
 
 EventScript_ObtainedItem::
+	special EnableCompactItemMessageBox
 	compare VAR_0x8001, TRUE
 	goto_if_eq EventScript_ObtainedItemMessage
 	buffernumberstring 0, VAR_0x8001
@@ -199,10 +200,12 @@ EventScript_FoundTMHM::
 	goto EventScript_BufferTMHMsPocket
 	return
 EventScript_FoundTMHMMessage::
+	special EnableCompactItemMessageBox
 	message gText_PlayerFoundOneTMHM
 	return
 
 EventScript_FoundItem::
+	special EnableCompactItemMessageBox
 	compare VAR_0x8001, TRUE
 	goto_if_eq EventScript_FoundItemMessage
 	buffernumberstring 0, VAR_0x8001
@@ -244,6 +247,7 @@ EventScript_PickUpHiddenItem::
 	end
 
 EventScript_FoundHiddenTMHM::
+	special EnableCompactItemMessageBox
 	bufferitemnameplural STR_VAR_1, VAR_0x8004, 1
 	message gText_PlayerFoundOneTMHM
 	goto EventScript_PutHiddenItemInPocket
@@ -256,10 +260,12 @@ EventScript_FoundHiddenItem::
 	end
 
 EventScript_FoundSingleItem::
+	special EnableCompactItemMessageBox
 	message gText_PlayerFoundOneItem
 	return
 
 EventScript_FoundMultipleItems::
+	special EnableCompactItemMessageBox
 	buffernumberstring STR_VAR_1, VAR_0x8009
 	message gText_FoundXItems
 	return

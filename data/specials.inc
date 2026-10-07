@@ -677,6 +677,7 @@ gSpecials::
 	def_special GetAlolaCatchProgress
 	def_special GetGalarCatchProgress
 	def_special GetHisuiCatchProgress
+	def_special EnableCompactItemMessageBox
 	def_special GetPaldeaCatchProgress
 	def_special HasAllJohotoMons
 	def_special HasAllRegionalMons
