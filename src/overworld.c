@@ -3935,7 +3935,7 @@ static void ShowItemIconSprite(enum Item item, bool8 firstTime, bool8 flash)
         {
             // show in header box
             x = ITEM_ICON_X;
-            y = sHeaderBoxHeight * 4 - 8;
+            y = sHeaderBoxHeight * 4;
         }
 
         gSprites[iconSpriteId].x2 = x;
