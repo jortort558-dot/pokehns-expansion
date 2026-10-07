@@ -3840,15 +3840,24 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
         desc++;
     }
 
-    if (destIndex < destSize - 1)
-        dest[destIndex++] = CHAR_PROMPT_CLEAR;
+    // Removido el CHAR_PROMPT_CLEAR final para que el último párrafo de texto no se borre
+    // ni quede esperando una pulsación vacía.
     dest[destIndex] = EOS;
     return numLines;
 }
 
 static bool8 IsItemDescriptionPrinterFinished(void)
 {
-    return !IsTextPrinterActiveOnWindow(sHeaderBoxWindowId);
+    RunTextPrinters();
+    if (IsTextPrinterActiveOnWindow(sHeaderBoxWindowId))
+        return FALSE;
+
+    // Cuando termina de imprimirse la última página de la descripción,
+    // esperar a que el jugador pulse A o B para leerla antes de cerrar el panel.
+    if (JOY_NEW(A_BUTTON | B_BUTTON))
+        return TRUE;
+
+    return FALSE;
 }
 
 void ScriptShowItemDescription(struct ScriptContext *ctx)

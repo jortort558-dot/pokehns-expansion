@@ -1624,6 +1624,7 @@ static u16 RenderText(struct TextPrinter *textPrinter)
         if (textPrinter->printerTemplate.type == WINDOW_TEXT_PRINTER && TextPrinterWaitWithDownArrow(textPrinter))
         {
             FillWindowPixelBuffer(textPrinter->printerTemplate.windowId, PIXEL_FILL(textPrinter->printerTemplate.color.background));
+            CopyWindowToVram(textPrinter->printerTemplate.windowId, COPYWIN_GFX);
             textPrinter->printerTemplate.currentX = textPrinter->printerTemplate.x;
             textPrinter->printerTemplate.currentY = textPrinter->printerTemplate.y;
             textPrinter->state = RENDER_STATE_HANDLE_CHAR;

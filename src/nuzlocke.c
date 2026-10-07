@@ -649,6 +649,7 @@ void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
     {
         u32 deadPersonality = sGraveyardBuffer.entries[g].personality;
         u32 deadOtId = sGraveyardBuffer.entries[g].otId;
+        bool8 foundInParty = FALSE;
 
         for (p = 0; p < PARTY_SIZE; p++)
         {
@@ -671,7 +672,44 @@ void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
                     else
                         NuzlockeDeletePartyMon(p);
                     changed = TRUE;
+                    foundInParty = TRUE;
                     break;
+                }
+            }
+        }
+
+        // Si el Pokémon no estaba en el equipo en el momento de guardar (por ejemplo,
+        // el jugador lo sacó del PC sin guardar y luego murió en combate), buscarlo
+        // en las cajas del PC para debilitarlo o borrarlo según las reglas Nuzlocke.
+        if (!foundInParty && gPokemonStoragePtr != NULL)
+        {
+            u8 b, s;
+            for (b = 0; b < TOTAL_BOXES_COUNT; b++)
+            {
+                for (s = 0; s < IN_BOX_COUNT; s++)
+                {
+                    struct BoxPokemon *boxMon = &gPokemonStoragePtr->boxes[b][s];
+                    if (GetBoxMonData(boxMon, MON_DATA_SANITY_HAS_SPECIES) && !GetBoxMonData(boxMon, MON_DATA_IS_EGG))
+                    {
+                        if (GetBoxMonData(boxMon, MON_DATA_PERSONALITY) == deadPersonality
+                            && GetBoxMonData(boxMon, MON_DATA_OT_ID) == deadOtId)
+                        {
+                            struct ChallengeSettings *cs = &gSaveBlock3Ptr->challengeSettings;
+                            if (cs->tx_Nuzlocke_Deletion)
+                            {
+                                PurgeMonOrBoxMon(b, s);
+                            }
+                            else
+                            {
+                                struct Pokemon tempMon;
+                                u32 maxHp;
+                                BoxMonAtToMon(b, s, &tempMon);
+                                maxHp = GetMonData(&tempMon, MON_DATA_MAX_HP, NULL);
+                                SetBoxMonData(boxMon, MON_DATA_HP_LOST, &maxHp);
+                            }
+                            break;
+                        }
+                    }
                 }
             }
         }
