@@ -173,7 +173,7 @@
 #define VAR_JUANRA_STATE                                 0x40F8
 #define VAR_VIOLET_LAMP_SEQUENCE                         0x40F9
 #define VAR_MAHOGANY_AIPOM_KEY                           0x40FA
-#define VAR_UNUSED_HNS_0x40FB                            0x40FB // Emerald VAR_UNUSED_0x40FB - no references in any build
+#define VAR_CIANWOOD_TRIPLETS_STATE                      0x40FB
 #define VAR_UNUSED_HNS_0x40FC                            0x40FC // Emerald VAR_UNUSED_0x40FC - no references in any build
 
 // !!! UNSAFE: live surf-blob engine state, written every time the player surfs.

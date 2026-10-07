@@ -30,6 +30,144 @@ CianwoodCity_EventScript_InitializeNothing::
 	setvar VAR_TEMP_0, 1
 	end
 
+CianwoodCity_EventScript_Calma::
+	lock
+	faceplayer
+	goto_if_set FLAG_CIANWOOD_THREE_TIDES_OPEN, CianwoodCity_EventScript_CalmaSolved
+	goto_if_unset FLAG_JOHTO_SECRET_ATLAS_STARTED, CianwoodCity_EventScript_TripletsNoAtlas
+	goto_if_unset FLAG_BADGE04_GET, CianwoodCity_EventScript_TripletsNoSurf
+	compare VAR_CIANWOOD_TRIPLETS_STATE, 0
+	goto_if_ne CianwoodCity_EventScript_TripletsWrongOrder
+	msgbox CianwoodCity_Text_CalmaCorrect, MSGBOX_DEFAULT
+	setvar VAR_CIANWOOD_TRIPLETS_STATE, 1
+	release
+	end
+
+CianwoodCity_EventScript_Eco::
+	lock
+	faceplayer
+	goto_if_set FLAG_CIANWOOD_THREE_TIDES_OPEN, CianwoodCity_EventScript_EcoSolved
+	goto_if_unset FLAG_JOHTO_SECRET_ATLAS_STARTED, CianwoodCity_EventScript_TripletsNoAtlas
+	goto_if_unset FLAG_BADGE04_GET, CianwoodCity_EventScript_TripletsNoSurf
+	compare VAR_CIANWOOD_TRIPLETS_STATE, 1
+	goto_if_ne CianwoodCity_EventScript_TripletsWrongOrder
+	msgbox CianwoodCity_Text_EcoCorrect, MSGBOX_DEFAULT
+	setvar VAR_CIANWOOD_TRIPLETS_STATE, 2
+	release
+	end
+
+CianwoodCity_EventScript_Brio::
+	lock
+	faceplayer
+	goto_if_set FLAG_CIANWOOD_THREE_TIDES_OPEN, CianwoodCity_EventScript_BrioSolved
+	goto_if_unset FLAG_JOHTO_SECRET_ATLAS_STARTED, CianwoodCity_EventScript_TripletsNoAtlas
+	goto_if_unset FLAG_BADGE04_GET, CianwoodCity_EventScript_TripletsNoSurf
+	compare VAR_CIANWOOD_TRIPLETS_STATE, 2
+	goto_if_ne CianwoodCity_EventScript_TripletsWrongOrder
+	msgbox CianwoodCity_Text_BrioCorrect, MSGBOX_DEFAULT
+	setvar VAR_CIANWOOD_TRIPLETS_STATE, 3
+	setflag FLAG_CIANWOOD_THREE_TIDES_OPEN
+	playse SE_PIN
+	delay 30
+	msgbox CianwoodCity_Text_ThreeTidesOpened, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_TripletsNoAtlas::
+	msgbox CianwoodCity_Text_TripletsNoAtlas, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_TripletsNoSurf::
+	msgbox CianwoodCity_Text_TripletsNoSurf, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_TripletsWrongOrder::
+	msgbox CianwoodCity_Text_TripletsWrongOrder, MSGBOX_DEFAULT
+	setvar VAR_CIANWOOD_TRIPLETS_STATE, 0
+	release
+	end
+
+CianwoodCity_EventScript_CalmaSolved::
+	msgbox CianwoodCity_Text_CalmaSolved, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_EcoSolved::
+	msgbox CianwoodCity_Text_EcoSolved, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_BrioSolved::
+	msgbox CianwoodCity_Text_BrioSolved, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_ThreeTidesCave::
+	goto_if_set FLAG_CIANWOOD_THREE_TIDES_OPEN, CianwoodCity_EventScript_ThreeTidesCaveOpen
+	msgbox CianwoodCity_Text_ThreeTidesCaveClosed, MSGBOX_SIGN
+	end
+
+CianwoodCity_EventScript_ThreeTidesCaveOpen::
+	msgbox CianwoodCity_Text_ThreeTidesCaveOpen, MSGBOX_SIGN
+	end
+
+CianwoodCity_Text_TripletsNoAtlas:
+	.string "CALMA: Tres hermanos, tres mareas.\p"
+	.string "ECO: Solo un mapa perdido conoce\n"
+	.string "el orden que abre esta roca.\p"
+	.string "BRÍO: Busca al cartógrafo de\n"
+	.string "CIUDAD CEREZO.$"
+
+CianwoodCity_Text_TripletsNoSurf:
+	.string "El mapa te ha traído hasta aquí,\n"
+	.string "pero aún no dominas las mareas.\p"
+	.string "Regresa cuando puedas usar SURF.$"
+
+CianwoodCity_Text_TripletsWrongOrder:
+	.string "Las tres mareas pierden el ritmo.\p"
+	.string "CALMA: La fuerza nunca debe ser\n"
+	.string "el primer paso.$"
+
+CianwoodCity_Text_CalmaCorrect:
+	.string "CALMA: Primero escucha el mar.\p"
+	.string "La marea paciente ya te reconoce.$"
+
+CianwoodCity_Text_EcoCorrect:
+	.string "ECO: Después recuerda su voz.\p"
+	.string "La segunda marea repite tu paso.$"
+
+CianwoodCity_Text_BrioCorrect:
+	.string "BRÍO: ¡Y al final, rompe la duda!\p"
+	.string "La tercera marea acepta tu fuerza.$"
+
+CianwoodCity_Text_ThreeTidesOpened:
+	.string "Las tres corrientes golpean a la\n"
+	.string "vez y la entrada queda abierta.$"
+
+CianwoodCity_Text_CalmaSolved:
+	.string "CALMA: Paciencia antes que impulso.\n"
+	.string "No olvides el primer paso.$"
+
+CianwoodCity_Text_EcoSolved:
+	.string "ECO: El mar recuerda tu secuencia.\n"
+	.string "La roca no volverá a cerrarse.$"
+
+CianwoodCity_Text_BrioSolved:
+	.string "BRÍO: Has reunido cabeza, memoria\n"
+	.string "y fuerza. Eso sí es entrenar.$"
+
+CianwoodCity_Text_ThreeTidesCaveClosed:
+	.string "Tres surcos cortan la roca.\p"
+	.string "Las corrientes no golpean al mismo\n"
+	.string "tiempo.$"
+
+CianwoodCity_Text_ThreeTidesCaveOpen:
+	.string "La GRUTA DE LAS TRES MAREAS está\n"
+	.string "abierta. Su interior continúa en\l"
+	.string "una oscuridad aún inexplorada.$"
+
 CianwoodCity_EventScript_Flytrigger::
 	lock
 	playse SE_PIN
