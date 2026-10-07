@@ -21,6 +21,7 @@ PokemonLeague_KarensRoom_EventScript_Karen::
 	goto PokemonLeague_KarensRoom_EventScript_KarenOnDefeat
 
 PokemonLeague_KarensRoom_EventScript_KarenRematch::
+	goto_if_unset FLAG_BADGE16_GET, PokemonLeague_KarensRoom_EventScript_KarenRematchJohto
 	goto_if_unset FLAG_IS_KANTO_CHAMPION, PokemonLeague_KarensRoom_EventScript_KarenRematchStandard
 	goto_if_ge VAR_SINJOH_STORYLINE, 13, PokemonLeague_KarensRoom_EventScript_KarenRematchPostOBC
 
@@ -29,6 +30,13 @@ PokemonLeague_KarensRoom_EventScript_KarenRematchStandard::
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_5
 	trainerbattle_no_intro TRAINER_KAREN_2_HNS, PokemonLeague_KarensRoom_Text_Beaten
+	goto PokemonLeague_KarensRoom_EventScript_KarenOnDefeat
+
+PokemonLeague_KarensRoom_EventScript_KarenRematchJohto::
+	msgbox PokemonLeague_KarensRoom_Text_RematchBefore, MSGBOX_DEFAULT
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_5
+	trainerbattle_no_intro TRAINER_KAREN_1_HNS, PokemonLeague_KarensRoom_Text_Beaten
 	goto PokemonLeague_KarensRoom_EventScript_KarenOnDefeat
 
 PokemonLeague_KarensRoom_EventScript_KarenRematchPostOBC::

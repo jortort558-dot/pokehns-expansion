@@ -21,6 +21,7 @@ PokemonLeague_BrunosRoom_EventScript_Bruno::
 	goto PokemonLeague_BrunosRoom_EventScript_BrunoOnDefeat
 
 PokemonLeague_BrunosRoom_EventScript_BrunoRematch::
+	goto_if_unset FLAG_BADGE16_GET, PokemonLeague_BrunosRoom_EventScript_BrunoRematchJohto
 	goto_if_unset FLAG_IS_KANTO_CHAMPION, PokemonLeague_BrunosRoom_EventScript_BrunoRematchStandard
 	goto_if_ge VAR_SINJOH_STORYLINE, 13, PokemonLeague_BrunosRoom_EventScript_BrunoRematchPostOBC
 
@@ -29,6 +30,13 @@ PokemonLeague_BrunosRoom_EventScript_BrunoRematchStandard::
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_5
 	trainerbattle_no_intro TRAINER_BRUNO_2_HNS, PokemonLeague_BrunosRoom_Text_Beaten
+	goto PokemonLeague_BrunosRoom_EventScript_BrunoOnDefeat
+
+PokemonLeague_BrunosRoom_EventScript_BrunoRematchJohto::
+	msgbox PokemonLeague_BrunosRoom_Text_RematchBefore, MSGBOX_DEFAULT
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_5
+	trainerbattle_no_intro TRAINER_BRUNO_1_HNS, PokemonLeague_BrunosRoom_Text_Beaten
 	goto PokemonLeague_BrunosRoom_EventScript_BrunoOnDefeat
 
 PokemonLeague_BrunosRoom_EventScript_BrunoRematchPostOBC::

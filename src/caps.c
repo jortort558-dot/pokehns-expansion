@@ -43,6 +43,45 @@ static const u8 sLevelCapTable_Hard[] =
     [8] = 54,
 };
 
+static const u8 sKantoLevelCapTable_Normal[] =
+{
+    [0] = 60,
+    [1] = 62,
+    [2] = 63,
+    [3] = 64,
+    [4] = 65,
+    [5] = 66,
+    [6] = 67,
+    [7] = 68,
+    [8] = 70,
+};
+
+static const u8 sKantoLevelCapTable_Hard[] =
+{
+    [0] = 58,
+    [1] = 60,
+    [2] = 61,
+    [3] = 62,
+    [4] = 63,
+    [5] = 64,
+    [6] = 65,
+    [7] = 66,
+    [8] = 68,
+};
+
+static u8 GetKantoBadgeCount(void)
+{
+    u16 flag;
+    u8 badgeCount = 0;
+
+    for (flag = FLAG_BADGE09_GET; flag <= FLAG_BADGE16_GET; flag++)
+    {
+        if (FlagGet(flag))
+            badgeCount++;
+    }
+    return badgeCount;
+}
+
 static const u32 sLevelCapFlagMap[][2] =
 {
     {FLAG_BADGE01_GET, 15},
@@ -75,7 +114,13 @@ u32 GetCurrentLevelCap(void)
             return MAX_LEVEL;
 
         if (FlagGet(FLAG_IS_CHAMPION))
-            return KANTO_MAX_LEVEL;
+        {
+            u8 kantoBadgeCount = GetKantoBadgeCount();
+            if (challengeLevelCap == 1)
+                return sKantoLevelCapTable_Normal[kantoBadgeCount];
+            else
+                return sKantoLevelCapTable_Hard[kantoBadgeCount];
+        }
 #else
         if (FlagGet(FLAG_IS_CHAMPION))
             return MAX_LEVEL;
@@ -110,8 +155,17 @@ u32 GetPreviousLevelCap(void)
     u8 challengeLevelCap = gSaveBlock3Ptr->challengeSettings.tx_Challenges_LevelCap;
 
 #if IS_HNS
-    if (FlagGet(FLAG_IS_CHAMPION))
-        return 0;
+    if (challengeLevelCap != 0 && FlagGet(FLAG_IS_CHAMPION))
+    {
+        u8 kantoBadgeCount = GetKantoBadgeCount();
+
+        if (kantoBadgeCount == 0)
+            return challengeLevelCap == 1 ? sLevelCapTable_Normal[8] : sLevelCapTable_Hard[8];
+        if (challengeLevelCap == 1)
+            return sKantoLevelCapTable_Normal[kantoBadgeCount - 1];
+        else
+            return sKantoLevelCapTable_Hard[kantoBadgeCount - 1];
+    }
 #endif
 
     if (challengeLevelCap != 0)

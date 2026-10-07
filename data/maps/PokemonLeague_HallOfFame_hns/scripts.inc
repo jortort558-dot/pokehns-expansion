@@ -67,6 +67,7 @@ PokemonLeague_HallOfFame_EventScript_SetFirstGameClearFlags::
 	return
 
 PokemonLeague_HallOfFame_EventScript_SetGameClearFlags::
+	goto_if_unset FLAG_BADGE16_GET, PokemonLeague_HallOfFame_EventScript_SetGameClearFlagsBeforeKanto
 	setflag FLAG_HIDE_CERULEANCAVE_GUARD
 	setflag FLAG_HIDE_AZALEA_TOWN_SLOWPOKE
 	setflag FLAG_HIDE_SLOWPOKE_WELL_TAILLESS_SLOWPOKES
@@ -102,6 +103,10 @@ PokemonLeague_HallOfFame_EventScript_SetGameClearFlags::
 	clearflag FLAG_BATTLED_DEOXYS
 	clearflag FLAG_DEFEATED_DEOXYS
 	clearflag FLAG_SUMMONED_MTMOON_JIRACHI
+	setvar VAR_LEAGUE_STATE, 1
+	return
+
+PokemonLeague_HallOfFame_EventScript_SetGameClearFlagsBeforeKanto::
 	setvar VAR_LEAGUE_STATE, 1
 	return
 

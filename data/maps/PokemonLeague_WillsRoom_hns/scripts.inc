@@ -63,6 +63,7 @@ PokemonLeague_WillsRoom_EventScript_Will::
 	goto PokemonLeague_WillsRoom_EventScript_WillOnDefeat
 
 PokemonLeague_WillsRoom_EventScript_WillRematch::
+	goto_if_unset FLAG_BADGE16_GET, PokemonLeague_WillsRoom_EventScript_WillRematchJohto
 	goto_if_unset FLAG_IS_KANTO_CHAMPION, PokemonLeague_WillsRoom_EventScript_WillRematchStandard
 	goto_if_ge VAR_SINJOH_STORYLINE, 13, PokemonLeague_WillsRoom_EventScript_WillRematchPostOBC
 
@@ -71,6 +72,13 @@ PokemonLeague_WillsRoom_EventScript_WillRematchStandard::
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_5
 	trainerbattle_no_intro TRAINER_WILL_2_HNS, PokemonLeague_WillsRoom_Text_Beaten
+	goto PokemonLeague_WillsRoom_EventScript_WillOnDefeat
+
+PokemonLeague_WillsRoom_EventScript_WillRematchJohto::
+	msgbox PokemonLeague_WillsRoom_Text_RematchBefore, MSGBOX_DEFAULT
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_5
+	trainerbattle_no_intro TRAINER_WILL_1_HNS, PokemonLeague_WillsRoom_Text_Beaten
 	goto PokemonLeague_WillsRoom_EventScript_WillOnDefeat
 
 PokemonLeague_WillsRoom_EventScript_WillRematchPostOBC::

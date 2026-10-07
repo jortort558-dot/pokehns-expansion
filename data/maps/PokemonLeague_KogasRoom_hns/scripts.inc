@@ -21,6 +21,7 @@ PokemonLeague_KogasRoom_EventScript_Koga::
 	goto PokemonLeague_KogasRoom_EventScript_KogaOnDefeat
 
 PokemonLeague_KogasRoom_EventScript_KogaRematch::
+	goto_if_unset FLAG_BADGE16_GET, PokemonLeague_KogasRoom_EventScript_KogaRematchJohto
 	goto_if_unset FLAG_IS_KANTO_CHAMPION, PokemonLeague_KogasRoom_EventScript_KogaRematchStandard
 	goto_if_ge VAR_SINJOH_STORYLINE, 13, PokemonLeague_KogasRoom_EventScript_KogaRematchPostOBC
 
@@ -29,6 +30,13 @@ PokemonLeague_KogasRoom_EventScript_KogaRematchStandard::
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_5
 	trainerbattle_no_intro TRAINER_KOGA_2_HNS, PokemonLeague_KogasRoom_Text_Beaten
+	goto PokemonLeague_KogasRoom_EventScript_KogaOnDefeat
+
+PokemonLeague_KogasRoom_EventScript_KogaRematchJohto::
+	msgbox PokemonLeague_KogasRoom_Text_RematchBefore, MSGBOX_DEFAULT
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_5
+	trainerbattle_no_intro TRAINER_KOGA_1_HNS, PokemonLeague_KogasRoom_Text_Beaten
 	goto PokemonLeague_KogasRoom_EventScript_KogaOnDefeat
 
 PokemonLeague_KogasRoom_EventScript_KogaRematchPostOBC::

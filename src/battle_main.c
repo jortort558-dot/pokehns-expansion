@@ -2032,6 +2032,11 @@ static bool32 IsTrainerExemptFromScaling(u16 trainerId, u8 trainerClass)
     }
 }
 
+static bool32 IsKantoLeaderClass(u8 trainerClass)
+{
+    return trainerClass == TRAINER_CLASS_LEADER_KANTO_HNS;
+}
+
 u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, u16 trainerId, bool32 firstTrainer, u32 battleTypeFlags)
 {
     u32 personalityValue;
@@ -2070,13 +2075,27 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
 
         u32 currentCap = GetCurrentLevelCap();
         u32 previousCap = GetPreviousLevelCap();
-        bool32 canScale = (previousCap > 2 && currentCap < KANTO_MAX_LEVEL && !IsTrainerExemptFromScaling(trainerId, trainer->trainerClass));
-        s32 targetMaxLevel = (s32)previousCap - 2;
-        s32 currentStageCeiling = (s32)currentCap - 2;
-        if (targetMaxLevel > currentStageCeiling)
-            targetMaxLevel = currentStageCeiling;
-        if (canScale && targetMaxLevel < maxPartyLevel)
-            canScale = FALSE;
+        bool32 isKantoProgression = gSaveBlock3Ptr->challengeSettings.tx_Challenges_LevelCap != 0
+                                 && FlagGet(FLAG_IS_CHAMPION)
+                                 && !FlagGet(FLAG_IS_KANTO_CHAMPION);
+        bool32 isKantoLeader = isKantoProgression && IsKantoLeaderClass(trainer->trainerClass);
+        bool32 canScale;
+        s32 targetMaxLevel;
+
+        if (isKantoProgression)
+        {
+            canScale = isKantoLeader || !IsTrainerExemptFromScaling(trainerId, trainer->trainerClass);
+            targetMaxLevel = (s32)currentCap - (isKantoLeader ? 0 : 2);
+        }
+        else
+        {
+            canScale = previousCap > 2 && currentCap < KANTO_MAX_LEVEL && !IsTrainerExemptFromScaling(trainerId, trainer->trainerClass);
+            targetMaxLevel = (s32)previousCap - 2;
+            if (targetMaxLevel > (s32)currentCap - 2)
+                targetMaxLevel = (s32)currentCap - 2;
+            if (canScale && targetMaxLevel < maxPartyLevel)
+                canScale = FALSE;
+        }
 
         for (i = 0; i < monsCount; i++)
         {
@@ -2086,8 +2105,10 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             {
                 s32 diffFromAs = (s32)maxPartyLevel - (s32)monLevel;
                 s32 scaledLevel = targetMaxLevel - diffFromAs;
-                if (scaledLevel < monLevel)
+                if (!isKantoProgression && scaledLevel < monLevel)
                     scaledLevel = monLevel;
+                if (scaledLevel < 2)
+                    scaledLevel = 2;
                 if (scaledLevel > MAX_LEVEL)
                     scaledLevel = MAX_LEVEL;
                 monLevel = (u8)scaledLevel;
