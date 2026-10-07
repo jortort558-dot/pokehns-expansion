@@ -2211,6 +2211,8 @@ void CB2_ContinueSavedGame(void)
     else
         InitMapFromSavedGame();
 
+    NuzlockeGraveyard_CheckAndApplyOnLoad();
+
     PlayTimeCounter_Start();
     ScriptContext_Init();
     UnlockPlayerFieldControls();
@@ -3754,6 +3756,7 @@ static void SpriteCB_LinkPlayer(struct Sprite *sprite)
 #define ITEM_ICON_X     26
 #define ITEM_ICON_Y     24
 #define ITEM_TAG        0x2722 //same as money label
+#define ITEM_DESCRIPTION_BUFFER_SIZE 512
 
 bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId)
 {
@@ -3774,13 +3777,14 @@ bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId)
 }
 
 EWRAM_DATA static u8 sHeaderBoxWindowId = 0;
+EWRAM_DATA static u8 sItemDescriptionBuffer[ITEM_DESCRIPTION_BUFFER_SIZE] = {0};
 EWRAM_DATA u8 sItemIconSpriteId = 0;
 EWRAM_DATA u8 sItemIconSpriteId2 = 0;
 
 static void ShowItemIconSprite(enum Item item, bool8 firstTime, bool8 flash);
 static void DestroyItemIconSprite(void);
 
-static u8 ReformatItemDescription(enum Item item, u8 *dest)
+static u8 ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
 {
     const u8 *desc = GetItemDescription(item);
     u8 word[64];
@@ -3819,7 +3823,7 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest)
                     currentLineWidth += spaceWidth;
                 }
 
-                for (i = 0; i < wordLength && destIndex < 0xFE; i++)
+                for (i = 0; i < wordLength && destIndex < destSize - 2; i++)
                     dest[destIndex++] = word[i];
                 currentLineWidth += wordWidth;
                 wordLength = 0;
@@ -3836,7 +3840,8 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest)
         desc++;
     }
 
-    dest[destIndex++] = CHAR_PROMPT_CLEAR;
+    if (destIndex < destSize - 1)
+        dest[destIndex++] = CHAR_PROMPT_CLEAR;
     dest[destIndex] = EOS;
     return numLines;
 }
@@ -3854,23 +3859,17 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
         return;
     }
 
-    u8 headerType = ScriptReadByte(ctx);
+    (void) ScriptReadByte(ctx);
 
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     struct WindowTemplate template;
     enum Item item = gSpecialVar_0x8006;
     u8 textY;
-    u8 *dst;
     bool8 handleFlash = FALSE;
 
     if (GetFlashLevel() > 0 || InBattlePyramid_())
         handleFlash = TRUE;
-
-    if (headerType == 1) // berry
-        dst = gStringVar3;
-    else
-        dst = gStringVar1;
 
     if (GetSetItemObtained(item, FLAG_GET_ITEM_OBTAINED))
     {
@@ -3886,13 +3885,13 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
     SetStandardWindowBorderStyle(sHeaderBoxWindowId, FALSE);
     DrawStdFrameWithCustomTileAndPalette(sHeaderBoxWindowId, FALSE, 0x214, 14);
 
-    if (ReformatItemDescription(item, dst) == 1)
+    if (ReformatItemDescription(item, sItemDescriptionBuffer, sizeof(sItemDescriptionBuffer)) == 1)
         textY = 8;
     else
         textY = 0;
 
     ShowItemIconSprite(item, TRUE, handleFlash);
-    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_NORMAL, dst, ITEM_ICON_X + 2, textY, 1, NULL);
+    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_NORMAL, sItemDescriptionBuffer, ITEM_ICON_X + 2, textY, 1, NULL);
     SetupNativeScript(ctx, IsItemDescriptionPrinterFinished);
 }
 

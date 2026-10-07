@@ -3876,7 +3876,9 @@ static void Cmd_tryfaintmon(void)
                 AdjustFriendshipOnBattleFaint(battler);
                 gSideTimers[B_SIDE_PLAYER].retaliateTimer = 2;
 
-                if ((IsNuzlockeActive() || IsNuzlockeEasyActive())
+                if ((IsNuzlockeActive() || IsNuzlockeEasyActive()
+                    || gSaveBlock3Ptr->challengeSettings.tx_Challenges_Nuzlocke
+                    || gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_EasyMode)
                     && !(gBattleTypeFlags & (BATTLE_TYPE_LINK
                                             | BATTLE_TYPE_LINK_IN_BATTLE
                                             | BATTLE_TYPE_FIRST_BATTLE

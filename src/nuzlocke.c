@@ -17,6 +17,7 @@
 #include "bug_contest.h"
 #include "nuzlocke_tracker.h"
 #include "save.h"
+#include "load_save.h"
 
 EWRAM_DATA u8 NuzlockeIsCaptureBlocked = FALSE;
 EWRAM_DATA u8 NuzlockeIsSpeciesClauseActive = FALSE;
@@ -566,7 +567,9 @@ void NuzlockeGraveyard_RecordFaint(struct Pokemon *mon)
     u32 otId;
     u16 i;
 
-    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive())
+    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive()
+        && !gSaveBlock3Ptr->challengeSettings.tx_Challenges_Nuzlocke
+        && !gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_EasyMode)
         return;
 
     if (mon == NULL)
@@ -615,7 +618,9 @@ void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
     u16 g, p;
     bool8 changed = FALSE;
 
-    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive())
+    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive()
+        && !gSaveBlock3Ptr->challengeSettings.tx_Challenges_Nuzlocke
+        && !gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_EasyMode)
         return;
 
     memset(&sGraveyardBuffer, 0, sizeof(sGraveyardBuffer));
@@ -664,5 +669,10 @@ void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
     }
 
     if (changed)
+    {
         CompactPartySlots();
+        CalculatePlayerPartyCount();
+        SavePlayerParty();
+    }
 }
+
