@@ -3757,6 +3757,7 @@ static void SpriteCB_LinkPlayer(struct Sprite *sprite)
 #define ITEM_ICON_Y     24
 #define ITEM_TAG        0x2722 //same as money label
 #define ITEM_DESCRIPTION_BUFFER_SIZE 512
+#define ITEM_DESCRIPTION_MAX_PAGES 16
 
 bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId)
 {
@@ -3778,25 +3779,33 @@ bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId)
 
 EWRAM_DATA static u8 sHeaderBoxWindowId = 0;
 EWRAM_DATA static u8 sItemDescriptionBuffer[ITEM_DESCRIPTION_BUFFER_SIZE] = {0};
+EWRAM_DATA static u16 sItemDescriptionPageOffsets[ITEM_DESCRIPTION_MAX_PAGES] = {0};
+EWRAM_DATA static u8 sItemDescriptionPageLines[ITEM_DESCRIPTION_MAX_PAGES] = {0};
+EWRAM_DATA static u8 sItemDescriptionPageCount = 0;
+EWRAM_DATA static u8 sItemDescriptionCurrentPage = 0;
+EWRAM_DATA static bool8 sItemDescriptionWaitingForInput = FALSE;
 EWRAM_DATA u8 sItemIconSpriteId = 0;
 EWRAM_DATA u8 sItemIconSpriteId2 = 0;
 
 static void ShowItemIconSprite(enum Item item, bool8 firstTime, bool8 flash);
 static void DestroyItemIconSprite(void);
 
-static u8 ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
+static void ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
 {
     const u8 *desc = GetItemDescription(item);
     u8 word[64];
     u8 wordLength = 0;
-    u8 numLines = 1;
+    u8 pageLines = 1;
     u8 space[] = {CHAR_SPACE, EOS};
     u32 destIndex = 0;
     s32 currentLineWidth = 0;
     s32 spaceWidth = GetStringWidth(FONT_NORMAL, space, 0);
     const s32 maxPixelWidth = 192;
 
-    while (TRUE)
+    sItemDescriptionPageCount = 1;
+    sItemDescriptionPageOffsets[0] = 0;
+
+    while (destIndex < destSize - 1)
     {
         if (*desc == CHAR_SPACE || *desc == CHAR_NEWLINE || *desc == EOS)
         {
@@ -3810,11 +3819,18 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
 
                 if (currentLineWidth > 0 && currentLineWidth + spaceWidth + wordWidth > maxPixelWidth)
                 {
-                    if (numLines % 2 == 0)
-                        dest[destIndex++] = CHAR_PROMPT_CLEAR;
+                    if (pageLines == 2 && sItemDescriptionPageCount < ITEM_DESCRIPTION_MAX_PAGES)
+                    {
+                        sItemDescriptionPageLines[sItemDescriptionPageCount - 1] = pageLines;
+                        dest[destIndex++] = EOS;
+                        sItemDescriptionPageOffsets[sItemDescriptionPageCount++] = destIndex;
+                        pageLines = 1;
+                    }
                     else
+                    {
                         dest[destIndex++] = CHAR_NEWLINE;
-                    numLines++;
+                        pageLines++;
+                    }
                     currentLineWidth = 0;
                 }
                 else if (currentLineWidth > 0)
@@ -3841,7 +3857,18 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
     }
 
     dest[destIndex] = EOS;
-    return numLines;
+    sItemDescriptionPageLines[sItemDescriptionPageCount - 1] = pageLines;
+}
+
+static void PrintItemDescriptionPage(void)
+{
+    u8 textY = sItemDescriptionPageLines[sItemDescriptionCurrentPage] == 1 ? 8 : 0;
+
+    FillWindowPixelBuffer(sHeaderBoxWindowId, PIXEL_FILL(0));
+    CopyWindowToVram(sHeaderBoxWindowId, COPYWIN_GFX);
+    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_NORMAL,
+                                &sItemDescriptionBuffer[sItemDescriptionPageOffsets[sItemDescriptionCurrentPage]],
+                                ITEM_ICON_X + 2, textY, 1, NULL);
 }
 
 static bool8 IsItemDescriptionPrinterFinished(void)
@@ -3850,7 +3877,23 @@ static bool8 IsItemDescriptionPrinterFinished(void)
     if (IsTextPrinterActiveOnWindow(sHeaderBoxWindowId))
         return FALSE;
 
-    return JOY_NEW(A_BUTTON | B_BUTTON);
+    if (!sItemDescriptionWaitingForInput)
+    {
+        sItemDescriptionWaitingForInput = TRUE;
+        return FALSE;
+    }
+
+    if (!JOY_NEW(A_BUTTON | B_BUTTON))
+        return FALSE;
+
+    if (++sItemDescriptionCurrentPage < sItemDescriptionPageCount)
+    {
+        sItemDescriptionWaitingForInput = FALSE;
+        PrintItemDescriptionPage();
+        return FALSE;
+    }
+
+    return TRUE;
 }
 
 void ScriptShowItemDescription(struct ScriptContext *ctx)
@@ -3867,7 +3910,6 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
 
     struct WindowTemplate template;
     enum Item item = gSpecialVar_0x8006;
-    u8 textY;
     bool8 handleFlash = FALSE;
 
     if (GetFlashLevel() > 0 || InBattlePyramid_())
@@ -3887,13 +3929,12 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
     SetStandardWindowBorderStyle(sHeaderBoxWindowId, FALSE);
     DrawStdFrameWithCustomTileAndPalette(sHeaderBoxWindowId, FALSE, 0x214, 14);
 
-    if (ReformatItemDescription(item, sItemDescriptionBuffer, sizeof(sItemDescriptionBuffer)) == 1)
-        textY = 8;
-    else
-        textY = 0;
+    ReformatItemDescription(item, sItemDescriptionBuffer, sizeof(sItemDescriptionBuffer));
+    sItemDescriptionCurrentPage = 0;
+    sItemDescriptionWaitingForInput = FALSE;
 
     ShowItemIconSprite(item, TRUE, handleFlash);
-    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_NORMAL, sItemDescriptionBuffer, ITEM_ICON_X + 2, textY, 1, NULL);
+    PrintItemDescriptionPage();
     SetupNativeScript(ctx, IsItemDescriptionPrinterFinished);
 }
 
