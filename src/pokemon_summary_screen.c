@@ -5392,8 +5392,8 @@ static void OpenAbilityPopup(u8 taskId)
     AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 15, 0, 0, sSummaryModalColor_Sub, 0, sText_AbilityHeader);
 
     WordWrapDescription(gStringVar4, formattedDesc, sizeof(formattedDesc), FONT_SMALL_NARROWER, PSS_POPUP_PIXEL_WIDTH - 12);
-    LimitAdvancedDescriptionLines(formattedDesc, 5);
-    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 27, 0, 1, sSummaryModalColor_Body, 0, formattedDesc);
+    LimitAdvancedDescriptionLines(formattedDesc, 4);
+    AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 27, 0, 4, sSummaryModalColor_Body, 0, formattedDesc);
 
     AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 36, 75, 0, 0, sSummaryModalColor_Footer, 0, sText_ClosePopupHint);
 
@@ -5570,13 +5570,14 @@ static void RenderMovePopupContent(u8 windowId)
 
         BuildAdvancedMoveDescription(move, gStringVar4);
         WordWrapDescription(gStringVar4, formattedDesc, sizeof(formattedDesc), FONT_SMALL_NARROWER, PSS_POPUP_PIXEL_WIDTH - 12);
-        LimitAdvancedDescriptionLines(formattedDesc, 5);
-        AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 27, 0, 1, sSummaryModalColor_Body, 0, formattedDesc);
+        LimitAdvancedDescriptionLines(formattedDesc, 4);
+        AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 27, 0, 4, sSummaryModalColor_Body, 0, formattedDesc);
     }
     else
     {
         WordWrapDescription(gContestEffects[GetMoveContestEffect(move)].description, formattedDesc, sizeof(formattedDesc), FONT_SMALL_NARROWER, PSS_POPUP_PIXEL_WIDTH - 12);
-        AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 27, 0, 1, sSummaryModalColor_Body, 0, formattedDesc);
+        LimitAdvancedDescriptionLines(formattedDesc, 4);
+        AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 27, 0, 4, sSummaryModalColor_Body, 0, formattedDesc);
     }
 
     AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 8, 75, 0, 0, sSummaryModalColor_Footer, 0, sText_MovePopupNavHint);
