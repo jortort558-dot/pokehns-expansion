@@ -3775,7 +3775,7 @@ bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId)
 }
 
 EWRAM_DATA static u8 sHeaderBoxWindowId = 0;
-EWRAM_DATA static u8 sHeaderBoxHeight = 8;
+EWRAM_DATA static u8 sHeaderBoxHeight = 0;
 EWRAM_DATA u8 sItemIconSpriteId = 0;
 EWRAM_DATA u8 sItemIconSpriteId2 = 0;
 
