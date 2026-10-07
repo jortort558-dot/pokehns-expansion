@@ -3810,9 +3810,10 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
 
                 if (currentLineWidth > 0 && currentLineWidth + spaceWidth + wordWidth > maxPixelWidth)
                 {
-                    if (numLines >= 2)
-                        break; // El banner superior tiene 4 tiles de alto (32px), exactamente 2 líneas legibles
-                    dest[destIndex++] = CHAR_NEWLINE;
+                    if (numLines % 2 == 0)
+                        dest[destIndex++] = CHAR_PROMPT_CLEAR;
+                    else
+                        dest[destIndex++] = CHAR_NEWLINE;
                     numLines++;
                     currentLineWidth = 0;
                 }
@@ -3846,7 +3847,10 @@ static u8 ReformatItemDescription(enum Item item, u8 *dest, u32 destSize)
 static bool8 IsItemDescriptionPrinterFinished(void)
 {
     RunTextPrinters();
-    return !IsTextPrinterActiveOnWindow(sHeaderBoxWindowId);
+    if (IsTextPrinterActiveOnWindow(sHeaderBoxWindowId))
+        return FALSE;
+
+    return JOY_NEW(A_BUTTON | B_BUTTON);
 }
 
 void ScriptShowItemDescription(struct ScriptContext *ctx)
