@@ -153,6 +153,156 @@ static const u8 sAdvancedAbility_Dancer[] = _(
     "Copia inmediatamente cualquier\n"
     "movimiento de danza usado por otro\n"
     "Pokémon en el campo.");
+static const u8 sAdvancedAbility_BattleArmor[] = _(
+    "Impide que los ataques recibidos\n"
+    "se conviertan en golpes críticos.");
+static const u8 sAdvancedAbility_Damp[] = _(
+    "Impide usar Autodestrucción,\n"
+    "Explosión y otros ataques que hacen\n"
+    "detonar al usuario.");
+static const u8 sAdvancedAbility_Limber[] = _(
+    "Impide quedar paralizado y elimina\n"
+    "la parálisis si recupera esta\n"
+    "habilidad durante el combate.");
+static const u8 sAdvancedAbility_VoltAbsorb[] = _(
+    "Da inmunidad a ataques Eléctricos.\n"
+    "Al recibir uno, recupera 1/4 de sus\n"
+    "PS máximos en vez de sufrir daño.");
+static const u8 sAdvancedAbility_WaterAbsorb[] = _(
+    "Da inmunidad a ataques de Agua.\n"
+    "Al recibir uno, recupera 1/4 de sus\n"
+    "PS máximos en vez de sufrir daño.");
+static const u8 sAdvancedAbility_Oblivious[] = _(
+    "Impide la atracción y la mofa.\n"
+    "También bloquea la bajada de Ataque\n"
+    "provocada por Intimidación.");
+static const u8 sAdvancedAbility_CloudNine[] = _(
+    "Anula los efectos del clima mientras\n"
+    "permanece en combate, aunque el clima\n"
+    "sigue activo y conserva su duración.");
+static const u8 sAdvancedAbility_CompoundEyes[] = _(
+    "Multiplica x1,3 la precisión de sus\n"
+    "movimientos antes de aplicar cambios\n"
+    "de precisión y evasión.");
+static const u8 sAdvancedAbility_Insomnia[] = _(
+    "Impide dormir y anula Bostezo.\n"
+    "Si recupera esta habilidad dormido,\n"
+    "se despierta inmediatamente.");
+static const u8 sAdvancedAbility_Immunity[] = _(
+    "Impide el veneno normal y grave.\n"
+    "Si recupera esta habilidad estando\n"
+    "envenenado, elimina el estado.");
+static const u8 sAdvancedAbility_FlashFire[] = _(
+    "Da inmunidad a ataques de Fuego.\n"
+    "Tras absorber uno, sus movimientos\n"
+    "de Fuego aumentan x1,5.");
+static const u8 sAdvancedAbility_ShieldDust[] = _(
+    "Bloquea los efectos secundarios de\n"
+    "los ataques recibidos, como estados,\n"
+    "retroceso o bajadas de estadísticas.");
+static const u8 sAdvancedAbility_OwnTempo[] = _(
+    "Impide la confusión y la elimina al\n"
+    "recuperar la habilidad. También evita\n"
+    "la bajada de Intimidación.");
+static const u8 sAdvancedAbility_SuctionCups[] = _(
+    "Impide que el rival lo expulse o lo\n"
+    "obligue a cambiar. No impide que su\n"
+    "entrenador lo retire voluntariamente.");
+static const u8 sAdvancedAbility_RoughSkin[] = _(
+    "Cuando recibe un ataque de contacto,\n"
+    "el atacante pierde 1/8 de sus PS\n"
+    "máximos por cada golpe de contacto.");
+static const u8 sAdvancedAbility_WonderGuard[] = _(
+    "Solo recibe daño directo de ataques\n"
+    "supereficaces. Estados, clima, trampas\n"
+    "y otros daños indirectos sí funcionan.");
+static const u8 sAdvancedAbility_EffectSpore[] = _(
+    "Cada ataque de contacto tiene un 30%\n"
+    "de causar sueño, parálisis o veneno\n"
+    "al atacante si puede sufrir el estado.");
+static const u8 sAdvancedAbility_Synchronize[] = _(
+    "Si un rival le causa quemadura, veneno\n"
+    "o parálisis, intenta transmitirle el\n"
+    "mismo estado inmediatamente.");
+static const u8 sAdvancedAbility_ClearBody[] = _(
+    "Impide que los rivales reduzcan sus\n"
+    "estadísticas. No bloquea reducciones\n"
+    "causadas por el propio usuario.");
+static const u8 sAdvancedAbility_NaturalCure[] = _(
+    "Elimina cualquier problema de estado\n"
+    "cuando abandona el combate, incluso\n"
+    "si sale mediante un cambio forzado.");
+static const u8 sAdvancedAbility_LightningRod[] = _(
+    "Redirige hacia sí ataques Eléctricos,\n"
+    "los anula y sube 1 nivel su Ataque\n"
+    "Especial cada vez que los absorbe.");
+static const u8 sAdvancedAbility_PoisonPoint[] = _(
+    "Cada ataque de contacto recibido tiene\n"
+    "un 30% de envenenar al atacante si\n"
+    "puede sufrir ese estado.");
+static const u8 sAdvancedAbility_InnerFocus[] = _(
+    "Impide retroceder. También bloquea la\n"
+    "bajada de Ataque provocada por\n"
+    "Intimidación.");
+static const u8 sAdvancedAbility_MagmaArmor[] = _(
+    "Impide la congelación o helada. Si\n"
+    "recupera esta habilidad bajo ese\n"
+    "estado, lo elimina inmediatamente.");
+static const u8 sAdvancedAbility_MagnetPull[] = _(
+    "Impide cambiar o huir a los rivales\n"
+    "de tipo Acero mientras permanezca\n"
+    "activo en combate.");
+static const u8 sAdvancedAbility_RainDish[] = _(
+    "Durante la lluvia recupera 1/16 de\n"
+    "sus PS máximos al final de cada turno.");
+static const u8 sAdvancedAbility_Pressure[] = _(
+    "Los movimientos que lo eligen como\n"
+    "objetivo consumen 1 PP adicional,\n"
+    "incluso si fallan o son bloqueados.");
+static const u8 sAdvancedAbility_ThickFat[] = _(
+    "Reduce a la mitad la potencia de los\n"
+    "ataques de tipo Fuego y Hielo que\n"
+    "recibe.");
+static const u8 sAdvancedAbility_EarlyBird[] = _(
+    "Reduce a la mitad los turnos de sueño,\n"
+    "redondeando hacia abajo el contador\n"
+    "antes de comprobar si despierta.");
+static const u8 sAdvancedAbility_FlameBody[] = _(
+    "Cada ataque de contacto recibido tiene\n"
+    "un 30% de quemar al atacante si puede\n"
+    "sufrir ese estado.");
+static const u8 sAdvancedAbility_KeenEye[] = _(
+    "Impide que los rivales reduzcan su\n"
+    "precisión e ignora sus aumentos de\n"
+    "evasión al calcular los ataques.");
+static const u8 sAdvancedAbility_HyperCutter[] = _(
+    "Impide que los rivales reduzcan su\n"
+    "Ataque. No evita bajadas provocadas\n"
+    "por el propio usuario.");
+static const u8 sAdvancedAbility_Truant[] = _(
+    "Solo puede actuar una vez cada dos\n"
+    "turnos. El turno de descanso impide\n"
+    "ejecutar el movimiento elegido.");
+static const u8 sAdvancedAbility_Hustle[] = _(
+    "Multiplica x1,5 el Ataque, pero la\n"
+    "precisión de sus movimientos físicos\n"
+    "se multiplica por x0,8.");
+static const u8 sAdvancedAbility_LiquidOoze[] = _(
+    "Los movimientos que intentan absorber\n"
+    "sus PS dañan al atacante por la misma\n"
+    "cantidad en vez de curarlo.");
+static const u8 sAdvancedAbility_Overgrow[] = _(
+    "Con 1/3 de sus PS máximos o menos,\n"
+    "multiplica x1,5 sus ataques Planta.");
+static const u8 sAdvancedAbility_Blaze[] = _(
+    "Con 1/3 de sus PS máximos o menos,\n"
+    "multiplica x1,5 sus ataques Fuego.");
+static const u8 sAdvancedAbility_Torrent[] = _(
+    "Con 1/3 de sus PS máximos o menos,\n"
+    "multiplica x1,5 sus ataques Agua.");
+static const u8 sAdvancedAbility_Swarm[] = _(
+    "Con 1/3 de sus PS máximos o menos,\n"
+    "multiplica x1,5 sus ataques Bicho.");
 
 static const u8 *const sAdvancedAbilityDescriptions[ABILITIES_COUNT] =
 {
@@ -193,6 +343,45 @@ static const u8 *const sAdvancedAbilityDescriptions[ABILITIES_COUNT] =
     [ABILITY_BULLETPROOF] = sAdvancedAbility_Bulletproof,
     [ABILITY_TRIAGE] = sAdvancedAbility_Triage,
     [ABILITY_DANCER] = sAdvancedAbility_Dancer,
+    [ABILITY_BATTLE_ARMOR] = sAdvancedAbility_BattleArmor,
+    [ABILITY_DAMP] = sAdvancedAbility_Damp,
+    [ABILITY_LIMBER] = sAdvancedAbility_Limber,
+    [ABILITY_VOLT_ABSORB] = sAdvancedAbility_VoltAbsorb,
+    [ABILITY_WATER_ABSORB] = sAdvancedAbility_WaterAbsorb,
+    [ABILITY_OBLIVIOUS] = sAdvancedAbility_Oblivious,
+    [ABILITY_CLOUD_NINE] = sAdvancedAbility_CloudNine,
+    [ABILITY_COMPOUND_EYES] = sAdvancedAbility_CompoundEyes,
+    [ABILITY_INSOMNIA] = sAdvancedAbility_Insomnia,
+    [ABILITY_IMMUNITY] = sAdvancedAbility_Immunity,
+    [ABILITY_FLASH_FIRE] = sAdvancedAbility_FlashFire,
+    [ABILITY_SHIELD_DUST] = sAdvancedAbility_ShieldDust,
+    [ABILITY_OWN_TEMPO] = sAdvancedAbility_OwnTempo,
+    [ABILITY_SUCTION_CUPS] = sAdvancedAbility_SuctionCups,
+    [ABILITY_ROUGH_SKIN] = sAdvancedAbility_RoughSkin,
+    [ABILITY_WONDER_GUARD] = sAdvancedAbility_WonderGuard,
+    [ABILITY_EFFECT_SPORE] = sAdvancedAbility_EffectSpore,
+    [ABILITY_SYNCHRONIZE] = sAdvancedAbility_Synchronize,
+    [ABILITY_CLEAR_BODY] = sAdvancedAbility_ClearBody,
+    [ABILITY_NATURAL_CURE] = sAdvancedAbility_NaturalCure,
+    [ABILITY_LIGHTNING_ROD] = sAdvancedAbility_LightningRod,
+    [ABILITY_POISON_POINT] = sAdvancedAbility_PoisonPoint,
+    [ABILITY_INNER_FOCUS] = sAdvancedAbility_InnerFocus,
+    [ABILITY_MAGMA_ARMOR] = sAdvancedAbility_MagmaArmor,
+    [ABILITY_MAGNET_PULL] = sAdvancedAbility_MagnetPull,
+    [ABILITY_RAIN_DISH] = sAdvancedAbility_RainDish,
+    [ABILITY_PRESSURE] = sAdvancedAbility_Pressure,
+    [ABILITY_THICK_FAT] = sAdvancedAbility_ThickFat,
+    [ABILITY_EARLY_BIRD] = sAdvancedAbility_EarlyBird,
+    [ABILITY_FLAME_BODY] = sAdvancedAbility_FlameBody,
+    [ABILITY_KEEN_EYE] = sAdvancedAbility_KeenEye,
+    [ABILITY_HYPER_CUTTER] = sAdvancedAbility_HyperCutter,
+    [ABILITY_TRUANT] = sAdvancedAbility_Truant,
+    [ABILITY_HUSTLE] = sAdvancedAbility_Hustle,
+    [ABILITY_LIQUID_OOZE] = sAdvancedAbility_LiquidOoze,
+    [ABILITY_OVERGROW] = sAdvancedAbility_Overgrow,
+    [ABILITY_BLAZE] = sAdvancedAbility_Blaze,
+    [ABILITY_TORRENT] = sAdvancedAbility_Torrent,
+    [ABILITY_SWARM] = sAdvancedAbility_Swarm,
 };
 
 static const u8 sAdvancedMove_Flamethrower[] = _(

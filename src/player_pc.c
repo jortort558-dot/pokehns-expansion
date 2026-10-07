@@ -159,6 +159,7 @@ static void ItemStorage_ProcessItemSwapInput(u8);
 static void ItemStorage_EraseItemIcon(void);
 static void ItemStorage_DrawItemIcon(enum Item);
 static void ItemStorage_PrintDescription(s32);
+static void ItemStorage_WrapDescription(const u8 *, u8 *, u32, u32);
 static void ItemStorage_EraseMainMenu(u8);
 static void ItemStorage_MoveCursor(s32, bool8, struct ListMenu *);
 static void ItemStorage_PrintMenuItem(u8, u32, u8);
@@ -167,6 +168,7 @@ static EWRAM_DATA const u8 *sTopMenuOptionOrder = NULL;
 static EWRAM_DATA u8 sTopMenuNumOptions = 0;
 EWRAM_DATA struct PlayerPCItemPageStruct gPlayerPCItemPageInfo = {};
 static EWRAM_DATA struct ItemStorageMenu *sItemStorageMenu = NULL;
+static EWRAM_DATA u8 sItemStorageDescriptionBuffer[256] = {0};
 
 static const u8 sText_WithdrawItem[] = _("SACAR OBJETO");
 static const u8 sText_DepositItem[] = _("DEPOSITAR OBJETO");
@@ -1056,12 +1058,74 @@ static void ItemStorage_PrintDescription(s32 id)
 
     // Get item description (or Cancel text)
     if (id != LIST_CANCEL)
+    {
         description = (u8 *)GetItemDescription(gSaveBlock1Ptr->pcItems[id].itemId);
+        ItemStorage_WrapDescription(description, sItemStorageDescriptionBuffer,
+                                    sizeof(sItemStorageDescriptionBuffer), 96);
+        description = sItemStorageDescriptionBuffer;
+    }
     else
         description = gText_GoBackPrevMenu;
 
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
-    AddTextPrinterParameterized(windowId, FONT_SMALL_NARROWER, description, 0, 1, 0, NULL);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, description, 0, 1, 0, NULL);
+}
+
+static void ItemStorage_WrapDescription(const u8 *src, u8 *dst, u32 dstSize, u32 maxWidth)
+{
+    u8 word[64];
+    u8 space[] = {CHAR_SPACE, EOS};
+    u32 srcIndex = 0;
+    u32 dstIndex = 0;
+    u32 wordLength = 0;
+    u8 lines = 1;
+    s32 lineWidth = 0;
+    s32 spaceWidth = GetStringWidth(FONT_NORMAL, space, 0);
+
+    while (src[srcIndex] != EOS && dstIndex < dstSize - 1 && lines <= 3)
+    {
+        if (src[srcIndex] == CHAR_SPACE || src[srcIndex] == CHAR_NEWLINE)
+        {
+            if (wordLength != 0)
+            {
+                s32 wordWidth;
+                u32 i;
+
+                word[wordLength] = EOS;
+                wordWidth = GetStringWidth(FONT_NORMAL, word, 0);
+                if (lineWidth > 0 && lineWidth + spaceWidth + wordWidth > (s32)maxWidth)
+                {
+                    if (lines++ == 3)
+                        break;
+                    dst[dstIndex++] = CHAR_NEWLINE;
+                    lineWidth = 0;
+                }
+                else if (lineWidth > 0)
+                {
+                    dst[dstIndex++] = CHAR_SPACE;
+                    lineWidth += spaceWidth;
+                }
+
+                for (i = 0; i < wordLength && dstIndex < dstSize - 1; i++)
+                    dst[dstIndex++] = word[i];
+                lineWidth += wordWidth;
+                wordLength = 0;
+            }
+        }
+        else if (wordLength < ARRAY_COUNT(word) - 1)
+        {
+            word[wordLength++] = src[srcIndex];
+        }
+        srcIndex++;
+    }
+
+    if (wordLength != 0 && lines <= 3)
+    {
+        u32 i;
+        for (i = 0; i < wordLength && dstIndex < dstSize - 1; i++)
+            dst[dstIndex++] = word[i];
+    }
+    dst[dstIndex] = EOS;
 }
 
 static void ItemStorage_AddScrollIndicator(void)
