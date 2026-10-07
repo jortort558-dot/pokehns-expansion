@@ -110,7 +110,14 @@ CianwoodCity_EventScript_ThreeTidesCave::
 	end
 
 CianwoodCity_EventScript_ThreeTidesCaveOpen::
-	msgbox CianwoodCity_Text_ThreeTidesCaveOpen, MSGBOX_SIGN
+	msgbox CianwoodCity_Text_ThreeTidesCaveOpen, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CianwoodCity_EventScript_ThreeTidesCaveCancel
+	closemessage
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 3, 4
+	waitstate
+	end
+
+CianwoodCity_EventScript_ThreeTidesCaveCancel::
 	end
 
 CianwoodCity_Text_TripletsNoAtlas:
@@ -165,8 +172,7 @@ CianwoodCity_Text_ThreeTidesCaveClosed:
 
 CianwoodCity_Text_ThreeTidesCaveOpen:
 	.string "La GRUTA DE LAS TRES MAREAS está\n"
-	.string "abierta. Su interior continúa en\l"
-	.string "una oscuridad aún inexplorada.$"
+	.string "abierta. ¿Quieres entrar?$"
 
 CianwoodCity_EventScript_Flytrigger::
 	lock

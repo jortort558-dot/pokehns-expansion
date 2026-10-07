@@ -192,7 +192,8 @@
     "CherrygroveCity_Mart_hns",
     "CherrygroveCity_House1_hns",
     "CherrygroveCity_House2_hns",
-    "CherrygroveCity_House3_hns"
+    "CherrygroveCity_House3_hns",
+    "CherrygroveCity_CartographersHouse_hns"
   ],
   "gMapGroup_IndoorViolet_Hns": [
     "VioletCity_PokemonCenter_hns",
@@ -271,7 +272,8 @@
     "CianwoodHouse2_hns",
     "CianwoodHouse3_hns",
     "CianwoodShop_hns",
-    "CianwoodGym_hns"
+    "CianwoodGym_hns",
+    "CianwoodThreeTidesCave_hns"
   ],
   "gMapGroup_IndoorMahogany_Hns": [
     "MahoganyTown_PokemonCenter_hns",

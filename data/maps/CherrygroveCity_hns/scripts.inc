@@ -7,26 +7,6 @@ CherryGroveCity_OnTransition::
 	callnative SetTimeBasedEncounters
 	end
 
-CherrygroveCity_EventScript_AtlasFragment::
-	lock
-	faceplayer
-	msgbox CherrygroveCity_Text_AtlasFragment, MSGBOX_DEFAULT
-	closemessage
-	setflag FLAG_JOHTO_SECRET_ATLAS_STARTED
-	setflag FLAG_HIDE_CHERRYGROVE_ATLAS_FRAGMENT
-	removeobject LOCALID_CHERRYGROVE_ATLAS_FRAGMENT
-	release
-	end
-
-CherrygroveCity_Text_AtlasFragment:
-	.string "Hay un cilindro sellado con sal.\p"
-	.string "Dentro aparece un mapa de Johto\n"
-	.string "cubierto de rutas imposibles.\p"
-	.string "Tres figuras idénticas vigilan\n"
-	.string "una gruta de CIUDAD ORQUÍDEA.\p"
-	.string "Guardas el FRAGMENTO DEL ATLAS\n"
-	.string "entre los archivos del POKéGEAR.$"
-
 CherryGroveCity_EventScript_TriggerGent_Top::
 	lock
 	setflag FLAG_VISITED_CHERRYGROVE_CITY

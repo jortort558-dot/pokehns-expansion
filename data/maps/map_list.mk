@@ -255,10 +255,12 @@ MAP_JSONS := \
   data/maps/CherrygroveCity_House1_hns/map.json \
   data/maps/CherrygroveCity_House2_hns/map.json \
   data/maps/CherrygroveCity_House3_hns/map.json \
+  data/maps/CherrygroveCity_CartographersHouse_hns/map.json \
   data/maps/CherrygroveCity_Mart_hns/map.json \
   data/maps/CherrygroveCity_PokemonCenter_hns/map.json \
   data/maps/CherrygroveCity_hns/map.json \
   data/maps/CianwoodCity_hns/map.json \
+  data/maps/CianwoodThreeTidesCave_hns/map.json \
   data/maps/CianwoodGym_hns/map.json \
   data/maps/CianwoodHouse1_hns/map.json \
   data/maps/CianwoodHouse2_hns/map.json \
