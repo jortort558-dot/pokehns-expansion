@@ -27,6 +27,8 @@ CianwoodThreeTidesBrio_EventScript_Center::
 	goto_if_ne CianwoodThreeTidesBrio_EventScript_Fail
 	setflag FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE
 	setvar VAR_CIANWOOD_CAVE_PUZZLE, 0
+	clearflag FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE
+	addobject LOCALID_THREE_TIDES_SECRET_SAGE
 	msgbox CianwoodThreeTidesBrio_Text_Complete, MSGBOX_DEFAULT
 	release
 	end

@@ -225,7 +225,30 @@ CianwoodCity_EventScript_EcoSolved::
 	end
 
 CianwoodCity_EventScript_BrioSolved::
+	goto_if_set FLAG_CIANWOOD_BRIO_DEFEATED, CianwoodCity_EventScript_BrioDefeated
+	msgbox CianwoodCity_Text_BrioChallenge, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CianwoodCity_EventScript_BrioChallengeDeclined
+	trainerbattle_single TRAINER_BRIO_HNS, CianwoodCity_Text_BrioBattleIntro, CianwoodCity_Text_BrioBattleDefeat, CianwoodCity_EventScript_BrioBattleWon
+	release
+	end
+
+CianwoodCity_EventScript_BrioBattleWon::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	msgbox CianwoodCity_Text_BrioBattleReward, MSGBOX_DEFAULT
+	giveitem ITEM_BLACK_BELT
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_CIANWOOD_BRIO_DEFEATED
+	release
+	end
+
+CianwoodCity_EventScript_BrioChallengeDeclined::
 	msgbox CianwoodCity_Text_BrioSolved, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_BrioDefeated::
+	msgbox CianwoodCity_Text_BrioDefeated, MSGBOX_DEFAULT
 	release
 	end
 
@@ -294,6 +317,25 @@ CianwoodCity_Text_ThreeTidesCaveClosed:
 	.string "Tres surcos cortan la roca.\p"
 	.string "Las corrientes no golpean al mismo\n"
 	.string "tiempo.$"
+
+CianwoodCity_Text_BrioChallenge:
+	.string "BRÍO: La gruta te reconoce, pero\n"
+	.string "yo aún no he medido tu fuerza.\p"
+	.string "¿Quieres combatir conmigo?$"
+
+CianwoodCity_Text_BrioBattleIntro:
+	.string "¡Sin miedo! ¡Que hable tu equipo!$"
+
+CianwoodCity_Text_BrioBattleDefeat:
+	.string "Tu fuerza sabe dónde golpear.$"
+
+CianwoodCity_Text_BrioBattleReward:
+	.string "BRÍO: Has vencido con cabeza.\p"
+	.string "Este CINTURÓN NEGRO es tuyo.$"
+
+CianwoodCity_Text_BrioDefeated:
+	.string "BRÍO: Ya conozco tu fuerza.\n"
+	.string "Ahora escucha al GRAN SABIO.$"
 
 CianwoodCity_Text_ThreeTidesCaveOpen:
 	.string "La GRUTA DE LAS TRES MAREAS está\n"

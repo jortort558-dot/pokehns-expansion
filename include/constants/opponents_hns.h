@@ -691,8 +691,9 @@
 #define TRAINER_AVATAR_ALMAS_HNS               667
 #define TRAINER_AVATAR_ORIGEN_HNS              668
 #define TRAINER_LOS_PAPIS_HNS                  669
+#define TRAINER_BRIO_HNS                       670
 
-#define TRAINERS_COUNT_HNS                       670
+#define TRAINERS_COUNT_HNS                       671
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

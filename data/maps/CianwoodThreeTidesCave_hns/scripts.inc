@@ -3,7 +3,7 @@ CianwoodThreeTidesCave_hns_MapScripts::
 	.byte 0
 
 CianwoodThreeTidesCave_EventScript_UpdateSage::
-	goto_if_unset FLAG_CIANWOOD_THREE_TIDES_REWARD, CianwoodThreeTidesCave_EventScript_HideSage
+	goto_if_unset FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesCave_EventScript_HideSage
 	goto_if_set FLAG_JOHTO_SECRET_SAGE_MET, CianwoodThreeTidesCave_EventScript_HideSage
 	clearflag FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE
 	end

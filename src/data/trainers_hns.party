@@ -16917,3 +16917,42 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Crunch
 - Earthquake
 
+=== TRAINER_BRIO_HNS ===
+Name: BRIO
+Class: Black Belt Hns
+Pic: Black Belt
+Gender: Male
+Music: Rg Gym Leader
+Double Battle: No
+AI: Smart Trainer / Prediction
+Items: Hyper Potion
+
+Primeape @ Eviolite
+Ability: Defiant
+Level: 34
+Nature: Jolly
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Brick Break
+- Rock Slide
+- U-turn
+- Bulk Up
+
+Poliwrath @ Sitrus Berry
+Ability: Water Absorb
+Level: 34
+Nature: Adamant
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Drain Punch
+- Waterfall
+- Ice Punch
+- Hypnosis
+
+Heracross @ Muscle Band
+Ability: Guts
+Level: 35
+Nature: Adamant
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Brick Break
+- Aerial Ace
+- Rock Tomb
+- Swords Dance
