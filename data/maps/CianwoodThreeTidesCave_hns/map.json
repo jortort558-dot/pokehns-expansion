@@ -164,7 +164,7 @@
     {
       "type": "trigger",
       "x": 4,
-      "y": 7,
+      "y": 6,
       "elevation": 3,
       "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
@@ -183,7 +183,7 @@
     {
       "type": "sign",
       "x": 23,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CianwoodThreeTidesCalm_EventScript_Back"
@@ -199,7 +199,7 @@
     {
       "type": "sign",
       "x": 4,
-      "y": 26,
+      "y": 25,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CianwoodThreeTidesEcho_EventScript_Back"
@@ -215,7 +215,7 @@
     {
       "type": "sign",
       "x": 23,
-      "y": 26,
+      "y": 25,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CianwoodThreeTidesBrio_EventScript_Back"
