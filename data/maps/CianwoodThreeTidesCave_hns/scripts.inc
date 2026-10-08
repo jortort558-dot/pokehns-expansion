@@ -23,11 +23,8 @@ CianwoodThreeTidesCave_EventScript_SecretSage::
 	release
 	end
 
-CianwoodThreeTidesCave_EventScript_Exit::
-	msgbox CianwoodThreeTidesCave_Text_Exit, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, CianwoodThreeTidesCave_EventScript_Cancel
-	closemessage
-	warp MAP_CIANWOOD_CITY_HNS, 16, 13
+CianwoodThreeTidesCave_EventScript_ExitAutomatic::
+	warp MAP_CIANWOOD_CITY_HNS, 17, 14
 	waitstate
 	end
 
@@ -40,7 +37,7 @@ CianwoodThreeTidesCave_EventScript_TrialGate::
 	goto_if_set FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesCave_EventScript_Reward
 	msgbox CianwoodThreeTidesCave_Text_TrialGate, MSGBOX_DEFAULT
 	closemessage
-	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 14, 5
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 23, 5
 	waitstate
 	end
 

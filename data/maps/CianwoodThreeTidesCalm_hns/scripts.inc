@@ -53,8 +53,12 @@ CianwoodThreeTidesCalm_EventScript_Back::
 
 CianwoodThreeTidesCalm_EventScript_Next::
 	goto_if_unset FLAG_CIANWOOD_CALM_TRIAL_COMPLETE, CianwoodThreeTidesCalm_EventScript_Closed
-	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 4, 13
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 4, 24
 	waitstate
+	end
+
+CianwoodThreeTidesCalm_EventScript_Hint::
+	msgbox CianwoodThreeTidesCalm_Text_Hint, MSGBOX_SIGN
 	end
 
 CianwoodThreeTidesCalm_EventScript_Closed::
@@ -63,6 +67,8 @@ CianwoodThreeTidesCalm_EventScript_Closed::
 
 CianwoodThreeTidesCalm_Text_First:
 	.string "La corriente izquierda se aquieta.$"
+CianwoodThreeTidesCalm_Text_Hint:
+	.string "PRUEBA DE LA CALMA\pActiva las corrientes de izquierda\na derecha.$"
 CianwoodThreeTidesCalm_Text_Second:
 	.string "La corriente central te imita.$"
 CianwoodThreeTidesCalm_Text_Complete:

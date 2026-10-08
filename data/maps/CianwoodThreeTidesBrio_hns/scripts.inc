@@ -40,8 +40,11 @@ CianwoodThreeTidesBrio_EventScript_Solved::
 	release
 	end
 CianwoodThreeTidesBrio_EventScript_Back::
-	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 4, 13
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 4, 24
 	waitstate
+	end
+CianwoodThreeTidesBrio_EventScript_Hint::
+	msgbox CianwoodThreeTidesBrio_Text_Hint, MSGBOX_SIGN
 	end
 CianwoodThreeTidesBrio_EventScript_Finish::
 	goto_if_unset FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesBrio_EventScript_Closed
@@ -53,6 +56,8 @@ CianwoodThreeTidesBrio_EventScript_Closed:
 	end
 CianwoodThreeTidesBrio_Text_Hit:
 	.string "La roca cede con un golpe seco.$"
+CianwoodThreeTidesBrio_Text_Hint:
+	.string "PRUEBA DEL BRIO\pDerecha, izquierda y centro.\nReserva el centro para el final.$"
 CianwoodThreeTidesBrio_Text_Complete:
 	.string "La roca central retumba.\pEl símbolo de BRÍO se enciende y\nlas tres pruebas quedan completas.$"
 CianwoodThreeTidesBrio_Text_Fail:

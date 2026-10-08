@@ -40,19 +40,24 @@ CianwoodThreeTidesEcho_EventScript_Solved::
 	release
 	end
 CianwoodThreeTidesEcho_EventScript_Back::
-	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 14, 5
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 23, 5
 	waitstate
 	end
 CianwoodThreeTidesEcho_EventScript_Next::
 	goto_if_unset FLAG_CIANWOOD_ECHO_TRIAL_COMPLETE, CianwoodThreeTidesEcho_EventScript_Closed
-	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 14, 13
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 23, 24
 	waitstate
+	end
+CianwoodThreeTidesEcho_EventScript_Hint::
+	msgbox CianwoodThreeTidesEcho_Text_Hint, MSGBOX_SIGN
 	end
 CianwoodThreeTidesEcho_EventScript_Closed:
 	msgbox CianwoodThreeTidesEcho_Text_Closed, MSGBOX_SIGN
 	end
 CianwoodThreeTidesEcho_Text_Note:
 	.string "La piedra devuelve un eco grave.$"
+CianwoodThreeTidesEcho_Text_Hint:
+	.string "PRUEBA DEL ECO\pCentro, derecha e izquierda.\nEse es el orden de las voces.$"
 CianwoodThreeTidesEcho_Text_Complete:
 	.string "Centro, derecha, izquierda.\pEl eco repite la secuencia y el\nsegundo símbolo se enciende.$"
 CianwoodThreeTidesEcho_Text_Fail:
