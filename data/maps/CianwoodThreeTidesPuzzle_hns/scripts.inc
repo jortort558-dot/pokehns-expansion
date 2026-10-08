@@ -110,24 +110,38 @@ CianwoodThreeTidesPuzzle_EventScript_Sage::
 	end
 
 CianwoodThreeTidesPuzzle_Text_Signboard:
-	.string "SANTUARIO DE LAS TRES MAREAS\p"
-	.string "Tres monolitos esperan su lecho.\n"
-	.string "Empuja las piedras sagradas hasta\l"
-	.string "las tres hendiduras del norte.$"
+	.string "INSCRIPCIÓN DE LAS TRES MAREAS\p"
+	.string "“Tres monolitos, tres destinos.\n"
+	.string "Escucha el rumor de la caverna:\p"
+	.string "Arriba, en el extremo norte,\n"
+	.string "reposa la CALMA en su lecho.\p"
+	.string "En el centro de la roca aguarda\n"
+	.string "el ECO que responde al paso.\p"
+	.string "Y abajo a la derecha, en el rincón\n"
+	.string "sureste, ruge el fiero BRÍO.\p"
+	.string "Guía cada peso a su vacío\n"
+	.string "y el guardián romperá su velo.”$"
 
 CianwoodThreeTidesPuzzle_Text_CalmSet:
 	.string "¡El monolito encaja en la hendidura\n"
-	.string "de la CALMA! La marea se aquieta.$"
+	.string "de la CALMA!\p"
+	.string "Una voz susurra entre la bruma:\n"
+	.string "“Has elegido... sabiamente.”$"
 
 CianwoodThreeTidesPuzzle_Text_EchoSet:
 	.string "¡El monolito encaja en la hendidura\n"
-	.string "del ECO! La caverna resuena.$"
+	.string "del ECO!\p"
+	.string "La caverna retumba solemnemente:\n"
+	.string "“Has elegido... sabiamente.”$"
 
 CianwoodThreeTidesPuzzle_Text_BrioSet:
 	.string "¡El monolito encaja en la hendidura\n"
-	.string "del BRÍO! La corriente ruge.$"
+	.string "del BRÍO!\p"
+	.string "El agua bravía calma su corriente:\n"
+	.string "“Has elegido... sabiamente.”$"
 
 CianwoodThreeTidesPuzzle_Text_PuzzleSolved:
-	.string "¡Las tres corrientes se han unido!\p"
+	.string "¡Las tres corrientes han hallado\n"
+	.string "su armonía ancestral!\p"
 	.string "La niebla de la caverna se disipa\n"
 	.string "y un anciano sabio aparece.$"
