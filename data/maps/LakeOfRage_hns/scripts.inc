@@ -6,6 +6,7 @@ LakeOfRage_OnTransition::
 	setflag FLAG_VISITED_LAKE_OF_RAGE
 	call LakeOfRage_EventScript_SetupSilver
 	call LakeOfRage_EventScript_SetupElPiedras
+	call LakeOfRage_EventScript_SetupStormAvatar
 	call_if_lt VAR_MAHOGANY_TOWN_STATE, 2, LakeOfRage_EventScript_HideLois
 	goto_if_lt VAR_MAHOGANY_TOWN_STATE, 14, LakeOfRage_EventScript_SetHighTide
 	special UpdateShoalTideFlag
@@ -52,6 +53,43 @@ LakeOfRage_EventScript_SetupElPiedras::
 LakeOfRage_EventScript_HideElPiedras::
 	setflag FLAG_HIDE_LAKE_OF_RAGE_EL_PIEDRAS
 	return
+
+LakeOfRage_EventScript_SetupStormAvatar::
+	goto_if_unset FLAG_JOHTO_AVATAR_TIDE_DEFEATED, LakeOfRage_EventScript_HideStormAvatar
+	goto_if_set FLAG_JOHTO_AVATAR_STORM_DEFEATED, LakeOfRage_EventScript_HideStormAvatar
+	clearflag FLAG_HIDE_JOHTO_AVATAR_STORM
+	return
+
+LakeOfRage_EventScript_HideStormAvatar::
+	setflag FLAG_HIDE_JOHTO_AVATAR_STORM
+	return
+
+LakeOfRage_EventScript_StormAvatar::
+	lock
+	faceplayer
+	msgbox LakeOfRage_Text_StormAvatarIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_AVATAR_TORMENTA_HNS, LakeOfRage_Text_StormAvatarDefeat
+	setflag FLAG_JOHTO_AVATAR_STORM_DEFEATED
+	setflag FLAG_HIDE_JOHTO_AVATAR_STORM
+	msgbox LakeOfRage_Text_StormAvatarAfter, MSGBOX_DEFAULT
+	removeobject LOCALID_LAKEOFRAGE_STORM_AVATAR
+	release
+	end
+
+LakeOfRage_Text_StormAvatarIntro:
+	.string "La furia de estas aguas nació\n"
+	.string "de una tormenta olvidada.\p"
+	.string "Si el SABIO te envía aquí,\n"
+	.string "demuestra si dominas el trueno.$"
+
+LakeOfRage_Text_StormAvatarDefeat:
+	.string "El relámpago se extingue...$"
+
+LakeOfRage_Text_StormAvatarAfter:
+	.string "Has aplacado al AVATAR DE LA\n"
+	.string "TORMENTA.\p"
+	.string "Vuelve con el SABIO en ORQUÍDEA\n"
+	.string "para que guíe tus pasos.$"
 
 LakeOfRage_EventScript_Pryce::
     lock

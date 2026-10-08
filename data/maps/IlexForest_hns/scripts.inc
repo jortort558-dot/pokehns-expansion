@@ -6,6 +6,7 @@ IlexForest_hns_MapScripts::
 IlexForest_OnTransition: 
 	call_if_eq VAR_ILEX_FOREST_FARFETCHD, 1, IlexForest_EventScript_ReenterWhenFarfetchdLeaving
 	call_if_eq VAR_ILEX_FOREST_FARFETCHD, 2, IlexForest_EventScript_ReenterDuringCutScene
+	call IlexForest_EventScript_SetupForestAvatar
 	callnative SetTimeBasedEncounters
 	end	
 
@@ -216,6 +217,43 @@ IlexForest_EventScript_BugcatcherWayne::
 	trainerbattle_single TRAINER_WAYNE_HNS, IlexForest_Text_BugCatcherWayneSeen, IlexForest_Text_BugCatcherWayneBeaten
 	msgbox IlexForest_Text_BugCatcherWayneAfter, MSGBOX_AUTOCLOSE
 	end
+
+IlexForest_EventScript_SetupForestAvatar::
+	goto_if_unset FLAG_JOHTO_AVATAR_STORM_DEFEATED, IlexForest_EventScript_HideForestAvatar
+	goto_if_set FLAG_JOHTO_AVATAR_FOREST_DEFEATED, IlexForest_EventScript_HideForestAvatar
+	clearflag FLAG_HIDE_JOHTO_AVATAR_FOREST
+	return
+
+IlexForest_EventScript_HideForestAvatar::
+	setflag FLAG_HIDE_JOHTO_AVATAR_FOREST
+	return
+
+IlexForest_EventScript_ForestAvatar::
+	lock
+	faceplayer
+	msgbox IlexForest_Text_ForestAvatarIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_AVATAR_BOSQUE_HNS, IlexForest_Text_ForestAvatarDefeat
+	setflag FLAG_JOHTO_AVATAR_FOREST_DEFEATED
+	setflag FLAG_HIDE_JOHTO_AVATAR_FOREST
+	msgbox IlexForest_Text_ForestAvatarAfter, MSGBOX_DEFAULT
+	removeobject LOCALID_ILEX_FOREST_FOREST_AVATAR
+	release
+	end
+
+IlexForest_Text_ForestAvatarIntro:
+	.string "Los árboles centenarios recuerdan\n"
+	.string "el paso del tiempo.\p"
+	.string "Has calmado el mar y el trueno,\n"
+	.string "pero ¿florece en ti la paciencia?$"
+
+IlexForest_Text_ForestAvatarDefeat:
+	.string "El bosque susurra tu victoria...$"
+
+IlexForest_Text_ForestAvatarAfter:
+	.string "Has superado la prueba del\n"
+	.string "AVATAR DEL BOSQUE.\p"
+	.string "El SABIO aguarda tus noticias\n"
+	.string "en la costa de ORQUÍDEA.$"
 
 IlexForest_EventScript_Shrine::
 	lock

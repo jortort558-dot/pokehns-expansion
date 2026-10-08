@@ -684,8 +684,11 @@
 #define TRAINER_BAR_GUARD2_HNS                660
 #define TRAINER_JUANRA_HNS                    661
 #define TRAINER_AVATAR_MAREA_HNS              662
+#define TRAINER_AVATAR_TORMENTA_HNS            663
+#define TRAINER_AVATAR_BOSQUE_HNS              664
+#define TRAINER_AVATAR_DRAGON_HNS              665
 
-#define TRAINERS_COUNT_HNS                       663
+#define TRAINERS_COUNT_HNS                       666
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

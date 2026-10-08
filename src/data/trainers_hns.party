@@ -16476,3 +16476,184 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Aqua Tail
 - Extreme Speed
 - Thunder Wave
+
+=== TRAINER_AVATAR_TORMENTA_HNS ===
+Name: AVATAR
+Class: Sage Hns
+Pic: Sage Leader Hns
+Gender: Male
+Music: Hg Sage
+Double Battle: No
+AI: Smart Trainer / Prediction
+Items: Hyper Potion
+
+Raichu @ Focus Sash
+Ability: Lightning Rod
+Level: 41
+Nature: Timid
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Thunderbolt
+- Volt Switch
+- Focus Blast
+- Nasty Plot
+
+Electivire @ Expert Belt
+Ability: Motor Drive
+Level: 42
+Nature: Jolly
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Wild Charge
+- Ice Punch
+- Cross Chop
+- Earthquake
+
+Magnezone @ Leftovers
+Ability: Magnet Pull
+Level: 42
+Nature: Modest
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Thunderbolt
+- Flash Cannon
+- Volt Switch
+- Substitute
+
+Gyarados @ Sitrus Berry
+Ability: Intimidate
+Level: 43
+Nature: Adamant
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dragon Dance
+- Waterfall
+- Bounce
+- Earthquake
+
+Ampharos @ Ampharosite
+Ability: Static
+Level: 43
+Nature: Modest
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Thunderbolt
+- Dragon Pulse
+- Focus Blast
+- Agility
+
+=== TRAINER_AVATAR_BOSQUE_HNS ===
+Name: AVATAR
+Class: Sage Hns
+Pic: Sage Leader Hns
+Gender: Male
+Music: Hg Sage
+Double Battle: No
+AI: Smart Trainer / Prediction
+Items: Hyper Potion
+
+Roserade @ Focus Sash
+Ability: Natural Cure
+Level: 43
+Nature: Timid
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Giga Drain
+- Sludge Bomb
+- Toxic Spikes
+- Sleep Powder
+
+Breloom @ Toxic Orb
+Ability: Poison Heal
+Level: 43
+Nature: Jolly
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Spore
+- Bullet Seed
+- Drain Punch
+- Swords Dance
+
+Trevenant @ Sitrus Berry
+Ability: Harvest
+Level: 44
+Nature: Careful
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Horn Leech
+- Will-O-Wisp
+- Leech Seed
+- Shadow Claw
+
+Tangrowth @ Assault Vest
+Ability: Regenerator
+Level: 44
+Nature: Relaxed
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Giga Drain
+- Knock Off
+- Earthquake
+- Ancient Power
+
+Venusaur @ Venusaurite
+Ability: Overgrow
+Level: 45
+Nature: Modest
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Giga Drain
+- Sludge Bomb
+- Earth Power
+- Synthesis
+
+=== TRAINER_AVATAR_DRAGON_HNS ===
+Name: AVATAR
+Class: Sage Hns
+Pic: Sage Leader Hns
+Gender: Male
+Music: Hg Sage
+Double Battle: No
+AI: Smart Trainer / Prediction
+Items: Full Restore
+
+Flygon @ Choice Scarf
+Ability: Levitate
+Level: 46
+Nature: Jolly
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Outrage
+- Earthquake
+- U-turn
+- Stone Edge
+
+Altaria @ Leftovers
+Ability: Natural Cure
+Level: 46
+Nature: Calm
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dragon Pulse
+- Roost
+- Cotton Guard
+- Toxic
+
+Kingdra @ Scope Lens
+Ability: Sniper
+Level: 47
+Nature: Modest
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Focus Energy
+- Draco Meteor
+- Hydro Pump
+- Ice Beam
+
+Haxorus @ Lum Berry
+Ability: Mold Breaker
+Level: 47
+Nature: Adamant
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dragon Dance
+- Outrage
+- Earthquake
+- Poison Jab
+
+Dragonite @ Weakness Policy
+Ability: Multiscale
+Level: 48
+Nature: Adamant
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dragon Dance
+- Dragon Claw
+- Extreme Speed
+- Fire Punch
+

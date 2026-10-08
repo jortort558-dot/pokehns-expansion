@@ -32,6 +32,9 @@ CianwoodCity_EventScript_HideSecretSage::
 CianwoodCity_EventScript_SecretSage::
 	lock
 	faceplayer
+	goto_if_set FLAG_JOHTO_AVATAR_DRAGON_DEFEATED, CianwoodCity_EventScript_SecretSageAfterDragon
+	goto_if_set FLAG_JOHTO_AVATAR_FOREST_DEFEATED, CianwoodCity_EventScript_SecretSageAfterForest
+	goto_if_set FLAG_JOHTO_AVATAR_STORM_DEFEATED, CianwoodCity_EventScript_SecretSageAfterStorm
 	goto_if_set FLAG_JOHTO_AVATAR_TIDE_DEFEATED, CianwoodCity_EventScript_SecretSageAfterTide
 	msgbox CianwoodCity_Text_SecretSageTide, MSGBOX_DEFAULT
 	release
@@ -39,6 +42,21 @@ CianwoodCity_EventScript_SecretSage::
 
 CianwoodCity_EventScript_SecretSageAfterTide::
 	msgbox CianwoodCity_Text_SecretSageAfterTide, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_SecretSageAfterStorm::
+	msgbox CianwoodCity_Text_SecretSageAfterStorm, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_SecretSageAfterForest::
+	msgbox CianwoodCity_Text_SecretSageAfterForest, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_SecretSageAfterDragon::
+	msgbox CianwoodCity_Text_SecretSageAfterDragon, MSGBOX_DEFAULT
 	release
 	end
 
@@ -50,8 +68,27 @@ CianwoodCity_Text_SecretSageTide:
 
 CianwoodCity_Text_SecretSageAfterTide:
 	.string "La MAREA te ha reconocido.\p"
-	.string "La siguiente voz despertará donde\n"
-	.string "la rabia tiña de rojo las aguas.$"
+	.string "La siguiente voz despierta en el\n"
+	.string "LAGO DE LA FURIA, junto a la cabaña\l"
+	.string "donde rugen los truenos.$"
+
+CianwoodCity_Text_SecretSageAfterStorm:
+	.string "Has aplacado la TORMENTA.\p"
+	.string "El tercer avatar vela el santuario\n"
+	.string "del ENCINAR, donde las hojas no caen.$"
+
+CianwoodCity_Text_SecretSageAfterForest:
+	.string "El BOSQUE te ha abierto el paso.\p"
+	.string "La cuarta prueba descansa en la\n"
+	.string "GUARIDA DRAGÓN de ENDRINO.\l"
+	.string "Enfrenta al DRAGÓN PRIMIGENIO.$"
+
+CianwoodCity_Text_SecretSageAfterDragon:
+	.string "Has doblegado las cuatro voces\n"
+	.string "ancestrales de nuestra ruta.\p"
+	.string "Los fragmentos del ATLAS brillan.\n"
+	.string "Pronto, los antiguos mecenas\l"
+	.string "reclamarán lo que creen suyo...$"
 
 CianwoodCity_EventScript_InitializeSuicune::
 	goto_if_ge VAR_SUICUNE_ENCOUNTERS, 2, CianwoodCity_EventScript_InitializeNothing

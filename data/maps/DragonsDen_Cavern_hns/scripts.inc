@@ -1,6 +1,11 @@
 DragonsDen_Cavern_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, DragonsDen_Cavern_OnTransition
 	@map_script MAP_SCRIPT_ON_FRAME_TABLE, DragonsDen_Cavern_OnFrame
 	.byte 0
+
+DragonsDen_Cavern_OnTransition::
+	call DragonsDen_Cavern_EventScript_SetupDragonAvatar
+	end
 
 DragonsDen_Cavern_OnFrame::
 	map_script_2 VAR_BLACKTHORN_CITY_STATE, 3, DragonsDen_Cavern_EventScript_Clair
@@ -270,3 +275,41 @@ DragonsDen_Cavern_Text_TwinsLeaandPia2Beaten:
 DragonsDen_Cavern_Text_TwinsLeaandPia2After:
 	.string "Se lo contaremos al MAESTRO.\p"
 	.string "Se enfadará contigo.$"
+
+DragonsDen_Cavern_EventScript_SetupDragonAvatar::
+	goto_if_unset FLAG_JOHTO_AVATAR_FOREST_DEFEATED, DragonsDen_Cavern_EventScript_HideDragonAvatar
+	goto_if_set FLAG_JOHTO_AVATAR_DRAGON_DEFEATED, DragonsDen_Cavern_EventScript_HideDragonAvatar
+	clearflag FLAG_HIDE_JOHTO_AVATAR_DRAGON
+	return
+
+DragonsDen_Cavern_EventScript_HideDragonAvatar::
+	setflag FLAG_HIDE_JOHTO_AVATAR_DRAGON
+	return
+
+DragonsDen_Cavern_EventScript_DragonAvatar::
+	lock
+	faceplayer
+	msgbox DragonsDen_Cavern_Text_DragonAvatarIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_AVATAR_DRAGON_HNS, DragonsDen_Cavern_Text_DragonAvatarDefeat
+	setflag FLAG_JOHTO_AVATAR_DRAGON_DEFEATED
+	setflag FLAG_HIDE_JOHTO_AVATAR_DRAGON
+	msgbox DragonsDen_Cavern_Text_DragonAvatarAfter, MSGBOX_DEFAULT
+	removeobject LOCALID_DRAGONSDEN_DRAGON_AVATAR
+	release
+	end
+
+DragonsDen_Cavern_Text_DragonAvatarIntro:
+	.string "El rugido de los dragones primigenios\n"
+	.string "aún resuena en estas cavernas.\p"
+	.string "El ATLAS te ha guiado hasta aquí.\n"
+	.string "¡Muestra si tu espíritu es digno!$"
+
+DragonsDen_Cavern_Text_DragonAvatarDefeat:
+	.string "Tu temple supera al del dragón...$"
+
+DragonsDen_Cavern_Text_DragonAvatarAfter:
+	.string "Has vencido al AVATAR DEL DRAGÓN\n"
+	.string "PRIMIGENIO.\p"
+	.string "El GRAN SABIO de ORQUÍDEA\n"
+	.string "reconocerá tu gran hazaña.$"
+
