@@ -47,13 +47,13 @@ CianwoodThreeTidesCalm_EventScript_Solved::
 	end
 
 CianwoodThreeTidesCalm_EventScript_Back::
-	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 3, 4
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 4, 5
 	waitstate
 	end
 
 CianwoodThreeTidesCalm_EventScript_Next::
 	goto_if_unset FLAG_CIANWOOD_CALM_TRIAL_COMPLETE, CianwoodThreeTidesCalm_EventScript_Closed
-	warp MAP_CIANWOOD_THREE_TIDES_ECHO_HNS, 3, 4
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 4, 13
 	waitstate
 	end
 

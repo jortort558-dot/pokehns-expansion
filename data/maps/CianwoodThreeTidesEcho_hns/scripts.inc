@@ -40,12 +40,12 @@ CianwoodThreeTidesEcho_EventScript_Solved::
 	release
 	end
 CianwoodThreeTidesEcho_EventScript_Back::
-	warp MAP_CIANWOOD_THREE_TIDES_CALM_HNS, 3, 4
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 14, 5
 	waitstate
 	end
 CianwoodThreeTidesEcho_EventScript_Next::
 	goto_if_unset FLAG_CIANWOOD_ECHO_TRIAL_COMPLETE, CianwoodThreeTidesEcho_EventScript_Closed
-	warp MAP_CIANWOOD_THREE_TIDES_BRIO_HNS, 3, 4
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 14, 13
 	waitstate
 	end
 CianwoodThreeTidesEcho_EventScript_Closed:

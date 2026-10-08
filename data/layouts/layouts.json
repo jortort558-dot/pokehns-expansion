@@ -10377,6 +10377,18 @@
       "layout_version": "hns"
     },
     {
+      "id": "LAYOUT_CIANWOOD_THREE_TIDES_CAVE_HNS",
+      "name": "CianwoodThreeTidesCave_hns_Layout",
+      "width": 22,
+      "height": 18,
+      "primary_tileset": "gTileset_Johto_General_Hns",
+      "secondary_tileset": "gTileset_Cave_Sandy_Hns",
+      "border_filepath": "data/layouts/CianwoodThreeTidesCave_hns/border.bin",
+      "blockdata_filepath": "data/layouts/CianwoodThreeTidesCave_hns/map.bin",
+      "game_version": "hns",
+      "layout_version": "hns"
+    },
+    {
       "id": "LAYOUT_DIGLETTS_CAVE_ENTRANCE_SOUTH_HNS",
       "name": "DiglettsCave_EntranceSouth_hns_Layout",
       "width": 10,

@@ -27,8 +27,9 @@ CherrygroveCity_Text_CartographerCaretakerLocked:
 	.string "Esta era la casa de NEREO.\p"
 	.string "Me pidió que no dejara pasar a\n"
 	.string "nadie sin conocer su última frase.\p"
-	.string "La respuesta debe de seguir donde\n"
-	.string "comenzó su investigación.$"
+	.string "Decía que el viento movía un seto\n"
+	.string "tras el LABORATORIO de PRIMAVERA.\p"
+	.string "Nunca entendí a qué se refería.$"
 
 CherrygroveCity_Text_CartographerCaretakerPassword:
 	.string "¿El viento recuerda la sal...?\p"

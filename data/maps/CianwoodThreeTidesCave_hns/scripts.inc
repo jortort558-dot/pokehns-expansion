@@ -18,7 +18,7 @@ CianwoodThreeTidesCave_EventScript_TrialGate::
 	goto_if_set FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesCave_EventScript_Reward
 	msgbox CianwoodThreeTidesCave_Text_TrialGate, MSGBOX_DEFAULT
 	closemessage
-	warp MAP_CIANWOOD_THREE_TIDES_CALM_HNS, 3, 4
+	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 14, 5
 	waitstate
 	end
 
