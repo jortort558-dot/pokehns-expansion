@@ -2096,6 +2096,9 @@ static u16 RollCompatibleTrainerItem(u16 species, enum TrainerPowerTier tier, u8
     u32 safeChance = 0;
     u8 itemMode = gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerItems;
 
+    if (tier == TRAINER_TIER_REGULAR)
+        return ITEM_NONE;
+
     if (itemMode == TRAINER_ITEMS_NONE)
         return ITEM_NONE;
     if (itemMode == TRAINER_ITEMS_BERRIES)
@@ -2108,12 +2111,6 @@ static u16 RollCompatibleTrainerItem(u16 species, enum TrainerPowerTier tier, u8
         switch (tier)
         {
         case TRAINER_TIER_REGULAR:
-            if (block == BLOCK_MID)
-                berryChance = 20;
-            else if (block == BLOCK_LATE_JOHTO)
-                berryChance = 30;
-            else if (block > BLOCK_LATE_JOHTO)
-                safeChance = 50;
             break;
         case TRAINER_TIER_ACE:
             if (block <= BLOCK_EARLY)
