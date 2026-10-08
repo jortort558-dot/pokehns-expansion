@@ -271,6 +271,8 @@ NewBarkTown_Text_SecretGardenDiary:
 	.string "Es el diario de un investigador.\p"
 	.string "'NEREO ha ocultado el primer mapa\n"
 	.string "en su casa de CIUDAD CEREZO.\p"
+	.string "La nota termina con una frase:\n"
+	.string "'El viento recuerda la sal'.\p"
 	.string "Si la sal aún conserva sus líneas,\n"
 	.string "la ruta llevará hasta ORQUÍDEA'.\p"
 	.string "Las últimas páginas están\n"

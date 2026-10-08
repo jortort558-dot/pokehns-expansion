@@ -7,6 +7,35 @@ CherryGroveCity_OnTransition::
 	callnative SetTimeBasedEncounters
 	end
 
+CherrygroveCity_EventScript_CartographerCaretaker::
+	lock
+	faceplayer
+	goto_if_set FLAG_NEW_BARK_SECRET_DIARY_READ, CherrygroveCity_EventScript_CartographerCaretakerPassword
+	msgbox CherrygroveCity_Text_CartographerCaretakerLocked, MSGBOX_DEFAULT
+	release
+	end
+
+CherrygroveCity_EventScript_CartographerCaretakerPassword::
+	msgbox CherrygroveCity_Text_CartographerCaretakerPassword, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_CHERRYGROVE_CARETAKER
+	removeobject LOCALID_CHERRYGROVE_CARETAKER
+	release
+	end
+
+CherrygroveCity_Text_CartographerCaretakerLocked:
+	.string "Esta era la casa de NEREO.\p"
+	.string "Me pidió que no dejara pasar a\n"
+	.string "nadie sin conocer su última frase.\p"
+	.string "La respuesta debe de seguir donde\n"
+	.string "comenzó su investigación.$"
+
+CherrygroveCity_Text_CartographerCaretakerPassword:
+	.string "¿El viento recuerda la sal...?\p"
+	.string "Entonces encontraste su diario en\n"
+	.string "PUEBLO PRIMAVERA.\p"
+	.string "Cumpliré mi promesa. Puedes pasar.$"
+
 CherryGroveCity_EventScript_TriggerGent_Top::
 	lock
 	setflag FLAG_VISITED_CHERRYGROVE_CITY
