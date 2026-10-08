@@ -261,7 +261,7 @@ CianwoodCity_EventScript_ThreeTidesCaveOpen::
 	msgbox CianwoodCity_Text_ThreeTidesCaveOpen, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CianwoodCity_EventScript_ThreeTidesCaveCancel
 	closemessage
-	warp MAP_CIANWOOD_THREE_TIDES_CAVE_HNS, 4, 5
+	warp MAP_CIANWOOD_THREE_TIDES_PUZZLE_HNS, 14, 27
 	waitstate
 	end
 

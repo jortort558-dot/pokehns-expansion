@@ -2022,6 +2022,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/CianwoodShop_hns/scripts.inc"
 	.include "data/maps/CianwoodGym_hns/scripts.inc"
 	.include "data/maps/CianwoodThreeTidesCave_hns/scripts.inc"
+	.include "data/maps/CianwoodThreeTidesPuzzle_hns/scripts.inc"
 	.include "data/maps/CianwoodThreeTidesCalm_hns/scripts.inc"
 	.include "data/maps/CianwoodThreeTidesEcho_hns/scripts.inc"
 	.include "data/maps/CianwoodThreeTidesBrio_hns/scripts.inc"
