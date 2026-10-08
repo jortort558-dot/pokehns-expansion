@@ -1,6 +1,11 @@
 RuinsOfAlph_B1F_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, RuinsOfAlph_B1F_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, RuinsOfAlph_B1F_OnFrame
 	.byte 0
+
+RuinsOfAlph_B1F_OnTransition::
+	call RuinsOfAlph_B1F_EventScript_SetupAvatarVoces
+	end
 
 RuinsOfAlph_B1F_OnFrame::
 	map_script_2 VAR_RUINSOFALPH_STATE, 1, RuinsOfAlph_B1F_EventScript_Presence
@@ -68,3 +73,45 @@ RuinsOfAlph_B1F_Text_Gramps:
 	.string "Los edificios antiguos eran\n"
 	.string "a menudo tumbas de reyes.\p"
 	.string "Como las pirámides, por ejemplo.$"
+
+RuinsOfAlph_B1F_EventScript_SetupAvatarVoces::
+	goto_if_unset FLAG_JOHTO_AVATAR_DRAGON_DEFEATED, RuinsOfAlph_B1F_EventScript_HideAvatarVoces
+	goto_if_set FLAG_JOHTO_AVATAR_VOICES_DEFEATED, RuinsOfAlph_B1F_EventScript_HideAvatarVoces
+	clearflag FLAG_HIDE_JOHTO_AVATAR_VOICES
+	return
+
+RuinsOfAlph_B1F_EventScript_HideAvatarVoces::
+	setflag FLAG_HIDE_JOHTO_AVATAR_VOICES
+	return
+
+RuinsOfAlph_B1F_EventScript_AvatarVoces::
+	lock
+	faceplayer
+	msgbox RuinsOfAlph_B1F_Text_AvatarVocesIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_AVATAR_VOCES_HNS, RuinsOfAlph_B1F_Text_AvatarVocesDefeat
+	setflag FLAG_JOHTO_AVATAR_VOICES_DEFEATED
+	setflag FLAG_HIDE_JOHTO_AVATAR_VOICES
+	msgbox RuinsOfAlph_B1F_Text_AvatarVocesAfter, MSGBOX_DEFAULT
+	removeobject 16
+	release
+	end
+
+RuinsOfAlph_B1F_Text_AvatarVocesIntro:
+	.string "Entre los grabados de las paredes\n"
+	.string "susurran las mil voces del pasado.\p"
+	.string "Has descifrado los misterios y\n"
+	.string "caminas bajo la guía del ATLAS.\p"
+	.string "¡Muestra si tu mente resiste\n"
+	.string "el peso del saber arcano!$"
+
+RuinsOfAlph_B1F_Text_AvatarVocesDefeat:
+	.string "Las voces reconocen tu templanza...$"
+
+RuinsOfAlph_B1F_Text_AvatarVocesAfter:
+	.string "Has superado la prueba del\n"
+	.string "AVATAR DE LAS MIL VOCES.\p"
+	.string "La armonía de JOHTO se consolida.\n"
+	.string "Vuelve con el SABIO de ORQUÍDEA\l"
+	.string "para conocer tu próximo destino.$"
+
+

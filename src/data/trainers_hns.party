@@ -16657,3 +16657,263 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Extreme Speed
 - Fire Punch
 
+=== TRAINER_AVATAR_VOCES_HNS ===
+Name: AVATAR
+Class: Sage Hns
+Pic: Sage Leader Hns
+Gender: Male
+Music: Hg Sage
+Double Battle: No
+AI: Smart Trainer / Prediction
+Items: Full Restore
+
+Sigilyph @ Life Orb
+Ability: Magic Guard
+Level: 50
+Nature: Timid
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Psychic
+- Air Slash
+- Heat Wave
+- Roost
+
+Claydol @ Leftovers
+Ability: Levitate
+Level: 50
+Nature: Bold
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Earth Power
+- Ice Beam
+- Stealth Rock
+- Rapid Spin
+
+Bronzong @ Light Clay
+Ability: Levitate
+Level: 51
+Nature: Relaxed
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Gyro Ball
+- Reflect
+- Light Screen
+- Toxic
+
+Porygon-Z @ Choice Scarf
+Ability: Adaptability
+Level: 51
+Nature: Timid
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Tri Attack
+- Shadow Ball
+- Thunderbolt
+- Ice Beam
+
+Alakazam @ Focus Sash
+Ability: Magic Guard
+Level: 52
+Nature: Timid
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Psychic
+- Focus Blast
+- Shadow Ball
+- Dazzling Gleam
+
+=== TRAINER_AVATAR_ALMAS_HNS ===
+Name: AVATAR
+Class: Sage Hns
+Pic: Sage Leader Hns
+Gender: Male
+Music: Hg Sage
+Double Battle: No
+AI: Smart Trainer / Prediction
+Items: Full Restore
+
+Spiritomb @ Leftovers
+Ability: Pressure
+Level: 54
+Nature: Careful
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Shadow Sneak
+- Will-O-Wisp
+- Foul Play
+- Pain Split
+
+Dusknoir @ Colbur Berry
+Ability: Pressure
+Level: 54
+Nature: Impish
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Shadow Punch
+- Earthquake
+- Ice Punch
+- Will-O-Wisp
+
+Chandelure @ Choice Scarf
+Ability: Flash Fire
+Level: 55
+Nature: Timid
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Shadow Ball
+- Flamethrower
+- Energy Ball
+- Psychic
+
+Aegislash @ Weakness Policy
+Ability: Stance Change
+Level: 55
+Nature: Quiet
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- King's Shield
+- Shadow Ball
+- Flash Cannon
+- Shadow Sneak
+
+Gengar @ Gengarite
+Ability: Cursed Body
+Level: 56
+Nature: Timid
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Sludge Wave
+- Shadow Ball
+- Focus Blast
+- Destiny Bond
+
+=== TRAINER_AVATAR_ORIGEN_HNS ===
+Name: AVATAR
+Class: Sage Hns
+Pic: Sage Leader Hns
+Gender: Male
+Music: Hg Sage
+Double Battle: No
+AI: Smart Trainer / Prediction
+Items: Full Restore / Full Restore
+
+Tyranitar @ Choice Band
+Ability: Sand Stream
+Level: 62
+Nature: Adamant
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Punch
+
+Volcarona @ Lum Berry
+Ability: Flame Body
+Level: 62
+Nature: Modest
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Quiver Dance
+- Bug Buzz
+- Fiery Dance
+- Giga Drain
+
+Metagross @ Assault Vest
+Ability: Clear Body
+Level: 63
+Nature: Adamant
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Meteor Mash
+- Bullet Punch
+- Earthquake
+- Zen Headbutt
+
+Garchomp @ Life Orb
+Ability: Rough Skin
+Level: 63
+Nature: Jolly
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Swords Dance
+- Earthquake
+- Outrage
+- Stone Edge
+
+Dragonite @ Leftovers
+Ability: Multiscale
+Level: 64
+Nature: Careful
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Dragon Dance
+- Roost
+- Dragon Claw
+- Extreme Speed
+
+Silvally @ Dragon Memory
+Ability: RKS System
+Level: 65
+Nature: Timid
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Multi-Attack
+- Flamethrower
+- Thunderbolt
+- Ice Beam
+
+=== TRAINER_LOS_PAPIS_HNS ===
+Name: LOS PAPIS
+Class: Gentleman Hns
+Pic: Gentleman
+Gender: Male
+Music: Hg Champion
+Double Battle: Yes
+AI: Smart Trainer / Prediction
+Items: Full Restore / Full Restore
+
+Grimmsnarl @ Light Clay
+Ability: Prankster
+Level: 70
+Nature: Impish
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Reflect
+- Light Screen
+- Thunder Wave
+- Spirit Break
+
+Gastrodon @ Leftovers
+Ability: Storm Drain
+Level: 70
+Nature: Bold
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earth Power
+- Scald
+- Recover
+- Toxic
+
+Corviknight @ Rocky Helmet
+Ability: Mirror Armor
+Level: 71
+Nature: Impish
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Iron Head
+- Roost
+- Defog
+
+Ursaluna @ Flame Orb
+Ability: Guts
+Level: 71
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Facade
+- Earthquake
+- Drain Punch
+- Protect
+
+Flutter Mane @ Booster Energy
+Ability: Protosynthesis
+Level: 71
+Nature: Timid
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Moonblast
+- Shadow Ball
+- Mystical Fire
+- Protect
+
+Tyranitar @ Tyranitarite
+Ability: Sand Stream
+Level: 72
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Rock Slide
+- Crunch
+- Earthquake
+

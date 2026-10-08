@@ -687,8 +687,12 @@
 #define TRAINER_AVATAR_TORMENTA_HNS            663
 #define TRAINER_AVATAR_BOSQUE_HNS              664
 #define TRAINER_AVATAR_DRAGON_HNS              665
+#define TRAINER_AVATAR_VOCES_HNS               666
+#define TRAINER_AVATAR_ALMAS_HNS               667
+#define TRAINER_AVATAR_ORIGEN_HNS              668
+#define TRAINER_LOS_PAPIS_HNS                  669
 
-#define TRAINERS_COUNT_HNS                       666
+#define TRAINERS_COUNT_HNS                       670
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

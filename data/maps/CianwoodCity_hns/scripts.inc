@@ -32,6 +32,10 @@ CianwoodCity_EventScript_HideSecretSage::
 CianwoodCity_EventScript_SecretSage::
 	lock
 	faceplayer
+	goto_if_set FLAG_JOHTO_LOS_PAPIS_DEFEATED, CianwoodCity_EventScript_SecretSageAfterPapis
+	goto_if_set FLAG_JOHTO_AVATAR_ORIGIN_DEFEATED, CianwoodCity_EventScript_SecretSageAfterOrigin
+	goto_if_set FLAG_JOHTO_AVATAR_SOULS_DEFEATED, CianwoodCity_EventScript_SecretSageAfterSouls
+	goto_if_set FLAG_JOHTO_AVATAR_VOICES_DEFEATED, CianwoodCity_EventScript_SecretSageAfterVoices
 	goto_if_set FLAG_JOHTO_AVATAR_DRAGON_DEFEATED, CianwoodCity_EventScript_SecretSageAfterDragon
 	goto_if_set FLAG_JOHTO_AVATAR_FOREST_DEFEATED, CianwoodCity_EventScript_SecretSageAfterForest
 	goto_if_set FLAG_JOHTO_AVATAR_STORM_DEFEATED, CianwoodCity_EventScript_SecretSageAfterStorm
@@ -60,6 +64,26 @@ CianwoodCity_EventScript_SecretSageAfterDragon::
 	release
 	end
 
+CianwoodCity_EventScript_SecretSageAfterVoices::
+	msgbox CianwoodCity_Text_SecretSageAfterVoices, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_SecretSageAfterSouls::
+	msgbox CianwoodCity_Text_SecretSageAfterSouls, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_SecretSageAfterOrigin::
+	msgbox CianwoodCity_Text_SecretSageAfterOrigin, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_SecretSageAfterPapis::
+	msgbox CianwoodCity_Text_SecretSageAfterPapis, MSGBOX_DEFAULT
+	release
+	end
+
 CianwoodCity_Text_SecretSageTide:
 	.string "La primera voz aguarda bajo las\n"
 	.string "ISLAS REMOLINO.\p"
@@ -74,21 +98,51 @@ CianwoodCity_Text_SecretSageAfterTide:
 
 CianwoodCity_Text_SecretSageAfterStorm:
 	.string "Has aplacado la TORMENTA.\p"
-	.string "El tercer avatar vela el santuario\n"
-	.string "del ENCINAR, donde las hojas no caen.$"
+	.string "El tercer avatar vela el bosque;\n"
+	.string "en el santuario del ENCINAR.$"
 
 CianwoodCity_Text_SecretSageAfterForest:
 	.string "El BOSQUE te ha abierto el paso.\p"
-	.string "La cuarta prueba descansa en la\n"
+	.string "La cuarta prueba aguarda en la\n"
 	.string "GUARIDA DRAGÓN de ENDRINO.\l"
 	.string "Enfrenta al DRAGÓN PRIMIGENIO.$"
 
 CianwoodCity_Text_SecretSageAfterDragon:
-	.string "Has doblegado las cuatro voces\n"
-	.string "ancestrales de nuestra ruta.\p"
-	.string "Los fragmentos del ATLAS brillan.\n"
-	.string "Pronto, los antiguos mecenas\l"
-	.string "reclamarán lo que creen suyo...$"
+	.string "Has doblegado al gran dragón.\p"
+	.string "El quinto avatar resuena en las\n"
+	.string "profundidades de RUINAS ALFA.\l"
+	.string "Oye al AVATAR DE LAS MIL VOCES.$"
+
+CianwoodCity_Text_SecretSageAfterVoices:
+	.string "Las voces cantan tu gloria.\p"
+	.string "Ahora debes viajar a KANTO.\n"
+	.string "En la CASA DE LAS ALMAS de\l"
+	.string "LAVANDA, aguarda el sexto avatar.$"
+
+CianwoodCity_Text_SecretSageAfterSouls:
+	.string "Has apaciguado a los espíritus.\p"
+	.string "Sube a la cumbre más sagrada:\n"
+	.string "el MONTE PLATEADO.\l"
+	.string "Allí aguarda el AVATAR DEL ORIGEN.\p"
+	.string "Mas alerta: sombras poderosas\n"
+	.string "codician el poder del ATLAS...$"
+
+
+CianwoodCity_Text_SecretSageAfterOrigin:
+	.string "Siento una perturbación en la\n"
+	.string "cumbre de MONTE PLATEADO.\p"
+	.string "¡No dejes que usurpen la gracia\n"
+	.string "del ATLAS ANCESTRAL!$"
+
+CianwoodCity_Text_SecretSageAfterPapis:
+	.string "¡Increíble! Has derrotado a\n"
+	.string "GIUSEPPE y PILARITO en duelo.\p"
+	.string "El ATLAS y el alma de ambas\n"
+	.string "regiones resplandecen por ti.\p"
+	.string "Tu nombre quedará grabado para la\n"
+	.string "eternidad entre las leyendas.$"
+
+
 
 CianwoodCity_EventScript_InitializeSuicune::
 	goto_if_ge VAR_SUICUNE_ENCOUNTERS, 2, CianwoodCity_EventScript_InitializeNothing
