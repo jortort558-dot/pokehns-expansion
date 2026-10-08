@@ -80,6 +80,20 @@
       "movement_type": "MOVEMENT_TYPE_NONE", "movement_range_x": 0, "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE", "trainer_sight_or_berry_tree_id": "0",
       "script": "CianwoodThreeTidesBrio_EventScript_Right", "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_THREE_TIDES_SECRET_SAGE",
+      "graphics_id": "OBJ_EVENT_GFX_SAGE_ELDER_HNS",
+      "x": 15,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CianwoodThreeTidesCave_EventScript_SecretSage",
+      "flag": "FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE"
     }
   ],
   "warp_events": [],

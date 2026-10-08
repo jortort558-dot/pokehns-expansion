@@ -16,8 +16,42 @@ CianwoodCity_OnFrame::
 CianwoodCity_EventScript_CityEnter::
 	setflag FLAG_VISITED_CIANWOOD_CITY
 	callnative SetTimeBasedEncounters
+	call CianwoodCity_EventScript_UpdateSecretSage
 	goto_if_ge VAR_OLIVINE_CITY_STATE, 5, OlivineCity_MapScript_ClearWeather
 	end
+
+CianwoodCity_EventScript_UpdateSecretSage::
+	goto_if_unset FLAG_JOHTO_SECRET_SAGE_MET, CianwoodCity_EventScript_HideSecretSage
+	clearflag FLAG_HIDE_JOHTO_SECRET_SAGE_OUTSIDE
+	return
+
+CianwoodCity_EventScript_HideSecretSage::
+	setflag FLAG_HIDE_JOHTO_SECRET_SAGE_OUTSIDE
+	return
+
+CianwoodCity_EventScript_SecretSage::
+	lock
+	faceplayer
+	goto_if_set FLAG_JOHTO_AVATAR_TIDE_DEFEATED, CianwoodCity_EventScript_SecretSageAfterTide
+	msgbox CianwoodCity_Text_SecretSageTide, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_SecretSageAfterTide::
+	msgbox CianwoodCity_Text_SecretSageAfterTide, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_Text_SecretSageTide:
+	.string "La primera voz aguarda bajo las\n"
+	.string "ISLAS REMOLINO.\p"
+	.string "No busques a LUGIA. Busca a quien\n"
+	.string "habla usando el rumor del mar.$"
+
+CianwoodCity_Text_SecretSageAfterTide:
+	.string "La MAREA te ha reconocido.\p"
+	.string "La siguiente voz despertará donde\n"
+	.string "la rabia tiña de rojo las aguas.$"
 
 CianwoodCity_EventScript_InitializeSuicune::
 	goto_if_ge VAR_SUICUNE_ENCOUNTERS, 2, CianwoodCity_EventScript_InitializeNothing

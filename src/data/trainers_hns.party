@@ -16416,3 +16416,63 @@ EVs: 252 Atk / 4 SpD / 252 Spe
 - Zen Headbutt
 - Earthquake
 - Bullet Punch
+
+=== TRAINER_AVATAR_MAREA_HNS ===
+Name: AVATAR
+Class: Sage Hns
+Pic: Sage Leader Hns
+Gender: Male
+Music: Hg Sage
+Double Battle: No
+AI: Smart Trainer / Prediction
+Items: Hyper Potion
+
+Pelipper @ Damp Rock
+Ability: Drizzle
+Level: 36
+Nature: Bold
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Scald
+- Air Slash
+- Roost
+- U-turn
+
+Lanturn @ Sitrus Berry
+Ability: Volt Absorb
+Level: 35
+Nature: Calm
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Discharge
+- Surf
+- Ice Beam
+- Thunder Wave
+
+Xatu @ Wise Glasses
+Ability: Magic Bounce
+Level: 35
+Nature: Timid
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Psychic
+- Air Slash
+- Tailwind
+- Roost
+
+Kingdra @ Lum Berry
+Ability: Swift Swim
+Level: 36
+Nature: Modest
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Scald
+- Dragon Pulse
+- Ice Beam
+- Rain Dance
+
+Dragonair @ Eviolite
+Ability: Shed Skin
+Level: 36
+Nature: Adamant
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dragon Dance
+- Aqua Tail
+- Extreme Speed
+- Thunder Wave

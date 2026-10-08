@@ -1,5 +1,27 @@
 CianwoodThreeTidesCave_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CianwoodThreeTidesCave_EventScript_UpdateSage
 	.byte 0
+
+CianwoodThreeTidesCave_EventScript_UpdateSage::
+	goto_if_unset FLAG_CIANWOOD_THREE_TIDES_REWARD, CianwoodThreeTidesCave_EventScript_HideSage
+	goto_if_set FLAG_JOHTO_SECRET_SAGE_MET, CianwoodThreeTidesCave_EventScript_HideSage
+	clearflag FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE
+	end
+
+CianwoodThreeTidesCave_EventScript_HideSage::
+	setflag FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE
+	end
+
+CianwoodThreeTidesCave_EventScript_SecretSage::
+	lock
+	faceplayer
+	msgbox CianwoodThreeTidesCave_Text_SecretSageIntro, MSGBOX_DEFAULT
+	setflag FLAG_JOHTO_SECRET_SAGE_MET
+	setflag FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE
+	clearflag FLAG_HIDE_JOHTO_SECRET_SAGE_OUTSIDE
+	removeobject LOCALID_THREE_TIDES_SECRET_SAGE
+	release
+	end
 
 CianwoodThreeTidesCave_EventScript_Exit::
 	msgbox CianwoodThreeTidesCave_Text_Exit, MSGBOX_YESNO
@@ -61,3 +83,12 @@ CianwoodThreeTidesCave_Text_RewardTaken:
 CianwoodThreeTidesCave_Text_Inscription:
 	.string "'Quien escucha, recuerda y actúa\n"
 	.string "puede seguir la ruta de NEREO'.$"
+
+CianwoodThreeTidesCave_Text_SecretSageIntro:
+	.string "Así que el ATLAS eligió a otro...\p"
+	.string "Yo fui el último compañero de\n"
+	.string "NEREO en aquella expedición.\p"
+	.string "Los sellos están despertando.\n"
+	.string "Y alguien desea romperlos todos.\p"
+	.string "Te esperaré fuera. La primera voz\n"
+	.string "duerme en las ISLAS REMOLINO.$"

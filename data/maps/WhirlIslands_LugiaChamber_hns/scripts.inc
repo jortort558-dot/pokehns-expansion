@@ -3,10 +3,47 @@ WhirlIslands_LugiaChamber_hns_MapScripts::
 	.byte 0
 
 WhirlIslands_LugiaChamber_OnTransition:
+	call WhirlIslands_LugiaChamber_EventScript_UpdateTideAvatar
 	goto_if_eq VAR_COMPLETED_LUGIA, 2, WhirlIslands_LugiaChamber_MapScript_LugiaStory
 	goto_if_eq VAR_COMPLETED_LUGIA, 3, WhirlIslands_LugiaChamber_MapScript_LugiaPostStoryGone
 	goto_if_eq VAR_COMPLETED_LUGIA, 4, WhirlIslands_LugiaChamber_MapScript_LugiaPostStoryEncounter
 	end
+
+WhirlIslands_LugiaChamber_EventScript_UpdateTideAvatar::
+	goto_if_unset FLAG_JOHTO_SECRET_SAGE_MET, WhirlIslands_LugiaChamber_EventScript_HideTideAvatar
+	goto_if_set FLAG_JOHTO_AVATAR_TIDE_DEFEATED, WhirlIslands_LugiaChamber_EventScript_HideTideAvatar
+	clearflag FLAG_HIDE_JOHTO_AVATAR_TIDE
+	return
+
+WhirlIslands_LugiaChamber_EventScript_HideTideAvatar::
+	setflag FLAG_HIDE_JOHTO_AVATAR_TIDE
+	return
+
+WhirlIslands_LugiaChamber_EventScript_TideAvatar::
+	lock
+	faceplayer
+	msgbox WhirlIslands_LugiaChamber_Text_TideAvatarIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_AVATAR_MAREA_HNS, WhirlIslands_LugiaChamber_Text_TideAvatarDefeat
+	setflag FLAG_JOHTO_AVATAR_TIDE_DEFEATED
+	setflag FLAG_HIDE_JOHTO_AVATAR_TIDE
+	msgbox WhirlIslands_LugiaChamber_Text_TideAvatarAfter, MSGBOX_DEFAULT
+	removeobject LOCALID_WHIRL_ISLANDS_TIDE_AVATAR
+	release
+	end
+
+WhirlIslands_LugiaChamber_Text_TideAvatarIntro:
+	.string "No soy LUGIA. Soy la memoria que\n"
+	.string "dejó en estas aguas.\p"
+	.string "Si deseas seguir el ATLAS,\n"
+	.string "demuestra que soportas la marea.$"
+
+WhirlIslands_LugiaChamber_Text_TideAvatarDefeat:
+	.string "La corriente ya no te arrastra...$"
+
+WhirlIslands_LugiaChamber_Text_TideAvatarAfter:
+	.string "Has vencido al AVATAR DE LA MAREA.\p"
+	.string "Una voz lejana pronuncia dos\n"
+	.string "nombres: GIUSEPPE y PILARITO.$"
 
 WhirlIslands_LugiaChamber_MapScript_LugiaStory::
 	clearflag FLAG_HIDE_LUGIA
