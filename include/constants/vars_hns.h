@@ -174,7 +174,7 @@
 #define VAR_VIOLET_LAMP_SEQUENCE                         0x40F9
 #define VAR_MAHOGANY_AIPOM_KEY                           0x40FA
 #define VAR_CIANWOOD_TRIPLETS_STATE                      0x40FB
-#define VAR_UNUSED_HNS_0x40FC                            0x40FC // Emerald VAR_UNUSED_0x40FC - no references in any build
+#define VAR_CIANWOOD_CAVE_PUZZLE                         0x40FC
 
 // !!! UNSAFE: live surf-blob engine state, written every time the player surfs.
 // !!! These were previously listed here as unused - they are not.

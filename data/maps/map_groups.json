@@ -273,7 +273,10 @@
     "CianwoodHouse3_hns",
     "CianwoodShop_hns",
     "CianwoodGym_hns",
-    "CianwoodThreeTidesCave_hns"
+    "CianwoodThreeTidesCave_hns",
+    "CianwoodThreeTidesCalm_hns",
+    "CianwoodThreeTidesEcho_hns",
+    "CianwoodThreeTidesBrio_hns"
   ],
   "gMapGroup_IndoorMahogany_Hns": [
     "MahoganyTown_PokemonCenter_hns",

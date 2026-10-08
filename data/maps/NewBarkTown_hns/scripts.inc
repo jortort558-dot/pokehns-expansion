@@ -175,7 +175,7 @@ NewBarkTown_EventScript_SecretGardenEntrance::
 	compare VAR_NEWBARK_TOWN_STATE, 3
 	goto_if_lt NewBarkTown_EventScript_SecretGardenBlocked
 	msgbox NewBarkTown_Text_SecretGardenEntrance, MSGBOX_SIGN
-	warp MAP_NEW_BARK_TOWN_HNS, 14, 34
+	warp MAP_NEW_BARK_TOWN_HNS, 10, 34
 	waitstate
 	end
 
@@ -190,11 +190,8 @@ NewBarkTown_EventScript_SecretGardenExit::
 	end
 
 NewBarkTown_EventScript_SecretGardenDiary::
+	setflag FLAG_NEW_BARK_SECRET_DIARY_READ
 	msgbox NewBarkTown_Text_SecretGardenDiary, MSGBOX_SIGN
-	end
-
-NewBarkTown_EventScript_SecretGardenLookout::
-	msgbox NewBarkTown_Text_SecretGardenLookout, MSGBOX_SIGN
 	end
 
 NewBarkTown_EventScript_TestMan1::
@@ -272,17 +269,12 @@ NewBarkTown_Text_SecretGardenExit:
 
 NewBarkTown_Text_SecretGardenDiary:
 	.string "Es el diario de un investigador.\p"
-	.string "'El viento guía cada primavera\n"
-	.string "a las aves hacia TOHJO.\p"
-	.string "Algún día seguiré su viaje'.\p"
+	.string "'NEREO ha ocultado el primer mapa\n"
+	.string "en su casa de CIUDAD CEREZO.\p"
+	.string "Si la sal aún conserva sus líneas,\n"
+	.string "la ruta llevará hasta ORQUÍDEA'.\p"
 	.string "Las últimas páginas están\n"
 	.string "cubiertas de sal.$"
-
-NewBarkTown_Text_SecretGardenLookout:
-	.string "Un viejo catalejo apunta hacia\n"
-	.string "el horizonte.\p"
-	.string "A lo lejos se distingue la bruma\n"
-	.string "de las CATARATAS TOHJO.$"
 
 NewBarkTown_Text_Wooper:
 	.string "WOOPER: Woooooop.$"
