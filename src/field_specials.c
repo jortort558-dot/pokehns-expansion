@@ -6167,3 +6167,23 @@ void AllowNuzlockeStaticCapture(void)
 {
     NuzlockeIsCaptureBlocked = FALSE;
 }
+
+void IsBoulderAtCoords(void)
+{
+    u8 objectEventId;
+    s16 x = gSpecialVar_0x8004 + MAP_OFFSET;
+    s16 y = gSpecialVar_0x8005 + MAP_OFFSET;
+
+    gSpecialVar_Result = FALSE;
+    objectEventId = GetObjectEventIdByXY(x, y);
+    if (objectEventId != OBJECT_EVENTS_COUNT && objectEventId != gPlayerAvatar.objectEventId)
+    {
+        u16 gfx = gObjectEvents[objectEventId].graphicsId;
+        if (gfx == OBJ_EVENT_GFX_PUSHABLE_BOULDER
+         || gfx == OBJ_EVENT_GFX_PUSHABLE_BOULDER_FRLG
+         || gfx == OBJ_EVENT_GFX_PUSHABLE_BOULDER_HNS)
+        {
+            gSpecialVar_Result = TRUE;
+        }
+    }
+}

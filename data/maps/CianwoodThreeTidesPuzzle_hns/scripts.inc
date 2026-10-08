@@ -27,9 +27,13 @@ CianwoodThreeTidesPuzzle_EventScript_Signboard::
 
 CianwoodThreeTidesPuzzle_EventScript_SocketCalm::
 	lockall
-	goto_if_eq VAR_TEMP_1, 1, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	goto_if_set FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	setvar VAR_0x8004, 5
+	setvar VAR_0x8005, 5
+	special IsBoulderAtCoords
+	goto_if_eq VAR_RESULT, FALSE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	goto_if_eq VAR_TEMP_1, 1, CianwoodThreeTidesPuzzle_EventScript_CheckAllThree
 	setvar VAR_TEMP_1, 1
-	addvar VAR_TEMP_4, 1
 	playse SE_TRUCK_MOVE
 	setvar VAR_0x8004, 1
 	setvar VAR_0x8005, 1
@@ -38,15 +42,18 @@ CianwoodThreeTidesPuzzle_EventScript_SocketCalm::
 	special ShakeScreen
 	delay 30
 	msgbox CianwoodThreeTidesPuzzle_Text_CalmSet, MSGBOX_DEFAULT
-	goto_if_eq VAR_TEMP_4, 3, CianwoodThreeTidesPuzzle_EventScript_AllSolved
-	releaseall
+	goto CianwoodThreeTidesPuzzle_EventScript_CheckAllThree
 	end
 
 CianwoodThreeTidesPuzzle_EventScript_SocketEcho::
 	lockall
-	goto_if_eq VAR_TEMP_2, 1, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	goto_if_set FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	setvar VAR_0x8004, 15
+	setvar VAR_0x8005, 14
+	special IsBoulderAtCoords
+	goto_if_eq VAR_RESULT, FALSE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	goto_if_eq VAR_TEMP_2, 1, CianwoodThreeTidesPuzzle_EventScript_CheckAllThree
 	setvar VAR_TEMP_2, 1
-	addvar VAR_TEMP_4, 1
 	playse SE_TRUCK_MOVE
 	setvar VAR_0x8004, 1
 	setvar VAR_0x8005, 1
@@ -55,15 +62,18 @@ CianwoodThreeTidesPuzzle_EventScript_SocketEcho::
 	special ShakeScreen
 	delay 30
 	msgbox CianwoodThreeTidesPuzzle_Text_EchoSet, MSGBOX_DEFAULT
-	goto_if_eq VAR_TEMP_4, 3, CianwoodThreeTidesPuzzle_EventScript_AllSolved
-	releaseall
+	goto CianwoodThreeTidesPuzzle_EventScript_CheckAllThree
 	end
 
 CianwoodThreeTidesPuzzle_EventScript_SocketBrio::
 	lockall
-	goto_if_eq VAR_TEMP_3, 1, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	goto_if_set FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	setvar VAR_0x8004, 24
+	setvar VAR_0x8005, 24
+	special IsBoulderAtCoords
+	goto_if_eq VAR_RESULT, FALSE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	goto_if_eq VAR_TEMP_3, 1, CianwoodThreeTidesPuzzle_EventScript_CheckAllThree
 	setvar VAR_TEMP_3, 1
-	addvar VAR_TEMP_4, 1
 	playse SE_TRUCK_MOVE
 	setvar VAR_0x8004, 1
 	setvar VAR_0x8005, 1
@@ -72,8 +82,23 @@ CianwoodThreeTidesPuzzle_EventScript_SocketBrio::
 	special ShakeScreen
 	delay 30
 	msgbox CianwoodThreeTidesPuzzle_Text_BrioSet, MSGBOX_DEFAULT
-	goto_if_eq VAR_TEMP_4, 3, CianwoodThreeTidesPuzzle_EventScript_AllSolved
-	releaseall
+	goto CianwoodThreeTidesPuzzle_EventScript_CheckAllThree
+	end
+
+CianwoodThreeTidesPuzzle_EventScript_CheckAllThree::
+	setvar VAR_0x8004, 5
+	setvar VAR_0x8005, 5
+	special IsBoulderAtCoords
+	goto_if_eq VAR_RESULT, FALSE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	setvar VAR_0x8004, 15
+	setvar VAR_0x8005, 14
+	special IsBoulderAtCoords
+	goto_if_eq VAR_RESULT, FALSE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	setvar VAR_0x8004, 24
+	setvar VAR_0x8005, 24
+	special IsBoulderAtCoords
+	goto_if_eq VAR_RESULT, FALSE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	goto CianwoodThreeTidesPuzzle_EventScript_AllSolved
 	end
 
 CianwoodThreeTidesPuzzle_EventScript_SocketDone::
@@ -143,5 +168,6 @@ CianwoodThreeTidesPuzzle_Text_BrioSet:
 CianwoodThreeTidesPuzzle_Text_PuzzleSolved:
 	.string "¡Las tres corrientes han hallado\n"
 	.string "su armonía ancestral!\p"
-	.string "La niebla de la caverna se disipa\n"
-	.string "y un anciano sabio aparece.$"
+	.string "La niebla de la caverna se disipa…\p"
+	.string "Sientes que una presencia sabia\n"
+	.string "ha aparecido en el norte.$"

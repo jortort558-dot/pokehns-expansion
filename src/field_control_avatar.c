@@ -1447,8 +1447,10 @@ void HandleBoulderActivateVictoryRoadSwitch(u16 x, u16 y)
     int i;
     const struct CoordEvent * events = gMapHeader.events->coordEvents;
     int n = gMapHeader.events->coordEventCount;
+    bool32 isPuzzleMap = (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CIANWOOD_THREE_TIDES_PUZZLE_HNS)
+                       && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CIANWOOD_THREE_TIDES_PUZZLE_HNS));
 
-    if (MapGridGetMetatileBehaviorAt(x, y) == MB_STRENGTH_BUTTON)
+    if (MapGridGetMetatileBehaviorAt(x, y) == MB_STRENGTH_BUTTON || isPuzzleMap)
     {
         for (i = 0; i < n; i++)
         {
