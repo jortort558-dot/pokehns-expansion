@@ -164,11 +164,9 @@ Route30_Text_YoungsterMikeyBeaten:
 
 Route30_Text_YoungsterMikeyAfter:
 	.string "Llegar a ser un buen entrenador\n"
-	.string "cuesta\l"
-	.string "un montón.\p"
+	.string "cuesta un montón.\p"
 	.string "Lucharé contra más gente para\n"
-	.string "hacerme más\l"
-	.string "fuerte.$"
+	.string "hacerme más fuerte.$"
 
 Route30_Text_BugCatcherDonSeen:
 	.string "¡En vez de un POKéMON bicho,\n"
@@ -211,25 +209,21 @@ Route30_Text_MrPokemonsHouseSign:
 Route30_Text_TrainerTips:
 	.string "PISTAS PARA ENTRENADORES\p"
 	.string "¡Está prohibido robar los POKéMON\n"
-	.string "de\l"
-	.string "otras personas!\p"
+	.string "de otras personas!\p"
 	.string "¡Las POKé BALLS solo se lanzan\n"
-	.string "a\l"
-	.string "POKéMON salvajes!$"
+	.string "a POKéMON salvajes!$"
 
 Route30_Text_JoeyRegister:
 	.string "¡Oye, no lo haces nada mal!\p"
 	.string "Mi RATTATA está que se sale,\n"
 	.string "como siempre.\p"
 	.string "Es el único que tengo, ¡pero me\n"
-	.string "convertiré\l"
-	.string "en un gran ENTRENADOR con él!\p"
+	.string "convertiré en un gran ENTRENADOR!\p"
 	.string "¡Combatamos de nuevo algún día!$"
 
 Route30_Text_JoeyRematchIntro:
 	.string "¡Te prometí que esta vez sería\n"
-	.string "distinto!\l"
-	.string "¡A luchar!$"
+	.string "distinto! ¡A luchar!$"
 
 Route30_Text_JoeyRematchDefeat:
 	.string "¡Puaj! ¡He vuelto a perder!\n"
@@ -237,8 +231,7 @@ Route30_Text_JoeyRematchDefeat:
 
 Route30_Text_JoeyPostRematch:
 	.string "Estoy revisando los ataques de mi\n"
-	.string "RATTATA y\l"
-	.string "planeando nuevas tácticas.\p"
+	.string "RATTATA y planeando tácticas.\p"
 	.string "¡En cuanto se me ocurra una buena,\n"
 	.string "volveremos a combatir!$"
 
@@ -246,8 +239,7 @@ Route30_Text_YoungsterJoeyGiveHPUp:
 	.string "He vuelto a perder…\n"
 	.string "¡Caray, qué fuerte eres!\p"
 	.string "Ah, sí, casi olvidaba que tenía\n"
-	.string "que\l"
-	.string "darte esto.\p"
+	.string "que darte esto.\p"
 	.string "Úsalo para hacerte aún más fuerte,\n"
 	.string "¿vale?\l"
 	.string "¡Yo también me haré más fuerte!$"

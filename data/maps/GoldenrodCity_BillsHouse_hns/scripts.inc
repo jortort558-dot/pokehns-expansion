@@ -81,8 +81,8 @@ BillHouse_Text_ReceivedEevee:
 
 BillHouse_Text_EeveeMayEvolve:
     .string "BILL: El PROF. ELM dice que EEVEE\n"
-    .string "puede evolucionar de formas nuevas\ly\l"
-    .string "desconocidas.$"
+    .string "puede evolucionar de formas\l"
+    .string "nuevas y desconocidas.$"
 
 BillHouse_Text_PartyFull:
     .string "¡Ojo, espera! No tienes hueco para\n"
@@ -92,9 +92,9 @@ BillHouse_Text_NoEevee:
     .string "Vaya… ¿Y ahora qué hago yo con él?$"
 
 BillHouse_Text_PopWontWork:
-    .string "BILL: Mi padre no da un palo al\nagua.\l"
-    .string "Se pasa el día vagueando de un lado\la\l"
-    .string "otro. Es un caso perdido…$"
+    .string "BILL: Mi padre no da un palo al\n"
+    .string "agua. Se pasa el día vagueando de\l"
+    .string "un lado a otro. Es un caso perdido…$"
 
 BillHouse_Text_MomBeforeEcruteak:
     .string "¿Coleccionas POKéMON? Mi hijo BILL\n"

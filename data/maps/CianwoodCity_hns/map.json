@@ -413,6 +413,15 @@
       "var": "VAR_SUICUNE_ENCOUNTERS",
       "var_value": "1",
       "script": "CianwoodCity_EventScript_SuicuneTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_SUICUNE_ENCOUNTERS",
+      "var_value": "1",
+      "script": "CianwoodCity_EventScript_SuicuneTrigger"
     }
   ],
   "bg_events": [

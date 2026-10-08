@@ -158,8 +158,9 @@ Route34_Text_CamperTodd_After:
 	.string "GUARDERÍA o usar más objetos…$"
 
 Route34_Text_ToddRegister:
-	.string "¡Dame un toque si quieres combatir\nde\l"
-	.string "nuevo cuando mejore a mi equipo!$"
+	.string "¡Dame un toque si quieres\n"
+	.string "combatir de nuevo cuando mejore\l"
+	.string "a mi equipo!$"
 
 Route34_Text_ToddRematchIntro:
 	.string "¡Mis POKéMON han mejorado una\n"

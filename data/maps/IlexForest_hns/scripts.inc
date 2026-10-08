@@ -694,8 +694,8 @@ IlexForest_Text_ApprenticeIntro:
 	.string "hacer carbón se me ha escapado.\p"
 	.string "No me atrevo a buscarlo solo aquí\n"
 	.string "en el ENCINAR.\p"
-	.string "¡Es demasiado grande, oscuro y me\nda\l"
-	.string "un mal rollo tremendo…!$"
+	.string "¡Es demasiado grande, oscuro y me\n"
+	.string "da un mal rollo tremendo…!$"
 
 IlexForest_Text_ApprenticeAfter:
 	.string "¡Uala! ¡Muchísimas gracias!\p"
@@ -737,18 +737,18 @@ IlexForest_Text_Lass:
 IlexForest_Text_Signpost:
 	.string "El ENCINAR es tan espeso que las\n"
 	.string "copas tapan el cielo por completo.\p"
-	.string "Mantén los ojos bien abiertos por\nsi\l"
-	.string "encuentras objetos en el suelo.$"
+	.string "Mantén los ojos bien abiertos por\n"
+	.string "si encuentras objetos en el suelo.$"
 
 IlexForest_Text_Shrine:
 	.string "ALTAR DEL ENCINAR…\p"
-	.string "Construido en honor al protector\ndel\l"
-	.string "bosque…$"
+	.string "Construido en honor al protector\n"
+	.string "del bosque…$"
 
 IlexForest_Text_ShrineCelebiEvent:
 	.string "ALTAR DEL ENCINAR…\p"
-	.string "Construido en honor al protector\ndel\l"
-	.string "bosque…\p"
+	.string "Construido en honor al protector\n"
+	.string "del bosque…\p"
 	.string "¿Eh? ¿Qué es esto?\p"
 	.string "Hay una hendidura.\n"
 	.string "Parece que la GS BALL encajaría\l"
@@ -771,15 +771,15 @@ IlexForest_Text_KurtCaughtCelebi:
 IlexForest_Text_BugCatcherWayneSeen:
 	.string "¡No me des esos sustos por la\n"
 	.string "espalda!\p"
-	.string "¡Has espantado al POKéMON que\nestaba\l"
-	.string "ojeando!$"
+	.string "¡Has espantado al POKéMON que\n"
+	.string "estaba ojeando!$"
 
 IlexForest_Text_BugCatcherWayneBeaten:
 	.string "Jamás había visto a ese POKéMON…$"
 
 IlexForest_Text_BugCatcherWayneAfter:
-	.string "Un POKéMON rarísimo cayó del árbol\nal\l"
-	.string "sacudirlo con GOLPE CABEZA.\p"
+	.string "Un POKéMON rarísimo cayó del árbol\n"
+	.string "al sacudirlo con GOLPE CABEZA.\p"
 	.string "¡Debería probar a usar GOLPE CABEZA\n"
 	.string "en otros árboles del bosque!$"
 

@@ -168,17 +168,33 @@ NationalParkBugContest_Text_ContestantBelinda:
 NationalParkBugContest_Text_Contestant2A:
 	.string "ED: Mi PARASECT duerme a los\nPOKéMON con\lESPORA.$"
 NationalParkBugContest_Text_ContestantShaun:
-	.string "SHAUN: A mí no me preocupa ganar.\nSolo busco POKéMON raros.$"
+	.string "SHAUN: A mí no me preocupa ganar.\n"
+	.string "Solo busco POKéMON raros.$"
+
 NationalParkBugContest_Text_Contestant6A:
-	.string "BARRY: Deberías debilitar primero\nal\lPOKéMON bicho y luego tirarle una\lBALL.$"
+	.string "BARRY: Deberías debilitar antes\n"
+	.string "al POKéMON bicho y luego tirarle\l"
+	.string "una BALL.$"
+
 NationalParkBugContest_Text_Contestant7A:
-	.string "CINDY: Me encantan los POKéMON\nbicho.\lImagino que a ti también te\lgustarán.$"
+	.string "CINDY: Me encantan los POKéMON\n"
+	.string "bicho. Imagino que a ti también\l"
+	.string "te gustarán.$"
+
 NationalParkBugContest_Text_Contestant8A:
-	.string "JOSH: Llevo coleccionando bichos\ndesde\lque era un crío.\p¡No hay forma de que vaya a perder\nhoy!$"
+	.string "JOSH: Llevo coleccionando bichos\n"
+	.string "desde que era un crío.\p"
+	.string "¡No hay forma de que vaya a perder\n"
+	.string "hoy!$"
+
 NationalParkBugContest_Text_Contestant9A:
-	.string "SAMUEL: Si te sobra tiempo para\nparlotear,\l¡ponte a buscar bichos ya!$"
+	.string "SAMUEL: Si te sobra tiempo para\n"
+	.string "parlotear, ¡ponte a buscar ya!$"
+
 NationalParkBugContest_Text_Contestant10A:
-	.string "KIPP: He estudiado un montón sobre\nlos\lPOKéMON de tipo bicho.\p¡La victoria está cantada!$"
+	.string "KIPP: He estudiado un montón sobre\n"
+	.string "los POKéMON de tipo bicho.\p"
+	.string "¡La victoria está cantada!$"
 NationalParkBugContest_Text_Sign_RelaxationSquare:
 	.string "PLAZA DEL DESCANSO\nPARQUE NACIONAL$"
 NationalParkBugContest_Text_Sign_BattleNotice:

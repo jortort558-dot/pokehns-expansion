@@ -109,8 +109,9 @@ GoldenrodCity_FlowerShop_EventScript_Floria3::
 	end
 
 GoldenrodCity_FlowerShop_Text_Floria:
-	.string "Le hablé a mi hermana del árbol que\nse\l"
-	.string "menea y dice que es peligrosísimo.\p"
+	.string "Le hablé a mi hermana del árbol\n"
+	.string "que se menea y dice que es\l"
+	.string "peligrosísimo.\p"
 	.string "Si venzo a BLANCA, ¿me prestará su\n"
 	.string "regadera para investigar…?$"
 
@@ -135,8 +136,8 @@ GoldenrodCity_FlowerShop_Text_Owner2:
 .string "¡Hala! ¡Si es la MEDALLA PLANICIE\n"
 .string "del GIMNASIO de TRIGAL!\p"
 .string "¿Has derrotado a BLANCA?\p"
-.string "Bueno, entonces sabrás defenderte\nde\l"
-.string "sobra, ¿verdad?\p"
+.string "Bueno, entonces sabrás defenderte\n"
+.string "de sobra, ¿verdad?\p"
 .string "Toma esta REGADERA.\n"
 .string "…\p"
 .string "¡Bah, quédatela para tu viaje!$"

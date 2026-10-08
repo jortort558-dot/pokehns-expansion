@@ -486,9 +486,9 @@ GoldenrodCity_PokemonCenter_GameboyKidText1:
     .string "¡El tejado está hecho de oro!$"
 
 GoldenrodCity_PokemonCenter_GameboyKidText2:
-    .string "Le dije a mi hermano que el techo\les\l"
-    .string "de oro puro. ¡Ese inocentón se\ltraga\l"
-	.string "lo que sea!$"
+    .string "Le dije a mi hermano que el techo\n"
+    .string "es de oro puro. ¡Ese inocentón se\l"
+    .string "traga lo que sea!$"
 
 GoldenrodCity_PokemonCenter_LassText:
     .string "Un POKéMON de mayor nivel no tiene\n"

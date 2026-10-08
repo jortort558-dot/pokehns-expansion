@@ -272,8 +272,8 @@ Route36_Text_Lass1:
 	.string "¡Mucho ojo por las noches en esta\n"
 	.string "ruta!\p"
 	.string "Vi a un POKéMON parecido a\n"
-	.string "GROWLITHE, pero con un aura que\ldaba\l"
-	.string "auténtico pavor.$"
+	.string "GROWLITHE, pero con un aura que\l"
+	.string "daba auténtico pavor.$"
 
 Route36_Text_Lass2_ClearedSudowoodo:
 	.string "El árbol raro se esfumó sin dejar\n"
@@ -302,8 +302,8 @@ Route36_Text_SchoolboyAlan1Beaten:
 Route36_Text_SchoolboyAlanAfter:
 	.string "Vaya. Y eso que estudio cinco horas\n"
 	.string "al día.\p"
-	.string "Se aprende más en la práctica que\nen\l"
-	.string "los libros.$"
+	.string "Se aprende más en la práctica\n"
+	.string "que en los libros.$"
 
 Route36_Text_MeetArthur:
 	.string "ARTURO: ¿Quién anda ahí?\n"

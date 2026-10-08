@@ -207,31 +207,83 @@ Gate_NationalPark_Movement_Player_EnterParkBotB:
 	step_end
 
 Route35NationalParkGate_Text_OfficerAskToParticipate:
-	.string "¡Hola, Entrenador! Hoy celebramos\nel\lConcurso de Captura de Bichos.\pLas reglas son muy sencillas.\pUsando uno de tus POKéMON, atrapa\nun\lPOKéMON bicho para que sea\lcalificado.\p¿Te gustaría participar?$"
+	.string "¡Hola, Entrenador!\n"
+	.string "Hoy celebramos el Concurso de\l"
+	.string "Captura de Bichos.\p"
+	.string "Las reglas son muy sencillas.\p"
+	.string "Usando uno de tus POKéMON, atrapa\n"
+	.string "un POKéMON bicho para que sea\l"
+	.string "calificado.\p"
+	.string "¿Te gustaría participar?$"
+
 Route35NationalParkGate_Text_OfficerGiveSportBalls:
-	.string "La EXP que gane tu POKéMON durante\nel\lconcurso se restablecerá al salir.\pAquí tienes las PARQUE BALLS para\nel\lConcurso.$"
+	.string "La EXP que gane tu POKéMON en el\n"
+	.string "concurso se restablecerá al salir.\p"
+	.string "Aquí tienes las PARQUE BALLS\n"
+	.string "para el Concurso.$"
+
 Route35NationalParkGate_Text_ReceivedSportBalls:
 	.string "¡{PLAYER} recibió PARQUE BALLS!$"
+
 Route35NationalParkGate_Text_OfficerExplainRules:
-	.string "Quien capture el POKéMON bicho más\nfuerte\lserá el ganador.\pSi te quedas sin PARQUE BALLS,\nhabrás\lterminado tu participación.\pPuedes atrapar hasta 5 POKéMON. El\núltimo\lque captures será el único que\lconserves\ly el que compita en el concurso.\p¡Sal ahí fuera y atrapa el bicho\nmás\lformidable que puedas encontrar!$"
+	.string "Quien capture el POKéMON bicho\n"
+	.string "más fuerte será el ganador.\p"
+	.string "Si te quedas sin PARQUE BALLS,\n"
+	.string "habrás terminado tu participación.\p"
+	.string "Puedes atrapar hasta 5 POKéMON.\n"
+	.string "El último que captures será el\l"
+	.string "único que conserves y el que\l"
+	.string "compita en el concurso.\p"
+	.string "¡Sal ahí fuera y atrapa el bicho\n"
+	.string "más formidable que encuentres!$"
+
 Route35NationalParkGate_Text_OfficerAskToUseFirstMon:
-	.string "Si llevas más de un POKéMON,\ntendrás que\lusar el primer POKéMON de tu\lequipo.\p¿Estás de acuerdo?$"
+	.string "Si llevas más de un POKéMON,\n"
+	.string "tendrás que usar el primer POKéMON\l"
+	.string "de tu equipo.\p"
+	.string "¿Estás de acuerdo?$"
+
 Route35NationalParkGate_Text_OfficerHoldYourMon:
-	.string "Perfecto, cuidaremos de tus demás\nPOKéMON mientras compites.$"
+	.string "Perfecto, cuidaremos de tus demás\n"
+	.string "POKéMON mientras compites.$"
+
 Route35NationalParkGate_Text_MonLeftWithHelper:
-	.string "Los POKéMON de {PLAYER} quedaron al\ncuidado del AYUDANTE DEL CONCURSO.$"
+	.string "Los POKéMON de {PLAYER} quedaron al\n"
+	.string "cuidado del AYUDANTE DEL CONCURSO.$"
+
 Route35NationalParkGate_Text_ChooseMonAndComeBack:
-	.string "Por favor, pon al frente del equipo\nal\lPOKéMON con el que quieras\lparticipar y\lvuelve a hablar conmigo.$"
+	.string "Por favor, pon al frente del equipo\n"
+	.string "al POKéMON con el que quieras\l"
+	.string "participar y vuelve a hablarme.$"
+
 Route35NationalParkGate_Text_TakePartInFuture:
-	.string "De acuerdo. Esperamos verte en una\npróxima ocasión.$"
+	.string "De acuerdo. Esperamos verte en una\n"
+	.string "próxima ocasión.$"
+
 Route35NationalParkGate_Text_FirstMonCantBattle:
-	.string "¡Vaya! El primer POKéMON de tu\nequipo no\lpuede combatir.\pCámbialo por otro en condiciones y\nvuelve\la hablar conmigo.$"
+	.string "¡Vaya! El primer POKéMON de tu\n"
+	.string "equipo no puede combatir.\p"
+	.string "Cámbialo por otro en condiciones y\n"
+	.string "vuelve a hablar conmigo.$"
+
 Route35NationalParkGate_Text_MakeRoom:
-	.string "¡Vaya! Tienes tanto tu equipo como\ntus\lCAJAS del PC completamente llenos.\pNo te queda sitio para guardar el\nPOKéMON bicho que captures.\pHaz hueco en tu equipo o en tus\ncajas y\lvuelve a verme.$"
+	.string "¡Vaya! Tienes tanto tu equipo como\n"
+	.string "tus CAJAS del PC llenos.\p"
+	.string "No te queda sitio para guardar el\n"
+	.string "POKéMON bicho que captures.\p"
+	.string "Haz hueco en tu equipo o en tus\n"
+	.string "cajas y vuelve a verme.$"
+
 Route35NationalParkGate_Text_EggAsFirstMon:
-	.string "¡Vaya! Tienes un HUEVO en el primer\nlugar de tu equipo.\pCámbialo por un POKéMON que pueda\nluchar\ly vuelve a hablar conmigo.$"
+	.string "¡Vaya! Tienes un HUEVO en el\n"
+	.string "primer lugar de tu equipo.\p"
+	.string "Cámbialo por un POKéMON que pueda\n"
+	.string "luchar y vuelve a hablar conmigo.$"
+
 Route35NationalParkGate_Text_ContestIsOver:
-	.string "El Concurso de hoy ha terminado.\nEsperamos que participes la próxima\lvez.$"
+	.string "El Concurso de hoy ha terminado.\n"
+	.string "Esperamos que participes la\l"
+	.string "próxima vez.$"
 Route35NationalParkGate_EventScript_Policeman::
 	lock
 	faceplayer
@@ -283,4 +335,10 @@ Route35NationalParkGate_Text_WeHoldContests:
 Route35NationalParkGate_Text_YoungsterWonders:
 	.string "¿Cuándo será el próximo Concurso de\nCaptura de Bichos?$"
 Route35NationalParkGate_Text_ContestExplanation:
-	.string "El Concurso de Captura de Bichos se\ncelebra los martes, jueves y\lsábados.\pNo solo te llevas un premio por el\nmero\lhecho de participar,\p¡sino que además te quedas con el\nbicho\lque tengas al final del concurso!$"
+	.string "El Concurso de Captura de Bichos se\n"
+	.string "celebra los martes, jueves y\l"
+	.string "sábados.\p"
+	.string "No solo te llevas un premio por el\n"
+	.string "mero hecho de participar,\p"
+	.string "¡sino que además te quedas con el\n"
+	.string "bicho que tengas al final!$"

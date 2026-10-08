@@ -172,8 +172,8 @@ GoldenrodCity_Gym_Text_WhitneyPlainBadge:
     .string "¡Ah, quédate con esto también!$"
 
 GoldenrodCity_Gym_Text_WhitneyAttract:
-    .string "¡Es ATRACCIÓN! Aprovecha al máximo\nel\l"
-    .string "encanto de un POKéMON.\p"
+    .string "¡Es ATRACCIÓN! Aprovecha al\n"
+    .string "máximo el encanto de un POKéMON.\p"
     .string "¿A que le va como anillo al dedo a\n"
     .string "una monada como yo?$"
 
@@ -224,8 +224,9 @@ GoldenrodCity_Gym_Text_LassBridgetAfter:
 GoldenrodCity_Gym_Text_BridgetWhitneyCries:
     .string "Ay, madre. Has hecho llorar a\n"
     .string "BLANCA.\p"
-    .string "Tranqui, ya se le pasará. Siempre\nle\l"
-    .string "da la llorera cuando pierde.$"
+    .string "Tranqui, ya se le pasará.\n"
+    .string "Siempre le da la llorera cuando\l"
+    .string "pierde.$"
 
 GoldenrodCity_Gym_Text_BeautyVictoriaSeen:
     .string "¡Ay, qué entrenadorcillo tan\nmono!\p"

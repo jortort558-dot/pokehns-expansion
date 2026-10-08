@@ -76,9 +76,10 @@ Gate_GoldenrodCity_Route35_EventScript_Fisher::
 	end
 
 Route35GoldenrodGate_Text_RandyAskFavor:
-	.string "¡Oye, peque! ¿Me harías un\nfavorcillo?\p"
-	.string "¿Podrías llevar este POKéMON con\nuna\l"
-	.string "CARTA para mi amigo?\p"
+	.string "¡Oye, peque! ¿Me harías un\n"
+	.string "favorcillo?\p"
+	.string "¿Podrías llevar este POKéMON\n"
+	.string "con una CARTA para mi amigo?\p"
 	.string "Está en la RUTA 31.$"
 
 Route35GoldenrodGate_Text_RandyThanks:

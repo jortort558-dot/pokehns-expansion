@@ -138,8 +138,8 @@ Route35_Text_PicnickerBrookeBeaten:
 	.string "¡Madre mía! ¡Qué fuerza tienes!$"
 
 Route35_Text_PicnickerBrookeAfter:
-	.string "Puedo confiar más en mis POKéMON\nque\l"
-	.string "en mi novio.$"
+	.string "Puedo confiar más en mis POKéMON\n"
+	.string "que en mi novio.$"
 
 Route35_Text_PicnickerKimSeen:
 	.string "¿Vas al GIMNASIO? ¡Yo también!$"
@@ -217,8 +217,8 @@ Route35_Text_FirebreatherWaltSeen:
 	.string "escupefuegos.$"
 
 Route35_Text_FirebreatherWaltBeaten:
-	.string "¡Ay! ¡Me he chamuscado la punta de\nla\l"
-	.string "nariz!$"
+	.string "¡Ay! ¡Me he chamuscado la punta\n"
+	.string "de la nariz!$"
 
 Route35_Text_FirebreatherWaltAfter:
 	.string "La Marcha POKéMON de la radio atrae\n"

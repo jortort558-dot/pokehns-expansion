@@ -161,16 +161,13 @@ MrPokemonHouse_Text_GotEgg:
 	.string "¡Recibes el HUEVO MISTERIOSO!$"
 
 MrPokemonHouse_Text_Intro3:
-	.string "Conozco a una pareja que regenta\n"
-	.string "una\l"
-	.string "GUARDERÍA POKéMON.\p"
+	.string "Conozco a una pareja que lleva\n"
+	.string "una GUARDERÍA POKéMON.\p"
 	.string "Ellos me dieron ese HUEVO.\p"
 	.string "Sentí curiosidad, así que envié\n"
-	.string "un correo\l"
-	.string "al PROF. ELM.\p"
+	.string "un correo al PROF. ELM.\p"
 	.string "En evolución POKéMON, el\n"
-	.string "PROF. ELM\l"
-	.string "es la máxima autoridad.$"
+	.string "PROF. ELM es la máxima autoridad.$"
 
 
 MrPokemonHouse_Text_Intro4:
@@ -178,9 +175,8 @@ MrPokemonHouse_Text_Intro4:
 	.string "talento.$"
 
 MrPokemonHouse_Text_Intro5:
-	.string "Si mi hipótesis es correcta, el\n"
-	.string "PROF. ELM\l"
-	.string "sabrá descubrirlo.$"
+	.string "Si mi hipótesis es correcta,\n"
+	.string "el PROF. ELM sabrá descubrirlo.$"
 
 MrPokemonHouse_Text_Heal:
 	.string "¿Vas a volver con el PROF. ELM?\p"
@@ -192,8 +188,8 @@ MrPokemonHouse_Text_DependingOnYou:
 
 MrPokemonHouse_Text_AlwaysNewDiscoveries:
 	.string "¡La vida es maravillosa!\n"
-	.string "Siempre hay nuevos descubrimientos\l"
-	.string "que hacer.$"
+	.string "Siempre hay descubrimientos nuevos\l"
+	.string "por hacer.$"
 
 MrPokemonHouse_Text_OakIntro:
 	.string "OAK: ¡Ajá! ¡Así que eres {PLAYER}!\p"
@@ -238,9 +234,8 @@ MrPokemonHouse_Text_GimmeTheScale:
 	.string "¿De un GYARADOS rojo?\p"
 	.string "¡Qué rareza! La… la quiero…\p"
 	.string "{PLAYER}, ¿te gustaría cambiármela?\p"
-	.string "Puedo darte este REPARTIR EXP que\n"
-	.string "me dio\l"
-	.string "el PROF. OAK.$"
+	.string "Puedo darte este REPARTIR EXP\n"
+	.string "que me dio el PROF. OAK.$"
 
 MrPokemonHouse_Text_Disappointed:
 	.string "Qué pena…\n"

@@ -71,13 +71,28 @@ NationalPark_Normal_Text_Lass:
 NationalPark_Normal_Text_PokefanF:
 	.string "Esta es una CARTA que me mandó mi\nhija.\l¡Me alegra el día cada vez que la\lleo!$"
 NationalPark_Normal_Text_Teacher1:
-	.string "¡Presten atención, por favor!\p...¡Uy! Tengo que dejar de hablar\ncomo\luna profesora a todas horas.\pTú debes de entrenar POKéMON,\n¿verdad?\pComo te estás esforzando tanto,\nquiero\lque te quedes con esto.$"
+	.string "¡Presten atención, por favor!\p"
+	.string "… ¡Uy! Tengo que dejar de hablar\n"
+	.string "como una profesora a todas horas.\p"
+	.string "Tú debes de entrenar POKéMON,\n"
+	.string "¿verdad?\p"
+	.string "Como te estás esforzando tanto,\n"
+	.string "quiero que te quedes con esto.$"
+
 NationalPark_Normal_Text_Teacher1_QuickClaw:
-	.string "Equípale esa GARRA RÁPIDA a un\nPOKéMON.\pA veces le permitirá atacar primero\nen\lcombate.$"
+	.string "Equípale esa GARRA RÁPIDA a un\n"
+	.string "POKéMON.\p"
+	.string "A veces le permitirá atacar\n"
+	.string "primero en combate.$"
+
 NationalPark_Normal_Text_Youngster1:
-	.string "Estoy jugando con las pegatinas que\nhe\limpreso de mi POKéDEX.$"
+	.string "Estoy jugando con las pegatinas\n"
+	.string "que he impreso de mi POKéDEX.$"
+
 NationalPark_Normal_Text_Youngster2:
-	.string "Si le gano, me quedo con las\npegatinas\lde la POKéDEX de mi colega.$"
+	.string "Si le gano, me quedo con las\n"
+	.string "pegatinas de la POKéDEX de mi\l"
+	.string "colega.$"
 NationalPark_Normal_Text_Teacher2:
 	.string "Paseo por el PARQUE a menudo, pero\nnunca\lme meto en la hierba alta.\pLos Entrenadores siempre tienen\nganas de\lpelea...\pSeguro que has librado muchos\ncombates.\lDeja que cure a tus POKéMON.$"
 NationalPark_Normal_Text_Persian:
