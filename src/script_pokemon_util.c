@@ -31,6 +31,7 @@
 #include "script.h"
 #include "sprite.h"
 #include "string_util.h"
+#include "strings.h"
 #include "tv.h"
 #include "wild_encounter.h"
 #include "constants/abilities.h"
@@ -1114,5 +1115,132 @@ void YamiSuperTraining_ResetEVs(void)
     SetMonData(mon, MON_DATA_SPATK_EV, &zero);
     SetMonData(mon, MON_DATA_SPDEF_EV, &zero);
     CalculateMonStats(mon);
+    gSpecialVar_Result = TRUE;
+}
+
+void DaraOtaku_CheckAndPrepareAbilities(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    if (slot >= gPlayerPartyCount)
+    {
+        gSpecialVar_Result = 0;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = 0;
+        return;
+    }
+
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u8 currentAbilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
+
+    // Buffering species nickname
+    GetMonNickname(mon, gStringVar1);
+
+    // Current ability name -> gStringVar2
+    enum Ability currentAbility = GetMonAbility(mon);
+    StringCopy(gStringVar2, gAbilitiesInfo[currentAbility].name);
+
+    enum Ability ab0 = GetSpeciesAbility(species, 0);
+    enum Ability ab1 = GetSpeciesAbility(species, 1);
+    enum Ability abHidden = GetSpeciesAbility(species, 2);
+
+    bool32 hasSecondary = (ab1 != ABILITY_NONE && ab1 != ab0);
+    bool32 hasHidden = (abHidden != ABILITY_NONE && abHidden != ab0 && abHidden != ab1);
+
+    // Mode determination:
+    // If current is normal (0 or 1):
+    // Can switch to secondary if hasSecondary.
+    // Target normal slot:
+    u8 targetNormalSlot = (currentAbilityNum == 0) ? 1 : 0;
+    enum Ability targetNormalAbility = GetSpeciesAbility(species, targetNormalSlot);
+    bool32 canSwitchNormal = (hasSecondary && targetNormalAbility != ABILITY_NONE && targetNormalAbility != currentAbility);
+
+    bool32 canSwitchHidden = (hasHidden && currentAbilityNum != 2);
+
+    // If currently at hidden ability (slot 2):
+    // Can revert to normal slot 0
+    if (currentAbilityNum == 2)
+    {
+        canSwitchNormal = (ab0 != ABILITY_NONE);
+        targetNormalSlot = 0;
+        targetNormalAbility = ab0;
+        canSwitchHidden = FALSE;
+    }
+
+    // Prepare target ability names
+    // gStringVar3 is used by single-choice confirmation text ({STR_VAR_3})
+    if (canSwitchNormal && !canSwitchHidden)
+        StringCopy(gStringVar3, gAbilitiesInfo[targetNormalAbility].name);
+    else if (!canSwitchNormal && canSwitchHidden)
+        StringCopy(gStringVar3, gAbilitiesInfo[abHidden].name);
+    else if (canSwitchNormal && canSwitchHidden)
+    {
+        StringCopy(gStringVar3, gAbilitiesInfo[targetNormalAbility].name);
+        // Note: when both exist, multichoice displays HAB. SECUNDARIA / HAB. OCULTA
+    }
+    else
+        StringCopy(gStringVar3, gText_None);
+
+    // Results:
+    // 0: Cannot change any ability
+    // 1: Can change to normal only
+    // 2: Can change to hidden only
+    // 3: Can change to both
+    if (canSwitchNormal && canSwitchHidden)
+        gSpecialVar_Result = 3;
+    else if (canSwitchNormal)
+        gSpecialVar_Result = 1;
+    else if (canSwitchHidden)
+        gSpecialVar_Result = 2;
+    else
+        gSpecialVar_Result = 0;
+}
+
+void DaraOtaku_ApplyAbilityChange(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    u8 choice = gSpecialVar_0x8005; // 1 = Normal, 2 = Hidden
+
+    if (slot >= gPlayerPartyCount)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u8 currentAbilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
+    u8 targetSlot = 0;
+
+    if (choice == 1) // Normal ability
+    {
+        if (currentAbilityNum == 2)
+            targetSlot = 0;
+        else
+            targetSlot = (currentAbilityNum == 0) ? 1 : 0;
+    }
+    else if (choice == 2) // Hidden ability
+    {
+        targetSlot = 2;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    SetMonData(mon, MON_DATA_ABILITY_NUM, &targetSlot);
+    GetMonNickname(mon, gStringVar1);
+    enum Ability newAbility = GetMonAbility(mon);
+    StringCopy(gStringVar2, gAbilitiesInfo[newAbility].name);
     gSpecialVar_Result = TRUE;
 }

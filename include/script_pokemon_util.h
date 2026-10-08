@@ -20,5 +20,7 @@ void Script_GetChosenMonDefensiveIVs(void);
 void YamiSuperTraining_CanTrainStat(void);
 void YamiSuperTraining_AddEVs(void);
 void YamiSuperTraining_ResetEVs(void);
+void DaraOtaku_CheckAndPrepareAbilities(void);
+void DaraOtaku_ApplyAbilityChange(void);
 
 #endif // GUARD_SCRIPT_POKEMON_UTIL_H

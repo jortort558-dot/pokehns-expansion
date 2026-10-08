@@ -1333,6 +1333,13 @@ static const struct MenuAction MultichoiceList_IgorBar[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_DaraAbilityChoice[] =
+{
+    {COMPOUND_STRING("HAB. SECUNDARIA")},
+    {COMPOUND_STRING("HAB. OCULTA")},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1535,6 +1542,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_MANOLIN_ENDRINO]            = MULTICHOICE(MultichoiceList_ManolinEndrino),
     [MULTI_YAMI_TRAINING]              = MULTICHOICE(MultichoiceList_YamiTraining),
     [MULTI_IGOR_BAR]                   = MULTICHOICE(MultichoiceList_IgorBar),
+    [MULTI_DARA_ABILITY_CHOICE]        = MULTICHOICE(MultichoiceList_DaraAbilityChoice),
 };
 
 const u8 *const gStdStrings[] =

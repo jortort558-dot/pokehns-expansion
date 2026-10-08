@@ -732,3 +732,5 @@ gSpecials::
 	def_special YamiSuperTraining_CanTrainStat
 	def_special YamiSuperTraining_AddEVs
 	def_special YamiSuperTraining_ResetEVs
+	def_special DaraOtaku_CheckAndPrepareAbilities
+	def_special DaraOtaku_ApplyAbilityChange
