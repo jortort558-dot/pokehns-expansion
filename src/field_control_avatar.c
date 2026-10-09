@@ -1442,13 +1442,20 @@ void HandleBoulderFallThroughHole(struct ObjectEvent * object)
     }
 }
 
-void HandleBoulderActivateVictoryRoadSwitch(u16 x, u16 y)
+void HandleBoulderActivateVictoryRoadSwitch(struct ObjectEvent *boulder)
 {
     int i;
+    u16 x = boulder->currentCoords.x;
+    u16 y = boulder->currentCoords.y;
     const struct CoordEvent * events = gMapHeader.events->coordEvents;
     int n = gMapHeader.events->coordEventCount;
     bool32 isPuzzleMap = (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CIANWOOD_THREE_TIDES_PUZZLE_HNS)
                        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CIANWOOD_THREE_TIDES_PUZZLE_HNS));
+
+    if (isPuzzleMap)
+    {
+        OverrideTemplateCoordsForObjectEvent(boulder);
+    }
 
     if (MapGridGetMetatileBehaviorAt(x, y) == MB_STRENGTH_BUTTON || isPuzzleMap)
     {

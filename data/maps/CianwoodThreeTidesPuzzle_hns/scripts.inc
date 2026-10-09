@@ -144,8 +144,11 @@ CianwoodThreeTidesPuzzle_Text_Signboard:
 	.string "el ECO que responde al paso.\p"
 	.string "Y abajo a la derecha, en el rincón\n"
 	.string "sureste, ruge el fiero BRÍO.\p"
-	.string "Guía cada peso a su vacío\n"
-	.string "y el guardián romperá su velo.”$"
+	.string "El orden no altera el flujo:\n"
+	.string "guía cada peso a su vacío\l"
+	.string "y cuando las tres descansen\l"
+	.string "a la vez, el guardián\l"
+	.string "romperá su velo.”$"
 
 CianwoodThreeTidesPuzzle_Text_CalmSet:
 	.string "¡El monolito encaja en la hendidura\n"
