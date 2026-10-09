@@ -635,6 +635,9 @@ const u16 gTrainerPalette_SamsonOakHns[] = INCBIN_U16("graphics/trainers/front_p
 const u32 gTrainerFrontPic_KnekroHns[] = INCBIN_U32("graphics/trainers/front_pics/knekro_hns.4bpp.smol");
 const u16 gTrainerPalette_KnekroHns[] = INCBIN_U16("graphics/trainers/palettes/knekro_hns.gbapal");
 
+const u32 gTrainerFrontPic_LosPapisHns[] = INCBIN_U32("graphics/trainers/front_pics/los_papis_hns.4bpp.smol");
+const u16 gTrainerPalette_LosPapisHns[] = INCBIN_U16("graphics/trainers/palettes/los_papis_hns.gbapal");
+
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may.4bpp");
 const u8 gTrainerBackPic_Red[] = INCBIN_U8("graphics/trainers/back_pics/red.4bpp");
@@ -889,6 +892,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(TRAINER_PIC_FRONT_YOUNGSTER_HNS, gTrainerFrontPic_YoungsterHns, gTrainerPalette_YoungsterHns),
     TRAINER_SPRITE(TRAINER_PIC_FRONT_SAMSON_OAK_HNS, gTrainerFrontPic_SamsonOakHns, gTrainerPalette_SamsonOakHns),
     TRAINER_SPRITE(TRAINER_PIC_FRONT_KNEKRO_HNS, gTrainerFrontPic_KnekroHns, gTrainerPalette_KnekroHns),
+    TRAINER_SPRITE(TRAINER_PIC_FRONT_LOS_PAPIS_HNS, gTrainerFrontPic_LosPapisHns, gTrainerPalette_LosPapisHns),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =
