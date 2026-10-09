@@ -275,8 +275,9 @@ static const u16 sNewGameBirch_Pal[16] = INCBIN_U16("graphics/birch_speech/birch
 
 #if IS_HNS
 static const u32 sNewGameOak_Gfx[] = INCBIN_U32("graphics/oak_speech_hns/oak_hns.4bpp");
-static const u16 sNewGameOak_Pal[16] = INCBIN_U16("graphics/oak_speech_hns/oak_hns.gbapal");
+static const u16 sNewGameOak_Pal[] = INCBIN_U16("graphics/oak_speech_hns/oak_hns.gbapal");
 #endif
+
 
 static const u32 sPokeballGlow_Gfx[] = INCBIN_U32("graphics/field_effects/pics/pokeball_glow.4bpp");
 static const u16 sPokeballGlow_Pal[16] = INCBIN_U16("graphics/field_effects/palettes/pokeball_glow.gbapal");
