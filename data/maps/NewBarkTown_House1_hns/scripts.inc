@@ -22,9 +22,10 @@ NewBarkTown_House1_Text_NeighborsDaughter:
 	.string "POKéMON.\p"
 	.string "Me asombraron los hallazgos del\n"
 	.string "PROF. ELM.\p"
-	.string "Es muy famoso por sus\n"
-	.string "investigaciones\l"
+	.string "Es muy famoso por\n"
+	.string "sus investigaciones\l"
 	.string "sobre la evolución POKéMON.\p"
+
 	.string "… Suspiro…\p"
 	.string "Ojalá pudiera ser una investigadora\n"
 	.string "como él…$"

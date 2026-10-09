@@ -48,18 +48,18 @@ CherryGrove_Pokecenter_Chansey::
 	end
 
 CherryGrove_Pokecenter_Text_Fisher:
-	.string "Es una maravilla. Puedo guardar\n"
-	.string "tantos\l"
-	.string "POKéMON como quiera, y es gratis.$"
+	.string "¡Es genial! Puedo guardar todos\n"
+	.string "los POKéMON que quiera gratis.$"
+
 
 CherryGrove_Pokecenter_Text_Gentleman:
 	.string "Cualquier entrenador puede usar ese\n"
 	.string "PC libremente.$"
 
 CherryGrove_Pokecenter_Text_Lass:
-	.string "Dicen que mirar un reloj\n"
-	.string "ralentiza el tiempo; aquí\l"
-	.string "¡las horas pasan volando!$"
+	.string "Dicen que mirar el reloj ralentiza\n"
+	.string "el tiempo. ¡Aquí las horas vuelan!$"
+
 
 CherryGrove_Pokecenter_Text_MegaResearcherIntro:
 	.string "Investigo una energía capaz de\n"
