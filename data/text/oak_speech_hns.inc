@@ -1,11 +1,14 @@
 gText_Oak_Welcome::
-	.string "¡Hola! ¡Siento haberte hecho esperar!\p"
+	.string "¡Hola!\n"
+	.string "¡Siento haberte hecho esperar!\p"
 	.string "¡Te doy la bienvenida al mundo\n"
 	.string "de los POKéMON!\p"
-	.string "Me llamo OAK.\p"
+	.string "Me llamo MOHEDANO.\p"
 	.string "La gente me llama el PROFESOR\n"
 	.string "POKéMON.\p"
 	.string "$"
+
+
 
 gText_Oak_Pokemon::
 	.string "A esto lo llamamos un “POKéMON”.\p"
