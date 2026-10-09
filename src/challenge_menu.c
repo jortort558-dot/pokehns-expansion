@@ -1087,9 +1087,10 @@ static const u8 *const sDesc_PokeVial[] = {
     COMPOUND_STRING("No entrega ni permite utilizar\nel PokéVial durante el reto."),
 };
 static const u8 *const sDesc_GymTokens[] = {
-    COMPOUND_STRING("Las medallas dan Fichas Gimnasio\npara canjear ayudas Nuzlocke."),
+    COMPOUND_STRING("Las medallas dan Fichas Pokemitos\npara canjear ayudas Nuzlocke."),
     COMPOUND_STRING("Las medallas no dan fichas ni se\npueden usar sus servicios."),
 };
+
 static const u8 *const sDesc_BanHealingShop[] = {
     COMPOUND_STRING("Las tiendas no venden curas ni pociones\ndurante el reto Nuzlocke."),
     COMPOUND_STRING("Las tiendas venden objetos curativos\ncon normalidad."),

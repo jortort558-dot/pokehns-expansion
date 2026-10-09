@@ -123,8 +123,9 @@ void AwardGymToken(void)
 void GetGymTokenCount(void)
 {
     gSpecialVar_Result = IsGymTokenModeActive() ? gSaveBlock3Ptr->gymTokens.count : 0;
-    ConvertIntToDecimalStringN(gStringVar1, gSpecialVar_Result, STR_CONV_MODE_LEFT_ALIGN, 1);
+    ConvertIntToDecimalStringN(gStringVar1, gSpecialVar_Result, STR_CONV_MODE_LEFT_ALIGN, 2);
 }
+
 
 void GymTokenRecordFailedEncounter(u16 mapsec)
 {

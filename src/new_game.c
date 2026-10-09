@@ -385,8 +385,11 @@ void NewGameInitData(void)
 #if IS_HNS
     StringCopy(gSaveBlock2Ptr->rivalName, gText_ExpandedPlaceholder_Silver);
     InitMomSavings();
+    if (gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup)
+        AddBagItem(ITEM_CARNET_POKEMITOS, 1);
 #endif
 }
+
 
 static void ResetMiniGamesRecords(void)
 {

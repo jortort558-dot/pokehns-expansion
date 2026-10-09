@@ -746,7 +746,7 @@ static void Task_NewGameHnsSpeech_CreatePokemitosCupYesNo(u8 taskId)
 
 static void Task_NewGameHnsSpeech_ProcessPokemitosCupYesNo(u8 taskId)
 {
-    static const u8 sText_PokemitosCupConfirmed[] = _("¡Perfecto! Aplicaré las reglas\noficiales de la PokemitosCup II.\pNo podrás cambiar los desafíos\nni usar funciones de depuración.");
+    static const u8 sText_PokemitosCupConfirmed[] = _("¡Perfecto! Aplicaré las reglas\noficiales de la PokemitosCup II.\pRecibirás tu CARNET oficial y\nno podrás cambiar los desafíos.");
 
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {

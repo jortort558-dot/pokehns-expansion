@@ -3,7 +3,7 @@
 
 #include "global.h"
 
-#define GYM_TOKEN_MAX 3
+#define GYM_TOKEN_MAX 99
 
 bool32 IsGymTokenModeActive(void);
 bool32 GymTokenCanTradeMon(struct BoxPokemon *boxMon);

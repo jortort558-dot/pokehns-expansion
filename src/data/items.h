@@ -17610,19 +17610,23 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_SquirtBottle,
     },
 
-    [ITEM_UNUSED_BERRY_3] =
+    [ITEM_CARNET_POKEMITOS] =
     {
-        .name = ITEM_NAME("????????"),
+        .name = ITEM_NAME("CARNET COPA"),
+        .pluralName = ITEM_PLURAL_NAME("CARNETS COPA"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "Marcador de objeto sin\n"
-            "uso."),
-        .pocket = POCKET_ITEMS,
+            "Acreditación oficial de la\n"
+            "Pokemitos Cup II. Muestra tus\n"
+            "Fichas Pokemitos y progreso\n"
+            "del reto Nuzlocke."),
+        .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .iconPic = gItemIcon_QuestionMark,
-        .iconPalette = gItemIconPalette_QuestionMark,
+        .fieldUseFunc = ItemUseOutOfBattle_CarnetPokemitos,
+        .iconPic = gItemIcon_HnsPass,
+        .iconPalette = gItemIconPalette_HnsPass,
     },
+
 
     [ITEM_AZURE_FLUTE] =
     {

@@ -229,7 +229,8 @@ GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner:
 	.string "Recordar movimientos$"
 
 GoldenrodCity_PokemonCenter_Text_OptionGymTokens:
-	.string "Fichas Gimnasio$"
+	.string "Fichas Pokemitos$"
+
 
 GoldenrodCity_PokemonCenter_Text_OptionLevelCaps:
 	.string "Info líderes y niveles$"
@@ -355,7 +356,7 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenEnd::
 
 GoldenrodCity_PokemonCenter_Text_GymTokenIntro:
 	.string "Soy el encargado de las\n"
-	.string "FICHAS GIMNASIO.\p"
+	.string "FICHAS POKEMITOS.\p"
 	.string "Ahora tienes {STR_VAR_1}.$"
 
 GoldenrodCity_PokemonCenter_Text_GymTokenNone:
@@ -386,15 +387,15 @@ GoldenrodCity_PokemonCenter_Text_SaveRequiredNotice:
 
 GoldenrodCity_PokemonCenter_Text_GymTokenTrade:
 	.string "¿Intercambiar un POKéMON vivo y sin\n"
-	.string "objeto por 1 FICHA GIMNASIO?$"
+	.string "objeto por 1 FICHA POKEMITOS?$"
 
 GoldenrodCity_PokemonCenter_Text_GymTokenRevive:
 	.string "¿Resucitar un POKéMON debilitado\n"
-	.string "por 2 FICHAS GIMNASIO?$"
+	.string "por 2 FICHAS POKEMITOS?$"
 
 GoldenrodCity_PokemonCenter_Text_GymTokenReviveNotEnough:
 	.string "La resurrección de un POKéMON\n"
-	.string "requiere 2 FICHAS GIMNASIO.$"
+	.string "requiere 2 FICHAS POKEMITOS.$"
 
 GoldenrodCity_PokemonCenter_Text_GymTokenNoRetry:
 	.string "No tienes zonas gastadas que se\n"
@@ -420,7 +421,7 @@ GoldenrodCity_PokemonCenter_Text_GymTokenExplain:
 	.string "Cada medalla da una FICHA.\p"
 	.string "Sirven para recuperar capturas,\n"
 	.string "intercambiar o resucitar.\p"
-	.string "Puedes guardar un máximo de 3.$"
+	.string "¡Acumula todas las que puedas!$"
 
 GymToken_EventScript_Award::
 	special AwardGymToken
@@ -437,12 +438,13 @@ GymToken_EventScript_AwardFull::
 	return
 
 GymToken_Text_AwardReceived:
-	.string "¡Has recibido una FICHA GIMNASIO!\n"
+	.string "¡Has recibido una FICHA POKEMITOS!\n"
 	.string "Puedes canjearla en un CENTRO.$"
 
 GymToken_Text_AwardFull:
-	.string "Ya tienes 3 FICHAS GIMNASIO.\n"
-	.string "No puedes guardar esta recompensa.$"
+	.string "¡Has alcanzado el máximo de\n"
+	.string "FICHAS POKEMITOS!$"
+
 
 GoldenrodCity_PokemonCenter_EventScript_GbaKid1::
 	lock

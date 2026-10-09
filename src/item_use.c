@@ -98,6 +98,8 @@ static const u8 sText_PlayedPokeFlute[] = _("Played the POKé FLUTE.");
 static const u8 sText_PokeFluteAwakenedMon[] = _("The POKé FLUTE awakened sleeping\nPOKéMON.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PokeVialHealed[] = _("¡El equipo se ha recuperado!\nCargas: {STR_VAR_1}/{STR_VAR_2}{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PokeVialEmpty[] = _("El PokéVial está vacío.\nRecárgalo en un Centro POKéMON.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_CarnetPokemitosInfo[] = _("CARNET POKEMITOS CUP II\pParticipante: {PLAYER}\nFichas Pokemitos: {STR_VAR_1}\lMedallas ganadas: {STR_VAR_2}/16\pReglas oficiales activas.{PAUSE_UNTIL_PRESS}");
+
 static const u8 sText_PokeVialNoEffect[] = _("El equipo ya está sano.\nNo tendrá ningún efecto.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PokeVialDisabled[] = _("El PokéVial está desactivado\npor las reglas del reto.{PAUSE_UNTIL_PRESS}");
 
@@ -798,7 +800,28 @@ void ItemUseOutOfBattle_PowderJar(u8 taskId)
     }
 }
 
+void ItemUseOutOfBattle_CarnetPokemitos(u8 taskId)
+{
+    u8 tokenCount = gSaveBlock3Ptr->gymTokens.count;
+    u16 badgeCount = VarGet(VAR_NUM_BADGES);
+
+    ConvertIntToDecimalStringN(gStringVar1, tokenCount, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar2, badgeCount, STR_CONV_MODE_LEFT_ALIGN, 2);
+    StringExpandPlaceholders(gStringVar4, sText_CarnetPokemitosInfo);
+
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+    {
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+    }
+    else
+    {
+        DisplayItemMessageOnField(taskId, gStringVar4, Task_CloseCantUseKeyItemMessage);
+    }
+}
+
+
 void ItemUseOutOfBattle_Berry(u8 taskId)
+
 {
     if (IsPlayerFacingEmptyBerryTreePatch() == TRUE)
     {
