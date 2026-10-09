@@ -16263,6 +16263,19 @@
       "blockdata_filepath": "data/layouts/MahoganyTown_House2_hns/map.bin",
       "game_version": "hns",
       "layout_version": "hns"
+    },
+    {
+      "id": "LAYOUT_VIOLET_CITY_CAVE_KALOS",
+      "name": "VioletCity_Cave_Kalos_Layout",
+      "width": 22,
+      "height": 28,
+      "primary_tileset": "gTileset_Kanto_General_Hns",
+      "secondary_tileset": "gTileset_Cave_Default_Hns",
+      "border_filepath": "data/layouts/VioletCity_Cave_Kalos/border.bin",
+      "blockdata_filepath": "data/layouts/VioletCity_Cave_Kalos/map.bin",
+      "game_version": "hns",
+      "layout_version": "hns"
     }
   ]
 }
+

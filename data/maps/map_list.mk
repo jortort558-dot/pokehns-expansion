@@ -1475,6 +1475,7 @@ MAP_JSONS := \
   data/maps/VictoryRoad_3F_Frlg/map.json \
   data/maps/VictoryRoad_B1F/map.json \
   data/maps/VictoryRoad_B2F/map.json \
+  data/maps/VioletCity_Cave_Kalos/map.json \
   data/maps/VioletCity_Gym_hns/map.json \
   data/maps/VioletCity_House1_hns/map.json \
   data/maps/VioletCity_House2_hns/map.json \
