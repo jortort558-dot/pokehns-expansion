@@ -187,57 +187,60 @@ gPikachuIntro_Text_Page3::
 	.string "adventure begin!$"
 
 gOakSpeech_Text_WelcomeToTheWorld::
-	.string "Hello, there!\n"
-	.string "Glad to meet you!\p"
-	.string "Welcome to the world of POKéMON!\p"
-	.string "My name is OAK.\p"
-	.string "People affectionately refer to me\n"
-	.string "as the POKéMON PROFESSOR.\p$"
+	.string "¡Hola! ¡Un placer conocerte!\p"
+	.string "¡Te doy la bienvenida al\n"
+	.string "maravilloso mundo POKéMON!\p"
+	.string "Me llamo MOHEDANO.\p"
+	.string "La gente suele llamarme el\n"
+	.string "PROFESOR POKéMON.\p$"
 
 gOakSpeech_Text_ThisWorld::
-	.string "This world…$"
+	.string "Este mundo…$"
 
 gOakSpeech_Text_IsInhabitedFarAndWide::
-	.string "…is inhabited far and wide by\n"
-	.string "creatures called POKéMON.\p$"
+	.string "…está habitado a lo largo y ancho\n"
+	.string "por criaturas llamadas POKéMON.\p$"
 
 gOakSpeech_Text_IStudyPokemon::
-	.string "For some people, POKéMON are pets.\n"
-	.string "Others use them for battling.\p"
-	.string "As for myself…\p"
-	.string "I study POKéMON as a profession.\p$"
+	.string "Para algunos, son mascotas.\n"
+	.string "Otros los usan para combatir.\p"
+	.string "En cuanto a mí…\p"
+	.string "Me dedico a investigar a los\n"
+	.string "POKéMON como profesión.\p$"
 
 gOakSpeech_Text_TellMeALittleAboutYourself::
-	.string "But first, tell me a little about\n"
-	.string "yourself.\p$"
+	.string "Pero antes, háblame un poco\n"
+	.string "sobre ti.\p$"
 
 gOakSpeech_Text_YourNameWhatIsIt::
-	.string "Let's begin with your name.\n"
-	.string "What is it?\p$"
+	.string "Empecemos por tu nombre.\n"
+	.string "¿Cuál es?\p$"
 
 gOakSpeech_Text_SoYourNameIsPlayer::
-	.string "Right…\n"
-	.string "So your name is {PLAYER}.$"
+	.string "De acuerdo…\n"
+	.string "Así que te llamas {PLAYER}.$"
 
 gOakSpeech_Text_WhatWasHisName::
-	.string "This is my grandson.\p"
-	.string "He's been your rival since you both\n"
-	.string "were babies.\p"
-	.string "…Erm, what was his name now?$"
+	.string "Este es mi nieto.\p"
+	.string "Ha sido tu rival desde que\n"
+	.string "erais pequeños.\p"
+	.string "… Esto, ¿cómo se llamaba?$"
 
 gOakSpeech_Text_YourRivalsNameWhatWasIt::
-	.string "Your rival's name, what was it now?$"
+	.string "El nombre de tu rival,\n"
+	.string "¿cuál era exactamente?$"
 
 gOakSpeech_Text_ConfirmRivalName::
-	.string "…Er, was it {RIVAL}?$"
+	.string "… Ah, ¿era {RIVAL}?$"
 
 gOakSpeech_Text_RememberRivalsName::
-	.string "That's right! I remember now!\n"
-	.string "His name is {RIVAL}!\p$"
+	.string "¡Es verdad! ¡Ya me acuerdo!\n"
+	.string "¡Su nombre es {RIVAL}!\p$"
 
 gOakSpeech_Text_LetsGo::
-	.string "{PLAYER}!\p"
-	.string "Your very own POKéMON legend is\n"
-	.string "about to unfold!\p"
-	.string "A world of dreams and adventures\n"
-	.string "with POKéMON awaits! Let's go!$"
+	.string "¡{PLAYER}!\p"
+	.string "¡Tu propia leyenda POKéMON está\n"
+	.string "a punto de comenzar!\p"
+	.string "¡Te aguarda un mundo repleto de\n"
+	.string "sueños y aventuras! ¡Vamos!$"
+
