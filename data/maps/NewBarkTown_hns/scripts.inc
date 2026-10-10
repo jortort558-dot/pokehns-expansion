@@ -99,6 +99,27 @@ NewBarkTown_EventScript_Wooper::
 	release
 	end
 
+NewBarkTown_EventScript_PokemitosMohenFan::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_PokemitosMohenFan, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_EventScript_PokemitosBatemagicoFan::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_PokemitosBatemagicoFan, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_EventScript_PokemitosKaligulaFan::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_PokemitosKaligulaFan, MSGBOX_DEFAULT
+	release
+	end
+
 NewBarkTown_EventScript_LeaveTrigger::
 	lock
 	call_if_eq VAR_NEWBARK_TOWN_STATE, 2, NewBarkTown_EventScript_LeaveTriggersState2
@@ -280,6 +301,27 @@ NewBarkTown_Text_SecretGardenDiary:
 
 NewBarkTown_Text_Wooper:
 	.string "WOOPER: Woooooop.$"
+
+NewBarkTown_Text_PokemitosMohenFan:
+	.string "¡¿Has oído al PROF. MOHEN?!\p"
+	.string "¡El tío sabe de todo! Combates,\n"
+	.string "sets, rutas… ¡Es una enciclopedia!\p"
+	.string "Pero me raya muchísimo que nunca\n"
+	.string "participe en nada. ¡Que se apunte!$"
+
+NewBarkTown_Text_PokemitosBatemagicoFan:
+	.string "¡BATEMÁGICO me metió en esto!\p"
+	.string "Coincidimos tras una raid en\n"
+	.string "SYLVANAS y empezó a picarme:\p"
+	.string "'¡Venga, entra en la CUP II!'.\n"
+	.string "¡Y aquí estoy, a tope!$"
+
+NewBarkTown_Text_PokemitosKaligulaFan:
+	.string "¡KALIGULA no acepta un no!\p"
+	.string "Al acabar una raid en SYLVANAS\n"
+	.string "me vendió la CUP II. ¡Una locura!\p"
+	.string "Cinco minutos después ya estaba\n"
+	.string "preparando el equipo. ¡Qué hype!$"
 
 NewBarkTown_Text_FatManState2:
 	.string "¡Vaya, qué POKéGEAR tan chulo!\n"

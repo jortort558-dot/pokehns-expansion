@@ -11,6 +11,12 @@ VioletCity_OnFrame::
 
 VioletCity_OnTransition::
 	callnative SetTimeBasedEncounters
+	goto_if_set FLAG_VIOLET_LAMP_PUZZLE_SOLVED, VioletCity_OnTransition_ShowRosa
+	setflag FLAG_HIDE_VIOLET_ROSA
+	end
+
+VioletCity_OnTransition_ShowRosa::
+	clearflag FLAG_HIDE_VIOLET_ROSA
 	end
 
 VioletCity_EventScript_Trigger::
@@ -234,6 +240,7 @@ VioletCity_EventScript_LampWrong::
 VioletCity_EventScript_LampComplete::
 	setvar VAR_VIOLET_LAMP_SEQUENCE, 4
 	setflag FLAG_VIOLET_LAMP_PUZZLE_SOLVED
+	clearflag FLAG_HIDE_VIOLET_ROSA
 	playse SE_M_PETAL_DANCE
 	special DoSealedChamberShakingEffect_Short
 	waitstate
@@ -681,3 +688,320 @@ VioletCity_Text_Kimono_Girl3:
 
 VioletCity_Text_Kimono_Girl4:
 .string "Confío plenamente en ti.$"
+
+VioletCity_EventScript_Rosa::
+	lock
+	faceplayer
+	callnative GetDailyRosaChallengeInfo
+	goto_if_set FLAG_DAILY_ROSA_CHALLENGE_WON, VioletCity_EventScript_RosaAlreadyWon
+	goto_if_set FLAG_DAILY_ROSA_CHALLENGE_ATTEMPTED, VioletCity_EventScript_RosaAlreadyAttempted
+	msgbox VioletCity_Text_RosaIntro, MSGBOX_DEFAULT
+	call VioletCity_EventScript_RosaDisplayHint
+	msgbox VioletCity_Text_RosaAskBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VioletCity_EventScript_RosaDecline
+	msgbox VioletCity_Text_RosaAccept, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_DAILY_ROSA_CHALLENGE_ATTEMPTED
+	switch VAR_0x8005
+	case 0, VioletCity_EventScript_RosaBattle0
+	case 1, VioletCity_EventScript_RosaBattle1
+	case 2, VioletCity_EventScript_RosaBattle2
+	case 3, VioletCity_EventScript_RosaBattle3
+	case 4, VioletCity_EventScript_RosaBattle4
+	case 5, VioletCity_EventScript_RosaBattle5
+	case 6, VioletCity_EventScript_RosaBattle6
+	case 7, VioletCity_EventScript_RosaBattle7
+	case 8, VioletCity_EventScript_RosaBattle8
+	case 9, VioletCity_EventScript_RosaBattle9
+	case 10, VioletCity_EventScript_RosaBattle10
+	case 11, VioletCity_EventScript_RosaBattle11
+	case 12, VioletCity_EventScript_RosaBattle12
+	case 13, VioletCity_EventScript_RosaBattle13
+	goto VioletCity_EventScript_RosaBattle0
+	end
+
+VioletCity_EventScript_RosaBattle0::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_0_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle1::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_1_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle2::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_2_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle3::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_3_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle4::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_4_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle5::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_5_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle6::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_6_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle7::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_7_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle8::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_8_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle9::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_9_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle10::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_10_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle11::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_11_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle12::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_12_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaBattle13::
+	trainerbattle_no_intro TRAINER_ROSA_CHALLENGE_13_HNS, VioletCity_Text_RosaDefeat
+	goto VioletCity_EventScript_RosaPostBattle
+	end
+
+VioletCity_EventScript_RosaPostBattle::
+	setflag FLAG_DAILY_ROSA_CHALLENGE_WON
+	msgbox VioletCity_Text_RosaReward, MSGBOX_DEFAULT
+	giveitem ITEM_ABILITY_CAPSULE, 1
+	msgbox VioletCity_Text_RosaWonFinal, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_RosaAlreadyWon::
+	msgbox VioletCity_Text_RosaAlreadyWon, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_RosaAlreadyAttempted::
+	msgbox VioletCity_Text_RosaAlreadyAttempted, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_RosaDecline::
+	msgbox VioletCity_Text_RosaDecline, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_EventScript_RosaDisplayHint::
+	switch VAR_0x8005
+	case 0, VioletCity_EventScript_RosaHint0
+	case 1, VioletCity_EventScript_RosaHint1
+	case 2, VioletCity_EventScript_RosaHint2
+	case 3, VioletCity_EventScript_RosaHint3
+	case 4, VioletCity_EventScript_RosaHint4
+	case 5, VioletCity_EventScript_RosaHint5
+	case 6, VioletCity_EventScript_RosaHint6
+	case 7, VioletCity_EventScript_RosaHint7
+	case 8, VioletCity_EventScript_RosaHint8
+	case 9, VioletCity_EventScript_RosaHint9
+	case 10, VioletCity_EventScript_RosaHint10
+	case 11, VioletCity_EventScript_RosaHint11
+	case 12, VioletCity_EventScript_RosaHint12
+	case 13, VioletCity_EventScript_RosaHint13
+	return
+
+VioletCity_EventScript_RosaHint0::
+	msgbox VioletCity_Text_RosaHint0, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint1::
+	msgbox VioletCity_Text_RosaHint1, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint2::
+	msgbox VioletCity_Text_RosaHint2, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint3::
+	msgbox VioletCity_Text_RosaHint3, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint4::
+	msgbox VioletCity_Text_RosaHint4, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint5::
+	msgbox VioletCity_Text_RosaHint5, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint6::
+	msgbox VioletCity_Text_RosaHint6, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint7::
+	msgbox VioletCity_Text_RosaHint7, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint8::
+	msgbox VioletCity_Text_RosaHint8, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint9::
+	msgbox VioletCity_Text_RosaHint9, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint10::
+	msgbox VioletCity_Text_RosaHint10, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint11::
+	msgbox VioletCity_Text_RosaHint11, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint12::
+	msgbox VioletCity_Text_RosaHint12, MSGBOX_DEFAULT
+	return
+
+VioletCity_EventScript_RosaHint13::
+	msgbox VioletCity_Text_RosaHint13, MSGBOX_DEFAULT
+	return
+
+VioletCity_Text_RosaIntro:
+	.string "ROSA: ¡Hola! Soy ROSA,\n"
+	.string "LA ESTRATEGA.\p"
+	.string "Tras completar el enigma de\n"
+	.string "KALOS, he venido a probar a\l"
+	.string "entrenadores de élite.\p"
+	.string "Cada día entreno con un arquetipo\n"
+	.string "competitivo de alto nivel.\p"
+	.string "Solo tienes una oportunidad al día\n"
+	.string "para derrotarme, pero no temas:\l"
+	.string "las derrotas aquí no son fatales.$"
+
+VioletCity_Text_RosaAskBattle:
+	.string "¿Te atreves a medirte a mi\n"
+	.string "estrategia de hoy?$"
+
+VioletCity_Text_RosaAccept:
+	.string "¡Excelente! ¡Demuéstrame el nivel\n"
+	.string "de tu preparación!$"
+
+VioletCity_Text_RosaDecline:
+	.string "Entendido. Vuelve cuando sientas\n"
+	.string "que tu equipo está listo.$"
+
+VioletCity_Text_RosaDefeat:
+	.string "¡Impresionante despliegue!\n"
+	.string "Has quebrado mi esquema táctico.$"
+
+VioletCity_Text_RosaReward:
+	.string "Una victoria impecable.\n"
+	.string "Te has ganado esta recompensa.$"
+
+VioletCity_Text_RosaWonFinal:
+	.string "Mañana prepararé una táctica\n"
+	.string "diferente. ¡Te esperaré!$"
+
+VioletCity_Text_RosaAlreadyWon:
+	.string "ROSA: ¡Ya has superado el reto\n"
+	.string "de hoy con honores!\p"
+	.string "Vuelve mañana para enfrentarte a\n"
+	.string "un nuevo arquetipo.$"
+
+VioletCity_Text_RosaAlreadyAttempted:
+	.string "ROSA: Ya has combatido hoy.\p"
+	.string "La disciplina exige estudiar los\n"
+	.string "errores antes del próximo reto.\p"
+	.string "¡Vuelve mañana para intentarlo!$"
+
+VioletCity_Text_RosaHint0:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Lluvia incesante y atacantes\l"
+	.string "veloces bajo el agua!$"
+
+VioletCity_Text_RosaHint1:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Sol abrasador, clorofila y\l"
+	.string "poderosas bestias del pasado!$"
+
+VioletCity_Text_RosaHint2:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Arena asfixiante, desgastes y\l"
+	.string "topos veloces entre el polvo!$"
+
+VioletCity_Text_RosaHint3:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Nieve glacial, Velo Aurora y\l"
+	.string "ofensiva contundente de hielo!$"
+
+VioletCity_Text_RosaHint4:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Espacio Raro! Los más lentos\l"
+	.string "golpearán primero con furia.$"
+
+VioletCity_Text_RosaHint5:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Hiperofensiva tras pantallas!\n"
+	.string "Cuidado con los potenciadores.$"
+
+VioletCity_Text_RosaHint6:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Campo Eléctrico y la implacable\l"
+	.string "maquinaria del futuro!$"
+
+VioletCity_Text_RosaHint7:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Campo Psíquico! La Fuerza\n"
+	.string "Expansiva arrasará todo a su paso.$"
+
+VioletCity_Text_RosaHint8:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Campo de Hierba y ataques de\l"
+	.string "prioridad implacables!$"
+
+VioletCity_Text_RosaHint9:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Muro defensivo supremo!\n"
+	.string "Desgaste, púas y regeneración.$"
+
+VioletCity_Text_RosaHint10:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Velocidad extrema y prioridad pura!\n"
+	.string "Atacantes letales de remate.$"
+
+VioletCity_Text_RosaHint11:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Estructura de campeonato!\n"
+	.string "Intimidación doble y control.$"
+
+VioletCity_Text_RosaHint12:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Relevo y aumentos de poder!\n"
+	.string "Una cadena táctica coordinada.$"
+
+VioletCity_Text_RosaHint13:
+	.string "Pista táctica de hoy:\n"
+	.string "¡Especial Festivo Navideño!\n"
+	.string "Espíritu invernal y estrellas.$"
+
