@@ -523,7 +523,9 @@ static const struct WindowTemplate sDefaultBagWindows[] =
         .width = 8,
         .height = 2,
         .paletteNum = 1,
-        .baseBlock = 0x1B1,
+        // Keep this outside the ITEMWIN_MESSAGE / ITEMWIN_POPUP_INFO tile range.
+        // Window tile data is shared in VRAM even when the windows use different BGs.
+        .baseBlock = 0x351,
     },
     DUMMY_WIN_TEMPLATE,
 };
