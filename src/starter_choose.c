@@ -768,25 +768,44 @@ static void SpriteCB_StarterPokemon(struct Sprite *sprite)
         sprite->y += 2;
 }
 
-u16 GetStarterSpeciesForSlot(u8 slot)
+static u16 sLabStarters[3] = {SPECIES_NONE, SPECIES_NONE, SPECIES_NONE};
+static u32 sLabStartersSeed = 0;
+
+static void InitLabStarters(void)
 {
-    u16 species;
-    if (slot == 0)
-        species = SPECIES_CHIKORITA;
-    else if (slot == 1)
-        species = SPECIES_CYNDAQUIL;
-    else
-        species = SPECIES_TOTODILE;
+    sLabStartersSeed = GetRandomizerSeed();
+    sLabStarters[0] = SPECIES_CHIKORITA;
+    sLabStarters[1] = SPECIES_CYNDAQUIL;
+    sLabStarters[2] = SPECIES_TOTODILE;
 
 #if RANDOMIZER_AVAILABLE
     if (RandomizerFeatureEnabled(RANDOMIZE_STARTER_AND_GIFT_MON))
-        species = RandomizeMon(RANDOMIZER_REASON_STARTER_MON, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), GetRandomizerSeed() ^ species, species);
+    {
+        u16 originalStarters[3] = {SPECIES_CHIKORITA, SPECIES_CYNDAQUIL, SPECIES_TOTODILE};
+        u32 starterHash = 5381 ^ sLabStartersSeed;
+        GetUniqueMonList(RANDOMIZER_REASON_STARTER_MON,
+                         GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE),
+                         starterHash, 0, 3, originalStarters, sLabStarters);
+    }
 #endif
 
     if (IsOneTypeChallengeActive())
-        species = GetStarterPokemon(slot);
+    {
+        sLabStarters[0] = GetStarterPokemon(0);
+        sLabStarters[1] = GetStarterPokemon(1);
+        sLabStarters[2] = GetStarterPokemon(2);
+    }
+}
 
-    return species;
+u16 GetStarterSpeciesForSlot(u8 slot)
+{
+    if (slot >= 3)
+        slot = 0;
+
+    if (sLabStartersSeed != GetRandomizerSeed() || sLabStarters[0] == SPECIES_NONE)
+        InitLabStarters();
+
+    return sLabStarters[slot];
 }
 
 void SetupStarterOverworldGraphics(void)
@@ -798,15 +817,18 @@ void SetupStarterOverworldGraphics(void)
 
 void SetStarterSpeciesSlot0(void)
 {
+    SetupStarterOverworldGraphics();
     VarSet(VAR_TEMP_2, GetStarterSpeciesForSlot(0));
 }
 
 void SetStarterSpeciesSlot1(void)
 {
+    SetupStarterOverworldGraphics();
     VarSet(VAR_TEMP_2, GetStarterSpeciesForSlot(1));
 }
 
 void SetStarterSpeciesSlot2(void)
 {
+    SetupStarterOverworldGraphics();
     VarSet(VAR_TEMP_2, GetStarterSpeciesForSlot(2));
 }

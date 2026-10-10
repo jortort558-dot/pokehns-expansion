@@ -197,6 +197,7 @@ NewBarkTown_Lab_EventScript_ChikoritaBall::
 
 NewBarkTown_Lab_EventScript_ChikoritaBall_Open::
 	playse SE_BALL_OPEN
+	callnative SetStarterSpeciesSlot0
 	setflag FLAG_HIDE_CHIKORITABALL
 	removeobject LOCALID_BALL_CHIKORITA
 	clearflag FLAG_HIDE_STARTER_CHIKORITA
@@ -239,6 +240,7 @@ NewBarkTown_Lab_EventScript_CyndaquilBall::
 
 NewBarkTown_Lab_EventScript_CyndaquilBall_Open::
 	playse SE_BALL_OPEN
+	callnative SetStarterSpeciesSlot1
 	setflag FLAG_HIDE_CYNDAQUILBALL
 	removeobject LOCALID_BALL_CYNDAQUIL
 	clearflag FLAG_HIDE_STARTER_CYNDAQUIL
@@ -281,6 +283,7 @@ NewBarkTown_Lab_EventScript_TotodileBall::
 
 NewBarkTown_Lab_EventScript_TotodileBall_Open::
 	playse SE_BALL_OPEN
+	callnative SetStarterSpeciesSlot2
 	setflag FLAG_HIDE_TOTODILEBALL
 	removeobject LOCALID_BALL_TOTODILE
 	clearflag FLAG_HIDE_STARTER_TOTODILE
