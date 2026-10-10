@@ -9,5 +9,10 @@ extern const u32 gPokeballSelection_Gfx[];
 
 u16 GetStarterPokemon(u16 chosenStarterId);
 void CB2_ChooseStarter(void);
+u16 GetStarterSpeciesForSlot(u8 slot);
+void SetupStarterOverworldGraphics(void);
+void SetStarterSpeciesSlot0(void);
+void SetStarterSpeciesSlot1(void);
+void SetStarterSpeciesSlot2(void);
 
 #endif // GUARD_STARTER_CHOOSE_H

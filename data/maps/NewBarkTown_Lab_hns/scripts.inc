@@ -1,19 +1,46 @@
-.set PLAYER_STARTER_SPECIES,  VAR_TEMP_2
+.set PLAYER_STARTER_SPECIES,    VAR_TEMP_2
 
 NewBarkTown_Lab_hns_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, NewBarkTown_Lab_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, NewBarkTown_Lab_OnFrame
 	.byte 0
 
+NewBarkTown_Lab_OnFrame::
+	map_script_2 VAR_NEWBARKTOWN_LABSTATE, 4, NewBarkTown_Lab_EventScript_PoliceEpisode
+	.2byte 0
+
 NewBarkTown_Lab_OnTransition::
+	callnative SetupStarterOverworldGraphics
+	call NewBarkTown_Lab_EventScript_UpdateStarterVisibility
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 6, NewBarkTown_Lab_EventScript_ElmAtComputer
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 2, NewBarkTown_Lab_EventScript_ElmAtComputer
 	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 3, NewBarkTown_Lab_EventScript_ElmAtComputer
 	end
-	
-NewBarkTown_Lab_OnFrame::
-	map_script_2 VAR_NEWBARKTOWN_LABSTATE, 4, NewBarkTown_Lab_EventScript_PoliceEpisode
-	.2byte 0
+
+NewBarkTown_Lab_EventScript_UpdateStarterVisibility::
+	goto_if_set FLAG_SYS_POKEMON_GET, NewBarkTown_Lab_EventScript_HideAllStarterMons
+	call_if_unset FLAG_HIDE_CHIKORITABALL, NewBarkTown_Lab_EventScript_HideStarterChikorita
+	call_if_unset FLAG_HIDE_CYNDAQUILBALL, NewBarkTown_Lab_EventScript_HideStarterCyndaquil
+	call_if_unset FLAG_HIDE_TOTODILEBALL, NewBarkTown_Lab_EventScript_HideStarterTotodile
+	return
+
+NewBarkTown_Lab_EventScript_HideAllStarterMons::
+	setflag FLAG_HIDE_STARTER_CHIKORITA
+	setflag FLAG_HIDE_STARTER_CYNDAQUIL
+	setflag FLAG_HIDE_STARTER_TOTODILE
+	return
+
+NewBarkTown_Lab_EventScript_HideStarterChikorita::
+	setflag FLAG_HIDE_STARTER_CHIKORITA
+	return
+
+NewBarkTown_Lab_EventScript_HideStarterCyndaquil::
+	setflag FLAG_HIDE_STARTER_CYNDAQUIL
+	return
+
+NewBarkTown_Lab_EventScript_HideStarterTotodile::
+	setflag FLAG_HIDE_STARTER_TOTODILE
+	return
 
 NewBarkTown_Lab_EventScript_ElmAtComputer::
 	setobjectxyperm LOCALID_ELM, 3, 2
@@ -162,18 +189,38 @@ NewBarkTown_Lab_EventScript_ShouldntTouch::
 NewBarkTown_Lab_EventScript_ChikoritaBall::
 	lock
 	goto_if_set FLAG_SYS_POKEMON_GET, NewBarkTown_Lab_EventScript_ShouldntTouch
-	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 1, NewBarkTown_Lab_EventScript_ChikoritaBall_Choice
+	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 1, NewBarkTown_Lab_EventScript_ChikoritaBall_Open
 	msgbox NewBarkTown_Lab_Text_ShouldntTouch, MSGBOX_DEFAULT
 	release
 	closemessage
 	end
 
-NewBarkTown_Lab_EventScript_ChikoritaBall_Choice::
-	@callnative DisableStaticRandomizer
+NewBarkTown_Lab_EventScript_ChikoritaBall_Open::
+	playse SE_BALL_OPEN
+	setflag FLAG_HIDE_CHIKORITABALL
+	removeobject LOCALID_BALL_CHIKORITA
+	clearflag FLAG_HIDE_STARTER_CHIKORITA
+	addobject LOCALID_STARTER_CHIKORITA
+	applymovement LOCALID_STARTER_CHIKORITA, Common_Movement_ExclamationMark
+	waitmovement 0
+	goto NewBarkTown_Lab_EventScript_ChikoritaChoice
+
+NewBarkTown_Lab_EventScript_ChikoritaMon::
+	lock
+	faceplayer
+	goto_if_set FLAG_SYS_POKEMON_GET, NewBarkTown_Lab_EventScript_ShouldntTouch
+	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 1, NewBarkTown_Lab_EventScript_ChikoritaChoice
+	msgbox NewBarkTown_Lab_Text_ShouldntTouch, MSGBOX_DEFAULT
+	release
+	closemessage
+	end
+
+NewBarkTown_Lab_EventScript_ChikoritaChoice::
 	setvar VAR_STARTER_MON, 0
-	setvar PLAYER_STARTER_SPECIES, SPECIES_CHIKORITA
-	showmonpic PLAYER_STARTER_SPECIES, 10, 3
+	callnative SetStarterSpeciesSlot0
 	playmoncry PLAYER_STARTER_SPECIES, CRY_MODE_NORMAL
+	showmonpic PLAYER_STARTER_SPECIES, 10, 3
+	waitmoncry
 	bufferspeciesname STR_VAR_1, PLAYER_STARTER_SPECIES
 	buffermoncategory STR_VAR_2, PLAYER_STARTER_SPECIES
 	msgbox NewBarkTown_Lab_Text_ChooseChikorita, MSGBOX_YESNO
@@ -184,21 +231,41 @@ NewBarkTown_Lab_EventScript_ChikoritaBall_Choice::
 NewBarkTown_Lab_EventScript_CyndaquilBall::
 	lock
 	goto_if_set FLAG_SYS_POKEMON_GET, NewBarkTown_Lab_EventScript_ShouldntTouch
-	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 1, NewBarkTown_Lab_EventScript_CyndaquilBall_Choice
+	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 1, NewBarkTown_Lab_EventScript_CyndaquilBall_Open
 	msgbox NewBarkTown_Lab_Text_ShouldntTouch, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
-NewBarkTown_Lab_EventScript_CyndaquilBall_Choice::
-	@callnative DisableStaticRandomizer
+NewBarkTown_Lab_EventScript_CyndaquilBall_Open::
+	playse SE_BALL_OPEN
+	setflag FLAG_HIDE_CYNDAQUILBALL
+	removeobject LOCALID_BALL_CYNDAQUIL
+	clearflag FLAG_HIDE_STARTER_CYNDAQUIL
+	addobject LOCALID_STARTER_CYNDAQUIL
+	applymovement LOCALID_STARTER_CYNDAQUIL, Common_Movement_ExclamationMark
+	waitmovement 0
+	goto NewBarkTown_Lab_EventScript_CyndaquilChoice
+
+NewBarkTown_Lab_EventScript_CyndaquilMon::
+	lock
+	faceplayer
+	goto_if_set FLAG_SYS_POKEMON_GET, NewBarkTown_Lab_EventScript_ShouldntTouch
+	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 1, NewBarkTown_Lab_EventScript_CyndaquilChoice
+	msgbox NewBarkTown_Lab_Text_ShouldntTouch, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+NewBarkTown_Lab_EventScript_CyndaquilChoice::
 	setvar VAR_STARTER_MON, 1
-	setvar PLAYER_STARTER_SPECIES, SPECIES_CYNDAQUIL
-	showmonpic PLAYER_STARTER_SPECIES, 10, 3
+	callnative SetStarterSpeciesSlot1
 	playmoncry PLAYER_STARTER_SPECIES, CRY_MODE_NORMAL
+	showmonpic PLAYER_STARTER_SPECIES, 10, 3
+	waitmoncry
 	bufferspeciesname STR_VAR_1, PLAYER_STARTER_SPECIES
 	buffermoncategory STR_VAR_2, PLAYER_STARTER_SPECIES
-	msgbox NewBarkTown_Lab_Text_ChooseCyndaquil, MSGBOX_YESNO	
+	msgbox NewBarkTown_Lab_Text_ChooseCyndaquil, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, NewBarkTown_Lab_EventScript_ChoseStarter
 	goto_if_eq VAR_RESULT, NO, NewBarkTown_Lab_EventScript_DeclinedStarter
 	end
@@ -206,18 +273,38 @@ NewBarkTown_Lab_EventScript_CyndaquilBall_Choice::
 NewBarkTown_Lab_EventScript_TotodileBall::
 	lock
 	goto_if_set FLAG_SYS_POKEMON_GET, NewBarkTown_Lab_EventScript_ShouldntTouch
-	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 1, NewBarkTown_Lab_EventScript_TotodileBall_Choice
+	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 1, NewBarkTown_Lab_EventScript_TotodileBall_Open
 	msgbox NewBarkTown_Lab_Text_ShouldntTouch, MSGBOX_DEFAULT
 	release
 	closemessage
 	end
 
-NewBarkTown_Lab_EventScript_TotodileBall_Choice::
-	@callnative DisableStaticRandomizer
+NewBarkTown_Lab_EventScript_TotodileBall_Open::
+	playse SE_BALL_OPEN
+	setflag FLAG_HIDE_TOTODILEBALL
+	removeobject LOCALID_BALL_TOTODILE
+	clearflag FLAG_HIDE_STARTER_TOTODILE
+	addobject LOCALID_STARTER_TOTODILE
+	applymovement LOCALID_STARTER_TOTODILE, Common_Movement_ExclamationMark
+	waitmovement 0
+	goto NewBarkTown_Lab_EventScript_TotodileChoice
+
+NewBarkTown_Lab_EventScript_TotodileMon::
+	lock
+	faceplayer
+	goto_if_set FLAG_SYS_POKEMON_GET, NewBarkTown_Lab_EventScript_ShouldntTouch
+	goto_if_eq VAR_NEWBARKTOWN_LABSTATE, 1, NewBarkTown_Lab_EventScript_TotodileChoice
+	msgbox NewBarkTown_Lab_Text_ShouldntTouch, MSGBOX_DEFAULT
+	release
+	closemessage
+	end
+
+NewBarkTown_Lab_EventScript_TotodileChoice::
 	setvar VAR_STARTER_MON, 2
-	setvar PLAYER_STARTER_SPECIES, SPECIES_TOTODILE
-	showmonpic PLAYER_STARTER_SPECIES, 10, 3
+	callnative SetStarterSpeciesSlot2
 	playmoncry PLAYER_STARTER_SPECIES, CRY_MODE_NORMAL
+	showmonpic PLAYER_STARTER_SPECIES, 10, 3
+	waitmoncry
 	bufferspeciesname STR_VAR_1, PLAYER_STARTER_SPECIES
 	buffermoncategory STR_VAR_2, PLAYER_STARTER_SPECIES
 	msgbox NewBarkTown_Lab_Text_ChooseTotodile, MSGBOX_YESNO
@@ -229,14 +316,15 @@ NewBarkTown_Lab_EventScript_DeclinedStarter::
 	hidemonpic
 	msgbox NewBarkTown_Lab_Text_DidntChooseStarter, MSGBOX_DEFAULT
 	closemessage
-	@callnative EnableStaticRandomizer
 	release
 	end
 
 NewBarkTown_Lab_EventScript_ChoseStarter::
-	@callnative EnableStaticRandomizer
 	hidemonpic
-	removeobject VAR_LAST_TALKED
+	call_if_eq VAR_STARTER_MON, 0, NewBarkTown_Lab_EventScript_TakeChikorita
+	call_if_eq VAR_STARTER_MON, 1, NewBarkTown_Lab_EventScript_TakeCyndaquil
+	call_if_eq VAR_STARTER_MON, 2, NewBarkTown_Lab_EventScript_TakeTotodile
+	call NewBarkTown_Lab_EventScript_ReturnUnchosenStartersToBalls
 	msgbox NewBarkTown_Lab_Text_ChoseStarter, MSGBOX_DEFAULT
 	call_if_eq VAR_STARTER_MON, 0, NewBarkTown_Lab_EventScript_GiveStarter_Chikorita
 	call_if_eq VAR_STARTER_MON, 1, NewBarkTown_Lab_EventScript_GiveStarter_Cyndaquil
@@ -275,6 +363,54 @@ NewBarkTown_Lab_EventScript_GiveStarter_NotShiny::
 
 NewBarkTown_Lab_EventScript_GiveStarter_Shiny::
 	givemon PLAYER_STARTER_SPECIES, 5, ITEM_NONE, BALL_POKE, NATURE_RANDOM, NUM_ABILITY_PERSONALITY, MON_GENDER_RANDOM, 0, 0, 0, 0, 0, 0, USE_RANDOM_IVS, USE_RANDOM_IVS, USE_RANDOM_IVS, USE_RANDOM_IVS, USE_RANDOM_IVS, USE_RANDOM_IVS, MOVE_DEFAULT, MOVE_DEFAULT, MOVE_DEFAULT, MOVE_DEFAULT, SHINY_MODE_ALWAYS	
+	return
+
+NewBarkTown_Lab_EventScript_TakeChikorita::
+	setflag FLAG_HIDE_STARTER_CHIKORITA
+	removeobject LOCALID_STARTER_CHIKORITA
+	setflag FLAG_HIDE_CHIKORITABALL
+	removeobject LOCALID_BALL_CHIKORITA
+	return
+
+NewBarkTown_Lab_EventScript_TakeCyndaquil::
+	setflag FLAG_HIDE_STARTER_CYNDAQUIL
+	removeobject LOCALID_STARTER_CYNDAQUIL
+	setflag FLAG_HIDE_CYNDAQUILBALL
+	removeobject LOCALID_BALL_CYNDAQUIL
+	return
+
+NewBarkTown_Lab_EventScript_TakeTotodile::
+	setflag FLAG_HIDE_STARTER_TOTODILE
+	removeobject LOCALID_STARTER_TOTODILE
+	setflag FLAG_HIDE_TOTODILEBALL
+	removeobject LOCALID_BALL_TOTODILE
+	return
+
+NewBarkTown_Lab_EventScript_ReturnUnchosenStartersToBalls::
+	call_if_unset FLAG_HIDE_STARTER_CHIKORITA, NewBarkTown_Lab_EventScript_ReturnChikorita
+	call_if_unset FLAG_HIDE_STARTER_CYNDAQUIL, NewBarkTown_Lab_EventScript_ReturnCyndaquil
+	call_if_unset FLAG_HIDE_STARTER_TOTODILE, NewBarkTown_Lab_EventScript_ReturnTotodile
+	return
+
+NewBarkTown_Lab_EventScript_ReturnChikorita::
+	setflag FLAG_HIDE_STARTER_CHIKORITA
+	removeobject LOCALID_STARTER_CHIKORITA
+	clearflag FLAG_HIDE_CHIKORITABALL
+	addobject LOCALID_BALL_CHIKORITA
+	return
+
+NewBarkTown_Lab_EventScript_ReturnCyndaquil::
+	setflag FLAG_HIDE_STARTER_CYNDAQUIL
+	removeobject LOCALID_STARTER_CYNDAQUIL
+	clearflag FLAG_HIDE_CYNDAQUILBALL
+	addobject LOCALID_BALL_CYNDAQUIL
+	return
+
+NewBarkTown_Lab_EventScript_ReturnTotodile::
+	setflag FLAG_HIDE_STARTER_TOTODILE
+	removeobject LOCALID_STARTER_TOTODILE
+	clearflag FLAG_HIDE_TOTODILEBALL
+	addobject LOCALID_BALL_TOTODILE
 	return
 
 NewBarkTown_Lab_EventScript_NicknameStarter::

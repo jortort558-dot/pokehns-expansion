@@ -26,6 +26,8 @@
 #include "constants/pokemon.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "constants/event_objects.h"
+#include "constants/vars.h"
 
 #define STARTER_MON_COUNT   3
 
@@ -764,4 +766,47 @@ static void SpriteCB_StarterPokemon(struct Sprite *sprite)
         sprite->y -= 2;
     if (sprite->y < STARTER_PKMN_POS_Y)
         sprite->y += 2;
+}
+
+u16 GetStarterSpeciesForSlot(u8 slot)
+{
+    u16 species;
+    if (slot == 0)
+        species = SPECIES_CHIKORITA;
+    else if (slot == 1)
+        species = SPECIES_CYNDAQUIL;
+    else
+        species = SPECIES_TOTODILE;
+
+#if RANDOMIZER_AVAILABLE
+    if (RandomizerFeatureEnabled(RANDOMIZE_STARTER_AND_GIFT_MON))
+        species = RandomizeMon(RANDOMIZER_REASON_STARTER_MON, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), GetRandomizerSeed() ^ species, species);
+#endif
+
+    if (IsOneTypeChallengeActive())
+        species = GetStarterPokemon(slot);
+
+    return species;
+}
+
+void SetupStarterOverworldGraphics(void)
+{
+    VarSet(VAR_OBJ_GFX_ID_0, GetStarterSpeciesForSlot(0) + OBJ_EVENT_MON);
+    VarSet(VAR_OBJ_GFX_ID_1, GetStarterSpeciesForSlot(1) + OBJ_EVENT_MON);
+    VarSet(VAR_OBJ_GFX_ID_2, GetStarterSpeciesForSlot(2) + OBJ_EVENT_MON);
+}
+
+void SetStarterSpeciesSlot0(void)
+{
+    VarSet(VAR_TEMP_2, GetStarterSpeciesForSlot(0));
+}
+
+void SetStarterSpeciesSlot1(void)
+{
+    VarSet(VAR_TEMP_2, GetStarterSpeciesForSlot(1));
+}
+
+void SetStarterSpeciesSlot2(void)
+{
+    VarSet(VAR_TEMP_2, GetStarterSpeciesForSlot(2));
 }

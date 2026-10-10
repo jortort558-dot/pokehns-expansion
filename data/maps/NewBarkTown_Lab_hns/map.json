@@ -57,6 +57,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_BALL_CHIKORITA",
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
       "x": 8,
       "y": 4,
@@ -70,6 +71,7 @@
       "flag": "FLAG_HIDE_CHIKORITABALL"
     },
     {
+      "local_id": "LOCALID_BALL_CYNDAQUIL",
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
       "x": 9,
       "y": 4,
@@ -83,6 +85,7 @@
       "flag": "FLAG_HIDE_CYNDAQUILBALL"
     },
     {
+      "local_id": "LOCALID_BALL_TOTODILE",
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
       "x": 10,
       "y": 4,
@@ -94,6 +97,48 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NewBarkTown_Lab_EventScript_TotodileBall",
       "flag": "FLAG_HIDE_TOTODILEBALL"
+    },
+    {
+      "local_id": "LOCALID_STARTER_CHIKORITA",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NewBarkTown_Lab_EventScript_ChikoritaMon",
+      "flag": "FLAG_HIDE_STARTER_CHIKORITA"
+    },
+    {
+      "local_id": "LOCALID_STARTER_CYNDAQUIL",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_1",
+      "x": 9,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NewBarkTown_Lab_EventScript_CyndaquilMon",
+      "flag": "FLAG_HIDE_STARTER_CYNDAQUIL"
+    },
+    {
+      "local_id": "LOCALID_STARTER_TOTODILE",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_2",
+      "x": 10,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NewBarkTown_Lab_EventScript_TotodileMon",
+      "flag": "FLAG_HIDE_STARTER_TOTODILE"
     },
     {
       "local_id": "LOCALID_COP",
