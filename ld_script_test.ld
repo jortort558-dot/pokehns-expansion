@@ -18,6 +18,7 @@ SECTIONS {
     ALIGN(4)
     {
         __ewram_start = .;
+        KEEP(*(.ewram.hns))
         *(.ewram*)
         . = ALIGN(4);
         __ewram_end = .;

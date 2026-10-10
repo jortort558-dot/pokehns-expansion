@@ -25,6 +25,7 @@
 #include "trainer_hill.h"
 #include "test_runner.h"
 #include "constants/rgb.h"
+#include "hns_live_telemetry.h"
 
 static void VBlankIntr(void);
 static void HBlankIntr(void);
@@ -168,6 +169,7 @@ void AgbMainLoop(void)
         }
 
         PlayTimeCounter_Update();
+        HnsLiveTelemetry_Update();
         MapMusicMain();
         WaitForVBlank();
     }
