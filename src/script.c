@@ -724,27 +724,3 @@ void SetTimeBasedEncounters(void)
 	}
     */
 }    
-
-void GetDailyRosaChallengeInfo(void)
-{
-    u32 trainerId;
-    u32 hintId;
-    u32 dayIndex;
-    u32 month = GetMonth();
-    u32 day = GetDay();
-
-    if (month == MONTH_DEC && (day == 24 || day == 25))
-    {
-        trainerId = TRAINER_ROSA_CHALLENGE_13_HNS;
-        hintId = 13;
-    }
-    else
-    {
-        dayIndex = (month * 31 + day) % 13;
-        trainerId = TRAINER_ROSA_CHALLENGE_0_HNS + dayIndex;
-        hintId = dayIndex;
-    }
-
-    gSpecialVar_0x8004 = trainerId;
-    gSpecialVar_0x8005 = hintId;
-}

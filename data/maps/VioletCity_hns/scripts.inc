@@ -11,12 +11,7 @@ VioletCity_OnFrame::
 
 VioletCity_OnTransition::
 	callnative SetTimeBasedEncounters
-	goto_if_set FLAG_VIOLET_LAMP_PUZZLE_SOLVED, VioletCity_OnTransition_ShowRosa
 	setflag FLAG_HIDE_VIOLET_ROSA
-	end
-
-VioletCity_OnTransition_ShowRosa::
-	clearflag FLAG_HIDE_VIOLET_ROSA
 	end
 
 VioletCity_EventScript_Trigger::
@@ -240,7 +235,6 @@ VioletCity_EventScript_LampWrong::
 VioletCity_EventScript_LampComplete::
 	setvar VAR_VIOLET_LAMP_SEQUENCE, 4
 	setflag FLAG_VIOLET_LAMP_PUZZLE_SOLVED
-	clearflag FLAG_HIDE_VIOLET_ROSA
 	playse SE_M_PETAL_DANCE
 	special DoSealedChamberShakingEffect_Short
 	waitstate

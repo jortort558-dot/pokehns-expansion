@@ -692,22 +692,8 @@
 #define TRAINER_AVATAR_ORIGEN_HNS              668
 #define TRAINER_LOS_PAPIS_HNS                  669
 #define TRAINER_BRIO_HNS                       670
-#define TRAINER_ROSA_CHALLENGE_0_HNS           671
-#define TRAINER_ROSA_CHALLENGE_1_HNS           672
-#define TRAINER_ROSA_CHALLENGE_2_HNS           673
-#define TRAINER_ROSA_CHALLENGE_3_HNS           674
-#define TRAINER_ROSA_CHALLENGE_4_HNS           675
-#define TRAINER_ROSA_CHALLENGE_5_HNS           676
-#define TRAINER_ROSA_CHALLENGE_6_HNS           677
-#define TRAINER_ROSA_CHALLENGE_7_HNS           678
-#define TRAINER_ROSA_CHALLENGE_8_HNS           679
-#define TRAINER_ROSA_CHALLENGE_9_HNS           680
-#define TRAINER_ROSA_CHALLENGE_10_HNS          681
-#define TRAINER_ROSA_CHALLENGE_11_HNS          682
-#define TRAINER_ROSA_CHALLENGE_12_HNS          683
-#define TRAINER_ROSA_CHALLENGE_13_HNS          684
 
-#define TRAINERS_COUNT_HNS                       685
+#define TRAINERS_COUNT_HNS                       671
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

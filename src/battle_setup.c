@@ -1608,8 +1608,7 @@ void BattleSetup_StartTrainerBattle(void)
     if (GetTrainerBattleMode() == TRAINER_BATTLE_EARLY_RIVAL && GetRivalBattleFlags() & RIVAL_BATTLE_TUTORIAL)
         gBattleTypeFlags |= BATTLE_TYPE_FIRST_BATTLE;
 
-    if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_JUANRA_HNS
-     || (TRAINER_BATTLE_PARAM.opponentA >= TRAINER_ROSA_CHALLENGE_0_HNS && TRAINER_BATTLE_PARAM.opponentA <= TRAINER_ROSA_CHALLENGE_13_HNS))
+    if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_JUANRA_HNS)
         gBattleTypeFlags |= BATTLE_TYPE_NO_NUZLOCKE_DEATH;
 
     if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)

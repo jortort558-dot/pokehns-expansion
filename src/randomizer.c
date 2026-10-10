@@ -2168,8 +2168,7 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     result.species = originalSpecies;
     result.heldItem = originalHeldItem;
 
-    if (trainerId == TRAINER_JUANRA_HNS
-     || (trainerId >= TRAINER_ROSA_CHALLENGE_0_HNS && trainerId <= TRAINER_ROSA_CHALLENGE_13_HNS))
+    if (trainerId == TRAINER_JUANRA_HNS)
         return result;
 
     if (!RandomizerFeatureEnabled(RANDOMIZE_TRAINER_MON) || !IsSpeciesValidForRandomizer(originalSpecies))
