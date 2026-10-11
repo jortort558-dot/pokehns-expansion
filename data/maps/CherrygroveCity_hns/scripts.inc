@@ -601,3 +601,16 @@ CherryGroveCity_Movement_Silver_Leave2:
 	walk_fast_left
 	walk_fast_left
 	step_end
+
+CherrygroveCity_EventScript_RatKid::
+	lock
+	faceplayer
+	msgbox CherrygroveCity_Text_RatKid, MSGBOX_DEFAULT
+	release
+	end
+
+CherrygroveCity_Text_RatKid:
+	.string "Por aquí pasan entrenadores con\n"
+	.string "RATTATA que no parecen suyos.\p"
+	.string "Todos miran igual de sospechoso\n"
+	.string "cuando alguien pregunta por ellos.$"

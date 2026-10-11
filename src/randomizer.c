@@ -1264,6 +1264,9 @@ static bool32 IsThreeStageStarter(u16 species)
     return FALSE;
 }
 
+static u16 ChooseRandomForm(struct Sfc32State *state, const u16 baseSpecies);
+static u16 ChooseFormSpecial(struct Sfc32State *state, const u16 baseSpecies);
+
 void GetUniqueMonList(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, u32 seed1, u16 seed2, u8 count, const u16 *originalSpecies, u16 *resultSpecies)
 {
     u32 i, curMon;
@@ -1274,19 +1277,41 @@ void GetUniqueMonList(enum RandomizerReason reason, enum RandomizerSpeciesMode m
     {
         u16 curOriginal = originalSpecies[i];
         bool32 foundNextMon = FALSE;
+        u32 attempts = 0;
+
         if (!IsSpeciesValidForRandomizer(curOriginal))
         {
             curMon = curOriginal;
+            resultSpecies[i] = curMon;
             continue;
         }
 
-        while (!foundNextMon)
+        while (!foundNextMon && attempts < RANDOMIZER_SPECIES_COUNT)
         {
             u16 wordIndex, adjustedCurMon;
             u32 bitVectorWord;
             u8 bitIndex;
+            u32 speciesMode;
 
+            attempts++;
             curMon = RandomizeMonFromSeed(&state, mode, curOriginal);
+
+            speciesMode = gSpeciesInfo[curMon].randomizerMode;
+            switch (speciesMode)
+            {
+                case MON_RANDOMIZER_RANDOM_FORM:
+                    curMon = ChooseRandomForm(&state, curMon);
+                    break;
+                case MON_RANDOMIZER_SPECIAL_FORM:
+                    curMon = ChooseFormSpecial(&state, curMon);
+                    break;
+                case MON_RANDOMIZER_NORMAL:
+                default:
+                    break;
+            }
+
+            if (reason == RANDOMIZER_REASON_STARTER_MON && !IsThreeStageStarter(curMon))
+                continue;
 
             adjustedCurMon = curMon - 1;
             wordIndex = adjustedCurMon / 32;
@@ -1300,6 +1325,10 @@ void GetUniqueMonList(enum RandomizerReason reason, enum RandomizerSpeciesMode m
             seenMonBitVector[wordIndex] = bitVectorWord;
             foundNextMon = TRUE;
         }
+
+        if (!foundNextMon)
+            curMon = curOriginal;
+
         resultSpecies[i] = curMon;
     }
 }
@@ -2168,7 +2197,8 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     result.species = originalSpecies;
     result.heldItem = originalHeldItem;
 
-    if (trainerId == TRAINER_JUANRA_HNS)
+    if (trainerId == TRAINER_JUANRA_HNS
+     || (trainerId >= TRAINER_ROSA_CHALLENGE_0_HNS && trainerId <= TRAINER_ROSA_CHALLENGE_13_HNS))
         return result;
 
     if (!RandomizerFeatureEnabled(RANDOMIZE_TRAINER_MON) || !IsSpeciesValidForRandomizer(originalSpecies))
@@ -2365,6 +2395,10 @@ static inline bool32 IsAbilityIllegal(u16 ability)
 
     // Evasión desbalanceada en retos
     if (ability == ABILITY_MOODY)
+        return TRUE;
+
+    // Habilidad de contragolpe suicida injusta en retos y nuzlocke
+    if (ability == ABILITY_INNARDS_OUT)
         return TRUE;
 
     return FALSE;

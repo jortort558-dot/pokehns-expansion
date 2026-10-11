@@ -27,6 +27,7 @@
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "randomizer.h"
+#include "gym_tokens.h"
 #include "nuzlocke.h"
 #include "script.h"
 #include "sprite.h"
@@ -88,6 +89,9 @@ u8 ScriptGiveEgg(u16 species)
 {
     struct Pokemon mon;
     u8 isEgg;
+
+    if (IsNuzlockeActive() || IsNuzlockeEasyActive() || RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
+        species = GetRandomSpeciesSimilarBst(species);
 
     CreateEgg(&mon, species, TRUE);
     isEgg = TRUE;
@@ -869,6 +873,8 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     {
         Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
         origin = GIFTMON_ORIGIN;
+        if (IsNuzlockeActive() || IsNuzlockeEasyActive() || RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
+            species = GetRandomSpeciesSimilarBst(species);
     }
     else
     {
@@ -877,7 +883,7 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     }
 
 #if RANDOMIZER_AVAILABLE
-    if (FlagGet(FLAG_SYS_POKEMON_GET))
+    if (FlagGet(FLAG_SYS_POKEMON_GET) && origin != GIFTMON_ORIGIN)
     {
         if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
             species = RandomizeMon(RANDOMIZER_REASON_FIXED_ENCOUNTER, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);

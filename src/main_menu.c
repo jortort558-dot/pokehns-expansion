@@ -14,6 +14,7 @@
 #include "link.h"
 #include "main.h"
 #include "main_menu.h"
+#include "constants/hns_version.h"
 #include "menu.h"
 #include "list_menu.h"
 #include "mystery_event_menu.h"
@@ -263,6 +264,7 @@ static const u8 gText_BatteryRunDry[] = _("La pila interna se ha agotado.\nSe pu
 
 static const u8 gText_MainMenuNewGame[] = _("NUEVA PARTIDA");
 static const u8 gText_MainMenuContinue[] = _("CONTINUAR");
+static const u8 gText_MainMenuVersion[] = _(HNS_VERSION_STRING);
 static const u8 gText_MainMenuOption[] = _("OPCIONES");
 static const u8 gText_MainMenuMysteryGift[] = _("REGALO MISTERIOSO");
 static const u8 gText_MainMenuMysteryGift2[] = _("REGALO MISTERIOSO");
@@ -804,6 +806,7 @@ static void Task_DisplayMainMenu(u8 taskId)
             FillWindowPixelBuffer(0, PIXEL_FILL(0xA));
             FillWindowPixelBuffer(1, PIXEL_FILL(0xA));
             AddTextPrinterParameterized3(0, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuNewGame);
+            AddTextPrinterParameterized3(0, FONT_SMALL, GetStringRightAlignXOffset(FONT_SMALL, gText_MainMenuVersion, 0xD0), 3, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gText_MainMenuVersion);
             AddTextPrinterParameterized3(1, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuOption);
             PutWindowTilemap(0);
             PutWindowTilemap(1);
@@ -2175,6 +2178,7 @@ static void CreateMainMenuErrorWindow(const u8 *str)
 
 static void MainMenu_FormatSavegameText(void)
 {
+    AddTextPrinterParameterized3(2, FONT_SMALL, GetStringRightAlignXOffset(FONT_SMALL, gText_MainMenuVersion, 0xD0), 3, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gText_MainMenuVersion);
     MainMenu_FormatSavegamePlayer();
     MainMenu_FormatSavegamePokedex();
     MainMenu_FormatSavegameTime();

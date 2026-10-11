@@ -19,56 +19,56 @@ SinjohRuins_Temple_EventScript_RegiceScanner::
 	lock
 	goto_if_set FLAG_BROUGHT_REGICE, SinjohRuins_Temple_EventScript_ScannerAlreadyDone
 	msgbox SinjohRuins_Temple_Text_Mon, MSGBOX_AUTOCLOSE
+	goto_if_set FLAG_HIDE_SINJOHRUINS_REGICE, SinjohRuins_Temple_EventScript_RegicePass
 	checkspecies SPECIES_REGICE
 	goto_if_eq VAR_RESULT, FALSE, SinjohRuins_Lab_EventScript_NoOp
+SinjohRuins_Temple_EventScript_RegicePass::
 	setflag FLAG_BROUGHT_REGICE
-    goto_if_eq VAR_RESULT, TRUE, SinjohRuins_Temple_EventScript_SeenPokemon
-	release
-	end
+    goto SinjohRuins_Temple_EventScript_SeenPokemon
 
 SinjohRuins_Temple_EventScript_RegirockScanner::
 	lock
 	goto_if_set FLAG_BROUGHT_REGIROCK, SinjohRuins_Temple_EventScript_ScannerAlreadyDone
 	msgbox SinjohRuins_Temple_Text_Mon, MSGBOX_AUTOCLOSE
+	goto_if_set FLAG_HIDE_SINJOHRUINS_REGIROCK, SinjohRuins_Temple_EventScript_RegirockPass
 	checkspecies SPECIES_REGIROCK
 	goto_if_eq VAR_RESULT, FALSE, SinjohRuins_Lab_EventScript_NoOp
+SinjohRuins_Temple_EventScript_RegirockPass::
 	setflag FLAG_BROUGHT_REGIROCK
-    goto_if_eq VAR_RESULT, TRUE, SinjohRuins_Temple_EventScript_SeenPokemon
-	release
-	end
+    goto SinjohRuins_Temple_EventScript_SeenPokemon
 
 SinjohRuins_Temple_EventScript_RegisteelScanner::
 	lock
 	goto_if_set FLAG_BROUGHT_REGISTEEL, SinjohRuins_Temple_EventScript_ScannerAlreadyDone
 	msgbox SinjohRuins_Temple_Text_Mon, MSGBOX_AUTOCLOSE
+	goto_if_set FLAG_HIDE_SINJOHRUINS_REGISTEEL, SinjohRuins_Temple_EventScript_RegisteelPass
 	checkspecies SPECIES_REGISTEEL
 	goto_if_eq VAR_RESULT, FALSE, SinjohRuins_Lab_EventScript_NoOp
+SinjohRuins_Temple_EventScript_RegisteelPass::
 	setflag FLAG_BROUGHT_REGISTEEL
-    goto_if_eq VAR_RESULT, TRUE, SinjohRuins_Temple_EventScript_SeenPokemon
-	release
-	end
+    goto SinjohRuins_Temple_EventScript_SeenPokemon
 
 SinjohRuins_Temple_EventScript_RegielekiScanner::
 	lock
 	goto_if_set FLAG_BROUGHT_REGIELEKI, SinjohRuins_Temple_EventScript_ScannerAlreadyDone
 	msgbox SinjohRuins_Temple_Text_Mon, MSGBOX_AUTOCLOSE
+	goto_if_set FLAG_HIDE_SINJOHRUINS_REGIELEKI, SinjohRuins_Temple_EventScript_RegielekiPass
 	checkspecies SPECIES_REGIELEKI
 	goto_if_eq VAR_RESULT, FALSE, SinjohRuins_Lab_EventScript_NoOp
+SinjohRuins_Temple_EventScript_RegielekiPass::
 	setflag FLAG_BROUGHT_REGIELEKI
-    goto_if_eq VAR_RESULT, TRUE, SinjohRuins_Temple_EventScript_SeenPokemon
-	release
-	end
+    goto SinjohRuins_Temple_EventScript_SeenPokemon
 
 SinjohRuins_Temple_EventScript_RegidragoScanner::
 	lock
 	goto_if_set FLAG_BROUGHT_REGIDRAGO, SinjohRuins_Temple_EventScript_ScannerAlreadyDone
 	msgbox SinjohRuins_Temple_Text_Mon, MSGBOX_AUTOCLOSE
+	goto_if_set FLAG_HIDE_SINJOHRUINS_REGIDRAGO, SinjohRuins_Temple_EventScript_RegidragoPass
 	checkspecies SPECIES_REGIDRAGO
 	goto_if_eq VAR_RESULT, FALSE, SinjohRuins_Lab_EventScript_NoOp
+SinjohRuins_Temple_EventScript_RegidragoPass::
 	setflag FLAG_BROUGHT_REGIDRAGO
-    goto_if_eq VAR_RESULT, TRUE, SinjohRuins_Temple_EventScript_SeenPokemon
-	release
-	end
+    goto SinjohRuins_Temple_EventScript_SeenPokemon
 
 SinjohRuins_Temple_EventScript_SeenPokemon::
 	playse SE_CLICK

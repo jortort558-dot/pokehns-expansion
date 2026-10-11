@@ -8,6 +8,7 @@ NewSinjoh__House1_EventScripts_Elizabeth::
 	goto_if_set FLAG_NEWSINJOH_HOUSE1_ELIZABETH_GAVEWOOPER, NewSinjoh_House1_EventScript_Elizabeth_AfterGift
     msgbox NewSinjoh_House1_Text_Looking4Celebi MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, FALSE, NewSinjoh_House1_EventScript_Decline
+	goto_if_set FLAG_CAUGHT_CELEBI, NewSinjoh_House1_EventScript_GiveWooperPaldea
     checkspecies SPECIES_CELEBI
     goto_if_eq VAR_RESULT, TRUE, NewSinjoh_House1_EventScript_GiveWooperPaldea
 	msgbox NewSinjoh_House1_Text_NicePokemonButNotCelebi, MSGBOX_DEFAULT

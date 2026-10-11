@@ -288,6 +288,7 @@ IlexForest_EventScript_Celebi_Event::
 waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_Shrine_Caught
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_Shrine_Caught
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_ILEX_FOREST_CELEBI
 	setflag FLAG_HIDE_CELEBI

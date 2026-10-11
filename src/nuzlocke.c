@@ -459,6 +459,12 @@ void NuzlockeDeleteFaintedPartyPokemon(void)
     if (GetBugContestFlag())
         return;
 
+    // The starter is the player's only Pokemon during the prologue. Keep the
+    // rest of the Nuzlocke active, but do not make fainting permanent until
+    // Elm's aide hands over the first Poke Balls.
+    if (!FlagGet(FLAG_RECEIVED_FIRST_BALLS))
+        return;
+
     for (i = 0; i < PARTY_SIZE; i++)
     {
         pokemon = &gPlayerParty[i];
@@ -581,6 +587,9 @@ void NuzlockeGraveyard_RecordFaint(struct Pokemon *mon)
         && !gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_EasyMode)
         return;
 
+    if (!FlagGet(FLAG_RECEIVED_FIRST_BALLS))
+        return;
+
     if (mon == NULL)
         return;
 
@@ -630,6 +639,9 @@ void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
     if (!IsNuzlockeActive() && !IsNuzlockeEasyActive()
         && !gSaveBlock3Ptr->challengeSettings.tx_Challenges_Nuzlocke
         && !gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_EasyMode)
+        return;
+
+    if (!FlagGet(FLAG_RECEIVED_FIRST_BALLS))
         return;
 
     memset(&sGraveyardBuffer, 0, sizeof(sGraveyardBuffer));
@@ -754,4 +766,3 @@ void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
         SavePlayerParty();
     }
 }
-

@@ -459,3 +459,16 @@ AzaleaTown_Text_CharcoalKilnSign:
 AzaleaTown_Text_IlexForestSign:
 	.string "ENCINAR\p"
 	.string "Entrada por la caseta.$"
+
+AzaleaTown_EventScript_RatKid::
+	lock
+	faceplayer
+	msgbox AzaleaTown_Text_RatKid, MSGBOX_DEFAULT
+	release
+	end
+
+AzaleaTown_Text_RatKid:
+	.string "Soy fan del PROFESOR MOHEDANO.\p"
+	.string "Seguro que él descubre por qué\n"
+	.string "hay RATTATA sospechosos colándose\l"
+	.string "en los equipos de tanta gente.$"

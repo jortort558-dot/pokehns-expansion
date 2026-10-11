@@ -31,6 +31,8 @@ Route39_FarmHouse_EventScript_FarmerM::
 	lock
 	faceplayer
 	goto_if_lt VAR_ROUTE39_BARN, 5, Route39_FarmHouse_EventScript_FarmerM_Sick
+	checknuzlocke
+	goto_if_eq VAR_RESULT, TRUE, Route39_FarmHouse_EventScript_FarmerM_LockeBanned
 	showmoneybox 0, 0
 	msgbox Route39_Text_FarmerMBuyMilk, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, TRUE, Route39_FarmHouse_EventScript_FarmerMBuyMilk
@@ -78,6 +80,17 @@ Route39_FarmHouse_EventScript_FarmerM_NotEnough::
 	hidemoneybox
 	release
 	end
+
+Route39_FarmHouse_EventScript_FarmerM_LockeBanned::
+	msgbox Route39_Text_FarmerMLockeBanned, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Route39_Text_FarmerMLockeBanned:
+	.string "¡Vaya, con las reglas de tu desafío\n"
+	.string "no puedo venderte nada curativo!\p"
+	.string "¡Lo siento, normas son normas!$"
 
 Route39_Text_FarmerMSickCow:
 	.string "Mi MILTANK ya no me da\nni una gota de leche.\pLa leche de esta GRANJA es famosa.\pTodo el mundo quiere probarla.\pSi le doy un montón de BAYAS,\nvolverá a dar mucha leche,\leso seguro.$"

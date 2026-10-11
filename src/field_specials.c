@@ -6187,3 +6187,45 @@ void IsBoulderAtCoords(void)
         }
     }
 }
+
+void PlayerHasHatchedAnyEgg(void)
+{
+    gSpecialVar_Result = (GetGameStat(GAME_STAT_HATCHED_EGGS) > 0);
+}
+
+void PlayerHasAnyMail(void)
+{
+    static const enum Item sMailItems[] = {
+        ITEM_ORANGE_MAIL, ITEM_HARBOR_MAIL, ITEM_GLITTER_MAIL, ITEM_MECH_MAIL,
+        ITEM_WOOD_MAIL,   ITEM_WAVE_MAIL,   ITEM_BEAD_MAIL,    ITEM_SHADOW_MAIL,
+        ITEM_TROPIC_MAIL, ITEM_DREAM_MAIL,  ITEM_FAB_MAIL,     ITEM_RETRO_MAIL,
+    };
+    u8 i;
+
+    gSpecialVar_Result = FALSE;
+
+    // 1. Check bag for mail
+    for (i = 0; i < ARRAY_COUNT(sMailItems); i++)
+    {
+        if (CheckBagHasItem(sMailItems[i], 1))
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+
+    // 2. Check party for held mail
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            u16 item = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+            if (ItemIsMail(item))
+            {
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+        }
+    }
+}
+

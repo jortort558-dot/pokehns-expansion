@@ -735,3 +735,7 @@ gSpecials::
 	def_special DaraOtaku_CheckAndPrepareAbilities
 	def_special DaraOtaku_ApplyAbilityChange
 	def_special IsBoulderAtCoords
+	def_special PlayerHasHatchedAnyEgg
+	def_special PlayerHasAnyMail
+	def_special CheckPlayerHasGiftMon
+	def_special UseGiftMonTrade

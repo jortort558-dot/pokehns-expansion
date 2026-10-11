@@ -96,11 +96,26 @@ GoldenrodCity_GameCorner_PrizeRoom_EventScript_PrizeClerkMons::
 	end
 
 GoldenrodCity_GameCorner_PrizeRoom_EventScript_ChoosePrizeMon::
-	@callnative DisableStaticRandomizer
 	showcoinsbox 1, 1
 	message MauvilleCity_GameCorner_Text_WhichPrize
 	waitmessage
-	multichoice 20, 0, MULTI_PRIZE_MONS, FALSE
+	goto_if_set FLAG_GAME_CORNER_BOUGHT_ABRA, GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckPushClefairy
+	dynmultipush GoldenrodCity_GameCorner_PrizeRoom_Text_AbraPrize, 0
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckPushClefairy::
+	goto_if_set FLAG_GAME_CORNER_BOUGHT_CLEFAIRY, GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckPushMunchlax
+	dynmultipush GoldenrodCity_GameCorner_PrizeRoom_Text_ClefairyPrize, 1
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckPushMunchlax::
+	goto_if_set FLAG_GAME_CORNER_BOUGHT_MUNCHLAX, GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckPushDratini
+	dynmultipush GoldenrodCity_GameCorner_PrizeRoom_Text_MunchlaxPrize, 2
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckPushDratini::
+	goto_if_set FLAG_GAME_CORNER_BOUGHT_DRATINI, GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckPushPorygon
+	dynmultipush GoldenrodCity_GameCorner_PrizeRoom_Text_DratiniPrize, 3
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckPushPorygon::
+	goto_if_set FLAG_GAME_CORNER_BOUGHT_PORYGON, GoldenrodCity_GameCorner_PrizeRoom_EventScript_PushExit
+	dynmultipush GoldenrodCity_GameCorner_PrizeRoom_Text_PorygonPrize, 4
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_PushExit::
+	dynmultipush GoldenrodCity_GameCorner_PrizeRoom_Text_Cancel, 5
+	dynmultistack 18, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 	switch VAR_RESULT
 	case 0, GoldenrodCity_GameCorner_PrizeRoom_EventScript_Abra
 	case 1, GoldenrodCity_GameCorner_PrizeRoom_EventScript_Clefairy
@@ -108,12 +123,12 @@ GoldenrodCity_GameCorner_PrizeRoom_EventScript_ChoosePrizeMon::
 	case 3, GoldenrodCity_GameCorner_PrizeRoom_EventScript_Dratini
 	case 4, GoldenrodCity_GameCorner_PrizeRoom_EventScript_Porygon
 	case 5, GoldenrodCity_GameCorner_PrizeRoom_EventScript_EndPrizeExchange
-	case 127, GoldenrodCity_GameCorner_PrizeRoom_EventScript_EndPrizeExchange
+	case MULTI_B_PRESSED, GoldenrodCity_GameCorner_PrizeRoom_EventScript_EndPrizeExchange
+	goto GoldenrodCity_GameCorner_PrizeRoom_EventScript_EndPrizeExchange
 	end
 
 GoldenrodCity_GameCorner_PrizeRoom_EventScript_EndPrizeExchange::
 	hidecoinsbox 0, 0
-	@callnative EnableStaticRandomizer
 	closemessage
 	release
 	end
@@ -155,14 +170,11 @@ GoldenrodCity_GameCorner_PrizeRoom_EventScript_ConfirmPrizeMon::
 	checkcoins VAR_RESULT
 	goto_if_lt VAR_RESULT, VAR_TEMP_2, GoldenrodCity_GameCorner_PrizeRoom_EventScript_NotEnoughCoins
 	switch VAR_TEMP_1
-	updatecoinsbox 1, 1
-	playse SE_SHOP
 	case SPECIES_ABRA,     GoldenrodCity_GameCorner_PrizeRoom_EventScript_GiveAbra
 	case SPECIES_CLEFAIRY, GoldenrodCity_GameCorner_PrizeRoom_EventScript_GiveClefairy
 	case SPECIES_DRATINI,  GoldenrodCity_GameCorner_PrizeRoom_EventScript_GiveDratini
-	case SPECIES_MUNCHLAX,  GoldenrodCity_GameCorner_PrizeRoom_EventScript_GiveMunchlax
+	case SPECIES_MUNCHLAX, GoldenrodCity_GameCorner_PrizeRoom_EventScript_GiveMunchlax
 	case SPECIES_PORYGON,  GoldenrodCity_GameCorner_PrizeRoom_EventScript_GivePorygon
-	case SPECIES_PINSIR,   GoldenrodCity_GameCorner_PrizeRoom_EventScript_GivePinsir
 	end
 
 GoldenrodCity_GameCorner_PrizeRoom_EventScript_GiveAbra::
@@ -190,11 +202,6 @@ GoldenrodCity_GameCorner_PrizeRoom_EventScript_GivePorygon::
 	goto GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckReceivedMon
 	end
 
-GoldenrodCity_GameCorner_PrizeRoom_EventScript_GivePinsir::
-	givemon VAR_TEMP_1, 15
-	goto GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckReceivedMon
-	end
-
 GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckReceivedMon::
 	bufferspeciesname STR_VAR_1, VAR_TEMP_1
 	goto_if_eq VAR_RESULT, 0, GoldenrodCity_GameCorner_PrizeRoom_EventScript_ReceivedMonParty
@@ -205,7 +212,6 @@ GoldenrodCity_GameCorner_PrizeRoom_EventScript_CheckReceivedMon::
 GoldenrodCity_GameCorner_PrizeRoom_EventScript_PartyFull::
 	msgbox Route119_WeatherInstitute_2F_Text_NoRoomForPokemon
 	hidecoinsbox 0, 0
-	@callnative EnableStaticRandomizer
 	closemessage
 	release
 	end
@@ -239,7 +245,37 @@ GoldenrodCity_GameCorner_PrizeRoom_EventScript_NotEnoughCoins::
 	goto GoldenrodCity_GameCorner_PrizeRoom_EventScript_EndPrizeExchange
 	end
 
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_MarkMonBoughtFlag::
+	switch VAR_TEMP_1
+	case SPECIES_ABRA, GoldenrodCity_GameCorner_PrizeRoom_EventScript_SetFlagAbra
+	case SPECIES_CLEFAIRY, GoldenrodCity_GameCorner_PrizeRoom_EventScript_SetFlagClefairy
+	case SPECIES_MUNCHLAX, GoldenrodCity_GameCorner_PrizeRoom_EventScript_SetFlagMunchlax
+	case SPECIES_DRATINI, GoldenrodCity_GameCorner_PrizeRoom_EventScript_SetFlagDratini
+	case SPECIES_PORYGON, GoldenrodCity_GameCorner_PrizeRoom_EventScript_SetFlagPorygon
+	return
+
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_SetFlagAbra::
+	setflag FLAG_GAME_CORNER_BOUGHT_ABRA
+	return
+
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_SetFlagClefairy::
+	setflag FLAG_GAME_CORNER_BOUGHT_CLEFAIRY
+	return
+
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_SetFlagMunchlax::
+	setflag FLAG_GAME_CORNER_BOUGHT_MUNCHLAX
+	return
+
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_SetFlagDratini::
+	setflag FLAG_GAME_CORNER_BOUGHT_DRATINI
+	return
+
+GoldenrodCity_GameCorner_PrizeRoom_EventScript_SetFlagPorygon::
+	setflag FLAG_GAME_CORNER_BOUGHT_PORYGON
+	return
+
 GoldenrodCity_GameCorner_PrizeRoom_EventScript_ReceivedMonParty::
+	call GoldenrodCity_GameCorner_PrizeRoom_EventScript_MarkMonBoughtFlag
 	removecoins VAR_TEMP_2
 	playse SE_SHOP
 	updatecoinsbox 1, 1
@@ -256,6 +292,7 @@ GoldenrodCity_GameCorner_PrizeRoom_EventScript_ReceivedMonParty::
 	end
 
 GoldenrodCity_GameCorner_PrizeRoom_EventScript_ReceivedMonPC::
+	call GoldenrodCity_GameCorner_PrizeRoom_EventScript_MarkMonBoughtFlag
 	removecoins VAR_TEMP_2
 	playse SE_SHOP
 	updatecoinsbox 1, 1
@@ -591,6 +628,21 @@ GoldenrodCity_GameCorner_PrizeRoom_Text_TM24:
 
 GoldenrodCity_GameCorner_PrizeRoom_Text_TM35:
 	.string "LANZALLAMAS{CLEAR_TO 0x58}4.000 F.$"
+
+GoldenrodCity_GameCorner_PrizeRoom_Text_AbraPrize:
+	.string "ABRA{CLEAR_TO 0x58}120 F.$"
+
+GoldenrodCity_GameCorner_PrizeRoom_Text_ClefairyPrize:
+	.string "CLEFAIRY{CLEAR_TO 0x58}500 F.$"
+
+GoldenrodCity_GameCorner_PrizeRoom_Text_MunchlaxPrize:
+	.string "MUNCHLAX{CLEAR_TO 0x58}2.800 F.$"
+
+GoldenrodCity_GameCorner_PrizeRoom_Text_DratiniPrize:
+	.string "DRATINI{CLEAR_TO 0x58}5.500 F.$"
+
+GoldenrodCity_GameCorner_PrizeRoom_Text_PorygonPrize:
+	.string "PORYGON{CLEAR_TO 0x58}6.500 F.$"
 
 GoldenrodCity_GameCorner_PrizeRoom_Text_Cancel:
 	.string "SALIR$"

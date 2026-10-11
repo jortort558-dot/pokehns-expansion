@@ -66,11 +66,16 @@ Route31_EventScript_SleepyMan_AskForKenya::
 	end
 
 Route31_EventScript_SleepyMan_GiveKenya::
-	removenamedmon 1
-	goto_if_eq VAR_RESULT, MON_CANT_GIVE, Route31_EventScript_SleepyMan_Fail
-	msgbox Route31_Text_HandOverMailMon, MSGBOX_DEFAULT
-	delay 55
-	callnative UpdateFollowingPokemon
+	specialvar VAR_RESULT, PlayerHasAnyMail
+	goto_if_eq VAR_RESULT, TRUE, Route31_EventScript_SleepyMan_DeliveredMailOnly
+	goto Route31_EventScript_SleepyMan_Fail
+
+Route31_EventScript_SleepyMan_DeliveredMailOnly::
+	msgbox Route31_Text_HandOverMailOnly, MSGBOX_DEFAULT
+	delay 40
+	goto Route31_EventScript_SleepyMan_GiveReward
+
+Route31_EventScript_SleepyMan_GiveReward::
 	msgbox Route31_Text_ReadingMail, MSGBOX_DEFAULT
 	giveitem ITEM_TM_REST
 	msgbox Route31_Text_DescribeRest, MSGBOX_DEFAULT
@@ -152,6 +157,9 @@ Route31_Text_SleepyManFail:
 Route31_Text_HandOverMailMon:
 	.string "{PLAYER} entregó el POKéMON\n"
 	.string "que llevaba la CARTA.$"
+
+Route31_Text_HandOverMailOnly:
+	.string "{PLAYER} entregó la CARTA.$"
 
 Route31_Text_ReadingMail:
 	.string "A ver qué dice…\p"

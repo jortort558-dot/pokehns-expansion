@@ -1200,11 +1200,9 @@ static bool8 IsShopHealingItemBanned(u16 item)
 #if IS_HNS
     if (sMartInfo.martType != MART_TYPE_NORMAL)
         return FALSE;
-    if (!gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_BanHealingShop)
-        return FALSE;
-    if (!IsNuzlockeActive() && !IsNuzlockeEasyActive())
-        return FALSE;
-    return (GetItemPocket(item) == POCKET_MEDICINE);
+    if (IsNuzlockeActive() || IsNuzlockeEasyActive() || gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_BanHealingShop)
+        return (GetItemPocket(item) == POCKET_MEDICINE);
+    return FALSE;
 #else
     return FALSE;
 #endif

@@ -87,7 +87,7 @@ Level: 40
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOEY_HNS ===
-Name: JOEY
+Name: CHANO
 Class: Youngster Hns
 Pic: Youngster Hns
 Gender: Male
@@ -100,7 +100,7 @@ Level: 4
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_MIKEY_HNS ===
-Name: MIKEY
+Name: MAURO
 Class: Youngster Hns
 Pic: Youngster Hns
 Gender: Male
@@ -117,7 +117,7 @@ Level: 4
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ALBERT_HNS ===
-Name: ALBERT
+Name: ALBERTO
 Class: Youngster Hns
 Pic: Youngster Hns
 Gender: Male
@@ -134,7 +134,7 @@ Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GORDON_HNS ===
-Name: GORDON
+Name: GORI
 Class: Youngster Hns
 Pic: Youngster Hns
 Gender: Male
@@ -245,7 +245,7 @@ Level: 55
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JACK_HNS ===
-Name: JACK
+Name: AITOR
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -279,7 +279,7 @@ Level: 59
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ALAN_HNS ===
-Name: ALAN
+Name: ARTURO
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -402,7 +402,7 @@ Level: 60
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_CHAD_HNS ===
-Name: CHAD
+Name: JAVIER
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -453,7 +453,7 @@ Level: 62
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ROD_HNS ===
-Name: ROD
+Name: RONY
 Class: Bird Keeper Hns
 Pic: Bird Keeper
 Gender: Male
@@ -470,7 +470,7 @@ Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ABE_HNS ===
-Name: ABE
+Name: ABEL
 Class: Bird Keeper Hns
 Pic: Bird Keeper
 Gender: Male
@@ -551,7 +551,7 @@ Level: 24
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_VANCE_HNS ===
-Name: VANCE
+Name: VIDAL
 Class: Bird Keeper Hns
 Pic: Bird Keeper
 Gender: Male
@@ -644,7 +644,7 @@ Level: 61
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOSE_HNS ===
-Name: JOSE
+Name: JOSÉ
 Class: Bird Keeper Hns
 Pic: Bird Keeper
 Gender: Male
@@ -885,7 +885,7 @@ Level: 57
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DANA_HNS ===
-Name: DANA
+Name: SARA
 Class: Lass Hns
 Pic: Lass
 Gender: Male
@@ -1032,7 +1032,7 @@ Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GAVEN_HNS ===
-Name: GAVEN
+Name: GALO
 Class: Cooltrainer Hns
 Pic: Cooltrainer M
 Gender: Male
@@ -1509,7 +1509,7 @@ Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BETH_HNS ===
-Name: BETH
+Name: TINA
 Class: Cooltrainer Hns
 Pic: Cooltrainer F
 Gender: Male
@@ -1538,7 +1538,7 @@ Level: 45
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_REENA_HNS ===
-Name: REENA
+Name: TARA
 Class: Cooltrainer Hns
 Pic: Cooltrainer F
 Gender: Male
@@ -2028,7 +2028,7 @@ Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BRENT_HNS ===
-Name: BRENT
+Name: JULIO
 Class: Pokemaniac Hns
 Pic: Pokemaniac
 Gender: Male
@@ -2965,7 +2965,7 @@ Level: 63
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DON_HNS ===
-Name: DON
+Name: RAFA
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -3020,7 +3020,7 @@ Level: 60
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_WADE_HNS ===
-Name: WADE
+Name: TOMY
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -3084,7 +3084,7 @@ Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ARNIE_HNS ===
-Name: ARNIE
+Name: ÁNGEL
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -3161,7 +3161,7 @@ Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_RALPH_HNS ===
-Name: RALPH
+Name: JOSERRA
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -3246,7 +3246,7 @@ Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TULLY_HNS ===
-Name: TULLY
+Name: ÓSCAR
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -3285,7 +3285,7 @@ Level: 28
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_WILTON_HNS ===
-Name: WILTON
+Name: DAVID
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -4153,7 +4153,7 @@ Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_HUEY_HNS ===
-Name: HUEY
+Name: KEN
 Class: Sailor Hns
 Pic: Sailor
 Gender: Male
@@ -4586,7 +4586,7 @@ Level: 55
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ANTHONY_HNS ===
-Name: ANTHONY
+Name: LUIS
 Class: Hiker Hns
 Pic: Hiker
 Gender: Male
@@ -4717,7 +4717,7 @@ Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_PARRY_HNS ===
-Name: PARRY
+Name: ÁNGELO
 Class: Hiker Hns
 Pic: Hiker
 Gender: Male
@@ -5292,7 +5292,7 @@ Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_IRWIN_HNS ===
-Name: IRWIN
+Name: RAFI
 Class: Juggler Hns
 Pic: Juggler Hns
 Gender: Male
@@ -5359,7 +5359,7 @@ Level: 58
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_KENJI_HNS ===
-Name: KENJI
+Name: LEUCO
 Class: Black Belt Hns
 Pic: Black Belt
 Gender: Male
@@ -5698,7 +5698,7 @@ Level: 63
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LIZ_HNS ===
-Name: LIZ
+Name: LISI
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -5814,7 +5814,7 @@ Level: 58
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ERIN_HNS ===
-Name: ERIN
+Name: ELISA
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -5873,7 +5873,7 @@ Level: 56
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TIFFANY_HNS ===
-Name: TIFFANY
+Name: VERA
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -5924,7 +5924,7 @@ Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TODD_HNS ===
-Name: TODD
+Name: GORKA
 Class: Camper Hns
 Pic: Camper
 Gender: Male
@@ -6673,7 +6673,7 @@ Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DEREK_HNS ===
-Name: DEREK
+Name: JONAY
 Class: Pokefan Hns
 Pic: Pokefan M
 Gender: Male
@@ -7035,7 +7035,7 @@ Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BEVERLY_HNS ===
-Name: BEVERLY
+Name: JULIA
 Class: Parasol Lady Hns
 Pic: Parasol Lady
 Gender: Male
@@ -11071,7 +11071,7 @@ Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOEY_2_HNS ===
-Name: JOEY
+Name: CHANO
 Class: Youngster Hns
 Pic: Youngster Hns
 Gender: Male
@@ -11087,7 +11087,7 @@ Level: 27
 - Mud-Slap
 
 === TRAINER_JOEY_3_HNS ===
-Name: JOEY
+Name: CHANO
 Class: Youngster Hns
 Pic: Youngster Hns
 Gender: Male
@@ -11103,7 +11103,7 @@ Level: 30
 - Iron Tail
 
 === TRAINER_JOEY_4_HNS ===
-Name: JOEY
+Name: CHANO
 Class: Youngster Hns
 Pic: Youngster Hns
 Gender: Male
@@ -11119,7 +11119,7 @@ Level: 40
 - Iron Tail
 
 === TRAINER_JOEY_5_HNS ===
-Name: JOEY
+Name: CHANO
 Class: Youngster Hns
 Pic: Youngster Hns
 Gender: Male
@@ -11135,7 +11135,7 @@ Level: 65
 - Iron Tail
 
 === TRAINER_WADE_2_HNS ===
-Name: WADE
+Name: TOMY
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -11150,7 +11150,7 @@ Pineco
 Level: 20
 
 === TRAINER_WADE_3_HNS ===
-Name: WADE
+Name: TOMY
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -11168,7 +11168,7 @@ Pineco
 Level: 25
 
 === TRAINER_WADE_4_HNS ===
-Name: WADE
+Name: TOMY
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -11189,7 +11189,7 @@ Ariados
 Level: 36
 
 === TRAINER_WADE_5_HNS ===
-Name: WADE
+Name: TOMY
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -11213,7 +11213,7 @@ Ariados
 Level: 47
 
 === TRAINER_RALPH_2_HNS ===
-Name: RALPH
+Name: JOSERRA
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -11225,7 +11225,7 @@ Goldeen
 Level: 24
 
 === TRAINER_RALPH_3_HNS ===
-Name: RALPH
+Name: JOSERRA
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -11240,7 +11240,7 @@ Seaking
 Level: 28
 
 === TRAINER_RALPH_4_HNS ===
-Name: RALPH
+Name: JOSERRA
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -11270,7 +11270,7 @@ Level: 45
 - Ice Beam
 
 === TRAINER_RALPH_5_HNS ===
-Name: RALPH
+Name: JOSERRA
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -11300,7 +11300,7 @@ Level: 55
 - Ice Beam
 
 === TRAINER_LIZ_2_HNS ===
-Name: LIZ
+Name: LISI
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -11315,7 +11315,7 @@ Nidorina
 Level: 25
 
 === TRAINER_LIZ_3_HNS ===
-Name: LIZ
+Name: LISI
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -11333,7 +11333,7 @@ Nidoqueen
 Level: 30
 
 === TRAINER_LIZ_4_HNS ===
-Name: LIZ
+Name: LISI
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -11351,7 +11351,7 @@ Nidoqueen
 Level: 36
 
 === TRAINER_LIZ_5_HNS ===
-Name: LIZ
+Name: LISI
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -11381,7 +11381,7 @@ Level: 53
 - Body Slam
 
 === TRAINER_ANTHONY_2_HNS ===
-Name: ANTHONY
+Name: LUIS
 Class: Hiker Hns
 Pic: Hiker
 Gender: Male
@@ -11396,7 +11396,7 @@ Machop
 Level: 11
 
 === TRAINER_ANTHONY_3_HNS ===
-Name: ANTHONY
+Name: LUIS
 Class: Hiker Hns
 Pic: Hiker
 Gender: Male
@@ -11414,7 +11414,7 @@ Graveler
 Level: 35
 
 === TRAINER_ANTHONY_4_HNS ===
-Name: ANTHONY
+Name: LUIS
 Class: Hiker Hns
 Pic: Hiker
 Gender: Male
@@ -11432,7 +11432,7 @@ Golem
 Level: 48
 
 === TRAINER_ANTHONY_5_HNS ===
-Name: ANTHONY
+Name: LUIS
 Class: Hiker Hns
 Pic: Hiker
 Gender: Male
@@ -11462,7 +11462,7 @@ Level: 56
 - Rollout
 
 === TRAINER_TODD_2_HNS ===
-Name: TODD
+Name: GORKA
 Class: Camper Hns
 Pic: Camper
 Gender: Male
@@ -11480,7 +11480,7 @@ Psyduck
 Level: 24
 
 === TRAINER_TODD_3_HNS ===
-Name: TODD
+Name: GORKA
 Class: Camper Hns
 Pic: Camper
 Gender: Male
@@ -11498,7 +11498,7 @@ Golduck
 Level: 35
 
 === TRAINER_TODD_4_HNS ===
-Name: TODD
+Name: GORKA
 Class: Camper Hns
 Pic: Camper
 Gender: Male
@@ -11519,7 +11519,7 @@ Magcargo
 Level: 45
 
 === TRAINER_TODD_5_HNS ===
-Name: TODD
+Name: GORKA
 Class: Camper Hns
 Pic: Camper
 Gender: Male
@@ -11624,7 +11624,7 @@ Level: 55
 - Mud-Slap
 
 === TRAINER_IRWIN_2_HNS ===
-Name: IRWIN
+Name: RAFI
 Class: Juggler Hns
 Pic: Juggler Hns
 Gender: Male
@@ -11643,7 +11643,7 @@ Level: 27
 
 
 === TRAINER_IRWIN_3_HNS ===
-Name: IRWIN
+Name: RAFI
 Class: Juggler Hns
 Pic: Juggler Hns
 Gender: Male
@@ -11662,7 +11662,7 @@ Level: 35
 
 
 === TRAINER_IRWIN_4_HNS ===
-Name: IRWIN
+Name: RAFI
 Class: Juggler Hns
 Pic: Juggler Hns
 Gender: Male
@@ -11681,7 +11681,7 @@ Level: 45
 
 
 === TRAINER_IRWIN_5_HNS ===
-Name: IRWIN
+Name: RAFI
 Class: Juggler Hns
 Pic: Juggler Hns
 Gender: Male
@@ -11712,7 +11712,7 @@ Level: 55
 
 
 === TRAINER_ARNIE_2_HNS ===
-Name: ARNIE
+Name: ÁNGEL
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -11727,7 +11727,7 @@ Venonat
 Level: 28
 
 === TRAINER_ARNIE_3_HNS ===
-Name: ARNIE
+Name: ÁNGEL
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -11745,7 +11745,7 @@ Scyther
 Level: 38
 
 === TRAINER_ARNIE_4_HNS ===
-Name: ARNIE
+Name: ÁNGEL
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -11766,7 +11766,7 @@ Pinsir
 Level: 48
 
 === TRAINER_ARNIE_5_HNS ===
-Name: ARNIE
+Name: ÁNGEL
 Class: Bug Catcher Hns
 Pic: Bug Catcher
 Gender: Male
@@ -11787,7 +11787,7 @@ Pinsir
 Level: 56
 
 === TRAINER_ALAN_2_HNS ===
-Name: ALAN
+Name: ARTURO
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -11802,7 +11802,7 @@ Growlithe
 Level: 25
 
 === TRAINER_ALAN_3_HNS ===
-Name: ALAN
+Name: ARTURO
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -11823,7 +11823,7 @@ Arcanine
 Level: 32
 
 === TRAINER_ALAN_4_HNS ===
-Name: ALAN
+Name: ARTURO
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -11844,7 +11844,7 @@ Yanma
 Level: 30
 
 === TRAINER_ALAN_5_HNS ===
-Name: ALAN
+Name: ARTURO
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -11865,7 +11865,7 @@ Arcanine
 Level: 44
 
 === TRAINER_DANA_2_HNS ===
-Name: DANA
+Name: SARA
 Class: Lass Hns
 Pic: Lass
 Gender: Female
@@ -11888,7 +11888,7 @@ Level: 25
 - Confusion
 
 === TRAINER_DANA_3_HNS ===
-Name: DANA
+Name: SARA
 Class: Lass Hns
 Pic: Lass
 Gender: Male
@@ -11911,7 +11911,7 @@ Level: 37
 - Cotton Spore
 
 === TRAINER_DANA_4_HNS ===
-Name: DANA
+Name: SARA
 Class: Lass Hns
 Pic: Lass
 Gender: Male
@@ -11934,7 +11934,7 @@ Level: 45
 - Cotton Spore
 
 === TRAINER_DANA_5_HNS ===
-Name: DANA
+Name: SARA
 Class: Lass Hns
 Pic: Lass
 Gender: Male
@@ -11957,7 +11957,7 @@ Level: 55
 - Cotton Spore
 
 === TRAINER_CHAD_2_HNS ===
-Name: CHAD
+Name: JAVIER
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -11972,7 +11972,7 @@ Magnemite
 Level: 26
 
 === TRAINER_CHAD_3_HNS ===
-Name: CHAD
+Name: JAVIER
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -11987,7 +11987,7 @@ Magneton
 Level: 35
 
 === TRAINER_CHAD_4_HNS ===
-Name: CHAD
+Name: JAVIER
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -12002,7 +12002,7 @@ Magneton
 Level: 44
 
 === TRAINER_CHAD_5_HNS ===
-Name: CHAD
+Name: JAVIER
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -12025,7 +12025,7 @@ Level: 58
 - Tri Attack
 
 === TRAINER_DEREK_2_HNS ===
-Name: DEREK
+Name: JONAY
 Class: Pokefan Hns
 Pic: Pokefan M
 Gender: Male
@@ -12041,7 +12041,7 @@ Level: 27
 
 
 === TRAINER_DEREK_3_HNS ===
-Name: DEREK
+Name: JONAY
 Class: Pokefan Hns
 Pic: Pokefan M
 Gender: Male
@@ -12057,7 +12057,7 @@ Level: 35
 
 
 === TRAINER_DEREK_4_HNS ===
-Name: DEREK
+Name: JONAY
 Class: Pokefan Hns
 Pic: Pokefan M
 Gender: Male
@@ -12073,7 +12073,7 @@ Level: 46
 
 
 === TRAINER_DEREK_5_HNS ===
-Name: DEREK
+Name: JONAY
 Class: Pokefan Hns
 Pic: Pokefan M
 Gender: Male
@@ -12097,7 +12097,7 @@ Level: 56
 
 
 === TRAINER_TULLY_2_HNS ===
-Name: TULLY
+Name: ÓSCAR
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -12109,7 +12109,7 @@ Qwilfish
 Level: 24
 
 === TRAINER_TULLY_3_HNS ===
-Name: TULLY
+Name: ÓSCAR
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -12127,7 +12127,7 @@ Seaking
 Level: 42
 
 === TRAINER_TULLY_4_HNS ===
-Name: TULLY
+Name: ÓSCAR
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -12145,7 +12145,7 @@ Seaking
 Level: 52
 
 === TRAINER_BRENT_2_HNS ===
-Name: BRENT
+Name: JULIO
 Class: Pokemaniac Hns
 Pic: Pokemaniac
 Gender: Male
@@ -12157,7 +12157,7 @@ Kangaskhan
 Level: 33
 
 === TRAINER_BRENT_3_HNS ===
-Name: BRENT
+Name: JULIO
 Class: Pokemaniac Hns
 Pic: Pokemaniac
 Gender: Male
@@ -12173,7 +12173,7 @@ Level: 46
 - Tri Attack
 
 === TRAINER_BRENT_4_HNS ===
-Name: BRENT
+Name: JULIO
 Class: Pokemaniac Hns
 Pic: Pokemaniac
 Gender: Male
@@ -12189,7 +12189,7 @@ Level: 53
 - Soft-Boiled
 
 === TRAINER_TIFFANY_2_HNS ===
-Name: TIFFANY
+Name: VERA
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -12205,7 +12205,7 @@ Level: 37
 - Metronome
 
 === TRAINER_TIFFANY_3_HNS ===
-Name: TIFFANY
+Name: VERA
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -12221,7 +12221,7 @@ Level: 29
 - Minimize
 
 === TRAINER_TIFFANY_4_HNS ===
-Name: TIFFANY
+Name: VERA
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -12244,7 +12244,7 @@ Level: 54
 - Headbutt
 
 === TRAINER_VANCE_2_HNS ===
-Name: VANCE
+Name: VIDAL
 Class: Bird Keeper Hns
 Pic: Bird Keeper
 Gender: Male
@@ -12265,7 +12265,7 @@ Skarmory
 Level: 49
 
 === TRAINER_VANCE_3_HNS ===
-Name: VANCE
+Name: VIDAL
 Class: Bird Keeper Hns
 Pic: Bird Keeper
 Gender: Male
@@ -12286,7 +12286,7 @@ Skarmory
 Level: 55
 
 === TRAINER_WILTON_2_HNS ===
-Name: WILTON
+Name: DAVID
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -12304,7 +12304,7 @@ Seaking
 Level: 48
 
 === TRAINER_WILTON_3_HNS ===
-Name: WILTON
+Name: DAVID
 Class: Fisherman Hns
 Pic: Fisherman
 Gender: Male
@@ -12322,7 +12322,7 @@ Seaking
 Level: 56
 
 === TRAINER_KENJI_2_HNS ===
-Name: KENJI
+Name: LEUCO
 Class: Black Belt Hns
 Pic: Black Belt
 Gender: Male
@@ -12359,7 +12359,7 @@ Level: 36
 - Swift
 
 === TRAINER_PARRY_2_HNS ===
-Name: PARRY
+Name: ÁNGELO
 Class: Hiker Hns
 Pic: Hiker
 Gender: Male
@@ -12389,7 +12389,7 @@ Level: 50
 - Slam
 
 === TRAINER_PARRY_3_HNS ===
-Name: PARRY
+Name: ÁNGELO
 Class: Hiker Hns
 Pic: Hiker
 Gender: Male
@@ -12407,7 +12407,7 @@ Steelix
 Level: 38
 
 === TRAINER_ERIN_2_HNS ===
-Name: ERIN
+Name: ELISA
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -12428,7 +12428,7 @@ Rapidash
 Level: 44
 
 === TRAINER_ERIN_3_HNS ===
-Name: ERIN
+Name: ELISA
 Class: Picnicker Hns
 Pic: Picnicker
 Gender: Male
@@ -12465,7 +12465,7 @@ Level: 44
 - Sunny Day
 
 === TRAINER_JACK_2_HNS ===
-Name: JACK
+Name: AITOR
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -12480,7 +12480,7 @@ Voltorb
 Level: 23
 
 === TRAINER_JACK_3_HNS ===
-Name: JACK
+Name: AITOR
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -12495,7 +12495,7 @@ Electrode
 Level: 31
 
 === TRAINER_JACK_4_HNS ===
-Name: JACK
+Name: AITOR
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -12513,7 +12513,7 @@ Electrode
 Level: 43
 
 === TRAINER_JACK_5_HNS ===
-Name: JACK
+Name: AITOR
 Class: School Kid Hns
 Pic: School Kid M
 Gender: Male
@@ -12543,7 +12543,7 @@ Level: 37
 - Moonlight
 
 === TRAINER_BEVERLY_2_HNS ===
-Name: BEVERLY
+Name: JULIA
 Class: Parasol Lady Hns
 Pic: Parasol Lady
 Gender: Male
@@ -12556,7 +12556,7 @@ Level: 27
 
 
 === TRAINER_BEVERLY_3_HNS ===
-Name: BEVERLY
+Name: JULIA
 Class: Parasol Lady Hns
 Pic: Parasol Lady
 Gender: Male
@@ -12569,7 +12569,7 @@ Level: 36
 
 
 === TRAINER_BEVERLY_4_HNS ===
-Name: BEVERLY
+Name: JULIA
 Class: Parasol Lady Hns
 Pic: Parasol Lady
 Gender: Male
@@ -12582,7 +12582,7 @@ Level: 46
 
 
 === TRAINER_BEVERLY_5_HNS ===
-Name: BEVERLY
+Name: JULIA
 Class: Parasol Lady Hns
 Pic: Parasol Lady
 Gender: Male
@@ -12599,7 +12599,7 @@ Level: 56
 
 
 === TRAINER_HUEY_2_HNS ===
-Name: HUEY
+Name: KEN
 Class: Sailor Hns
 Pic: Sailor
 Gender: Male
@@ -12614,7 +12614,7 @@ Poliwhirl
 Level: 28
 
 === TRAINER_HUEY_3_HNS ===
-Name: HUEY
+Name: KEN
 Class: Sailor Hns
 Pic: Sailor
 Gender: Male
@@ -12629,7 +12629,7 @@ Poliwrath
 Level: 34
 
 === TRAINER_HUEY_4_HNS ===
-Name: HUEY
+Name: KEN
 Class: Sailor Hns
 Pic: Sailor
 Gender: Male
@@ -12652,7 +12652,7 @@ Level: 38
 - Submission
 
 === TRAINER_GAVEN_2_HNS ===
-Name: GAVEN
+Name: GALO
 Class: Cooltrainer Hns
 Pic: Cooltrainer M
 Gender: Male
@@ -12696,7 +12696,7 @@ Level: 55
 - Thunderbolt
 
 === TRAINER_GAVEN_3_HNS ===
-Name: GAVEN
+Name: GALO
 Class: Cooltrainer Hns
 Pic: Cooltrainer M
 Gender: Male
@@ -12740,7 +12740,7 @@ Level: 44
 - Recover
 
 === TRAINER_BETH_2_HNS ===
-Name: BETH
+Name: TINA
 Class: Cooltrainer Hns
 Pic: Cooltrainer F
 Gender: Male
@@ -12783,7 +12783,7 @@ Level: 50
 - Thunder Punch
 
 === TRAINER_BETH_3_HNS ===
-Name: BETH
+Name: TINA
 Class: Cooltrainer Hns
 Pic: Cooltrainer F
 Gender: Male
@@ -12826,7 +12826,7 @@ Level: 55
 - Thunder Punch
 
 === TRAINER_JOSE_2_HNS ===
-Name: JOSE
+Name: JOSÉ
 Class: Bird Keeper Hns
 Pic: Bird Keeper
 Gender: Male
@@ -12847,7 +12847,7 @@ Skarmory
 Level: 44
 
 === TRAINER_JOSE_3_HNS ===
-Name: JOSE
+Name: JOSÉ
 Class: Bird Keeper Hns
 Pic: Bird Keeper
 Gender: Male
@@ -12871,7 +12871,7 @@ Skarmory
 Level: 48
 
 === TRAINER_REENA_2_HNS ===
-Name: REENA
+Name: TARA
 Class: Cooltrainer Hns
 Pic: Cooltrainer F
 Gender: Male
@@ -12895,7 +12895,7 @@ Starmie
 Level: 49
 
 === TRAINER_REENA_3_HNS ===
-Name: REENA
+Name: TARA
 Class: Cooltrainer Hns
 Pic: Cooltrainer F
 Gender: Male
@@ -14090,7 +14090,7 @@ Level: 61
 
 
 === TRAINER_ULAULA_YOUNGSTER_HNS ===
-Name: JOEY
+Name: CHANO
 Class: Youngster Hns
 Pic: Youngster Hns
 Gender: Male
@@ -16956,3 +16956,970 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Aerial Ace
 - Rock Tomb
 - Swords Dance
+
+=== TRAINER_ROSA_CHALLENGE_0_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Pelipper @ Damp Rock
+Ability: Drizzle
+Level: 50
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Scald
+- Hurricane
+- Roost
+- U-turn
+
+Barraskewda @ Choice Band
+Ability: Swift Swim
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Liquidation
+- Aqua Jet
+- Close Combat
+- Crunch
+
+Kingdra @ Life Orb
+Ability: Swift Swim
+Level: 50
+Nature: Modest
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Pump
+- Draco Meteor
+- Ice Beam
+- Surf
+
+Archaludon @ Assault Vest
+Ability: Stamina
+Level: 50
+Nature: Modest
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Electro Shot
+- Draco Meteor
+- Flash Cannon
+- Body Press
+
+Scizor @ Scizorite
+Ability: Technician
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bullet Punch
+- U-turn
+- Close Combat
+- Swords Dance
+
+Ferrothorn @ Leftovers
+Ability: Iron Barbs
+Level: 50
+Nature: Relaxed
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Stealth Rock
+- Leech Seed
+- Power Whip
+- Gyro Ball
+
+=== TRAINER_ROSA_CHALLENGE_1_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Torkoal @ Heat Rock
+Ability: Drought
+Level: 50
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Lava Plume
+- Stealth Rock
+- Rapid Spin
+- Yawn
+
+Venusaur @ Life Orb
+Ability: Chlorophyll
+Level: 50
+Nature: Modest
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Solar Beam
+- Sludge Bomb
+- Earth Power
+- Growth
+
+Great Tusk @ Booster Energy
+Ability: Protosynthesis
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Headlong Rush
+- Close Combat
+- Ice Spinner
+- Rapid Spin
+
+Walking Wake @ Choice Specs
+Ability: Protosynthesis
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Steam
+- Draco Meteor
+- Flamethrower
+- Dragon Pulse
+
+Chi-Yu @ Choice Scarf
+Ability: Beads of Ruin
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flamethrower
+- Dark Pulse
+- Overheat
+- Psychic
+
+Roaring Moon @ Booster Energy
+Ability: Protosynthesis
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Knock Off
+- Acrobatics
+- Earthquake
+
+=== TRAINER_ROSA_CHALLENGE_2_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Hippowdon @ Smooth Rock
+Ability: Sand Stream
+Level: 50
+Nature: Impish
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Slack Off
+- Stealth Rock
+- Whirlwind
+
+Excadrill @ Life Orb
+Ability: Sand Rush
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Iron Head
+- Rock Slide
+- Swords Dance
+
+Tyranitar @ Choice Band
+Ability: Sand Stream
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Ice Punch
+
+Gliscor @ Toxic Orb
+Ability: Poison Heal
+Level: 50
+Nature: Careful
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Toxic
+- Protect
+- Spikes
+
+Garchomp @ Rocky Helmet
+Ability: Rough Skin
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Dragon Claw
+- Swords Dance
+- Stone Edge
+
+Corviknight @ Leftovers
+Ability: Pressure
+Level: 50
+Nature: Impish
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Roost
+- Defog
+- U-turn
+
+=== TRAINER_ROSA_CHALLENGE_3_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Ninetales-Alola @ Light Clay
+Ability: Snow Warning
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Aurora Veil
+- Blizzard
+- Moonblast
+- Freeze-Dry
+
+Baxcalibur @ Loaded Dice
+Ability: Thermal Exchange
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Glaive Rush
+- Icicle Spear
+- Earthquake
+- Dragon Dance
+
+Cetitan @ Sitrus Berry
+Ability: Slush Rush
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Belly Drum
+- Icicle Crash
+- Earthquake
+- Ice Shard
+
+Slowking-Galar @ Assault Vest
+Ability: Regenerator
+Level: 50
+Nature: Calm
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sludge Bomb
+- Psychic
+- Flamethrower
+- Ice Beam
+
+Cloyster @ Focus Sash
+Ability: Skill Link
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Shell Smash
+- Icicle Spear
+- Rock Blast
+- Ice Shard
+
+Mamoswine @ Life Orb
+Ability: Thick Fat
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Icicle Crash
+- Ice Shard
+- Knock Off
+
+=== TRAINER_ROSA_CHALLENGE_4_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Hatterene @ Focus Sash
+Ability: Magic Bounce
+Level: 50
+Nature: Quiet
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Trick Room
+- Dazzling Gleam
+- Psychic
+- Mystical Fire
+
+Porygon2 @ Eviolite
+Ability: Download
+Level: 50
+Nature: Quiet
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Trick Room
+- Tri Attack
+- Ice Beam
+- Recover
+
+Ursaluna @ Flame Orb
+Ability: Guts
+Level: 50
+Nature: Brave
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Facade
+- Headlong Rush
+- Fire Punch
+- Protect
+
+Marowak-Alola @ Thick Club
+Ability: Rock Head
+Level: 50
+Nature: Brave
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Flare Blitz
+- Shadow Bone
+- Earthquake
+- Swords Dance
+
+Torkoal @ Charcoal
+Ability: Drought
+Level: 50
+Nature: Quiet
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Eruption
+- Heat Wave
+- Solar Beam
+- Earth Power
+
+Kingambit @ Leftovers
+Ability: Supreme Overlord
+Level: 50
+Nature: Brave
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Kowtow Cleave
+- Iron Head
+- Sucker Punch
+- Swords Dance
+
+=== TRAINER_ROSA_CHALLENGE_5_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Grimmsnarl @ Light Clay
+Ability: Prankster
+Level: 50
+Nature: Careful
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Reflect
+- Light Screen
+- Spirit Break
+- Thunder Wave
+
+Volcarona @ Heavy-Duty Boots
+Ability: Flame Body
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Quiver Dance
+- Flamethrower
+- Bug Buzz
+- Giga Drain
+
+Dragonite @ Lum Berry
+Ability: Multiscale
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Outrage
+- Extreme Speed
+- Earthquake
+
+Iron Valiant @ Booster Energy
+Ability: Quark Drive
+Level: 50
+Nature: Naive
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Moonblast
+- Close Combat
+- Knock Off
+- Thunderbolt
+
+Dragapult @ Choice Specs
+Ability: Infiltrator
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Shadow Ball
+- Draco Meteor
+- Flamethrower
+- U-turn
+
+Gengar @ Focus Sash
+Ability: Cursed Body
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Shadow Ball
+- Sludge Wave
+- Focus Blast
+- Destiny Bond
+
+=== TRAINER_ROSA_CHALLENGE_6_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Pincurchin @ Terrain Extender
+Ability: Electric Surge
+Level: 50
+Nature: Relaxed
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Rising Voltage
+- Zing Zap
+- Spikes
+- Recover
+
+Iron Hands @ Assault Vest
+Ability: Quark Drive
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Drain Punch
+- Wild Charge
+- Fake Out
+- Ice Punch
+
+Iron Bundle @ Booster Energy
+Ability: Quark Drive
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Pump
+- Freeze-Dry
+- Ice Beam
+- Flip Turn
+
+Iron Moth @ Choice Specs
+Ability: Quark Drive
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fiery Dance
+- Sludge Wave
+- Energy Ball
+- Discharge
+
+Raichu-Alola @ Electric Seed
+Ability: Surge Surfer
+Level: 50
+Nature: Modest
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rising Voltage
+- Psychic
+- Focus Blast
+- Nasty Plot
+
+Iron Leaves @ Booster Energy
+Ability: Quark Drive
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psyblade
+- Leaf Blade
+- Close Combat
+- Swords Dance
+
+=== TRAINER_ROSA_CHALLENGE_7_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Indeedee-F @ Terrain Extender
+Ability: Psychic Surge
+Level: 50
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Expanding Force
+- Hyper Voice
+- Healing Wish
+- Protect
+
+Armarouge @ Twisted Spoon
+Ability: Flash Fire
+Level: 50
+Nature: Modest
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Expanding Force
+- Armor Cannon
+- Energy Ball
+- Calm Mind
+
+Alakazam @ Focus Sash
+Ability: Magic Guard
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Expanding Force
+- Focus Blast
+- Shadow Ball
+- Nasty Plot
+
+Hatterene @ Life Orb
+Ability: Magic Bounce
+Level: 50
+Nature: Quiet
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Expanding Force
+- Dazzling Gleam
+- Mystical Fire
+- Trick Room
+
+Gallade @ Choice Band
+Ability: Sharpness
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psycho Cut
+- Sacred Sword
+- Leaf Blade
+- Night Slash
+
+Metagross @ Assault Vest
+Ability: Clear Body
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch
+
+=== TRAINER_ROSA_CHALLENGE_8_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Rillaboom @ Miracle Seed
+Ability: Grassy Surge
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Grassy Glide
+- Wood Hammer
+- Knock Off
+- U-turn
+
+Ogerpon-Cornerstone @ Cornerstone Mask
+Ability: Sturdy
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Ivy Cudgel
+- Horn Leech
+- Superpower
+- Swords Dance
+
+Breloom @ Focus Sash
+Ability: Technician
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Spore
+- Bullet Seed
+- Mach Punch
+- Swords Dance
+
+Hawlucha @ Electric Seed
+Ability: Unburden
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Acrobatics
+- Close Combat
+- Swords Dance
+- Roost
+
+Sinistcha @ Leftovers
+Ability: Heatproof
+Level: 50
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Matcha Gotcha
+- Calm Mind
+- Shadow Ball
+- Strength Sap
+
+Amoonguss @ Black Sludge
+Ability: Regenerator
+Level: 50
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Spore
+- Giga Drain
+- Sludge Bomb
+- Synthesis
+
+=== TRAINER_ROSA_CHALLENGE_9_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Toxapex @ Black Sludge
+Ability: Regenerator
+Level: 50
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Scald
+- Recover
+- Toxic Spikes
+- Haze
+
+Clodsire @ Leftovers
+Ability: Water Absorb
+Level: 50
+Nature: Careful
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Toxic
+- Recover
+- Stealth Rock
+
+Ting-Lu @ Leftovers
+Ability: Vessel of Ruin
+Level: 50
+Nature: Impish
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Ruination
+- Whirlwind
+- Spikes
+
+Skarmory @ Rocky Helmet
+Ability: Sturdy
+Level: 50
+Nature: Impish
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Body Press
+- Roost
+- Spikes
+- Whirlwind
+
+Dondozo @ Leftovers
+Ability: Unaware
+Level: 50
+Nature: Impish
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Wave Crash
+- Body Press
+- Rest
+- Sleep Talk
+
+Blissey @ Heavy-Duty Boots
+Ability: Natural Cure
+Level: 50
+Nature: Calm
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Soft-Boiled
+- Seismic Toss
+- Toxic
+- Stealth Rock
+
+=== TRAINER_ROSA_CHALLENGE_10_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Dragonite @ Choice Band
+Ability: Multiscale
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Extreme Speed
+- Outrage
+- Earthquake
+- Fire Punch
+
+Scizor @ Choice Band
+Ability: Technician
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bullet Punch
+- U-turn
+- Close Combat
+- Dual Wingbeat
+
+Breloom @ Focus Sash
+Ability: Technician
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Mach Punch
+- Bullet Seed
+- Spore
+- Swords Dance
+
+Lucario @ Life Orb
+Ability: Inner Focus
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Extreme Speed
+- Close Combat
+- Bullet Punch
+- Swords Dance
+
+Weavile @ Focus Sash
+Ability: Pressure
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Ice Shard
+- Knock Off
+- Triple Axel
+- Swords Dance
+
+Chien-Pao @ Heavy-Duty Boots
+Ability: Sword of Ruin
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sucker Punch
+- Icicle Crash
+- Sacred Sword
+- Swords Dance
+
+=== TRAINER_ROSA_CHALLENGE_11_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Incineroar @ Sitrus Berry
+Ability: Intimidate
+Level: 50
+Nature: Careful
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- Knock Off
+- Flare Blitz
+- Parting Shot
+
+Landorus-Therian @ Choice Scarf
+Ability: Intimidate
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- U-turn
+- Stone Edge
+- Tera Blast
+
+Urshifu-Rapid-Strike @ Choice Band
+Ability: Unseen Fist
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Surging Strikes
+- Close Combat
+- Aqua Jet
+- U-turn
+
+Flutter Mane @ Booster Energy
+Ability: Protosynthesis
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Moonblast
+- Shadow Ball
+- Mystical Fire
+- Power Gem
+
+Rillaboom @ Assault Vest
+Ability: Grassy Surge
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Grassy Glide
+- Wood Hammer
+- Knock Off
+- Fake Out
+
+Amoonguss @ Rocky Helmet
+Ability: Regenerator
+Level: 50
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Spore
+- Pollen Puff
+- Rage Powder
+- Clear Smog
+
+=== TRAINER_ROSA_CHALLENGE_12_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Scolipede @ Focus Sash
+Ability: Speed Boost
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Baton Pass
+- Megahorn
+- Protect
+
+Scizor @ Leftovers
+Ability: Technician
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bullet Punch
+- Dual Wingbeat
+- Roost
+- Swords Dance
+
+Gliscor @ Toxic Orb
+Ability: Poison Heal
+Level: 50
+Nature: Impish
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Swords Dance
+- Baton Pass
+- Protect
+
+Clefable @ Leftovers
+Ability: Magic Guard
+Level: 50
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Moonblast
+- Flamethrower
+- Moonlight
+- Calm Mind
+
+Garchomp @ Lum Berry
+Ability: Rough Skin
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Outrage
+- Swords Dance
+- Stone Edge
+
+Togekiss @ Scope Lens
+Ability: Serene Grace
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Air Slash
+- Dazzling Gleam
+- Nasty Plot
+- Roost
+
+=== TRAINER_ROSA_CHALLENGE_13_HNS ===
+Name: ROSA
+Class: Cooltrainer Hns
+Pic: Cooltrainer F
+Gender: Female
+Music: Hg Girl 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Delibird @ Focus Sash
+Ability: Hustle
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Spikes
+- Rapid Spin
+- Destiny Bond
+- Ice Shard
+
+Abomasnow @ Abomasite
+Ability: Snow Warning
+Level: 50
+Nature: Quiet
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Blizzard
+- Wood Hammer
+- Ice Shard
+- Earth Power
+
+Iron Bundle @ Booster Energy
+Ability: Quark Drive
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Pump
+- Freeze-Dry
+- Ice Beam
+- Flip Turn
+
+Weavile @ Life Orb
+Ability: Pressure
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Triple Axel
+- Knock Off
+- Ice Shard
+- Swords Dance
+
+Chien-Pao @ Heavy-Duty Boots
+Ability: Sword of Ruin
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Icicle Crash
+- Sacred Sword
+- Sucker Punch
+- Swords Dance
+
+Starmie @ Life Orb
+Ability: Analytic
+Shiny: Yes
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Pump
+- Thunderbolt
+- Ice Beam
+- Recover

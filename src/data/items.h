@@ -2194,7 +2194,7 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("CARAMELO RARO"),
         .pluralName = ITEM_PLURAL_NAME("CARAMELO RARO"),
-        .price = (I_PRICE >= GEN_7) ? 10000 : 4800,
+        .price = 0,
         .description = COMPOUND_STRING(
             "Caramelo energético que\n"
             "sube a un Pokémon de\n"

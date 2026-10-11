@@ -66,10 +66,8 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_ThirstyMan::
 
 LilycoveCity_DepartmentStoreRooftop_EventScript_VendingMachine::
 	lockall
-	message LilycoveCity_DepartmentStoreRooftop_Text_WhichDrinkWouldYouLike
-	waitmessage
-	showmoneybox 0, 0
-	goto LilycoveCity_DepartmentStoreRooftop_EventScript_ChooseDrink
+	msgbox LilycoveCity_DepartmentStoreRooftop_Text_VendingMachineOutOfOrder, MSGBOX_DEFAULT
+	releaseall
 	end
 
 LilycoveCity_DepartmentStoreRooftop_EventScript_ChooseDrink::
@@ -198,6 +196,11 @@ LilycoveCity_DepartmentStoreRooftop_Text_BeenWaitingForClearOutSale:
 
 LilycoveCity_DepartmentStoreRooftop_Text_BoneDryThirsty:
 	.string "Ohh… I'm bone-dry thirsty!$"
+
+LilycoveCity_DepartmentStoreRooftop_Text_VendingMachineOutOfOrder:
+	.string "Es una MÁQUINA EXPENDEDORA.\p"
+	.string "Tiene un cartel pegado:\n"
+	.string "“FUERA DE SERVICIO”.$"
 
 LilycoveCity_DepartmentStoreRooftop_Text_WhichDrinkWouldYouLike:
 	.string "It's a VENDING MACHINE.\n"

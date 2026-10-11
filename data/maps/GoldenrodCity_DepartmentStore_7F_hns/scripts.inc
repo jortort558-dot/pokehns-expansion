@@ -71,6 +71,14 @@ GoldenrodDeptStore7_EventScript_Bugcatcher::
 	release
 	end
 
+GoldenrodDeptStore7_EventScript_MadScientistAurora::
+	lock
+	faceplayer
+	msgbox GoldenrodDeptStore_Text_MadScientistAurora, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
 GoldenrodDeptStore_Text_RoofPokefanF:
     .string "Uf, qué cansancio.\p"
     .string "A veces subo a la azotea para\n"
@@ -107,3 +115,16 @@ GoldenrodDeptStore_Text_RoofBugCatcher:
     .string "paralizados o envenenados…\p"
     .string "He venido a comprar CURA TOTAL.\n"
     .string "¿Quedará alguna?$"
+
+GoldenrodDeptStore_Text_MadScientistAurora:
+    .string "¡Silencio, ignorante!\n"
+    .string "¡Interrumpes mis mediciones!\p"
+    .string "Si estamos en NORUEGA, ¡por pura\n"
+    .string "física cuántica y geomagnética\l"
+    .string "debería haber AURORAS BOREALES\l"
+    .string "surcando este cielo a todas horas!\p"
+    .string "¿Cómo que esto es JOHTO?\n"
+    .string "¡Bah! ¡Eso es una burda patraña\l"
+    .string "de la ciencia oficial!\p"
+    .string "¡Yo no me muevo de esta azotea\n"
+    .string "hasta ver el plasma polar!$"

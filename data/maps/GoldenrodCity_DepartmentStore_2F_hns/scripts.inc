@@ -85,10 +85,8 @@ GoldenrodDeptStore2_Pokemart:
 
 GoldenrodDeptStore_EventScript_VendingMachine::
 	lockall
-	message GoldenrodDeptStore_Text_WhichDrinkWouldYouLike
-	waitmessage
-	showmoneybox 0, 0
-	goto GoldenrodDeptStore_EventScript_ChooseDrink
+	msgbox GoldenrodDeptStore_Text_VendingMachineOutOfOrder, MSGBOX_DEFAULT
+	releaseall
 	end
 
 GoldenrodDeptStore_EventScript_ChooseDrink::
@@ -203,6 +201,11 @@ GoldenrodDeptStore_EventScript_ExitVendingMachine::
 	releaseall
 	end
 
+GoldenrodDeptStore_Text_VendingMachineOutOfOrder:
+	.string "Es una MÁQUINA EXPENDEDORA.\p"
+	.string "Tiene un cartel pegado:\n"
+	.string "“FUERA DE SERVICIO”.$"
+
 GoldenrodDeptStore_Text_WhichDrinkWouldYouLike:
 	.string "Es una MÁQUINA EXPENDEDORA.\n"
 	.string "¿Qué bebida quieres?$"
@@ -257,13 +260,20 @@ GoldenrodDeptStore2_EventScript_ElPiedrasNoMoney::
 
 GoldenrodDeptStore2_EventScript_ElPiedrasDeclined::
 	hidemoneybox
-	goto GoldenrodDeptStore2_EventScript_ElPiedrasStartBattle
+	msgbox GoldenrodCity_Text_ElPiedrasDeclined, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
 
 GoldenrodDeptStore2_EventScript_ElPiedrasAlreadyBought::
 	goto GoldenrodDeptStore2_EventScript_ElPiedrasStartBattle
 
 GoldenrodDeptStore2_EventScript_ElPiedrasStartBattle::
 	msgbox GoldenrodCity_Text_ElPiedrasPreBattle, MSGBOX_DEFAULT
+	closemessage
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
 	trainerbattle_no_intro TRAINER_EL_PIEDRAS_HNS, GoldenrodCity_Text_ElPiedrasDefeat
 	setflag FLAG_DEFEATED_EL_PIEDRAS_GOLDENROD
 	msgbox GoldenrodCity_Text_ElPiedrasPostBattle, MSGBOX_DEFAULT
@@ -304,6 +314,12 @@ GoldenrodCity_Text_ElPiedrasNoMoney:
 	.string "Pero bro... Si no llevas ni diez\n"
 	.string "mil monedas encima. Así no se hace\l"
 	.string "networking. Vuelve con cash.$"
+
+GoldenrodCity_Text_ElPiedrasDeclined:
+	.string "¿Te lo piensas? Tranquilo, socio.\n"
+	.string "El tren de la innovación no espera,\l"
+	.string "pero yo sí. Aquí estaré cuando\l"
+	.string "te canses de perder capturas.$"
 
 GoldenrodCity_Text_ElPiedrasBoughtStone:
 	.string "¡Trato cerrado! ¡Toma tu piedra!\n"

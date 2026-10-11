@@ -44,6 +44,7 @@
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "randomizer.h"
+#include "gym_tokens.h"
 #include "nuzlocke.h"
 #include "overworld.h"
 #include "rotating_tile_puzzle.h"
@@ -1442,6 +1443,11 @@ bool8 ScrCmd_givenamedmon(struct ScriptContext *ctx)
         return FALSE;
     }
 
+    if (IsNuzlockeActive() || IsNuzlockeEasyActive() || RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
+    {
+        species = GetRandomSpeciesSimilarBst(species);
+    }
+
     heldItem[0] = item & 0xFF;
     heldItem[1] = item >> 8;
 
@@ -1905,7 +1911,7 @@ bool8 ScrCmd_buffermoncategory(struct ScriptContext *ctx)
 
 bool8 ScrCmd_checknuzlocke(struct ScriptContext *ctx)
 {
-    gSpecialVar_Result = IsNuzlockeActive();
+    gSpecialVar_Result = (IsNuzlockeActive() || IsNuzlockeEasyActive());
     return FALSE;
 }
 

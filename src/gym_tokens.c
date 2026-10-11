@@ -19,6 +19,8 @@
 #include "constants/pokemon.h"
 #include "constants/species.h"
 #include "constants/vars.h"
+#include "constants/flags.h"
+#include "constants/region_map_sections.h"
 
 #define GYM_TOKEN_TRADE_LIMIT 1
 #define GYM_TOKEN_REVIVE_COST 2
@@ -86,6 +88,85 @@ bool32 GymTokenCanTradeMon(struct BoxPokemon *boxMon)
         && !GetBoxMonData(boxMon, MON_DATA_IS_EGG)
         && GetBoxMonCurrentHp(boxMon) != 0
         && GetBoxMonData(boxMon, MON_DATA_HELD_ITEM) == ITEM_NONE;
+}
+
+bool32 GiftMonCanTrade(struct BoxPokemon *boxMon)
+{
+    u16 species;
+    u32 otId;
+    u8 metLocation;
+    u8 level;
+
+    if (boxMon == NULL)
+        return FALSE;
+
+    species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
+    if (species == SPECIES_NONE || GetBoxMonData(boxMon, MON_DATA_IS_EGG))
+        return FALSE;
+
+    if (GetBoxMonCurrentHp(boxMon) == 0 || GetBoxMonData(boxMon, MON_DATA_HELD_ITEM) != ITEM_NONE)
+        return FALSE;
+
+    otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
+    metLocation = GetBoxMonData(boxMon, MON_DATA_MET_LOCATION);
+    level = GetBoxMonData(boxMon, MON_DATA_LEVEL);
+
+    // 1. Kenya
+    if (otId == 61225)
+        return TRUE;
+
+    // 2. Shuckie
+    if (otId == 4336)
+        return TRUE;
+
+    // 3. Eevee de Bill
+    if (otId == 5231)
+        return TRUE;
+
+    // 4. Tentacool de Ciudad Orquídea
+    if ((species == SPECIES_TENTACOOL || species == SPECIES_TENTACRUEL)
+     && metLocation == MAPSEC_CIANWOOD_CITY
+     && level >= 25)
+        return TRUE;
+
+    // 5. Tyrogue del Maestro Kiyo
+    if (FlagGet(FLAG_GOT_TYROGUE))
+    {
+        if (species == SPECIES_TYROGUE
+         || species == SPECIES_HITMONLEE
+         || species == SPECIES_HITMONCHAN
+         || species == SPECIES_HITMONTOP)
+        {
+            if (metLocation == MAPSEC_MT_MORTAR)
+                return TRUE;
+        }
+    }
+
+    // 6. Dratini de la Guarida Dragón
+    if (FlagGet(FLAG_GOT_DRATINI))
+    {
+        if (species == SPECIES_DRATINI
+         || species == SPECIES_DRAGONAIR
+         || species == SPECIES_DRAGONITE)
+        {
+            if (metLocation == MAPSEC_DRAGONS_DEN)
+                return TRUE;
+        }
+    }
+
+    // 7. Huevo de Togepi
+    if (FlagGet(FLAG_RECEIVED_TOGEPI_EGG))
+    {
+        if (species == SPECIES_TOGEPI
+         || species == SPECIES_TOGETIC
+         || species == SPECIES_TOGEKISS)
+        {
+            if (metLocation == MAPSEC_VIOLET_CITY)
+                return TRUE;
+        }
+    }
+
+    return FALSE;
 }
 
 bool32 GymTokenCanReviveMon(struct BoxPokemon *boxMon)
@@ -314,6 +395,49 @@ void UseSelectedGymTokenRetry(void)
     gSpecialVar_Result = 1;
 }
 
+u16 GetRandomSpeciesSimilarBst(u16 baseSpecies)
+{
+    u16 targetBst = GetBaseStatTotal(baseSpecies);
+    u16 selectedSpecies = baseSpecies;
+    u16 eligibleCount = 0;
+    u16 species;
+    s32 maxDiff;
+
+    if (baseSpecies == SPECIES_NONE)
+        return SPECIES_NONE;
+
+    // Iteratively widen the BST gap: ±40, ±80, ±120, then any
+    for (maxDiff = 40; maxDiff <= 500; maxDiff += 40)
+    {
+        eligibleCount = 0;
+        for (species = 1; species < NUM_SPECIES; species++)
+        {
+            const struct SpeciesInfo *info = &gSpeciesInfo[species];
+            s32 diff;
+
+            if (!IsSpeciesEnabled(species) || info->isRestrictedLegendary || info->isSubLegendary
+             || info->isMythical || info->isUltraBeast || info->isMegaEvolution
+             || info->isPrimalReversion || info->isUltraBurst)
+                continue;
+
+            diff = (s32)GetBaseStatTotal(species) - (s32)targetBst;
+            if (diff < 0)
+                diff = -diff;
+
+            if (diff <= maxDiff)
+            {
+                eligibleCount++;
+                if (Random() % eligibleCount == 0)
+                    selectedSpecies = species;
+            }
+        }
+        if (eligibleCount > 0)
+            return selectedSpecies;
+    }
+
+    return selectedSpecies;
+}
+
 static u16 ChooseMysterySpecies(u16 offeredSpecies)
 {
     u16 offeredBst = GetBaseStatTotal(offeredSpecies);
@@ -442,3 +566,103 @@ void SaveGymTokenTransaction(void)
 {
     gSpecialVar_Result = TrySavingData(SAVE_NORMAL) == SAVE_STATUS_OK;
 }
+
+void CheckPlayerHasGiftMon(void)
+{
+    u32 i;
+    u8 box;
+
+    gSpecialVar_Result = 0;
+
+    // Check Party
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        if (GiftMonCanTrade(&gPlayerParty[i].box))
+        {
+            gSpecialVar_Result = 1;
+            return;
+        }
+    }
+
+    // Check PC Boxes
+    for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    {
+        for (i = 0; i < IN_BOX_COUNT; i++)
+        {
+            struct BoxPokemon *mon = GetBoxedMonPtr(box, i);
+            if (GiftMonCanTrade(mon))
+            {
+                gSpecialVar_Result = 1;
+                return;
+            }
+        }
+    }
+}
+
+void UseGiftMonTrade(void)
+{
+    struct BoxPokemon *boxMon = GetSelectedBoxMonFromPcOrParty();
+    struct Pokemon received = {0};
+    u16 species;
+    u8 levels[PARTY_SIZE];
+    u8 aliveCount = 0;
+    u8 level;
+    u8 i;
+    u8 perfectIv = MAX_PER_STAT_IVS;
+    u8 firstPerfect;
+    u8 secondPerfect;
+    static const enum MonData sIvFields[] = {
+        MON_DATA_HP_IV, MON_DATA_ATK_IV, MON_DATA_DEF_IV,
+        MON_DATA_SPEED_IV, MON_DATA_SPATK_IV, MON_DATA_SPDEF_IV,
+    };
+    static const u8 sClerkName[] = _("REGALO");
+
+    ResetPcMonSelectionType();
+    gSpecialVar_Result = 0;
+
+    if (!GiftMonCanTrade(boxMon))
+        return;
+
+    species = GetRandomSpeciesSimilarBst(GetBoxMonData(boxMon, MON_DATA_SPECIES));
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_HP) != 0
+         && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+            levels[aliveCount++] = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+    }
+    for (i = 1; i < aliveCount; i++)
+    {
+        u8 j = i;
+        u8 value = levels[i];
+        while (j > 0 && levels[j - 1] > value)
+        {
+            levels[j] = levels[j - 1];
+            j--;
+        }
+        levels[j] = value;
+    }
+    level = aliveCount ? levels[aliveCount / 2] : GetBoxMonData(boxMon, MON_DATA_LEVEL);
+    if (level < 5)
+        level = 5;
+    if (level > GetCurrentLevelCap())
+        level = GetCurrentLevelCap();
+
+    CreateMonWithIVs(&received, species, level, Random32(), OTID_STRUCT_PRESET(0x47494654), USE_RANDOM_IVS);
+    GiveMonInitialMoveset(&received);
+
+    firstPerfect = Random() % NUM_STATS;
+    do
+        secondPerfect = Random() % NUM_STATS;
+    while (secondPerfect == firstPerfect);
+
+    SetMonData(&received, sIvFields[firstPerfect], &perfectIv);
+    SetMonData(&received, sIvFields[secondPerfect], &perfectIv);
+    SetMonData(&received, MON_DATA_OT_NAME, sClerkName);
+    CalculateMonStats(&received);
+
+    gEnemyParty[0] = received;
+    SetCustomInGameTradeScene();
+    StringCopy(gStringVar3, gSpeciesInfo[species].speciesName);
+    gSpecialVar_Result = 1;
+}
+

@@ -15,6 +15,7 @@
 #include "generational_changes.h"
 #include "party_menu.h"
 #include "pokemon.h"
+#include "nuzlocke.h"
 #include "international_string_util.h"
 #include "item.h"
 #include "util.h"
@@ -4085,6 +4086,10 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             }
             break;
         case ABILITY_INNARDS_OUT:
+            // Baneada completamente en modo Nuzlocke para evitar KOs injustos e inevitables
+            if (IsNuzlockeActive())
+                break;
+
             if (!IsBattlerUnaffectedByMove(gBattlerTarget)
              && !IsBattlerAlive(gBattlerTarget)
              && IsBattlerAlive(gBattlerAttacker))

@@ -659,6 +659,8 @@ NewBarkTown_Lab_EventScript_Elm_Check_Togepi::
 	goto_if_eq VAR_RESULT, TRUE, NewBarkTown_Lab_EventScript_Elm_Togepi_Seen
 	checkspecies SPECIES_TOGEKISS
 	goto_if_eq VAR_RESULT, TRUE, NewBarkTown_Lab_EventScript_Elm_Togepi_Seen
+	specialvar VAR_RESULT, PlayerHasHatchedAnyEgg
+	goto_if_eq VAR_RESULT, TRUE, NewBarkTown_Lab_EventScript_Elm_Togepi_Seen
 	return
 
 NewBarkTown_Lab_EventScript_Elm_Togepi_Seen::

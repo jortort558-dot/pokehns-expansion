@@ -208,7 +208,34 @@ GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps::
 	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
 
 GoldenrodCity_PokemonCenter_EventScript_AssistantRewards::
-	msgbox GoldenrodCity_PokemonCenter_Text_RewardsFuture, MSGBOX_DEFAULT
+	special CheckPlayerHasGiftMon
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_NoGiftMonToTrade
+	msgbox GoldenrodCity_PokemonCenter_Text_GiftTradeIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	msgbox GoldenrodCity_PokemonCenter_Text_MustSaveBeforeAction, MSGBOX_DEFAULT
+	call Common_EventScript_SaveGame
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GiftTradeSaveAborted
+	chooseboxmon SELECT_PC_MON_GIFT_TRADE
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	special UseGiftMonTrade
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_GiftTradeFailed
+	special DoInGameTradeScene
+	waitstate
+	special SaveGymTokenTransaction
+	msgbox GoldenrodCity_PokemonCenter_Text_GiftTradeDone, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_NoGiftMonToTrade::
+	msgbox GoldenrodCity_PokemonCenter_Text_NoGiftMonFound, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GiftTradeSaveAborted::
+	msgbox GoldenrodCity_PokemonCenter_Text_SaveRequiredNotice, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_GiftTradeFailed::
+	msgbox GoldenrodCity_PokemonCenter_Text_GiftTradeFailed, MSGBOX_DEFAULT
 	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
 
 GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd::
@@ -266,11 +293,27 @@ GoldenrodCity_PokemonCenter_Text_LevelCapAllLeaders:
 	.string "Gimnasios Kanto: 70\n"
 	.string "Campeón Kanto: 100$"
 
-GoldenrodCity_PokemonCenter_Text_RewardsFuture:
-	.string "Esta función estará disponible en\n"
-	.string "una próxima actualización.\p"
-	.string "¡Podrás recibir recompensas según\n"
-	.string "tus logros en la partida!$"
+GoldenrodCity_PokemonCenter_Text_GiftTradeIntro:
+	.string "¡Canje de Regalos Locke!\p"
+	.string "He detectado que posees POKéMON\n"
+	.string "recibidos por regalo o evento.\p"
+	.string "¿Deseas intercambiar uno gratis\n"
+	.string "por un POKéMON sorpresa de\l"
+	.string "nivel y poder equivalente?$"
+
+GoldenrodCity_PokemonCenter_Text_NoGiftMonFound:
+	.string "No he detectado en tu equipo ni\n"
+	.string "en tus cajas ningún POKéMON de\l"
+	.string "regalo pendiente de canjear.$"
+
+GoldenrodCity_PokemonCenter_Text_GiftTradeDone:
+	.string "¡Trato hecho!\p"
+	.string "Tu nuevo compañero ya está listo\n"
+	.string "para la aventura. ¡Disfrútalo!$"
+
+GoldenrodCity_PokemonCenter_Text_GiftTradeFailed:
+	.string "No se ha podido realizar el\n"
+	.string "intercambio del POKéMON regalo.$"
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry::
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenGachaponIntro, MSGBOX_YESNO

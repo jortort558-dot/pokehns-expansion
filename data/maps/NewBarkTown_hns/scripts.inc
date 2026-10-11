@@ -378,3 +378,16 @@ NewBarkTown_Text_PlayersHouse:
 
 NewBarkTown_Text_ElmsHouse:
 	.string "CASA DEL PROF. ELM$"
+
+NewBarkTown_EventScript_RatKid::
+	lock
+	faceplayer
+	msgbox NewBarkTown_Text_RatKid, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_Text_RatKid:
+	.string "He visto RATTATA muy raros en\n"
+	.string "equipos de gente del NUZLOCKE.\p"
+	.string "Uno me guiñó un ojo.\n"
+	.string "Eso no lo hace un RATTATA normal.$"

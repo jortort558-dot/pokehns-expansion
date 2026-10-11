@@ -217,6 +217,7 @@ TinTower_RoofDay_EventScript_HoOhPostgame::
 	end
 
 TinTower_RoofDay_EventScript_HoohFlewAway::
+	setflag FLAG_DEFEATED_HO_OH
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_HO_OH
 	setweather WEATHER_NONE

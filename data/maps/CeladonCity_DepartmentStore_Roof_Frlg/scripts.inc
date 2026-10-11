@@ -197,10 +197,8 @@ CeladonCity_DepartmentStore_Roof_EventScript_FloorSign::
 
 CeladonCity_DepartmentStore_Roof_EventScript_VendingMachine::
 	lockall
-	message CeladonCity_DepartmentStore_Roof_Text_VendingMachineWhatDoesItHave
-	waitmessage
-	showmoneybox 0, 0
-	goto CeladonCity_DepartmentStore_Roof_EventScript_ChooseDrink
+	msgbox CeladonCity_DepartmentStore_Roof_Text_VendingMachineOutOfOrder, MSGBOX_DEFAULT
+	releaseall
 	end
 
 CeladonCity_DepartmentStore_Roof_EventScript_ChooseDrink::
@@ -345,6 +343,11 @@ CeladonCity_DepartmentStore_Roof_Text_ImThirstyIWantDrink::
 CeladonCity_DepartmentStore_Roof_Text_FloorSign::
 	.string "ROOFTOP SQUARE:\n"
 	.string "VENDING MACHINES$"
+
+CeladonCity_DepartmentStore_Roof_Text_VendingMachineOutOfOrder::
+	.string "Es una MÁQUINA EXPENDEDORA.\p"
+	.string "Tiene un cartel pegado:\n"
+	.string "“FUERA DE SERVICIO”.$"
 
 CeladonCity_DepartmentStore_Roof_Text_VendingMachineWhatDoesItHave::
 	.string "A vending machine!\n"

@@ -45,6 +45,7 @@ static u32 CanMonLearnPLAMove(struct BoxPokemon *boxmon);
 static u32 CanRelearnMoves(struct BoxPokemon *boxmon);
 static u32 CanGymTokenTrade(struct BoxPokemon *boxmon);
 static u32 CanGymTokenRevive(struct BoxPokemon *boxmon);
+static u32 CanGiftMonTrade(struct BoxPokemon *boxmon);
 
 static const struct PcMonSelection sPcMonSelectionTypes[] =
 {
@@ -57,7 +58,13 @@ static const struct PcMonSelection sPcMonSelectionTypes[] =
     [SELECT_PC_MON_PLA_TUTOR] = {ChooseMonForMoveTutor, CanMonLearnPLAMove, MoveTutor_AfterChooseBoxMon, FALSE},
     [SELECT_PC_MON_GYM_TOKEN_TRADE] = {ChoosePartyMon, CanGymTokenTrade, NULL, TRUE},
     [SELECT_PC_MON_GYM_TOKEN_REVIVE] = {ChoosePartyMon, CanGymTokenRevive, NULL, TRUE},
+    [SELECT_PC_MON_GIFT_TRADE] = {ChoosePartyMon, CanGiftMonTrade, NULL, TRUE},
 };
+
+static u32 CanGiftMonTrade(struct BoxPokemon *boxmon)
+{
+    return GiftMonCanTrade(boxmon) ? VALID_MON : INVALID_MON;
+}
 
 static u32 CanGymTokenTrade(struct BoxPokemon *boxmon)
 {

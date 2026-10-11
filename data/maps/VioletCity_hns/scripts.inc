@@ -12,6 +12,12 @@ VioletCity_OnFrame::
 VioletCity_OnTransition::
 	callnative SetTimeBasedEncounters
 	setflag FLAG_HIDE_VIOLET_ROSA
+	goto_if_set FLAG_VIOLET_KALOS_CALL_TRIGGERED, VioletCity_OnTransition_ShowKalosTourists
+	setflag FLAG_HIDE_VIOLET_KALOS_TOURISTS
+	end
+
+VioletCity_OnTransition_ShowKalosTourists::
+	clearflag FLAG_HIDE_VIOLET_KALOS_TOURISTS
 	end
 
 VioletCity_EventScript_Trigger::
@@ -999,3 +1005,29 @@ VioletCity_Text_RosaHint13:
 	.string "¡Especial Festivo Navideño!\n"
 	.string "Espíritu invernal y estrellas.$"
 
+VioletCity_EventScript_RatKid::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOT_RAT_KID_SUPER_POTION, VioletCity_EventScript_RatKidAfter
+	msgbox VioletCity_Text_RatKidGift, MSGBOX_DEFAULT
+	giveitem ITEM_SUPER_POTION
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_GOT_RAT_KID_SUPER_POTION
+	release
+	end
+
+VioletCity_EventScript_RatKidAfter::
+	msgbox VioletCity_Text_RatKidAfter, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_Text_RatKidGift:
+	.string "Los RATTATA sospechosos aparecen\n"
+	.string "en todos los equipos del reto.\p"
+	.string "Y como los nuevos entrenadores\n"
+	.string "del NUZLOCKE sois tan paquetes,\l"
+	.string "habrá que ayudaros. Toma esto.$"
+
+VioletCity_Text_RatKidAfter:
+	.string "Usa esa SUPERPOCIÓN antes de que\n"
+	.string "otro RATTATA te mande a casa.$"

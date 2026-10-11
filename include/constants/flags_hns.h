@@ -1055,12 +1055,12 @@
 #define FLAG_HIDE_STARTER_CHIKORITA                (HNS_EXTENDED_CONTENT_START + 169)
 #define FLAG_HIDE_STARTER_CYNDAQUIL                (HNS_EXTENDED_CONTENT_START + 170)
 #define FLAG_HIDE_STARTER_TOTODILE                 (HNS_EXTENDED_CONTENT_START + 171)
-#define FLAG_EXTENDED_CONTENT_172                  (HNS_EXTENDED_CONTENT_START + 172)
-#define FLAG_EXTENDED_CONTENT_173                  (HNS_EXTENDED_CONTENT_START + 173)
-#define FLAG_EXTENDED_CONTENT_174                  (HNS_EXTENDED_CONTENT_START + 174)
-#define FLAG_EXTENDED_CONTENT_175                  (HNS_EXTENDED_CONTENT_START + 175)
-#define FLAG_EXTENDED_CONTENT_176                  (HNS_EXTENDED_CONTENT_START + 176)
-#define FLAG_EXTENDED_CONTENT_177                  (HNS_EXTENDED_CONTENT_START + 177)
+#define FLAG_BUG_CONTEST_COMPLETED                 (HNS_EXTENDED_CONTENT_START + 172)
+#define FLAG_GAME_CORNER_BOUGHT_ABRA               (HNS_EXTENDED_CONTENT_START + 173)
+#define FLAG_GAME_CORNER_BOUGHT_CLEFAIRY            (HNS_EXTENDED_CONTENT_START + 174)
+#define FLAG_GAME_CORNER_BOUGHT_MUNCHLAX            (HNS_EXTENDED_CONTENT_START + 175)
+#define FLAG_GAME_CORNER_BOUGHT_DRATINI             (HNS_EXTENDED_CONTENT_START + 176)
+#define FLAG_GAME_CORNER_BOUGHT_PORYGON             (HNS_EXTENDED_CONTENT_START + 177)
 #define FLAG_EXTENDED_CONTENT_178                  (HNS_EXTENDED_CONTENT_START + 178)
 #define FLAG_EXTENDED_CONTENT_179                  (HNS_EXTENDED_CONTENT_START + 179)
 #define FLAG_EXTENDED_CONTENT_180                  (HNS_EXTENDED_CONTENT_START + 180)
@@ -1185,7 +1185,11 @@
 #define FLAG_MELEMELE_HIDDEN_ITEM                   (HNS_EXTENDED_CONTENT_START + 299)
 #define HNS_EXTENDED_CONTENT_COUNT                  300
 #define HNS_EXTENDED_CONTENT_END                    (HNS_EXTENDED_CONTENT_START + HNS_EXTENDED_CONTENT_COUNT - 1)
-// 0x496–0x4FF remaining reserved for future expansion
+// Additional HnS content flags (0x496–0x4FF)
+#define FLAG_GOT_RAT_KID_SUPER_POTION               0x496
+#define FLAG_HIDE_VIOLET_KALOS_TOURISTS             0x497
+
+// 0x498–0x4FF remaining reserved for future expansion
 
 // Trainer registered (match call) flags — one per rematchable trainer
 #define TRAINER_REGISTERED_FLAGS_START               0x310
@@ -3304,8 +3308,8 @@
 #define FLAG_UNUSED_0x493                                       0
 #define FLAG_UNUSED_0x494                                       0
 #define FLAG_UNUSED_0x495                                       0
-#define FLAG_UNUSED_0x496                                       0
-#define FLAG_UNUSED_0x497                                       0
+#define FLAG_UNUSED_0x496                                       FLAG_GOT_RAT_KID_SUPER_POTION
+#define FLAG_UNUSED_0x497                                       FLAG_HIDE_VIOLET_KALOS_TOURISTS
 #define FLAG_UNUSED_0x498                                       0
 #define FLAG_UNUSED_0x499                                       0
 #define FLAG_UNUSED_0x49A                                       0
