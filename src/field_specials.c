@@ -77,6 +77,7 @@
 #include "constants/weather.h"
 #include "constants/metatile_labels.h"
 #include "constants/rgb.h"
+#include "constants/flags.h"
 #include "palette.h"
 #include "battle_util.h"
 #include "naming_screen.h"
@@ -6190,7 +6191,44 @@ void IsBoulderAtCoords(void)
 
 void PlayerHasHatchedAnyEgg(void)
 {
-    gSpecialVar_Result = (GetGameStat(GAME_STAT_HATCHED_EGGS) > 0);
+    u32 i;
+    u8 box;
+
+    // 1. Hatched egg game stat
+    if (GetGameStat(GAME_STAT_HATCHED_EGGS) > 0)
+    {
+        gSpecialVar_Result = TRUE;
+        return;
+    }
+
+    // 2. If the Togepi egg flag was received, check if player has any non-egg mon (meaning the egg hatched)
+    if (FlagGet(FLAG_RECEIVED_TOGEPI_EGG))
+    {
+        for (i = 0; i < gPlayerPartyCount; i++)
+        {
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+             && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+            {
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+        }
+        for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+        {
+            for (i = 0; i < IN_BOX_COUNT; i++)
+            {
+                struct BoxPokemon *mon = GetBoxedMonPtr(box, i);
+                if (GetBoxMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE
+                 && !GetBoxMonData(mon, MON_DATA_IS_EGG))
+                {
+                    gSpecialVar_Result = TRUE;
+                    return;
+                }
+            }
+        }
+    }
+
+    gSpecialVar_Result = FALSE;
 }
 
 void PlayerHasAnyMail(void)
@@ -6201,6 +6239,7 @@ void PlayerHasAnyMail(void)
         ITEM_TROPIC_MAIL, ITEM_DREAM_MAIL,  ITEM_FAB_MAIL,     ITEM_RETRO_MAIL,
     };
     u8 i;
+    u8 box;
 
     gSpecialVar_Result = FALSE;
 
@@ -6227,5 +6266,135 @@ void PlayerHasAnyMail(void)
             }
         }
     }
+
+    // 3. Check PC boxes for held mail
+    for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    {
+        for (i = 0; i < IN_BOX_COUNT; i++)
+        {
+            struct BoxPokemon *mon = GetBoxedMonPtr(box, i);
+            if (GetBoxMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
+            {
+                u16 item = GetBoxMonData(mon, MON_DATA_HELD_ITEM);
+                if (ItemIsMail(item))
+                {
+                    gSpecialVar_Result = TRUE;
+                    return;
+                }
+            }
+        }
+    }
 }
+
+void CheckPlayerHasKenyaOrMail(void)
+{
+    u32 i;
+    u8 box;
+
+    gSpecialVar_Result = FALSE;
+
+    // 1. If VAR_KENYA is already 1, return TRUE
+    if (VarGet(VAR_KENYA) == 1)
+    {
+        gSpecialVar_Result = TRUE;
+        return;
+    }
+
+    // 2. Check if player has Kenya (OT ID 61225) in party or PC
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+         && GetMonData(&gPlayerParty[i], MON_DATA_OT_ID) == 61225)
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+    for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    {
+        for (i = 0; i < IN_BOX_COUNT; i++)
+        {
+            struct BoxPokemon *mon = GetBoxedMonPtr(box, i);
+            if (GetBoxMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE
+             && GetBoxMonData(mon, MON_DATA_OT_ID) == 61225)
+            {
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+        }
+    }
+
+    // 3. Check if player has any mail (bag, party, PC)
+    PlayerHasAnyMail();
+}
+
+void TakeDeliveredMail(void)
+{
+    static const enum Item sMailItems[] = {
+        ITEM_RETRO_MAIL,  ITEM_ORANGE_MAIL, ITEM_HARBOR_MAIL, ITEM_GLITTER_MAIL,
+        ITEM_MECH_MAIL,   ITEM_WOOD_MAIL,   ITEM_WAVE_MAIL,   ITEM_BEAD_MAIL,
+        ITEM_SHADOW_MAIL, ITEM_TROPIC_MAIL, ITEM_DREAM_MAIL,  ITEM_FAB_MAIL,
+    };
+    u8 i;
+    u8 box;
+    u16 noneItem = ITEM_NONE;
+
+    // 1. Check party for Kenya holding mail
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+         && GetMonData(&gPlayerParty[i], MON_DATA_OT_ID) == 61225)
+        {
+            u16 item = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+            if (ItemIsMail(item))
+            {
+                TakeMailFromMon(&gPlayerParty[i]);
+                return;
+            }
+        }
+    }
+
+    // 2. Check bag
+    for (i = 0; i < ARRAY_COUNT(sMailItems); i++)
+    {
+        if (CheckBagHasItem(sMailItems[i], 1))
+        {
+            RemoveBagItem(sMailItems[i], 1);
+            return;
+        }
+    }
+
+    // 3. Check party for any held mail
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            u16 item = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+            if (ItemIsMail(item))
+            {
+                TakeMailFromMon(&gPlayerParty[i]);
+                return;
+            }
+        }
+    }
+
+    // 4. Check PC boxes
+    for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    {
+        for (i = 0; i < IN_BOX_COUNT; i++)
+        {
+            struct BoxPokemon *mon = GetBoxedMonPtr(box, i);
+            if (GetBoxMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
+            {
+                u16 item = GetBoxMonData(mon, MON_DATA_HELD_ITEM);
+                if (ItemIsMail(item))
+                {
+                    SetBoxMonData(mon, MON_DATA_HELD_ITEM, &noneItem);
+                    return;
+                }
+            }
+        }
+    }
+}
+
 

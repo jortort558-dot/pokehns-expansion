@@ -41,6 +41,8 @@ void CutMoveOpenDottedHoleDoor(void);
 void IsBoulderAtCoords(void);
 void PlayerHasHatchedAnyEgg(void);
 void PlayerHasAnyMail(void);
+void CheckPlayerHasKenyaOrMail(void);
+void TakeDeliveredMail(void);
 
 #endif // GUARD_FIELD_SPECIALS_H
 

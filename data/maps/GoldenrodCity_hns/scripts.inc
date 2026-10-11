@@ -38,7 +38,6 @@ GoldenrodCity_EventScript_Trigger:: @flagheap
 	clearflag FLAG_GOT_MAGNET
 
 	setvar VAR_BUG_CONTEST_STATE, 0
-	setvar VAR_KENYA, 0
 	setvar VAR_LUGIA_OR_HOOH, 0
 	setvar VAR_TRAIN, 0
 	setvar VAR_ELEVATOR, 0

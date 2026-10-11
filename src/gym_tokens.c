@@ -4,6 +4,7 @@
 #include "caps.h"
 #include "chooseboxmon.h"
 #include "malloc.h"
+#include "item.h"
 #include "nuzlocke.h"
 #include "pokedex.h"
 #include "pokemon.h"
@@ -102,9 +103,6 @@ bool32 GiftMonCanTrade(struct BoxPokemon *boxMon)
 
     species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
     if (species == SPECIES_NONE || GetBoxMonData(boxMon, MON_DATA_IS_EGG))
-        return FALSE;
-
-    if (GetBoxMonCurrentHp(boxMon) == 0 || GetBoxMonData(boxMon, MON_DATA_HELD_ITEM) != ITEM_NONE)
         return FALSE;
 
     otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
@@ -622,6 +620,16 @@ void UseGiftMonTrade(void)
 
     if (!GiftMonCanTrade(boxMon))
         return;
+
+    {
+        u16 item = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM);
+        if (item != ITEM_NONE)
+        {
+            u16 noneItem = ITEM_NONE;
+            AddBagItem(item, 1);
+            SetBoxMonData(boxMon, MON_DATA_HELD_ITEM, &noneItem);
+        }
+    }
 
     species = GetRandomSpeciesSimilarBst(GetBoxMonData(boxMon, MON_DATA_SPECIES));
     for (i = 0; i < gPlayerPartyCount; i++)

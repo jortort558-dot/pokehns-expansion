@@ -51,8 +51,16 @@ Route31_EventScript_Youngster::
 Route31_EventScript_SleepyMan::
 	lock
 	faceplayer
-	goto_if_eq VAR_KENYA, 1, Route31_EventScript_SleepyMan_AskForKenya
+	goto_if_ge VAR_KENYA, 2, Route31_EventScript_SleepyMan_AlreadyDelivered
+	specialvar VAR_RESULT, CheckPlayerHasKenyaOrMail
+	goto_if_eq VAR_RESULT, TRUE, Route31_EventScript_SleepyMan_AskForKenya
 	msgbox Route31_Text_SleepyMan, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Route31_EventScript_SleepyMan_AlreadyDelivered::
+	msgbox Route31_Text_DescribeRest, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
@@ -66,11 +74,7 @@ Route31_EventScript_SleepyMan_AskForKenya::
 	end
 
 Route31_EventScript_SleepyMan_GiveKenya::
-	specialvar VAR_RESULT, PlayerHasAnyMail
-	goto_if_eq VAR_RESULT, TRUE, Route31_EventScript_SleepyMan_DeliveredMailOnly
-	goto Route31_EventScript_SleepyMan_Fail
-
-Route31_EventScript_SleepyMan_DeliveredMailOnly::
+	special TakeDeliveredMail
 	msgbox Route31_Text_HandOverMailOnly, MSGBOX_DEFAULT
 	delay 40
 	goto Route31_EventScript_SleepyMan_GiveReward

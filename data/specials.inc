@@ -739,3 +739,5 @@ gSpecials::
 	def_special PlayerHasAnyMail
 	def_special CheckPlayerHasGiftMon
 	def_special UseGiftMonTrade
+	def_special CheckPlayerHasKenyaOrMail
+	def_special TakeDeliveredMail
