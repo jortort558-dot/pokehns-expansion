@@ -1361,7 +1361,8 @@ static u32 MakeShinyPidWithNature(u16 tid, u16 sid, u8 nature)
 bool8 ScrCmd_givenamedmon(struct ScriptContext *ctx)
 {
     u16 giftId = ScriptReadHalfword(ctx);
-    struct Pokemon *mon;
+    struct Pokemon giftMon;
+    struct Pokemon *mon = &giftMon;
     u16 species;
     u8 level;
     u16 item;
@@ -1451,43 +1452,45 @@ bool8 ScrCmd_givenamedmon(struct ScriptContext *ctx)
     heldItem[0] = item & 0xFF;
     heldItem[1] = item >> 8;
 
+    ZeroMonData(mon);
+    CreateBoxMon(&mon->box, species, level, personality, OTID_STRUCT_PRESET(otId));
+    SetBoxMonIVs(&mon->box, USE_RANDOM_IVS);
+    GiveBoxMonInitialMoveset(&mon->box);
+
+    if (nickname != NULL)
+        SetMonData(mon, MON_DATA_NICKNAME, nickname);
+    SetMonData(mon, MON_DATA_OT_NAME, otName);
+    SetMonData(mon, MON_DATA_HELD_ITEM, heldItem);
+
+    if (giftId == 1)
+    {
+        struct Mail *mailPtr = &gSaveBlock1Ptr->mail[mailIndex];
+        memset(mailPtr, 0, sizeof(*mailPtr));
+        memcpy(mailPtr->words, sKenyaMailWords, sizeof(sKenyaMailWords));
+        StringCopy(mailPtr->playerName, sKenyaOtName);
+        mailPtr->trainerId[0] = (otId >> 0) & 0xFF;
+        mailPtr->trainerId[1] = (otId >> 8) & 0xFF;
+        mailPtr->trainerId[2] = (otId >> 16) & 0xFF;
+        mailPtr->trainerId[3] = (otId >> 24) & 0xFF;
+        mailPtr->species = species;
+        mailPtr->itemId = item;
+        SetMonData(mon, MON_DATA_MAIL, &mailIndex);
+    }
+    if (giftId == 4)
+    {
+        u16 move = MOVE_EXTREME_SPEED;
+        SetMonData(mon, MON_DATA_MOVE1, &move);
+        SetMonData(mon, MON_DATA_PP1, &gMovesInfo[move].pp);
+    }
+
+    CalculateMonStats(mon);
+
     for (u8 i = 0; i < GetMaxPartySize(); i++) // tx_randomizer_and_challenges: party limit
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
         {
-            mon = &gPlayerParty[i];
-            ZeroMonData(mon);
-            CreateBoxMon(&mon->box, species, level, personality, OTID_STRUCT_PRESET(otId));
-            SetBoxMonIVs(&mon->box, USE_RANDOM_IVS);
-            GiveBoxMonInitialMoveset(&mon->box);
-
-            if (nickname != NULL)
-                SetMonData(mon, MON_DATA_NICKNAME, nickname);
-            SetMonData(mon, MON_DATA_OT_NAME, otName);
-            SetMonData(mon, MON_DATA_HELD_ITEM, heldItem);
-
-            if (giftId == 1)
-            {
-                struct Mail *mailPtr = &gSaveBlock1Ptr->mail[mailIndex];
-                memset(mailPtr, 0, sizeof(*mailPtr));
-                memcpy(mailPtr->words, sKenyaMailWords, sizeof(sKenyaMailWords));
-                StringCopy(mailPtr->playerName, sKenyaOtName);
-                mailPtr->trainerId[0] = (otId >> 0) & 0xFF;
-                mailPtr->trainerId[1] = (otId >> 8) & 0xFF;
-                mailPtr->trainerId[2] = (otId >> 16) & 0xFF;
-                mailPtr->trainerId[3] = (otId >> 24) & 0xFF;
-                mailPtr->species = species;
-                mailPtr->itemId = item;
-                SetMonData(mon, MON_DATA_MAIL, &mailIndex);
-            }
-            if (giftId == 4)
-            {
-                u16 move = MOVE_EXTREME_SPEED;
-                SetMonData(mon, MON_DATA_MOVE1, &move);
-                SetMonData(mon, MON_DATA_PP1, &gMovesInfo[move].pp);
-            }
-
-            CalculateMonStats(mon);
+            CopyMon(&gPlayerParty[i], mon, sizeof(*mon));
+            gPlayerPartyCount = CalculatePlayerPartyCount();
 
             u16 dexNum = SpeciesToNationalPokedexNum(species);
             HandleSetPokedexFlag(dexNum, FLAG_SET_SEEN, personality);
@@ -1496,6 +1499,20 @@ bool8 ScrCmd_givenamedmon(struct ScriptContext *ctx)
             gSpecialVar_Result = MON_GIVEN_TO_PARTY;
             return FALSE;
         }
+    }
+
+    // Named mission Pokemon must not block their quest when Randomlocke limits
+    // the party to one slot. Store them in the PC, as regular gifts already do.
+    if ((giftId == 1 || giftId == 2) && (IsNuzlockeActive() || IsNuzlockeEasyActive()))
+    {
+        gSpecialVar_Result = CopyMonToPC(mon);
+        if (gSpecialVar_Result != MON_CANT_GIVE)
+        {
+            u16 dexNum = SpeciesToNationalPokedexNum(species);
+            HandleSetPokedexFlag(dexNum, FLAG_SET_SEEN, personality);
+            HandleSetPokedexFlag(dexNum, FLAG_SET_CAUGHT, personality);
+        }
+        return FALSE;
     }
 
     gSpecialVar_Result = MON_CANT_GIVE;

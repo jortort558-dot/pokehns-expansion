@@ -1415,6 +1415,7 @@ Common_EventScript_NameReceivedPartyMon_2::
 
 Common_EventScript_GiftMonNamed::
 	call_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Common_EventScript_RecieveMonPartyNamed
+	call_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Common_EventScript_ReceiveMonPCNamed
 	call_if_eq VAR_RESULT, MON_CANT_GIVE, Common_EventScript_PartyIsFull
 	return
 
@@ -1423,6 +1424,14 @@ Common_EventScript_RecieveMonPartyNamed::
 	message Common_Text_ReceivedMon
 	waitmessage
 	waitfanfare
+	return
+
+Common_EventScript_ReceiveMonPCNamed::
+	playfanfare MUS_OBTAIN_ITEM
+	message Common_Text_ReceivedMon
+	waitmessage
+	waitfanfare
+	call Common_EventScript_TransferredToPC
 	return
 
 Common_EventScript_PartyIsFull::

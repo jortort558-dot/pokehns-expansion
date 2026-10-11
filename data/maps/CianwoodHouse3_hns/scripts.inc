@@ -31,11 +31,15 @@ CianwoodCity_EventScript_KirkGivenShuckie::
 	end
 
 CianwoodCity_EventScript_KirkReturnShuckie::
+	checknuzlocke
+	goto_if_eq VAR_RESULT, TRUE, CianwoodCity_EventScript_KirkCompleteReturn
 	msgbox CianwoodCity_Text_ManiacAskReturn, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, FALSE, CianwoodCity_EventScript_KirkDeclineReturnShuckie
 	removenamedmon 2
 	goto_if_eq VAR_RESULT, MON_CANT_GIVE, CianwoodCity_EventScript_KirkNotRight
 	goto_if_eq VAR_RESULT, 3, CianwoodCity_EventScript_KirkKeepShuckie
+
+CianwoodCity_EventScript_KirkCompleteReturn::
 	playse MUS_OBTAIN_ITEM
 	callnative UpdateFollowingPokemon
 	msgbox CianwoodCity_Text_ManiacReturnedMon, MSGBOX_DEFAULT
