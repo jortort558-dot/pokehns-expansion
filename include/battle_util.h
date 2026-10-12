@@ -427,9 +427,25 @@ void TryResetConsecutiveUseCounter(enum BattlerId battler);
 void SetOrClearRageVolatile(void);
 enum BattlerId GetTargetBySlot(enum BattlerId battlerAtk, enum BattlerId battlerDef);
 
-// Battle Info UI (Heart & Soul extension)
-// Returns the effective move power factoring in STAB, hold item, weather and type effectiveness vs the current target.
-// Returns 0 for status moves. typeModifier_out (optional) will receive the UQ4.12 type effectiveness value.
-u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, uq4_12_t *typeModifier_out);
+// Battle Info UI (Heart & Soul extension) — Move Power Breakdown (R button panel)
+// Breakdown struct filled by CalculateRealMovePower when breakdown_out != NULL.
+// All fields are "multiplied-in" flags; multipliers stored as percent * 10 (e.g. 150 = ×1.5).
+struct MovePowerBreakdown
+{
+    u16 basePower;       // raw base power before any modifier
+    u16 finalPower;      // effective power after all modifiers
+    u16 stabMul;         // 100=none, 150=STAB, 200=Adaptability
+    u16 abilityMul;      // 100=none, else ability modifier (Filo, Puño Frreo…)
+    u16 itemMul;         // 100=none, else item modifier
+    u16 weatherMul;      // 100=none, else weather modifier
+    u16 typeMul;         // 100=×1, 200=×2, 50=½… (combined type effectiveness × 100)
+    u8  abilityNameId[16]; // short ability label for the panel ("Filo", "Puño Férreo"…)
+};
+
+// Returns the effective move power factoring in STAB, ability, hold item, weather and type effectiveness.
+// Returns 0 for status moves. typeModifier_out (optional) receives the UQ4.12 type effectiveness value.
+// breakdown_out (optional) receives detailed per-factor breakdown for the R-button panel.
+u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move,
+                           uq4_12_t *typeModifier_out, struct MovePowerBreakdown *breakdown_out);
 
 #endif // GUARD_BATTLE_UTIL_H

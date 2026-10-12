@@ -11059,24 +11059,62 @@ enum BattlerId GetTargetBySlot(enum BattlerId battlerAtk, enum BattlerId battler
 // ---------------------------------------------------------------------------
 // Calculates the effective move power shown in the info panel.
 // Factors: base power, STAB (x1.5 approx in UQ4.12), held type-boosting item,
+// Static ability label strings for the Move Power Breakdown panel (R button).
+// Must be global static arrays: _() produces compound literals that cannot be
+// used as r-values in pointer assignments under C89.
+static const u8 sAbilLabel_Tecnico[]     = _("Técnico");
+static const u8 sAbilLabel_Reckless[]    = _("Reckless");
+static const u8 sAbilLabel_IronFist[]    = _("Puño Férreo");
+static const u8 sAbilLabel_SheerForce[]  = _("Potencia Bruta");
+static const u8 sAbilLabel_StrongJaw[]   = _("Mandíbula F.");
+static const u8 sAbilLabel_MegaLaunch[]  = _("Mega Lanzador");
+static const u8 sAbilLabel_WaterBubble[] = _("Burbuja");
+static const u8 sAbilLabel_Steelwork[]   = _("Acero Templado");
+static const u8 sAbilLabel_Pixilate[]    = _("Pixiláte");
+static const u8 sAbilLabel_Galvanize[]   = _("Galvanismo");
+static const u8 sAbilLabel_Refrigerate[] = _("Frigoráte");
+static const u8 sAbilLabel_Aerilate[]    = _("Vueloráte");
+static const u8 sAbilLabel_PunkRock[]    = _("Punk Rock");
+static const u8 sAbilLabel_Sharpness[]   = _("Filo");
+static const u8 sAbilLabel_ToughClaws[]  = _("Garra Dura");
+static const u8 sAbilLabel_SandForce[]   = _("Fuego Arena");
+static const u8 sAbilLabel_FlareBoost[]  = _("Fuerza Llama");
+static const u8 sAbilLabel_ToxicBoost[]  = _("Fuerza Tóxica");
+static const u8 sAbilLabel_SupOvlrd[]    = _("Sumo Señor");
+
 // weather (sun/rain x1.5 for fire/water), and type effectiveness vs battlerDef.
 // Returns 0 for status moves. If typeModifier_out != NULL it receives the raw
 // UQ4.12 type effectiveness value (UQ_4_12(1.0) = neutral).
-u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, uq4_12_t *typeModifier_out)
+u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move,
+                           uq4_12_t *typeModifier_out, struct MovePowerBreakdown *breakdown_out)
 {
     u16 basePower;
     uq4_12_t modifier;
     uq4_12_t typeMod;
+    uq4_12_t stabMod;
+    uq4_12_t abilityMod;
+    uq4_12_t itemMod;
+    uq4_12_t weatherMod;
     enum Type moveType;
     enum HoldEffect holdEffect;
     u32 holdParam;
     u32 i;
+    u32 finalPower;
+    enum Ability abilityAtk;
+    enum Ability abilityDef;
+    enum BattleMoveEffects moveEffect;
+
+    abilityAtk = GetBattlerAbility(battlerAtk);
+    abilityDef = GetBattlerAbility(battlerDef);
+    moveEffect = GetMoveEffect(move);
 
     // Status moves have no power
     if (GetMoveCategory(move) == DAMAGE_CATEGORY_STATUS)
     {
         if (typeModifier_out != NULL)
             *typeModifier_out = UQ_4_12(1.0);
+        if (breakdown_out != NULL)
+            memset(breakdown_out, 0, sizeof(*breakdown_out));
         return 0;
     }
 
@@ -11084,12 +11122,16 @@ u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef,
     if (basePower == 0)
         basePower = 1;
 
-    modifier = UQ_4_12(1.0);
+    modifier   = UQ_4_12(1.0);
+    stabMod    = UQ_4_12(1.0);
+    abilityMod = UQ_4_12(1.0);
+    itemMod    = UQ_4_12(1.0);
+    weatherMod = UQ_4_12(1.0);
 
     // Determine move type (respects dynamic type changes like Protean)
     moveType = GetBattleMoveType(move);
 
-    // --- STAB ---
+    // --- STAB (with Adaptability support) ---
     {
         enum Type types[3];
         GetBattlerTypes(battlerAtk, FALSE, types);
@@ -11097,45 +11139,212 @@ u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef,
         {
             if (types[i] == moveType && types[i] != TYPE_MYSTERY)
             {
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+                stabMod = (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
                 break;
             }
         }
     }
+    modifier = uq4_12_multiply(modifier, stabMod);
 
-    // --- Held item: type-boosting plates / elemental orbs (Charcoal, Mystic Water, etc.) ---
+    // --- Ability modifier (attacker) ---
+    {
+        const u8 *abilityLabel = NULL;
+        uq4_12_t ab = UQ_4_12(1.0);
+
+        switch (abilityAtk)
+        {
+        case ABILITY_TECHNICIAN:
+            if (basePower <= 60)
+            {
+                ab = UQ_4_12(1.5);
+                abilityLabel = sAbilLabel_Tecnico;
+            }
+            break;
+        case ABILITY_RECKLESS:
+            if (moveEffect == EFFECT_RECOIL || moveEffect == EFFECT_RECOIL_IF_MISS)
+            {
+                ab = UQ_4_12(1.2);
+                abilityLabel = sAbilLabel_Reckless;
+            }
+            break;
+        case ABILITY_IRON_FIST:
+            if (IsPunchingMove(move))
+            {
+                ab = UQ_4_12(1.2);
+                abilityLabel = sAbilLabel_IronFist;
+            }
+            break;
+        case ABILITY_SHEER_FORCE:
+            if (MoveIsAffectedBySheerForce(move))
+            {
+                ab = UQ_4_12(1.3);
+                abilityLabel = sAbilLabel_SheerForce;
+            }
+            break;
+        case ABILITY_STRONG_JAW:
+            if (IsBitingMove(move))
+            {
+                ab = UQ_4_12(1.5);
+                abilityLabel = sAbilLabel_StrongJaw;
+            }
+            break;
+        case ABILITY_MEGA_LAUNCHER:
+            if (IsPulseMove(move))
+            {
+                ab = UQ_4_12(1.5);
+                abilityLabel = sAbilLabel_MegaLaunch;
+            }
+            break;
+        case ABILITY_WATER_BUBBLE:
+            if (moveType == TYPE_WATER)
+            {
+                ab = UQ_4_12(2.0);
+                abilityLabel = sAbilLabel_WaterBubble;
+            }
+            break;
+        case ABILITY_STEELWORKER:
+        case ABILITY_STEELY_SPIRIT:
+            if (moveType == TYPE_STEEL)
+            {
+                ab = UQ_4_12(1.5);
+                abilityLabel = sAbilLabel_Steelwork;
+            }
+            break;
+        case ABILITY_PIXILATE:
+            if (moveType == TYPE_FAIRY && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            {
+                ab = UQ_4_12(GetConfig(B_ATE_MULTIPLIER) >= GEN_7 ? 1.2 : 1.3);
+                abilityLabel = sAbilLabel_Pixilate;
+            }
+            break;
+        case ABILITY_GALVANIZE:
+            if (moveType == TYPE_ELECTRIC && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            {
+                ab = UQ_4_12(GetConfig(B_ATE_MULTIPLIER) >= GEN_7 ? 1.2 : 1.3);
+                abilityLabel = sAbilLabel_Galvanize;
+            }
+            break;
+        case ABILITY_REFRIGERATE:
+            if (moveType == TYPE_ICE && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            {
+                ab = UQ_4_12(GetConfig(B_ATE_MULTIPLIER) >= GEN_7 ? 1.2 : 1.3);
+                abilityLabel = sAbilLabel_Refrigerate;
+            }
+            break;
+        case ABILITY_AERILATE:
+            if (moveType == TYPE_FLYING && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            {
+                ab = UQ_4_12(GetConfig(B_ATE_MULTIPLIER) >= GEN_7 ? 1.2 : 1.3);
+                abilityLabel = sAbilLabel_Aerilate;
+            }
+            break;
+        case ABILITY_PUNK_ROCK:
+            if (IsSoundMove(move))
+            {
+                ab = UQ_4_12(1.3);
+                abilityLabel = sAbilLabel_PunkRock;
+            }
+            break;
+        case ABILITY_SHARPNESS:
+            if (IsSlicingMove(move))
+            {
+                ab = UQ_4_12(1.5);
+                abilityLabel = sAbilLabel_Sharpness;
+            }
+            break;
+        case ABILITY_TOUGH_CLAWS:
+            if (IsMoveMakingContact(battlerAtk, battlerDef, abilityAtk, GetBattlerHoldEffect(battlerAtk), move))
+            {
+                ab = UQ_4_12(1.3);
+                abilityLabel = sAbilLabel_ToughClaws;
+            }
+            break;
+        case ABILITY_SAND_FORCE:
+            if ((moveType == TYPE_STEEL || moveType == TYPE_ROCK || moveType == TYPE_GROUND)
+                && gBattleWeather & B_WEATHER_SANDSTORM)
+            ab = UQ_4_12(1.3);
+            abilityLabel = sAbilLabel_SandForce;
+            break;
+        case ABILITY_FLARE_BOOST:
+            if (gBattleMons[battlerAtk].status1 & STATUS1_BURN && IsBattleMoveSpecial(move))
+            {
+                ab = UQ_4_12(1.5);
+                abilityLabel = sAbilLabel_FlareBoost;
+            }
+            break;
+        case ABILITY_TOXIC_BOOST:
+            if (gBattleMons[battlerAtk].status1 & STATUS1_PSN_ANY && IsBattleMovePhysical(move))
+            {
+                ab = UQ_4_12(1.5);
+                abilityLabel = sAbilLabel_ToxicBoost;
+            }
+            break;
+        case ABILITY_SUPREME_OVERLORD:
+            ab = GetSupremeOverlordModifier(battlerAtk);
+            abilityLabel = sAbilLabel_SupOvlrd;
+            break;
+        default:
+            break;
+        }
+
+        // Defender abilities that reduce damage
+        switch (abilityDef)
+        {
+        case ABILITY_HEATPROOF:
+        case ABILITY_WATER_BUBBLE:
+            if (moveType == TYPE_FIRE)
+                ab = uq4_12_multiply(ab, UQ_4_12(0.5));
+            break;
+        case ABILITY_DRY_SKIN:
+            if (moveType == TYPE_FIRE)
+                ab = uq4_12_multiply(ab, UQ_4_12(1.25));
+            break;
+        default:
+            break;
+        }
+
+        abilityMod = ab;
+        if (breakdown_out != NULL && abilityLabel != NULL)
+            StringCopy(breakdown_out->abilityNameId, abilityLabel);
+    }
+    modifier = uq4_12_multiply(modifier, abilityMod);
+
+    // --- Held item: type-boosting plates / elemental orbs / choice items / life orb ---
     holdEffect = GetBattlerHoldEffect(battlerAtk);
     holdParam  = GetBattlerHoldEffectParam(battlerAtk);
     if (holdParam > 100)
         holdParam = 100;
 
     {
-        uq4_12_t itemMod = uq4_12_add(UQ_4_12(1.0), PercentToUQ4_12(holdParam));
+        uq4_12_t it = UQ_4_12(1.0);
+        uq4_12_t itemMult = uq4_12_add(UQ_4_12(1.0), PercentToUQ4_12(holdParam));
         switch (holdEffect)
         {
         case HOLD_EFFECT_TYPE_POWER:
         case HOLD_EFFECT_PLATE:
             if (moveType == (enum Type)GetItemSecondaryId(gBattleMons[battlerAtk].item))
-                modifier = uq4_12_multiply(modifier, itemMod);
+                it = itemMult;
             break;
         case HOLD_EFFECT_CHOICE_BAND:
             if (IsBattleMovePhysical(move))
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+                it = UQ_4_12(1.5);
             break;
         case HOLD_EFFECT_CHOICE_SPECS:
             if (IsBattleMoveSpecial(move))
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+                it = UQ_4_12(1.5);
             break;
         case HOLD_EFFECT_LIFE_ORB:
-            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+            it = UQ_4_12(1.3);
             break;
         case HOLD_EFFECT_EXPERT_BELT:
-            // Will be multiplied after type-effectiveness check below
+            // Applied after type effectiveness check below
             break;
         default:
             break;
         }
+        itemMod = it;
     }
+    modifier = uq4_12_multiply(modifier, itemMod);
 
     // --- Weather bonus ---
     {
@@ -11143,23 +11352,24 @@ u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef,
         if (weather & B_WEATHER_SUN)
         {
             if (moveType == TYPE_FIRE)
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+                weatherMod = UQ_4_12(1.5);
             else if (moveType == TYPE_WATER)
-                modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+                weatherMod = UQ_4_12(0.5);
         }
         else if (weather & B_WEATHER_RAIN)
         {
             if (moveType == TYPE_WATER)
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+                weatherMod = UQ_4_12(1.5);
             else if (moveType == TYPE_FIRE)
-                modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+                weatherMod = UQ_4_12(0.5);
         }
         else if (weather & B_WEATHER_SANDSTORM)
         {
             if (moveType == TYPE_ROCK || moveType == TYPE_STEEL || moveType == TYPE_GROUND)
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.3)); // Sand Force approximation
+                weatherMod = UQ_4_12(1.3);
         }
     }
+    modifier = uq4_12_multiply(modifier, weatherMod);
 
     // --- Type effectiveness vs target ---
     {
@@ -11168,6 +11378,9 @@ u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef,
         typeMod = UQ_4_12(1.0);
         for (i = 0; i < 2; i++)
         {
+            // Skip duplicate type (mono-type Pokémon have type1 == type2)
+            if (i > 0 && defTypes[i] == defTypes[0])
+                continue;
             if (defTypes[i] != TYPE_MYSTERY)
                 typeMod = uq4_12_multiply(typeMod, GetTypeModifier(moveType, defTypes[i]));
         }
@@ -11175,7 +11388,10 @@ u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef,
 
     // Expert Belt bonus when super-effective
     if (holdEffect == HOLD_EFFECT_EXPERT_BELT && typeMod > UQ_4_12(1.0))
+    {
+        itemMod = uq4_12_multiply(itemMod, UQ_4_12(1.2));
         modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+    }
 
     if (typeModifier_out != NULL)
         *typeModifier_out = typeMod;
@@ -11183,5 +11399,22 @@ u32 CalculateRealMovePower(enum BattlerId battlerAtk, enum BattlerId battlerDef,
     // Apply type effectiveness to the total modifier
     modifier = uq4_12_multiply(modifier, typeMod);
 
-    return uq4_12_multiply_by_int_half_down(modifier, basePower);
+    finalPower = uq4_12_multiply_by_int_half_down(modifier, basePower);
+
+    // Fill breakdown struct if requested
+    if (breakdown_out != NULL)
+    {
+        breakdown_out->basePower  = basePower;
+        breakdown_out->finalPower = (u16)finalPower;
+        // Convert UQ4.12 → percent (×100) with rounding
+        breakdown_out->stabMul    = (u16)(uq4_12_multiply_by_int_half_down(stabMod, 100));
+        breakdown_out->abilityMul = (u16)(uq4_12_multiply_by_int_half_down(abilityMod, 100));
+        breakdown_out->itemMul    = (u16)(uq4_12_multiply_by_int_half_down(itemMod, 100));
+        breakdown_out->weatherMul = (u16)(uq4_12_multiply_by_int_half_down(weatherMod, 100));
+        // typeMod: combine to percent (×100)
+        breakdown_out->typeMul    = (u16)(uq4_12_multiply_by_int_half_down(typeMod, 100));
+    }
+
+    return finalPower;
 }
+

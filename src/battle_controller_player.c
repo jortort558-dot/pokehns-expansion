@@ -101,6 +101,7 @@ static void MoveSelectionDisplayMoveEffectiveness(u32 foeEffectiveness, enum Bat
 
 // Battle Info UI (Heart & Soul extension)
 static void DisplayBattleInfoPanel(enum BattlerId battler);
+static void DisplayMovePowerBreakdownPanel(enum BattlerId battler);
 
 static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(enum BattlerId battler) =
 {
@@ -195,7 +196,7 @@ static void PlayerBufferRunCommand(enum BattlerId battler)
     }
 }
 
-static void CompleteOnBattlerSpritePosX_0(enum BattlerId battler)
+static __attribute__((unused)) void CompleteOnBattlerSpritePosX_0(enum BattlerId battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].x2 == 0)
         BtlController_Complete(battler);
@@ -235,7 +236,7 @@ static u32 GetNextBall(u32 ballId)
     return ballId;
 }
 
-static void HandleInputChooseAction(enum BattlerId battler)
+static __attribute__((unused)) void HandleInputChooseAction(enum BattlerId battler)
 {
     enum Item itemId = gBattleResources->bufferA[battler][2] | (gBattleResources->bufferA[battler][3] << 8);
 
@@ -887,6 +888,27 @@ void HandleInputChooseMove(enum BattlerId battler)
             gBattlerControllerFuncs[battler] = HandleMoveSwitching;
         }
     }
+    else if (gBattleStruct->powerBreakdownSubmenu)
+    {
+        // Any button closes the breakdown panel
+        if (JOY_NEW(R_BUTTON) || JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON) || JOY_NEW(B_MOVE_DESCRIPTION_BUTTON))
+        {
+            gBattleStruct->powerBreakdownSubmenu = FALSE;
+            if (gCategoryIconSpriteId != 0xFF)
+            {
+                DestroySprite(&gSprites[gCategoryIconSpriteId]);
+                gCategoryIconSpriteId = 0xFF;
+            }
+            FillWindowPixelBuffer(B_WIN_MOVE_DESCRIPTION, PIXEL_FILL(0));
+            ClearStdWindowAndFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
+            CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_GFX);
+            PlaySE(SE_SELECT);
+            if (B_SHOW_EFFECTIVENESS)
+                MoveSelectionDisplayMoveEffectiveness(CheckTargetTypeEffectiveness(battler), battler);
+            MoveSelectionDisplayPpNumber(battler);
+            MoveSelectionDisplayMoveType(battler);
+        }
+    }
     else if (gBattleStruct->descriptionSubmenu)
     {
         if (JOY_NEW(B_MOVE_DESCRIPTION_BUTTON) || JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
@@ -914,6 +936,21 @@ void HandleInputChooseMove(enum BattlerId battler)
             PlaySE(SE_SELECT);
             DisplayBattleInfoPanel(battler);
         }
+        // R button opens damage breakdown panel from description view
+        else if (JOY_NEW(R_BUTTON))
+        {
+            gBattleStruct->descriptionSubmenu = FALSE;
+            gBattleStruct->powerBreakdownSubmenu = TRUE;
+            PlaySE(SE_SELECT);
+            DisplayMovePowerBreakdownPanel(battler);
+        }
+    }
+    else if (JOY_NEW(R_BUTTON) && B_SHOW_REAL_MOVE_POWER)
+    {
+        // R button from base move selection → open breakdown panel directly
+        gBattleStruct->powerBreakdownSubmenu = TRUE;
+        PlaySE(SE_SELECT);
+        DisplayMovePowerBreakdownPanel(battler);
     }
     else if (JOY_NEW(B_MOVE_DESCRIPTION_BUTTON) &&
         !(B_MOVE_DESCRIPTION_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
@@ -1301,7 +1338,7 @@ static void Intro_WaitForShinyAnimAndHealthbox(enum BattlerId battler)
     }
 }
 
-static void Intro_TryShinyAnimShowHealthbox(enum BattlerId battler)
+static __attribute__((unused)) void Intro_TryShinyAnimShowHealthbox(enum BattlerId battler)
 {
     bool32 bgmRestored = FALSE;
     bool32 battlerAnimsDone = FALSE;
@@ -1415,7 +1452,7 @@ static s32 GetTaskExpValue(u8 taskId)
     return (u16)(gTasks[taskId].tExpTask_gainedExp_1) | (gTasks[taskId].tExpTask_gainedExp_2 << 16);
 }
 
-static void Task_GiveExpToMon(u8 taskId)
+static __attribute__((unused)) void Task_GiveExpToMon(u8 taskId)
 {
     u32 monId = (u8)(gTasks[taskId].tExpTask_monId);
     enum BattlerId battler = gTasks[taskId].tExpTask_battler;
@@ -1578,7 +1615,7 @@ static void Task_SetControllerToWaitForString(u8 taskId)
     DestroyTask(taskId);
 }
 
-static void OpenPartyMenuToChooseMon(enum BattlerId battler)
+static __attribute__((unused)) void OpenPartyMenuToChooseMon(enum BattlerId battler)
 {
     if (!gPaletteFade.active)
     {
@@ -1608,7 +1645,7 @@ static void WaitForMonSelection(enum BattlerId battler)
     }
 }
 
-static void OpenBagAndChooseItem(enum BattlerId battler)
+static __attribute__((unused)) void OpenBagAndChooseItem(enum BattlerId battler)
 {
     if (!gPaletteFade.active)
     {
@@ -1628,7 +1665,7 @@ static void CompleteWhenChoseItem(enum BattlerId battler)
     }
 }
 
-static void PlayerHandleYesNoInput(enum BattlerId battler)
+static __attribute__((unused)) void PlayerHandleYesNoInput(enum BattlerId battler)
 {
     if (JOY_NEW(DPAD_UP) && gMultiUsePlayerCursor != 0)
     {
@@ -1792,7 +1829,7 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
     {
         // Find the active opponent battler to compute effectiveness against
         enum BattlerId target = GetOpposingSideBattler(battler);
-        realPwr = CalculateRealMovePower(battler, target, move, &typeMod);
+        realPwr = CalculateRealMovePower(battler, target, move, &typeMod, NULL);
 
         if (realPwr != pwr) // Show only the effective power, colored by the change
         {
@@ -1885,6 +1922,110 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
 
     StartSpriteAnim(&gSprites[gCategoryIconSpriteId], cat);
 
+    CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
+}
+
+// ---------------------------------------------------------------------------
+// Battle Info UI — Panel R: Move Power Breakdown (R button)
+// ---------------------------------------------------------------------------
+
+// Helper: appends " x N.N  label\n" to gDisplayedStringBattle.
+// mulPercent is the multiplier × 100 (100 = ×1.0, 150 = ×1.5, 200 = ×2.0, 50 = ×0.5).
+// If mulPercent == 100, nothing is appended (factor is neutral, skip).
+static void AppendBreakdownRow(u16 mulPercent, const u8 *label)
+{
+    u8 num[8];
+    u32 intPart, fracPart;
+
+    if (mulPercent == 100)
+        return; // neutral factor — omit
+
+    intPart  = mulPercent / 100;
+    fracPart = (mulPercent % 100) / 10; // single decimal digit
+
+    // Color: green for boosts (>100), red for reductions (<100)
+    if (mulPercent > 100)
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR GREEN}{SHADOW LIGHT_GREEN}"));
+    else
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR RED}{SHADOW LIGHT_RED}"));
+
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("x"));
+    ConvertIntToDecimalStringN(num, intPart, STR_CONV_MODE_LEFT_ALIGN, 1);
+    StringAppend(gDisplayedStringBattle, num);
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("."));
+    ConvertIntToDecimalStringN(num, fracPart, STR_CONV_MODE_LEFT_ALIGN, 1);
+    StringAppend(gDisplayedStringBattle, num);
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"));
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" "));
+    StringAppend(gDisplayedStringBattle, label);
+    StringAppend(gDisplayedStringBattle, gText_NewLine);
+}
+
+static void DisplayMovePowerBreakdownPanel(enum BattlerId battler)
+{
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleResources->bufferA[battler][4]);
+    enum Move move = moveInfo->moves[gMoveSelectionCursor[battler]];
+    enum BattlerId target;
+    u16 basePower;
+    u8 num[8];
+    struct MovePowerBreakdown bd;
+
+    LoadMessageBoxAndBorderGfx();
+    DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
+
+    // Status move — no breakdown
+    if (GetMoveCategory(move) == DAMAGE_CATEGORY_STATUS)
+    {
+        StringCopy(gDisplayedStringBattle, COMPOUND_STRING("Movimiento de estado.\nSin poder base."));
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
+        CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
+        return;
+    }
+
+    target = GetOpposingSideBattler(battler);
+    memset(&bd, 0, sizeof(bd));
+    // Initialise abilityNameId so it's empty if no ability fires
+    bd.abilityNameId[0] = EOS;
+    CalculateRealMovePower(battler, target, move, NULL, &bd);
+
+    // ── Header: move name + (R) hint ──
+    StringCopy(gDisplayedStringBattle, COMPOUND_STRING("{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}(R) DESGLOSE PWR"));
+    StringAppend(gDisplayedStringBattle, gText_NewLine);
+
+    // ── Base power row ──
+    ConvertIntToDecimalStringN(num, bd.basePower, STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gDisplayedStringBattle, num);
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" BASE"));
+    StringAppend(gDisplayedStringBattle, gText_NewLine);
+
+    // ── Multiplier rows (only shown when != ×1.0) ──
+    AppendBreakdownRow(bd.stabMul, COMPOUND_STRING("STAB"));
+    if (bd.abilityNameId[0] != EOS)
+        AppendBreakdownRow(bd.abilityMul, bd.abilityNameId);
+    else if (bd.abilityMul != 100)
+        AppendBreakdownRow(bd.abilityMul, COMPOUND_STRING("Habilidad"));
+    AppendBreakdownRow(bd.itemMul,    COMPOUND_STRING("Objeto"));
+    AppendBreakdownRow(bd.weatherMul, COMPOUND_STRING("Clima"));
+
+    // Type effectiveness row: show as "x2.0 Tipo" or "x0.5 Tipo" etc.
+    AppendBreakdownRow(bd.typeMul, COMPOUND_STRING("Tipo"));
+
+    // ── Separator + result ──
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("---"));
+    StringAppend(gDisplayedStringBattle, gText_NewLine);
+
+    // Final power coloured green (boost) or red (nerf) vs raw base power
+    basePower = GetMovePower(move);
+    if (bd.finalPower > basePower)
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR GREEN}{SHADOW LIGHT_GREEN}"));
+    else if (bd.finalPower < basePower)
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR RED}{SHADOW LIGHT_RED}"));
+    ConvertIntToDecimalStringN(num, bd.finalPower, STR_CONV_MODE_LEFT_ALIGN, 4);
+    StringAppend(gDisplayedStringBattle, num);
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" PWR efectivo"));
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"));
+
+    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
     CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
 }
 

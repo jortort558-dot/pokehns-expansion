@@ -384,6 +384,11 @@ struct SaveBlock3
         u8 failedEncounterFlagsExt[2];
         u8 retriedEncounterFlagsExt[2];
     } gymTokens;
+    // One persistent item reward per region-map section from smashable rocks.
+    // Appended so existing saves initialise the new flags to zero safely.
+    // 64 bytes cover up to 512 map sections without depending on map constants
+    // that are not yet visible when this core save structure is declared.
+    u8 rockSmashItemFlags[64];
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;

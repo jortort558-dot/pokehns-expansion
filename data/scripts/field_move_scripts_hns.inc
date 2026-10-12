@@ -96,7 +96,7 @@ EventScript_SmashRock:: @ fallthrough
 	special RockSmashWildEncounter
 	goto_if_eq VAR_RESULT, FALSE, EventScript_EndSmash
 	waitstate
-	random 20
+	special TryGetRockSmashItem
 	call_if_eq VAR_RESULT, 1, EventScript_RockSmashHeartscale
 	call_if_eq VAR_RESULT, 2, EventScript_RockSmashBlueShard
 	call_if_eq VAR_RESULT, 3, EventScript_RockSmashRedShard
@@ -230,7 +230,7 @@ EventScript_FollowerJumpWest:
 	return
 
 EventScript_EndSmash::
-	random 20
+	special TryGetRockSmashItem
 	call_if_eq VAR_RESULT, 1, EventScript_RockSmashHeartscale
 	call_if_eq VAR_RESULT, 2, EventScript_RockSmashBlueShard
 	call_if_eq VAR_RESULT, 3, EventScript_RockSmashRedShard

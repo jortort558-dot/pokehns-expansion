@@ -967,6 +967,33 @@ void RockSmashWildEncounter(void)
     }
 }
 
+void TryGetRockSmashItem(void)
+{
+    u16 mapsec = gMapHeader.regionMapSectionId;
+    u8 *flag;
+    u8 mask;
+
+    gSpecialVar_Result = 0;
+    if (mapsec >= MAPSEC_COUNT)
+        return;
+
+    flag = &gSaveBlock3Ptr->rockSmashItemFlags[mapsec / 8];
+    mask = 1 << (mapsec & 7);
+    if (*flag & mask)
+        return;
+
+    // Preserve the existing 5/20 drop rate and reward distribution. The zone
+    // is consumed only when a reward actually appears, not on every smashed rock.
+    gSpecialVar_Result = Random() % 20;
+    if (gSpecialVar_Result < 1 || gSpecialVar_Result > 5)
+    {
+        gSpecialVar_Result = 0;
+        return;
+    }
+
+    *flag |= mask;
+}
+
 bool8 SweetScentWildEncounter(void)
 {
     s16 x, y;
