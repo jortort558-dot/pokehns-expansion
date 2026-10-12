@@ -643,3 +643,29 @@ Text_CantRockClimb:
 SetTimeEncounters::
 	callnative SetTimeBasedEncounters
 	return
+
+EventScript_MetacaballeroBadge5Call::
+	lockall
+	setspeaker Metacaballero_Text_CallerName
+	pokenavcall Metacaballero_Text_Badge5PokegearCall
+	waitmessage
+	delay 30
+	releaseall
+	end
+
+Metacaballero_Text_CallerName:
+	.string "METACABALLERO$"
+
+Metacaballero_Text_Badge5PokegearCall:
+	.string "METACABALLERO: ¿{PLAYER}?\n"
+	.string "He seguido tu trayectoria.\p"
+	.string "Cinco medallas en la buchaca.\n"
+	.string "Sorprendente rendimiento para\l"
+	.string "un perfil novato.\p"
+	.string "Tengo en mi posesión un recurso\n"
+	.string "de potencial incalculable.\p"
+	.string "Si sabes gestionar tus piezas,\n"
+	.string "te garantizará una ventaja brutal.\p"
+	.string "Estoy en CIUDAD MALVA, junto al\n"
+	.string "acceso a la TORRE BELLEZA.\p"
+	.string "No me hagas perder tiempo.$"

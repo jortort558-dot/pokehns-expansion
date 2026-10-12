@@ -12,6 +12,16 @@ VioletCity_OnFrame::
 VioletCity_OnTransition::
 	callnative SetTimeBasedEncounters
 	setflag FLAG_HIDE_VIOLET_ROSA
+	goto_if_set FLAG_METACABALLERO_VIOLET_REWARD_RECEIVED, VioletCity_OnTransition_HideMetacaballero
+	goto_if_set FLAG_METACABALLERO_CALL_TRIGGERED, VioletCity_OnTransition_ShowMetacaballero
+VioletCity_OnTransition_HideMetacaballero::
+	setflag FLAG_HIDE_METACABALLERO_VIOLET
+	goto VioletCity_OnTransition_CheckKalosTourists
+
+VioletCity_OnTransition_ShowMetacaballero::
+	clearflag FLAG_HIDE_METACABALLERO_VIOLET
+
+VioletCity_OnTransition_CheckKalosTourists::
 	goto_if_set FLAG_VIOLET_KALOS_CALL_TRIGGERED, VioletCity_OnTransition_ShowKalosTourists
 	setflag FLAG_HIDE_VIOLET_KALOS_TOURISTS
 	end
@@ -1031,3 +1041,54 @@ VioletCity_Text_RatKidGift:
 VioletCity_Text_RatKidAfter:
 	.string "Usa esa SUPERPOCIÓN antes de que\n"
 	.string "otro RATTATA te mande a casa.$"
+
+VioletCity_EventScript_Metacaballero::
+	lock
+	faceplayer
+	setspeaker VioletCity_Text_MetacaballeroName
+	goto_if_set FLAG_METACABALLERO_VIOLET_REWARD_RECEIVED, VioletCity_EventScript_Metacaballero_After
+	msgbox VioletCity_Text_Metacaballero_Meet, MSGBOX_DEFAULT
+	checkitemspace ITEM_EVIOLITE, 1
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_EVIOLITE, 1
+	setflag FLAG_METACABALLERO_VIOLET_REWARD_RECEIVED
+	msgbox VioletCity_Text_Metacaballero_Explain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VioletCity_EventScript_Metacaballero_After::
+	msgbox VioletCity_Text_Metacaballero_After, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VioletCity_Text_MetacaballeroName:
+	.string "METACABALLERO$"
+
+VioletCity_Text_Metacaballero_Meet:
+	.string "Puntual. Buen cálculo de tiempos.\p"
+	.string "He estado analizando tus combates\n"
+	.string "tras superar la quinta medalla.\p"
+	.string "Demuestras gestión, pero tu\n"
+	.string "plantilla todavía tiene margen\l"
+	.string "de optimización bruta.\p"
+	.string "Toma esto. Es el activo más\n"
+	.string "rentable que vas a ver en Johto.$"
+
+VioletCity_Text_Metacaballero_Explain:
+	.string "El MINERAL EVOLUTIVO.\p"
+	.string "Multiplica por 1.5 la DEFENSA y\n"
+	.string "la DEFENSA ESPECIAL de cualquier\l"
+	.string "espécimen que aún no haya\l"
+	.string "completado su evolución.\p"
+	.string "Un retorno defensivo colosal si\n"
+	.string "sabes a qué pieza asignárselo.\p"
+	.string "Nos veremos en la LIGA POKéMON.\n"
+	.string "Allí auditaré si has sabido\l"
+	.string "rentabilizar la inversión.$"
+
+VioletCity_Text_Metacaballero_After:
+	.string "Asigna ese mineral con cabeza.\n"
+	.string "Un turno mal gestionado o un mal\l"
+	.string "portador es puro desperdicio.$"
