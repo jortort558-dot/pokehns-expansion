@@ -124,16 +124,19 @@ IndigoPlateau_EventScript_Silver::
 	lock
 	faceplayer 
 	goto_if_set FLAG_DAILY_BEAT_SILVER, IndigoPlateau_EventScript_SilverBeat
+	setspeaker SP_NAME_RIVAL
 	msgbox IndigoPlateau_Text_RivalEntrance1, MSGBOX_DEFAULT
 	call_if_eq VAR_STARTER_MON, 0, IndigoPlateau_Silver_Battle_Cyndaquil
 	call_if_eq VAR_STARTER_MON, 1, IndigoPlateau_Silver_Battle_Totodile
 	call_if_eq VAR_STARTER_MON, 2, IndigoPlateau_Silver_Battle_Chikorita
+	setspeaker SP_NAME_RIVAL
 	msgbox IndigoPlateau_Text_RivalAfter, MSGBOX_DEFAULT
 	setflag FLAG_DAILY_BEAT_SILVER
 	release
 	end
 
 IndigoPlateau_EventScript_SilverBeat::
+	setspeaker SP_NAME_RIVAL
 	msgbox IndigoPlateau_Text_RivalAfter, MSGBOX_DEFAULT
 	closemessage
 	release

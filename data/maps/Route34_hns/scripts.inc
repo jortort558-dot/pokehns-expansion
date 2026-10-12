@@ -287,6 +287,7 @@ Route34_Text_Sign_DayCare:
 Route34_EventScript_Yami::
 	lock
 	faceplayer
+	setspeaker Route34_Text_Yami_Name
 	goto_if_set FLAG_YAMI_SUPER_TRAINING_UNLOCKED, Route34_EventScript_Yami_MenuPrincipal
 	goto_if_set FLAG_BADGE06_GET, Route34_EventScript_Yami_CheckBattle
 	msgbox Route34_Text_Yami_AunNoEstasListo, MSGBOX_NPC
@@ -294,21 +295,25 @@ Route34_EventScript_Yami::
 	end
 
 Route34_EventScript_Yami_CheckBattle::
+	setspeaker Route34_Text_Yami_Name
 	msgbox Route34_Text_Yami_RetoIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Route34_EventScript_Yami_RechazaCombate
 	msgbox Route34_Text_Yami_EmpiezaCombate, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_YAMI_HNS, Route34_Text_Yami_Derrota
 	setflag FLAG_YAMI_SUPER_TRAINING_UNLOCKED
+	setspeaker Route34_Text_Yami_Name
 	msgbox Route34_Text_Yami_VictoriaJugador, MSGBOX_DEFAULT
 	goto Route34_EventScript_Yami_MenuPrincipal
 	end
 
 Route34_EventScript_Yami_RechazaCombate::
+	setspeaker Route34_Text_Yami_Name
 	msgbox Route34_Text_Yami_CuandoEstesListo, MSGBOX_NPC
 	release
 	end
 
 Route34_EventScript_Yami_MenuPrincipal::
+	setspeaker Route34_Text_Yami_Name
 	message Route34_Text_Yami_MenuPrompt
 	waitmessage
 	multichoice 0, 0, MULTI_YAMI_TRAINING, FALSE
@@ -487,8 +492,11 @@ Route34_EventScript_Yami_Despedida::
 	release
 	end
 
+Route34_Text_Yami_Name:
+	.string "YAMI$"
+
 Route34_Text_Yami_AunNoEstasListo:
-	.string "YAMI: Tu espíritu carece del temple\n"
+	.string "Tu espíritu carece del temple\n"
 	.string "necesario.\p"
 	.string "Aún no estás listo para soportar\n"
 	.string "la disciplina de mi entrenamiento.\p"
@@ -496,7 +504,7 @@ Route34_Text_Yami_AunNoEstasListo:
 	.string "al menos seis medallas de Johto.$"
 
 Route34_Text_Yami_RetoIntro:
-	.string "YAMI: Veo en tus ojos el fulgor\n"
+	.string "Veo en tus ojos el fulgor\n"
 	.string "de seis medallas de gimnasio.\p"
 	.string "Has recorrido un largo sendero,\n"
 	.string "pero la verdadera maestría exige\l"
@@ -505,14 +513,14 @@ Route34_Text_Yami_RetoIntro:
 	.string "contra mi disciplina marcial?$"
 
 Route34_Text_Yami_EmpiezaCombate:
-	.string "YAMI: ¡Que hable el combate!$"
+	.string "¡Que hable el combate!$"
 
 Route34_Text_Yami_Derrota:
 	.string "Sublime… Tu técnica y temple han\n"
 	.string "superado mis expectativas.$"
 
 Route34_Text_Yami_VictoriaJugador:
-	.string "YAMI: Has demostrado un dominio\n"
+	.string "Has demostrado un dominio\n"
 	.string "impecable sobre tus POKéMON.\p"
 	.string "A partir de hoy, pongo a tu\n"
 	.string "disposición mi método secreto:\l"
@@ -523,23 +531,23 @@ Route34_Text_Yami_VictoriaJugador:
 	.string "de forma quirúrgica y sin rodeos.$"
 
 Route34_Text_Yami_CuandoEstesListo:
-	.string "YAMI: La templanza también\n"
+	.string "La templanza también\n"
 	.string "es una virtud.\p"
 	.string "Aquí estaré cuando decidas\n"
 	.string "dar el paso.$"
 
 Route34_Text_Yami_MenuPrompt:
-	.string "YAMI: Entrenaré al primer POKéMON\n"
+	.string "Entrenaré al primer POKéMON\n"
 	.string "de tu equipo.\p"
 	.string "¿Qué disciplina deseas\n"
 	.string "perfeccionar hoy?$"
 
 Route34_Text_Yami_ComienzaSparring:
-	.string "YAMI: ¡Enfréntate a mi {STR_VAR_2}\n"
+	.string "¡Enfréntate a mi {STR_VAR_2}\n"
 	.string "de práctica y reclama tus puntos!$"
 
 Route34_Text_Yami_SparringIncompleto:
-	.string "YAMI: El combate no concluyó.\n"
+	.string "El combate no concluyó.\n"
 	.string "No hay ganancia en esta sesión.$"
 
 Route34_Text_Yami_EntrenamientoCompletado:
@@ -548,11 +556,11 @@ Route34_Text_Yami_EntrenamientoCompletado:
 	.string "de esfuerzo en la cualidad elegida.$"
 
 Route34_Text_Yami_StatAlMaximo:
-	.string "YAMI: {STR_VAR_1} ya alcanzó el\n"
+	.string "{STR_VAR_1} ya alcanzó el\n"
 	.string "límite posible en esa faceta.$"
 
 Route34_Text_Yami_PreguntaReset:
-	.string "YAMI: ¿Deseas purgar y reiniciar\n"
+	.string "¿Deseas purgar y reiniciar\n"
 	.string "a cero los puntos de esfuerzo de\l"
 	.string "{STR_VAR_1} (primer POKéMON)?$"
 
@@ -562,9 +570,9 @@ Route34_Text_Yami_ResetExito:
 	.string "{STR_VAR_1} han regresado a cero.$"
 
 Route34_Text_Yami_ResetNoPosible:
-	.string "YAMI: No es posible reiniciar\n"
+	.string "No es posible reiniciar\n"
 	.string "el esfuerzo de ese objetivo.$"
 
 Route34_Text_Yami_Despedida:
-	.string "YAMI: El esfuerzo constante forja\n"
+	.string "El esfuerzo constante forja\n"
 	.string "a los verdaderos campeones.$"

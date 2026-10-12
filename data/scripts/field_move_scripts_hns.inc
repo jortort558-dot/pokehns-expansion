@@ -669,3 +669,29 @@ Metacaballero_Text_Badge5PokegearCall:
 	.string "Estoy en CIUDAD MALVA, junto al\n"
 	.string "acceso a la TORRE BELLEZA.\p"
 	.string "No me hagas perder tiempo.$"
+
+EventScript_YamiBadge6Call::
+	lockall
+	setspeaker Yami_Text_CallerName
+	pokenavcall Yami_Text_Badge6PokegearCall
+	waitmessage
+	delay 30
+	releaseall
+	end
+
+Yami_Text_CallerName:
+	.string "YAMI$"
+
+Yami_Text_Badge6PokegearCall:
+	.string "YAMI: Saludos, {PLAYER}.\n"
+	.string "Mis fuentes me confirman que has\l"
+	.string "reclamado tu sexta medalla.\p"
+	.string "Tu técnica evoluciona con presteza,\n"
+	.string "pero tus POKéMON aún no conocen su\l"
+	.string "verdadero límite.\p"
+	.string "Estoy preparada para enseñarte una\n"
+	.string "nueva forma de perfeccionar su\l"
+	.string "rendimiento: el SUPERENTRENAMIENTO.\p"
+	.string "Te aguardo en la RUTA 34 cuando\n"
+	.string "desees poner a prueba tu temple.$"
+

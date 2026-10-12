@@ -135,12 +135,17 @@ GoldenrodDeptStore_Text_5FDirectory:
 GoldenrodDeptStore5_EventScript_ElPiedras::
 	lock
 	faceplayer
+	setspeaker Mart_Text_ElPiedrasName
 	msgbox Mart_Text_ElPiedrasInStore, MSGBOX_DEFAULT
 	special CreateElPiedrasMegaShop
 	waitstate
+	setspeaker Mart_Text_ElPiedrasName
 	msgbox Mart_Text_ElPiedrasFarewell, MSGBOX_DEFAULT
 	release
 	end
+
+Mart_Text_ElPiedrasName:
+	.string "EL PIEDRAS$"
 
 Mart_Text_ElPiedrasInStore:
 	.string "¡Pasa, pasa, socio! ¿Has visto al\n"

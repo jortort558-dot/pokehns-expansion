@@ -750,11 +750,38 @@ static bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileB
                 if (FlagGet(sGymBadgeFlags[bIdx]))
                     badgeCount++;
             }
-            if (badgeCount >= 5)
+            if (badgeCount >= 5 && !FlagGet(FLAG_METACABALLERO_CALL_TRIGGERED))
             {
                 extern const u8 EventScript_MetacaballeroBadge5Call[];
                 FlagSet(FLAG_METACABALLERO_CALL_TRIGGERED);
                 ScriptContext_SetupScript(EventScript_MetacaballeroBadge5Call);
+                return TRUE;
+            }
+        }
+    }
+    if (!FlagGet(FLAG_YAMI_CALL_TRIGGERED))
+    {
+        u8 mapType = gMapHeader.mapType;
+        if (mapType == MAP_TYPE_ROUTE || mapType == MAP_TYPE_OCEAN_ROUTE
+         || mapType == MAP_TYPE_CITY || mapType == MAP_TYPE_TOWN)
+        {
+            static const u16 sGymBadgeFlags[] = {
+                FLAG_BADGE01_GET, FLAG_BADGE02_GET, FLAG_BADGE03_GET, FLAG_BADGE04_GET,
+                FLAG_BADGE05_GET, FLAG_BADGE06_GET, FLAG_BADGE07_GET, FLAG_BADGE08_GET,
+                FLAG_BADGE09_GET, FLAG_BADGE10_GET, FLAG_BADGE11_GET, FLAG_BADGE12_GET,
+                FLAG_BADGE13_GET, FLAG_BADGE14_GET, FLAG_BADGE15_GET, FLAG_BADGE16_GET,
+            };
+            u32 bIdx, badgeCount = 0;
+            for (bIdx = 0; bIdx < ARRAY_COUNT(sGymBadgeFlags); bIdx++)
+            {
+                if (FlagGet(sGymBadgeFlags[bIdx]))
+                    badgeCount++;
+            }
+            if (badgeCount >= 6)
+            {
+                extern const u8 EventScript_YamiBadge6Call[];
+                FlagSet(FLAG_YAMI_CALL_TRIGGERED);
+                ScriptContext_SetupScript(EventScript_YamiBadge6Call);
                 return TRUE;
             }
         }

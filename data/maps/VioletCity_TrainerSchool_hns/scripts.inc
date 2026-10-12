@@ -201,10 +201,14 @@ VioletCity_TrainerSchool_Text_StickerMachine:
 VioletCity_TrainerSchool_EventScript_ElPiedras::
 	lock
 	faceplayer
+	setspeaker VioletCity_School_Text_ElPiedrasName
 	msgbox VioletCity_School_Text_ElPiedrasLecture, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
+
+VioletCity_School_Text_ElPiedrasName:
+	.string "EL PIEDRAS$"
 
 VioletCity_School_Text_ElPiedrasLecture:
 	.string "¿Que si especular es inmoral?\n"

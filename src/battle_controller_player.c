@@ -691,7 +691,7 @@ void HandleInputChooseMove(enum BattlerId battler)
     else
         gPlayerDpadHoldFrames = 0;
 
-    if (JOY_NEW(A_BUTTON) && !gBattleStruct->descriptionSubmenu)
+    if (JOY_NEW(A_BUTTON) && !gBattleStruct->descriptionSubmenu && !gBattleStruct->powerBreakdownSubmenu)
     {
         TryToHideMoveInfoWindow();
         PlaySE(SE_SELECT);
@@ -789,7 +789,7 @@ void HandleInputChooseMove(enum BattlerId battler)
             break;
         }
     }
-    else if ((JOY_NEW(B_BUTTON) || gPlayerDpadHoldFrames > 59)  && !gBattleStruct->descriptionSubmenu)
+    else if ((JOY_NEW(B_BUTTON) || gPlayerDpadHoldFrames > 59) && !gBattleStruct->descriptionSubmenu && !gBattleStruct->powerBreakdownSubmenu)
     {
         PlaySE(SE_SELECT);
         gBattleStruct->gimmick.playerSelect = FALSE;
@@ -1790,6 +1790,12 @@ static void MoveSelectionDisplayMoveType(enum BattlerId battler)
 
 static void TryMoveSelectionDisplayMoveDescription(enum BattlerId battler)
 {
+    if (gBattleStruct->powerBreakdownSubmenu)
+    {
+        DisplayMovePowerBreakdownPanel(battler);
+        return;
+    }
+
     if (!B_SHOW_MOVE_DESCRIPTION)
         return;
 
@@ -1969,6 +1975,12 @@ static void DisplayMovePowerBreakdownPanel(enum BattlerId battler)
     u16 basePower;
     u8 num[8];
     struct MovePowerBreakdown bd;
+
+    if (gCategoryIconSpriteId != 0xFF)
+    {
+        DestroySprite(&gSprites[gCategoryIconSpriteId]);
+        gCategoryIconSpriteId = 0xFF;
+    }
 
     LoadMessageBoxAndBorderGfx();
     DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);

@@ -17,9 +17,13 @@ Route39_HideElPiedras:
 Route39_EventScript_ElPiedras::
 	lock
 	faceplayer
+	setspeaker Route39_Text_ElPiedrasName
 	msgbox Route39_Text_ElPiedras, MSGBOX_DEFAULT
 	release
 	end
+
+Route39_Text_ElPiedrasName:
+	.string "EL PIEDRAS$"
 
 Route39_Text_ElPiedras:
 	.string "Me echaron del TEATRO de IRIS por\n"

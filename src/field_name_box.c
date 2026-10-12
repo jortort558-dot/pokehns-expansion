@@ -17,11 +17,60 @@
 #include "constants/speaker_names.h"
 #include "data/speaker_names.h"
 
+#include "sprite.h"
+#include "decompress.h"
+
+#define TAG_MUGSHOT_METACABALLERO 0xF431
+
 static EWRAM_INIT u8 sNameboxWindowId = WINDOW_NONE;
+static EWRAM_INIT u8 sMugshotSpriteId = 0xFF;
 EWRAM_DATA const u8 *gSpeakerName = NULL;
 
 static const u32 sNameBoxDefaultGfx[] = INCBIN_U32("graphics/text_window/name_box.4bpp");
 static const u32 sNameBoxPokenavGfx[] = INCBIN_U32("graphics/pokenav/name_box.4bpp");
+static const u32 sMugshotMetacaballeroGfx[] = INCBIN_U32("graphics/text_window/mugshot_metacaballero.4bpp");
+extern const u16 gObjectEventPal_Npc1_hns[];
+
+static const struct OamData sOamData_Mugshot16x16 =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .mosaic = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(16x16),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(16x16),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+    .affineParam = 0,
+};
+
+static const struct SpriteSheet sSpriteSheet_MugshotMetacaballero =
+{
+    .data = sMugshotMetacaballeroGfx,
+    .size = 128,
+    .tag = TAG_MUGSHOT_METACABALLERO,
+};
+
+static const struct SpritePalette sSpritePalette_MugshotMetacaballero =
+{
+    .data = gObjectEventPal_Npc1_hns,
+    .tag = TAG_MUGSHOT_METACABALLERO,
+};
+
+static const struct SpriteTemplate sSpriteTemplate_MugshotMetacaballero =
+{
+    .tileTag = TAG_MUGSHOT_METACABALLERO,
+    .paletteTag = TAG_MUGSHOT_METACABALLERO,
+    .oam = &sOamData_Mugshot16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
 
 static void WindowFunc_DrawNamebox(u32, u32, u32, u32, u32, u32, u32);
 static void WindowFunc_ClearNamebox(u8, u8, u8, u8, u8, u8);
@@ -85,6 +134,19 @@ void TrySpawnNamebox(u32 tileNum)
     AddTextPrinterParameterized3(sNameboxWindowId, fontId, strX, 0, colors, 0, strbuf);
     RestoreTextColors(savedTextColors);
     PutWindowTilemap(sNameboxWindowId);
+
+    // If speaker is METACABALLERO, spawn mugshot sprite above namebox
+    if (StringCompare(strbuf, COMPOUND_STRING("METACABALLERO")) == 0)
+    {
+        if (sMugshotSpriteId == 0xFF)
+        {
+            LoadSpriteSheet(&sSpriteSheet_MugshotMetacaballero);
+            LoadSpritePalette(&sSpritePalette_MugshotMetacaballero);
+            // Position above namebox: X=24 (aligns with left of box), Y=96 (16px above namebox top)
+            sMugshotSpriteId = CreateSprite(&sSpriteTemplate_MugshotMetacaballero, 24, 96, 0);
+        }
+    }
+
     Free(strbuf);
 }
 
@@ -95,12 +157,27 @@ u32 GetNameboxWindowId(void)
 
 void ResetNameboxData(void)
 {
+    if (sMugshotSpriteId != 0xFF)
+    {
+        DestroySprite(&gSprites[sMugshotSpriteId]);
+        FreeSpriteTilesByTag(TAG_MUGSHOT_METACABALLERO);
+        FreeSpritePaletteByTag(TAG_MUGSHOT_METACABALLERO);
+        sMugshotSpriteId = 0xFF;
+    }
     sNameboxWindowId = WINDOW_NONE;
     gSpeakerName = NULL;
 }
 
 void DestroyNamebox(void)
 {
+    if (sMugshotSpriteId != 0xFF)
+    {
+        DestroySprite(&gSprites[sMugshotSpriteId]);
+        FreeSpriteTilesByTag(TAG_MUGSHOT_METACABALLERO);
+        FreeSpritePaletteByTag(TAG_MUGSHOT_METACABALLERO);
+        sMugshotSpriteId = 0xFF;
+    }
+
     if (sNameboxWindowId == WINDOW_NONE)
         return;
 

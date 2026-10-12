@@ -121,10 +121,12 @@ LakeOfRage_EventScript_Silver::
 	goto_if_defeated TRAINER_RIVAL_CYNDAQUIL_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
 	goto_if_defeated TRAINER_RIVAL_TOTODILE_LAKE_HNS, LakeOfRage_EventScript_SilverRewards
 	delay 30
+	setspeaker SP_NAME_RIVAL
 	msgbox LakeOfRage_Text_SilverGyaradosAwesome, MSGBOX_DEFAULT
 	applymovement LOCALID_LAKEOFRAGE_SILVER, Common_Movement_ExclamationMark
 	waitmovement LOCALID_LAKEOFRAGE_SILVER
 	faceplayer
+	setspeaker SP_NAME_RIVAL
 	msgbox LakeOfRage_Text_SilverNoticePlayer, MSGBOX_DEFAULT
 	goto LakeOfRage_EventScript_SilverBattle
 
@@ -141,12 +143,14 @@ LakeOfRage_EventScript_SilverChikorita::
 	return
 
 LakeOfRage_EventScript_SilverRewards::
+	setspeaker SP_NAME_RIVAL
 	msgbox LakeOfRage_Text_SilverAfterBattle, MSGBOX_DEFAULT
 	checkitem ITEM_MEGA_RING
 	goto_if_eq VAR_RESULT, TRUE, LakeOfRage_EventScript_SilverGiveMon
 	giveitem ITEM_MEGA_RING
 
 LakeOfRage_EventScript_SilverGiveMon::
+	setspeaker SP_NAME_RIVAL
 	msgbox LakeOfRage_Text_SilverDropMon, MSGBOX_DEFAULT
 	special GiveRandomMegaGift
 	goto_if_eq VAR_RESULT, MON_CANT_GIVE, LakeOfRage_EventScript_SilverNoRoom
@@ -238,11 +242,15 @@ LakeOfRage_Text_SilverNoRoom:
 LakeOfRage_EventScript_ElPiedras::
 	lock
 	faceplayer
+	setspeaker LakeOfRage_Text_ElPiedrasName
 	msgbox LakeOfRage_Text_ElPiedras, MSGBOX_DEFAULT
 	setflag FLAG_TALKED_EL_PIEDRAS_LAKE_OF_RAGE
 	closemessage
 	release
 	end
+
+LakeOfRage_Text_ElPiedrasName:
+	.string "EL PIEDRAS$"
 
 LakeOfRage_Text_ElPiedras:
 	.string "¡Hermano! Menuda vista hay aquí.\p"

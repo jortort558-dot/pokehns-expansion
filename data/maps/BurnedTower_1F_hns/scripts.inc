@@ -108,11 +108,13 @@ BurnedTower_1F_EventScript_Silver::
 	applymovement LOCALID_BURNED_TOWER_SILVER, Common_Movement_WalkLeft1
 	waitmovement 0
 	waitmovement 0
+	setspeaker SP_NAME_RIVAL
 	msgbox BurnedTowerSilver_BeforeText, MSGBOX_DEFAULT
 	call_if_eq VAR_STARTER_MON, 0, BurnedTower_1F_Silver_Battle_Cyndaquil
 	call_if_eq VAR_STARTER_MON, 1, BurnedTower_1F_Silver_Battle_Totodile
 	call_if_eq VAR_STARTER_MON, 2, BurnedTower_1F_Silver_Battle_Chikorita
 	playbgm MUS_HG_RIVAL_EXIT, FALSE
+	setspeaker SP_NAME_RIVAL
 	msgbox BurnedTowerSilver_AfterText1, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_0x8004, 1  @ vertical pan
@@ -130,6 +132,7 @@ BurnedTower_1F_EventScript_Silver::
 	removeobject OBJ_EVENT_ID_PLAYER
 	playse SE_FALL
 	delay 60
+	setspeaker SP_NAME_RIVAL
 	msgbox BurnedTowerSilver_AfterText2, MSGBOX_AUTOCLOSE
 	waitmessage
 	warphole MAP_BURNED_TOWER_B1F_HNS
