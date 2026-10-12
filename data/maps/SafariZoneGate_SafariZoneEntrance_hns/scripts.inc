@@ -15,6 +15,7 @@ SafariZoneGate_SafariZoneEntrance_EventScript_ExitSafari::
 	special ExitSafariMode
 	setvar VAR_SAFARI_ZONE_STATE, 1
 	setflag FLAG_GOOD_LUCK_SAFARI_ZONE
+	setflag FLAG_SAFARI_ZONE_COMPLETED
 	msgbox SafariZone_South_Text_ExitEarlyThankYouForPlaying
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown1
@@ -255,11 +256,20 @@ SafariZoneGate_SafariZoneEntrance_Text_BaobaDone:
 SafariZoneGate_SafariZoneEntrance_EventScript_EntranceCounterTrigger::
 	lockall
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	goto_if_set FLAG_SAFARI_ZONE_COMPLETED, SafariZoneGate_SafariZoneEntrance_EventScript_AlreadyPlayed
 	showmoneybox 0, 0
 	msgbox Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, SafariZoneGate_SafariZoneEntrance_EventScript_TryEnterSafariZone
 	msgbox Route121_SafariZoneEntrance_Text_PlayAnotherTime, MSGBOX_DEFAULT
 	goto SafariZoneGate_SafariZoneEntrance_EventScript_MovePlayerBackFromCounter
+	end
+
+SafariZoneGate_SafariZoneEntrance_EventScript_AlreadyPlayed::
+	msgbox SafariZoneGate_SafariZoneEntrance_Text_AlreadyPlayed, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, SafariZoneGate_SafariZoneEntrance_Movement_BackAwayFromCounter
+	waitmovement 0
+	releaseall
 	end
 
 SafariZoneGate_SafariZoneEntrance_EventScript_TryEnterSafariZone::
@@ -422,3 +432,11 @@ SafariZoneGate_SafariZoneEntrance_Text_BoyGiveCase:
 SafariZoneGate_SafariZoneEntrance_Text_Engineer:
 	.string "Lo siento, Entrenador. Esta zona\n"
 	.string "sigue en obras. ¡Pásate más tarde!$"
+
+SafariZoneGate_SafariZoneEntrance_Text_AlreadyPlayed:
+	.string "¡Hola! Por normas del recinto,\n"
+	.string "solo se permite una incursión en\l"
+	.string "la ZONA SAFARI por aventura.\p"
+	.string "¡Ya has disfrutado de tu juego!\n"
+	.string "¡Muchas gracias por participar!$"
+

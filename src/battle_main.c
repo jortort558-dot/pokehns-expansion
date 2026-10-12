@@ -49,6 +49,7 @@
 #include "randomizer.h"
 #include "nuzlocke.h"
 #include "nuzlocke_tracker.h"
+#include "hns_live_telemetry.h"
 #include "gym_tokens.h"
 #include "caps.h"
 #include "recorded_battle.h"
@@ -6036,7 +6037,10 @@ static void HandleEndTurn_FinishBattle(void)
                  && !IsNuzlockeCaptureSuspended())
                 {
                     if (gBattleOutcome != B_OUTCOME_CAUGHT)
+                    {
                         GymTokenRecordFailedEncounter(NuzlockeGetCurrentRegionMapSectionId());
+                        HnsLiveTelemetry_RecordMonEvent(HNS_LIVE_EVENT_ENCOUNTER_FAILED, &gEnemyParty[0], 0);
+                    }
                     NuzlockeFlagSet(NuzlockeGetCurrentRegionMapSectionId());
                 }
             }

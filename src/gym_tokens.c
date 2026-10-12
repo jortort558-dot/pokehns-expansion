@@ -16,6 +16,7 @@
 #include "save.h"
 #include "script_menu.h"
 #include "strings.h"
+#include "hns_live_telemetry.h"
 #include "constants/party_menu.h"
 #include "constants/pokemon.h"
 #include "constants/species.h"
@@ -520,6 +521,8 @@ void UseGymTokenTrade(void)
     SetMonData(&received, MON_DATA_OT_NAME, sClerkName);
     CalculateMonStats(&received);
     gEnemyParty[0] = received;
+    HnsLiveTelemetry_RecordMonEvent(HNS_LIVE_EVENT_GYM_TOKEN_TRADE, &received,
+                                    GetBoxMonData(boxMon, MON_DATA_SPECIES));
     SetCustomInGameTradeScene();
     StringCopy(gStringVar3, gSpeciesInfo[species].speciesName);
     gSpecialVar_Result = 1;
@@ -673,4 +676,3 @@ void UseGiftMonTrade(void)
     StringCopy(gStringVar3, gSpeciesInfo[species].speciesName);
     gSpecialVar_Result = 1;
 }
-

@@ -39,6 +39,7 @@ extern const u8 SafariZone_EventScript_TimesUp[];
 extern const u8 SafariZone_EventScript_RetirePrompt[];
 extern const u8 SafariZone_EventScript_OutOfBallsMidBattle[];
 extern const u8 SafariZone_EventScript_OutOfBalls[];
+extern const u8 SafariZone_EventScript_CaughtMon[];
 extern const u8 SafariZone_EventScript_PokeblockGone[];
 
 EWRAM_DATA u8 gNumSafariBalls = 0;
@@ -136,7 +137,13 @@ void CB2_EndSafariBattle(void)
     sSafariZonePkblkUses += gBattleResults.pokeblockThrows;
     if (gBattleOutcome == B_OUTCOME_CAUGHT)
         sSafariZoneCaughtMons++;
-    if (gNumSafariBalls != 0)
+    if (IS_HNS && !FlagGet(FLAG_IN_KANTO_SAFARI_ZONE) && gBattleOutcome == B_OUTCOME_CAUGHT)
+    {
+        ScriptContext_SetupScript(SafariZone_EventScript_CaughtMon);
+        ScriptContext_Stop();
+        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    }
+    else if (gNumSafariBalls != 0)
     {
         SetMainCallback2(CB2_ReturnToField);
     }

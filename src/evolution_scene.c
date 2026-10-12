@@ -38,6 +38,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "randomizer.h"
+#include "hns_live_telemetry.h"
 
 struct EvoInfo
 {
@@ -801,6 +802,7 @@ static void Task_EvolutionScene(u8 taskId)
 #endif
 
             SetMonData(mon, MON_DATA_SPECIES, (void *)(&gTasks[taskId].tPostEvoSpecies));
+            HnsLiveTelemetry_RecordMonEvent(HNS_LIVE_EVENT_EVOLUTION, mon, gTasks[taskId].tPreEvoSpecies);
             SetMonData(mon, MON_DATA_EVOLUTION_TRACKER, &zero);
             CalculateMonStats(mon);
 
@@ -1229,6 +1231,7 @@ static void Task_TradeEvolutionScene(u8 taskId)
             PlayFanfare(MUS_EVOLVED);
             gTasks[taskId].tState++;
             SetMonData(mon, MON_DATA_SPECIES, (&gTasks[taskId].tPostEvoSpecies));
+            HnsLiveTelemetry_RecordMonEvent(HNS_LIVE_EVENT_EVOLUTION, mon, gTasks[taskId].tPreEvoSpecies);
             SetMonData(mon, MON_DATA_EVOLUTION_TRACKER, &zero);
             CalculateMonStats(mon);
             EvolutionRenameMon(mon, gTasks[taskId].tPreEvoSpecies, gTasks[taskId].tPostEvoSpecies);

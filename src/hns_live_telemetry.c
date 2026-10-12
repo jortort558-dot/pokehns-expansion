@@ -2,12 +2,16 @@
 #include "hns_live_telemetry.h"
 #include "load_save.h"
 #include "pokemon.h"
+#include "battle.h"
+#include "battle_setup.h"
+#include "overworld.h"
 #include "constants/battle.h"
 #include "constants/characters.h"
 
-#define HNS_LIVE_VERSION 1
+#define HNS_LIVE_VERSION 2
 #define HNS_LIVE_INTERVAL_FRAMES 60
 #define HNS_LIVE_NAME_LENGTH 11
+#define HNS_LIVE_EVENT_CAPACITY 8
 
 enum HnsLiveStatus
 {
@@ -32,6 +36,22 @@ struct PACKED HnsLivePartyMon
     u8 reserved;
 };
 
+struct PACKED HnsLiveEvent
+{
+    u32 sequence;
+    u32 personality;
+    u32 otId;
+    u16 mapSection;
+    u16 species;
+    u16 otherSpecies;
+    u16 trainerId;
+    u16 moveId;
+    u8 type;
+    u8 cause;
+    u8 level;
+    u8 flags;
+};
+
 struct PACKED HnsLiveTelemetry
 {
     u8 signature[4];
@@ -48,9 +68,72 @@ struct PACKED HnsLiveTelemetry
     u8 partyCount;
     u8 reserved;
     struct HnsLivePartyMon party[PARTY_SIZE];
+    u8 eventWriteIndex;
+    u8 eventCount;
+    u16 eventReserved;
+    u32 eventSequence;
+    struct HnsLiveEvent events[HNS_LIVE_EVENT_CAPACITY];
     u32 checksum;
     u32 sequenceEnd;
 };
+
+static volatile struct HnsLiveTelemetry sHnsLiveTelemetry;
+
+static void RecordEvent(u8 type, struct Pokemon *mon, u16 otherSpecies, u16 trainerId, u16 moveId, u8 cause)
+{
+    volatile struct HnsLiveEvent *event;
+    u8 index;
+
+    if (type == HNS_LIVE_EVENT_NONE)
+        return;
+
+    index = sHnsLiveTelemetry.eventWriteIndex % HNS_LIVE_EVENT_CAPACITY;
+    event = &sHnsLiveTelemetry.events[index];
+    memset((void *)event, 0, sizeof(*event));
+    event->sequence = ++sHnsLiveTelemetry.eventSequence;
+    event->type = type;
+    event->otherSpecies = otherSpecies;
+    event->trainerId = trainerId;
+    event->moveId = moveId;
+    event->cause = cause;
+    if (gSaveBlock1Ptr != NULL)
+        event->mapSection = GetCurrentRegionMapSectionId();
+    if (mon != NULL)
+    {
+        event->personality = GetMonData(mon, MON_DATA_PERSONALITY);
+        event->otId = GetMonData(mon, MON_DATA_OT_ID);
+        event->species = GetMonData(mon, MON_DATA_SPECIES);
+        event->level = GetMonData(mon, MON_DATA_LEVEL);
+        if (GetMonData(mon, MON_DATA_IS_SHINY))
+            event->flags |= 1;
+    }
+    sHnsLiveTelemetry.eventWriteIndex = (index + 1) % HNS_LIVE_EVENT_CAPACITY;
+    if (sHnsLiveTelemetry.eventCount < HNS_LIVE_EVENT_CAPACITY)
+        sHnsLiveTelemetry.eventCount++;
+}
+
+void HnsLiveTelemetry_RecordMonEvent(u8 type, struct Pokemon *mon, u16 otherSpecies)
+{
+    RecordEvent(type, mon, otherSpecies, 0, 0, 0);
+}
+
+void HnsLiveTelemetry_RecordFaint(struct Pokemon *mon, u8 battler)
+{
+    u16 attackerSpecies = 0;
+    u16 trainerId = 0;
+    u16 moveId = 0;
+    u8 cause = 0;
+
+    if (gBattlerAttacker < MAX_BATTLERS_COUNT && gBattlerAttacker != battler)
+    {
+        attackerSpecies = gBattleMons[gBattlerAttacker].species;
+        moveId = gCurrentMove;
+        cause = moveId != MOVE_NONE ? 1 : 0;
+    }
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        trainerId = TRAINER_BATTLE_PARAM.opponentA;
+    RecordEvent(HNS_LIVE_EVENT_FAINT, mon, attackerSpecies, trainerId, moveId, cause);
+}
 
 // La seccion se enlaza al principio de EWRAM. El fork de mGBA usado por
 // EmulatorJS expone esa zona mediante RETRO_MEMORY_SYSTEM_RAM.

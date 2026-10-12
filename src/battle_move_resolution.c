@@ -13,6 +13,7 @@
 #include "move.h"
 #include "constants/battle_move_resolution.h"
 #include "nuzlocke.h"
+#include "hns_live_telemetry.h"
 
 static void ValidateBattlers(void);
 static enum Move GetOriginallyUsedMove(enum Move chosenMove);
@@ -2585,6 +2586,7 @@ static enum MoveEndResult MoveEndFaintBlock(void)
                                             | BATTLE_TYPE_NO_NUZLOCKE_DEATH)))
                 {
                     NuzlockeGraveyard_RecordFaint(GetBattlerMon(gBattlerTarget));
+                    HnsLiveTelemetry_RecordFaint(GetBattlerMon(gBattlerTarget), gBattlerTarget);
                 }
             }
             else

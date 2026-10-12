@@ -76,6 +76,7 @@
 #include "follower_npc.h"
 #include "load_save.h"
 #include "nuzlocke.h"
+#include "hns_live_telemetry.h"
 #include "test/test_runner_battle.h"
 
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
@@ -3891,6 +3892,7 @@ static void Cmd_tryfaintmon(void)
                                             | BATTLE_TYPE_NO_NUZLOCKE_DEATH)))
                 {
                     NuzlockeGraveyard_RecordFaint(GetBattlerMon(battler));
+                    HnsLiveTelemetry_RecordFaint(GetBattlerMon(battler), battler);
                 }
             }
             else
@@ -11242,6 +11244,7 @@ static void Cmd_givecaughtmon(void)
         gBattleResults.caughtMonSpecies = GetMonData(caughtMon, MON_DATA_SPECIES);
         GetMonData(caughtMon, MON_DATA_NICKNAME, gBattleResults.caughtMonNick);
         gBattleResults.caughtMonBall = GetMonData(caughtMon, MON_DATA_POKEBALL);
+        HnsLiveTelemetry_RecordMonEvent(HNS_LIVE_EVENT_CAPTURE, caughtMon, 0);
 
         gSelectedMonPartyId = PARTY_SIZE;
         gBattleCommunication[MULTIUSE_STATE] = 0;
