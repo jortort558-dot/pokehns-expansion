@@ -1813,10 +1813,12 @@ void ItemUseOutOfBattle_PokeVial(u8 taskId)
     }
     else
     {
-        // Comprobar si algún miembro vivo necesita curación
+        // Comprobar si algún miembro vivo necesita curación (HP, estado o PP)
         for (i = 0; i < gPlayerPartyCount; i++)
         {
             struct Pokemon *mon = &gPlayerParty[i];
+            bool32 monNeedsHeal = FALSE;
+
             if (GetMonData(mon, MON_DATA_SPECIES) == SPECIES_NONE)
                 continue;
             if (GetMonData(mon, MON_DATA_IS_EGG))
@@ -1826,6 +1828,25 @@ void ItemUseOutOfBattle_PokeVial(u8 taskId)
 
             if (GetMonData(mon, MON_DATA_HP) < GetMonData(mon, MON_DATA_MAX_HP)
              || GetMonData(mon, MON_DATA_STATUS) != STATUS1_NONE)
+            {
+                monNeedsHeal = TRUE;
+            }
+            else
+            {
+                u32 j;
+                u8 ppBonuses = GetMonData(mon, MON_DATA_PP_BONUSES);
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                {
+                    u16 move = GetMonData(mon, MON_DATA_MOVE1 + j);
+                    if (move != MOVE_NONE && GetMonData(mon, MON_DATA_PP1 + j) < CalculatePPWithBonus(move, ppBonuses, j))
+                    {
+                        monNeedsHeal = TRUE;
+                        break;
+                    }
+                }
+            }
+
+            if (monNeedsHeal)
             {
                 HealPokemon(mon);
                 healedAny = TRUE;
