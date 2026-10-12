@@ -7473,15 +7473,6 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Pain Split
 - Perish Song
 
-Drifblim @ Sitrus Berry
-Ability: Aftermath
-Level: 24
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Astonish
-- Hypnosis
-- Ominous Wind
-- Baton Pass
-
 Gengar @ Sitrus Berry
 Ability: Levitate
 Level: 25
@@ -7799,14 +7790,6 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Rain Dance
 - Thunder
 
-Bronzor @ Oran Berry
-Level: 35
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Gyro Ball
-- Confuse Ray
-- Iron Defense
-- Psychic
-
 Scizor @ Focus Band
 Level: 36
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
@@ -8018,14 +8001,6 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Wood Hammer
 - Low Kick
 - Sucker Punch
-
-Hariyama @ Chesto Berry
-Level: 30
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Fake Out
-- Force Palm
-- Bulk Up
-- Rest
 
 Poliwrath @ Black Belt
 Level: 31
