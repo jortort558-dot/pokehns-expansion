@@ -11,6 +11,8 @@ enum SpeakerNames {
     SP_NAME_MANOLIN,
     SP_NAME_YAMI,
     SP_NAME_METACABALLERO,
+    SP_NAME_JOSE,
+    SP_NAME_PILAR,
     SP_NAME_COUNT
 };
 

@@ -50,6 +50,9 @@ EcruteakCity_Gym_EventScript_Morty::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_ECRUTEAK_CITY_GYM, EcruteakCity_Gym_EventScript_Morty_Defeated
+	setvar VAR_0x8008, 4
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, EcruteakCity_Gym_EventScript_Morty_NotReady
 	msgbox MortyIntroText, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_MORTY_1_HNS, MortyWinLossText
 	message Text_ReceivedFogBadge
@@ -84,6 +87,18 @@ EcruteakCity_Gym_EventScript_Morty_Defeated::
 	closemessage
 	release
 	end
+
+EcruteakCity_Gym_EventScript_Morty_NotReady::
+	msgbox EcruteakCity_Gym_Text_Morty_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+EcruteakCity_Gym_Text_Morty_NotReady:
+	.string "Los espíritus exigen que demuestres\n"
+	.string "tu temple contra todos los médiums\l"
+	.string "que custodian esta sala.\p"
+	.string "¡Vuelve cuando hayas disipado todas\n"
+	.string "las dudas en combate!$"
 
 EcruteakCity_Gym_EventScript_Statue::
 	lock

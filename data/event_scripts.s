@@ -2429,3 +2429,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/MahoganyTown_House2_hns/scripts.inc"
 
 	.include "data/maps/VioletCity_Cave_Kalos/scripts.inc"
+	.include "data/scripts/researchers_expedition.inc"

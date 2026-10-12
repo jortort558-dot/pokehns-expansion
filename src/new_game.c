@@ -2,6 +2,7 @@
 #include "new_game.h"
 #include "random.h"
 #include "config/randomizer.h"
+#include "randomizer.h"
 #include "pokemon.h"
 #include "roamer.h"
 #include "pokemon_size_record.h"
@@ -193,7 +194,7 @@ void ApplyPokemitosCupPreset(void)
     cs->tx_Random_GenScope = 0; // Gen 1-9
     cs->tx_Random_TrainerPower = 0;
     cs->tx_Random_TrainerItems = 0;
-    cs->tx_Random_TrainerMegas = 0;
+    cs->tx_Random_TrainerMegas = TRAINER_MEGAS_STORY;
 
     cs->tx_Random_Items_Progression = 0;
     cs->tx_Random_Items_TMShuffle = 0;

@@ -584,3 +584,8 @@ Route32_Text_Sign2:
 Route32_Text_Sign3:
 	.string "CUEVA UNIÓN\n"
 	.string "MÁS ADELANTE$"
+
+Route32_EventScript_Researchers::
+	setvar VAR_0x8004, 32
+	goto Common_EventScript_Researchers_Interact
+

@@ -2,7 +2,9 @@
 #include "debug.h"
 #include "malloc.h"
 #include "battle.h"
+#include "battle_setup.h"
 #include "battle_special.h"
+
 #include "cable_club.h"
 #include "data.h"
 #include "daycare.h"
@@ -6395,6 +6397,130 @@ void TakeDeliveredMail(void)
             }
         }
     }
+}
+
+void CheckGymTrainersDefeated(void)
+{
+    // Checks if all subordinate trainers for the gym in VAR_0x8008 have been defeated.
+    // Returns TRUE (1) in gSpecialVar_Result if all trainers are defeated, FALSE (0) otherwise.
+    static const u16 sVioletGymTrainers[]   = { TRAINER_ROD_HNS, TRAINER_ABE_HNS };
+    static const u16 sAzaleaGymTrainers[]   = { TRAINER_BENNY_HNS, TRAINER_AL_HNS, TRAINER_JOSH_HNS, TRAINER_AMY_AND_MAY_HNS };
+    static const u16 sGoldenrodGymTrainers[] = { TRAINER_CARRIE_HNS, TRAINER_BRIDGET_HNS, TRAINER_VICTORIA_HNS, TRAINER_SAMANTHA_HNS };
+    static const u16 sEcruteakGymTrainers[]  = { TRAINER_JEFFREY_HNS, TRAINER_PING_HNS, TRAINER_MARTHA_HNS, TRAINER_GRACE_HNS };
+    static const u16 sCianwoodGymTrainers[]  = { TRAINER_YOSHI_HNS, TRAINER_LAO_HNS, TRAINER_NOB_HNS, TRAINER_LUNG_HNS };
+    static const u16 sMahoganyGymTrainers[]  = { TRAINER_ROXANNE_HNS, TRAINER_RONALD_HNS, TRAINER_CLARISSA_HNS, TRAINER_BRAD_HNS, TRAINER_DOUGLAS_HNS };
+    static const u16 sBlackthornGymTrainers[] = { TRAINER_MIKE_HNS, TRAINER_PAUL_HNS, TRAINER_LOLA_HNS, TRAINER_CODY_HNS, TRAINER_FRAN_HNS };
+    static const u16 sPewterGymTrainers[]    = { TRAINER_JERRY_HNS };
+    static const u16 sCeruleanGymTrainers[]  = { TRAINER_DIANA_HNS, TRAINER_BRIANA_HNS, TRAINER_PARKER_HNS };
+    static const u16 sVermilionGymTrainers[] = { TRAINER_GREGORY_HNS, TRAINER_VINCENT_HNS, TRAINER_HORTON_HNS };
+    static const u16 sCeladonGymTrainers[]   = { TRAINER_MICHELLE_HNS, TRAINER_TANYA_HNS, TRAINER_JULIA_HNS, TRAINER_JO_AND_ZOE_HNS };
+    static const u16 sSaffronGymTrainers[]   = { TRAINER_REBECCA_HNS, TRAINER_FRANKLIN_HNS, TRAINER_DORIS_HNS, TRAINER_JARED_HNS };
+    static const u16 sFuchsiaGymTrainers[]   = { TRAINER_ALICE_HNS, TRAINER_LINDA_HNS, TRAINER_CINDY_HNS, TRAINER_BARRY_HNS };
+
+    const u16 *trainers = NULL;
+    u32 count = 0;
+    u32 i;
+
+    switch (VarGet(VAR_0x8008))
+    {
+    case 1: trainers = sVioletGymTrainers; count = ARRAY_COUNT(sVioletGymTrainers); break;
+    case 2: trainers = sAzaleaGymTrainers; count = ARRAY_COUNT(sAzaleaGymTrainers); break;
+    case 3: trainers = sGoldenrodGymTrainers; count = ARRAY_COUNT(sGoldenrodGymTrainers); break;
+    case 4: trainers = sEcruteakGymTrainers; count = ARRAY_COUNT(sEcruteakGymTrainers); break;
+    case 5: trainers = sCianwoodGymTrainers; count = ARRAY_COUNT(sCianwoodGymTrainers); break;
+    case 6: // Olivine (Jasmine has no gym trainers, only lighthouse quest)
+        gSpecialVar_Result = TRUE;
+        return;
+    case 7: trainers = sMahoganyGymTrainers; count = ARRAY_COUNT(sMahoganyGymTrainers); break;
+    case 8: trainers = sBlackthornGymTrainers; count = ARRAY_COUNT(sBlackthornGymTrainers); break;
+    case 9: trainers = sPewterGymTrainers; count = ARRAY_COUNT(sPewterGymTrainers); break;
+    case 10: trainers = sCeruleanGymTrainers; count = ARRAY_COUNT(sCeruleanGymTrainers); break;
+    case 11: trainers = sVermilionGymTrainers; count = ARRAY_COUNT(sVermilionGymTrainers); break;
+    case 12: trainers = sCeladonGymTrainers; count = ARRAY_COUNT(sCeladonGymTrainers); break;
+    case 13: trainers = sSaffronGymTrainers; count = ARRAY_COUNT(sSaffronGymTrainers); break;
+    case 14: trainers = sFuchsiaGymTrainers; count = ARRAY_COUNT(sFuchsiaGymTrainers); break;
+    case 15: // Blaine (Cinnabar / Seafoam - no gym trainers)
+    case 16: // Blue (Viridian - no gym trainers)
+        gSpecialVar_Result = TRUE;
+        return;
+    default:
+        gSpecialVar_Result = TRUE;
+        return;
+    }
+
+    for (i = 0; i < count; i++)
+    {
+        if (!HasTrainerBeenFought(trainers[i]))
+        {
+            gSpecialVar_Result = FALSE;
+            return;
+        }
+    }
+
+    gSpecialVar_Result = TRUE;
+}
+
+void CheckRouteTrainersDefeated(void)
+{
+    // Checks route trainers for Jose & Pilar's expeditions.
+    // VAR_0x8004 specifies route ID: 32, 38, 41, 43, 45.
+    // Returns:
+    // gSpecialVar_Result: TRUE if ALL defeated, FALSE otherwise.
+    // gSpecialVar_0x8005: Total trainers on route.
+    // gSpecialVar_0x8006: Remaining undefeated trainers.
+    static const u16 sRoute32Trainers[] = {
+        TRAINER_JUSTIN_HNS, TRAINER_RALPH_HNS, TRAINER_HENRY_HNS,
+        TRAINER_ALBERT_HNS, TRAINER_GORDON_HNS, TRAINER_ROLAND_HNS,
+        TRAINER_LIZ_HNS, TRAINER_PETER_HNS
+    };
+    static const u16 sRoute38Trainers[] = {
+        TRAINER_TOBY_HNS, TRAINER_CHAD_HNS, TRAINER_DANA_HNS,
+        TRAINER_VALERIE_HNS, TRAINER_HARRY_HNS, TRAINER_OLIVIA_HNS
+    };
+    static const u16 sRoute41Trainers[] = {
+        TRAINER_CHARLIE_HNS, TRAINER_GEORGE_HNS, TRAINER_BERKE_HNS,
+        TRAINER_KIRK_HNS, TRAINER_MATHEW_HNS, TRAINER_KAYLEE_HNS,
+        TRAINER_SUSIE_HNS, TRAINER_DENISE_HNS, TRAINER_KARA_HNS,
+        TRAINER_WENDY_HNS
+    };
+    static const u16 sRoute43Trainers[] = {
+        TRAINER_BEN_HNS, TRAINER_BRENT_HNS, TRAINER_RON_HNS,
+        TRAINER_MARVIN_HNS, TRAINER_SPENCER_HNS, TRAINER_TIFFANY_HNS
+    };
+    static const u16 sRoute45Trainers[] = {
+        TRAINER_ERIK_HNS, TRAINER_MICHAEL_HNS, TRAINER_PARRY_HNS,
+        TRAINER_TIMOTHY_HNS, TRAINER_KENJI_HNS, TRAINER_RYAN_HNS,
+        TRAINER_KELLY_HNS, TRAINER_QUENTIN_HNS
+    };
+
+    const u16 *trainers = NULL;
+    u32 total = 0;
+    u32 remaining = 0;
+    u32 i;
+
+    switch (VarGet(VAR_0x8004))
+    {
+    case 32: trainers = sRoute32Trainers; total = ARRAY_COUNT(sRoute32Trainers); break;
+    case 38: trainers = sRoute38Trainers; total = ARRAY_COUNT(sRoute38Trainers); break;
+    case 41: trainers = sRoute41Trainers; total = ARRAY_COUNT(sRoute41Trainers); break;
+    case 43: trainers = sRoute43Trainers; total = ARRAY_COUNT(sRoute43Trainers); break;
+    case 45: trainers = sRoute45Trainers; total = ARRAY_COUNT(sRoute45Trainers); break;
+    default:
+        gSpecialVar_Result = TRUE;
+        gSpecialVar_0x8005 = 0;
+        gSpecialVar_0x8006 = 0;
+        return;
+    }
+
+    for (i = 0; i < total; i++)
+    {
+        if (!HasTrainerBeenFought(trainers[i]))
+            remaining++;
+    }
+
+    gSpecialVar_0x8005 = total;
+    gSpecialVar_0x8006 = remaining;
+    gSpecialVar_Result = (remaining == 0);
 }
 
 

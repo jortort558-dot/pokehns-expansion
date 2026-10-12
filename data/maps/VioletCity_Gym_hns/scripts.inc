@@ -41,6 +41,9 @@ VioletCity_Gym_EventScript_Falkner::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_VIOLET_GYM, VioletCity_Gym_EventScript_Falkner_Defeated
+	setvar VAR_0x8008, 1
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, VioletCity_Gym_EventScript_Falkner_NotReady
 	msgbox VioletGym_Text_Falkner_Intro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_FALKNER_1_HNS, VioletGym_Text_Falkner_WinLoss
 	message VioletGym_Text_ReceivedZephyrBadge
@@ -67,6 +70,19 @@ VioletCity_Gym_EventScript_Falkner_Defeated::
 	closemessage
 	release
 	end
+
+VioletCity_Gym_EventScript_Falkner_NotReady::
+	msgbox VioletGym_Text_Falkner_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+VioletGym_Text_Falkner_NotReady:
+	.string "¿Pretendes volar tan alto sin\n"
+	.string "probar tu valía ante el nido?\p"
+	.string "¡Derrota primero a todos los\n"
+	.string "entrenadores de mi GIMNASIO\l"
+	.string "si quieres medirte conmigo!$"
+
 
 VioletGym_Text_Falkner_Intro:
 	.string "¡Soy PEGASO, el LÍDER del GIMNASIO\n"

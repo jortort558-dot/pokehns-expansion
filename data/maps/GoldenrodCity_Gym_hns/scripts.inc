@@ -56,6 +56,9 @@ GoldenrodCity_Gym_EventScript_Whitney::
 	goto_if_eq VAR_GOLDENROD_CITY_STATE, 3, GoldenrodCity_Gym_EventScript_WhitneyCrying
 	goto_if_eq VAR_GOLDENROD_CITY_STATE, 4, GoldenrodCity_Gym_EventScript_WhitneyBadge
 	goto_if_set FLAG_DEFEATED_GOLDENROD_CITY_GYM, GoldenrodCity_Gym_EventScript_WhitneyDefeated
+	setvar VAR_0x8008, 3
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_Gym_EventScript_Whitney_NotReady
 	msgbox GoldenrodCity_Gym_Text_WhitneyBefore, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_WHITNEY_1_HNS, GoldenrodCity_Gym_Text_WhitneyShouldntBeSoSerious
 	msgbox GoldenrodCity_Gym_Text_WhitneyYouMeanie, MSGBOX_DEFAULT
@@ -113,6 +116,18 @@ GoldenrodCity_Gym_EventScript_Trigger::
 	closemessage
 	release
 	end
+
+GoldenrodCity_Gym_EventScript_Whitney_NotReady::
+	msgbox GoldenrodCity_Gym_Text_Whitney_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+GoldenrodCity_Gym_Text_Whitney_NotReady:
+	.string "¡Oye, tramposo! ¿Querías saltarte a\n"
+	.string "mis amigas del GIMNASIO?\p"
+	.string "¡Mis chicas te están esperando!\n"
+	.string "¡Gánales a todas primero antes de\l"
+	.string "venir a desafiarme a mí!$"
 
 
 GoldenrodCity_Gym_EventScript_Statue::

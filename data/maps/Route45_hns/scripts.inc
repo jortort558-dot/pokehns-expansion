@@ -1,6 +1,11 @@
 Route45_hns_MapScripts::
 	.byte 0
 
+Route45_EventScript_Researchers::
+	setvar VAR_0x8004, 45
+	goto Common_EventScript_Researchers_Interact
+
+
 Route45_EventScript_Erik::
 	trainerbattle_single TRAINER_ERIK_HNS, Route45_Text_HikerErikSeen, Route45_Text_HikerErikBeaten
 	msgbox Route45_Text_HikerErikAfter, MSGBOX_AUTOCLOSE

@@ -534,6 +534,9 @@ AzaleaTown_Gym_EventScript_Bugsy::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_AZALEA_TOWN_GYM, AzaleaTown_Gym_EventScript_Bugsy_Defeated
+	setvar VAR_0x8008, 2
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, AzaleaTown_Gym_EventScript_Bugsy_NotReady
 	msgbox AzaleaTown_Gym_Text_BugsyIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_BUGSY_1_HNS, AzaleaTown_Gym_Text_BugsyBeaten
 	message AzaleaTown_Gym_Text_ReceivedHiveBadge
@@ -563,6 +566,19 @@ AzaleaTown_Gym_EventScript_Bugsy_Defeated::
 	closemessage
 	release
 	end
+
+AzaleaTown_Gym_EventScript_Bugsy_NotReady::
+	msgbox AzaleaTown_Gym_Text_Bugsy_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+AzaleaTown_Gym_Text_Bugsy_NotReady:
+	.string "¡Mis compañeros del GIMNASIO\n"
+	.string "deben darte el visto bueno!\p"
+	.string "¡Enfrenta a todos antes si\n"
+	.string "quieres retar a la gran\l"
+	.string "enciclopedia de los bichos!$"
+
 
 AzaleaTown_Gym_Movement_Ariados_Down:
 	delay_8

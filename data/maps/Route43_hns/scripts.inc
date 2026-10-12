@@ -8,6 +8,11 @@ Route43_MapScript_OnTransition::
 	callnative SetTimeBasedEncounters
 	end
 
+Route43_EventScript_Researchers::
+	setvar VAR_0x8004, 43
+	goto Common_EventScript_Researchers_Interact
+
+
 Route43_EventScript_Ben::
 	trainerbattle_single TRAINER_BEN_HNS, Route43_Text_PokemaniacBenSeen, Route43_Text_PokemaniacBenBeaten
 	msgbox Route43_Text_PokemaniacBenAfter, MSGBOX_AUTOCLOSE

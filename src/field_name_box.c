@@ -26,6 +26,8 @@
 #define TAG_MUGSHOT_EL_PIEDRAS    0xF434
 #define TAG_MUGSHOT_YAMI          0xF435
 #define TAG_MUGSHOT_RIVAL         0xF436
+#define TAG_MUGSHOT_JOSE          0xF437
+#define TAG_MUGSHOT_PILAR         0xF438
 
 static EWRAM_INIT u8 sNameboxWindowId = WINDOW_NONE;
 static EWRAM_INIT u8 sMugshotSpriteId = 0xFF;
@@ -40,6 +42,10 @@ static const u32 sMugshotManolinGfx[]       = INCBIN_U32("graphics/text_window/m
 static const u32 sMugshotElPiedrasGfx[]     = INCBIN_U32("graphics/text_window/mugshot_elpiedras.4bpp");
 static const u32 sMugshotYamiGfx[]          = INCBIN_U32("graphics/text_window/mugshot_yami.4bpp");
 static const u32 sMugshotRivalGfx[]         = INCBIN_U32("graphics/text_window/mugshot_rival.4bpp");
+static const u32 sMugshotJoseGfx[]          = INCBIN_U32("graphics/text_window/mugshot_jose.4bpp");
+static const u32 sMugshotPilarGfx[]         = INCBIN_U32("graphics/text_window/mugshot_pilar.4bpp");
+
+extern const u16 gObjectEventPal_ScientistF_hns[];
 
 extern const u16 gObjectEventPal_Npc1_hns[];
 extern const u16 gObjectEventPal_Npc2_hns[];
@@ -197,6 +203,50 @@ static const struct SpriteTemplate sSpriteTemplate_MugshotRival =
     .callback = SpriteCallbackDummy,
 };
 
+static const struct SpriteSheet sSpriteSheet_MugshotJose =
+{
+    .data = sMugshotJoseGfx,
+    .size = 128,
+    .tag = TAG_MUGSHOT_JOSE,
+};
+static const struct SpritePalette sSpritePalette_MugshotJose =
+{
+    .data = gObjectEventPal_Npc1_hns,
+    .tag = TAG_MUGSHOT_JOSE,
+};
+static const struct SpriteTemplate sSpriteTemplate_MugshotJose =
+{
+    .tileTag = TAG_MUGSHOT_JOSE,
+    .paletteTag = TAG_MUGSHOT_JOSE,
+    .oam = &sOamData_Mugshot16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+static const struct SpriteSheet sSpriteSheet_MugshotPilar =
+{
+    .data = sMugshotPilarGfx,
+    .size = 128,
+    .tag = TAG_MUGSHOT_PILAR,
+};
+static const struct SpritePalette sSpritePalette_MugshotPilar =
+{
+    .data = gObjectEventPal_ScientistF_hns,
+    .tag = TAG_MUGSHOT_PILAR,
+};
+static const struct SpriteTemplate sSpriteTemplate_MugshotPilar =
+{
+    .tileTag = TAG_MUGSHOT_PILAR,
+    .paletteTag = TAG_MUGSHOT_PILAR,
+    .oam = &sOamData_Mugshot16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 static void WindowFunc_DrawNamebox(u32, u32, u32, u32, u32, u32, u32);
 static void WindowFunc_ClearNamebox(u8, u8, u8, u8, u8, u8);
 
@@ -309,6 +359,20 @@ void TrySpawnNamebox(u32 tileNum)
             palette = &sSpritePalette_MugshotRival;
             templatePtr = &sSpriteTemplate_MugshotRival;
             tag = TAG_MUGSHOT_RIVAL;
+        }
+        else if (StringCompare(strbuf, COMPOUND_STRING("JOSE")) == 0)
+        {
+            sheet = &sSpriteSheet_MugshotJose;
+            palette = &sSpritePalette_MugshotJose;
+            templatePtr = &sSpriteTemplate_MugshotJose;
+            tag = TAG_MUGSHOT_JOSE;
+        }
+        else if (StringCompare(strbuf, COMPOUND_STRING("PILAR")) == 0)
+        {
+            sheet = &sSpriteSheet_MugshotPilar;
+            palette = &sSpritePalette_MugshotPilar;
+            templatePtr = &sSpriteTemplate_MugshotPilar;
+            tag = TAG_MUGSHOT_PILAR;
         }
 
         if (sheet != NULL)

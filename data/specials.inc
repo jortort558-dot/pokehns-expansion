@@ -742,3 +742,5 @@ gSpecials::
 	def_special UseGiftMonTrade
 	def_special CheckPlayerHasKenyaOrMail
 	def_special TakeDeliveredMail
+	def_special CheckGymTrainersDefeated
+	def_special CheckRouteTrainersDefeated

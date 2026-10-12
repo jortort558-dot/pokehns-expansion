@@ -17,6 +17,7 @@
 #include "event_data.h"
 #include "gym_tokens.h"
 #include "nuzlocke.h"
+#include "randomizer.h"
 
 static u16 CalculateChecksum(void *, u16);
 static bool8 ReadFlashSector(u8, struct SaveSector *);
@@ -1039,6 +1040,12 @@ u8 LoadGameSave(u8 saveType)
         // This bit was padding before the PokemitosCup mode existed.
         gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup = FALSE;
         gSaveBlock1Ptr->saveVersion = 11;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 12)
+    {
+        if (gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup)
+            gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerMegas = TRAINER_MEGAS_STORY;
+        gSaveBlock1Ptr->saveVersion = 12;
     }
 
     // Add version migration steps here:

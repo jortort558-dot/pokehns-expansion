@@ -75,6 +75,9 @@ MahoganyTown_Gym_EventScript_Pryce::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, MahoganyTown_Gym_EventScript_Pryce_Defeated
+	setvar VAR_0x8008, 7
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, MahoganyTown_Gym_EventScript_Pryce_NotReady
 	msgbox MahoganyTown_Gym_Text_PryceIntro, MSGBOX_DEFAULT
 	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, MahoganyTown_Gym_EventScript_OlivineCheckCianwood
 	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM, MahoganyTown_Gym_EventScript_CianwoodCheckOlivine
@@ -131,6 +134,18 @@ MahoganyTown_Gym_EventScript_Pryce_Defeated::
 	closemessage
 	release
 	end
+
+MahoganyTown_Gym_EventScript_Pryce_NotReady::
+	msgbox MahoganyTown_Gym_Text_Pryce_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_Gym_Text_Pryce_NotReady:
+	.string "¡El hielo no cede a medias!\p"
+	.string "Supera a todos mis esquiadores\n"
+	.string "en la pista antes de retar al\l"
+	.string "maestro del invierno.$"
+
 
 MahoganyTown_Gym_Text_PryceIntro:
 	.string "Los POKéMON viven muchas cosas,\nigual que nosotros.\pYo también he visto y sufrido\nmucho en mi vida.\pComo soy tu mayor, déjame enseñarte\na qué me refiero.\pLlevo con los POKéMON desde antes\nde que tú nacieras.\pNo pierdo con facilidad.\p¡Yo, FREDO, maestro del invierno,\nte mostraré mi poder!$"

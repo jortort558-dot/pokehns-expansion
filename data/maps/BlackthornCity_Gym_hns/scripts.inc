@@ -213,6 +213,9 @@ BlackthornGym_EventScript_Clair::
 	goto_if_set FLAG_IS_CHAMPION, BlackthornGym_EventScript_ClairAfterLeague
 	goto_if_ge VAR_BLACKTHORN_CITY_STATE, 4, BlackthornGym_EventScript_Clair_Defeated
 	goto_if_eq VAR_BLACKTHORN_CITY_STATE, 2, BlackthornGym_EventScript_ClairDuringChallenge
+	setvar VAR_0x8008, 8
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, BlackthornGym_EventScript_Clair_NotReady
 	msgbox BlackthornGym_Text_ClairIntroText, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_CLAIR_1_HNS, BlackthornGym_Text_ClairWinText
 	msgbox BlackthornGym_Text_ClairText_GoToDragonsDen, MSGBOX_DEFAULT
@@ -229,6 +232,19 @@ BlackthornGym_EventScript_ClairDuringChallenge::
 	closemessage
 	release
 	end
+
+BlackthornGym_EventScript_Clair_NotReady::
+	msgbox BlackthornGym_Text_Clair_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+BlackthornGym_Text_Clair_NotReady:
+	.string "¿Desafiar a una domadora de mi\n"
+	.string "calibre sin superar antes a\l"
+	.string "mis aprendices de élite?\p"
+	.string "¡Demuestra primero tu valía\n"
+	.string "contra todos en el GIMNASIO!$"
+
 
 BlackthornGym_EventScript_Clair_Defeated::
 	msgbox BlackthornGym_Text_ClairText_League, MSGBOX_DEFAULT

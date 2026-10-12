@@ -98,6 +98,11 @@ Route38_EventScript_Item_LaxIncense::
 	finditem ITEM_LAX_INCENSE
 	end
 
+Route38_EventScript_Researchers::
+	setvar VAR_0x8004, 38
+	goto Common_EventScript_Researchers_Interact
+
+
 Route38_Text_BirdKeeperTobySeen:
 	.string "¡Vuela bien alto hacia el cielo,\n"
 	.string "mi querido POKéMON pájaro!$"

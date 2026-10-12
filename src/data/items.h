@@ -17820,6 +17820,27 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_FreshWater,
         .iconPalette = gItemIconPalette_SodaPop,
     },
+
+    [ITEM_TUFILLO_JUNIOR] =
+    {
+        .name = ITEM_NAME("TUFILLO JUNIOR"),
+        .pluralName = ITEM_PLURAL_NAME("TUFILLOS JUNIOR"),
+        .price = 0,
+        .holdEffectParam = 250,
+        .description = COMPOUND_STRING(
+            "Colonia especial de Jose y\n"
+            "Pilar. Desprende aroma de\n"
+            "novato que atrae Pokémon\n"
+            "raros y variocolor."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_FIELD_USE,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Lure,
+        .secondaryId = 0,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Lure,
+        .iconPalette = gItemIconPalette_SuperLure,
+    },
 };
 
 #undef ITEM_NAME

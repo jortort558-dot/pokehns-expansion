@@ -405,5 +405,5 @@ void DoTrainerPartyPool(const struct Trainer *trainer, u32 *monIndices, u8 monsC
 
         if (!usingPool)
             for (u32 i = 0; i < monsCount; i++)
-                monIndices[i] = i;
+                monIndices[i] = (trainer->partySize > 0) ? (i % trainer->partySize) : 0;
 }

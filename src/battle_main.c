@@ -2060,6 +2060,12 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         else
         {
             monsCount = trainer->partySize;
+            if (FlagGet(FLAG_HIDE_GOLDENROD_ROCKETS)
+             && !(battleTypeFlags & BATTLE_TYPE_DOUBLE)
+             && monsCount < 3)
+            {
+                monsCount = 3;
+            }
         }
 
         u32 monIndices[monsCount];
@@ -2101,6 +2107,8 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         for (i = 0; i < monsCount; i++)
         {
             u32 monIndex = monIndices[i];
+            if (trainer->partySize > 0 && monIndex >= trainer->partySize)
+                monIndex = i % trainer->partySize;
             u8 monLevel = partyData[monIndex].lvl;
             if (canScale)
             {

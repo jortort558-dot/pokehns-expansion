@@ -9,6 +9,11 @@ CianwoodCity_RemoveEusine::
 	setflag FLAG_HIDE_CIANWOOD_EUSINE
 	end
 
+CianwoodCity_EventScript_ResearchersRoute41::
+	setvar VAR_0x8004, 41
+	goto Common_EventScript_Researchers_Interact
+
+
 CianwoodCity_OnFrame::
 	map_script_2 VAR_GETFLY, 1, CianwoodCity_EventScript_Flytrigger
 	.2byte 0

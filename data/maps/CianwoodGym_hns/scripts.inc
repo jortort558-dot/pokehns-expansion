@@ -36,6 +36,9 @@ CianwoodGym_EventScript_Chuck::
 	goto_if_unset FLAG_HIDE_DOJO_CHUCK, CianwoodGym_EventScript_ChuckAtDojo
 	goto_if_set FLAG_VISITED_VERMILION_CITY, CianwoodGym_EventScript_ChuckGotoDojo
 	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM, CianwoodGym_EventScript_Chuck_Defeated
+	setvar VAR_0x8008, 5
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, CianwoodGym_EventScript_Chuck_NotReady
 	msgbox CianwoodGym_Text_ChuckIntro1, MSGBOX_DEFAULT
 	applymovement LOCALID_CIANWOOD_CHUCK, CianwoodGym_Movement_ChuckLeft
 	waitmovement 0
@@ -122,6 +125,20 @@ CianwoodGym_EventScript_Chuck_Defeated::
 	closemessage
 	release
 	end
+
+CianwoodGym_EventScript_Chuck_NotReady::
+	msgbox CianwoodGym_Text_Chuck_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodGym_Text_Chuck_NotReady:
+	.string "¡JA, JA! ¿Quieres medir tus\n"
+	.string "puños conmigo tan rápido?\p"
+	.string "¡Mis alumnos del dojo aún\n"
+	.string "tienen fuerzas de sobra!\p"
+	.string "¡Túmbalos a todos primero si\n"
+	.string "quieres que te tome en serio!$"
+
 
 CianwoodGym_Movement_ChuckLeft:
 	jump_in_place_left
