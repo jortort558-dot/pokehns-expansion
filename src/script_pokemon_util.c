@@ -873,7 +873,7 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     {
         Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
         origin = GIFTMON_ORIGIN;
-        if (IsNuzlockeActive() || IsNuzlockeEasyActive() || RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
+        if (FlagGet(FLAG_SYS_POKEMON_GET) && (IsNuzlockeActive() || IsNuzlockeEasyActive() || RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON)))
             species = GetRandomSpeciesSimilarBst(species);
     }
     else

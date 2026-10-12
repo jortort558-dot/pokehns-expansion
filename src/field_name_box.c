@@ -60,7 +60,7 @@ static const struct OamData sOamData_Mugshot16x16 =
     .matrixNum = 0,
     .size = SPRITE_SIZE(16x16),
     .tileNum = 0,
-    .priority = 0,
+    .priority = 1,
     .paletteNum = 0,
     .affineParam = 0,
 };
@@ -316,7 +316,7 @@ void TrySpawnNamebox(u32 tileNum)
             LoadSpriteSheet(sheet);
             LoadSpritePalette(palette);
             // Position above namebox: X=24 (aligns with left of box), Y=96 (16px above namebox top)
-            sMugshotSpriteId = CreateSprite(templatePtr, 24, 96, 0);
+            sMugshotSpriteId = CreateSprite(templatePtr, 24, 96, 10);
             sActiveMugshotTag = tag;
         }
     }
