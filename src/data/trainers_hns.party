@@ -7444,34 +7444,43 @@ Pic: Leader Morty Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Purple
-Items: Super Potion / Super Potion
+Items: Full Restore / Full Restore
 
-Haunter
+Haunter @ Spell Tag
 Ability: Levitate
 Level: 24
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Hypnosis
-- Nightmare
-- Curse
 - Night Shade
+- Curse
+- Shadow Ball
 
-Stantler
+Stantler @ Oran Berry
 Level: 23
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Swift
 - Hypnosis
 - Nightmare
-- Leer
+- Confuse Ray
+- Headbutt
 
-Misdreavus
+Misdreavus @ Twisted Spoon
 Level: 24
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Shadow Ball
+- Confuse Ray
 - Pain Split
 - Perish Song
-- Psywave
+
+Drifblim @ Sitrus Berry
+Ability: Aftermath
+Level: 24
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Astonish
+- Hypnosis
+- Ominous Wind
+- Baton Pass
 
 Gengar @ Sitrus Berry
 Ability: Levitate
@@ -7550,41 +7559,49 @@ Pic: Leader Pryce Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Light Blue
-Items: Super Potion / Super Potion
+Items: Full Restore / Full Restore
 
-Dewgong
+Dewgong @ Mystic Water
 Level: 31
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Aqua Ring
 - Aurora Beam
-- Rain Dance
-- Aqua Jet
+- Ice Beam
+- Rest
 
-Sneasel
+Sneasel @ Never-Melt Ice
 Level: 32
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Faint Attack
-- Metal Claw
 - Hone Claws
+- Ice Punch
 - Avalanche
 
-Jynx
+Jynx @ Twisted Spoon
 Level: 31
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Ice Punch
 - Psychic
-- Rain Dance
 - Lovely Kiss
+- Calm Mind
+
+Sealeo @ Chesto Berry
+Level: 32
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Surf
+- Ice Ball
+- Aurora Beam
+- Rest
 
 Piloswine @ Sitrus Berry
 Level: 33
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Headbutt
 - Earthquake
 - Ancient Power
 - Ice Fang
+- Headbutt
 
 === TRAINER_PRYCE_2_HNS ===
 Name: FREDO
@@ -7652,7 +7669,7 @@ Pic: Leader Pryce Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Light Blue
 Items: Full Restore / Full Restore
 
@@ -7703,7 +7720,7 @@ Pic: Leader Pryce Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Light Blue
 Items: Full Restore / Full Restore
 
@@ -7754,19 +7771,19 @@ Pic: Leader Jasmine Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Yellow
-Items: Super Potion / Super Potion
+Items: Full Restore / Full Restore
 
-Skarmory
+Skarmory @ Lum Berry
 Level: 35
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Spikes
+- Stealth Rock
 - Drill Peck
 - Swagger
 - Steel Wing
 
-Corsola
+Corsola @ Sitrus Berry
 Level: 35
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Rain Dance
@@ -7774,19 +7791,27 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Recover
 - Ancient Power
 
-Magneton
+Magneton @ Magnet
 Level: 35
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Thunderbolt
-- Tri Attack
+- Flash Cannon
 - Rain Dance
 - Thunder
+
+Bronzor @ Oran Berry
+Level: 35
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Gyro Ball
+- Confuse Ray
+- Iron Defense
+- Psychic
 
 Scizor @ Focus Band
 Level: 36
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Bullet Punch
-- Metal Claw
+- X Scissor
 - Agility
 - Swords Dance
 
@@ -7864,7 +7889,7 @@ Pic: Leader Jasmine Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Yellow
 Items: Full Restore / Full Restore
 
@@ -7915,7 +7940,7 @@ Pic: Leader Jasmine Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Yellow
 Items: Full Restore / Full Restore
 
@@ -7966,40 +7991,48 @@ Pic: Leader Chuck Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Orange
-Items: Super Potion / Super Potion
+Items: Full Restore / Full Restore
 
-Hitmontop
+Hitmontop @ Sitrus Berry
 Level: 30
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Triple Kick
 - Rolling Kick
-- Dig
+- Mach Punch
 - Pursuit
 
-Primeape
+Primeape @ Lum Berry
 Level: 29
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Low Kick
 - Karate Chop
 - Ice Punch
-- Rage
+- U Turn
 
-Sudowoodo
+Sudowoodo @ Hard Stone
 Level: 30
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Rock Slide
 - Wood Hammer
 - Low Kick
-- Faint Attack
+- Sucker Punch
+
+Hariyama @ Chesto Berry
+Level: 30
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Fake Out
+- Force Palm
+- Bulk Up
+- Rest
 
 Poliwrath @ Black Belt
 Level: 31
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Hypnosis
 - Mind Reader
-- Surf
+- Waterfall
 - Dynamic Punch
 
 === TRAINER_CHUCK_2_HNS ===
@@ -8068,7 +8101,7 @@ Pic: Leader Chuck Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Orange
 Items: Full Restore / Full Restore
 
@@ -8119,7 +8152,7 @@ Pic: Leader Chuck Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Orange
 Items: Full Restore / Full Restore
 
@@ -8170,49 +8203,57 @@ Pic: Leader Clair Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Ace Pokemon
 Mugshot: Blue
 Items: Full Restore / Full Restore
 
-Dragonair
+Dragonair @ Lum Berry
 Level: 42
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Thunder Wave
-- Thunderbolt
-- Flamethrower
-- Dragon Tail
+- Extreme Speed
+- Dragon Dance
+- Aqua Tail
 
 Gyarados @ Focus Band
 Level: 43
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Bite
+- Dragon Dance
 - Waterfall
-- Fly
 - Ice Fang
+- Crunch
 
 Lapras @ Chesto Berry
 Level: 43
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Brine
 - Ice Beam
 - Body Slam
+- Thunderbolt
 - Rest
 
 Dudunsparce @ Sitrus Berry
 Level: 44
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Glare
+- Hyper Drill
 - Ancient Power
-- Rest
 - Poison Jab
+
+Shelgon @ Dragon Scale
+Level: 44
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dragon Claw
+- Zen Headbutt
+- Protect
+- Dragon Dance
 
 Kingdra @ Leftovers
 Level: 45
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Agility
+- Dragon Dance
 - Surf
-- Hyper Beam
 - Dragon Pulse
+- Ice Beam
 
 === TRAINER_CLAIR_2_HNS ===
 Name: DÉBORA
