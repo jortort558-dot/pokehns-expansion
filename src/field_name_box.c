@@ -21,15 +21,32 @@
 #include "decompress.h"
 
 #define TAG_MUGSHOT_METACABALLERO 0xF431
+#define TAG_MUGSHOT_BATEMAGICO    0xF432
+#define TAG_MUGSHOT_MANOLIN       0xF433
+#define TAG_MUGSHOT_EL_PIEDRAS    0xF434
+#define TAG_MUGSHOT_YAMI          0xF435
+#define TAG_MUGSHOT_RIVAL         0xF436
 
 static EWRAM_INIT u8 sNameboxWindowId = WINDOW_NONE;
 static EWRAM_INIT u8 sMugshotSpriteId = 0xFF;
+static EWRAM_INIT u16 sActiveMugshotTag = TAG_NONE;
 EWRAM_DATA const u8 *gSpeakerName = NULL;
 
 static const u32 sNameBoxDefaultGfx[] = INCBIN_U32("graphics/text_window/name_box.4bpp");
 static const u32 sNameBoxPokenavGfx[] = INCBIN_U32("graphics/pokenav/name_box.4bpp");
 static const u32 sMugshotMetacaballeroGfx[] = INCBIN_U32("graphics/text_window/mugshot_metacaballero.4bpp");
+static const u32 sMugshotBatemagicoGfx[]    = INCBIN_U32("graphics/text_window/mugshot_batemagico.4bpp");
+static const u32 sMugshotManolinGfx[]       = INCBIN_U32("graphics/text_window/mugshot_manolin.4bpp");
+static const u32 sMugshotElPiedrasGfx[]     = INCBIN_U32("graphics/text_window/mugshot_elpiedras.4bpp");
+static const u32 sMugshotYamiGfx[]          = INCBIN_U32("graphics/text_window/mugshot_yami.4bpp");
+static const u32 sMugshotRivalGfx[]         = INCBIN_U32("graphics/text_window/mugshot_rival.4bpp");
+
 extern const u16 gObjectEventPal_Npc1_hns[];
+extern const u16 gObjectEventPal_Npc2_hns[];
+extern const u16 gObjectEventPal_Npc2[];
+extern const u16 gObjectEventPal_Npc3[];
+extern const u16 gObjectEventPal_Npc3_hns[];
+extern const u16 gObjectEventPal_Silver_hns[];
 
 static const struct OamData sOamData_Mugshot16x16 =
 {
@@ -54,17 +71,125 @@ static const struct SpriteSheet sSpriteSheet_MugshotMetacaballero =
     .size = 128,
     .tag = TAG_MUGSHOT_METACABALLERO,
 };
-
 static const struct SpritePalette sSpritePalette_MugshotMetacaballero =
 {
     .data = gObjectEventPal_Npc1_hns,
     .tag = TAG_MUGSHOT_METACABALLERO,
 };
-
 static const struct SpriteTemplate sSpriteTemplate_MugshotMetacaballero =
 {
     .tileTag = TAG_MUGSHOT_METACABALLERO,
     .paletteTag = TAG_MUGSHOT_METACABALLERO,
+    .oam = &sOamData_Mugshot16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+static const struct SpriteSheet sSpriteSheet_MugshotBatemagico =
+{
+    .data = sMugshotBatemagicoGfx,
+    .size = 128,
+    .tag = TAG_MUGSHOT_BATEMAGICO,
+};
+static const struct SpritePalette sSpritePalette_MugshotBatemagico =
+{
+    .data = gObjectEventPal_Npc2_hns,
+    .tag = TAG_MUGSHOT_BATEMAGICO,
+};
+static const struct SpriteTemplate sSpriteTemplate_MugshotBatemagico =
+{
+    .tileTag = TAG_MUGSHOT_BATEMAGICO,
+    .paletteTag = TAG_MUGSHOT_BATEMAGICO,
+    .oam = &sOamData_Mugshot16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+static const struct SpriteSheet sSpriteSheet_MugshotManolin =
+{
+    .data = sMugshotManolinGfx,
+    .size = 128,
+    .tag = TAG_MUGSHOT_MANOLIN,
+};
+static const struct SpritePalette sSpritePalette_MugshotManolin =
+{
+    .data = gObjectEventPal_Npc3,
+    .tag = TAG_MUGSHOT_MANOLIN,
+};
+static const struct SpriteTemplate sSpriteTemplate_MugshotManolin =
+{
+    .tileTag = TAG_MUGSHOT_MANOLIN,
+    .paletteTag = TAG_MUGSHOT_MANOLIN,
+    .oam = &sOamData_Mugshot16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+static const struct SpriteSheet sSpriteSheet_MugshotElPiedras =
+{
+    .data = sMugshotElPiedrasGfx,
+    .size = 128,
+    .tag = TAG_MUGSHOT_EL_PIEDRAS,
+};
+static const struct SpritePalette sSpritePalette_MugshotElPiedras =
+{
+    .data = gObjectEventPal_Npc2,
+    .tag = TAG_MUGSHOT_EL_PIEDRAS,
+};
+static const struct SpriteTemplate sSpriteTemplate_MugshotElPiedras =
+{
+    .tileTag = TAG_MUGSHOT_EL_PIEDRAS,
+    .paletteTag = TAG_MUGSHOT_EL_PIEDRAS,
+    .oam = &sOamData_Mugshot16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+static const struct SpriteSheet sSpriteSheet_MugshotYami =
+{
+    .data = sMugshotYamiGfx,
+    .size = 128,
+    .tag = TAG_MUGSHOT_YAMI,
+};
+static const struct SpritePalette sSpritePalette_MugshotYami =
+{
+    .data = gObjectEventPal_Npc3_hns,
+    .tag = TAG_MUGSHOT_YAMI,
+};
+static const struct SpriteTemplate sSpriteTemplate_MugshotYami =
+{
+    .tileTag = TAG_MUGSHOT_YAMI,
+    .paletteTag = TAG_MUGSHOT_YAMI,
+    .oam = &sOamData_Mugshot16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+static const struct SpriteSheet sSpriteSheet_MugshotRival =
+{
+    .data = sMugshotRivalGfx,
+    .size = 128,
+    .tag = TAG_MUGSHOT_RIVAL,
+};
+static const struct SpritePalette sSpritePalette_MugshotRival =
+{
+    .data = gObjectEventPal_Silver_hns,
+    .tag = TAG_MUGSHOT_RIVAL,
+};
+static const struct SpriteTemplate sSpriteTemplate_MugshotRival =
+{
+    .tileTag = TAG_MUGSHOT_RIVAL,
+    .paletteTag = TAG_MUGSHOT_RIVAL,
     .oam = &sOamData_Mugshot16x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -135,15 +260,64 @@ void TrySpawnNamebox(u32 tileNum)
     RestoreTextColors(savedTextColors);
     PutWindowTilemap(sNameboxWindowId);
 
-    // If speaker is METACABALLERO, spawn mugshot sprite above namebox
-    if (StringCompare(strbuf, COMPOUND_STRING("METACABALLERO")) == 0)
+    // Spawn mugshot sprite above namebox for special characters
+    if (sMugshotSpriteId == 0xFF)
     {
-        if (sMugshotSpriteId == 0xFF)
+        const struct SpriteSheet *sheet = NULL;
+        const struct SpritePalette *palette = NULL;
+        const struct SpriteTemplate *templatePtr = NULL;
+        u16 tag = TAG_NONE;
+
+        if (StringCompare(strbuf, COMPOUND_STRING("METACABALLERO")) == 0)
         {
-            LoadSpriteSheet(&sSpriteSheet_MugshotMetacaballero);
-            LoadSpritePalette(&sSpritePalette_MugshotMetacaballero);
+            sheet = &sSpriteSheet_MugshotMetacaballero;
+            palette = &sSpritePalette_MugshotMetacaballero;
+            templatePtr = &sSpriteTemplate_MugshotMetacaballero;
+            tag = TAG_MUGSHOT_METACABALLERO;
+        }
+        else if (StringCompare(strbuf, COMPOUND_STRING("BATEMÁGICO")) == 0)
+        {
+            sheet = &sSpriteSheet_MugshotBatemagico;
+            palette = &sSpritePalette_MugshotBatemagico;
+            templatePtr = &sSpriteTemplate_MugshotBatemagico;
+            tag = TAG_MUGSHOT_BATEMAGICO;
+        }
+        else if (StringCompare(strbuf, COMPOUND_STRING("MANOLÍN")) == 0)
+        {
+            sheet = &sSpriteSheet_MugshotManolin;
+            palette = &sSpritePalette_MugshotManolin;
+            templatePtr = &sSpriteTemplate_MugshotManolin;
+            tag = TAG_MUGSHOT_MANOLIN;
+        }
+        else if (StringCompare(strbuf, COMPOUND_STRING("EL PIEDRAS")) == 0)
+        {
+            sheet = &sSpriteSheet_MugshotElPiedras;
+            palette = &sSpritePalette_MugshotElPiedras;
+            templatePtr = &sSpriteTemplate_MugshotElPiedras;
+            tag = TAG_MUGSHOT_EL_PIEDRAS;
+        }
+        else if (StringCompare(strbuf, COMPOUND_STRING("YAMI")) == 0)
+        {
+            sheet = &sSpriteSheet_MugshotYami;
+            palette = &sSpritePalette_MugshotYami;
+            templatePtr = &sSpriteTemplate_MugshotYami;
+            tag = TAG_MUGSHOT_YAMI;
+        }
+        else if (StringCompare(strbuf, gSaveBlock2Ptr->rivalName) == 0)
+        {
+            sheet = &sSpriteSheet_MugshotRival;
+            palette = &sSpritePalette_MugshotRival;
+            templatePtr = &sSpriteTemplate_MugshotRival;
+            tag = TAG_MUGSHOT_RIVAL;
+        }
+
+        if (sheet != NULL)
+        {
+            LoadSpriteSheet(sheet);
+            LoadSpritePalette(palette);
             // Position above namebox: X=24 (aligns with left of box), Y=96 (16px above namebox top)
-            sMugshotSpriteId = CreateSprite(&sSpriteTemplate_MugshotMetacaballero, 24, 96, 0);
+            sMugshotSpriteId = CreateSprite(templatePtr, 24, 96, 0);
+            sActiveMugshotTag = tag;
         }
     }
 
@@ -155,28 +329,31 @@ u32 GetNameboxWindowId(void)
     return sNameboxWindowId;
 }
 
-void ResetNameboxData(void)
+static void FreeActiveMugshot(void)
 {
     if (sMugshotSpriteId != 0xFF)
     {
         DestroySprite(&gSprites[sMugshotSpriteId]);
-        FreeSpriteTilesByTag(TAG_MUGSHOT_METACABALLERO);
-        FreeSpritePaletteByTag(TAG_MUGSHOT_METACABALLERO);
+        if (sActiveMugshotTag != TAG_NONE)
+        {
+            FreeSpriteTilesByTag(sActiveMugshotTag);
+            FreeSpritePaletteByTag(sActiveMugshotTag);
+            sActiveMugshotTag = TAG_NONE;
+        }
         sMugshotSpriteId = 0xFF;
     }
+}
+
+void ResetNameboxData(void)
+{
+    FreeActiveMugshot();
     sNameboxWindowId = WINDOW_NONE;
     gSpeakerName = NULL;
 }
 
 void DestroyNamebox(void)
 {
-    if (sMugshotSpriteId != 0xFF)
-    {
-        DestroySprite(&gSprites[sMugshotSpriteId]);
-        FreeSpriteTilesByTag(TAG_MUGSHOT_METACABALLERO);
-        FreeSpritePaletteByTag(TAG_MUGSHOT_METACABALLERO);
-        sMugshotSpriteId = 0xFF;
-    }
+    FreeActiveMugshot();
 
     if (sNameboxWindowId == WINDOW_NONE)
         return;

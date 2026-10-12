@@ -135,11 +135,11 @@ GoldenrodDeptStore_Text_5FDirectory:
 GoldenrodDeptStore5_EventScript_ElPiedras::
 	lock
 	faceplayer
-	setspeaker Mart_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox Mart_Text_ElPiedrasInStore, MSGBOX_DEFAULT
 	special CreateElPiedrasMegaShop
 	waitstate
-	setspeaker Mart_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox Mart_Text_ElPiedrasFarewell, MSGBOX_DEFAULT
 	release
 	end

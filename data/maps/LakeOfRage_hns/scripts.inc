@@ -242,7 +242,7 @@ LakeOfRage_Text_SilverNoRoom:
 LakeOfRage_EventScript_ElPiedras::
 	lock
 	faceplayer
-	setspeaker LakeOfRage_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox LakeOfRage_Text_ElPiedras, MSGBOX_DEFAULT
 	setflag FLAG_TALKED_EL_PIEDRAS_LAKE_OF_RAGE
 	closemessage

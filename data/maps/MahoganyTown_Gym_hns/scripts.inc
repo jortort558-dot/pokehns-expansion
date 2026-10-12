@@ -34,12 +34,14 @@ MahoganyTown_GymEventScript_GymGuy::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_MAHOGANY_TOWN_GYM, MahoganyTown_Gym_EventScript_GymGuy2
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox MahoganyTown_Gym_Text_Guide, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 	
 MahoganyTown_Gym_EventScript_GymGuy2::
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox MahoganyTown_Gym_Text_GuideWin, MSGBOX_DEFAULT
 	release
 	end	
@@ -185,17 +187,21 @@ MahoganyTown_Gym_EventScript_Manolin::
 	lock
 	faceplayer
 	goto_if_set FLAG_MANOLIN_ITEM_CAOBA, MahoganyTown_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox MahoganyTown_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
 	goto_if_set FLAG_MANOLIN_HEAL_CAOBA, MahoganyTown_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox MahoganyTown_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
 	special HealPlayerParty
 	playfanfare MUS_HEAL
 	waitfanfare
 	giveitem ITEM_MAX_POTION
 	setflag FLAG_MANOLIN_HEAL_CAOBA
+	setspeaker SP_NAME_MANOLIN
 	msgbox MahoganyTown_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
 
 MahoganyTown_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox MahoganyTown_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_MANOLIN_CAOBA, FALSE
 	switch VAR_RESULT
@@ -208,6 +214,7 @@ MahoganyTown_Gym_EventScript_Manolin_GiveLeftovers::
 	giveitem ITEM_LEFTOVERS
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_CAOBA
+	setspeaker SP_NAME_MANOLIN
 	msgbox MahoganyTown_Gym_Text_Manolin_LeftoversExplain, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -217,18 +224,21 @@ MahoganyTown_Gym_EventScript_Manolin_GiveChoiceScarf::
 	giveitem ITEM_CHOICE_SCARF
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_CAOBA
+	setspeaker SP_NAME_MANOLIN
 	msgbox MahoganyTown_Gym_Text_Manolin_ChoiceScarfExplain, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 MahoganyTown_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
 	msgbox MahoganyTown_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 MahoganyTown_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox MahoganyTown_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
 	closemessage
 	release

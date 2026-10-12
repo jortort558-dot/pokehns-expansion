@@ -646,7 +646,7 @@ SetTimeEncounters::
 
 EventScript_MetacaballeroBadge5Call::
 	lockall
-	setspeaker Metacaballero_Text_CallerName
+	setspeaker SP_NAME_METACABALLERO
 	pokenavcall Metacaballero_Text_Badge5PokegearCall
 	waitmessage
 	delay 30
@@ -672,7 +672,7 @@ Metacaballero_Text_Badge5PokegearCall:
 
 EventScript_YamiBadge6Call::
 	lockall
-	setspeaker Yami_Text_CallerName
+	setspeaker SP_NAME_YAMI
 	pokenavcall Yami_Text_Badge6PokegearCall
 	waitmessage
 	delay 30

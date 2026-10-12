@@ -381,6 +381,7 @@ BlackthornGym_EventScript_GymGuy::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_BLACKTHORN_GYM, BlackthornGym_EventScript_GymGuy2
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox BlackthornGym_Text_GuideText, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -388,11 +389,13 @@ BlackthornGym_EventScript_GymGuy::
 	
 BlackthornGym_EventScript_GymGuy2::
 	goto_if_set FLAG_BADGE08_GET, BlackthornGym_EventScript_GymGuy3
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox BlackthornGym_Text_GuideGotoDragonsDen, MSGBOX_DEFAULT
 	release
 	end
 
 BlackthornGym_EventScript_GymGuy3::
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox BlackthornGym_Text_GuideWinText, MSGBOX_DEFAULT
 	release
 	end	
@@ -450,17 +453,21 @@ BlackthornCity_Gym_EventScript_Manolin::
 	lock
 	faceplayer
 	goto_if_set FLAG_MANOLIN_ITEM_ENDRINO, BlackthornCity_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox BlackthornCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
 	goto_if_set FLAG_MANOLIN_HEAL_ENDRINO, BlackthornCity_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox BlackthornCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
 	special HealPlayerParty
 	playfanfare MUS_HEAL
 	waitfanfare
 	giveitem ITEM_FULL_RESTORE
 	setflag FLAG_MANOLIN_HEAL_ENDRINO
+	setspeaker SP_NAME_MANOLIN
 	msgbox BlackthornCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
 
 BlackthornCity_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox BlackthornCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_MANOLIN_ENDRINO, FALSE
 	switch VAR_RESULT
@@ -473,6 +480,7 @@ BlackthornCity_Gym_EventScript_Manolin_GiveChoiceSpecs::
 	giveitem ITEM_CHOICE_SPECS
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_ENDRINO
+	setspeaker SP_NAME_MANOLIN
 	msgbox BlackthornCity_Gym_Text_Manolin_ChoiceSpecsExplain, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -482,18 +490,21 @@ BlackthornCity_Gym_EventScript_Manolin_GiveAssaultVest::
 	giveitem ITEM_ASSAULT_VEST
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_ENDRINO
+	setspeaker SP_NAME_MANOLIN
 	msgbox BlackthornCity_Gym_Text_Manolin_AssaultVestExplain, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 BlackthornCity_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
 	msgbox BlackthornCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 BlackthornCity_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox BlackthornCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
 	closemessage
 	release

@@ -1,11 +1,11 @@
 Common_EventScript_ElPiedrasMart::
 	lock
 	faceplayer
-	setspeaker Common_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox Common_Text_ElPiedrasMartIntro, MSGBOX_DEFAULT
 	special CreateElPiedrasMegaShop
 	waitstate
-	setspeaker Common_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox Common_Text_ElPiedrasMartFarewell, MSGBOX_DEFAULT
 	release
 	end

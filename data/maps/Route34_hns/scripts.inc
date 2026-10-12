@@ -287,7 +287,7 @@ Route34_Text_Sign_DayCare:
 Route34_EventScript_Yami::
 	lock
 	faceplayer
-	setspeaker Route34_Text_Yami_Name
+	setspeaker SP_NAME_YAMI
 	goto_if_set FLAG_YAMI_SUPER_TRAINING_UNLOCKED, Route34_EventScript_Yami_MenuPrincipal
 	goto_if_set FLAG_BADGE06_GET, Route34_EventScript_Yami_CheckBattle
 	msgbox Route34_Text_Yami_AunNoEstasListo, MSGBOX_NPC
@@ -295,25 +295,25 @@ Route34_EventScript_Yami::
 	end
 
 Route34_EventScript_Yami_CheckBattle::
-	setspeaker Route34_Text_Yami_Name
+	setspeaker SP_NAME_YAMI
 	msgbox Route34_Text_Yami_RetoIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Route34_EventScript_Yami_RechazaCombate
 	msgbox Route34_Text_Yami_EmpiezaCombate, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_YAMI_HNS, Route34_Text_Yami_Derrota
 	setflag FLAG_YAMI_SUPER_TRAINING_UNLOCKED
-	setspeaker Route34_Text_Yami_Name
+	setspeaker SP_NAME_YAMI
 	msgbox Route34_Text_Yami_VictoriaJugador, MSGBOX_DEFAULT
 	goto Route34_EventScript_Yami_MenuPrincipal
 	end
 
 Route34_EventScript_Yami_RechazaCombate::
-	setspeaker Route34_Text_Yami_Name
+	setspeaker SP_NAME_YAMI
 	msgbox Route34_Text_Yami_CuandoEstesListo, MSGBOX_NPC
 	release
 	end
 
 Route34_EventScript_Yami_MenuPrincipal::
-	setspeaker Route34_Text_Yami_Name
+	setspeaker SP_NAME_YAMI
 	message Route34_Text_Yami_MenuPrompt
 	waitmessage
 	multichoice 0, 0, MULTI_YAMI_TRAINING, FALSE

@@ -37,12 +37,14 @@ GoldenrodCity_Gym_EventScript_Gym_Guy::
 	lock
 	faceplayer
 	goto_if_set FLAG_BADGE03_GET, GoldenrodCity_Gym_EventScript_Gym_Guy_After
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox GoldenrodCity_Gym_Text_GymGuide, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 GoldenrodCity_Gym_EventScript_Gym_Guy_After::
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox GoldenrodCity_Gym_Text_GymGuideWin, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -270,17 +272,21 @@ GoldenrodCity_Gym_EventScript_Manolin::
 	lock
 	faceplayer
 	goto_if_set FLAG_MANOLIN_ITEM_TRIGAL, GoldenrodCity_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox GoldenrodCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
 	goto_if_set FLAG_MANOLIN_HEAL_TRIGAL, GoldenrodCity_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox GoldenrodCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
 	special HealPlayerParty
 	playfanfare MUS_HEAL
 	waitfanfare
 	giveitem ITEM_SUPER_POTION
 	setflag FLAG_MANOLIN_HEAL_TRIGAL
+	setspeaker SP_NAME_MANOLIN
 	msgbox GoldenrodCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
 
 GoldenrodCity_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox GoldenrodCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_MANOLIN_TRIGAL, FALSE
 	switch VAR_RESULT
@@ -293,6 +299,7 @@ GoldenrodCity_Gym_EventScript_Manolin_GiveFocusSash::
 	giveitem ITEM_FOCUS_SASH
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_TRIGAL
+	setspeaker SP_NAME_MANOLIN
 	msgbox GoldenrodCity_Gym_Text_Manolin_FocusSashExplain, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -302,18 +309,21 @@ GoldenrodCity_Gym_EventScript_Manolin_GiveRockyHelmet::
 	giveitem ITEM_ROCKY_HELMET
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_TRIGAL
+	setspeaker SP_NAME_MANOLIN
 	msgbox GoldenrodCity_Gym_Text_Manolin_RockyHelmetExplain, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 GoldenrodCity_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
 	msgbox GoldenrodCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 GoldenrodCity_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox GoldenrodCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
 	closemessage
 	release

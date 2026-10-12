@@ -109,7 +109,6 @@ NewBarkTown_EventScript_PokemitosMohenFan::
 NewBarkTown_EventScript_PokemitosBatemagicoFan::
 	lock
 	faceplayer
-	setspeaker NewBarkTown_Text_BatemagicoName
 	msgbox NewBarkTown_Text_PokemitosBatemagicoFan, MSGBOX_DEFAULT
 	release
 	end
@@ -309,9 +308,6 @@ NewBarkTown_Text_PokemitosMohenFan:
 	.string "sets, rutas… ¡Es una enciclopedia!\p"
 	.string "Pero me raya muchísimo que nunca\n"
 	.string "participe en nada. ¡Que se apunte!$"
-
-NewBarkTown_Text_BatemagicoName:
-	.string "BATEMÁGICO$"
 
 NewBarkTown_Text_PokemitosBatemagicoFan:
 	.string "¡BATEMÁGICO me metió en esto!\p"

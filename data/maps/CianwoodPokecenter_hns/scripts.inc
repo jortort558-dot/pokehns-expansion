@@ -50,12 +50,14 @@ CianwoodGym_EventScript_GymGuide::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_CIANWOOD_GYM, CianwoodGym_EventScript_GymGuideAfter
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox CianwoodCity_Text_GymGuide, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 CianwoodGym_EventScript_GymGuideAfter::
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox CianwoodCity_Text_GymGuideWin, MSGBOX_DEFAULT
 	closemessage
 	release

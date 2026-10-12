@@ -14,6 +14,7 @@ VioletCity_Gym_HideManolin::
 VioletCity_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
+	setspeaker SP_NAME_BATEMAGICO
 	goto_if_set FLAG_DEFEATED_VIOLET_GYM, VioletCity_Gym_EventScript_GymGuy2
 	msgbox VioletGym_Text_GymGuide_Intro, MSGBOX_DEFAULT
 	closemessage
@@ -21,6 +22,7 @@ VioletCity_Gym_EventScript_GymGuy::
 	end
 	
 VioletCity_Gym_EventScript_GymGuy2::
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox VioletGym_Text_GymGuide_Win, MSGBOX_DEFAULT
 	release
 	end	
@@ -198,18 +200,22 @@ VioletCity_Gym_Text_GymStatueCertified:
 VioletCity_Gym_EventScript_Manolin::
 	lock
 	faceplayer
+	setspeaker SP_NAME_MANOLIN
 	goto_if_set FLAG_MANOLIN_ITEM_MALVA, VioletCity_Gym_EventScript_Manolin_AfterItem
 	msgbox VioletCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
 	goto_if_set FLAG_MANOLIN_HEAL_MALVA, VioletCity_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox VioletCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
 	special HealPlayerParty
 	playfanfare MUS_HEAL
 	waitfanfare
 	giveitem ITEM_POTION
 	setflag FLAG_MANOLIN_HEAL_MALVA
+	setspeaker SP_NAME_MANOLIN
 	msgbox VioletCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
 
 VioletCity_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox VioletCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_MANOLIN_MALVA, FALSE
 	switch VAR_RESULT
@@ -222,6 +228,7 @@ VioletCity_Gym_EventScript_Manolin_GiveWideLens::
 	giveitem ITEM_WIDE_LENS
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_MALVA
+	setspeaker SP_NAME_MANOLIN
 	msgbox VioletCity_Gym_Text_Manolin_WideLensExplain, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -231,18 +238,21 @@ VioletCity_Gym_EventScript_Manolin_GiveBrightPowder::
 	giveitem ITEM_BRIGHT_POWDER
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_MALVA
+	setspeaker SP_NAME_MANOLIN
 	msgbox VioletCity_Gym_Text_Manolin_BrightPowderExplain, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 VioletCity_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
 	msgbox VioletCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 VioletCity_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox VioletCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
 	closemessage
 	release

@@ -15,12 +15,14 @@ EcruteakCity_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_ECRUTEAK_CITY_GYM, EcruteakCity_Gym_EventScript_GymGuy2
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox EcruteakCity_GymGuideText, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 	
 EcruteakCity_Gym_EventScript_GymGuy2::
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox EcruteakCity_GymGuideWinText, MSGBOX_DEFAULT
 	release
 	end	
@@ -231,17 +233,21 @@ EcruteakCity_Gym_EventScript_Manolin::
 	lock
 	faceplayer
 	goto_if_set FLAG_MANOLIN_ITEM_IRIS, EcruteakCity_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox EcruteakCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
 	goto_if_set FLAG_MANOLIN_HEAL_IRIS, EcruteakCity_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox EcruteakCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
 	special HealPlayerParty
 	playfanfare MUS_HEAL
 	waitfanfare
 	giveitem ITEM_HYPER_POTION
 	setflag FLAG_MANOLIN_HEAL_IRIS
+	setspeaker SP_NAME_MANOLIN
 	msgbox EcruteakCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
 
 EcruteakCity_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox EcruteakCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_MANOLIN_IRIS, FALSE
 	switch VAR_RESULT
@@ -254,6 +260,7 @@ EcruteakCity_Gym_EventScript_Manolin_GiveLumBerry::
 	giveitem ITEM_LUM_BERRY
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_IRIS
+	setspeaker SP_NAME_MANOLIN
 	msgbox EcruteakCity_Gym_Text_Manolin_LumBerryExplain, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -263,18 +270,21 @@ EcruteakCity_Gym_EventScript_Manolin_GiveScopeLens::
 	giveitem ITEM_SCOPE_LENS
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_IRIS
+	setspeaker SP_NAME_MANOLIN
 	msgbox EcruteakCity_Gym_Text_Manolin_ScopeLensExplain, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 EcruteakCity_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
 	msgbox EcruteakCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 EcruteakCity_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox EcruteakCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
 	closemessage
 	release

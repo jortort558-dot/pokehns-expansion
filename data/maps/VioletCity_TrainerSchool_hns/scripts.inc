@@ -201,7 +201,7 @@ VioletCity_TrainerSchool_Text_StickerMachine:
 VioletCity_TrainerSchool_EventScript_ElPiedras::
 	lock
 	faceplayer
-	setspeaker VioletCity_School_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox VioletCity_School_Text_ElPiedrasLecture, MSGBOX_DEFAULT
 	closemessage
 	release

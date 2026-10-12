@@ -232,7 +232,7 @@ GoldenrodDeptStore_Text_2FDirectory:
 GoldenrodDeptStore2_EventScript_ElPiedras::
 	lock
 	faceplayer
-	setspeaker GoldenrodCity_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	setflag FLAG_HIDE_VIOLET_SCHOOL_EL_PIEDRAS
 	goto_if_set FLAG_DEFEATED_EL_PIEDRAS_GOLDENROD, GoldenrodDeptStore2_EventScript_ElPiedrasAfter
 	goto_if_set FLAG_BOUGHT_USELESS_STONE, GoldenrodDeptStore2_EventScript_ElPiedrasAlreadyBought
@@ -249,13 +249,13 @@ GoldenrodDeptStore2_EventScript_ElPiedras::
 	giveitem ITEM_USELESS_STONE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_BOUGHT_USELESS_STONE
-	setspeaker GoldenrodCity_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox GoldenrodCity_Text_ElPiedrasBoughtStone, MSGBOX_DEFAULT
 	goto GoldenrodDeptStore2_EventScript_ElPiedrasStartBattle
 
 GoldenrodDeptStore2_EventScript_ElPiedrasNoMoney::
 	hidemoneybox
-	setspeaker GoldenrodCity_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox GoldenrodCity_Text_ElPiedrasNoMoney, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -263,7 +263,7 @@ GoldenrodDeptStore2_EventScript_ElPiedrasNoMoney::
 
 GoldenrodDeptStore2_EventScript_ElPiedrasDeclined::
 	hidemoneybox
-	setspeaker GoldenrodCity_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox GoldenrodCity_Text_ElPiedrasDeclined, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -273,7 +273,7 @@ GoldenrodDeptStore2_EventScript_ElPiedrasAlreadyBought::
 	goto GoldenrodDeptStore2_EventScript_ElPiedrasStartBattle
 
 GoldenrodDeptStore2_EventScript_ElPiedrasStartBattle::
-	setspeaker GoldenrodCity_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox GoldenrodCity_Text_ElPiedrasPreBattle, MSGBOX_DEFAULT
 	closemessage
 	playfanfare MUS_HEAL
@@ -281,7 +281,7 @@ GoldenrodDeptStore2_EventScript_ElPiedrasStartBattle::
 	special HealPlayerParty
 	trainerbattle_no_intro TRAINER_EL_PIEDRAS_HNS, GoldenrodCity_Text_ElPiedrasDefeat
 	setflag FLAG_DEFEATED_EL_PIEDRAS_GOLDENROD
-	setspeaker GoldenrodCity_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox GoldenrodCity_Text_ElPiedrasPostBattle, MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_TO_BLACK
@@ -292,7 +292,7 @@ GoldenrodDeptStore2_EventScript_ElPiedrasStartBattle::
 	end
 
 GoldenrodDeptStore2_EventScript_ElPiedrasAfter::
-	setspeaker GoldenrodCity_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox GoldenrodCity_Text_ElPiedrasPostBattle, MSGBOX_DEFAULT
 	closemessage
 	release

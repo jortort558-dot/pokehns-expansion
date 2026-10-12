@@ -225,17 +225,21 @@ CianwoodGym_EventScript_Manolin::
 	lock
 	faceplayer
 	goto_if_set FLAG_MANOLIN_ITEM_ORQUIDEA, CianwoodGym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox CianwoodGym_Text_Manolin_Intro, MSGBOX_DEFAULT
 	goto_if_set FLAG_MANOLIN_HEAL_ORQUIDEA, CianwoodGym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox CianwoodGym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
 	special HealPlayerParty
 	playfanfare MUS_HEAL
 	waitfanfare
 	giveitem ITEM_HYPER_POTION
 	setflag FLAG_MANOLIN_HEAL_ORQUIDEA
+	setspeaker SP_NAME_MANOLIN
 	msgbox CianwoodGym_Text_Manolin_Healed, MSGBOX_DEFAULT
 
 CianwoodGym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox CianwoodGym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_MANOLIN_ORQUIDEA, FALSE
 	switch VAR_RESULT
@@ -248,6 +252,7 @@ CianwoodGym_EventScript_Manolin_GiveFocusBand::
 	giveitem ITEM_FOCUS_BAND
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_ORQUIDEA
+	setspeaker SP_NAME_MANOLIN
 	msgbox CianwoodGym_Text_Manolin_FocusBandExplain, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -257,18 +262,21 @@ CianwoodGym_EventScript_Manolin_GiveChoiceBand::
 	giveitem ITEM_CHOICE_BAND
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_ORQUIDEA
+	setspeaker SP_NAME_MANOLIN
 	msgbox CianwoodGym_Text_Manolin_ChoiceBandExplain, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 CianwoodGym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
 	msgbox CianwoodGym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 CianwoodGym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox CianwoodGym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
 	closemessage
 	release

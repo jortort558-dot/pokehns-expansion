@@ -488,12 +488,14 @@ AzaleaTown_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
 	goto_if_set FLAG_BADGE02_GET, AzaleaTown_Gym_EventScript_GymGuy2
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox AzaleaTown_Gym_Text_GymGuide, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 AzaleaTown_Gym_EventScript_GymGuy2::
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox AzaleaTown_Gym_Text_GymGuideWin, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -821,17 +823,21 @@ AzaleaTown_Gym_EventScript_Manolin::
 	lock
 	faceplayer
 	goto_if_set FLAG_MANOLIN_ITEM_AZALEA, AzaleaTown_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox AzaleaTown_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
 	goto_if_set FLAG_MANOLIN_HEAL_AZALEA, AzaleaTown_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox AzaleaTown_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
 	special HealPlayerParty
 	playfanfare MUS_HEAL
 	waitfanfare
 	giveitem ITEM_SUPER_POTION
 	setflag FLAG_MANOLIN_HEAL_AZALEA
+	setspeaker SP_NAME_MANOLIN
 	msgbox AzaleaTown_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
 
 AzaleaTown_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox AzaleaTown_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_MANOLIN_AZALEA, FALSE
 	switch VAR_RESULT
@@ -844,6 +850,7 @@ AzaleaTown_Gym_EventScript_Manolin_GiveWhiteHerb::
 	giveitem ITEM_WHITE_HERB
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_AZALEA
+	setspeaker SP_NAME_MANOLIN
 	msgbox AzaleaTown_Gym_Text_Manolin_WhiteHerbExplain, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -853,18 +860,21 @@ AzaleaTown_Gym_EventScript_Manolin_GiveMentalHerb::
 	giveitem ITEM_MENTAL_HERB
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_AZALEA
+	setspeaker SP_NAME_MANOLIN
 	msgbox AzaleaTown_Gym_Text_Manolin_MentalHerbExplain, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 AzaleaTown_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
 	msgbox AzaleaTown_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 AzaleaTown_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox AzaleaTown_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
 	closemessage
 	release

@@ -1045,7 +1045,7 @@ VioletCity_Text_RatKidAfter:
 VioletCity_EventScript_Metacaballero::
 	lock
 	faceplayer
-	setspeaker VioletCity_Text_MetacaballeroName
+	setspeaker SP_NAME_METACABALLERO
 	goto_if_set FLAG_METACABALLERO_VIOLET_REWARD_RECEIVED, VioletCity_EventScript_Metacaballero_After
 	msgbox VioletCity_Text_Metacaballero_Meet, MSGBOX_DEFAULT
 	checkitemspace ITEM_EVIOLITE, 1

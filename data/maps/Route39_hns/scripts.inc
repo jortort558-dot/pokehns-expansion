@@ -17,7 +17,7 @@ Route39_HideElPiedras:
 Route39_EventScript_ElPiedras::
 	lock
 	faceplayer
-	setspeaker Route39_Text_ElPiedrasName
+	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox Route39_Text_ElPiedras, MSGBOX_DEFAULT
 	release
 	end

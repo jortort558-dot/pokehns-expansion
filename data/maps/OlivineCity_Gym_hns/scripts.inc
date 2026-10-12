@@ -164,18 +164,21 @@ OlivineCity_Gym_EventScript_GymGuide::
 	faceplayer
 	goto_if_lt VAR_OLIVINE_CITY_STATE, 5, OlivineCity_Gym_EventScript_GymGuideSick
 	goto_if_set FLAG_DEFEATED_OLIVINE_CITY_GYM, OlivineCity_Gym_EventScript_GymGuideAfter
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox OlivineCity_Gym_Text_GymGuideText, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 OlivineCity_Gym_EventScript_GymGuideSick::
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox OlivineCity_Gym_Text_GymGuidePreText, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 OlivineCity_Gym_EventScript_GymGuideAfter::
+	setspeaker SP_NAME_BATEMAGICO
 	msgbox OlivineCity_Gym_Text_GymGuideWinText, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -340,17 +343,21 @@ OlivineCity_Gym_EventScript_Manolin::
 	lock
 	faceplayer
 	goto_if_set FLAG_MANOLIN_ITEM_OLIVO, OlivineCity_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox OlivineCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
 	goto_if_set FLAG_MANOLIN_HEAL_OLIVO, OlivineCity_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
 	msgbox OlivineCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
 	special HealPlayerParty
 	playfanfare MUS_HEAL
 	waitfanfare
 	giveitem ITEM_MAX_POTION
 	setflag FLAG_MANOLIN_HEAL_OLIVO
+	setspeaker SP_NAME_MANOLIN
 	msgbox OlivineCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
 
 OlivineCity_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox OlivineCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
 	multichoice 0, 0, MULTI_MANOLIN_OLIVO, FALSE
 	switch VAR_RESULT
@@ -363,6 +370,7 @@ OlivineCity_Gym_EventScript_Manolin_GiveAirBalloon::
 	giveitem ITEM_AIR_BALLOON
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_OLIVO
+	setspeaker SP_NAME_MANOLIN
 	msgbox OlivineCity_Gym_Text_Manolin_AirBalloonExplain, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -372,18 +380,21 @@ OlivineCity_Gym_EventScript_Manolin_GiveLifeOrb::
 	giveitem ITEM_LIFE_ORB
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_MANOLIN_ITEM_OLIVO
+	setspeaker SP_NAME_MANOLIN
 	msgbox OlivineCity_Gym_Text_Manolin_LifeOrbExplain, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 OlivineCity_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
 	msgbox OlivineCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 OlivineCity_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
 	msgbox OlivineCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
 	closemessage
 	release
