@@ -78,6 +78,9 @@ static bool8 TryStartWarpEventScript(struct MapPosition *, u16);
 static bool8 TryStartMiscWalkingScripts(u16);
 static bool8 TryStartStepCountScript(u16);
 static void UpdateFriendshipStepCounter(void);
+#if IS_HNS
+static bool32 TryResolveCianwoodThreeTidesPuzzle(void);
+#endif
 static void UpdateFollowerStepCounter(void);
 #if OW_POISON_DAMAGE < GEN_5
 static bool8 UpdatePoisonStepCounter(void);
@@ -730,6 +733,8 @@ static bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileB
     if (TryStartStepCountScript(metatileBehavior) == TRUE)
         return TRUE;
 #if IS_HNS
+    if (TryResolveCianwoodThreeTidesPuzzle())
+        return TRUE;
     if (Mom_TryTriggerGiftCall() == TRUE)
         return TRUE;
     if (!FlagGet(FLAG_METACABALLERO_CALL_TRIGGERED))
@@ -1506,6 +1511,46 @@ void HandleBoulderFallThroughHole(struct ObjectEvent * object)
     }
 }
 
+#if IS_HNS
+static bool32 IsCianwoodPuzzleBoulderAt(s16 x, s16 y)
+{
+    u8 objectEventId = GetObjectEventIdByXY(x + MAP_OFFSET, y + MAP_OFFSET);
+
+    if (objectEventId != OBJECT_EVENTS_COUNT && objectEventId != gPlayerAvatar.objectEventId)
+    {
+        u16 graphicsId = gObjectEvents[objectEventId].graphicsId;
+
+        return graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER
+            || graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER_FRLG
+            || graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER_HNS;
+    }
+
+    return FALSE;
+}
+
+static bool32 TryResolveCianwoodThreeTidesPuzzle(void)
+{
+    bool32 isPuzzleMap = (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CIANWOOD_THREE_TIDES_PUZZLE_HNS)
+                       && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CIANWOOD_THREE_TIDES_PUZZLE_HNS));
+
+    if (!isPuzzleMap || FlagGet(FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE))
+        return FALSE;
+
+    if (IsCianwoodPuzzleBoulderAt(5, 5)
+     && IsCianwoodPuzzleBoulderAt(15, 14)
+     && IsCianwoodPuzzleBoulderAt(24, 24))
+    {
+        extern const u8 CianwoodThreeTidesPuzzle_EventScript_AllSolved[];
+
+        ScriptContext_SetupScript(CianwoodThreeTidesPuzzle_EventScript_AllSolved);
+        LockPlayerFieldControls();
+        return TRUE;
+    }
+
+    return FALSE;
+}
+#endif
+
 void HandleBoulderActivateVictoryRoadSwitch(struct ObjectEvent *boulder)
 {
     int i;
@@ -1519,6 +1564,8 @@ void HandleBoulderActivateVictoryRoadSwitch(struct ObjectEvent *boulder)
     if (isPuzzleMap)
     {
         OverrideTemplateCoordsForObjectEvent(boulder);
+        if (TryResolveCianwoodThreeTidesPuzzle())
+            return;
     }
 
     if (MapGridGetMetatileBehaviorAt(x, y) == MB_STRENGTH_BUTTON || isPuzzleMap)
