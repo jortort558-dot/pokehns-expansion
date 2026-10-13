@@ -195,3 +195,30 @@ Common_Text_PokegearLevelCapUpdateNotice:
 	.string "visítame en el CENTRO POKéMON\l"
 	.string "de CIUDAD TRIGAL. ¡Ánimo!$"
 
+Common_EventScript_PokegearEvoUpdateNotice::
+	lockall
+	setflag FLAG_POKEGEAR_EVO_NOTICE
+	playse SE_POKENAV_CALL
+	waitse
+	pokenavcall Common_Text_PokegearEvoUpdateNotice
+	waitmessage
+	delay 30
+	releaseall
+	end
+
+Common_Text_PokegearEvoUpdateNotice:
+	.string "¡ATENCIÓN ENTRENADOR!\n"
+	.string "Aviso del AYUDANTE DEL LOCKE:\p"
+	.string "¡Actualización de evoluciones!\n"
+	.string "Todos los Pokémon con métodos\l"
+	.string "extraños o complicados (movimientos,\l"
+	.string "pasos o formas de otras regiones)\l"
+	.string "ahora cuentan con un método directo\l"
+	.string "por NIVEL o por PIEDRA.\p"
+	.string "Especies como Annihilape, Wyrdeer,\n"
+	.string "Overqwil, Basculegion, Sirfetch'd\l"
+	.string "o Dudunsparce ya pueden evolucionar\l"
+	.string "subiendo de nivel con normalidad.\p"
+	.string "¡Mucha suerte en tu aventura!$"
+
+

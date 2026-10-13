@@ -925,6 +925,11 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
         ScriptContext_SetupScript(Common_EventScript_PokegearLevelCapUpdateNotice);
         return TRUE;
     }
+    if (!FlagGet(FLAG_POKEGEAR_EVO_NOTICE) && FlagGet(FLAG_SYS_POKENAV_GET))
+    {
+        ScriptContext_SetupScript(Common_EventScript_PokegearEvoUpdateNotice);
+        return TRUE;
+    }
     if (HnsUpdateRouteStepCounter())
         return TRUE;
 #endif
