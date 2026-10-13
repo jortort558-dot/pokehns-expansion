@@ -24,5 +24,6 @@ void FinishGymTokenTrade(void);
 void UseGymTokenRevive(void);
 void SaveGymTokenTransaction(void);
 void GymTokenRecordFailedEncounter(u16 mapsec);
+void GymTokenClearEncounterState(u16 mapsec);
 
 #endif

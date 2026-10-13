@@ -214,6 +214,17 @@ void GymTokenRecordFailedEncounter(u16 mapsec)
         *GetGymTokenFailedFlagByte(zone) |= 1 << (zone & 7);
 }
 
+void GymTokenClearEncounterState(u16 mapsec)
+{
+    u8 zone = NuzlockeGetZoneId(mapsec);
+    if (zone < NUZLOCKE_NUM_ZONES)
+    {
+        u8 bit = 1 << (zone & 7);
+        *GetGymTokenFailedFlagByte(zone) &= ~bit;
+        *GetGymTokenRetriedFlagByte(zone) &= ~bit;
+    }
+}
+
 void FindNextGymTokenRetry(void)
 {
     u32 zone;

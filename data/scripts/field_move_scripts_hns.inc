@@ -667,7 +667,7 @@ Metacaballero_Text_Badge5PokegearCall:
 	.string "Si sabes gestionar tus piezas,\n"
 	.string "te garantizará una ventaja brutal.\p"
 	.string "Estoy en CIUDAD MALVA, junto al\n"
-	.string "acceso a la TORRE BELLEZA.\p"
+	.string "acceso a la TORRE BELLSPROUT.\p"
 	.string "No me hagas perder tiempo.$"
 
 EventScript_YamiBadge6Call::

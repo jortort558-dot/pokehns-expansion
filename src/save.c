@@ -1047,6 +1047,16 @@ u8 LoadGameSave(u8 saveType)
             gSaveBlock3Ptr->challengeSettings.tx_Random_TrainerMegas = TRAINER_MEGAS_STORY;
         gSaveBlock1Ptr->saveVersion = 12;
     }
+    if (gSaveBlock1Ptr->saveVersion < 13)
+    {
+#if IS_HNS
+        // Mahogany Town previously had an all-SPECIES_NONE grass table. Give
+        // existing runs another encounter there and clear its failed-retry state.
+        NuzlockeFlagClear(MAPSEC_MAHOGANY_TOWN);
+        GymTokenClearEncounterState(MAPSEC_MAHOGANY_TOWN);
+#endif
+        gSaveBlock1Ptr->saveVersion = 13;
+    }
 
     // Add version migration steps here:
     // if (gSaveBlock1Ptr->saveVersion < 1)
