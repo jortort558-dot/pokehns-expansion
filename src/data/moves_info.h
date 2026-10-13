@@ -1133,7 +1133,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_TAIL_WHIP] =
     {
-        .name = COMPOUND_STRING("Agitacola"),
+        .name = COMPOUND_STRING("Látigo"),
         .description = COMPOUND_STRING(
             "Agita la cola para bajar\n"
             "la defensa del otro."),
@@ -1933,7 +1933,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_SEISMIC_TOSS] =
     {
-        .name = COMPOUND_STRING("Sísmico"),
+        .name = COMPOUND_STRING("Mov. Sísmico"),
         .description = COMPOUND_STRING(
             "Resta los mismos PS que\n"
             "nivel tenga el agresor."),
@@ -2242,7 +2242,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_STRING_SHOT] =
     {
-        .name = COMPOUND_STRING("Disparo Demora"),
+        .name = COMPOUND_STRING("Disparo Seda"),
         .description = COMPOUND_STRING(
             "Baja la velocidad\n"
             "del enemigo."),
@@ -3664,7 +3664,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_SOFT_BOILED] =
     {
-        .name = COMPOUND_STRING("Ovocuración"),
+        .name = COMPOUND_STRING("Amortiguador"),
         .description = COMPOUND_STRING(
             "Restaura hasta la mitad\n"
             "de tus PS máximos."),
@@ -7821,7 +7821,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_SECRET_POWER] =
     {
-        .name = COMPOUND_STRING("Daño Secreto"),
+        .name = COMPOUND_STRING("Poder Secreto"),
         .description = COMPOUND_STRING(
             "Los efectos de este ataque\n"
             "varían según la zona."),
@@ -21413,7 +21413,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {
-        .name = COMPOUND_STRING("Simún de Arena"),
+        .name = COMPOUND_STRING("Carrera Arrolladora"),
         .description = COMPOUND_STRING(
             "Gana impulso y se estrella contra el\n"
             "enemigo. El poder varía."),
@@ -21429,7 +21429,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_ALL_OUT_PUMMELING] =
     {
-        .name = COMPOUND_STRING("Plegaria Lunar"),
+        .name = COMPOUND_STRING("Ráfaga Demoledora"),
         .description = COMPOUND_STRING(
             "Empuja una esfera de energía contra\n"
             "el objetivo. El poder varía."),
@@ -21445,7 +21445,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_SUPERSONIC_SKYSTRIKE] =
     {
-        .name = COMPOUND_STRING("Bálsamo Osado"),
+        .name = COMPOUND_STRING("Picado Supersónico"),
         .description = COMPOUND_STRING(
             "Asciende a gran altura y se lanza sobre\n"
             "el objetivo. El poder varía."),
@@ -21461,7 +21461,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_ACID_DOWNPOUR] =
     {
-        .name = COMPOUND_STRING("Teraexplosión"),
+        .name = COMPOUND_STRING("Diluvio Corrosivo"),
         .description = COMPOUND_STRING(
             "Sumerge al objetivo en un pantano\n"
             "venenoso. El poder varía."),
@@ -21477,7 +21477,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_TECTONIC_RAGE] =
     {
-        .name = COMPOUND_STRING("Telatrampa"),
+        .name = COMPOUND_STRING("Barrena Telúrica"),
         .description = COMPOUND_STRING(
             "Se entierra profundamente y embiste\n"
             "al objetivo. El poder varía."),
@@ -21494,7 +21494,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_CONTINENTAL_CRUSH] =
     {
-        .name = COMPOUND_STRING("Patada Hacha"),
+        .name = COMPOUND_STRING("Aplastamiento Gigalítico"),
         .description = COMPOUND_STRING(
             "Derrumba una montaña de roca enorme\n"
             "sobre el enemigo. El poder varía."),
@@ -21510,7 +21510,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_SAVAGE_SPIN_OUT] =
     {
-        .name = COMPOUND_STRING("Homenaje Póstumo"),
+        .name = COMPOUND_STRING("Guadaña Sedosa"),
         .description = COMPOUND_STRING(
             "Escupe hilos de seda para atrapar\n"
             "al enemigo. El poder varía."),
@@ -21526,7 +21526,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_NEVER_ENDING_NIGHTMARE] =
     {
-        .name = COMPOUND_STRING("Fotocolisión"),
+        .name = COMPOUND_STRING("Presa Espectral"),
         .description = COMPOUND_STRING(
             "Sus rencores más profundos atrapan\n"
             "al objetivo. El poder varía."),
@@ -21542,7 +21542,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_CORKSCREW_CRASH] =
     {
-        .name = COMPOUND_STRING("Oído Cocina"),
+        .name = COMPOUND_STRING("Disruptor Espiral"),
         .description = COMPOUND_STRING(
             "Gira a gran velocidad y embiste al\n"
             "objetivo. El poder varía."),
@@ -21558,7 +21558,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_INFERNO_OVERDRIVE] =
     {
-        .name = COMPOUND_STRING("Puño Jet"),
+        .name = COMPOUND_STRING("Hecatombe Pírica"),
         .description = COMPOUND_STRING(
             "Exhala fuego intenso hacia el\n"
             "objetivo. El poder varía."),
@@ -21574,7 +21574,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_HYDRO_VORTEX] =
     {
-        .name = COMPOUND_STRING("Extracto Picante"),
+        .name = COMPOUND_STRING("Hidrovórtice Abisal"),
         .description = COMPOUND_STRING(
             "Un enorme torbellino traga al\n"
             "objetivo. El poder varía."),
@@ -21590,7 +21590,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_BLOOM_DOOM] =
     {
-        .name = COMPOUND_STRING("Quemarrueda"),
+        .name = COMPOUND_STRING("Megatón Floral"),
         .description = COMPOUND_STRING(
             "Libera energía floral para\n"
             "atacar. El poder varía."),
@@ -21606,7 +21606,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_GIGAVOLT_HAVOC] =
     {
-        .name = COMPOUND_STRING("Proliferación"),
+        .name = COMPOUND_STRING("Gigavoltio Destructor"),
         .description = COMPOUND_STRING(
             "Ataca con una potente descarga\n"
             "eléctrica. El poder varía."),
@@ -21622,7 +21622,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_SHATTERED_PSYCHE] =
     {
-        .name = COMPOUND_STRING("Pirueta Helada"),
+        .name = COMPOUND_STRING("Disrupción Psíquica"),
         .description = COMPOUND_STRING(
             "Controla al objetivo para\n"
             "dañarlo. El poder varía."),
@@ -21638,7 +21638,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_SUBZERO_SLAMMER] =
     {
-        .name = COMPOUND_STRING("Asalto Espadón"),
+        .name = COMPOUND_STRING("Crioalud Subcero"),
         .description = COMPOUND_STRING(
             "Baja la temperatura y congela al\n"
             "objetivo. El poder varía."),
@@ -21654,7 +21654,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_DEVASTATING_DRAKE] =
     {
-        .name = COMPOUND_STRING("Plegaria Vital"),
+        .name = COMPOUND_STRING("Dracoaliento Devastador"),
         .description = COMPOUND_STRING(
             "Genera un aura y ataca al\n"
             "objetivo. El poder varía."),
@@ -21670,7 +21670,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_BLACK_HOLE_ECLIPSE] =
     {
-        .name = COMPOUND_STRING("Salazón"),
+        .name = COMPOUND_STRING("Agujero Negro Aniquilador"),
         .description = COMPOUND_STRING(
             "Absorbe al objetivo con energía\n"
             "oscura. El poder varía."),
@@ -21686,7 +21686,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_TWINKLE_TACKLE] =
     {
-        .name = COMPOUND_STRING("Triple Inmersión"),
+        .name = COMPOUND_STRING("Impacto Adorable"),
         .description = COMPOUND_STRING(
             "Juega con el objetivo en un espacio\n"
             "encantador. El poder varía."),
@@ -21718,7 +21718,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_10000000_VOLT_THUNDERBOLT] =
     {
-        .name = COMPOUND_STRING("Decalcomanía"),
+        .name = COMPOUND_STRING("Gigarrayo Fulminante"),
         .description = COMPOUND_STRING(
             "Pikachu con gorra lanza una descarga.\n"
             "Alta prob. de crítico."),
@@ -22373,7 +22373,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_VINE_LASH] =
     {
-        .name = COMPOUND_STRING("Cañón Batidor"),
+        .name = COMPOUND_STRING("Gigalianas"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Venusaur.\n"
             "Hiere durante 4 turnos."),    //ANIM TODO
@@ -22393,7 +22393,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_WILDFIRE] =
     {
-        .name = COMPOUND_STRING("Bomba Caramelo"),
+        .name = COMPOUND_STRING("Gigallamarada"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Charizard.\n"
             "Hiere durante 4 turnos."),    //ANIM TODO
@@ -22413,7 +22413,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_CANNONADE] =
     {
-        .name = COMPOUND_STRING("Garrote Liana"),
+        .name = COMPOUND_STRING("Gigacañonazo"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Blastoise.\n"
             "Hiere durante 4 turnos."),    //ANIM TODO
@@ -22433,7 +22433,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_BEFUDDLE] =
     {
-        .name = COMPOUND_STRING("Electrorrayo"),
+        .name = COMPOUND_STRING("Gigaestupor"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Butterfree.\n"
             "Envenena, paraliza o duerme."),    //ANIM TODO
@@ -22453,7 +22453,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_VOLT_CRASH] =
     {
-        .name = COMPOUND_STRING("Teraclúster"),
+        .name = COMPOUND_STRING("Gigatronada"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Pikachu.\n"
             "Paraliza a los oponentes."),    //ANIM TODO
@@ -22473,7 +22473,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_GOLD_RUSH] =
     {
-        .name = COMPOUND_STRING("Láser Veleidoso"),
+        .name = COMPOUND_STRING("Gigamonedas"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Meowth.\n"
             "Confunde y da dinero."),    //ANIM TODO
@@ -22493,7 +22493,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_CHI_STRIKE] =
     {
-        .name = COMPOUND_STRING("Llama Protectora"),
+        .name = COMPOUND_STRING("Gigapuñición"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Machamp.\n"
             "Sube la prob. de crítico."),    //ANIM TODO
@@ -22513,7 +22513,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_TERROR] =
     {
-        .name = COMPOUND_STRING("Relámpago Súbito"),
+        .name = COMPOUND_STRING("Gigaaparición"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Gengar.\n"
             "Impide huir al enemigo."),    //ANIM TODO
@@ -22533,7 +22533,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_FOAM_BURST] =
     {
-        .name = COMPOUND_STRING("Filo Potente"),
+        .name = COMPOUND_STRING("Gigaespuma"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Kingler.\n"
             "Baja mucho la Veloc. rival."),    //ANIM TODO
@@ -22553,7 +22553,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_RESONANCE] =
     {
-        .name = COMPOUND_STRING("Tajo Taquión"),
+        .name = COMPOUND_STRING("Gigamelodía"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Lapras. Baja\n"
             "el daño durante 5 turnos."),    //ANIM TODO
@@ -22573,7 +22573,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_CUDDLE] =
     {
-        .name = COMPOUND_STRING("Prensa Metálica"),
+        .name = COMPOUND_STRING("Gigaternura"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Eevee.\n"
             "Enamora a los oponentes."),    //ANIM TODO
@@ -22593,7 +22593,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_REPLENISH] =
     {
-        .name = COMPOUND_STRING("Bramido Dragón"),
+        .name = COMPOUND_STRING("Gigarreciclaje"),
         .description = COMPOUND_STRING(
             "Ataque G-max de Snorlax.\n"
             "Recupera Bayas consumidas."),    //ANIM TODO
@@ -22613,7 +22613,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_MALODOR] =
     {
-        .name = COMPOUND_STRING("Canto Encantador"),
+        .name = COMPOUND_STRING("Gigapestilencia"),
         .description = COMPOUND_STRING(
             "Ataque G-max de Garbodor.\n"
             "Envenena a los oponentes."),    //ANIM TODO
@@ -22633,7 +22633,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_MELTDOWN] =
     {
-        .name = COMPOUND_STRING("Cólera Ardiente"),
+        .name = COMPOUND_STRING("Gigafusión"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Melmetal.\n"
             "Impide repetir el último ataque."),    //ANIM TODO
@@ -22653,7 +22653,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_DRUM_SOLO] =
     {
-        .name = COMPOUND_STRING("Plancha Voltaica"),
+        .name = COMPOUND_STRING("Gigarritmo"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Rillaboom.\n"
             "Ignora la habilidad rival."),    //ANIM TODO
@@ -22674,7 +22674,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_FIREBALL] =
     {
-        .name = COMPOUND_STRING("Psicorruido"),
+        .name = COMPOUND_STRING("Gigaesfera Ígnea"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Cinderace.\n"
             "Ignora la habilidad rival."),    //ANIM TODO
@@ -22695,7 +22695,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_HYDROSNIPE] =
     {
-        .name = COMPOUND_STRING("Palma Rauda"),
+        .name = COMPOUND_STRING("Gigadisparo"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Inteleon.\n"
             "Ignora la habilidad rival."),    //ANIM TODO
@@ -22716,7 +22716,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_WIND_RAGE] =
     {
-        .name = COMPOUND_STRING("Cadena Virulenta"),
+        .name = COMPOUND_STRING("Gigacorrosión Aérea"),
         .description = COMPOUND_STRING(
             "Ataque Gigamax de Corviknight.\n"
             "Elimina pantallas del rival."),    //ANIM TODO

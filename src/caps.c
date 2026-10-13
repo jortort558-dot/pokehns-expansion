@@ -25,8 +25,8 @@ static const u8 sLevelCapTable_Normal[] =
     [3] = 25,  // badge 3
     [4] = 31,  // badge 4
     [5] = 36,  // badge 5
-    [6] = 38,  // badge 6
-    [7] = 45,  // badge 7
+    [6] = 43,  // badge 6
+    [7] = 50,  // badge 7
     [8] = 56,  // badge 8
 };
 
@@ -37,10 +37,10 @@ static const u8 sLevelCapTable_Hard[] =
     [2] = 20,
     [3] = 23,
     [4] = 29,
-    [5] = 33,
-    [6] = 37,
-    [7] = 42,
-    [8] = 54,
+    [5] = 35,
+    [6] = 42,
+    [7] = 49,
+    [8] = 56,
 };
 
 static const u8 sKantoLevelCapTable_Normal[] =
@@ -84,15 +84,15 @@ static u8 GetKantoBadgeCount(void)
 
 static const u32 sLevelCapFlagMap[][2] =
 {
-    {FLAG_BADGE01_GET, 15},
-    {FLAG_BADGE02_GET, 19},
-    {FLAG_BADGE03_GET, 24},
-    {FLAG_BADGE04_GET, 29},
+    {FLAG_BADGE01_GET, 11},
+    {FLAG_BADGE02_GET, 16},
+    {FLAG_BADGE03_GET, 21},
+    {FLAG_BADGE04_GET, 25},
     {FLAG_BADGE05_GET, 31},
-    {FLAG_BADGE06_GET, 33},
-    {FLAG_BADGE07_GET, 42},
-    {FLAG_BADGE08_GET, 46},
-    {FLAG_IS_CHAMPION, 58},
+    {FLAG_BADGE06_GET, 36},
+    {FLAG_BADGE07_GET, 43},
+    {FLAG_BADGE08_GET, 50},
+    {FLAG_IS_CHAMPION, 56},
 };
 
 #ifndef KANTO_MAX_LEVEL

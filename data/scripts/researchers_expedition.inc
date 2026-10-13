@@ -171,3 +171,27 @@ Common_Text_Researchers_Pilar_Done:
 	.string "¡Gracias por colaborar con\n"
 	.string "nuestra labor científica!$"
 
+Common_EventScript_PokegearLevelCapUpdateNotice::
+	lockall
+	setflag FLAG_POKEGEAR_LEVEL_CAP_NOTICE
+	playse SE_POKENAV_CALL
+	waitse
+	pokenavcall Common_Text_PokegearLevelCapUpdateNotice
+	waitmessage
+	delay 30
+	releaseall
+	end
+
+Common_Text_PokegearLevelCapUpdateNotice:
+	.string "¡ATENCIÓN ENTRENADOR!\n"
+	.string "Aviso del AYUDANTE DEL LOCKE:\p"
+	.string "Se ha actualizado el límite de\n"
+	.string "nivel y los ataques a la versión\l"
+	.string "oficial de España.\p"
+	.string "Recuerda que tus Pokémon no\n"
+	.string "superarán el nivel del próximo líder\l"
+	.string "en combate ni con caramelos.\p"
+	.string "Para consultar el límite exacto,\n"
+	.string "visítame en el CENTRO POKéMON\l"
+	.string "de CIUDAD TRIGAL. ¡Ánimo!$"
+

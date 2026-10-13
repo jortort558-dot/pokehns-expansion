@@ -431,8 +431,9 @@ RocketHideout_B2F_EventScript_Electrode::
 	delay 40
 	waitmoncry
 	setwildbattle SPECIES_ELECTRODE, 30
-	special AllowNuzlockeStaticCapture
+	setflag FLAG_NO_WILD_CATCHING
 	dowildbattle
+	clearflag FLAG_NO_WILD_CATCHING
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, RocketHideout_B2F_EventScript_Ran_Electrode
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, RocketHideout_B2F_EventScript_Ran_Electrode
@@ -442,6 +443,7 @@ RocketHideout_B2F_EventScript_Electrode::
 	end
 
 RocketHideout_B2F_EventScript_Ran_Electrode::
+	clearflag FLAG_NO_WILD_CATCHING
 	release
 	end
 

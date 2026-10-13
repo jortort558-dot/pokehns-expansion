@@ -1284,6 +1284,7 @@
 #define FLAG_RECEIVED_POKEDEX_FROM_BIRCH            (SYS_FLAGS + 0x43)
 #define FLAG_SYS_ACK_COMPLETE_JOHTO_DEX             (SYS_FLAGS + 0x44)
 #define FLAG_MEGA_SYSTEM_UNLOCKED                   (SYS_FLAGS + 0x45)
+#define FLAG_POKEGEAR_LEVEL_CAP_NOTICE              (SYS_FLAGS + 0x46)
 
 // Battle Frontier symbols
 #define FLAG_SYS_TOWER_SILVER                       (SYS_FLAGS + 0x50)
