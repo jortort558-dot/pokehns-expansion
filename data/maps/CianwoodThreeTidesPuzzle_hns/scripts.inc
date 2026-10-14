@@ -7,7 +7,7 @@ CianwoodThreeTidesPuzzle_OnTransition::
 	setvar VAR_TEMP_2, 0
 	setvar VAR_TEMP_3, 0
 	setvar VAR_TEMP_4, 0 @ Contador de monolitos colocados
-	goto_if_unset FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_HideSage
+	goto_if_unset FLAG_CIANWOOD_THREE_TIDES_PUZZLE_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_HideSage
 	goto_if_set FLAG_JOHTO_SECRET_SAGE_MET, CianwoodThreeTidesPuzzle_EventScript_HideSage
 	clearflag FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE
 	end
@@ -27,7 +27,7 @@ CianwoodThreeTidesPuzzle_EventScript_Signboard::
 
 CianwoodThreeTidesPuzzle_EventScript_SocketCalm::
 	lockall
-	goto_if_set FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	goto_if_set FLAG_CIANWOOD_THREE_TIDES_PUZZLE_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
 	setvar VAR_0x8004, 5
 	setvar VAR_0x8005, 5
 	special IsBoulderAtCoords
@@ -47,7 +47,7 @@ CianwoodThreeTidesPuzzle_EventScript_SocketCalm::
 
 CianwoodThreeTidesPuzzle_EventScript_SocketEcho::
 	lockall
-	goto_if_set FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	goto_if_set FLAG_CIANWOOD_THREE_TIDES_PUZZLE_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
 	setvar VAR_0x8004, 15
 	setvar VAR_0x8005, 14
 	special IsBoulderAtCoords
@@ -67,7 +67,7 @@ CianwoodThreeTidesPuzzle_EventScript_SocketEcho::
 
 CianwoodThreeTidesPuzzle_EventScript_SocketBrio::
 	lockall
-	goto_if_set FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
+	goto_if_set FLAG_CIANWOOD_THREE_TIDES_PUZZLE_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_SocketDone
 	setvar VAR_0x8004, 24
 	setvar VAR_0x8005, 24
 	special IsBoulderAtCoords
@@ -117,6 +117,7 @@ CianwoodThreeTidesPuzzle_EventScript_AllSolved::
 	setflag FLAG_CIANWOOD_CALM_TRIAL_COMPLETE
 	setflag FLAG_CIANWOOD_ECHO_TRIAL_COMPLETE
 	setflag FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE
+	setflag FLAG_CIANWOOD_THREE_TIDES_PUZZLE_COMPLETE
 	clearflag FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE
 	addobject LOCALID_PUZZLE_SAGE
 	msgbox CianwoodThreeTidesPuzzle_Text_PuzzleSolved, MSGBOX_DEFAULT

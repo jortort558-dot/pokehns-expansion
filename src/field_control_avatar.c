@@ -1533,7 +1533,7 @@ static bool32 TryResolveCianwoodThreeTidesPuzzle(void)
     bool32 isPuzzleMap = (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CIANWOOD_THREE_TIDES_PUZZLE_HNS)
                        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CIANWOOD_THREE_TIDES_PUZZLE_HNS));
 
-    if (!isPuzzleMap || FlagGet(FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE))
+    if (!isPuzzleMap || FlagGet(FLAG_CIANWOOD_THREE_TIDES_PUZZLE_COMPLETE))
         return FALSE;
 
     if (IsCianwoodPuzzleBoulderAt(5, 5)
