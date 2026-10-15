@@ -1,29 +1,36 @@
 IndigoPlateau_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, IndigoPlateau_OnTransition
 	.byte 0
+
+IndigoPlateau_OnTransition::
+	setflag FLAG_TEMP_1
+	end
 
 IndigoPlateau_EventScript_ElmTrigger::
 	lockall
 	goto_if_set FLAG_INDIGO_PLATEAU_ELM, IndigoPlateau_EventScript_ElmTriggerEnd
-	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	getplayerxy VAR_TEMP_2, VAR_TEMP_3
 	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 10
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	clearflag FLAG_TEMP_1
 	addobject LOCALID_INDIGO_PLATEAU_ELM
-	call_if_eq VAR_TEMP_1, 9, IndigoPlateau_EventScript_ElmWalkToPlayer9
-	call_if_eq VAR_TEMP_1, 10, IndigoPlateau_EventScript_ElmWalkToPlayer10
-	call_if_eq VAR_TEMP_1, 11, IndigoPlateau_EventScript_ElmWalkToPlayer11
-	call_if_eq VAR_TEMP_1, 12, IndigoPlateau_EventScript_ElmWalkToPlayer12
-	call_if_eq VAR_TEMP_1, 13, IndigoPlateau_EventScript_ElmWalkToPlayer13
+	call_if_eq VAR_TEMP_2, 9, IndigoPlateau_EventScript_ElmWalkToPlayer9
+	call_if_eq VAR_TEMP_2, 10, IndigoPlateau_EventScript_ElmWalkToPlayer10
+	call_if_eq VAR_TEMP_2, 11, IndigoPlateau_EventScript_ElmWalkToPlayer11
+	call_if_eq VAR_TEMP_2, 12, IndigoPlateau_EventScript_ElmWalkToPlayer12
+	call_if_eq VAR_TEMP_2, 13, IndigoPlateau_EventScript_ElmWalkToPlayer13
 	msgbox IndigoPlateau_Text_ElmCongrats, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_TEMP_1, 9, IndigoPlateau_EventScript_ElmLeave9
-	call_if_eq VAR_TEMP_1, 10, IndigoPlateau_EventScript_ElmLeave10
-	call_if_eq VAR_TEMP_1, 11, IndigoPlateau_EventScript_ElmLeave11
-	call_if_eq VAR_TEMP_1, 12, IndigoPlateau_EventScript_ElmLeave12
-	call_if_eq VAR_TEMP_1, 13, IndigoPlateau_EventScript_ElmLeave13
+	call_if_eq VAR_TEMP_2, 9, IndigoPlateau_EventScript_ElmLeave9
+	call_if_eq VAR_TEMP_2, 10, IndigoPlateau_EventScript_ElmLeave10
+	call_if_eq VAR_TEMP_2, 11, IndigoPlateau_EventScript_ElmLeave11
+	call_if_eq VAR_TEMP_2, 12, IndigoPlateau_EventScript_ElmLeave12
+	call_if_eq VAR_TEMP_2, 13, IndigoPlateau_EventScript_ElmLeave13
 	removeobject LOCALID_INDIGO_PLATEAU_ELM
+	setflag FLAG_TEMP_1
 	setflag FLAG_INDIGO_PLATEAU_ELM
 	setvar VAR_TEMP_0, 1
 IndigoPlateau_EventScript_ElmTriggerEnd::
