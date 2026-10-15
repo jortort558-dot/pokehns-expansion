@@ -6189,6 +6189,23 @@ void IsBoulderAtCoords(void)
             gSpecialVar_Result = TRUE;
         }
     }
+    if (!gSpecialVar_Result)
+    {
+        // Off-screen boulders are despawned; check persistent templates too.
+        u32 i;
+        for (i = 0; i < gMapHeader.events->objectEventCount; i++)
+        {
+            const struct ObjectEventTemplate *t = &gSaveBlock1Ptr->objectEventTemplates[i];
+            if (t->x == gSpecialVar_0x8004 && t->y == gSpecialVar_0x8005
+             && (t->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER
+              || t->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER_FRLG
+              || t->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER_HNS))
+            {
+                gSpecialVar_Result = TRUE;
+                break;
+            }
+        }
+    }
 }
 
 void PlayerHasHatchedAnyEgg(void)

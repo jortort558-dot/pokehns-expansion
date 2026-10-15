@@ -1514,15 +1514,19 @@ void HandleBoulderFallThroughHole(struct ObjectEvent * object)
 #if IS_HNS
 static bool32 IsCianwoodPuzzleBoulderAt(s16 x, s16 y)
 {
-    u8 objectEventId = GetObjectEventIdByXY(x + MAP_OFFSET, y + MAP_OFFSET);
+    // Off-screen objects are despawned, so check the persistent templates,
+    // whose coords are updated on every push (OverrideTemplateCoordsForObjectEvent).
+    u32 i;
 
-    if (objectEventId != OBJECT_EVENTS_COUNT && objectEventId != gPlayerAvatar.objectEventId)
+    for (i = 0; i < gMapHeader.events->objectEventCount; i++)
     {
-        u16 graphicsId = gObjectEvents[objectEventId].graphicsId;
+        const struct ObjectEventTemplate *t = &gSaveBlock1Ptr->objectEventTemplates[i];
 
-        return graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER
-            || graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER_FRLG
-            || graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER_HNS;
+        if (t->x == x && t->y == y
+         && (t->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER
+          || t->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER_FRLG
+          || t->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER_HNS))
+            return TRUE;
     }
 
     return FALSE;
