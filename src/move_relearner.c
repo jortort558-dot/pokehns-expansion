@@ -187,6 +187,7 @@ static EWRAM_DATA struct
     u8 moveDisplayArrowTask;                                 /*0x114*/
     u16 scrollOffset;                                        /*0x116*/
     u8 categoryIconSpriteId;                                 /*0x117*/
+    u8 moveNames[MAX_RELEARNER_MOVES][32];
 } *sMoveRelearnerStruct = {0};
 
 static EWRAM_DATA struct {
@@ -1052,32 +1053,82 @@ static void RemoveScrollArrows(void)
     }
 }
 
+static const u8 sText_TMPrefix[] = _("MT: ");
+
 static void CreateLearnableMovesList(void)
 {
     s32 i;
+    u16 numLevelMoves = 0;
+    u16 numTMMoves = 0;
+    u16 tmTempMoves[MAX_RELEARNER_MOVES];
 
     struct BoxPokemon *boxmon = GetSelectedBoxMonFromPcOrParty();
     switch (gMoveRelearnerState)
     {
     case MOVE_RELEARNER_EGG_MOVES:
         sMoveRelearnerStruct->numMenuChoices = GetRelearnerEggMoves(boxmon, sMoveRelearnerStruct->movesToLearn);
+        for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
+        {
+            sMoveRelearnerStruct->menuItems[i].name = GetMoveName(sMoveRelearnerStruct->movesToLearn[i]);
+            sMoveRelearnerStruct->menuItems[i].id = sMoveRelearnerStruct->movesToLearn[i];
+        }
         break;
     case MOVE_RELEARNER_TM_MOVES:
         sMoveRelearnerStruct->numMenuChoices = GetRelearnerTMMoves(boxmon, sMoveRelearnerStruct->movesToLearn);
+        for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
+        {
+            StringCopy(sMoveRelearnerStruct->moveNames[i], sText_TMPrefix);
+            StringAppend(sMoveRelearnerStruct->moveNames[i], GetMoveName(sMoveRelearnerStruct->movesToLearn[i]));
+            sMoveRelearnerStruct->menuItems[i].name = sMoveRelearnerStruct->moveNames[i];
+            sMoveRelearnerStruct->menuItems[i].id = sMoveRelearnerStruct->movesToLearn[i];
+        }
         break;
     case MOVE_RELEARNER_TUTOR_MOVES:
         sMoveRelearnerStruct->numMenuChoices = GetRelearnerTutorMoves(boxmon, sMoveRelearnerStruct->movesToLearn);
+        for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
+        {
+            sMoveRelearnerStruct->menuItems[i].name = GetMoveName(sMoveRelearnerStruct->movesToLearn[i]);
+            sMoveRelearnerStruct->menuItems[i].id = sMoveRelearnerStruct->movesToLearn[i];
+        }
         break;
     case MOVE_RELEARNER_LEVEL_UP_MOVES:
     default:
-        sMoveRelearnerStruct->numMenuChoices = GetRelearnerLevelUpMoves(boxmon, sMoveRelearnerStruct->movesToLearn);
-        break;
-    }
+        numLevelMoves = GetRelearnerLevelUpMoves(boxmon, sMoveRelearnerStruct->movesToLearn);
+        numTMMoves = GetRelearnerTMMoves(boxmon, tmTempMoves);
 
-    for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
-    {
-        sMoveRelearnerStruct->menuItems[i].name = GetMoveName(sMoveRelearnerStruct->movesToLearn[i]);
-        sMoveRelearnerStruct->menuItems[i].id = sMoveRelearnerStruct->movesToLearn[i];
+        for (i = 0; i < numLevelMoves; i++)
+        {
+            sMoveRelearnerStruct->menuItems[i].name = GetMoveName(sMoveRelearnerStruct->movesToLearn[i]);
+            sMoveRelearnerStruct->menuItems[i].id = sMoveRelearnerStruct->movesToLearn[i];
+        }
+
+        sMoveRelearnerStruct->numMenuChoices = numLevelMoves;
+        for (i = 0; i < numTMMoves && sMoveRelearnerStruct->numMenuChoices < MAX_RELEARNER_MOVES; i++)
+        {
+            u16 tMove = tmTempMoves[i];
+            bool32 alreadyInList = FALSE;
+            s32 j;
+            for (j = 0; j < numLevelMoves; j++)
+            {
+                if (sMoveRelearnerStruct->movesToLearn[j] == tMove)
+                {
+                    alreadyInList = TRUE;
+                    break;
+                }
+            }
+
+            if (!alreadyInList)
+            {
+                u32 idx = sMoveRelearnerStruct->numMenuChoices;
+                sMoveRelearnerStruct->movesToLearn[idx] = tMove;
+                StringCopy(sMoveRelearnerStruct->moveNames[idx], sText_TMPrefix);
+                StringAppend(sMoveRelearnerStruct->moveNames[idx], GetMoveName(tMove));
+                sMoveRelearnerStruct->menuItems[idx].name = sMoveRelearnerStruct->moveNames[idx];
+                sMoveRelearnerStruct->menuItems[idx].id = tMove;
+                sMoveRelearnerStruct->numMenuChoices++;
+            }
+        }
+        break;
     }
 
     GetBoxMonData(boxmon, MON_DATA_NICKNAME, gStringVar1);
@@ -1381,6 +1432,9 @@ static bool32 HasRelearnerLevelUpMoves(struct BoxPokemon *boxMon)
         species = (P_PRE_EVO_MOVES ? GetSpeciesPreEvolution(species) : SPECIES_NONE);
 
     } while (species != SPECIES_NONE);
+
+    if (HasRelearnerTMMoves(boxMon))
+        return TRUE;
 
     return FALSE;
 }
