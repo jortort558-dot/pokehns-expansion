@@ -631,6 +631,51 @@ void NuzlockeGraveyard_RecordFaint(struct Pokemon *mon)
     TryWriteSpecialSaveSectorNBytes(SECTOR_ID_TRAINER_HILL, (const u8 *)&sGraveyardBuffer, sizeof(sGraveyardBuffer));
 }
 
+void NuzlockeGraveyard_RemoveMon(u32 personality, u32 otId)
+{
+    u16 i, j;
+    bool8 found = FALSE;
+
+    memset(&sGraveyardBuffer, 0, sizeof(sGraveyardBuffer));
+    if (TryReadSpecialSaveSectorNBytes(SECTOR_ID_TRAINER_HILL, (u8 *)&sGraveyardBuffer, sizeof(sGraveyardBuffer)) != SAVE_STATUS_OK
+        || sGraveyardBuffer.magic != NUZLOCKE_GRAVEYARD_MAGIC)
+        return;
+
+    if (sGraveyardBuffer.count > NUZLOCKE_GRAVEYARD_MAX_ENTRIES)
+        return;
+
+    for (i = 0; i < sGraveyardBuffer.count; i++)
+    {
+        if (sGraveyardBuffer.entries[i].personality == personality && sGraveyardBuffer.entries[i].otId == otId)
+        {
+            for (j = i; j < sGraveyardBuffer.count - 1; j++)
+                sGraveyardBuffer.entries[j] = sGraveyardBuffer.entries[j + 1];
+            sGraveyardBuffer.count--;
+            memset(&sGraveyardBuffer.entries[sGraveyardBuffer.count], 0, sizeof(struct NuzlockeGraveyardEntry));
+            found = TRUE;
+            break;
+        }
+    }
+
+    if (found)
+    {
+        sGraveyardBuffer.checksum = Graveyard_CalculateChecksum(&sGraveyardBuffer);
+        TryWriteSpecialSaveSectorNBytes(SECTOR_ID_TRAINER_HILL, (const u8 *)&sGraveyardBuffer, sizeof(sGraveyardBuffer));
+    }
+}
+
+static bool32 IsMonRevivedByGymTokens(u32 personality, u32 otId)
+{
+    u32 i;
+    for (i = 0; i < 8; i++) // GYM_TOKEN_REVIVE_SLOTS
+    {
+        if (gSaveBlock3Ptr->gymTokens.revivedPersonalities[i] == personality
+         && gSaveBlock3Ptr->gymTokens.revivedOtIds[i] == otId)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
 {
     u16 g, p;
@@ -662,6 +707,13 @@ void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
         u32 deadPersonality = sGraveyardBuffer.entries[g].personality;
         u32 deadOtId = sGraveyardBuffer.entries[g].otId;
         bool8 foundInParty = FALSE;
+
+        // Si fue revivido mediante Vales Fiesta / Fichas, limpiar y no debilitar
+        if (IsMonRevivedByGymTokens(deadPersonality, deadOtId))
+        {
+            NuzlockeGraveyard_RemoveMon(deadPersonality, deadOtId);
+            continue;
+        }
 
         for (p = 0; p < PARTY_SIZE; p++)
         {

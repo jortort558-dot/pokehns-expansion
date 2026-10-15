@@ -180,6 +180,7 @@ const u8 gText_ConfirmTossItems[] = _("¿Seguro que quieres\ntirar {STR_VAR_2}\n
 const u8 gText_PlayerUsedVar2[] = _("{PLAYER} usó\n{STR_VAR_2}.{PAUSE_UNTIL_PRESS}");
 const u8 gText_RepelEffectsLingered[] = _("Pero el efecto del REPELENTE\ntodavía perdura.{PAUSE_UNTIL_PRESS}");
 const u8 gText_LureEffectsLingered[] = _("Pero el efecto del CEBO\ntodavía perdura.{PAUSE_UNTIL_PRESS}");
+const u8 gText_TufilloJuniorEffectsLingered[] = _("¡El aroma de novato todavía\nperdura a tu alrededor!{PAUSE_UNTIL_PRESS}");
 const u8 gText_BoxFull[] = _("La CAJA está llena.{PAUSE_UNTIL_PRESS}");
 const u8 gText_TheField[] = _("el campo");
 const u8 gText_TheBattle[] = _("el combate");

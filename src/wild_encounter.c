@@ -584,9 +584,16 @@ static void TryApplyPokeblockBonus(struct Pokemon *mon, u16 species)
 
 void CreateWildMon(u16 species, u8 level)
 {
+    bool8 forceShiny = FlagGet(FLAG_FORCE_SHINY_NEXT_WILD);
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species, GetSynchronizedGender(WILDMON_ORIGIN, species), PickWildMonNature(species), RANDOM_UNOWN_LETTER);
     CreateMonWithIVs(&gEnemyParty[0], species, level, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
+    if (forceShiny)
+    {
+        bool32 shiny = TRUE;
+        SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &shiny);
+        FlagClear(FLAG_FORCE_SHINY_NEXT_WILD);
+    }
     TryApplyPokeblockBonus(&gEnemyParty[0], species);
     GiveMonInitialMoveset(&gEnemyParty[0]);
 }

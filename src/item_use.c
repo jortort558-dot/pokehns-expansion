@@ -102,6 +102,7 @@ static const u8 sText_CarnetPokemitosInfo[] = _("CARNET POKEMITOS CUP II\pPartic
 
 static const u8 sText_PokeVialNoEffect[] = _("El equipo ya está sano.\nNo tendrá ningún efecto.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PokeVialDisabled[] = _("El PokéVial está desactivado\npor las reglas del reto.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_UsedTufilloJuniorWildShiny[] = _("{PLAYER} usó\n{STR_VAR_2}.\p¡Un aroma a novato garantiza que el\npróximo Pokémon salvaje sea variocolor!{PAUSE_UNTIL_PRESS}");
 
 // EWRAM variables
 EWRAM_DATA static TaskFunc sItemUseOnFieldCB = NULL;
@@ -1102,6 +1103,45 @@ void HandleUseExpiredLure(struct ScriptContext *ctx)
     VarSet(VAR_REPEL_STEP_COUNT, GetItemHoldEffectParam(VarGet(VAR_LAST_REPEL_LURE_USED)) | REPEL_LURE_MASK);
 #endif
 }
+
+static void Task_UseTufilloJunior(u8 taskId);
+
+static void Task_StartUseTufilloJunior(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (++data[8] > 7)
+    {
+        data[8] = 0;
+        PlaySE(SE_REPEL);
+        gTasks[taskId].func = Task_UseTufilloJunior;
+    }
+}
+
+static void Task_UseTufilloJunior(u8 taskId)
+{
+    if (!IsSEPlaying())
+    {
+        FlagSet(FLAG_FORCE_SHINY_NEXT_WILD);
+        RemoveUsedItem();
+        StringExpandPlaceholders(gStringVar4, sText_UsedTufilloJuniorWildShiny);
+        if (CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE)
+            DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        else
+            DisplayItemMessageInBattlePyramid(taskId, gStringVar4, Task_CloseBattlePyramidBagMessage);
+    }
+}
+
+void ItemUseOutOfBattle_TufilloJunior(u8 taskId)
+{
+    if (!FlagGet(FLAG_FORCE_SHINY_NEXT_WILD))
+        gTasks[taskId].func = Task_StartUseTufilloJunior;
+    else if (CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE)
+        DisplayItemMessage(taskId, FONT_NORMAL, gText_TufilloJuniorEffectsLingered, CloseItemMessage);
+    else
+        DisplayItemMessageInBattlePyramid(taskId, gText_TufilloJuniorEffectsLingered, Task_CloseBattlePyramidBagMessage);
+}
+
 
 static void Task_UsedBlackWhiteFlute(u8 taskId)
 {

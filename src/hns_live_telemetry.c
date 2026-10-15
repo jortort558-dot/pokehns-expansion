@@ -213,25 +213,31 @@ void HnsLiveTelemetry_Update(void)
         sHnsLiveTelemetry.y = gSaveBlock1Ptr->pos.y;
     }
 
-    sHnsLiveTelemetry.partyCount = min(gPlayerPartyCount, PARTY_SIZE);
-    for (i = 0; i < PARTY_SIZE; i++)
     {
-        volatile struct HnsLivePartyMon *dst = &sHnsLiveTelemetry.party[i];
-        if (i < sHnsLiveTelemetry.partyCount)
+        u8 maxPartySlots = PARTY_SIZE;
+        if (gMain.inBattle && (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER))
+            maxPartySlots = 3;
+
+        sHnsLiveTelemetry.partyCount = min(gPlayerPartyCount, maxPartySlots);
+        for (i = 0; i < PARTY_SIZE; i++)
         {
-            struct Pokemon *mon = &gPlayerParty[i];
-            u16 hp = GetMonData(mon, MON_DATA_HP);
-            dst->species = GetMonData(mon, MON_DATA_SPECIES);
-            dst->level = GetMonData(mon, MON_DATA_LEVEL);
-            dst->status = GetLiveStatus(GetMonData(mon, MON_DATA_STATUS), hp);
-            dst->hp = hp;
-            dst->maxHp = GetMonData(mon, MON_DATA_MAX_HP);
-            GetMonData(mon, MON_DATA_NICKNAME, (u8 *)dst->nickname);
-            dst->reserved = 0;
-        }
-        else
-        {
-            memset((void *)dst, 0, sizeof(*dst));
+            volatile struct HnsLivePartyMon *dst = &sHnsLiveTelemetry.party[i];
+            if (i < sHnsLiveTelemetry.partyCount)
+            {
+                struct Pokemon *mon = &gPlayerParty[i];
+                u16 hp = GetMonData(mon, MON_DATA_HP);
+                dst->species = GetMonData(mon, MON_DATA_SPECIES);
+                dst->level = GetMonData(mon, MON_DATA_LEVEL);
+                dst->status = GetLiveStatus(GetMonData(mon, MON_DATA_STATUS), hp);
+                dst->hp = hp;
+                dst->maxHp = GetMonData(mon, MON_DATA_MAX_HP);
+                GetMonData(mon, MON_DATA_NICKNAME, (u8 *)dst->nickname);
+                dst->reserved = 0;
+            }
+            else
+            {
+                memset((void *)dst, 0, sizeof(*dst));
+            }
         }
     }
 

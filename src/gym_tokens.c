@@ -738,6 +738,7 @@ void UseGymTokenRevive(void)
             gSaveBlock3Ptr->gymTokens.revivedPersonalities[i] = boxMon->personality;
             gSaveBlock3Ptr->gymTokens.revivedOtIds[i] = boxMon->otId;
             HealBoxPokemon(boxMon);
+            NuzlockeGraveyard_RemoveMon(boxMon->personality, boxMon->otId);
             gSaveBlock3Ptr->gymTokens.count -= GYM_TOKEN_REVIVE_COST;
             gSpecialVar_Result = 1;
             return;

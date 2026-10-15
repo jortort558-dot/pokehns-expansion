@@ -17826,16 +17826,16 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("TUFILLO JUNIOR"),
         .pluralName = ITEM_PLURAL_NAME("TUFILLOS JUNIOR"),
         .price = 0,
-        .holdEffectParam = 250,
+        .holdEffectParam = 0,
         .description = COMPOUND_STRING(
             "Colonia especial de Jose y\n"
-            "Pilar. Desprende aroma de\n"
-            "novato que atrae Pokémon\n"
-            "raros y variocolor."),
+            "Pilar. Desprende un aroma\n"
+            "que garantiza que el próximo\n"
+            "Pokémon salvaje sea variocolor."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_FIELD_USE,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Lure,
+        .fieldUseFunc = ItemUseOutOfBattle_TufilloJunior,
         .secondaryId = 0,
         .flingPower = 30,
         .iconPic = gItemIcon_Lure,
