@@ -1057,6 +1057,13 @@ u8 LoadGameSave(u8 saveType)
 #endif
         gSaveBlock1Ptr->saveVersion = 13;
     }
+    if (gSaveBlock1Ptr->saveVersion < 14)
+    {
+#if IS_HNS
+        RandomizerInitializeObtainedItemFlags();
+#endif
+        gSaveBlock1Ptr->saveVersion = 14;
+    }
 
     // Add version migration steps here:
     // if (gSaveBlock1Ptr->saveVersion < 1)

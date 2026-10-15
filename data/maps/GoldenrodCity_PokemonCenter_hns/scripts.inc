@@ -167,15 +167,17 @@ GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu::
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 1
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 2
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionRewards, 3
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionExit, 4
-	dynmultistack 0, 0, FALSE, 5, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMegaExchange, 4
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionExit, 5
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 	closemessage
 	switch VAR_RESULT
 	case 0, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner
 	case 1, GoldenrodCity_PokemonCenter_EventScript_AssistantGymTokens
 	case 2, GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps
 	case 3, GoldenrodCity_PokemonCenter_EventScript_AssistantRewards
-	case 4, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+	case 4, GoldenrodCity_PokemonCenter_EventScript_AssistantMegaExchange
+	case 5, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 
@@ -238,6 +240,41 @@ GoldenrodCity_PokemonCenter_EventScript_GiftTradeFailed::
 	msgbox GoldenrodCity_PokemonCenter_Text_GiftTradeFailed, MSGBOX_DEFAULT
 	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
 
+GoldenrodCity_PokemonCenter_EventScript_AssistantMegaExchange::
+	msgbox GoldenrodCity_PokemonCenter_Text_MegaExchangeIntro, MSGBOX_DEFAULT
+	special BuildMegaStoneExchangeMenu
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_MegaExchangeNoDuplicates
+	goto_if_eq VAR_RESULT, 2, GoldenrodCity_PokemonCenter_EventScript_MegaExchangeComplete
+	msgbox GoldenrodCity_PokemonCenter_Text_MegaExchangeChoose, MSGBOX_DEFAULT
+	dynmultistack 0, 0, FALSE, 7, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	goto_if_eq VAR_RESULT, MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	goto_if_eq VAR_RESULT, ITEM_NONE, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	copyvar VAR_0x8004, VAR_RESULT
+	bufferitemname STR_VAR_1, VAR_0x8004
+	msgbox GoldenrodCity_PokemonCenter_Text_MegaExchangeConfirm, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+	special TradeDuplicateMegaStone
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_MegaExchangeFailed
+	goto_if_eq VAR_RESULT, 2, GoldenrodCity_PokemonCenter_EventScript_MegaExchangeSentToPC
+	msgbox GoldenrodCity_PokemonCenter_Text_MegaExchangeDone, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_MegaExchangeNoDuplicates::
+	msgbox GoldenrodCity_PokemonCenter_Text_MegaExchangeNoDuplicates, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_MegaExchangeComplete::
+	msgbox GoldenrodCity_PokemonCenter_Text_MegaExchangeComplete, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_MegaExchangeFailed::
+	msgbox GoldenrodCity_PokemonCenter_Text_MegaExchangeFailed, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_MegaExchangeSentToPC::
+	msgbox GoldenrodCity_PokemonCenter_Text_MegaExchangeSentToPC, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
 GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd::
 	msgbox GoldenrodCity_PokemonCenter_Text_LockeAssistantGoodbye, MSGBOX_DEFAULT
 	release
@@ -264,6 +301,9 @@ GoldenrodCity_PokemonCenter_Text_OptionLevelCaps:
 
 GoldenrodCity_PokemonCenter_Text_OptionRewards:
 	.string "Recompensas Locke$"
+
+GoldenrodCity_PokemonCenter_Text_OptionMegaExchange:
+	.string "Canjear megapiedras$"
 
 GoldenrodCity_PokemonCenter_Text_OptionExit:
 	.string "Salir$"
@@ -314,6 +354,45 @@ GoldenrodCity_PokemonCenter_Text_GiftTradeDone:
 GoldenrodCity_PokemonCenter_Text_GiftTradeFailed:
 	.string "No se ha podido realizar el\n"
 	.string "intercambio del POKéMON regalo.$"
+
+GoldenrodCity_PokemonCenter_Text_MegaExchangeIntro:
+	.string "Puedo reciclar tus MEGAPIEDRAS\n"
+	.string "repetidas. Me das una copia y te\l"
+	.string "entrego otra que aún no tengas.$"
+
+GoldenrodCity_PokemonCenter_Text_MegaExchangeChoose:
+	.string "Estas son las copias que puedes\n"
+	.string "entregar. ¿Cuál intercambias?$"
+
+GoldenrodCity_PokemonCenter_Text_MegaExchangeConfirm:
+	.string "Entregarás una {STR_VAR_1}.\p"
+	.string "Recibirás una MEGAPIEDRA al azar\n"
+	.string "que todavía no tengas. ¿Aceptas?$"
+
+GoldenrodCity_PokemonCenter_Text_MegaExchangeNoDuplicates:
+	.string "No llevas ninguna MEGAPIEDRA\n"
+	.string "repetida que puedas entregar.\p"
+	.string "Si una copia está equipada o en\n"
+	.string "el PC, trae la otra en la MOCHILA.$"
+
+GoldenrodCity_PokemonCenter_Text_MegaExchangeComplete:
+	.string "Ya posees todas las MEGAPIEDRAS.\n"
+	.string "¡No puedo darte ninguna nueva!$"
+
+GoldenrodCity_PokemonCenter_Text_MegaExchangeDone:
+	.string "Entregaste {STR_VAR_1} y recibiste\n"
+	.string "{STR_VAR_2}.\p"
+	.string "¡Esta sí amplía tu colección!$"
+
+GoldenrodCity_PokemonCenter_Text_MegaExchangeSentToPC:
+	.string "Cambio completado: recibiste\n"
+	.string "{STR_VAR_2}.\p"
+	.string "Tu MOCHILA estaba llena, así que\n"
+	.string "la he enviado al PC.$"
+
+GoldenrodCity_PokemonCenter_Text_MegaExchangeFailed:
+	.string "No he podido cerrar el intercambio.\n"
+	.string "No se ha retirado ninguna piedra.$"
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry::
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenGachaponIntro, MSGBOX_YESNO

@@ -52,6 +52,7 @@
 #include "palette.h"
 #include "play_time.h"
 #include "random.h"
+#include "randomizer.h"
 #include "roamer.h"
 #include "rotating_gate.h"
 #include "rtc.h"
@@ -3891,13 +3892,14 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
 
 void ScriptHideItemDescription(struct ScriptContext *ctx)
 {
+    RandomizerSetItemObtained(gSpecialVar_0x8006);
+
     if (OW_SHOW_ITEM_DESCRIPTIONS == OW_ITEM_DESCRIPTIONS_OFF)
         return;
 
     Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE | SCREFF_HARDWARE);
 
     DestroyItemIconSprite();
-
     if (!GetSetItemObtained(gSpecialVar_0x8006, FLAG_GET_ITEM_OBTAINED))
     {
         //header box only exists if haven't seen item before

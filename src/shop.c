@@ -26,6 +26,7 @@
 #include "palette.h"
 #include "party_menu.h"
 #include "rtc.h"
+#include "randomizer.h"
 #include "scanline_effect.h"
 #include "script.h"
 #include "shop.h"
@@ -2255,6 +2256,7 @@ static void BuyMenuTryMakePurchase(u8 taskId)
         if (AddBagItem(tItemId, tItemCount) == TRUE)
         {
             GetSetItemObtained(tItemId, FLAG_SET_ITEM_OBTAINED);
+            RandomizerSetItemObtained(tItemId);
             RecordItemPurchase(taskId);
             BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyMenuSubtractMoney);
         }

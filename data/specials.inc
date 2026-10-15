@@ -740,6 +740,9 @@ gSpecials::
 	def_special PlayerHasAnyMail
 	def_special CheckPlayerHasGiftMon
 	def_special UseGiftMonTrade
+	def_special BuildMegaStoneExchangeMenu
+	def_special TradeDuplicateMegaStone
+	def_special ShouldShowMegaStoneExchangeNotice
 	def_special CheckPlayerHasKenyaOrMail
 	def_special TakeDeliveredMail
 	def_special CheckGymTrainersDefeated

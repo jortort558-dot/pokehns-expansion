@@ -10,6 +10,7 @@
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
+#include "randomizer.h"
 #include "string_util.h"
 #include "trade.h"
 #include "region_map.h"
@@ -30,6 +31,176 @@
 
 static EWRAM_DATA u8 sSelectedRetryZone = 0;
 static EWRAM_DATA u8 sRetrySearchStart = 0;
+
+void ShouldShowMegaStoneExchangeNotice(void)
+{
+    u16 item = gSpecialVar_0x8006;
+
+    gSpecialVar_Result = FALSE;
+    if (FlagGet(FLAG_POKEGEAR_MEGA_EXCHANGE_NOTICE)
+     || !FlagGet(FLAG_SYS_POKENAV_GET)
+     || item >= ITEMS_COUNT)
+        return;
+
+    if (gItemsInfo[item].sortType == ITEM_TYPE_MEGA_STONE)
+        gSpecialVar_Result = TRUE;
+}
+
+static bool32 IsMegaStoneHeldByMon(u16 item)
+{
+    u32 i;
+    u8 box;
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) == item)
+            return TRUE;
+    }
+
+    for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    {
+        for (i = 0; i < IN_BOX_COUNT; i++)
+        {
+            if (GetBoxMonDataAt(box, i, MON_DATA_HELD_ITEM) == item)
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static bool32 PlayerOwnsMegaStone(u16 item)
+{
+    return CheckBagHasItem(item, 1)
+        || CheckPCHasItem(item, 1)
+        || IsMegaStoneHeldByMon(item);
+}
+
+static bool32 MegaStoneHasTradableDuplicate(u16 item)
+{
+    u16 bagCount = CountTotalItemQuantityInBag(item);
+
+    if (bagCount >= 2)
+        return TRUE;
+    return bagCount == 1
+        && (CheckPCHasItem(item, 1) || IsMegaStoneHeldByMon(item));
+}
+
+static u32 CountMissingMegaStones(void)
+{
+    u32 count = 0;
+    u32 i;
+
+    for (i = 0; i < GetMegaStonePoolCount(); i++)
+    {
+        if (!PlayerOwnsMegaStone(GetMegaStoneFromPool(i)))
+            count++;
+    }
+    return count;
+}
+
+void BuildMegaStoneExchangeMenu(void)
+{
+    u32 duplicateCount = 0;
+    u32 i;
+
+    gSpecialVar_Result = 0;
+    if (CountMissingMegaStones() == 0)
+    {
+        gSpecialVar_Result = 2;
+        return;
+    }
+
+    for (i = 0; i < GetMegaStonePoolCount(); i++)
+    {
+        if (MegaStoneHasTradableDuplicate(GetMegaStoneFromPool(i)))
+            duplicateCount++;
+    }
+    if (duplicateCount == 0)
+        return;
+
+    MultichoiceDynamic_InitStack(duplicateCount + 1);
+    for (i = 0; i < GetMegaStonePoolCount(); i++)
+    {
+        u16 itemId = GetMegaStoneFromPool(i);
+
+        if (MegaStoneHasTradableDuplicate(itemId))
+        {
+            const u8 *itemName = GetItemName(itemId);
+            u8 *name = Alloc(StringLength(itemName) + 1);
+
+            if (name != NULL)
+            {
+                struct ListMenuItem item;
+
+                StringCopy(name, itemName);
+                item.name = name;
+                item.id = itemId;
+                MultichoiceDynamic_PushElement(item);
+            }
+        }
+    }
+
+    {
+        u8 *cancelName = Alloc(StringLength(gText_Cancel2) + 1);
+
+        if (cancelName != NULL)
+        {
+            struct ListMenuItem cancelItem;
+
+            StringCopy(cancelName, gText_Cancel2);
+            cancelItem.name = cancelName;
+            cancelItem.id = ITEM_NONE;
+            MultichoiceDynamic_PushElement(cancelItem);
+        }
+    }
+    if (!MultichoiceDynamic_StackEmpty())
+        gSpecialVar_Result = 1;
+    else
+        MultichoiceDynamic_DestroyStack();
+}
+
+void TradeDuplicateMegaStone(void)
+{
+    u16 offeredItem = gSpecialVar_0x8004;
+    u32 missingCount = CountMissingMegaStones();
+    u32 selectedMissing;
+    u32 seen = 0;
+    u32 i;
+    u16 receivedItem = ITEM_NONE;
+
+    gSpecialVar_Result = 0;
+    if (!MegaStoneHasTradableDuplicate(offeredItem) || missingCount == 0)
+        return;
+
+    selectedMissing = Random() % missingCount;
+    for (i = 0; i < GetMegaStonePoolCount(); i++)
+    {
+        u16 candidate = GetMegaStoneFromPool(i);
+
+        if (!PlayerOwnsMegaStone(candidate) && seen++ == selectedMissing)
+        {
+            receivedItem = candidate;
+            break;
+        }
+    }
+    if (receivedItem == ITEM_NONE || !RemoveBagItem(offeredItem, 1))
+        return;
+
+    if (AddBagItem(receivedItem, 1))
+        gSpecialVar_Result = 1;
+    else if (AddPCItem(receivedItem, 1))
+        gSpecialVar_Result = 2;
+    else
+    {
+        AddBagItem(offeredItem, 1);
+        return;
+    }
+
+    RandomizerSetItemObtained(receivedItem);
+    CopyItemName(offeredItem, gStringVar1);
+    CopyItemName(receivedItem, gStringVar2);
+}
 
 static u8 *GetGymTokenFailedFlagByte(u8 zone)
 {

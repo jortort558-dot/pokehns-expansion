@@ -109,7 +109,7 @@
 #define VAR_TRIGGER_ELM_ROCKET_CALL                            0x40B3
 // --- Free in the HnS build. Verified: no C in src/ and no script that runs in
 // --- the HnS build reads or writes these addresses. Safe to claim.
-#define VAR_UNUSED_HNS_0x40B4                            0x40B4 // Emerald VAR_SS_TIDAL_STATE - reads gated on FLAG_SYS_CRUISE_MODE / MAP_SS_TIDAL_CORRIDOR
+#define VAR_RESEARCHERS_ACQUAINTANCE_HNS                 0x40B4 // 0 desconocido; 1-5, última ruta de Jose y Pilar visitada
 #define VAR_UNUSED_HNS_0x40C2                            0x40C2 // Emerald VAR_PACIFIDLOG_TM_RECEIVED_DAY - PacifidlogTown_House2 only (Emerald-gated map)
 #define VAR_UNUSED_HNS_0x40C6                            0x40C6 // Emerald VAR_STEVENS_HOUSE_STATE - written in hall_of_fame.inc, reached only from EverGrandeCity_HallOfFame
 #define VAR_UNUSED_HNS_0x40C9                            0x40C9 // Emerald VAR_SCOTT_PETALBURG_ENCOUNTER - PetalburgCity only (Emerald-gated map)

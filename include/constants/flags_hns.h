@@ -1286,6 +1286,7 @@
 #define FLAG_MEGA_SYSTEM_UNLOCKED                   (SYS_FLAGS + 0x45)
 #define FLAG_POKEGEAR_LEVEL_CAP_NOTICE              (SYS_FLAGS + 0x46)
 #define FLAG_POKEGEAR_EVO_NOTICE                    (SYS_FLAGS + 0x47)
+#define FLAG_POKEGEAR_MEGA_EXCHANGE_NOTICE          (SYS_FLAGS + 0x48)
 
 // Battle Frontier symbols
 #define FLAG_SYS_TOWER_SILVER                       (SYS_FLAGS + 0x50)

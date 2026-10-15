@@ -185,6 +185,8 @@ EventScript_PickUpItem::
 	pyramid_getlocation
 	goto_if_eq VAR_RESULT, PYRAMID_LOCATION_FLOOR, EventScript_PutBattlePyramidItemInBag
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	special ShouldShowMegaStoneExchangeNotice
+	call_if_eq VAR_RESULT, TRUE, Common_EventScript_PokegearMegaExchangeNotice_Call
 	return
 
 EventScript_PutBattlePyramidItemInBag::
@@ -280,6 +282,8 @@ EventScript_PutHiddenItemInPocket::
 	bufferitemnameplural STR_VAR_2, VAR_0x8004, 1
 	copyvar VAR_0x8004, VAR_0x8008
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	special ShouldShowMegaStoneExchangeNotice
+	call_if_eq VAR_RESULT, TRUE, Common_EventScript_PokegearMegaExchangeNotice_Call
 	special TryPutTreasureInvestigatorsOnAir
 	special SetHiddenItemFlag
 	callnative Script_UpdateDowseState

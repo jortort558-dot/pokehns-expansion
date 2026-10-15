@@ -8,6 +8,7 @@
 #include "constants/flags.h"
 #include "field_control_avatar.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "script.h"
 #include "data.h"
 #include "data/randomizer/special_form_tables.h"
@@ -654,7 +655,127 @@ static u16 GetRandomizedExplorationMegaStone(u16 megaStone)
         permutation[j] = temp;
     }
 
+    for (i = 0; i < ARRAY_COUNT(sMegaStonesPool); i++)
+    {
+        u16 candidate = sMegaStonesPool[permutation[(anchorIndex + i) % ARRAY_COUNT(sMegaStonesPool)]];
+
+        if (!RandomizerHasObtainedItem(candidate))
+            return candidate;
+    }
+
     return sMegaStonesPool[permutation[anchorIndex]];
+}
+
+u32 GetMegaStonePoolCount(void)
+{
+    return ARRAY_COUNT(sMegaStonesPool);
+}
+
+u16 GetMegaStoneFromPool(u32 index)
+{
+    if (index >= ARRAY_COUNT(sMegaStonesPool))
+        return ITEM_NONE;
+    return sMegaStonesPool[index];
+}
+
+static bool32 IsUniqueRandomizedFieldItem(u16 item)
+{
+    switch (gItemsInfo[item].sortType)
+    {
+    case ITEM_TYPE_SPECIAL_HELD_ITEM:
+    case ITEM_TYPE_MEGA_STONE:
+    case ITEM_TYPE_HELD_ITEM:
+    case ITEM_TYPE_TYPE_BOOST_HELD_ITEM:
+    case ITEM_TYPE_CONTEST_HELD_ITEM:
+    case ITEM_TYPE_EV_BOOST_HELD_ITEM:
+    case ITEM_TYPE_INCENSE:
+        return TRUE;
+    default:
+        return item == ITEM_MASTER_BALL;
+    }
+}
+
+bool32 RandomizerHasObtainedItem(u16 item)
+{
+    if (item >= ITEMS_COUNT)
+        return FALSE;
+    return gSaveBlock3Ptr->randomizedItemFlags[item / 8] & (1 << (item & 7));
+}
+
+void RandomizerSetItemObtained(u16 item)
+{
+    if (item < ITEMS_COUNT)
+        gSaveBlock3Ptr->randomizedItemFlags[item / 8] |= 1 << (item & 7);
+}
+
+static bool32 IsItemCurrentlyOwned(u16 item)
+{
+    u32 i;
+    u8 box;
+
+    if (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1))
+        return TRUE;
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) == item)
+            return TRUE;
+    }
+    for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    {
+        for (i = 0; i < IN_BOX_COUNT; i++)
+        {
+            if (GetBoxMonDataAt(box, i, MON_DATA_HELD_ITEM) == item)
+                return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+void RandomizerInitializeObtainedItemFlags(void)
+{
+    u16 item;
+
+    memset(gSaveBlock3Ptr->randomizedItemFlags, 0,
+           sizeof(gSaveBlock3Ptr->randomizedItemFlags));
+    for (item = 1; item < ITEMS_COUNT; item++)
+    {
+        if (IsUniqueRandomizedFieldItem(item) && IsItemCurrentlyOwned(item))
+            RandomizerSetItemObtained(item);
+    }
+}
+
+static u16 GetRandomizedAvailableItem(struct Sfc32State *state, const u16 *pool, u32 count)
+{
+    u32 start = RandomizerNextRange(state, count);
+    u16 selected = pool[start];
+    u32 i;
+
+    if (!IsUniqueRandomizedFieldItem(selected)
+     || !RandomizerHasObtainedItem(selected))
+        return selected;
+
+    // If a singleton held item was already obtained, keep the replacement in
+    // the same tier and prefer another singleton that is still missing.
+    for (i = 1; i < count; i++)
+    {
+        u16 candidate = pool[(start + i) % count];
+
+        if (IsUniqueRandomizedFieldItem(candidate)
+         && !RandomizerHasObtainedItem(candidate))
+            return candidate;
+    }
+
+    // The tier has no new singleton left. Fall back to a repeatable consumable
+    // instead of creating another copy of a held item.
+    for (i = 1; i < count; i++)
+    {
+        u16 candidate = pool[(start + i) % count];
+
+        if (!IsUniqueRandomizedFieldItem(candidate))
+            return candidate;
+    }
+
+    return selected;
 }
 
 static const u16 sEarlyHealingItems[] =
@@ -756,7 +877,15 @@ u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
         if (RandomizerNextRange(&state, 1000) < megaRate)
         {
             u32 megaIndex = RandomizerNextRange(&state, ARRAY_COUNT(sMegaStonesPool));
-            return sMegaStonesPool[megaIndex];
+            u32 i;
+
+            for (i = 0; i < ARRAY_COUNT(sMegaStonesPool); i++)
+            {
+                u16 candidate = sMegaStonesPool[(megaIndex + i) % ARRAY_COUNT(sMegaStonesPool)];
+
+                if (!RandomizerHasObtainedItem(candidate))
+                    return candidate;
+            }
         }
     }
 
@@ -819,19 +948,19 @@ u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
 
     // 3. ELECCIÓN DE OBJETO DENTRO DEL TIER SELECCIONADO
     if (roll < wT1)
-        return sItemTier1[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier1))];
+        return GetRandomizedAvailableItem(&state, sItemTier1, ARRAY_COUNT(sItemTier1));
     roll -= wT1;
 
     if (roll < wT2)
-        return sItemTier2[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier2))];
+        return GetRandomizedAvailableItem(&state, sItemTier2, ARRAY_COUNT(sItemTier2));
     roll -= wT2;
 
     if (roll < wT3)
-        return sItemTier3[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier3))];
+        return GetRandomizedAvailableItem(&state, sItemTier3, ARRAY_COUNT(sItemTier3));
     roll -= wT3;
 
     if (roll < wT4)
-        return sItemTier4General[RandomizerNextRange(&state, ARRAY_COUNT(sItemTier4General))];
+        return GetRandomizedAvailableItem(&state, sItemTier4General, ARRAY_COUNT(sItemTier4General));
 
     return sItemTier5[0];
 }

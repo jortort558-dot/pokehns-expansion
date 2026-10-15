@@ -148,6 +148,11 @@ static inline u8 RandomizeMonType(u16 species, u8 typeNum)
 }
 
 u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId);
+u32 GetMegaStonePoolCount(void);
+u16 GetMegaStoneFromPool(u32 index);
+bool32 RandomizerHasObtainedItem(u16 item);
+void RandomizerSetItemObtained(u16 item);
+void RandomizerInitializeObtainedItemFlags(void);
 u16 GetRandomizedTM(u16 tmId);
 u16 RandomizeFoundItem(u16 itemId, u8 mapNum, u8 mapGroup, u8 localId);
 void FindItemRandomize_NativeCall(struct ScriptContext *ctx);
