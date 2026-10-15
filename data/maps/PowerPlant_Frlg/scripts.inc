@@ -113,3 +113,56 @@ PowerPlant_EventScript_FoughtElectrode2::
 	setflag FLAG_FOUGHT_POWER_PLANT_ELECTRODE_2
 	goto EventScript_RemoveStaticMon
 	end
+
+PowerPlant_EventScript_ProfessorMohedano::
+	lock
+	faceplayer
+	goto_if_set FLAG_MOHEDANO_POWER_PLANT_DEFEATED, PowerPlant_EventScript_ProfessorMohedano_Post
+	msgbox PowerPlant_Text_MohedanoIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_PROFESSOR_MOHEDANO_HNS, PowerPlant_Text_MohedanoDefeated
+	msgbox PowerPlant_Text_MohedanoAfter, MSGBOX_DEFAULT
+	giveitem ITEM_MIMINUCLEO_TARAFANTASTICO
+	setflag FLAG_MOHEDANO_POWER_PLANT_DEFEATED
+	release
+	end
+
+PowerPlant_EventScript_ProfessorMohedano_Post::
+	msgbox PowerPlant_Text_MohedanoPostDialogue, MSGBOX_DEFAULT
+	release
+	end
+
+PowerPlant_Text_MohedanoIntro:
+	.string "¡Ja, ja, ja! ¿Un emisario de esa\n"
+	.string "empresa de pacotilla?\p"
+	.string "¡Yo soy el Profesor Mohedano!\n"
+	.string "¡Pionero de la libre ciencia!\p"
+	.string "Silph quería confinar las células\n"
+	.string "del gran Zygarde bajo patentes\l"
+	.string "y beneficios comerciales.\p"
+	.string "¡El equilibrio del mundo pertenece\n"
+	.string "a la naturaleza viva!\p"
+	.string "Estoy cargando este Miminúcleo\n"
+	.string "Tarafantástico con voltios puros.\p"
+	.string "¿Quieres arrebatármelo?\n"
+	.string "¡Demuestra si tu ciencia y tu\l"
+	.string "espíritu están a mi altura!$"
+
+PowerPlant_Text_MohedanoDefeated:
+	.string "¡Qué voltaje! ¡Una potencia\n"
+	.string "bioquímica deslumbrante!$"
+
+PowerPlant_Text_MohedanoAfter:
+	.string "Impresionante... Tus Pokémon vibran\n"
+	.string "en resonancia natural.\p"
+	.string "Quizás me equivoqué contigo.\n"
+	.string "Toma el Miminúcleo Tarafantástico.\p"
+	.string "Asegúrate de que el Arca sirva\n"
+	.string "a la vida y no al interés de\l"
+	.string "las oficinas de Silph S.A.$"
+
+PowerPlant_Text_MohedanoPostDialogue:
+	.string "Seguiré estudiando los campos\n"
+	.string "magnéticos de este viejo lugar.\p"
+	.string "¡La verdadera ciencia nunca duerme,\n"
+	.string "joven prodigio!$"
+

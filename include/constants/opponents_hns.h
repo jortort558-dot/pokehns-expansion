@@ -706,8 +706,9 @@
 #define TRAINER_ROSA_CHALLENGE_11_HNS          682
 #define TRAINER_ROSA_CHALLENGE_12_HNS          683
 #define TRAINER_ROSA_CHALLENGE_13_HNS          684
+#define TRAINER_PROFESSOR_MOHEDANO_HNS         685
 
-#define TRAINERS_COUNT_HNS                       685
+#define TRAINERS_COUNT_HNS                       686
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

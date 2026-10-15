@@ -17841,6 +17841,23 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_Lure,
         .iconPalette = gItemIconPalette_SuperLure,
     },
+
+    [ITEM_MIMINUCLEO_TARAFANTASTICO] =
+    {
+        .name = ITEM_NAME("MIMINÚCLEO T."),
+        .pluralName = ITEM_PLURAL_NAME("MIMINÚCLEOS T."),
+        .price = 0,
+        .importance = 1,
+        .description = COMPOUND_STRING(
+            "Componente cuántico que\n"
+            "sirve de corazón al Arca\n"
+            "de Zygarde. Recuperado\n"
+            "del Profesor Mohedano."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .iconPic = gItemIcon_ZygardeCube,
+        .iconPalette = gItemIconPalette_ZygardeCube,
+    },
 };
 
 #undef ITEM_NAME

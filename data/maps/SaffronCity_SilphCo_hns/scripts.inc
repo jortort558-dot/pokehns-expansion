@@ -158,3 +158,79 @@ SilphCo_Text_Officer_GotUpGrade:
 	.string "Es el último producto de\n"
 	.string "SILPH S.A.\p"
 	.string "Todavía no está a la venta.$"
+
+SaffronCity_SilphCo_EventScript_ScientistZygarde::
+	lock
+	faceplayer
+	goto_if_set FLAG_SILPH_CO_ZYGARDE_CUBE_RECEIVED, SaffronCity_SilphCo_EventScript_ScientistZygarde_Done
+	checkitem ITEM_MIMINUCLEO_TARAFANTASTICO
+	goto_if_eq VAR_RESULT, TRUE, SaffronCity_SilphCo_EventScript_ScientistZygarde_Assemble
+	goto_if_set FLAG_MOHEDANO_QUEST_STARTED, SaffronCity_SilphCo_EventScript_ScientistZygarde_Waiting
+	setflag FLAG_MOHEDANO_QUEST_STARTED
+	msgbox SaffronCity_SilphCo_Text_ScientistIntro, MSGBOX_DEFAULT
+	release
+	end
+
+SaffronCity_SilphCo_EventScript_ScientistZygarde_Waiting::
+	msgbox SaffronCity_SilphCo_Text_ScientistWaiting, MSGBOX_DEFAULT
+	release
+	end
+
+SaffronCity_SilphCo_EventScript_ScientistZygarde_Assemble::
+	msgbox SaffronCity_SilphCo_Text_ScientistReward, MSGBOX_DEFAULT
+	removeitem ITEM_MIMINUCLEO_TARAFANTASTICO
+	giveitem ITEM_ZYGARDE_CUBE
+	setflag FLAG_SILPH_CO_ZYGARDE_CUBE_RECEIVED
+	msgbox SaffronCity_SilphCo_Text_ScientistExplainCube, MSGBOX_DEFAULT
+	release
+	end
+
+SaffronCity_SilphCo_EventScript_ScientistZygarde_Done::
+	msgbox SaffronCity_SilphCo_Text_ScientistDone, MSGBOX_DEFAULT
+	release
+	end
+
+SaffronCity_SilphCo_Text_ScientistIntro:
+	.string "¡Qué catástrofe! ¡Un desastre\n"
+	.string "para la ciencia moderna!\p"
+	.string "Un hombre estrambótico que se hacía\n"
+	.string "llamar Profesor Mohedano ha burlado\l"
+	.string "la seguridad del laboratorio.\p"
+	.string "¡Se ha llevado nuestra mayor obra:\n"
+	.string "el Miminúcleo Tarafantástico!\p"
+	.string "Es la pieza de un contenedor\n"
+	.string "para estabilizar la energía\l"
+	.string "celular del legendario Zygarde.\p"
+	.string "Detectamos picos bioeléctricos\n"
+	.string "en la vieja Central de Energía...\p"
+	.string "¡Por favor, debes recuperarlo!\n"
+	.string "¡Te recompensaremos bien!$"
+
+SaffronCity_SilphCo_Text_ScientistWaiting:
+	.string "Mohedano sigue libre con el núcleo\n"
+	.string "en la Central de Energía de Kanto.\p"
+	.string "¡Si sobrecarga el Miminúcleo\n"
+	.string "podría causar una catástrofe!$"
+
+SaffronCity_SilphCo_Text_ScientistReward:
+	.string "¡Increíble! ¡Has recuperado el\n"
+	.string "Miminúcleo Tarafantástico!\p"
+	.string "Déjame acoplar la matriz en\n"
+	.string "el contenedor celular...\p"
+	.string "¡Listo y bien calibrado!\n"
+	.string "Como prometí, quédate con esto.$"
+
+SaffronCity_SilphCo_Text_ScientistExplainCube:
+	.string "Es el Arca de Zygarde.\p"
+	.string "Con ella puedes transformar a\n"
+	.string "Zygarde entre su Forma 10% y 50%.\p"
+	.string "Además, con la habilidad\n"
+	.string "Agrupamiento, desatará en combate\l"
+	.string "su colosal Forma Completa.$"
+
+SaffronCity_SilphCo_Text_ScientistDone:
+	.string "Zygarde vela por el equilibrio de\n"
+	.string "todo el ecosistema.\p"
+	.string "En tus manos, esa tecnología está\n"
+	.string "a salvo de malas intenciones.$"
+

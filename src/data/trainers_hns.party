@@ -17939,3 +17939,73 @@ IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Thunderbolt
 - Ice Beam
 - Recover
+
+=== TRAINER_PROFESSOR_MOHEDANO_HNS ===
+Name: MOHEDANO
+Class: Professor Hns
+Pic: Samson Oak Hns
+Gender: Male
+Music: Hg Suspicious 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Rotom Wash @ Leftovers
+Ability: Levitate
+Level: 50
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Volt Switch
+- Hydro Pump
+- Will-O-Wisp
+- Pain Split
+
+Magnezone @ Choice Specs
+Ability: Magnet Pull
+Level: 50
+Nature: Modest
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunderbolt
+- Flash Cannon
+- Volt Switch
+- Body Press
+
+Electivire @ Life Orb
+Ability: Motor Drive
+Level: 50
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Wild Charge
+- Ice Punch
+- Cross Chop
+- Earthquake
+
+Porygon-Z @ Choice Scarf
+Ability: Adaptability
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Tri Attack
+- Shadow Ball
+- Ice Beam
+- Thunderbolt
+
+Venusaur @ Black Sludge
+Ability: Overgrow
+Level: 50
+Nature: Calm
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Drain
+- Sludge Bomb
+- Leech Seed
+- Sleep Powder
+
+Vikavolt @ Focus Sash
+Ability: Levitate
+Level: 50
+Nature: Quiet
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bug Buzz
+- Thunderbolt
+- Energy Ball
+- Roost
+

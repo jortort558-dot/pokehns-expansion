@@ -666,6 +666,26 @@ static void CB2_InitBattleInternal(void)
             CreateNPCTrainerParty(&gEnemyParty[0], TRAINER_BATTLE_PARAM.opponentA, TRUE);
             if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS && !BATTLE_TWO_VS_ONE_OPPONENT)
                 CreateNPCTrainerParty(&gEnemyParty[PARTY_SIZE / 2], TRAINER_BATTLE_PARAM.opponentB, FALSE);
+
+            if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_PROFESSOR_MOHEDANO_HNS)
+            {
+                s32 playerHighestLevel = GetHighestLevelInPlayerParty();
+                if (playerHighestLevel < 5)
+                    playerHighestLevel = 5;
+                if (playerHighestLevel > MAX_LEVEL)
+                    playerHighestLevel = MAX_LEVEL;
+
+                for (i = 0; i < PARTY_SIZE; i++)
+                {
+                    u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES);
+                    if (species != SPECIES_NONE && species != SPECIES_EGG)
+                    {
+                        SetMonData(&gEnemyParty[i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][playerHighestLevel]);
+                        CalculateMonStats(&gEnemyParty[i]);
+                    }
+                }
+            }
+
             SetWildMonHeldItem();
             CalculateEnemyPartyCount();
 
