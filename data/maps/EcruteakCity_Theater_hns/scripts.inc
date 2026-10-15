@@ -676,6 +676,8 @@ EcruteakCity_Theater_EventScript_LegendaryCutscene::
 EcruteakCity_Theater_EventScript_ZukiBattle::
 	msgbox EcruteakCity_Theater_Text_ZukiSeenAgain, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, FALSE, EcruteakCity_Theater_EventScript_LegendaryDenied
+	msgbox EcruteakCity_Theater_Text_ZukiAreYouSure, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, EcruteakCity_Theater_EventScript_LegendaryDenied
 	call_if_eq VAR_FACING, DIR_SOUTH, EcruteakCity_Theater_Movement_SouthCorrection
 	call_if_eq VAR_FACING, DIR_WEST, EcruteakCity_Theater_Movement_WestCorrection
 	call_if_eq VAR_FACING, DIR_EAST, EcruteakCity_Theater_Movement_EastCorrection
@@ -967,9 +969,16 @@ EcruteakCity_Theater_Text_ZukiSeen:
 	.string "basta para encarar el poder de\l"
 	.string "ese POKéMON.$"
 EcruteakCity_Theater_Text_ZukiSeenAgain:
-	.string "Te pondré a prueba para ver si\n"
-	.string "eres un Entrenador digno.\p"
+	.string "Te pondremos a prueba para ver\n"
+	.string "si eres un Entrenador digno.\p"
+	.string "Será un combate muy difícil\n"
+	.string "contra nosotras sin descanso.\p"
+	.string "Acepta solo si estás listo\n"
+	.string "para un gran reto.\p"
 	.string "¿Todo listo, {PLAYER}?$"
+
+EcruteakCity_Theater_Text_ZukiAreYouSure:
+	.string "¿Seguro de verdad?$"
 EcruteakCity_Theater_Text_ZukiNo:
 	.string "Me parece bien... Esperaré a que\n"
 	.string "te prepares.$"
