@@ -1927,7 +1927,8 @@ static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, stru
         HandleBoulderFallThroughHole(boulder);
         HandleBoulderActivateVictoryRoadSwitch(boulder);
         gPlayerAvatar.preventStep = FALSE;
-        UnlockPlayerFieldControls();
+        if (!ScriptContext_IsEnabled())
+            UnlockPlayerFieldControls();
         DestroyTask(FindTaskIdByFunc(Task_PushBoulder));
     }
     return FALSE;

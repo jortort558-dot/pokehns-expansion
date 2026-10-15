@@ -1,12 +1,26 @@
 CianwoodThreeTidesPuzzle_hns_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CianwoodThreeTidesPuzzle_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, CianwoodThreeTidesPuzzle_OnFrame
 	.byte 0
+
+CianwoodThreeTidesPuzzle_OnFrame:
+	map_script_2 VAR_TEMP_4, 0, CianwoodThreeTidesPuzzle_EventScript_CheckOnFrame
+	.2byte 0
+
+CianwoodThreeTidesPuzzle_EventScript_CheckOnFrame::
+	setvar VAR_TEMP_4, 1
+	goto_if_set FLAG_CIANWOOD_THREE_TIDES_PUZZLE_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_FrameDone
+	goto CianwoodThreeTidesPuzzle_EventScript_CheckAllThree
+	end
+
+CianwoodThreeTidesPuzzle_EventScript_FrameDone::
+	end
 
 CianwoodThreeTidesPuzzle_OnTransition::
 	setvar VAR_TEMP_1, 0
 	setvar VAR_TEMP_2, 0
 	setvar VAR_TEMP_3, 0
-	setvar VAR_TEMP_4, 0 @ Contador de monolitos colocados
+	setvar VAR_TEMP_4, 0
 	goto_if_unset FLAG_CIANWOOD_THREE_TIDES_PUZZLE_COMPLETE, CianwoodThreeTidesPuzzle_EventScript_HideSage
 	goto_if_set FLAG_JOHTO_SECRET_SAGE_MET, CianwoodThreeTidesPuzzle_EventScript_HideSage
 	clearflag FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE
@@ -106,6 +120,7 @@ CianwoodThreeTidesPuzzle_EventScript_SocketDone::
 	end
 
 CianwoodThreeTidesPuzzle_EventScript_AllSolved::
+	lockall
 	setvar VAR_0x8004, 2
 	setvar VAR_0x8005, 2
 	setvar VAR_0x8006, 12
@@ -120,6 +135,7 @@ CianwoodThreeTidesPuzzle_EventScript_AllSolved::
 	setflag FLAG_CIANWOOD_THREE_TIDES_PUZZLE_COMPLETE
 	clearflag FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE
 	addobject LOCALID_PUZZLE_SAGE
+	showobjectat LOCALID_PUZZLE_SAGE, MAP_CIANWOOD_THREE_TIDES_PUZZLE_HNS
 	msgbox CianwoodThreeTidesPuzzle_Text_PuzzleSolved, MSGBOX_DEFAULT
 	releaseall
 	end

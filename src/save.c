@@ -1064,6 +1064,18 @@ u8 LoadGameSave(u8 saveType)
 #endif
         gSaveBlock1Ptr->saveVersion = 14;
     }
+    if (gSaveBlock1Ptr->saveVersion < 15)
+    {
+#if IS_HNS
+        // Resetea el puzzle de las tres mareas para partidas existentes
+        FlagClear(FLAG_CIANWOOD_THREE_TIDES_PUZZLE_COMPLETE);
+        FlagClear(FLAG_CIANWOOD_CALM_TRIAL_COMPLETE);
+        FlagClear(FLAG_CIANWOOD_ECHO_TRIAL_COMPLETE);
+        FlagClear(FLAG_CIANWOOD_BRIO_TRIAL_COMPLETE);
+        FlagSet(FLAG_HIDE_JOHTO_SECRET_SAGE_CAVE);
+#endif
+        gSaveBlock1Ptr->saveVersion = 15;
+    }
 
     // Add version migration steps here:
     // if (gSaveBlock1Ptr->saveVersion < 1)
