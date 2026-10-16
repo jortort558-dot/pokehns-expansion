@@ -2058,6 +2058,82 @@ static bool32 IsKantoLeaderClass(u8 trainerClass)
     return trainerClass == TRAINER_CLASS_LEADER_KANTO_HNS;
 }
 
+static u16 GetKantoTrainerHeldItem(u16 species, u16 currentItem, bool32 isLeader, u8 kantoBadges, u32 personality)
+{
+    // Si el entrenador ya tiene un objeto competitivo clave asignado, respetarlo salvo que sea nulo o consumible básico
+    if (currentItem != ITEM_NONE && currentItem != ITEM_SITRUS_BERRY && currentItem != ITEM_QUICK_CLAW)
+    {
+        // En fases finales (6+ medallas), reemplazar Quick Claw o items débiles si aplica
+        return currentItem;
+    }
+
+    if (isLeader)
+    {
+        // Objetos competitivos para Líderes según medallas de Kanto
+        if (kantoBadges >= 6)
+        {
+            // Tier alto (6 a 8 medallas): Life Orb, Focus Sash, Leftovers, Assault Vest, Choice Band / Specs, Lum Berry
+            switch (personality % 6)
+            {
+            case 0: return ITEM_LIFE_ORB;
+            case 1: return ITEM_FOCUS_SASH;
+            case 2: return ITEM_LEFTOVERS;
+            case 3: return ITEM_ASSAULT_VEST;
+            case 4: return ITEM_LUM_BERRY;
+            case 5: return ITEM_EXPERT_BELT;
+            }
+        }
+        else if (kantoBadges >= 3)
+        {
+            // Tier medio (3 a 5 medallas)
+            switch (personality % 4)
+            {
+            case 0: return ITEM_LEFTOVERS;
+            case 1: return ITEM_SITRUS_BERRY;
+            case 2: return ITEM_EXPERT_BELT;
+            case 3: return ITEM_LUM_BERRY;
+            }
+        }
+        else
+        {
+            // Tier inicial de Kanto (0 a 2 medallas)
+            if (currentItem != ITEM_NONE)
+                return currentItem;
+            return (personality % 2 == 0) ? ITEM_SITRUS_BERRY : ITEM_LUM_BERRY;
+        }
+    }
+    else
+    {
+        // Esbirros de gimnasios de Kanto
+        if (kantoBadges >= 6)
+        {
+            switch (personality % 4)
+            {
+            case 0: return ITEM_LEFTOVERS;
+            case 1: return ITEM_EXPERT_BELT;
+            case 2: return ITEM_SITRUS_BERRY;
+            case 3: return ITEM_LUM_BERRY;
+            }
+        }
+        else if (kantoBadges >= 3)
+        {
+            switch (personality % 3)
+            {
+            case 0: return ITEM_SITRUS_BERRY;
+            case 1: return ITEM_LUM_BERRY;
+            case 2: return ITEM_NONE;
+            }
+        }
+        else
+        {
+            // 0 a 2 medallas: solo Sitrus Berry ocasional
+            return (personality % 2 == 0) ? ITEM_SITRUS_BERRY : currentItem;
+        }
+    }
+
+    return currentItem;
+}
+
 u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, u16 trainerId, bool32 firstTrainer, u32 battleTypeFlags)
 {
     u32 personalityValue;
@@ -2106,6 +2182,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                                  && FlagGet(FLAG_IS_CHAMPION)
                                  && !FlagGet(FLAG_IS_KANTO_CHAMPION);
         bool32 isKantoLeader = isKantoProgression && IsKantoLeaderClass(trainer->trainerClass);
+        bool32 isKantoGymTrainer = isKantoProgression && IsCurrentMapKantoGym();
         bool32 canScale;
         s32 targetMaxLevel;
 
@@ -2178,6 +2255,12 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 species = randMon.species;
                 heldItem = randMon.heldItem;
                 #endif
+
+                if (isKantoProgression && (isKantoLeader || isKantoGymTrainer))
+                {
+                    heldItem = GetKantoTrainerHeldItem(species, heldItem, isKantoLeader, GetKantoBadgeCount(), personalityValue);
+                }
+
                 CreateMon(&party[i], species, monLevel, personalityValue, otId);
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
             }
@@ -2289,6 +2372,80 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                     SetMonData(&party[i], MON_DATA_DEF_EV, &ev);
                 else
                     SetMonData(&party[i], MON_DATA_SPDEF_EV, &ev);
+                CalculateMonStats(&party[i]);
+            }
+        }
+
+        if (isKantoProgression && (isKantoLeader || isKantoGymTrainer))
+        {
+            u8 kantoBadges = GetKantoBadgeCount();
+            u8 kantoIv;
+            u8 kantoEv;
+
+            if (isKantoLeader)
+            {
+                if (kantoBadges <= 2)
+                {
+                    kantoIv = 26;
+                    kantoEv = 64; // ~256 total EVs
+                }
+                else if (kantoBadges <= 5)
+                {
+                    kantoIv = 29;
+                    kantoEv = 96; // ~384 total EVs
+                }
+                else
+                {
+                    kantoIv = 31;
+                    kantoEv = 128; // ~512 total EVs (competitivo completo)
+                }
+            }
+            else // Esbirro de gimnasio de Kanto
+            {
+                if (kantoBadges <= 2)
+                {
+                    kantoIv = 16;
+                    kantoEv = 32; // ~128 total EVs
+                }
+                else if (kantoBadges <= 5)
+                {
+                    kantoIv = 22;
+                    kantoEv = 64; // ~256 total EVs
+                }
+                else
+                {
+                    kantoIv = 28;
+                    kantoEv = 96; // ~384 total EVs
+                }
+            }
+
+            for (i = 0; i < monsCount; i++)
+            {
+                // Si el modo Desafío de IVs no está activo, aplicar IV progresivo de Kanto si es mayor
+                if (!gSaveBlock3Ptr->challengeSettings.tx_Challenges_TrainerScalingIVs)
+                {
+                    for (u32 j = 0; j < NUM_STATS; j++)
+                    {
+                        if (GetMonData(&party[i], MON_DATA_HP_IV + j) < kantoIv)
+                            SetMonData(&party[i], MON_DATA_HP_IV + j, &kantoIv);
+                    }
+                }
+
+                // Si el modo Desafío de EVs no está activo, aplicar distribución de EVs competitiva progresiva
+                if (!gSaveBlock3Ptr->challengeSettings.tx_Challenges_TrainerScalingEVs)
+                {
+                    SetMonData(&party[i], MON_DATA_HP_EV, &kantoEv);
+                    SetMonData(&party[i], MON_DATA_SPEED_EV, &kantoEv);
+                    if (GetMonData(&party[i], MON_DATA_ATK) > GetMonData(&party[i], MON_DATA_SPATK))
+                        SetMonData(&party[i], MON_DATA_ATK_EV, &kantoEv);
+                    else
+                        SetMonData(&party[i], MON_DATA_SPATK_EV, &kantoEv);
+                    if (GetMonData(&party[i], MON_DATA_DEF) > GetMonData(&party[i], MON_DATA_SPDEF))
+                        SetMonData(&party[i], MON_DATA_DEF_EV, &kantoEv);
+                    else
+                        SetMonData(&party[i], MON_DATA_SPDEF_EV, &kantoEv);
+                }
+
                 CalculateMonStats(&party[i]);
             }
         }

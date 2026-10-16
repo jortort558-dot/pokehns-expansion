@@ -26,5 +26,7 @@ u32 GetSoftLevelCapExpValue(u32 level, u32 expValue);
 u32 GetCurrentEVCap(void);
 void BufferCurrentLevelCap(void);
 void BufferLevelCapSummary(void);
+u8 GetKantoBadgeCount(void);
+bool32 IsCurrentMapKantoGym(void);
 
 #endif /* GUARD_CAPS_H */

@@ -22,5 +22,9 @@ void YamiSuperTraining_AddEVs(void);
 void YamiSuperTraining_ResetEVs(void);
 void DaraOtaku_CheckAndPrepareAbilities(void);
 void DaraOtaku_ApplyAbilityChange(void);
+void DoctoriniBea_CheckGender(void);
+void DoctoriniBea_ApplyGenderChange(void);
+void DoctoreFernan_CheckAndPrepareForms(void);
+void DoctoreFernan_ApplyFormChange(void);
 
 #endif // GUARD_SCRIPT_POKEMON_UTIL_H

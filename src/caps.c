@@ -4,6 +4,27 @@
 #include "caps.h"
 #include "pokemon.h"
 #include "string_util.h"
+#include "constants/maps.h"
+
+bool32 IsCurrentMapKantoGym(void)
+{
+    u16 map = (gSaveBlock1Ptr->location.mapGroup << 8) | gSaveBlock1Ptr->location.mapNum;
+
+    switch (map)
+    {
+    case MAP_PEWTER_CITY_GYM_HNS:
+    case MAP_CERULEAN_CITY_GYM_HNS:
+    case MAP_VERMILION_CITY_GYM_HNS:
+    case MAP_CELADON_CITY_GYM_HNS:
+    case MAP_SAFFRON_CITY_GYM_HNS:
+    case MAP_FUCHSIA_CITY_GYM_HNS:
+    case MAP_SEAFOAM_ISLANDS_GYM_HNS:
+    case MAP_VIRIDIAN_CITY_GYM_HNS:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
 
 static u8 GetCurrentBadgeCount(void)
 {
@@ -69,7 +90,7 @@ static const u8 sKantoLevelCapTable_Hard[] =
     [8] = 68,
 };
 
-static u8 GetKantoBadgeCount(void)
+u8 GetKantoBadgeCount(void)
 {
     u16 flag;
     u8 badgeCount = 0;

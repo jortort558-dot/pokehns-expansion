@@ -747,3 +747,7 @@ gSpecials::
 	def_special TakeDeliveredMail
 	def_special CheckGymTrainersDefeated
 	def_special CheckRouteTrainersDefeated
+	def_special DoctoriniBea_CheckGender
+	def_special DoctoriniBea_ApplyGenderChange
+	def_special DoctoreFernan_CheckAndPrepareForms
+	def_special DoctoreFernan_ApplyFormChange

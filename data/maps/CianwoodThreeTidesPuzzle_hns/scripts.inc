@@ -1,5 +1,3 @@
-.set LOCALID_PUZZLE_SAGE, 4
-
 CianwoodThreeTidesPuzzle_hns_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CianwoodThreeTidesPuzzle_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, CianwoodThreeTidesPuzzle_OnFrame

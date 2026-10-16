@@ -17,6 +17,7 @@
 #include "link.h"
 #include "link_rfu.h"
 #include "main.h"
+#include "malloc.h"
 #include "menu.h"
 #include "overworld.h"
 #include "ow_synchronize.h"
@@ -30,6 +31,7 @@
 #include "gym_tokens.h"
 #include "nuzlocke.h"
 #include "script.h"
+#include "script_menu.h"
 #include "sprite.h"
 #include "string_util.h"
 #include "strings.h"
@@ -1250,3 +1252,266 @@ void DaraOtaku_ApplyAbilityChange(void)
     StringCopy(gStringVar2, gAbilitiesInfo[newAbility].name);
     gSpecialVar_Result = TRUE;
 }
+
+#include "data/regional_form_families.h"
+
+static const u8 sText_MaleGenderName[] = _("MACHO");
+static const u8 sText_FemaleGenderName[] = _("HEMBRA");
+
+void DoctoriniBea_CheckGender(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    if (slot >= gPlayerPartyCount)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u8 genderRatio = gSpeciesInfo[species].genderRatio;
+
+    // Reject genderless or single-gender species
+    if (genderRatio == MON_MALE || genderRatio == MON_FEMALE || genderRatio == MON_GENDERLESS)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u8 currentGender = GetMonGender(mon);
+    GetMonNickname(mon, gStringVar1);
+
+    if (currentGender == MON_MALE)
+    {
+        StringCopy(gStringVar2, sText_MaleGenderName);
+        StringCopy(gStringVar3, sText_FemaleGenderName);
+    }
+    else
+    {
+        StringCopy(gStringVar2, sText_FemaleGenderName);
+        StringCopy(gStringVar3, sText_MaleGenderName);
+    }
+
+    gSpecialVar_Result = TRUE;
+}
+
+void DoctoriniBea_ApplyGenderChange(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    if (slot >= gPlayerPartyCount)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u8 genderRatio = gSpeciesInfo[species].genderRatio;
+    if (genderRatio == MON_MALE || genderRatio == MON_FEMALE || genderRatio == MON_GENDERLESS)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u8 currentGender = GetMonGender(mon);
+    u8 targetGender = (currentGender == MON_MALE) ? MON_FEMALE : MON_MALE;
+    u32 personality = GetMonData(mon, MON_DATA_PERSONALITY);
+    bool32 isShiny = IsMonShiny(mon);
+    u32 originalNature = personality % NUM_NATURES;
+    u32 newPersonality = personality;
+
+    // Search for a personality value with the exact same nature that yields targetGender
+    u32 i;
+    for (i = 0; i < 20000; i++)
+    {
+        // Try shifting personality by multiples of NUM_NATURES (25)
+        u32 candidate = (targetGender == MON_FEMALE) ? (originalNature + i * NUM_NATURES) : (originalNature + (i + 15) * NUM_NATURES);
+        if (GetGenderFromSpeciesAndPersonality(species, candidate) == targetGender)
+        {
+            newPersonality = candidate;
+            break;
+        }
+    }
+
+    SetMonData(mon, MON_DATA_PERSONALITY, &newPersonality);
+    SetMonData(mon, MON_DATA_IS_SHINY, &isShiny);
+    CalculateMonStats(mon);
+
+    GetMonNickname(mon, gStringVar1);
+    if (targetGender == MON_MALE)
+        StringCopy(gStringVar2, sText_MaleGenderName);
+    else
+        StringCopy(gStringVar2, sText_FemaleGenderName);
+
+    gSpecialVar_Result = TRUE;
+}
+
+static bool32 IsExcludedBattleForm(u16 species)
+{
+    if (species == SPECIES_NONE)
+        return TRUE;
+
+    // Check mega, primal, totem or gmax
+    if (gSpeciesInfo[species].isMegaEvolution
+        || gSpeciesInfo[species].isPrimalReversion
+        || gSpeciesInfo[species].isTotem
+        || gSpeciesInfo[species].isGigantamax)
+        return TRUE;
+
+    // Check battle-only / in-battle forms
+    switch (species)
+    {
+    case SPECIES_DARMANITAN_ZEN:
+    case SPECIES_DARMANITAN_GALAR_ZEN:
+    case SPECIES_CASTFORM_SUNNY:
+    case SPECIES_CASTFORM_RAINY:
+    case SPECIES_CASTFORM_SNOWY:
+    case SPECIES_CHERRIM_SUNSHINE:
+    case SPECIES_AEGISLASH_BLADE:
+    case SPECIES_XERNEAS_ACTIVE:
+    case SPECIES_WISHIWASHI_SCHOOL:
+    case SPECIES_MIMIKYU_BUSTED:
+    case SPECIES_CRAMORANT_GULPING:
+    case SPECIES_CRAMORANT_GORGING:
+    case SPECIES_EISCUE_NOICE:
+    case SPECIES_MORPEKO_HANGRY:
+    case SPECIES_PALAFIN_HERO:
+    case SPECIES_TERAPAGOS_TERASTAL:
+    case SPECIES_TERAPAGOS_STELLAR:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
+void DoctoreFernan_CheckAndPrepareForms(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    if (slot >= gPlayerPartyCount)
+    {
+        gSpecialVar_Result = 0;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = 0;
+        return;
+    }
+
+    u16 currentSpecies = GetMonData(mon, MON_DATA_SPECIES);
+    GetMonNickname(mon, gStringVar1);
+
+    // Get table: either custom regional family table or species formSpeciesIdTable
+    const u16 *formTable = GetRegionalFamilyTable(currentSpecies);
+    if (formTable == NULL)
+        formTable = GetSpeciesFormTable(currentSpecies);
+
+    if (formTable == NULL)
+    {
+        gSpecialVar_Result = 0;
+        return;
+    }
+
+    // Count valid available target forms (excluding currentSpecies and battle-only forms)
+    u32 count = 0;
+    u32 i;
+    for (i = 0; formTable[i] != FORM_SPECIES_END; i++)
+    {
+        u16 targetSpecies = formTable[i];
+        if (targetSpecies != currentSpecies && !IsExcludedBattleForm(targetSpecies))
+            count++;
+    }
+
+    if (count == 0)
+    {
+        gSpecialVar_Result = 0;
+        return;
+    }
+
+    MultichoiceDynamic_InitStack(count + 1);
+
+    for (i = 0; formTable[i] != FORM_SPECIES_END; i++)
+    {
+        u16 targetSpecies = formTable[i];
+        if (targetSpecies != currentSpecies && !IsExcludedBattleForm(targetSpecies))
+        {
+            const u8 *speciesName = GetSpeciesName(targetSpecies);
+            u8 *nameBuffer = Alloc(StringLength(speciesName) + 1);
+            if (nameBuffer != NULL)
+            {
+                struct ListMenuItem item;
+                StringCopy(nameBuffer, speciesName);
+                item.name = nameBuffer;
+                item.id = targetSpecies;
+                MultichoiceDynamic_PushElement(item);
+            }
+        }
+    }
+
+    // Push cancel option
+    {
+        u8 *cancelName = Alloc(StringLength(gText_Cancel2) + 1);
+        if (cancelName != NULL)
+        {
+            struct ListMenuItem cancelItem;
+            StringCopy(cancelName, gText_Cancel2);
+            cancelItem.name = cancelName;
+            cancelItem.id = SPECIES_NONE;
+            MultichoiceDynamic_PushElement(cancelItem);
+        }
+    }
+
+    if (!MultichoiceDynamic_StackEmpty())
+        gSpecialVar_Result = count;
+    else
+    {
+        MultichoiceDynamic_DestroyStack();
+        gSpecialVar_Result = 0;
+    }
+}
+
+void DoctoreFernan_ApplyFormChange(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    u16 newSpecies = gSpecialVar_0x8005;
+
+    if (slot >= gPlayerPartyCount || newSpecies == SPECIES_NONE)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u16 oldSpecies = GetMonData(mon, MON_DATA_SPECIES);
+    SetMonData(mon, MON_DATA_SPECIES, &newSpecies);
+    CalculateMonStats(mon);
+    EvolutionRenameMon(mon, oldSpecies, newSpecies);
+
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SEEN);
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_CAUGHT);
+
+    GetMonNickname(mon, gStringVar1);
+    StringCopy(gStringVar2, GetSpeciesName(newSpecies));
+    gSpecialVar_Result = TRUE;
+}
+

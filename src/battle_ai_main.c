@@ -28,6 +28,7 @@
 #include "constants/moves.h"
 #include "constants/items.h"
 #include "constants/trainers.h"
+#include "caps.h"
 
 #if TESTING
 #include "test/battle.h"
@@ -238,7 +239,54 @@ static u64 GetAiFlags(u16 trainerId, enum BattlerId battler)
         else if (IsSpecialTrainer(trainerId))
             flags = 0; // Link/Union Room/Secret Base opponents have no entry in gTrainers.
         else
+        {
             flags = GetTrainerAIFlagsFromId(trainerId);
+
+            if (gSaveBlock3Ptr->challengeSettings.tx_Challenges_LevelCap != 0
+             && FlagGet(FLAG_IS_CHAMPION)
+             && !FlagGet(FLAG_IS_KANTO_CHAMPION))
+            {
+                u8 trainerClass = GetTrainerClassFromId(trainerId);
+                bool32 isKantoLeader = (trainerClass == TRAINER_CLASS_LEADER_KANTO_HNS);
+                bool32 isKantoGymTrainer = IsCurrentMapKantoGym();
+
+                if (isKantoLeader || isKantoGymTrainer)
+                {
+                    u8 badges = GetKantoBadgeCount();
+
+                    if (isKantoLeader)
+                    {
+                        if (badges <= 2)
+                        {
+                            flags |= AI_FLAG_SMART_TRAINER | AI_FLAG_ACE_POKEMON;
+                        }
+                        else if (badges <= 5)
+                        {
+                            flags |= AI_FLAG_SMART_TRAINER | AI_FLAG_ACE_POKEMON | AI_FLAG_PREDICT_SWITCH | AI_FLAG_PREDICT_INCOMING_MON;
+                        }
+                        else
+                        {
+                            flags |= AI_FLAG_SMART_TRAINER | AI_FLAG_ACE_POKEMON | AI_FLAG_PREDICTION | AI_FLAG_OMNISCIENT;
+                        }
+                    }
+                    else // Entrenador dentro de un gimnasio de Kanto
+                    {
+                        if (badges <= 2)
+                        {
+                            flags |= AI_FLAG_BASIC_TRAINER | AI_FLAG_TRY_TO_2HKO;
+                        }
+                        else if (badges <= 5)
+                        {
+                            flags |= AI_FLAG_BASIC_TRAINER | AI_FLAG_SMART_MON_CHOICES | AI_FLAG_HP_AWARE | AI_FLAG_TRY_TO_2HKO;
+                        }
+                        else
+                        {
+                            flags |= AI_FLAG_SMART_TRAINER;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     if (IsDoubleBattle() && flags != 0)
