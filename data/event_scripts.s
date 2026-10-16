@@ -2430,3 +2430,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/VioletCity_Cave_Kalos/scripts.inc"
 	.include "data/scripts/researchers_expedition.inc"
+	.include "data/scripts/mohedano_story.inc"

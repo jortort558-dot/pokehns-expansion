@@ -1205,8 +1205,13 @@
 #define FLAG_HIDE_FUCHSIA_KALIGULA                  0x4A6
 #define FLAG_MANOLIN_ITEM_VERDE                     0x4A7
 #define FLAG_MANOLIN_HEAL_VERDE                     0x4A8
+#define FLAG_POKEGEAR_SILPH_EMERGENCY_NOTICE        0x4A9
+#define FLAG_POKEGEAR_FUCHSIA_POISONING_NOTICE      0x4AA
+#define FLAG_POKEGEAR_PEWTER_MUSEUM_NOTICE          0x4AB
+#define FLAG_HIDE_PEWTER_MUSEUM_YAMI                0x4AC
+#define FLAG_PEWTER_MUSEUM_ROBBERY_COMPLETE         0x4AD
 
-// 0x4A9–0x4FF remaining reserved for future expansion
+// 0x4AE–0x4FF remaining reserved for future expansion
 
 // Trainer registered (match call) flags — one per rematchable trainer
 #define TRAINER_REGISTERED_FLAGS_START               0x310

@@ -733,6 +733,38 @@ static bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileB
     if (TryStartStepCountScript(metatileBehavior) == TRUE)
         return TRUE;
 #if IS_HNS
+    {
+        u8 mapType = gMapHeader.mapType;
+        bool8 canReceiveStoryCall = FlagGet(FLAG_SYS_POKENAV_GET)
+            && (mapType == MAP_TYPE_ROUTE || mapType == MAP_TYPE_OCEAN_ROUTE
+             || mapType == MAP_TYPE_CITY || mapType == MAP_TYPE_TOWN);
+
+        if (canReceiveStoryCall
+         && FlagGet(FLAG_FUCHSIA_BLACK_SLUDGE_RECEIVED)
+         && !FlagGet(FLAG_PEWTER_MUSEUM_ROBBERY_COMPLETE)
+         && !FlagGet(FLAG_POKEGEAR_PEWTER_MUSEUM_NOTICE))
+        {
+            ScriptContext_SetupScript(Common_EventScript_PokegearPewterMuseumNotice);
+            return TRUE;
+        }
+        if (canReceiveStoryCall
+         && FlagGet(FLAG_SILPH_CO_ZYGARDE_CUBE_RECEIVED)
+         && !FlagGet(FLAG_FUCHSIA_BLACK_SLUDGE_RECEIVED)
+         && !FlagGet(FLAG_POKEGEAR_FUCHSIA_POISONING_NOTICE))
+        {
+            ScriptContext_SetupScript(Common_EventScript_PokegearFuchsiaPoisoningNotice);
+            return TRUE;
+        }
+        if (canReceiveStoryCall
+         && FlagGet(FLAG_VISITED_VERMILION_CITY)
+         && !FlagGet(FLAG_MOHEDANO_QUEST_STARTED)
+         && !FlagGet(FLAG_SILPH_CO_ZYGARDE_CUBE_RECEIVED)
+         && !FlagGet(FLAG_POKEGEAR_SILPH_EMERGENCY_NOTICE))
+        {
+            ScriptContext_SetupScript(Common_EventScript_PokegearSilphEmergencyNotice);
+            return TRUE;
+        }
+    }
     if (TryResolveCianwoodThreeTidesPuzzle())
         return TRUE;
     if (Mom_TryTriggerGiftCall() == TRUE)

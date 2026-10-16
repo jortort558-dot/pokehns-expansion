@@ -15,7 +15,17 @@ PewterCity_Museum_1F_EventScript_ClawFossil::
 	end
 
 PewterCity_Museum_1F_EventScript_Receptionist::
+	goto_if_set FLAG_PEWTER_MUSEUM_ROBBERY_COMPLETE, PewterCity_Museum_1F_EventScript_ReceptionistAfterRobbery
+	goto_if_set FLAG_FUCHSIA_BLACK_SLUDGE_RECEIVED, PewterCity_Museum_1F_EventScript_ReceptionistMuseumAlert
 	msgbox PewterCity_Museum_1F_Text_Recptionist, MSGBOX_NPC
+	end
+
+PewterCity_Museum_1F_EventScript_ReceptionistMuseumAlert::
+	msgbox PewterCity_Museum_1F_Text_ReceptionistMuseumAlert, MSGBOX_NPC
+	end
+
+PewterCity_Museum_1F_EventScript_ReceptionistAfterRobbery::
+	msgbox PewterCity_Museum_1F_Text_ReceptionistAfterRobbery, MSGBOX_NPC
 	end
 
 PewterCity_Museum_1F_EventScript_FossilWoman::
@@ -45,6 +55,21 @@ PewterCity_Museum_1F_Text_Recptionist:
 	.string "Así que, por ahora, ¡la entrada\n"
 	.string "es gratis!\p"
 	.string "Puedes pasar.$"
+
+PewterCity_Museum_1F_Text_ReceptionistMuseumAlert:
+	.string "¡Tú debes de ser el entrenador\n"
+	.string "recomendado desde FUCSIA!\p"
+	.string "La visitante sospechosa está junto\n"
+	.string "a la muestra lunar, arriba.\p"
+	.string "No la alarmes. Solo observa.$"
+
+PewterCity_Museum_1F_Text_ReceptionistAfterRobbery:
+	.string "La credencial que dejó es falsa.\p"
+	.string "Pero contiene el mismo compuesto\n"
+	.string "hallado en la ZONA SAFARI.\p"
+	.string "La M plateada es nuestra primera\n"
+	.string "prueba de que ambos incidentes\l"
+	.string "están relacionados.$"
 
 PewterCity_Museum_1F_Text_FossilWoman:
 	.string "Debes de ser un Entrenador fuerte.\p"

@@ -594,6 +594,9 @@ extern const u8 EventScript_FallDownHoleMtPyre[];
 extern const u8 GoldenrodCity_RadioTower_5F_EventScript_Petrel[];
 extern const u8 Common_EventScript_PokegearLevelCapUpdateNotice[];
 extern const u8 Common_EventScript_PokegearEvoUpdateNotice[];
+extern const u8 Common_EventScript_PokegearSilphEmergencyNotice[];
+extern const u8 Common_EventScript_PokegearFuchsiaPoisoningNotice[];
+extern const u8 Common_EventScript_PokegearPewterMuseumNotice[];
 
 // Secret Base
 extern const u8 SecretBase_EventScript_PC[];
