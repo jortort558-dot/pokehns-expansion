@@ -282,9 +282,9 @@ const struct RegionMapLocation *GetActiveRegionMapEntries(void)
 #if IS_HNS
     const struct RegionMapLocation *entries;
     if (FlagGet(FLAG_VISITED_KANTO))
-        entries = gRegionMapEntries;
-    else
         entries = sRegionMapEntries_Johto;
+    else
+        entries = gRegionMapEntries;
     return entries;
 #else
     return gRegionMapEntries;
@@ -2872,17 +2872,15 @@ static void CreateFlyDestIcons(void)
         else
             shape = SPRITE_SHAPE(8x8);
 
+        if (!FlagGet(sFlyLocations[i].flag))
+            continue;
+
         spriteId = CreateSprite(UseBlueFlyDestIcon(sFlyLocations[i].mapsec) ? &sFlyDestIconBlueSpriteTemplate
                                                                            : &sFlyDestIconSpriteTemplate, x, y, 10);
         if (spriteId != MAX_SPRITES)
         {
             gSprites[spriteId].oam.shape = shape;
-
-            if (FlagGet(sFlyLocations[i].flag))
-                gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
-            else
-                shape += 3;
-
+            gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
             StartSpriteAnim(&gSprites[spriteId], shape);
             gSprites[spriteId].sIconMapSec = sFlyLocations[i].mapsec;
         }
