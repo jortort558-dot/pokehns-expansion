@@ -751,3 +751,5 @@ gSpecials::
 	def_special DoctoriniBea_ApplyGenderChange
 	def_special DoctoreFernan_CheckAndPrepareForms
 	def_special DoctoreFernan_ApplyFormChange
+	def_special DoctoreFernan_ShowPreview
+	def_special DoctoreFernan_HidePreview

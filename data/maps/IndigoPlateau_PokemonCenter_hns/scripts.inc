@@ -37,14 +37,25 @@ IndigoPlateau_EventScript_ShigyNinja::
 IndigoPlateau_EventScript_Metacaballero::
 	lock
 	faceplayer
+	setspeaker SP_NAME_METACABALLERO
 	msgbox IndigoPlateau_Text_MetacaballeroIntro, MSGBOX_DEFAULT
 	pokemart IndigoPlateau_MetacaballeroShop
+	setspeaker SP_NAME_METACABALLERO
 	msgbox IndigoPlateau_Text_MetacaballeroFarewell, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
 IndigoPlateau_MetacaballeroShop:
+	.2byte ITEM_EXPERT_BELT
+	.2byte ITEM_WIDE_LENS
+	.2byte ITEM_ZOOM_LENS
+	.2byte ITEM_MUSCLE_BAND
+	.2byte ITEM_WISE_GLASSES
+	.2byte ITEM_METRONOME
+	.2byte ITEM_BIG_ROOT
+	.2byte ITEM_LIGHT_CLAY
+	.2byte ITEM_FLOAT_STONE
 	.2byte ITEM_FIRE_STONE
 	.2byte ITEM_WATER_STONE
 	.2byte ITEM_THUNDER_STONE

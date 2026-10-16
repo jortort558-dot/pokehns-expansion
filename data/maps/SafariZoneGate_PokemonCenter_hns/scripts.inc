@@ -69,7 +69,9 @@ SafariZoneGate_PokemonCenter_EventScript_FernanChooseMon:
 	goto_if_eq VAR_RESULT, SPECIES_NONE, SafariZoneGate_PokemonCenter_EventScript_FernanDeclined
 	copyvar VAR_0x8005, VAR_RESULT
 	bufferspeciesname STR_VAR_2, VAR_0x8005
+	special DoctoreFernan_ShowPreview
 	msgbox SafariZoneGate_PokemonCenter_Text_FernanConfirm, MSGBOX_YESNO
+	special DoctoreFernan_HidePreview
 	goto_if_eq VAR_RESULT, NO, SafariZoneGate_PokemonCenter_EventScript_FernanDeclined
 	removemoney 20000
 	playse SE_SHOP

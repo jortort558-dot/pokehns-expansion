@@ -1396,6 +1396,248 @@ static bool32 IsExcludedBattleForm(u16 species)
     }
 }
 
+static const u8 sText_FormRed[] = _("ROJO");
+static const u8 sText_FormYellow[] = _("AMARILLO");
+static const u8 sText_FormOrange[] = _("NARANJA");
+static const u8 sText_FormBlue[] = _("AZUL");
+static const u8 sText_FormWhite[] = _("BLANCO");
+static const u8 sText_FormGreen[] = _("VERDE");
+static const u8 sText_FormIndigo[] = _("AÑIL");
+static const u8 sText_FormViolet[] = _("VIOLETA");
+static const u8 sText_FormEternal[] = _("ETERNA");
+
+static const u8 sText_FormVanillaCream[] = _("FRESA VAINILLA");
+static const u8 sText_FormRubyCream[] = _("FRESA RUBÍ");
+static const u8 sText_FormMatchaCream[] = _("FRESA MATCHA");
+static const u8 sText_FormMintCream[] = _("FRESA MENTA");
+static const u8 sText_FormLemonCream[] = _("FRESA LIMÓN");
+static const u8 sText_FormSaltedCream[] = _("FRESA SALADA");
+static const u8 sText_FormRubySwirl[] = _("FRESA REMOLINO");
+static const u8 sText_FormCaramelSwirl[] = _("FRESA CARAMELO");
+static const u8 sText_FormRainbowSwirl[] = _("FRESA ARCOÍRIS");
+
+static const u8 sText_FormBaile[] = _("APASIONADO");
+static const u8 sText_FormPomPom[] = _("ANIMADO");
+static const u8 sText_FormPau[] = _("PLÁCIDO");
+static const u8 sText_FormSensu[] = _("REFINADO");
+
+static const u8 sText_FormIcySnow[] = _("VENTISCA");
+static const u8 sText_FormPolar[] = _("POLAR");
+static const u8 sText_FormTundra[] = _("TUNDRA");
+static const u8 sText_FormContinental[] = _("CONTINENTAL");
+static const u8 sText_FormGarden[] = _("VERGEL");
+static const u8 sText_FormElegant[] = _("ORIENTAL");
+static const u8 sText_FormMeadow[] = _("FLORAL");
+static const u8 sText_FormModern[] = _("MODERNO");
+static const u8 sText_FormMarine[] = _("MARINO");
+static const u8 sText_FormArchipelago[] = _("ISLEÑO");
+static const u8 sText_FormHighPlains[] = _("ESTEPA");
+static const u8 sText_FormSandstorm[] = _("DESIERTO");
+static const u8 sText_FormRiver[] = _("FLUVIAL");
+static const u8 sText_FormMonsoon[] = _("MONZÓN");
+static const u8 sText_FormSavanna[] = _("SABANA");
+static const u8 sText_FormSun[] = _("SOL");
+static const u8 sText_FormOcean[] = _("OCÉANO");
+static const u8 sText_FormJungle[] = _("SELVA");
+static const u8 sText_FormFancy[] = _("FANTASÍA");
+static const u8 sText_FormPokeball[] = _("POKÉBALL");
+
+static const u8 sText_FormNatural[] = _("SALVAJE");
+static const u8 sText_FormHeart[] = _("CORAZÓN");
+static const u8 sText_FormStar[] = _("ESTRELLA");
+static const u8 sText_FormDiamond[] = _("DIAMANTE");
+static const u8 sText_FormDebutante[] = _("SEÑORITA");
+static const u8 sText_FormMatron[] = _("DAMA");
+static const u8 sText_FormDandy[] = _("CABALLERO");
+static const u8 sText_FormLaReine[] = _("REINA");
+static const u8 sText_FormKabuki[] = _("KABUKI");
+static const u8 sText_FormPharaoh[] = _("FARAÓNICO");
+
+static const u8 sText_FormNormal[] = _("NORMAL");
+static const u8 sText_FormHeat[] = _("CALOR");
+static const u8 sText_FormWash[] = _("LAVADO");
+static const u8 sText_FormFrost[] = _("FRÍO");
+static const u8 sText_FormFan[] = _("VENTILADOR");
+static const u8 sText_FormMow[] = _("CORTE");
+
+static const u8 sText_FormMidday[] = _("DIURNO");
+static const u8 sText_FormMidnight[] = _("NOCTURNO");
+static const u8 sText_FormDusk[] = _("CREPUSCULAR");
+
+static const u8 sText_FormBloodmoon[] = _("LUNA CARMESÍ");
+
+static const u8 sText_FormAttack[] = _("ATAQUE");
+static const u8 sText_FormDefense[] = _("DEFENSA");
+static const u8 sText_FormSpeed[] = _("VELOCIDAD");
+
+static const u8 sText_FormWestSea[] = _("MAR OESTE");
+static const u8 sText_FormEastSea[] = _("MAR ESTE");
+
+static const u8 sText_FormSpring[] = _("PRIMAVERA");
+static const u8 sText_FormSummer[] = _("VERANO");
+static const u8 sText_FormAutumn[] = _("OTOÑO");
+static const u8 sText_FormWinter[] = _("INVIERNO");
+
+static const u8 sText_FormRedStriped[] = _("RAYAS ROJAS");
+static const u8 sText_FormBlueStriped[] = _("RAYAS AZULES");
+static const u8 sText_FormWhiteStriped[] = _("RAYAS BLANCAS");
+
+static const u8 sText_FormCurly[] = _("CURVADA");
+static const u8 sText_FormDroopy[] = _("LÁNGUIDA");
+static const u8 sText_FormStretchy[] = _("RECTA");
+
+static const u8 sText_FormTwoSegment[] = _("2 SEGMENTOS");
+static const u8 sText_FormThreeSegment[] = _("3 SEGMENTOS");
+
+static const u8 sText_FormPhony[] = _("ARCAICA");
+static const u8 sText_FormAntique[] = _("GENUINA");
+static const u8 sText_FormCounterfeit[] = _("FRAUDULENTA");
+static const u8 sText_FormArtisan[] = _("ARTESANAL");
+static const u8 sText_FormUnremarkable[] = _("MEDIOCRIDAD");
+static const u8 sText_FormMasterpiece[] = _("OBRA MAESTRA");
+
+static const u8 *GetFormDescriptionName(u16 targetSpecies)
+{
+    switch (targetSpecies)
+    {
+    // Florges
+    case SPECIES_FLORGES_RED:    return sText_FormRed;
+    case SPECIES_FLORGES_YELLOW: return sText_FormYellow;
+    case SPECIES_FLORGES_ORANGE: return sText_FormOrange;
+    case SPECIES_FLORGES_BLUE:   return sText_FormBlue;
+    case SPECIES_FLORGES_WHITE:  return sText_FormWhite;
+    // Flabébé
+    case SPECIES_FLABEBE_RED:    return sText_FormRed;
+    case SPECIES_FLABEBE_YELLOW: return sText_FormYellow;
+    case SPECIES_FLABEBE_ORANGE: return sText_FormOrange;
+    case SPECIES_FLABEBE_BLUE:   return sText_FormBlue;
+    case SPECIES_FLABEBE_WHITE:  return sText_FormWhite;
+    // Floette
+    case SPECIES_FLOETTE_RED:     return sText_FormRed;
+    case SPECIES_FLOETTE_YELLOW:  return sText_FormYellow;
+    case SPECIES_FLOETTE_ORANGE:  return sText_FormOrange;
+    case SPECIES_FLOETTE_BLUE:    return sText_FormBlue;
+    case SPECIES_FLOETTE_WHITE:   return sText_FormWhite;
+    case SPECIES_FLOETTE_ETERNAL: return sText_FormEternal;
+    // Alcremie
+    case SPECIES_ALCREMIE_STRAWBERRY_VANILLA_CREAM: return sText_FormVanillaCream;
+    case SPECIES_ALCREMIE_STRAWBERRY_RUBY_CREAM:    return sText_FormRubyCream;
+    case SPECIES_ALCREMIE_STRAWBERRY_MATCHA_CREAM:  return sText_FormMatchaCream;
+    case SPECIES_ALCREMIE_STRAWBERRY_MINT_CREAM:    return sText_FormMintCream;
+    case SPECIES_ALCREMIE_STRAWBERRY_LEMON_CREAM:   return sText_FormLemonCream;
+    case SPECIES_ALCREMIE_STRAWBERRY_SALTED_CREAM:  return sText_FormSaltedCream;
+    case SPECIES_ALCREMIE_STRAWBERRY_RUBY_SWIRL:    return sText_FormRubySwirl;
+    case SPECIES_ALCREMIE_STRAWBERRY_CARAMEL_SWIRL: return sText_FormCaramelSwirl;
+    case SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL: return sText_FormRainbowSwirl;
+    // Oricorio
+    case SPECIES_ORICORIO_BAILE:   return sText_FormBaile;
+    case SPECIES_ORICORIO_POM_POM: return sText_FormPomPom;
+    case SPECIES_ORICORIO_PAU:     return sText_FormPau;
+    case SPECIES_ORICORIO_SENSU:   return sText_FormSensu;
+    // Vivillon
+    case SPECIES_VIVILLON_ICY_SNOW:     return sText_FormIcySnow;
+    case SPECIES_VIVILLON_POLAR:        return sText_FormPolar;
+    case SPECIES_VIVILLON_TUNDRA:       return sText_FormTundra;
+    case SPECIES_VIVILLON_CONTINENTAL:  return sText_FormContinental;
+    case SPECIES_VIVILLON_GARDEN:       return sText_FormGarden;
+    case SPECIES_VIVILLON_ELEGANT:      return sText_FormElegant;
+    case SPECIES_VIVILLON_MEADOW:       return sText_FormMeadow;
+    case SPECIES_VIVILLON_MODERN:       return sText_FormModern;
+    case SPECIES_VIVILLON_MARINE:       return sText_FormMarine;
+    case SPECIES_VIVILLON_ARCHIPELAGO:  return sText_FormArchipelago;
+    case SPECIES_VIVILLON_HIGH_PLAINS:  return sText_FormHighPlains;
+    case SPECIES_VIVILLON_SANDSTORM:    return sText_FormSandstorm;
+    case SPECIES_VIVILLON_RIVER:        return sText_FormRiver;
+    case SPECIES_VIVILLON_MONSOON:      return sText_FormMonsoon;
+    case SPECIES_VIVILLON_SAVANNA:      return sText_FormSavanna;
+    case SPECIES_VIVILLON_SUN:          return sText_FormSun;
+    case SPECIES_VIVILLON_OCEAN:        return sText_FormOcean;
+    case SPECIES_VIVILLON_JUNGLE:       return sText_FormJungle;
+    case SPECIES_VIVILLON_FANCY:        return sText_FormFancy;
+    case SPECIES_VIVILLON_POKEBALL:     return sText_FormPokeball;
+    // Minior
+    case SPECIES_MINIOR_CORE_RED:    return sText_FormRed;
+    case SPECIES_MINIOR_CORE_ORANGE: return sText_FormOrange;
+    case SPECIES_MINIOR_CORE_YELLOW: return sText_FormYellow;
+    case SPECIES_MINIOR_CORE_GREEN:  return sText_FormGreen;
+    case SPECIES_MINIOR_CORE_BLUE:   return sText_FormBlue;
+    case SPECIES_MINIOR_CORE_INDIGO: return sText_FormIndigo;
+    case SPECIES_MINIOR_CORE_VIOLET: return sText_FormViolet;
+    // Furfrou
+    case SPECIES_FURFROU_NATURAL:   return sText_FormNatural;
+    case SPECIES_FURFROU_HEART:     return sText_FormHeart;
+    case SPECIES_FURFROU_STAR:      return sText_FormStar;
+    case SPECIES_FURFROU_DIAMOND:   return sText_FormDiamond;
+    case SPECIES_FURFROU_DEBUTANTE: return sText_FormDebutante;
+    case SPECIES_FURFROU_MATRON:    return sText_FormMatron;
+    case SPECIES_FURFROU_DANDY:     return sText_FormDandy;
+    case SPECIES_FURFROU_LA_REINE:  return sText_FormLaReine;
+    case SPECIES_FURFROU_KABUKI:    return sText_FormKabuki;
+    case SPECIES_FURFROU_PHARAOH:   return sText_FormPharaoh;
+    // Rotom
+    case SPECIES_ROTOM:       return sText_FormNormal;
+    case SPECIES_ROTOM_HEAT:  return sText_FormHeat;
+    case SPECIES_ROTOM_WASH:  return sText_FormWash;
+    case SPECIES_ROTOM_FROST: return sText_FormFrost;
+    case SPECIES_ROTOM_FAN:   return sText_FormFan;
+    case SPECIES_ROTOM_MOW:   return sText_FormMow;
+    // Lycanroc
+    case SPECIES_LYCANROC_MIDDAY:   return sText_FormMidday;
+    case SPECIES_LYCANROC_MIDNIGHT: return sText_FormMidnight;
+    case SPECIES_LYCANROC_DUSK:     return sText_FormDusk;
+    // Ursaluna
+    case SPECIES_URSALUNA:           return sText_FormNormal;
+    case SPECIES_URSALUNA_BLOODMOON: return sText_FormBloodmoon;
+    // Deoxys
+    case SPECIES_DEOXYS_NORMAL:  return sText_FormNormal;
+    case SPECIES_DEOXYS_ATTACK:  return sText_FormAttack;
+    case SPECIES_DEOXYS_DEFENSE: return sText_FormDefense;
+    case SPECIES_DEOXYS_SPEED:   return sText_FormSpeed;
+    // Shellos & Gastrodon
+    case SPECIES_SHELLOS_WEST:  return sText_FormWestSea;
+    case SPECIES_SHELLOS_EAST:  return sText_FormEastSea;
+    case SPECIES_GASTRODON_WEST: return sText_FormWestSea;
+    case SPECIES_GASTRODON_EAST: return sText_FormEastSea;
+    // Deerling & Sawsbuck
+    case SPECIES_DEERLING_SPRING: return sText_FormSpring;
+    case SPECIES_DEERLING_SUMMER: return sText_FormSummer;
+    case SPECIES_DEERLING_AUTUMN: return sText_FormAutumn;
+    case SPECIES_DEERLING_WINTER: return sText_FormWinter;
+    case SPECIES_SAWSBUCK_SPRING: return sText_FormSpring;
+    case SPECIES_SAWSBUCK_SUMMER: return sText_FormSummer;
+    case SPECIES_SAWSBUCK_AUTUMN: return sText_FormAutumn;
+    case SPECIES_SAWSBUCK_WINTER: return sText_FormWinter;
+    // Basculin
+    case SPECIES_BASCULIN_RED_STRIPED:   return sText_FormRedStriped;
+    case SPECIES_BASCULIN_BLUE_STRIPED:  return sText_FormBlueStriped;
+    case SPECIES_BASCULIN_WHITE_STRIPED: return sText_FormWhiteStriped;
+    // Squawkabilly
+    case SPECIES_SQUAWKABILLY_GREEN:  return sText_FormGreen;
+    case SPECIES_SQUAWKABILLY_BLUE:   return sText_FormBlue;
+    case SPECIES_SQUAWKABILLY_YELLOW: return sText_FormYellow;
+    case SPECIES_SQUAWKABILLY_WHITE:  return sText_FormWhite;
+    // Tatsugiri
+    case SPECIES_TATSUGIRI_CURLY:    return sText_FormCurly;
+    case SPECIES_TATSUGIRI_DROOPY:   return sText_FormDroopy;
+    case SPECIES_TATSUGIRI_STRETCHY: return sText_FormStretchy;
+    // Dudunsparce
+    case SPECIES_DUDUNSPARCE_TWO_SEGMENT:   return sText_FormTwoSegment;
+    case SPECIES_DUDUNSPARCE_THREE_SEGMENT: return sText_FormThreeSegment;
+    // Sinistea & Polteageist
+    case SPECIES_SINISTEA_PHONY:      return sText_FormPhony;
+    case SPECIES_SINISTEA_ANTIQUE:    return sText_FormAntique;
+    case SPECIES_POLTEAGEIST_PHONY:   return sText_FormPhony;
+    case SPECIES_POLTEAGEIST_ANTIQUE: return sText_FormAntique;
+    // Poltchageist & Sinistcha
+    case SPECIES_POLTCHAGEIST_COUNTERFEIT: return sText_FormCounterfeit;
+    case SPECIES_POLTCHAGEIST_ARTISAN:    return sText_FormArtisan;
+    case SPECIES_SINISTCHA_UNREMARKABLE:  return sText_FormUnremarkable;
+    case SPECIES_SINISTCHA_MASTERPIECE:   return sText_FormMasterpiece;
+    default:
+        return GetSpeciesName(targetSpecies);
+    }
+}
+
 void DoctoreFernan_CheckAndPrepareForms(void)
 {
     u8 slot = gSpecialVar_0x8004;
@@ -1449,12 +1691,12 @@ void DoctoreFernan_CheckAndPrepareForms(void)
         u16 targetSpecies = formTable[i];
         if (targetSpecies != currentSpecies && !IsExcludedBattleForm(targetSpecies))
         {
-            const u8 *speciesName = GetSpeciesName(targetSpecies);
-            u8 *nameBuffer = Alloc(StringLength(speciesName) + 1);
+            const u8 *formName = GetFormDescriptionName(targetSpecies);
+            u8 *nameBuffer = Alloc(StringLength(formName) + 1);
             if (nameBuffer != NULL)
             {
                 struct ListMenuItem item;
-                StringCopy(nameBuffer, speciesName);
+                StringCopy(nameBuffer, formName);
                 item.name = nameBuffer;
                 item.id = targetSpecies;
                 MultichoiceDynamic_PushElement(item);
@@ -1484,6 +1726,28 @@ void DoctoreFernan_CheckAndPrepareForms(void)
     }
 }
 
+void DoctoreFernan_ShowPreview(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    u16 targetSpecies = gSpecialVar_0x8005;
+
+    if (slot >= gPlayerPartyCount || targetSpecies == SPECIES_NONE)
+        return;
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    bool8 isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
+
+    if (isShiny)
+        ScriptMenu_ShowShinyPokemonPic(targetSpecies, 10, 3);
+    else
+        ScriptMenu_ShowPokemonPic(targetSpecies, 10, 3);
+}
+
+void DoctoreFernan_HidePreview(void)
+{
+    ScriptMenu_HidePokemonPic();
+}
+
 void DoctoreFernan_ApplyFormChange(void)
 {
     u8 slot = gSpecialVar_0x8004;
@@ -1511,7 +1775,7 @@ void DoctoreFernan_ApplyFormChange(void)
     GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_CAUGHT);
 
     GetMonNickname(mon, gStringVar1);
-    StringCopy(gStringVar2, GetSpeciesName(newSpecies));
+    StringCopy(gStringVar2, GetFormDescriptionName(newSpecies));
     gSpecialVar_Result = TRUE;
 }
 

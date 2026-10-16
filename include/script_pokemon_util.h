@@ -26,5 +26,7 @@ void DoctoriniBea_CheckGender(void);
 void DoctoriniBea_ApplyGenderChange(void);
 void DoctoreFernan_CheckAndPrepareForms(void);
 void DoctoreFernan_ApplyFormChange(void);
+void DoctoreFernan_ShowPreview(void);
+void DoctoreFernan_HidePreview(void);
 
 #endif // GUARD_SCRIPT_POKEMON_UTIL_H
