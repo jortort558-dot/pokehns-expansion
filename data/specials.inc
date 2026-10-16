@@ -734,7 +734,11 @@ gSpecials::
 	def_special YamiSuperTraining_AddEVs
 	def_special YamiSuperTraining_ResetEVs
 	def_special DaraOtaku_CheckAndPrepareAbilities
+	def_special DaraOtaku_PrepareChoiceAbility
 	def_special DaraOtaku_ApplyAbilityChange
+	def_special DaraOtaku_CheckAndPrepareEvolutionAbilities
+	def_special DaraOtaku_PrepareChosenEvoAbilityName
+	def_special DaraOtaku_ApplyEvolutionAbilityChange
 	def_special IsBoulderAtCoords
 	def_special PlayerHasHatchedAnyEgg
 	def_special PlayerHasAnyMail

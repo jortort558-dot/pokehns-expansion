@@ -61,36 +61,29 @@ SaffronCity_Gym_EventScript_Sabrina_Defeated::
 	end
 
 SaffronCity_Gym_Text_SabrinaIntro:
-	.string "SABRINA: Sabía"
-	.string "\nque vendrías…"
-	.string "\pHace tres años"
-	.string "\ntuve una visión"
-	.string "\lde tu llegada."
-	.string "\pTú lo que quieres"
-	.string "\nes mi MEDALLA."
-	.string "\pNo me gusta"
-	.string "\nluchar, pero mi"
-	.string "\pdeber como LÍDER"
-	.string "\nes conceder"
-	.string "\pMEDALLAS a todo"
-	.string "\naquel que se las"
-	.string "\lmerezca."
-	.string "\pComo eso es lo que"
-	.string "\nquieres, mira mis"
-	.string "\l$poderes psíquicos."
+	.string "SABRINA: Sabía que vendrías…\p"
+	.string "Hace tres años tuve una visión\n"
+	.string "de tu llegada.\p"
+	.string "Tú lo que quieres es mi MEDALLA.\p"
+	.string "No me gusta luchar, pero mi\n"
+	.string "deber como LÍDER es conceder\l"
+	.string "MEDALLAS a todo aquel que se\l"
+	.string "las merezca.\p"
+	.string "Como eso es lo que quieres,\n"
+	.string "¡mira mis poderes psíquicos!$"
+
 SaffronCity_Gym_Text_SabrinaWinLoss:
-	.string "SABRINA: Tu poder…"
-	.string "\nsupera con creces"
-	.string "\llo que esperaba…"
-	.string "\pQuizá no se pueda"
-	.string "\npredecir del todo"
-	.string "\plo que nos espera"
-	.string "\nen el futuro…"
-	.string "\pVale, tú ganas."
-	.string "\nTe has ganado la"
-	.string "\l$MEDALLA PANTANO."
+	.string "SABRINA: Tu poder… supera con\n"
+	.string "creces lo que esperaba…\p"
+	.string "Quizá no se pueda predecir del\n"
+	.string "todo lo que nos espera en el\l"
+	.string "futuro…\p"
+	.string "Vale, tú ganas. Te has ganado\n"
+	.string "la MEDALLA PANTANO.$"
+
 SaffronCity_Gym_Text_ReceivedMarshBadge:
-	.string "{PLAYER} received MARSHBADGE.$"
+	.string "¡{PLAYER} recibió la\n"
+	.string "MEDALLA PANTANO de SABRINA!$"
 
 SaffronCity_Gym_Text_MarshBadgeInfo:
 	.string "SABRINA: La MEDALLA PANTANO\n"
@@ -109,14 +102,11 @@ SaffronCity_Gym_Text_Sabrina_ExplainTM:
 	.string "del rival. Úsala con cabeza…$"
 
 SaffronCity_Gym_Text_SabrinaPostBattle:
-	.string "SABRINA: Tu amor"
-	.string "\npor tus POKéMON"
-	.string "\psupera mi poder"
-	.string "\npsíquico…"
-	.string "\pCreo que el poder"
-	.string "\ndel amor es un"
-	.string "\ptipo de poder"
-	.string "\n$psíquico…"
+	.string "SABRINA: Tu amor por tus POKéMON\n"
+	.string "supera mi poder psíquico…\p"
+	.string "Creo que el poder del amor es un\n"
+	.string "tipo de poder psíquico…$"
+
 SaffronCity_Gym_Text_SabrinaRematch:
 	.string "SABRINA: Ah, CAMPEÓN de KANTO.\p"
 	.string "Percibí tu regreso. Tu poder ha\n"
@@ -129,52 +119,51 @@ SaffronCity_Gym_Text_SabrinaRematchDefeat:
 	.string "volvió a superar mi poder…$"
 
 SaffronCity_Gym_Text_MediumRebeccaSeen:
-	.string "¡El poder de todos"
-	.string "\na los que venciste"
-	.string "\l$está en mí!"
+	.string "¡El poder de todos a los que\n"
+	.string "venciste está en mí!$"
+
 SaffronCity_Gym_Text_MediumRebeccaBeaten:
-	.string "Fuerte…"
-	.string "\n$Muy fuerte…"
+	.string "Fuerte… ¡Muy fuerte…!$"
+
 SaffronCity_Gym_Text_MediumRebeccaAfter:
-	.string "¿De dónde proviene"
-	.string "\n$tu poder?"
+	.string "¿De dónde proviene tanto poder?$"
+
 SaffronCity_Gym_Text_PsychicFranklinSeen:
-	.string "El poder psíquico"
-	.string "\nes el poder de tu"
-	.string "\l$alma."
+	.string "El poder psíquico es el poder de\n"
+	.string "tu propia alma.$"
+
 SaffronCity_Gym_Text_PsychicFranklinBeaten:
-	.string "¡Tu alma tiene más"
-	.string "\n$poder que la mía!"
+	.string "¡Tu alma tiene más poder que\n"
+	.string "la mía!$"
+
 SaffronCity_Gym_Text_PsychicFranklinAfter:
-	.string "Has fortalecido tu"
-	.string "\nalma, no sólo tus"
-	.string "\l$habilidades."
+	.string "Has fortalecido tu alma, no solo\n"
+	.string "tus habilidades de combate.$"
+
 SaffronCity_Gym_Text_MediumDorisSeen:
-	.string "¡Fufufufu…!"
-	.string "\nLo veo claramente."
-	.string "\p¡Puedo ver lo que"
-	.string "\n$encierra tu alma!"
+	.string "¡Fufufufu…!\n"
+	.string "Lo veo claramente.\p"
+	.string "¡Puedo ver todo lo que encierra\n"
+	.string "tu alma!$"
+
 SaffronCity_Gym_Text_MediumDorisBeaten:
-	.string "A pesar de leerte"
-	.string "\nel pensamiento,"
-	.string "\l$he perdido…"
+	.string "A pesar de leerte el pensamiento,\n"
+	.string "he perdido…$"
+
 SaffronCity_Gym_Text_MediumDorisAfter:
-	.string "¡Maldición! Olvidé"
-	.string "\nque predije mi"
-	.string "\l$derrota contra ti."
+	.string "¡Maldición! Olvidé que predije mi\n"
+	.string "derrota contra ti.$"
+
 SaffronCity_Gym_Text_PsychicJaredSeen:
-	.string "El DOJO-KARATE era"
-	.string "\nel GIMNASIO de"
-	.string "\l$esta ciudad."
+	.string "El DOJO KARATE era el antiguo\n"
+	.string "GIMNASIO de esta ciudad.$"
+
 SaffronCity_Gym_Text_PsychicJaredBeaten:
-	.string "¡No he estado a tu"
-	.string "\n$altura…!"
+	.string "¡No he estado a tu altura…!$"
+
 SaffronCity_Gym_Text_PsychicJaredAfter:
-	.string "El REY del KARATE,"
-	.string "\nel maestro del"
-	.string "\pDOJO-KARATE, acaba"
-	.string "\nde ser machacado"
-	.string "\l$por SABRINA."
+	.string "El MAESTRO del DOJO KARATE acaba\n"
+	.string "de ser derrotado por SABRINA.$"
 SaffronCity_Gym_Text_GymGuideIntro:
 	.string "¡Hola, futuro CAMPEÓN!\p"
 	.string "Un entrenador como tú no necesita\n"

@@ -8308,13 +8308,13 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Body Slam
 - Earthquake
 
-Aerodactyl @ Hard Stone
+Kleavor @ Focus Band
 Level: 66
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Ancient Power
-- Sky Attack
-- Earthquake
-- Fire Fang
+- Swords Dance
+- Stone Axe
+- X Scissor
+- Agility
 
 Kabutops @ Scope Lens
 Level: 66
@@ -8324,72 +8324,40 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Night Slash
 - Swords Dance
 
-Omastar @ Focus Band
+Tyranitar @ Hard Stone
 Level: 66
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Ancient Power
-- Ice Beam
-- Surf
-- Toxic
+- Stone Edge
+- Crunch
+- Earthquake
+- Fire Fang
 
-Relicanth @ Hard Stone
+Regirock @ Leftovers
 Level: 66
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Hydro Pump
-- Rock Slide
-- Curse
-- Thunderbolt
+- Stone Edge
+- Iron Defense
+- Drain Punch
+- Body Press
 
-Kleavor @ Quick Claw
+Aerodactyl @ Aerodactylite
 Level: 66
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Swords Dance
-- Stone Axe
-- X Scissor
-- Agility
+- Stone Edge
+- Wing Attack
+- Earthquake
+- Fire Fang
 
 === TRAINER_MISTY_HNS ===
 Name: MISTY
 Class: Leader Kanto Hns
 Pic: Leader Misty Hns
-Gender: Male
+Gender: Female
 Music: Hg Boy 1
 Double Battle: No
 AI: Basic Trainer
 Mugshot: Light Blue
 Items: Full Restore / Full Restore
-
-Golduck
-Level: 62
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Aqua Tail
-- Psychic
-- Wonder Room
-- Cross Chop
-
-Quagsire @ Quick Claw
-Level: 62
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Muddy Water
-- Amnesia
-- Earthquake
-- Rain Dance
-
-Vaporeon @ Leftovers
-Level: 61
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Hydro Pump
-- Ice Beam
-- Acid Armor
-- Shadow Ball
-
-Milotic
-Level: 61
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Hydro Pump
-- Ice Beam
-- Rest
-- Sleep Talk
 
 Lapras @ Never Melt Ice
 Level: 62
@@ -8399,6 +8367,14 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Rain Dance
 - Reflect
 
+Milotic @ Leftovers
+Level: 62
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Hydro Pump
+- Ice Beam
+- Rest
+- Sleep Talk
+
 Starmie @ Mystic Water
 Level: 63
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
@@ -8406,6 +8382,30 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Psychic
 - Recover
 - Thunderbolt
+
+Dragonite @ Lum Berry
+Level: 62
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dragon Dance
+- Outrage
+- Aqua Tail
+- Extreme Speed
+
+Suicune @ Sitrus Berry
+Level: 63
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Calm Mind
+- Scald
+- Ice Beam
+- Extrasensory
+
+Gyarados @ Gyaradosite
+Level: 63
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dragon Dance
+- Waterfall
+- Crunch
+- Earthquake
 
 === TRAINER_LTSURGE_HNS ===
 Name: LT. SURGE
@@ -8418,37 +8418,21 @@ AI: Basic Trainer
 Items: Full Restore / Full Restore
 Mugshot: Yellow
 
-Electrode @ Focus Band
-Level: 57
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Shock Wave
-- Rain Dance
-- Thunder Wave
-- Explosion
-
-Magnezone
+Raichu @ Magnet
 Level: 59
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Thunder
-- Reflect
 - Rain Dance
-- Double Edge
+- Body Slam
+- Surf
 
-Lanturn @ Leftovers
-Level: 58
+Magnezone @ Leftovers
+Level: 59
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Ion Deluge
-- Hydro Pump
-- Discharge
-- Confuse ray
-
-Manectric
-Level: 58
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Wild Charge
-- Charge
-- Crunch
-- Electric Terrain
+- Thunder
+- Flash Cannon
+- Reflect
+- Volt Switch
 
 Electivire @ Scope Lens
 Level: 59
@@ -8456,192 +8440,208 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Thunderbolt
 - Fire Punch
 - Ice Punch
-- Submission
+- Cross Chop
 
-Raichu @ Magnet
+Garchomp @ Focus Band
 Level: 60
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Thunder
-- Rain Dance
-- Body Slam
-- Surf
+- Earthquake
+- Dragon Claw
+- Swords Dance
+- Rock Slide
+
+Zapdos @ Sitrus Berry
+Level: 60
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Thunderbolt
+- Air Slash
+- Roost
+- Heat Wave
+
+Manectric @ Manectite
+Level: 60
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Thunderbolt
+- Volt Switch
+- Flamethrower
+- Snarl
 
 === TRAINER_ERIKA_HNS ===
 Name: ERIKA
 Class: Leader Kanto Hns
 Pic: Leader Erika Hns
-Gender: Male
+Gender: Female
 Music: Hg Boy 1
 Double Battle: No
 AI: Basic Trainer
 Mugshot: Green
 Items: Full Restore / Full Restore
 
-Jumpluff @ Focus Band
-Level: 61
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Acrobatics
-- U Turn
-- Sleep Powder
-- Leech Seed
-
-Roserade
-Level: 60
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Synthesis
-- Grass Whistle
-- Toxic
-- Petal Dance
-
-Tangrowth
-Level: 60
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Power Whip
-- Wring Out
-- Grassy Terrain
-- Tickle
-
-Venusaur @ Leftovers
-Level: 61
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Sunny Day
-- Solar Beam
-- Sludge Bomb
-- Sleep Powder
-
-Victreebel @ Poison Barb
-Level: 62
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Sludge Bomb
-- Leaf Blade
-- Swords Dance
-- Sleep Powder
-
 Bellossom @ Miracle Seed
-Level: 62
+Level: 61
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Petal Blizzard
 - Quiver Dance
 - Stun Spore
-- Attract
+- Moonblast
+
+Roserade @ Poison Barb
+Level: 61
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Giga Drain
+- Sludge Bomb
+- Shadow Ball
+- Toxic
+
+Victreebel @ Focus Band
+Level: 61
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Sludge Bomb
+- Leaf Blade
+- Swords Dance
+- Sucker Punch
+
+Hydreigon @ Life Orb
+Level: 62
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dark Pulse
+- Dragon Pulse
+- Flamethrower
+- Earth Power
+
+Virizion @ Leftovers
+Level: 62
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Swords Dance
+- Leaf Blade
+- Sacred Sword
+- Stone Edge
+
+Venusaur @ Venusaurite
+Level: 62
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Giga Drain
+- Sludge Bomb
+- Synthesis
+- Earth Power
 
 === TRAINER_SABRINA_HNS ===
 Name: SABRINA
 Class: Leader Kanto Hns
 Pic: Leader Sabrina Hns
-Gender: Male
+Gender: Female
 Music: Hg Boy 1
 Double Battle: No
 AI: Basic Trainer
 Mugshot: Pink
 Items: Full Restore / Full Restore
 
-Mr Mime @ Quick Claw
-Level: 65
+Espeon @ Twisted Spoon
+Level: 64
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Magical Leaf
 - Psychic
-- Substitute
-- Reflect
+- Shadow Ball
+- Morning Sun
+- Dazzling Gleam
 
-Jynx
+Jynx @ Focus Band
 Level: 64
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Psychic
 - Ice Beam
 - Lovely Kiss
-- Grass Knot
+- Focus Blast
 
-Slowbro @ Chesto Berry
-Level: 64
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Rest
-- Sleep Talk
-- Submission
-- Surf
-
-Wobbuffet @ Leftovers
-Level: 64
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Mirror Coat
-- Counter
-- Safeguard
-- Destiny Bond
-
-Espeon
+Slowbro @ Leftovers
 Level: 65
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Scald
 - Psychic
-- Morning Sun
-- Future Sight
-- Power Gem
+- Slack Off
+- Calm Mind
 
-Alakazam @ Twisted Spoon
+Metagross @ Muscle Band
+Level: 65
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch
+
+Latios @ Soul Dew
 Level: 66
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Shadow Ball
 - Psychic
+- Dragon Pulse
+- Thunderbolt
 - Recover
-- Calm Mind
+
+Alakazam @ Alakazite
+Level: 66
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Psychic
+- Shadow Ball
+- Focus Blast
+- Energy Ball
 
 === TRAINER_JANINE_HNS ===
 Name: SACHIKO
 Class: Leader Kanto Hns
 Pic: Leader Janine Hns
-Gender: Male
+Gender: Female
 Music: Hg Boy 1
 Double Battle: No
 AI: Basic Trainer
 Mugshot: Purple
 Items: Full Restore / Full Restore
 
-Weezing @ Leftovers
+Crobat @ Bright Powder
+Level: 62
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Brave Bird
+- Cross Poison
+- U Turn
+- Roost
+
+Weezing @ Black Sludge
 Level: 63
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Sludge Bomb
 - Flamethrower
-- Belch
-- Amnesia
-
-Muk
-Level: 62
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Minimize
-- Gunk Shot
-- Toxic
-- Acid Armor
-
-Swalot
-Level: 61
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Swallow
-- Stockpile
-- Amnesia
-- Spit Up
+- Will O Wisp
+- Pain Split
 
 Nidoqueen @ Quick Claw
-Level: 62
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Earthquake
-- Cross Poison
-- Thunder
-- Superpower
-
-Crobat
 Level: 63
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Air Slash
-- Venoshock
-- Toxic
-- Confuse Ray
+- Earth Power
+- Sludge Wave
+- Ice Beam
+- Thunderbolt
 
-Venomoth @ Bright Powder
+Kommo O @ Focus Band
+Level: 63
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Clanging Scales
+- Close Combat
+- Poison Jab
+- Dragon Dance
+
+Okidogi @ Leftovers
 Level: 64
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Signal Beam
-- Poison Fang
-- Toxic
-- Double Team
+- Drain Punch
+- Poison Jab
+- Knock Off
+- Bulk Up
+
+Beedrill @ Beedrillite
+Level: 64
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Poison Jab
+- X Scissor
+- Drill Run
+- U Turn
 
 === TRAINER_BLAINE_HNS ===
 Name: BLAINE
@@ -8654,53 +8654,53 @@ AI: Basic Trainer
 Mugshot: Dark Red
 Items: Full Restore / Full Restore
 
-Rapidash @ Quick Claw
-Level: 66
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Bounce
-- Sunny Day
-- Flare Blitz
-- Solar Beam
-
 Magmortar @ Sitrus Berry
 Level: 65
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Thunder Punch
 - Fire Blast
+- Thunderbolt
+- Focus Blast
 - Psychic
-- Confuse Ray
 
-Houndoom @ Miracle Seed
-Level: 66
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Fire Blast
-- Sunny Day
-- Thunder Fang
-- Crunch
-
-Magcargo @ Leftovers
+Arcanine @ Silk Scarf
 Level: 65
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Flamethrower
-- Recover
-- Amnesia
-- Hypnosis
+- Flare Blitz
+- Extreme Speed
+- Wild Charge
+- Crunch
 
-Torkoal @ White Herb
-Level: 67
+Torkoal @ Heat Rock
+Level: 66
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Curse
-- Iron Defense
-- Withdraw
-- Heat Wave
-
-Camerupt @ Charcoal
-Level: 67
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Lava Plume
+- Solar Beam
 - Earth Power
-- Eruption
-- Yawn
-- Amnesia
+- Stealth Rock
+
+Salamence @ Focus Band
+Level: 66
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dragon Claw
+- Earthquake
+- Fire Fang
+- Dragon Dance
+
+Moltres @ Leftovers
+Level: 67
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Fire Blast
+- Hurricane
+- Roost
+- Solar Beam
+
+Charizard @ Charizardite Y
+Level: 67
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Flamethrower
+- Solar Beam
+- Focus Blast
+- Air Slash
 
 === TRAINER_BLUE_HNS ===
 Name: AZUL
@@ -8714,52 +8714,52 @@ Mugshot: Blue
 Items: Full Restore / Full Restore
 
 Rhyperior @ Sitrus Berry
-Level: 69
+Level: 67
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Drill Run
 - Stone Edge
-- Rest
-- Toxic
-
-Pidgeot @ Sharp Beak
-Level: 68
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Hurricane
-- Giga Impact
-- Air Slash
-- Feather Dance
+- Earthquake
+- Megahorn
+- Fire Punch
 
 Machamp @ Scope Lens
 Level: 67
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Cross Chop
-- Rock Slide
-- Earthquake
-- Dual Chop
+- Dynamic Punch
+- Stone Edge
+- Knock Off
+- Bullet Punch
 
 Exeggutor @ Leftovers
 Level: 68
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Leech Seed
-- Trick Room
+- Giga Drain
 - Psychic
-- Seed Bomb
+- Sleep Powder
+- Leaf Storm
 
 Tyranitar @ Focus Band
 Level: 68
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Stone Edge
-- Payback
 - Crunch
-- Thunder Fang
+- Earthquake
+- Ice Punch
 
-Arcanine @ Silk Scarf
+Articuno @ Life Orb
 Level: 69
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Flamethrower
-- Curse
-- Crunch
-- Extreme Speed
+- Blizzard
+- Hurricane
+- Roost
+- Freeze Dry
+
+Pidgeot @ Pidgeotite
+Level: 69
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Hurricane
+- Heat Wave
+- Roost
+- U Turn
 
 === TRAINER_BLUE_2_HNS ===
 Name: AZUL
@@ -8772,53 +8772,53 @@ AI: Basic Trainer
 Mugshot: Blue
 Items: Full Restore / Full Restore
 
-Articuno @ Sitrus Berry
-Level: 69
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Ice Beam
-- Sky Attack
-- Rest
-- Toxic
-
-Alakazam @ Twisted Spoon
-Level: 68
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Thunderbolt
-- Recover
-- Psychic
-- Shadow Ball
-
-Rhydon @ Quick Claw
+Rhyperior @ Sitrus Berry
 Level: 67
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Rock Slide
+- Stone Edge
 - Earthquake
-- Iron Tail
-- Crunch
+- Megahorn
+- Fire Punch
+
+Machamp @ Scope Lens
+Level: 67
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Dynamic Punch
+- Stone Edge
+- Knock Off
+- Bullet Punch
 
 Exeggutor @ Leftovers
 Level: 68
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Leech Seed
-- Sleep Powder
-- Psychic
 - Giga Drain
+- Psychic
+- Sleep Powder
+- Leaf Storm
 
-Gyarados @ Focus Band
+Tyranitar @ Focus Band
 Level: 68
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Hydro Pump
-- Double Team
-- Body Slam
-- Reversal
+- Stone Edge
+- Crunch
+- Earthquake
+- Ice Punch
 
-Arcanine @ Silk Scarf
+Articuno @ Life Orb
 Level: 69
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Flamethrower
-- Curse
-- Crunch
-- Extreme Speed
+- Blizzard
+- Hurricane
+- Roost
+- Freeze Dry
+
+Pidgeot @ Pidgeotite
+Level: 69
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Hurricane
+- Heat Wave
+- Roost
+- U Turn
 
 === TRAINER_WILL_1_HNS ===
 Name: MENTO

@@ -74,7 +74,7 @@ Route10_PowerPlantBackRoom_Text_ManagerIWontForgiveCulprit:
 	.string "\nllore y suplique"
 	.string "\pperdón, ¡le"
 	.string "\nmachacaré!"
-	.string "\p$¡Ja, ja, ja!"
+	.string "\p¡Ja, ja, ja!$"
 Route10_PowerPlantBackRoom_Text_ManagerThatsThePart:
 	.string "DIRECTOR: ¡Ah! ¡Sí!\p"
 	.string "¡Es la PIEZA que le faltaba a mi\n"
@@ -83,7 +83,7 @@ Route10_PowerPlantBackRoom_Text_ManagerThatsThePart:
 Route10_PowerPlantBackRoom_Text_ManagerTakeThisTM:
 	.string "¡Yuju! ¡Gracias!"
 	.string "\p¡Toma esta MT"
-	.string "\n$como recompensa!"
+	.string "\ncomo recompensa!$"
 Route10_PowerPlantBackRoom_Text_ManagerTM07IsZapCannon:
 	.string "DIRECTOR: Esa MT contiene TRUENO.\p"
 	.string "¡Es una técnica muy potente!\p"

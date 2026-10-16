@@ -35,13 +35,13 @@ Route12_House_Text_OfferSuperRod:
 	.string "\p¡No tengo ninguna"
 	.string "\nduda!"
 	.string "\pSé que tengo"
-	.string "\n$razón."
+	.string "\nrazón.$"
 Route12_House_Text_GiveSuperRod:
 	.string "Sí, sí. ¡Justo lo"
 	.string "\nque pensaba!"
 	.string "\p¡Aquí tienes!"
 	.string "\nToma esto. Es"
-	.string "\l$una SÚPER CAÑA."
+	.string "\luna SÚPER CAÑA.$"
 Route12_House_Text_GaveSuperRod:
 	.string "Intenta pescar"
 	.string "\nallí donde veas"
@@ -49,6 +49,6 @@ Route12_House_Text_GaveSuperRod:
 	.string "\pRecuerda: puedes"
 	.string "\ncapturar POKéMON"
 	.string "\pdiferentes usando"
-	.string "\n$distintas CAÑAS."
+	.string "\ndistintas CAÑAS.$"
 Route12_House_Text_DontWantSuperRod:
 	.string "¿Eh? ¿Me han engañado mis ojos?$"

@@ -92,7 +92,7 @@ Route12_Text_NewFisher:
 Route12_Text_FisherMartinSeen:
 	.string "La paciencia es la"
 	.string "\nclave para pescar"
-	.string "\l$y criar POKéMON."
+	.string "\ly criar POKéMON.$"
 Route12_Text_FisherMartinBeaten:
 	.string "Gwaaah!$"
 
@@ -111,14 +111,14 @@ Route12_Text_FisherStephenAfterBattle:
 	.string "¿Conoces las"
 	.string "\nemisoras de"
 	.string "\pradio de KANTO?"
-	.string "\n$Tenemos muchas."
+	.string "\nTenemos muchas.$"
 Route12_Text_FisherBarneySeen:
 	.string "¿Qué es lo más"
 	.string "\nimportante en"
-	.string "\l$nuestras vidas?"
+	.string "\lnuestras vidas?$"
 Route12_Text_FisherBarneyBeaten:
 	.string "¡La respuesta"
-	.string "\n$vendrá luego!"
+	.string "\nvendrá luego!$"
 Route12_Text_FisherBarneyAfterBattle:
 	.string "Creo que la"
 	.string "\nelectricidad es lo"
@@ -129,7 +129,7 @@ Route12_Text_FisherBarneyAfterBattle:
 	.string "\ptanto follón"
 	.string "\ncuando se estropeó"
 	.string "\pla CENTRAL"
-	.string "\n$ENERGÍA."
+	.string "\nENERGÍA.$"
 Route12_Text_KyleRegister:
 	.string "No olvidaré esto.\n"
 	.string "¡Dame tu número!$"
@@ -146,16 +146,16 @@ Route12_Text_KylePostRematch:
 	.string "a la de una gran captura!$"
 
 Route12_Text_FisherKyleSeen:
-	.string "$¿Te acuerdas?"
+	.string "$¿Te acuerdas?$"
 Route12_Text_FisherKyleBeaten:
-	.string "$Te acuerdas, ¿no?"
+	.string "$Te acuerdas, ¿no?$"
 Route12_Text_FisherKyleAfterBattle:
 	.string "El tirón de la"
 	.string "\nCAÑA cuando ha"
 	.string "\lpicado un POKéMON…"
 	.string "\pÉsa es la mejor"
 	.string "\nsensación para un"
-	.string "\l$pescador como yo."
+	.string "\lpescador como yo.$"
 Route12_EventScript_Sign::
 	msgbox Route12_Text_Sign, MSGBOX_SIGN
 	end
@@ -167,6 +167,6 @@ Route12_EventScript_FishingSign::
 Route12_Text_Sign:
 	.string "RUTA 12"
 	.string "\pPUEBLO LAVANDA"
-	.string "\n$HACIA EL NORTE"
+	.string "\nHACIA EL NORTE$"
 Route12_Text_FishingSpotSign:
 	.string "FISHING SPOT$"

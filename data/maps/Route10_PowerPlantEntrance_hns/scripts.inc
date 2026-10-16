@@ -111,22 +111,22 @@ Route10_PowerPlantEntrance_Text_Officer1AThiefBrokeIn:
 	.string "\nla CENTRAL"
 	.string "\lENERGÍA…"
 	.string "\p¿Adónde vamos a ir"
-	.string "\n$a parar?"
+	.string "\na parar?$"
 Route10_PowerPlantEntrance_Text_Officer1CeruleanShadyCharacter:
 	.string "Tengo noticias de"
 	.string "\nCIUDAD CELESTE."
 	.string "\pParece que ha"
 	.string "\nestado merodeando"
 	.string "\ppor allí un hombre"
-	.string "\n$muy sospechoso."
+	.string "\nmuy sospechoso.$"
 Route10_PowerPlantEntrance_Text_Officer1CouldIAskForYourCooperation:
 	.string "¿Puedo pedirte"
-	.string "\n$ayuda?"
+	.string "\nayuda?$"
 Route10_PowerPlantEntrance_Text_Officer1HaveToBeefUpSecurity:
 	.string "Tendremos que"
 	.string "\nreforzar las"
 	.string "\pmedidas de"
-	.string "\n$seguridad."
+	.string "\nseguridad.$"
 Route10_PowerPlantEntrance_Text_Engineer1SomeoneStoleAPart:
 	.string "Alguien robó una pieza esencial\n"
 	.string "del generador.\p"

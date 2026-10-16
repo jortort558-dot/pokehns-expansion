@@ -203,16 +203,16 @@ CeladonCity_Gym_EventScript_GymStatuePostVictory::
 	end
 
 CeladonCity_Gym_Text_GymStatue::
-    .string "CELADON POKéMON GYM\n"
-    .string "LEADER: ERIKA\p"
-	.string "WINNING TRAINERS:\n"
-	.string "BLUE, RED$"
+    .string "GIMNASIO POKéMON DE AZULONA\n"
+    .string "LÍDER: ERIKA\p"
+	.string "GANADORES:\n"
+	.string "AZUL, ROJO$"
 
 CeladonCity_Gym_Text_GymStatuePlayerWon::
-    .string "CELADON POKéMON GYM\n"
-    .string "LEADER: ERIKA\p"
-    .string "WINNING TRAINERS:\n"
-	.string "BLUE, RED, {PLAYER}$"
+    .string "GIMNASIO POKéMON DE AZULONA\n"
+    .string "LÍDER: ERIKA\p"
+    .string "GANADORES:\n"
+	.string "AZUL, ROJO, {PLAYER}$"
 
 CeladonCity_Gym_EventScript_Manolin::
 	lock

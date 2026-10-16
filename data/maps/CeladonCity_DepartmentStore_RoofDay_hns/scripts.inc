@@ -75,10 +75,20 @@ CeladonDeptRoof_EventScript_DaraOtaku::
 	goto_if_eq VAR_RESULT, NO, CeladonDeptRoof_EventScript_DaraDeclined
 	checkmoney 30000
 	goto_if_eq VAR_RESULT, FALSE, CeladonDeptRoof_EventScript_DaraNoMoney
+CeladonDeptRoof_EventScript_DaraChoosePartyMon:
 	msgbox CeladonDeptRoof_Text_DaraChooseMon, MSGBOX_DEFAULT
 	special ChoosePartyMon
 	waitstate
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, CeladonDeptRoof_EventScript_DaraDeclined
+	message CeladonDeptRoof_Text_DaraChooseService
+	waitmessage
+	multichoice 15, 6, MULTI_DARA_SERVICE_CHOICE, FALSE
+	switch VAR_RESULT
+	case 0, CeladonDeptRoof_EventScript_DaraServiceStandard
+	case 1, CeladonDeptRoof_EventScript_DaraServiceEvolutionary
+	goto CeladonDeptRoof_EventScript_DaraDeclined
+
+CeladonDeptRoof_EventScript_DaraServiceStandard::
 	special DaraOtaku_CheckAndPrepareAbilities
 	switch VAR_RESULT
 	case 0, CeladonDeptRoof_EventScript_DaraNoChangeAvailable
@@ -95,6 +105,12 @@ CeladonDeptRoof_EventScript_DaraDeclined::
 
 CeladonDeptRoof_EventScript_DaraNoMoney::
 	msgbox CeladonDeptRoof_Text_DaraNoMoney, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
+CeladonDeptRoof_EventScript_DaraNoMoneyEvo::
+	msgbox CeladonDeptRoof_Text_DaraNoMoneyEvo, MSGBOX_DEFAULT
 	hidemoneybox
 	release
 	end
@@ -128,10 +144,16 @@ CeladonDeptRoof_EventScript_DaraBothChoices::
 
 CeladonDeptRoof_EventScript_DaraChooseNormalFromBoth::
 	setvar VAR_0x8005, 1
+	special DaraOtaku_PrepareChoiceAbility
+	msgbox CeladonDeptRoof_Text_DaraConfirmNormal, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeladonDeptRoof_EventScript_DaraDeclined
 	goto CeladonDeptRoof_EventScript_DaraExecuteChange
 
 CeladonDeptRoof_EventScript_DaraChooseHiddenFromBoth::
 	setvar VAR_0x8005, 2
+	special DaraOtaku_PrepareChoiceAbility
+	msgbox CeladonDeptRoof_Text_DaraConfirmHidden, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeladonDeptRoof_EventScript_DaraDeclined
 	goto CeladonDeptRoof_EventScript_DaraExecuteChange
 
 CeladonDeptRoof_EventScript_DaraExecuteChange::
@@ -143,6 +165,37 @@ CeladonDeptRoof_EventScript_DaraExecuteChange::
 	special DaraOtaku_ApplyAbilityChange
 	waitse
 	msgbox CeladonDeptRoof_Text_DaraSuccess, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
+CeladonDeptRoof_EventScript_DaraServiceEvolutionary::
+	checkmoney 100000
+	goto_if_eq VAR_RESULT, FALSE, CeladonDeptRoof_EventScript_DaraNoMoneyEvo
+	special DaraOtaku_CheckAndPrepareEvolutionAbilities
+	goto_if_eq VAR_RESULT, 0, CeladonDeptRoof_EventScript_DaraNoEvolutionAbilities
+	msgbox CeladonDeptRoof_Text_DaraSelectEvoAbility, MSGBOX_DEFAULT
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	goto_if_eq VAR_RESULT, MULTI_B_PRESSED, CeladonDeptRoof_EventScript_DaraDeclined
+	goto_if_eq VAR_RESULT, 0, CeladonDeptRoof_EventScript_DaraDeclined
+	copyvar VAR_0x8005, VAR_RESULT
+	special DaraOtaku_PrepareChosenEvoAbilityName
+	msgbox CeladonDeptRoof_Text_DaraConfirmEvoAbility, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeladonDeptRoof_EventScript_DaraDeclined
+	removemoney 100000
+	updatemoneybox
+	playse SE_SHOP
+	waitse
+	playse SE_USE_ITEM
+	special DaraOtaku_ApplyEvolutionAbilityChange
+	waitse
+	msgbox CeladonDeptRoof_Text_DaraSuccessEvo, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
+CeladonDeptRoof_EventScript_DaraNoEvolutionAbilities::
+	msgbox CeladonDeptRoof_Text_DaraNoEvoAbilityAvailable, MSGBOX_DEFAULT
 	hidemoneybox
 	release
 	end
@@ -159,14 +212,20 @@ CeladonDeptRoof_Text_DaraIntro:
 	.string "pero subo aquí con Mori para leer\l"
 	.string "tranquila y tomar el aire.\p"
 	.string "He estudiado mucho sobre el potencial\n"
-	.string "oculto de los Pokémon.\p"
+	.string "oculto y el linaje de los Pokémon.\p"
 	.string "Por 30.000¥ puedo despertar otra\n"
-	.string "habilidad de tu compañero.\p"
+	.string "habilidad actual de tu compañero.\p"
+	.string "O por 100.000¥ puedo rastrear sus\n"
+	.string "raíces y recuperar una habilidad\l"
+	.string "que tuviera en su línea evolutiva.\p"
 	.string "¿Te gustaría que lo intente?$"
 
 CeladonDeptRoof_Text_DaraChooseMon:
 	.string "¿A qué compañero quieres que\n"
 	.string "consulte en mis tomos?$"
+
+CeladonDeptRoof_Text_DaraChooseService:
+	.string "¿Qué tipo de servicio buscas?$"
 
 CeladonDeptRoof_Text_DaraDeclined:
 	.string "No pasa nada. Aquí seguiremos\n"
@@ -177,10 +236,22 @@ CeladonDeptRoof_Text_DaraNoMoney:
 	.string "Los tomos antiguos son caros de\l"
 	.string "mantener. ¡Vuelve cuando puedas!$"
 
+CeladonDeptRoof_Text_DaraNoMoneyEvo:
+	.string "Vaya... Rastrear el linaje evolutivo\n"
+	.string "requiere consultar tomos rarísimos\l"
+	.string "y cuesta 100.000¥.\p"
+	.string "¡Vuelve cuando tengas el dinero!$"
+
 CeladonDeptRoof_Text_DaraNoOtherAbility:
 	.string "Mmm... Mori y yo hemos mirado bien,\n"
 	.string "pero {STR_VAR_1} ya tiene todo\l"
-	.string "su potencial descubierto.$"
+	.string "su potencial actual descubierto.$"
+
+CeladonDeptRoof_Text_DaraNoEvoAbilityAvailable:
+	.string "Mmm... He revisado a fondo su línea\n"
+	.string "evolutiva, pero {STR_VAR_1} no\l"
+	.string "cuenta con habilidades previas\l"
+	.string "distintas a las que ya conoce.$"
 
 CeladonDeptRoof_Text_DaraConfirmNormal:
 	.string "{STR_VAR_1} tiene {STR_VAR_2}.\p"
@@ -195,7 +266,22 @@ CeladonDeptRoof_Text_DaraConfirmHidden:
 CeladonDeptRoof_Text_DaraSelectWhich:
 	.string "¿Qué habilidad quieres despertar?$"
 
+CeladonDeptRoof_Text_DaraSelectEvoAbility:
+	.string "¿Qué habilidad de su linaje\n"
+	.string "te gustaría que recupere?$"
+
+CeladonDeptRoof_Text_DaraConfirmEvoAbility:
+	.string "{STR_VAR_1} tiene {STR_VAR_2}.\p"
+	.string "¿Quieres que recupere la habilidad\n"
+	.string "{STR_VAR_3} de su linaje por 100.000¥?$"
+
 CeladonDeptRoof_Text_DaraSuccess:
 	.string "¡Una lectura rápida y...\n"
 	.string "¡{STR_VAR_1} ha despertado\l"
 	.string "{STR_VAR_2}! ¡Le sienta genial!$"
+
+CeladonDeptRoof_Text_DaraSuccessEvo:
+	.string "¡Increíble! He sintonizado sus raíces\n"
+	.string "con los tomos ancestrales...\p"
+	.string "¡{STR_VAR_1} ha recuperado con éxito\n"
+	.string "{STR_VAR_2}! ¡Menudo poder!$"

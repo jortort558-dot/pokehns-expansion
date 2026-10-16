@@ -245,10 +245,10 @@ Route14_Text_PokefanmTrevorSeen:
 	.string "\nmás amigables si"
 	.string "\plos entrenas en un"
 	.string "\nlugar que ellos"
-	.string "\l$recuerden."
+	.string "\lrecuerden.$"
 Route14_Text_PokefanmTrevorBeaten:
 	.string "¿Dónde conocí a"
-	.string "\n$este PSYDUCK?"
+	.string "\neste PSYDUCK?$"
 Route14_Text_PokefanmTrevorAfterBattle:
 	.string "Ojalá hubiera una forma sencilla\n"
 	.string "de saber dónde obtuve mis POKéMON…$"
@@ -272,7 +272,7 @@ Route14_Text_PokefanmCarterSeen:
 	.string "Que sepas que me"
 	.string "\ncostó mucho"
 	.string "\patrapar a mis"
-	.string "\n$queridos POKéMON."
+	.string "\nqueridos POKéMON.$"
 Route14_Text_PokefanmCarterBeaten:
 	.string "Awaaah!$"
 
@@ -280,7 +280,7 @@ Route14_Text_PokefanmCarterAfterBattle:
 	.string "SQUIRTLE, CHARMAN-"
 	.string "\nDER y BULBASAUR."
 	.string "\pCreo que es una"
-	.string "\n$buena combinación."
+	.string "\nbuena combinación.$"
 Route14_Text_CarterRegister:
 	.string "¡Conoces bien a los iniciales!\n"
 	.string "¡Dame tu número!$"
@@ -299,15 +299,15 @@ Route14_Text_CarterPostRematch:
 Route14_Text_BirdKeeperRoySeen:
 	.string "Mi sueño es volar"
 	.string "\ncon mi querido"
-	.string "\l$POKéMON pájaro."
+	.string "\lPOKéMON pájaro.$"
 Route14_Text_BirdKeeperRoyBeaten:
 	.string "Puedo soñar, pero"
-	.string "\n$nunca podré volar."
+	.string "\nnunca podré volar.$"
 Route14_Text_BirdKeeperRoyAfterBattle:
 	.string "¿Tienes POKéMON"
 	.string "\nque conozcan la"
 	.string "\pMO VUELO? ¿Sí?"
-	.string "\n$¡Qué envidia!"
+	.string "\n¡Qué envidia!$"
 Route14_EventScript_Pidgeotto::
 	lockall
 	faceplayer

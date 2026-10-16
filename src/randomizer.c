@@ -2361,11 +2361,39 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
         specialSlot = (megaSlot == totalMons - 1) ? (totalMons - 2) : (totalMons - 1);
     }
 
-    if (slot == megaSlot)
+    // 1. Si el mon original o el slot es Mega: sustituir por otra Mega equivalente
+    bool32 isOriginalMega = (originalHeldItem >= ITEM_VENUSAURITE && originalHeldItem <= ITEM_DIANCITE);
+    if ((isOriginalMega || slot == megaSlot) && ARRAY_COUNT(sTrainerMegaPairs) > 0)
     {
         u32 pairIndex = RandomizerNextRange(&state, ARRAY_COUNT(sTrainerMegaPairs));
         result.species = sTrainerMegaPairs[pairIndex].species;
         result.heldItem = sTrainerMegaPairs[pairIndex].stone;
+        return result;
+    }
+
+    // 2. Si el mon original es Legendario / Sublegendario: sustituir por otro Legendario
+    if (IsRandomizerLegendary(originalSpecies))
+    {
+        bool32 includeLegendaries = gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries;
+        enum WildPowerCategory cat;
+        if (IsCoverLegendary(originalSpecies) || trainerId == TRAINER_LANCE_1_HNS || trainerId == TRAINER_LANCE_2_HNS || trainerId == TRAINER_LANCE_3_HNS || trainerId == TRAINER_LANCE_POSTOBC_HNS)
+            cat = includeLegendaries ? CATEGORY_T5_L : CATEGORY_T4;
+        else
+            cat = includeLegendaries ? CATEGORY_T5_SL : CATEGORY_T4;
+
+        result.species = ChooseWildSpecies(cat, &state, originalSpecies);
+        if (tier >= TRAINER_TIER_ACE || level >= 25)
+            result.species = PromoteSpeciesForLevel(result.species, level);
+        result.heldItem = RollCompatibleTrainerItem(result.species, tier, block, difficulty, &state);
+        return result;
+    }
+
+    // 3. Si el mon original es Pseudolegendario: sustituir por otro Pseudolegendario
+    if (IsFinalPseudoLegendary(originalSpecies) && ARRAY_COUNT(sFinalPseudoLegendaries) > 0)
+    {
+        u32 pseudoIndex = RandomizerNextRange(&state, ARRAY_COUNT(sFinalPseudoLegendaries));
+        result.species = sFinalPseudoLegendaries[pseudoIndex];
+        result.heldItem = RollCompatibleTrainerItem(result.species, tier, block, difficulty, &state);
         return result;
     }
 

@@ -86,23 +86,23 @@ Route10_Text_HikerJimAfter:
 Route10_Text_PokefanmRobertSeen:
 	.string "Te gustan los"
 	.string "\nPOKéMON, ¿verdad?"
-	.string "\p$¡A mí también!"
+	.string "\p¡A mí también!$"
 Route10_Text_PokefanmRobertBeaten:
 	.string "Debo admitir mi"
-	.string "\n$derrota."
+	.string "\nderrota.$"
 Route10_Text_PokefanmRobertAfter:
 	.string "Mira lo que le has"
 	.string "\nhecho a mi"
 	.string "\lPOKéMON."
-	.string "\p$No lo olvidaré…"
+	.string "\pNo lo olvidaré…$"
 Route10_Text_PowerPlant:
 	.string "¿Has oído lo del"
 	.string "\naccidente de la"
 	.string "\lCENTRAL ENERGÍA?"
 	.string "\pSe encuentra al"
 	.string "\nEste, cerca de"
-	.string "\l$PUEBLO LAVANDA."
+	.string "\lPUEBLO LAVANDA.$"
 Route10_Text_Sign:
 	.string "RUTA 10"
 	.string "\pCIUDAD CELESTE -"
-	.string "\n$PUEBLO LAVANDA"
+	.string "\nPUEBLO LAVANDA"

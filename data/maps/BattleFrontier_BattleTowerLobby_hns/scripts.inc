@@ -1355,7 +1355,7 @@ BattleFrontier_BattleTowerLobby_Text_AwardYouTheseBattlePoints_hns:
 	.string "we award you these Battle Point(s).$"
 
 BattleFrontier_Text_ObtainedXBattlePoints_hns:
-	.string "{PLAYER} obtained {STR_VAR_1} Battle Point(s).$"
+	.string "¡{PLAYER} obtuvo {STR_VAR_1} Puntos de Batalla!$"
 
 BattleFrontier_BattleTowerLobby_Text_RulesAreListed_hns:
 	.string "The BATTLE TOWER rules are listed.$"

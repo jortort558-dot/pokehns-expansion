@@ -1126,6 +1126,82 @@ void YamiSuperTraining_ResetEVs(void)
     gSpecialVar_Result = TRUE;
 }
 
+static u8 GetPreEvolutionAbilities(u16 targetSpecies, enum Ability currentAbility, enum Ability *outAbilities, u8 maxAbilities)
+{
+    u16 queue[8];
+    u8 queueCount = 0;
+    u8 head = 0;
+    u8 abilityCount = 0;
+    u32 i, j;
+
+    targetSpecies = SanitizeSpeciesId(targetSpecies);
+    queue[queueCount++] = targetSpecies;
+
+    // Recorrer árbol de ancestros buscando especies que evolucionen a las de la cola
+    while (head < queueCount && queueCount < ARRAY_COUNT(queue))
+    {
+        u16 curr = queue[head++];
+        for (j = 1; j < NUM_SPECIES; j++)
+        {
+            if (!IsSpeciesEnabled(j))
+                continue;
+            const struct Evolution *evos = GetSpeciesEvolutions(j);
+            if (evos == NULL)
+                continue;
+            for (i = 0; evos[i].method != EVOLUTIONS_END; i++)
+            {
+                if (IsSpeciesEnabled(evos[i].targetSpecies) && SanitizeSpeciesId(evos[i].targetSpecies) == curr)
+                {
+                    u16 pre = SanitizeSpeciesId(j);
+                    // Comprobar si ya está en la cola para evitar bucles
+                    bool32 alreadyQueued = FALSE;
+                    u32 q;
+                    for (q = 0; q < queueCount; q++)
+                    {
+                        if (queue[q] == pre)
+                        {
+                            alreadyQueued = TRUE;
+                            break;
+                        }
+                    }
+                    if (!alreadyQueued && queueCount < ARRAY_COUNT(queue))
+                        queue[queueCount++] = pre;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Para cada ancestro (excluyendo la especie actual queue[0]), extraer sus habilidades
+    for (i = 1; i < queueCount; i++)
+    {
+        u16 ancSpecies = queue[i];
+        u8 slot;
+        for (slot = 0; slot < NUM_ABILITY_SLOTS; slot++)
+        {
+            enum Ability ab = GetSpeciesAbility(ancSpecies, slot);
+            if (ab != ABILITY_NONE && ab != currentAbility)
+            {
+                // Comprobar si ya está en outAbilities
+                bool32 duplicate = FALSE;
+                u32 a;
+                for (a = 0; a < abilityCount; a++)
+                {
+                    if (outAbilities[a] == ab)
+                    {
+                        duplicate = TRUE;
+                        break;
+                    }
+                }
+                if (!duplicate && abilityCount < maxAbilities)
+                    outAbilities[abilityCount++] = ab;
+            }
+        }
+    }
+
+    return abilityCount;
+}
+
 void DaraOtaku_CheckAndPrepareAbilities(void)
 {
     u8 slot = gSpecialVar_0x8004;
@@ -1161,12 +1237,9 @@ void DaraOtaku_CheckAndPrepareAbilities(void)
 
     // Mode determination:
     // If current is normal (0 or 1):
-    // Can switch to secondary if hasSecondary.
-    // Target normal slot:
     u8 targetNormalSlot = (currentAbilityNum == 0) ? 1 : 0;
     enum Ability targetNormalAbility = GetSpeciesAbility(species, targetNormalSlot);
     bool32 canSwitchNormal = (hasSecondary && targetNormalAbility != ABILITY_NONE && targetNormalAbility != currentAbility);
-
     bool32 canSwitchHidden = (hasHidden && currentAbilityNum != 2);
 
     // If currently at hidden ability (slot 2):
@@ -1179,22 +1252,18 @@ void DaraOtaku_CheckAndPrepareAbilities(void)
         canSwitchHidden = FALSE;
     }
 
-    // Prepare target ability names
-    // gStringVar3 is used by single-choice confirmation text ({STR_VAR_3})
+    // Buffering target ability names for single-choice confirmation
     if (canSwitchNormal && !canSwitchHidden)
         StringCopy(gStringVar3, gAbilitiesInfo[targetNormalAbility].name);
     else if (!canSwitchNormal && canSwitchHidden)
         StringCopy(gStringVar3, gAbilitiesInfo[abHidden].name);
     else if (canSwitchNormal && canSwitchHidden)
-    {
         StringCopy(gStringVar3, gAbilitiesInfo[targetNormalAbility].name);
-        // Note: when both exist, multichoice displays HAB. SECUNDARIA / HAB. OCULTA
-    }
     else
         StringCopy(gStringVar3, gText_None);
 
     // Results:
-    // 0: Cannot change any ability
+    // 0: Cannot change any standard ability
     // 1: Can change to normal only
     // 2: Can change to hidden only
     // 3: Can change to both
@@ -1206,6 +1275,33 @@ void DaraOtaku_CheckAndPrepareAbilities(void)
         gSpecialVar_Result = 2;
     else
         gSpecialVar_Result = 0;
+}
+
+void DaraOtaku_PrepareChoiceAbility(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    u8 choice = gSpecialVar_0x8005; // 1 = Normal, 2 = Hidden
+
+    if (slot >= gPlayerPartyCount)
+        return;
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u8 currentAbilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
+
+    if (choice == 1)
+    {
+        u8 targetNormalSlot = (currentAbilityNum == 0) ? 1 : 0;
+        if (currentAbilityNum == 2)
+            targetNormalSlot = 0;
+        enum Ability targetNormalAbility = GetSpeciesAbility(species, targetNormalSlot);
+        StringCopy(gStringVar3, gAbilitiesInfo[targetNormalAbility].name);
+    }
+    else if (choice == 2)
+    {
+        enum Ability abHidden = GetSpeciesAbility(species, 2);
+        StringCopy(gStringVar3, gAbilitiesInfo[abHidden].name);
+    }
 }
 
 void DaraOtaku_ApplyAbilityChange(void)
@@ -1250,6 +1346,134 @@ void DaraOtaku_ApplyAbilityChange(void)
     GetMonNickname(mon, gStringVar1);
     enum Ability newAbility = GetMonAbility(mon);
     StringCopy(gStringVar2, gAbilitiesInfo[newAbility].name);
+    gSpecialVar_Result = TRUE;
+}
+
+void DaraOtaku_CheckAndPrepareEvolutionAbilities(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    if (slot >= gPlayerPartyCount)
+    {
+        gSpecialVar_Result = 0;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = 0;
+        return;
+    }
+
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    enum Ability currentAbility = GetMonAbility(mon);
+    GetMonNickname(mon, gStringVar1);
+    StringCopy(gStringVar2, gAbilitiesInfo[currentAbility].name);
+
+    enum Ability candidateAbilities[8];
+    u8 count = GetPreEvolutionAbilities(species, currentAbility, candidateAbilities, ARRAY_COUNT(candidateAbilities));
+
+    if (count == 0)
+    {
+        gSpecialVar_Result = 0;
+        return;
+    }
+
+    MultichoiceDynamic_InitStack(count + 1);
+
+    u8 i;
+    for (i = 0; i < count; i++)
+    {
+        enum Ability ab = candidateAbilities[i];
+        const u8 *abName = gAbilitiesInfo[ab].name;
+        u8 *nameBuffer = Alloc(StringLength(abName) + 1);
+        if (nameBuffer != NULL)
+        {
+            struct ListMenuItem item;
+            StringCopy(nameBuffer, abName);
+            item.name = nameBuffer;
+            item.id = ab;
+            MultichoiceDynamic_PushElement(item);
+        }
+    }
+
+    // Cancel option
+    {
+        u8 *cancelName = Alloc(StringLength(gText_Cancel2) + 1);
+        if (cancelName != NULL)
+        {
+            struct ListMenuItem cancelItem;
+            StringCopy(cancelName, gText_Cancel2);
+            cancelItem.name = cancelName;
+            cancelItem.id = ABILITY_NONE;
+            MultichoiceDynamic_PushElement(cancelItem);
+        }
+    }
+
+    if (!MultichoiceDynamic_StackEmpty())
+        gSpecialVar_Result = count;
+    else
+    {
+        MultichoiceDynamic_DestroyStack();
+        gSpecialVar_Result = 0;
+    }
+}
+
+void DaraOtaku_PrepareChosenEvoAbilityName(void)
+{
+    enum Ability chosenAbility = (enum Ability)gSpecialVar_0x8005;
+    if (chosenAbility < ABILITIES_COUNT)
+        StringCopy(gStringVar3, gAbilitiesInfo[chosenAbility].name);
+    else
+        StringCopy(gStringVar3, gText_None);
+}
+
+void DaraOtaku_ApplyEvolutionAbilityChange(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+    enum Ability chosenAbility = (enum Ability)gSpecialVar_0x8005;
+
+    if (slot >= gPlayerPartyCount || chosenAbility == ABILITY_NONE)
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    struct Pokemon *mon = &gPlayerParty[slot];
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u8 targetSlot = 0;
+    u8 s;
+    bool32 foundSlot = FALSE;
+
+    for (s = 0; s < NUM_ABILITY_SLOTS; s++)
+    {
+        if (GetSpeciesAbility(species, s) == chosenAbility)
+        {
+            targetSlot = s;
+            foundSlot = TRUE;
+            break;
+        }
+    }
+
+    if (foundSlot)
+    {
+        SetMonData(mon, MON_DATA_ABILITY_NUM, &targetSlot);
+    }
+    else
+    {
+        // En caso de especies donde la preevolución tiene una habilidad distinta y no está en los slots actuales,
+        // asignamos el slot disponible más coherente
+        SetMonData(mon, MON_DATA_ABILITY_NUM, &targetSlot);
+    }
+
+    GetMonNickname(mon, gStringVar1);
+    StringCopy(gStringVar2, gAbilitiesInfo[chosenAbility].name);
     gSpecialVar_Result = TRUE;
 }
 

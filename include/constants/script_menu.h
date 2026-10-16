@@ -206,6 +206,8 @@
 #define MULTI_MANOLIN_PLATEADA              195
 #define MULTI_MANOLIN_ESPUMA                196
 #define MULTI_MANOLIN_VERDE                 197
+#define MULTI_DARA_SERVICE_CHOICE           198
+#define MULTI_DARA_SERVICE_CHOICE_NO_EVO    199
 
 #define MULTI_NONE 255
 

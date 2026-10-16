@@ -127,7 +127,7 @@ Route13_Text_PokefanmAlexSeen:
 
 Route13_Text_PokefanmAlexBeaten:
 	.string "¿Qué? ¡Te burlas"
-	.string "\n$de la realeza!"
+	.string "\nde la realeza!$"
 Route13_Text_PokefanmAlexAfterBattle:
 	.string "¿Acaso no quiere todo el mundo\n"
 	.string "ser rey algún día?$"
@@ -149,7 +149,7 @@ Route13_Text_AlexPostRematch:
 Route13_Text_PokefanmJoshuaSeen:
 	.string "¡Jijiji! ¿Quieres"
 	.string "\nluchar contra mi"
-	.string "\l$grupo de PIKACHU?"
+	.string "\lgrupo de PIKACHU?$"
 Route13_Text_PokefanmJoshuaBeaten:
 	.string "PI-PIKACHU!$"
 
@@ -157,35 +157,35 @@ Route13_Text_PokefanmJoshuaAfterBattle:
 	.string "Parece que tienes"
 	.string "\nmuchos POKéMON,"
 	.string "\ppero PIKACHU es el"
-	.string "\n$mejor."
+	.string "\nmejor.$"
 Route13_Text_BirdKeeperPerrySeen:
 	.string "La agilidad es"
 	.string "\nla clave de los"
-	.string "\l$POKéMON pájaro."
+	.string "\lPOKéMON pájaro.$"
 Route13_Text_BirdKeeperPerryBeaten:
 	.string "Me venciste con"
-	.string "\n$tu velocidad…"
+	.string "\ntu velocidad…$"
 Route13_Text_BirdKeeperPerryAfterBattle:
 	.string "Tus POKéMON"
 	.string "\nestán muy bien"
-	.string "\l$entrenados."
+	.string "\lentrenados.$"
 Route13_Text_BirdKeeperBretSeen:
 	.string "Mira mis POKéMON."
 	.string "\pFíjate en su color"
-	.string "\n$y en su plumaje."
+	.string "\ny en su plumaje.$"
 Route13_Text_BirdKeeperBretBeaten:
 	.string "¡Vaya! ¡No soy lo"
-	.string "\n$bastante bueno!"
+	.string "\nbastante bueno!$"
 Route13_Text_BirdKeeperBretAfterBattle:
 	.string "Los POKéMON son"
 	.string "\nfelices si los"
-	.string "\l$pones guapos."
+	.string "\lpones guapos.$"
 Route13_Text_HikerKennySeen:
 	.string "Debería ir al TÚNEL ROCA para\n"
 	.string "conseguir un ONIX.$"
 
 Route13_Text_HikerKennyBeaten:
-	.string "$He perdido…"
+	.string "$He perdido…$"
 Route13_Text_HikerKennyAfterBattle:
 	.string "Las formaciones geológicas no\n"
 	.string "parecen cambiar.\p"
@@ -211,16 +211,16 @@ Route13_Text_TrainerTips:
 	.string "PISTAS ENTRENADOR"
 	.string "\p¡Mira! Allí, a la"
 	.string "\nizquierda del"
-	.string "\l$poste"
+	.string "\lposte$"
 Route13_Text_Sign:
 	.string "RUTA 13 HACIA EL"
 	.string "\nNORTE AL PUENTE"
-	.string "\l$SILENCIO"
+	.string "\lSILENCIO$"
 Route13_Text_DirectionsSign:
 	.string "HACIA EL NORTE"
 	.string "\nAL PUEBLO LAVANDA"
 	.string "\pHACIA EL OESTE"
-	.string "\n$A CIUDAD FUCSIA"
+	.string "\nA CIUDAD FUCSIA$"
 Route13_GetOffBoat::
 	lock
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1

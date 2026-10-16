@@ -9,13 +9,18 @@ Gate_CeladonCity_Route16_TriggerScript::
 	goto_if_unset FLAG_SYS_CYCLING_ROAD, Gate_CeladonCity_Route16_EnterCyclingRoad
 
 Gate_CeladonCity_Route16_NoBike::
-	msgbox Route110_SeasideCyclingRoadSouthEntrance_Text_TooDangerousToWalk, MSGBOX_DEFAULT
+	msgbox Gate_CeladonCity_Route16_Text_TooDangerousToWalk, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
 	waitmovement 0
 	clearflag FLAG_SYS_CYCLING_ROAD
 	releaseall
 	end
+
+Gate_CeladonCity_Route16_Text_TooDangerousToWalk:
+	.string "Lo siento, no puedes ir a pie por\n"
+	.string "el CAMINO DE BICIS. Es peligroso.\p"
+	.string "¡Vuelve cuando tengas una BICI!$"
 
 Gate_CeladonCity_Route16_EnterCyclingRoad::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft1

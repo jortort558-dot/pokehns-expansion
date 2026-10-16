@@ -18,6 +18,6 @@ Route7_EventScript_Door::
 Route7_Text_UndergroundPathSign:
 	.string "VÍA SUBTERRÁNEA"
 	.string "\pCIUDAD CELESTE -"
-	.string "\n$CIUDAD CARMÍN"
+	.string "\nCIUDAD CARMÍN$"
 Route7_Text_LockedDoor:
 	.string "Está cerrado…$"

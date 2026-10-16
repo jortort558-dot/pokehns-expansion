@@ -38,56 +38,56 @@ Route8_Text_BikerDwayneSeen:
 	.string "\pFEDERACIÓN POKéMON"
 	.string "\nde KANTO."
 	.string "\p¡Te vamos a"
-	.string "\n$arrollar!"
+	.string "\narrollar!$"
 Route8_Text_BikerDwayneBeaten:
-	.string "$¡Lo… lo siento!"
+	.string "$¡Lo… lo siento!$"
 Route8_Text_BikerDwayneAfter:
 	.string "¡Viva la"
 	.string "\nFEDERACIÓN"
-	.string "\l$POKéMON de KANTO!"
+	.string "\lPOKéMON de KANTO!$"
 Route8_Text_BikerHarrisSeen:
 	.string "La policía ha"
 	.string "\ncerrado la VÍA"
 	.string "\pSUBTERRÁNEA."
-	.string "\n$¡Qué fastidio!"
+	.string "\n¡Qué fastidio!$"
 Route8_Text_BikerHarrisBeaten:
 	.string "¡P-perdóname!$"
 
 Route8_Text_BikerHarrisAfter:
 	.string "Destruido por"
-	.string "\n$alguien de JOHTO…"
+	.string "\nalguien de JOHTO…$"
 Route8_Text_BikerZekeSeen:
 	.string "Somos la"
 	.string "\nFEDERACIÓN"
 	.string "\pPOKéMON de KANTO."
-	.string "\n$¡Allá vamos!"
+	.string "\n¡Allá vamos!$"
 Route8_Text_BikerZekeBeaten:
-	.string "$¡Vaya! ¡Perdona!"
+	.string "$¡Vaya! ¡Perdona!$"
 Route8_Text_BikerZekeAfter:
 	.string "Intentaremos no"
 	.string "\nmolestar a nadie"
-	.string "\l$a partir de ahora."
+	.string "\la partir de ahora.$"
 Route8_Text_SupernerdSamSeen:
 	.string "¿Cómo funciona el"
-	.string "\n$MAGNETOTRÉN?"
+	.string "\nMAGNETOTRÉN?$"
 Route8_Text_SupernerdSamBeaten:
 	.string "Quiero ver el"
-	.string "\n$MAGNETOTRÉN…"
+	.string "\nMAGNETOTRÉN…$"
 Route8_Text_SupernerdSamAfter:
 	.string "¡El poder magnético es increíble!$"
 
 Route8_Text_SupernerdTomSeen:
 	.string "Mmm… Tienes muchas"
 	.string "\nMEDALLAS de"
-	.string "\l$GIMNASIO."
+	.string "\lGIMNASIO.$"
 Route8_Text_SupernerdTomBeaten:
 	.string "Tal y como pensé…"
-	.string "\n$¡Eres fuerte!"
+	.string "\n¡Eres fuerte!$"
 Route8_Text_SupernerdTomAfter:
 	.string "Las MEDALLAS de"
 	.string "\nGIMNASIO te dan"
 	.string "\pventaja en los"
-	.string "\n$combates."
+	.string "\ncombates.$"
 Route8_Text_LockedDoor:
 	.string "Está cerrado…$"
 
@@ -95,4 +95,4 @@ Route8_Text_UndergroundPathSign:
 	.string "El cartel está"
 	.string "\nroto."
 	.string "\pEs imposible"
-	.string "\n$leerlo…"
+	.string "\nleerlo…"

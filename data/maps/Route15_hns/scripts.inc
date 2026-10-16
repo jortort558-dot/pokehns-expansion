@@ -93,7 +93,7 @@ Route15_EventScript_PPup::
 
 Route15_Text_TeacherColetteSeen:
 	.string "¿Has olvidado"
-	.string "\n$algo?"
+	.string "\nalgo?$"
 Route15_Text_TeacherColetteBeaten:
 	.string "Kyaaah!$"
 
@@ -107,14 +107,14 @@ Route15_Text_TeacherHillarySeen:
 	.string "\pdeberían estar"
 	.string "\njugando en el"
 	.string "\ppatio en lugar"
-	.string "\n$de estar en clase."
+	.string "\nde estar en clase.$"
 Route15_Text_TeacherHillaryBeaten:
-	.string "$No quería perder…"
+	.string "$No quería perder…$"
 Route15_Text_TeacherHillaryAfterBattle:
 	.string "Es importante"
 	.string "\nestudiar, pero"
 	.string "\phacer deporte"
-	.string "\n$también."
+	.string "\ntambién.$"
 Route15_Text_HillaryRegister:
 	.string "¡Me has dado una lección!\n"
 	.string "¿Me das tu número?$"
@@ -131,32 +131,32 @@ Route15_Text_HillaryPostRematch:
 
 Route15_Text_SchoolboyKippSeen:
 	.string "Espera. Tengo que"
-	.string "\n$llamar a mamá."
+	.string "\nllamar a mamá.$"
 Route15_Text_SchoolboyKippBeaten:
 	.string "¡Lo siento, mamá!"
-	.string "\n$¡Me han vencido!"
+	.string "\n¡Me han vencido!$"
 Route15_Text_SchoolboyKippAfterBattle:
 	.string "Mi madre se"
 	.string "\npreocupa mucho por"
 	.string "\pmí, tengo que"
-	.string "\n$llamarla siempre."
+	.string "\nllamarla siempre.$"
 Route15_Text_SchoolboyTommySeen:
 	.string "Luchemos."
-	.string "\n$¡No perderé!"
+	.string "\n¡No perderé!$"
 Route15_Text_SchoolboyTommyBeaten:
 	.string "¡Olvidé hacer los deberes!$"
 
 Route15_Text_SchoolboyTommyAfterBattle:
 	.string "¡Sayonara! Lo he"
 	.string "\naprendido en la"
-	.string "\l$clase de japonés."
+	.string "\lclase de japonés.$"
 Route15_Text_SchoolboyJohnnySeen:
 	.string "Vamos de excursión a la TORRE\n"
 	.string "RADIO de LAVANDA.$"
 
 Route15_Text_SchoolboyJohnnyBeaten:
 	.string "¡Eres demasiado"
-	.string "\n$fuerte!"
+	.string "\nfuerte!$"
 Route15_Text_SchoolboyJohnnyAfterBattle:
 	.string "Estoy cansado de caminar.\n"
 	.string "Necesito descansar.$"
@@ -172,7 +172,7 @@ Route15_Text_SchoolboyBillyAfterBattle:
 	.string "¡Si los POKéMON"
 	.string "\nfueran una"
 	.string "\pasignatura, yo"
-	.string "\n$sería el mejor!"
+	.string "\nsería el mejor!$"
 Route15_Text_BillyRegister:
 	.string "Debí prestar más atención en clase.\n"
 	.string "¿Me das tu número?$"
@@ -191,4 +191,4 @@ Route15_Text_BillyPostRematch:
 Route15_Text_Sign:
 	.string "RUTA 15"
 	.string "\pCIUDAD FUCSIA -"
-	.string "\n$PUEBLO LAVANDA"
+	.string "\nPUEBLO LAVANDA"

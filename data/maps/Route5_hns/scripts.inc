@@ -14,4 +14,4 @@ Route5_EventScript_UndergroundPathSign::
 Route5_Text_UndergroundPathSign:
 	.string "VÍA SUBTERRÁNEA"
 	.string "\pCIUDAD CELESTE -"
-	.string "\n$CIUDAD CARMÍN"
+	.string "\nCIUDAD CARMÍN"

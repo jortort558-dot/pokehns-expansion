@@ -25,15 +25,15 @@ Route5_House_Text_Granny1:
 	.string "\pse cierne sobre"
 	.string "\nti."
 	.string "\p¡Toma esto para"
-	.string "\n$protegerte!"
+	.string "\nprotegerte!$"
 Route5_House_Text_Granny2:
 	.string "Corrías un peligro"
 	.string "\nmortal, pero ahora"
-	.string "\l$estás a salvo."
+	.string "\lestás a salvo.$"
 Route5_House_Text_Woman:
 	.string "A mi abuela le"
 	.string "\ngusta protegerse"
 	.string "\pcontra supuestos"
 	.string "\nmalos espíritus."
 	.string "\pPerdona si te"
-	.string "\n$ha asustado."
+	.string "\nha asustado."

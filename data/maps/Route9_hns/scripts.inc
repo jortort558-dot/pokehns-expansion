@@ -60,7 +60,7 @@ Route9_Text_CamperDeanAfter:
 Route9_Text_PicnickerHeidiSeen:
 	.string "¿Has ido alguna"
 	.string "\nvez de picnic?"
-	.string "\l$¡Es muy divertido!"
+	.string "\l¡Es muy divertido!$"
 Route9_Text_PicnickerHeidiBeaten:
 	.string "Ohhhh!$"
 
@@ -71,25 +71,25 @@ Route9_Text_PicnickerHeidiAfter:
 
 Route9_Text_CamperSidSeen:
 	.string "¡Eh, tú!"
-	.string "\n$¡No tires basura!"
+	.string "\n¡No tires basura!$"
 Route9_Text_CamperSidBeaten:
 	.string "Sólo estaba"
-	.string "\n$diciendo que…"
+	.string "\ndiciendo que…$"
 Route9_Text_CamperSidAfter:
 	.string "Perdón. No estabas"
 	.string "\ntirando basura."
-	.string "\l$Me he equivocado."
+	.string "\lMe he equivocado.$"
 Route9_Text_PicnickerEdnaSeen:
 	.string "People shouldn't leave any litter\n"
 	.string "behind.$"
 
 Route9_Text_PicnickerEdnaBeaten:
-	.string "$¡Ohh…! Perdí…"
+	.string "$¡Ohh…! Perdí…$"
 Route9_Text_PicnickerEdnaAfter:
 	.string "Ahorrar energía es"
 	.string "\nimportante, pero"
 	.string "\pel entorno aún lo"
-	.string "\n$es más."
+	.string "\nes más.$"
 Route9_Text_HikerTimSeen:
 	.string "Cuando venga, rodeará el MONTE\n"
 	.string "PLATEADO…\p"
@@ -97,24 +97,24 @@ Route9_Text_HikerTimSeen:
 
 Route9_Text_HikerTimBeaten:
 	.string "Estaba ocupado"
-	.string "\n$cantando…"
+	.string "\ncantando…$"
 Route9_Text_HikerTimAfter:
 	.string "Los combates son"
 	.string "\ncuestión de"
-	.string "\l$concentración."
+	.string "\lconcentración.$"
 Route9_Text_HikerSidneySeen:
 	.string "Te contaré un"
 	.string "\nsecreto."
 	.string "\pPero primero,"
-	.string "\n$¡luchemos!"
+	.string "\n¡luchemos!$"
 Route9_Text_HikerSidneyBeaten:
 	.string "¡Caray!"
-	.string "\n$He perdido…"
+	.string "\nHe perdido…$"
 Route9_Text_HikerSidneyAfter:
 	.string "La CENTRAL ENERGÍA"
 	.string "\nestá al otro lado"
-	.string "\l$de un riachuelo."
+	.string "\lde un riachuelo.$"
 Route9_Text_Sign:
 	.string "RUTA 9"
 	.string "\pCIUDAD CELESTE -"
-	.string "\n$TÚNEL ROCA"
+	.string "\nTÚNEL ROCA"

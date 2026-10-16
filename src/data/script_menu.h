@@ -1388,6 +1388,19 @@ static const struct MenuAction MultichoiceList_DaraAbilityChoice[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_DaraServiceChoice[] =
+{
+    {COMPOUND_STRING("HAB. ACTUAL (30.000¥)")},
+    {COMPOUND_STRING("HAB. EVOLUTIVA (100.000¥)")},
+    {gText_Exit},
+};
+
+static const struct MenuAction MultichoiceList_DaraServiceChoiceNoEvo[] =
+{
+    {COMPOUND_STRING("HAB. ACTUAL (30.000¥)")},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1599,6 +1612,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_MANOLIN_PLATEADA]           = MULTICHOICE(MultichoiceList_ManolinPlateada),
     [MULTI_MANOLIN_ESPUMA]             = MULTICHOICE(MultichoiceList_ManolinEspuma),
     [MULTI_MANOLIN_VERDE]              = MULTICHOICE(MultichoiceList_ManolinVerde),
+    [MULTI_DARA_SERVICE_CHOICE]        = MULTICHOICE(MultichoiceList_DaraServiceChoice),
+    [MULTI_DARA_SERVICE_CHOICE_NO_EVO] = MULTICHOICE(MultichoiceList_DaraServiceChoiceNoEvo),
 };
 
 const u8 *const gStdStrings[] =
