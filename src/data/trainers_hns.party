@@ -17940,10 +17940,10 @@ IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ice Beam
 - Recover
 
-=== TRAINER_PROFESSOR_MOHEDANO_HNS ===
-Name: MOHEDANO
-Class: Professor Hns
-Pic: Samson Oak Hns
+=== TRAINER_SITO_POWER_PLANT_HNS ===
+Name: SITO
+Class: Super Nerd Hns
+Pic: Super Nerd Hns
 Gender: Male
 Music: Hg Suspicious 1
 Double Battle: No
@@ -17989,23 +17989,22 @@ IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ice Beam
 - Thunderbolt
 
-Venusaur @ Black Sludge
-Ability: Overgrow
+Houndoom @ Black Glasses
+Ability: Flash Fire
 Level: 50
-Nature: Calm
+Nature: Timid
 IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Giga Drain
+- Dark Pulse
+- Flamethrower
 - Sludge Bomb
-- Leech Seed
-- Sleep Powder
+- Nasty Plot
 
-Vikavolt @ Focus Sash
-Ability: Levitate
+Houndoom @ Focus Sash
+Ability: Early Bird
 Level: 50
-Nature: Quiet
+Nature: Hasty
 IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Bug Buzz
-- Thunderbolt
-- Energy Ball
-- Roost
-
+- Fire Blast
+- Dark Pulse
+- Will-O-Wisp
+- Destiny Bond

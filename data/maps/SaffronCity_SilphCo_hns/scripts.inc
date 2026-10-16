@@ -193,9 +193,10 @@ SaffronCity_SilphCo_EventScript_ScientistZygarde_Done::
 SaffronCity_SilphCo_Text_ScientistIntro:
 	.string "¡Qué catástrofe! ¡Un desastre\n"
 	.string "para la ciencia moderna!\p"
-	.string "Un hombre estrambótico que se hacía\n"
-	.string "llamar Profesor Mohedano ha burlado\l"
+	.string "Un ladrón estrambótico ha burlado\n"
 	.string "la seguridad del laboratorio.\p"
+	.string "Al parecer, lo vieron huir\n"
+	.string "con un par de perras de caza.\p"
 	.string "¡Se ha llevado nuestra mayor obra:\n"
 	.string "el Miminúcleo Tarafantástico!\p"
 	.string "Es la pieza de un contenedor\n"
@@ -207,7 +208,7 @@ SaffronCity_SilphCo_Text_ScientistIntro:
 	.string "¡Te recompensaremos bien!$"
 
 SaffronCity_SilphCo_Text_ScientistWaiting:
-	.string "Mohedano sigue libre con el núcleo\n"
+	.string "El ladrón sigue libre con el núcleo\n"
 	.string "en la Central de Energía de Kanto.\p"
 	.string "¡Si sobrecarga el Miminúcleo\n"
 	.string "podría causar una catástrofe!$"
@@ -233,4 +234,3 @@ SaffronCity_SilphCo_Text_ScientistDone:
 	.string "todo el ecosistema.\p"
 	.string "En tus manos, esa tecnología está\n"
 	.string "a salvo de malas intenciones.$"
-

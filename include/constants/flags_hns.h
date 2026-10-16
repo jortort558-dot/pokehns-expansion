@@ -1188,13 +1188,23 @@
 // Additional HnS content flags (0x496–0x4FF)
 #define FLAG_GOT_RAT_KID_SUPER_POTION               0x496
 #define FLAG_HIDE_VIOLET_KALOS_TOURISTS             0x497
-#define FLAG_MOHEDANO_POWER_PLANT_DEFEATED          0x498
+#define FLAG_SITO_POWER_PLANT_DEFEATED              0x498
 #define FLAG_SILPH_CO_ZYGARDE_CUBE_RECEIVED         0x499
 #define FLAG_MOHEDANO_QUEST_STARTED                 0x49A
 #define FLAG_INDIGO_PLATEAU_ELM                     0x49B
 #define FLAG_RELEARNER_EGG_MOVES_INTRODUCED         0x49C
+#define FLAG_HIDE_POWER_PLANT_SITO                  0x49D
+#define FLAG_HIDE_OLIVINE_SITO                      0x49E
+#define FLAG_FUCHSIA_POISONING_STARTED              0x49F
+#define FLAG_FUCHSIA_WATER_SAMPLE                   0x4A0
+#define FLAG_FUCHSIA_BERRY_SAMPLE                   0x4A1
+#define FLAG_FUCHSIA_MUD_SAMPLE                     0x4A2
+#define FLAG_FUCHSIA_KALIGULA_EXPOSED               0x4A3
+#define FLAG_FUCHSIA_BLACK_SLUDGE_RECEIVED          0x4A4
+#define FLAG_HIDE_FUCHSIA_TOXICOLOGIST              0x4A5
+#define FLAG_HIDE_FUCHSIA_KALIGULA                  0x4A6
 
-// 0x49D–0x4FF remaining reserved for future expansion
+// 0x4A7–0x4FF remaining reserved for future expansion
 
 // Trainer registered (match call) flags — one per rematchable trainer
 #define TRAINER_REGISTERED_FLAGS_START               0x310

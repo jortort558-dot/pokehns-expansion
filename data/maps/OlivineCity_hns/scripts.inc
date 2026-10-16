@@ -6,8 +6,18 @@ OlivineCity_hns_MapScripts::
 
 OlivineCity_MapScript_OnTransition::
 	callnative SetTimeBasedEncounters
+	call OlivineCity_EventScript_UpdateSitoVisibility
 	goto_if_ge VAR_OLIVINE_CITY_STATE, 5, OlivineCity_MapScript_ClearWeather
 	end
+
+OlivineCity_EventScript_UpdateSitoVisibility::
+	goto_if_set FLAG_MOHEDANO_QUEST_STARTED, OlivineCity_EventScript_HideSito
+	clearflag FLAG_HIDE_OLIVINE_SITO
+	return
+
+OlivineCity_EventScript_HideSito::
+	setflag FLAG_HIDE_OLIVINE_SITO
+	return
 
 OlivineCity_MapScript_ClearWeather::
 	setweather WEATHER_NONE
@@ -289,4 +299,3 @@ OlivineCity_Text_SitoFriki:
 	.string "préstamo familiar de juegos...\p"
 	.string "¡Te juro que no cambiaré tus\n"
 	.string "contraseñas ni nada de eso!$"
-

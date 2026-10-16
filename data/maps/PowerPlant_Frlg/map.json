@@ -131,7 +131,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PROF_OAK_HNS",
+      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD_HNS",
       "x": 6,
       "y": 12,
       "elevation": 3,
@@ -140,8 +140,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PowerPlant_EventScript_ProfessorMohedano",
-      "flag": "0"
+      "script": "PowerPlant_EventScript_Sito",
+      "flag": "FLAG_HIDE_POWER_PLANT_SITO"
     }
   ],
   "warp_events": [

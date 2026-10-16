@@ -15,10 +15,23 @@ PowerPlant_EventScript_TryRemoveStaticMon::
 
 PowerPlant_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_POWER_PLANT
+	call PowerPlant_EventScript_UpdateSitoVisibility
 	call_if_unset FLAG_FOUGHT_ZAPDOS, PowerPlant_EventScript_ShowZapdos
 	call_if_unset FLAG_FOUGHT_POWER_PLANT_ELECTRODE_1, PowerPlant_EventScript_ShowElectrode1
 	call_if_unset FLAG_FOUGHT_POWER_PLANT_ELECTRODE_2, PowerPlant_EventScript_ShowElectrode2
 	end
+
+PowerPlant_EventScript_UpdateSitoVisibility::
+	goto_if_set FLAG_SITO_POWER_PLANT_DEFEATED, PowerPlant_EventScript_HideSito
+	goto_if_set FLAG_MOHEDANO_QUEST_STARTED, PowerPlant_EventScript_ShowSito
+
+PowerPlant_EventScript_HideSito::
+	setflag FLAG_HIDE_POWER_PLANT_SITO
+	return
+
+PowerPlant_EventScript_ShowSito::
+	clearflag FLAG_HIDE_POWER_PLANT_SITO
+	return
 
 PowerPlant_EventScript_ShowZapdos::
 	clearflag FLAG_HIDE_ZAPDOS
@@ -114,55 +127,48 @@ PowerPlant_EventScript_FoughtElectrode2::
 	goto EventScript_RemoveStaticMon
 	end
 
-PowerPlant_EventScript_ProfessorMohedano::
+PowerPlant_EventScript_Sito::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOHEDANO_POWER_PLANT_DEFEATED, PowerPlant_EventScript_ProfessorMohedano_Post
-	msgbox PowerPlant_Text_MohedanoIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_PROFESSOR_MOHEDANO_HNS, PowerPlant_Text_MohedanoDefeated
-	msgbox PowerPlant_Text_MohedanoAfter, MSGBOX_DEFAULT
+	goto_if_defeated TRAINER_SITO_POWER_PLANT_HNS, PowerPlant_EventScript_SitoReward
+	msgbox PowerPlant_Text_SitoIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_SITO_POWER_PLANT_HNS, PowerPlant_Text_SitoDefeated
+
+PowerPlant_EventScript_SitoReward::
+	checkitemspace ITEM_MIMINUCLEO_TARAFANTASTICO, 1
+	goto_if_eq VAR_RESULT, FALSE, PowerPlant_EventScript_SitoBagFull
+	msgbox PowerPlant_Text_SitoAfter, MSGBOX_DEFAULT
 	giveitem ITEM_MIMINUCLEO_TARAFANTASTICO
-	setflag FLAG_MOHEDANO_POWER_PLANT_DEFEATED
+	setflag FLAG_SITO_POWER_PLANT_DEFEATED
+	setflag FLAG_HIDE_POWER_PLANT_SITO
+	removeobject VAR_LAST_TALKED
 	release
 	end
 
-PowerPlant_EventScript_ProfessorMohedano_Post::
-	msgbox PowerPlant_Text_MohedanoPostDialogue, MSGBOX_DEFAULT
+PowerPlant_EventScript_SitoBagFull::
+	msgbox PowerPlant_Text_SitoBagFull, MSGBOX_DEFAULT
 	release
 	end
 
-PowerPlant_Text_MohedanoIntro:
-	.string "¡Ja, ja, ja! ¿Un emisario de esa\n"
-	.string "empresa de pacotilla?\p"
-	.string "¡Yo soy el Profesor Mohedano!\n"
-	.string "¡Pionero de la libre ciencia!\p"
-	.string "Silph quería confinar las células\n"
-	.string "del gran Zygarde bajo patentes\l"
-	.string "y beneficios comerciales.\p"
-	.string "¡El equilibrio del mundo pertenece\n"
-	.string "a la naturaleza viva!\p"
-	.string "Estoy cargando este Miminúcleo\n"
-	.string "Tarafantástico con voltios puros.\p"
-	.string "¿Quieres arrebatármelo?\n"
-	.string "¡Demuestra si tu ciencia y tu\l"
-	.string "espíritu están a mi altura!$"
+PowerPlant_Text_SitoIntro:
+	.string "¡Anda! ¡Si es el recadero de\n"
+	.string "Silph!\p"
+	.string "Este cacharro daba unos chispazos\n"
+	.string "guapísimos, así que me lo llevé.\p"
+	.string "Mis chicas y yo nos lo estamos\n"
+	.string "pasando de miedo.\p"
+	.string "¿Lo quieres? ¡Pues tendrás que\n"
+	.string "quitárnoslo!$"
 
-PowerPlant_Text_MohedanoDefeated:
-	.string "¡Qué voltaje! ¡Una potencia\n"
-	.string "bioquímica deslumbrante!$"
+PowerPlant_Text_SitoDefeated:
+	.string "¡Pero si mis perras tenían el\n"
+	.string "combate controladísimo!$"
 
-PowerPlant_Text_MohedanoAfter:
-	.string "Impresionante... Tus Pokémon vibran\n"
-	.string "en resonancia natural.\p"
-	.string "Quizás me equivoqué contigo.\n"
-	.string "Toma el Miminúcleo Tarafantástico.\p"
-	.string "Asegúrate de que el Arca sirva\n"
-	.string "a la vida y no al interés de\l"
-	.string "las oficinas de Silph S.A.$"
+PowerPlant_Text_SitoAfter:
+	.string "Vale, vale... Toma el cacharro.\p"
+	.string "Yo no he estado aquí y tú no me\n"
+	.string "has visto. ¡Hasta luego!$"
 
-PowerPlant_Text_MohedanoPostDialogue:
-	.string "Seguiré estudiando los campos\n"
-	.string "magnéticos de este viejo lugar.\p"
-	.string "¡La verdadera ciencia nunca duerme,\n"
-	.string "joven prodigio!$"
-
+PowerPlant_Text_SitoBagFull:
+	.string "¡No te cabe el cacharro!\n"
+	.string "Haz sitio y vuelve.$"

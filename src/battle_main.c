@@ -667,7 +667,7 @@ static void CB2_InitBattleInternal(void)
             if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS && !BATTLE_TWO_VS_ONE_OPPONENT)
                 CreateNPCTrainerParty(&gEnemyParty[PARTY_SIZE / 2], TRAINER_BATTLE_PARAM.opponentB, FALSE);
 
-            if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_PROFESSOR_MOHEDANO_HNS)
+            if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_SITO_POWER_PLANT_HNS)
             {
                 s32 playerHighestLevel = GetHighestLevelInPlayerParty();
                 if (playerHighestLevel < 5)
@@ -680,6 +680,24 @@ static void CB2_InitBattleInternal(void)
                     u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES);
                     if (species != SPECIES_NONE && species != SPECIES_EGG)
                     {
+                        if (species == SPECIES_HOUNDOOM && GetMonGender(&gEnemyParty[i]) != MON_FEMALE)
+                        {
+                            u32 j;
+                            u32 personality = GetMonData(&gEnemyParty[i], MON_DATA_PERSONALITY);
+                            u32 originalNature = personality % NUM_NATURES;
+                            bool32 isShiny = IsMonShiny(&gEnemyParty[i]);
+
+                            for (j = 0; j < 20000; j++)
+                            {
+                                u32 candidate = originalNature + j * NUM_NATURES;
+                                if (GetGenderFromSpeciesAndPersonality(species, candidate) == MON_FEMALE)
+                                {
+                                    SetMonData(&gEnemyParty[i], MON_DATA_PERSONALITY, &candidate);
+                                    SetMonData(&gEnemyParty[i], MON_DATA_IS_SHINY, &isShiny);
+                                    break;
+                                }
+                            }
+                        }
                         SetMonData(&gEnemyParty[i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][playerHighestLevel]);
                         CalculateMonStats(&gEnemyParty[i]);
                     }

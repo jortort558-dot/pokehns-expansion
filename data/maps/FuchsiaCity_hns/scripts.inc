@@ -4,7 +4,23 @@ FuchsiaCity_hns_MapScripts::
 
 FuchsiaCity_EventScript_CityEnter::
 	setflag FLAG_VISITED_FUCHSIA_CITY
+	call FuchsiaCity_EventScript_UpdatePoisoningActors
 	end
+
+FuchsiaCity_EventScript_UpdatePoisoningActors::
+	goto_if_unset FLAG_SILPH_CO_ZYGARDE_CUBE_RECEIVED, FuchsiaCity_EventScript_HidePoisoningActors
+	goto_if_set FLAG_FUCHSIA_BLACK_SLUDGE_RECEIVED, FuchsiaCity_EventScript_HidePoisoningActors
+	clearflag FLAG_HIDE_FUCHSIA_TOXICOLOGIST
+	goto_if_set FLAG_FUCHSIA_KALIGULA_EXPOSED, FuchsiaCity_EventScript_HideKaligula
+	clearflag FLAG_HIDE_FUCHSIA_KALIGULA
+	return
+
+FuchsiaCity_EventScript_HidePoisoningActors::
+	setflag FLAG_HIDE_FUCHSIA_TOXICOLOGIST
+
+FuchsiaCity_EventScript_HideKaligula::
+	setflag FLAG_HIDE_FUCHSIA_KALIGULA
+	return
 
 FuchsiaCity_EventScript_BaobaCall::
 	lock
@@ -41,15 +57,26 @@ FuchsiaCity_EventScript_Dratini::
 	showmonpic SPECIES_DRATINI, 10, 3
 	delay 60
 	hidemonpic
+	goto_if_unset FLAG_FUCHSIA_POISONING_STARTED, FuchsiaCity_EventScript_FinishSample
+	goto_if_set FLAG_FUCHSIA_WATER_SAMPLE, FuchsiaCity_EventScript_FinishSample
+	msgbox FuchsiaCity_Text_WaterSample, MSGBOX_DEFAULT
+	setflag FLAG_FUCHSIA_WATER_SAMPLE
+
+FuchsiaCity_EventScript_FinishSample::
 	release
 	end
+
 FuchsiaCity_EventScript_Kangaskhan::
 	lock
 	showmonpic SPECIES_KANGASKHAN, 10, 3
 	delay 60
 	hidemonpic
-	release
-	end
+	goto_if_unset FLAG_FUCHSIA_POISONING_STARTED, FuchsiaCity_EventScript_FinishSample
+	goto_if_set FLAG_FUCHSIA_BERRY_SAMPLE, FuchsiaCity_EventScript_FinishSample
+	msgbox FuchsiaCity_Text_BerrySample, MSGBOX_DEFAULT
+	setflag FLAG_FUCHSIA_BERRY_SAMPLE
+	goto FuchsiaCity_EventScript_FinishSample
+
 FuchsiaCity_EventScript_Cubone::
 	lock
 	showmonpic SPECIES_CUBONE, 10, 3
@@ -62,8 +89,12 @@ FuchsiaCity_EventScript_Omanyte::
 	showmonpic SPECIES_OMANYTE, 10, 3
 	delay 60
 	hidemonpic
-	release
-	end
+	goto_if_unset FLAG_FUCHSIA_POISONING_STARTED, FuchsiaCity_EventScript_FinishSample
+	goto_if_set FLAG_FUCHSIA_MUD_SAMPLE, FuchsiaCity_EventScript_FinishSample
+	msgbox FuchsiaCity_Text_MudSample, MSGBOX_DEFAULT
+	setflag FLAG_FUCHSIA_MUD_SAMPLE
+	goto FuchsiaCity_EventScript_FinishSample
+
 FuchsiaCity_EventScript_Kabuto::
 	lock
 	showmonpic SPECIES_KABUTO, 10, 3
@@ -71,6 +102,134 @@ FuchsiaCity_EventScript_Kabuto::
 	hidemonpic
 	release
 	end
+
+FuchsiaCity_EventScript_Toxicologist::
+	lock
+	faceplayer
+	goto_if_set FLAG_FUCHSIA_KALIGULA_EXPOSED, FuchsiaCity_EventScript_ToxicologistReward
+	goto_if_set FLAG_FUCHSIA_POISONING_STARTED, FuchsiaCity_EventScript_ToxicologistProgress
+	msgbox FuchsiaCity_Text_ToxicologistIntro, MSGBOX_DEFAULT
+	setflag FLAG_FUCHSIA_POISONING_STARTED
+	release
+	end
+
+FuchsiaCity_EventScript_ToxicologistProgress::
+	goto_if_unset FLAG_FUCHSIA_WATER_SAMPLE, FuchsiaCity_EventScript_ToxicologistMissingSamples
+	goto_if_unset FLAG_FUCHSIA_BERRY_SAMPLE, FuchsiaCity_EventScript_ToxicologistMissingSamples
+	goto_if_unset FLAG_FUCHSIA_MUD_SAMPLE, FuchsiaCity_EventScript_ToxicologistMissingSamples
+	msgbox FuchsiaCity_Text_ToxicologistKaligula, MSGBOX_DEFAULT
+	release
+	end
+
+FuchsiaCity_EventScript_ToxicologistMissingSamples::
+	msgbox FuchsiaCity_Text_ToxicologistProgress, MSGBOX_DEFAULT
+	release
+	end
+
+FuchsiaCity_EventScript_ToxicologistReward::
+	checkitemspace ITEM_BLACK_SLUDGE, 1
+	goto_if_eq VAR_RESULT, FALSE, FuchsiaCity_EventScript_ToxicologistBagFull
+	msgbox FuchsiaCity_Text_ToxicologistReward, MSGBOX_DEFAULT
+	giveitem ITEM_BLACK_SLUDGE
+	setflag FLAG_FUCHSIA_BLACK_SLUDGE_RECEIVED
+	setflag FLAG_HIDE_FUCHSIA_TOXICOLOGIST
+	removeobject VAR_LAST_TALKED
+	release
+	end
+
+FuchsiaCity_EventScript_ToxicologistBagFull::
+	msgbox FuchsiaCity_Text_ToxicologistBagFull, MSGBOX_DEFAULT
+	release
+	end
+
+FuchsiaCity_EventScript_Kaligula::
+	lock
+	faceplayer
+	goto_if_unset FLAG_FUCHSIA_POISONING_STARTED, FuchsiaCity_EventScript_KaligulaCover
+	goto_if_unset FLAG_FUCHSIA_WATER_SAMPLE, FuchsiaCity_EventScript_KaligulaMislead
+	goto_if_unset FLAG_FUCHSIA_BERRY_SAMPLE, FuchsiaCity_EventScript_KaligulaMislead
+	goto_if_unset FLAG_FUCHSIA_MUD_SAMPLE, FuchsiaCity_EventScript_KaligulaMislead
+	msgbox FuchsiaCity_Text_KaligulaExposed, MSGBOX_DEFAULT
+	setflag FLAG_FUCHSIA_KALIGULA_EXPOSED
+	setflag FLAG_HIDE_FUCHSIA_KALIGULA
+	removeobject VAR_LAST_TALKED
+	release
+	end
+
+FuchsiaCity_EventScript_KaligulaCover::
+	msgbox FuchsiaCity_Text_KaligulaCover, MSGBOX_DEFAULT
+	release
+	end
+
+FuchsiaCity_EventScript_KaligulaMislead::
+	msgbox FuchsiaCity_Text_KaligulaMislead, MSGBOX_DEFAULT
+	release
+	end
+
+FuchsiaCity_Text_WaterSample:
+	.string "El agua tiene un brillo aceitoso.\p"
+	.string "Has recogido una muestra.$"
+
+FuchsiaCity_Text_BerrySample:
+	.string "Hay bayas ennegrecidas junto al\n"
+	.string "Kangaskhan.\p"
+	.string "Has recogido una muestra.$"
+
+FuchsiaCity_Text_MudSample:
+	.string "El lodo desprende un olor químico.\p"
+	.string "Has recogido una muestra.$"
+
+FuchsiaCity_Text_ToxicologistIntro:
+	.string "Soy toxicóloga de la ZONA SAFARI.\p"
+	.string "Alguien ha contaminado el agua y\n"
+	.string "varios Pokémon están enfermos.\p"
+	.string "Necesito muestras del agua, de las\n"
+	.string "bayas y del lodo de los estanques.\p"
+	.string "Examina a Dratini, Kangaskhan y\n"
+	.string "Omanyte, por favor.$"
+
+FuchsiaCity_Text_ToxicologistProgress:
+	.string "Aún faltan muestras del agua, las\n"
+	.string "bayas o el lodo.\p"
+	.string "Revisa a Dratini, Kangaskhan y\n"
+	.string "Omanyte.$"
+
+FuchsiaCity_Text_ToxicologistKaligula:
+	.string "Las tres muestras contienen el\n"
+	.string "mismo compuesto artificial.\p"
+	.string "El científico que merodea junto a\n"
+	.string "los recintos oculta algo.$"
+
+FuchsiaCity_Text_ToxicologistReward:
+	.string "¡Kaligula era el saboteador!\p"
+	.string "He neutralizado el veneno y los\n"
+	.string "Pokémon se recuperarán.\p"
+	.string "Este Lodo Negro quedó purificado.\n"
+	.string "Quédatelo.$"
+
+FuchsiaCity_Text_ToxicologistBagFull:
+	.string "No tienes sitio para el Lodo Negro.\n"
+	.string "Haz hueco y vuelve.$"
+
+FuchsiaCity_Text_KaligulaCover:
+	.string "Solo estudio el deterioro causado\n"
+	.string "por la gestión privada del parque.$"
+
+FuchsiaCity_Text_KaligulaMislead:
+	.string "La contaminación es el precio de\n"
+	.string "poner el beneficio por encima de\l"
+	.string "la vida.\p"
+	.string "Busca pruebas antes de acusar.$"
+
+FuchsiaCity_Text_KaligulaExposed:
+	.string "Así que has seguido el rastro...\p"
+	.string "Soy Kaligula. Silph envenena el\n"
+	.string "mundo y luego privatiza la cura.\p"
+	.string "Yo solo he acelerado la verdad.\n"
+	.string "¡La ciencia será del pueblo!\p"
+	.string "¡Joder con el cabezón!\n"
+	.string "Dijo que acabarías atando cabos...\p"
+	.string "Pero no me atraparás aquí.$"
 
 FuchsiaCity_EventScript_Youngster::
 	msgbox FuchsiaCity_Text_Youngster, MSGBOX_NPC
