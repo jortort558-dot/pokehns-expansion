@@ -130,7 +130,8 @@
 // State 7 is skipped.
 #define MENU_STATE_PRINT_TEACH_MOVE_PROMPT 8
 #define MENU_STATE_TEACH_MOVE_CONFIRM 9
-// States 10 and 11 are skipped.
+#define MENU_STATE_NEED_HEART_SCALE 10
+// State 11 is skipped.
 #define MENU_STATE_PRINT_GIVE_UP_PROMPT 12
 #define MENU_STATE_GIVE_UP_CONFIRM 13
 #define MENU_STATE_FADE_AND_RETURN 14
@@ -528,7 +529,8 @@ static void PrintMessageWithPlaceholders(const u8 *src)
     MoveRelearnerPrintMessage(gStringVar4);
 }
 
-// If reusable TMs is off, remove the TM from the bag
+// If reusable TMs is off, remove the TM from the bag.
+// Egg moves cost 1 Heart Scale to teach.
 static void RemoveRelearnerTMFromBag(enum Move move)
 {
     enum Item item = GetTMHMItemIdFromMoveId(move);
@@ -537,6 +539,10 @@ static void RemoveRelearnerTMFromBag(enum Move move)
      && gMoveRelearnerState == MOVE_RELEARNER_TM_MOVES && GetItemTMHMIndex(item) <= NUM_TECHNICAL_MACHINES)
     {
         RemoveBagItem(item, 1);
+    }
+    else if (gMoveRelearnerState == MOVE_RELEARNER_EGG_MOVES)
+    {
+        RemoveBagItem(ITEM_HEART_SCALE, 1);
     }
 }
 
@@ -593,20 +599,28 @@ static void DoMoveRelearnerMain(void)
 
             if (selection == 0)
             {
-                struct BoxPokemon *boxmon;
-                if (sMoveRelearnerStruct->partyMon == PC_MON_CHOSEN)
-                    boxmon = GetBoxedMonPtr(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos);
-                else
-                    boxmon = &(gPlayerParty[sMoveRelearnerStruct->partyMon].box);
-                if (GiveMoveToBoxMon(boxmon, GetCurrentSelectedMove()) != MON_HAS_MAX_MOVES)
+                if (gMoveRelearnerState == MOVE_RELEARNER_EGG_MOVES && !CheckBagHasItem(ITEM_HEART_SCALE, 1))
                 {
-                    PrintMessageWithPlaceholders(gText_MoveRelearnerPkmnLearnedMove);
-                    gSpecialVar_0x8004 = TRUE;
-                    sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEXT_THEN_FANFARE;
+                    PrintMessageWithPlaceholders(gText_MoveRelearnerNeedHeartScale);
+                    sMoveRelearnerStruct->state = MENU_STATE_NEED_HEART_SCALE;
                 }
                 else
                 {
-                    sMoveRelearnerStruct->state = MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT;
+                    struct BoxPokemon *boxmon;
+                    if (sMoveRelearnerStruct->partyMon == PC_MON_CHOSEN)
+                        boxmon = GetBoxedMonPtr(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos);
+                    else
+                        boxmon = &(gPlayerParty[sMoveRelearnerStruct->partyMon].box);
+                    if (GiveMoveToBoxMon(boxmon, GetCurrentSelectedMove()) != MON_HAS_MAX_MOVES)
+                    {
+                        PrintMessageWithPlaceholders(gText_MoveRelearnerPkmnLearnedMove);
+                        gSpecialVar_0x8004 = TRUE;
+                        sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEXT_THEN_FANFARE;
+                    }
+                    else
+                    {
+                        sMoveRelearnerStruct->state = MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT;
+                    }
                 }
             }
             else if (selection == MENU_B_PRESSED || selection == 1)
@@ -619,6 +633,19 @@ static void DoMoveRelearnerMain(void)
                 {
                     sMoveRelearnerStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
                 }
+            }
+        }
+        break;
+    case MENU_STATE_NEED_HEART_SCALE:
+        if (!MoveRelearnerRunTextPrinters())
+        {
+            if (JOY_NEW(A_BUTTON | B_BUTTON))
+            {
+                PlaySE(SE_SELECT);
+                if (sMoveRelearnerMenuState.showContestInfo == FALSE)
+                    sMoveRelearnerStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
+                else
+                    sMoveRelearnerStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
             }
         }
         break;
@@ -970,7 +997,10 @@ static void HandleInput(bool8 showContest)
         RemoveScrollArrows();
         sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEACH_MOVE_PROMPT;
         StringCopy(gStringVar2, GetMoveName(itemId));
-        StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
+        if (gMoveRelearnerState == MOVE_RELEARNER_EGG_MOVES)
+            StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachEggMoveConfirm);
+        else
+            StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
         MoveRelearnerPrintMessage(gStringVar4);
         break;
     }

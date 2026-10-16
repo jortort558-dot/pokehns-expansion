@@ -182,6 +182,11 @@ GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu::
 	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 
 GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner::
+	goto_if_unset FLAG_BADGE08_GET, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearnerPrompt
+	goto_if_set FLAG_RELEARNER_EGG_MOVES_INTRODUCED, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearnerPrompt
+	setflag FLAG_RELEARNER_EGG_MOVES_INTRODUCED
+	msgbox GoldenrodCity_PokemonCenter_Text_EggMovesUnlockedIntro, MSGBOX_DEFAULT
+GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearnerPrompt::
 	message MoveRelearner_Text_WouldLearnNewMoves
 	waitmessage
 	goto Common_EventScript_MoveRelearnerDynMultiChoice
@@ -658,3 +663,11 @@ GoldenrodCity_PokemonCenter_PokefanFAnotherTimeThenText:
 
 GoldenrodCity_PokemonCenter_PlayerGaveAwayTheEonMailText:
     .string "{PLAYER} entregó la CARTA EÓN.$"
+
+GoldenrodCity_PokemonCenter_Text_EggMovesUnlockedIntro:
+    .string "¡Veo que has conseguido las 8\n"
+    .string "Medallas de Gimnasio de Johto!\p"
+    .string "A partir de ahora también puedo\n"
+    .string "enseñar Movimientos Huevo a tus\l"
+    .string "Pokémon a cambio de 1 Escama\l"
+    .string "Corazón por cada ataque.$"

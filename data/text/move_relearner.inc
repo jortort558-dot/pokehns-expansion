@@ -3,7 +3,7 @@ MoveRelearner_Text_WouldLearnNewMoves:
 	.string "¿Quieres recordar algún ataque?$"
 
 MoveRelearner_Text_LevelUpMoves:
-	.string "Por nivel$"
+	.string "Nivel y MT$"
 
 MoveRelearner_Text_EggMoves:
 	.string "Mov. Huevo$"

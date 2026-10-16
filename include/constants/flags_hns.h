@@ -1192,8 +1192,9 @@
 #define FLAG_SILPH_CO_ZYGARDE_CUBE_RECEIVED         0x499
 #define FLAG_MOHEDANO_QUEST_STARTED                 0x49A
 #define FLAG_INDIGO_PLATEAU_ELM                     0x49B
+#define FLAG_RELEARNER_EGG_MOVES_INTRODUCED         0x49C
 
-// 0x49C–0x4FF remaining reserved for future expansion
+// 0x49D–0x4FF remaining reserved for future expansion
 
 // Trainer registered (match call) flags — one per rematchable trainer
 #define TRAINER_REGISTERED_FLAGS_START               0x310
@@ -3321,7 +3322,7 @@
 #define FLAG_UNUSED_0x499                                       0
 #define FLAG_UNUSED_0x49A                                       0
 #define FLAG_UNUSED_0x49B                                       FLAG_INDIGO_PLATEAU_ELM
-#define FLAG_UNUSED_0x49C                                       0
+#define FLAG_UNUSED_0x49C                                       FLAG_RELEARNER_EGG_MOVES_INTRODUCED
 #define FLAG_UNUSED_0x49D                                       0
 #define FLAG_UNUSED_0x49E                                       0
 #define FLAG_UNUSED_0x49F                                       0
