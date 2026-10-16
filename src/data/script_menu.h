@@ -1309,6 +1309,54 @@ static const struct MenuAction MultichoiceList_ManolinEndrino[] =
     {COMPOUND_STRING("CHALECO ASALTO")},
 };
 
+static const struct MenuAction MultichoiceList_ManolinCarmin[] =
+{
+    {COMPOUND_STRING("SEGURO DEBILIDAD")},
+    {COMPOUND_STRING("BAYA ACARDO")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinAzafran[] =
+{
+    {COMPOUND_STRING("TOXISFERA")},
+    {COMPOUND_STRING("HIERBA MENTAL")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinAzulona[] =
+{
+    {COMPOUND_STRING("LLAMASFERA")},
+    {COMPOUND_STRING("ROCA CALOR")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinFucsia[] =
+{
+    {COMPOUND_STRING("LODO NEGRO")},
+    {COMPOUND_STRING("BAYA PAYAPA")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinCeleste[] =
+{
+    {COMPOUND_STRING("ROCA LLUVIA")},
+    {COMPOUND_STRING("BAYA RINNA")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinPlateada[] =
+{
+    {COMPOUND_STRING("BOTAS GRUESAS")},
+    {COMPOUND_STRING("ROCA SUAVE")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinEspuma[] =
+{
+    {COMPOUND_STRING("BOTÓN ESCAPE")},
+    {COMPOUND_STRING("ROCA HELADA")},
+};
+
+static const struct MenuAction MultichoiceList_ManolinVerde[] =
+{
+    {COMPOUND_STRING("TARJETA ROJA")},
+    {COMPOUND_STRING("BAYA OCA")},
+};
+
 static const struct MenuAction MultichoiceList_YamiTraining[] =
 {
     {COMPOUND_STRING("PS (+64)")},
@@ -1543,6 +1591,14 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_YAMI_TRAINING]              = MULTICHOICE(MultichoiceList_YamiTraining),
     [MULTI_IGOR_BAR]                   = MULTICHOICE(MultichoiceList_IgorBar),
     [MULTI_DARA_ABILITY_CHOICE]        = MULTICHOICE(MultichoiceList_DaraAbilityChoice),
+    [MULTI_MANOLIN_CARMIN]             = MULTICHOICE(MultichoiceList_ManolinCarmin),
+    [MULTI_MANOLIN_AZAFRAN]            = MULTICHOICE(MultichoiceList_ManolinAzafran),
+    [MULTI_MANOLIN_AZULONA]            = MULTICHOICE(MultichoiceList_ManolinAzulona),
+    [MULTI_MANOLIN_FUCSIA]             = MULTICHOICE(MultichoiceList_ManolinFucsia),
+    [MULTI_MANOLIN_CELESTE]            = MULTICHOICE(MultichoiceList_ManolinCeleste),
+    [MULTI_MANOLIN_PLATEADA]           = MULTICHOICE(MultichoiceList_ManolinPlateada),
+    [MULTI_MANOLIN_ESPUMA]             = MULTICHOICE(MultichoiceList_ManolinEspuma),
+    [MULTI_MANOLIN_VERDE]              = MULTICHOICE(MultichoiceList_ManolinVerde),
 };
 
 const u8 *const gStdStrings[] =

@@ -298,3 +298,108 @@ FuchsiaCity_Gym_Text_Guide:
 FuchsiaCity_Gym_Text_GuideWin:
 	.string "¡Ha sido un gran combate,\n"
 	.string "ENTRENADOR de JOHTO!$"
+
+FuchsiaCity_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_FUCSIA, FuchsiaCity_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox FuchsiaCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_FUCSIA, FuchsiaCity_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox FuchsiaCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_FULL_RESTORE
+	setflag FLAG_MANOLIN_HEAL_FUCSIA
+	setspeaker SP_NAME_MANOLIN
+	msgbox FuchsiaCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+FuchsiaCity_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox FuchsiaCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_FUCSIA, FALSE
+	switch VAR_RESULT
+	case 0, FuchsiaCity_Gym_EventScript_Manolin_GiveBlackSludge
+	case 1, FuchsiaCity_Gym_EventScript_Manolin_GivePayapaBerry
+	case MULTI_B_PRESSED, FuchsiaCity_Gym_EventScript_Manolin_NoChoice
+	end
+
+FuchsiaCity_Gym_EventScript_Manolin_GiveBlackSludge::
+	giveitem ITEM_BLACK_SLUDGE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_FUCSIA
+	setspeaker SP_NAME_MANOLIN
+	msgbox FuchsiaCity_Gym_Text_Manolin_BlackSludgeExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+FuchsiaCity_Gym_EventScript_Manolin_GivePayapaBerry::
+	giveitem ITEM_PAYAPA_BERRY
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_FUCSIA
+	setspeaker SP_NAME_MANOLIN
+	msgbox FuchsiaCity_Gym_Text_Manolin_PayapaBerryExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+FuchsiaCity_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
+	msgbox FuchsiaCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+FuchsiaCity_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox FuchsiaCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+FuchsiaCity_Gym_Text_Manolin_Intro:
+	.string "¡Qué pasa mi gente! ¡Oye, qué calor!\p"
+	.string "Pensaba que este era el gimnasio de\n"
+	.string "fuego de Lavacalda con Candela...\l"
+	.string "¿Pero por qué hay paredes invisibles\l"
+	.string "y señoras ninja que parecen clones?\p"
+	.string "Casi me como una esquina transparente.\n"
+	.string "Vaya fase de mazmorra más rara, tú.$"
+
+FuchsiaCity_Gym_Text_Manolin_CheckHealth:
+	.string "¡Poco a poco, frena el carro!\n"
+	.string "¡Si llevas a tus bichos casi tiesos!\p"
+	.string "Aquí el veneno y las púas te dejan\n"
+	.string "seco en tres ticks.\l"
+	.string "Poción mágica al canto y a seguir.$"
+
+FuchsiaCity_Gym_Text_Manolin_Healed:
+	.string "¡Barras de PS llenas y consumible de\n"
+	.string "cura directa al inventario!$"
+
+FuchsiaCity_Gym_Text_Manolin_OfferChoices:
+	.string "Para sobrevivir a los debuffs de este\n"
+	.string "boss ninja te he traído dos opciones bis.\l"
+	.string "¿Cuál prefieres?$"
+
+FuchsiaCity_Gym_Text_Manolin_BlackSludgeExplain:
+	.string "¡El LODO NEGRO es gloria pura!\n"
+	.string "Cura vida en cada turno como unos\l"
+	.string "Restos si eres tipo Veneno, ¡pero daña\l"
+	.string "a cualquiera que intente robártelo!$"
+
+FuchsiaCity_Gym_Text_Manolin_PayapaBerryExplain:
+	.string "¡La BAYA PAYAPA absorbe los castañazos\n"
+	.string "de tipo Psíquico a la mitad!\l"
+	.string "Una salvación si te tiran Psicocorte.$"
+
+FuchsiaCity_Gym_Text_Manolin_NoChoice:
+	.string "No te líes con los clones, tómate tu\n"
+	.string "tiempo y elige bien.$"
+
+FuchsiaCity_Gym_Text_Manolin_AfterItem:
+	.string "Toca con las manos las paredes antes\n"
+	.string "de correr, ¡y a wipear al boss!$"

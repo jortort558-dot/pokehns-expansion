@@ -198,6 +198,14 @@
 #define MULTI_YAMI_TRAINING                 187
 #define MULTI_IGOR_BAR                      188
 #define MULTI_DARA_ABILITY_CHOICE           189
+#define MULTI_MANOLIN_CARMIN                190
+#define MULTI_MANOLIN_AZAFRAN               191
+#define MULTI_MANOLIN_AZULONA               192
+#define MULTI_MANOLIN_FUCSIA                193
+#define MULTI_MANOLIN_CELESTE               194
+#define MULTI_MANOLIN_PLATEADA              195
+#define MULTI_MANOLIN_ESPUMA                196
+#define MULTI_MANOLIN_VERDE                 197
 
 #define MULTI_NONE 255
 

@@ -209,3 +209,110 @@ SaffronCity_Gym_Text_GymStatuePlayerWon::
     .string "LEADER: SABRINA\p"
     .string "WINNING TRAINERS:\n"
 	.string "BLUE, RED, {PLAYER}$"
+
+SaffronCity_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_AZAFRAN, SaffronCity_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox SaffronCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_AZAFRAN, SaffronCity_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox SaffronCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_FULL_RESTORE
+	setflag FLAG_MANOLIN_HEAL_AZAFRAN
+	setspeaker SP_NAME_MANOLIN
+	msgbox SaffronCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+SaffronCity_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox SaffronCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_AZAFRAN, FALSE
+	switch VAR_RESULT
+	case 0, SaffronCity_Gym_EventScript_Manolin_GiveToxicOrb
+	case 1, SaffronCity_Gym_EventScript_Manolin_GiveMentalHerb
+	case MULTI_B_PRESSED, SaffronCity_Gym_EventScript_Manolin_NoChoice
+	end
+
+SaffronCity_Gym_EventScript_Manolin_GiveToxicOrb::
+	giveitem ITEM_TOXIC_ORB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_AZAFRAN
+	setspeaker SP_NAME_MANOLIN
+	msgbox SaffronCity_Gym_Text_Manolin_ToxicOrbExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SaffronCity_Gym_EventScript_Manolin_GiveMentalHerb::
+	giveitem ITEM_MENTAL_HERB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_AZAFRAN
+	setspeaker SP_NAME_MANOLIN
+	msgbox SaffronCity_Gym_Text_Manolin_MentalHerbExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SaffronCity_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
+	msgbox SaffronCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SaffronCity_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox SaffronCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SaffronCity_Gym_Text_Manolin_Intro:
+	.string "¡Ey, mi gente! ¡Qué mareo de teleport!\p"
+	.string "Se supone que este es el GIMNASIO\n"
+	.string "de Ciudad Algaria, ¿verdad?\l"
+	.string "¿Pero dónde narices están los dos\l"
+	.string "gemelos que levitan, Vito y Leti?\p"
+	.string "Solo veo baldosas mágicas y a una chica\n"
+	.string "con cara de pocos amigos al fondo.\l"
+	.string "El lag mental que llevo es fino…$"
+
+SaffronCity_Gym_Text_Manolin_CheckHealth:
+	.string "¡Aguanta ahí! ¡Pero si tienes al\n"
+	.string "roster temblando de vida!\p"
+	.string "Un golpe psíquico en la nuca y te\n"
+	.string "mandan directo al cementerio.\l"
+	.string "Trago de cura y todos listos.$"
+
+SaffronCity_Gym_Text_Manolin_Healed:
+	.string "¡Salud a tope y toma un consumible\n"
+	.string "gourmet para que no te falte sustain!$"
+
+SaffronCity_Gym_Text_Manolin_OfferChoices:
+	.string "Contra bosses con control mental hay\n"
+	.string "que tramear con cabeza.\l"
+	.string "¿Qué objeto bis prefieres para el pull?$"
+
+SaffronCity_Gym_Text_Manolin_ToxicOrbExplain:
+	.string "¡La TOXISFERA es pura táctica!\n"
+	.string "Te envenena al final del primer turno,\l"
+	.string "así que nadie te puede dormir ni paralizar,\l"
+	.string "¡y con Agallas o Antídoto revientas!$"
+
+SaffronCity_Gym_Text_Manolin_MentalHerbExplain:
+	.string "¡La HIERBA MENTAL te quita al instante\n"
+	.string "la Mofa, la Atracción o el Anulación!\l"
+	.string "Para que nadie te corte el casteo.$"
+
+SaffronCity_Gym_Text_Manolin_NoChoice:
+	.string "Piénsatelo con calma, que el boss\n"
+	.string "no va a dejar de mirarte fijamente.$"
+
+SaffronCity_Gym_Text_Manolin_AfterItem:
+	.string "Cuidado con pisar las baldosas que no\n"
+	.string "son, que acabas en otra dimensión.\l"
+	.string "¡A por el boss, mi gente!$"

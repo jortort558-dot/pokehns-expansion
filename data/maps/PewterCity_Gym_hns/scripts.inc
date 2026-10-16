@@ -184,3 +184,109 @@ PewterCity_Gym_Text_BrockNotRequestedMon:
 PewterCity_Gym_Text_BrockTradeCompleted:
 	.string "BROCK: ¿Cómo está WOODY?\n"
 	.string "¡BONSLY es más duro de lo que ves!$"
+
+PewterCity_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_PLATEADA, PewterCity_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox PewterCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_PLATEADA, PewterCity_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox PewterCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_FULL_RESTORE
+	setflag FLAG_MANOLIN_HEAL_PLATEADA
+	setspeaker SP_NAME_MANOLIN
+	msgbox PewterCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+PewterCity_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox PewterCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_PLATEADA, FALSE
+	switch VAR_RESULT
+	case 0, PewterCity_Gym_EventScript_Manolin_GiveHeavyDutyBoots
+	case 1, PewterCity_Gym_EventScript_Manolin_GiveSmoothRock
+	case MULTI_B_PRESSED, PewterCity_Gym_EventScript_Manolin_NoChoice
+	end
+
+PewterCity_Gym_EventScript_Manolin_GiveHeavyDutyBoots::
+	giveitem ITEM_HEAVY_DUTY_BOOTS
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_PLATEADA
+	setspeaker SP_NAME_MANOLIN
+	msgbox PewterCity_Gym_Text_Manolin_HeavyDutyBootsExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PewterCity_Gym_EventScript_Manolin_GiveSmoothRock::
+	giveitem ITEM_SMOOTH_ROCK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_PLATEADA
+	setspeaker SP_NAME_MANOLIN
+	msgbox PewterCity_Gym_Text_Manolin_SmoothRockExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PewterCity_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
+	msgbox PewterCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PewterCity_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox PewterCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PewterCity_Gym_Text_Manolin_Intro:
+	.string "¡Qué pasa mi gente! ¡Menudo canchal!\p"
+	.string "Esta es Ciudad Férrica de toda la vida,\n"
+	.string "pero… ¿qué le ha pasado a la líder Petra?\l"
+	.string "¿Se ha puesto mazada, se ha quitado la\l"
+	.string "falda y se ha dejado tupé?\p"
+	.string "Un cambio de skin muy loco, tú…\n"
+	.string "Aunque las piedras pegan igual de duro.$"
+
+PewterCity_Gym_Text_Manolin_CheckHealth:
+	.string "¡Pausa el combate, hermano!\n"
+	.string "¡Que tienes a tus bichos casi en el pozo!\p"
+	.string "Te cae una Avalancha encima y no lo\n"
+	.string "cuenta ni el apuntador.\l"
+	.string "Poción de sanación al canto.$"
+
+PewterCity_Gym_Text_Manolin_Healed:
+	.string "¡Salud restaurada al máximo y cura\n"
+	.string "de reserva para el macuto!$"
+
+PewterCity_Gym_Text_Manolin_OfferChoices:
+	.string "Para no partirte los piños contra\n"
+	.string "estas rocas hay que equiparse bien.\l"
+	.string "¿Qué objeto bis te viene mejor?$"
+
+PewterCity_Gym_Text_Manolin_HeavyDutyBootsExplain:
+	.string "¡Las BOTAS GRUESAS son Dios en patinete!\n"
+	.string "Inmunidad total a Trampa Rocas, Púas\l"
+	.string "y porquerías en el suelo.\l"
+	.string "Entras a la raid como si nada.$"
+
+PewterCity_Gym_Text_Manolin_SmoothRockExplain:
+	.string "¡La ROCA SUAVE alarga la Tormenta de\n"
+	.string "Arena a 8 turnazos completos!\l"
+	.string "Sube la Defensa Especial de tus tipos\l"
+	.string "Roca y desgasta al rival sin piedad.$"
+
+PewterCity_Gym_Text_Manolin_NoChoice:
+	.string "Piénsatelo bien, que las piedras no se\n"
+	.string "van a desgastar por esperar.$"
+
+PewterCity_Gym_Text_Manolin_AfterItem:
+	.string "No te confíes con la robustez del boss,\n"
+	.string "¡y a romperle la defensa, mi gente!$"

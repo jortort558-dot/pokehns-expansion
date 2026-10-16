@@ -433,3 +433,113 @@ VermilionCity_Gym_Text_OnlyTrashLocksWereReset::
     .string "Aquí solo hay basura.\p"
     .string "¡Eh!\n"
     .string "¡Los cierres se han reiniciado!$"
+
+VermilionCity_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_CARMIN, VermilionCity_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox VermilionCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_CARMIN, VermilionCity_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox VermilionCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_MAX_POTION
+	setflag FLAG_MANOLIN_HEAL_CARMIN
+	setspeaker SP_NAME_MANOLIN
+	msgbox VermilionCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+VermilionCity_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox VermilionCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_CARMIN, FALSE
+	switch VAR_RESULT
+	case 0, VermilionCity_Gym_EventScript_Manolin_GiveWeaknessPolicy
+	case 1, VermilionCity_Gym_EventScript_Manolin_GiveShucaBerry
+	case MULTI_B_PRESSED, VermilionCity_Gym_EventScript_Manolin_NoChoice
+	end
+
+VermilionCity_Gym_EventScript_Manolin_GiveWeaknessPolicy::
+	giveitem ITEM_WEAKNESS_POLICY
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_CARMIN
+	setspeaker SP_NAME_MANOLIN
+	msgbox VermilionCity_Gym_Text_Manolin_WeaknessPolicyExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VermilionCity_Gym_EventScript_Manolin_GiveShucaBerry::
+	giveitem ITEM_SHUCA_BERRY
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_CARMIN
+	setspeaker SP_NAME_MANOLIN
+	msgbox VermilionCity_Gym_Text_Manolin_ShucaBerryExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VermilionCity_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
+	msgbox VermilionCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VermilionCity_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox VermilionCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VermilionCity_Gym_Text_Manolin_Intro:
+	.string "¡Hombre, qué pasa mi gente!\n"
+	.string "¡Vaya paliza de viaje en barco!\p"
+	.string "Al fin llego a la región de HOENN.\n"
+	.string "Esta es Ciudad Malvalona, ¿no?\p"
+	.string "He venido a raidear al boss Erico,\n"
+	.string "pero veo cubos de basura por todos\l"
+	.string "lados y a un señor militar gritando.\l"
+	.string "Qué mecánica más rara, tú…$"
+
+VermilionCity_Gym_Text_Manolin_CheckHealth:
+	.string "Oye, pero espera un segundo…\n"
+	.string "¡Llevas a la party tiritando de vida!\p"
+	.string "¡No se puede iniciar el combate con\n"
+	.string "los PS por los suelos, alma de cántaro!\l"
+	.string "Trago de poción mágica y pull limpio.$"
+
+VermilionCity_Gym_Text_Manolin_Healed:
+	.string "¡Pum! Barras de vida al máximo y toma\n"
+	.string "un consumible de raid de calidad.\p"
+	.string "Ahora sí que no nos hacen wipe.$"
+
+VermilionCity_Gym_Text_Manolin_OfferChoices:
+	.string "A ver, coleguita, para tanquear este\n"
+	.string "burst eléctrico necesitas equipo bis.\p"
+	.string "¿Qué estrategia prefieres llevar?$"
+
+VermilionCity_Gym_Text_Manolin_WeaknessPolicyExplain:
+	.string "¡El SEGURO DEBILIDAD es pura crema!\n"
+	.string "Si el boss te sacude un golpe súper\l"
+	.string "eficaz y aguantas, ¡tu Ataque\l"
+	.string "y Ataque Especial suben a lo bestia!\p"
+	.string "Ideal para reventar en la segunda fase.$"
+
+VermilionCity_Gym_Text_Manolin_ShucaBerryExplain:
+	.string "¡La BAYA ACARDO mitiga el daño de\n"
+	.string "tipo Tierra si te lo clavan!\p"
+	.string "O bueno, si el boss te tira chispazos,\n"
+	.string "te cubre las espaldas que da gusto.$"
+
+VermilionCity_Gym_Text_Manolin_NoChoice:
+	.string "¿No te decides? Piénsatelo bien,\n"
+	.string "que la raid no se va a mover de aquí.$"
+
+VermilionCity_Gym_Text_Manolin_AfterItem:
+	.string "Acuérdate de no pisar las trampas\n"
+	.string "y meter dps a saco al boss.\l"
+	.string "¡A por el logro, mi gente!$"

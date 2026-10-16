@@ -336,3 +336,108 @@ CeruleanGym_Text_Misty_ExplainTM:
 	.string "Es la MT PULSO AGUA.\p"
 	.string "¡Hace daño y a veces también\n"
 	.string "provoca confusión!$"
+
+CeruleanCity_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_CELESTE, CeruleanCity_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox CeruleanCity_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_CELESTE, CeruleanCity_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox CeruleanCity_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_FULL_RESTORE
+	setflag FLAG_MANOLIN_HEAL_CELESTE
+	setspeaker SP_NAME_MANOLIN
+	msgbox CeruleanCity_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+CeruleanCity_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox CeruleanCity_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_CELESTE, FALSE
+	switch VAR_RESULT
+	case 0, CeruleanCity_Gym_EventScript_Manolin_GiveDampRock
+	case 1, CeruleanCity_Gym_EventScript_Manolin_GiveWacanBerry
+	case MULTI_B_PRESSED, CeruleanCity_Gym_EventScript_Manolin_NoChoice
+	end
+
+CeruleanCity_Gym_EventScript_Manolin_GiveDampRock::
+	giveitem ITEM_DAMP_ROCK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_CELESTE
+	setspeaker SP_NAME_MANOLIN
+	msgbox CeruleanCity_Gym_Text_Manolin_DampRockExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CeruleanCity_Gym_EventScript_Manolin_GiveWacanBerry::
+	giveitem ITEM_WACAN_BERRY
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_CELESTE
+	setspeaker SP_NAME_MANOLIN
+	msgbox CeruleanCity_Gym_Text_Manolin_WacanBerryExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CeruleanCity_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
+	msgbox CeruleanCity_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CeruleanCity_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox CeruleanCity_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CeruleanCity_Gym_Text_Manolin_Intro:
+	.string "¡Ey, mi gente! ¡Menudo chapuzón!\p"
+	.string "Oye, ¿esta no es Ciudad Arrecípolis?\n"
+	.string "¿Dónde está la cascada gigante y el\l"
+	.string "boss Plubio con su capa elegante?\p"
+	.string "¡Esto es solo una piscina olímpica con\n"
+	.string "una pelirroja enfurruñada al fondo!\l"
+	.string "Vaya despiste de coordenadas llevo…$"
+
+CeruleanCity_Gym_Text_Manolin_CheckHealth:
+	.string "¡Para el pull un segundo, loco!\n"
+	.string "¡Llevas a la party empapada y sin PS!\p"
+	.string "Un Hidrobomba crítico y nos vamos\n"
+	.string "directos al fondo del mar.\l"
+	.string "Toma cura completa y agárrate.$"
+
+CeruleanCity_Gym_Text_Manolin_Healed:
+	.string "¡Toda la party con la vida al cien\n"
+	.string "y consumible de raid para el bolsillo!$"
+
+CeruleanCity_Gym_Text_Manolin_OfferChoices:
+	.string "Para lidiar con el agua a presión\n"
+	.string "hace falta buen equipo de buceo.\l"
+	.string "¿Cuál prefieres para el trameo?$"
+
+CeruleanCity_Gym_Text_Manolin_DampRockExplain:
+	.string "¡La ROCA LLUVIA alarga la Danza Lluvia\n"
+	.string "a 8 turnos enteros!\l"
+	.string "Para spamear Trueno o potenciar tus\l"
+	.string "propios ataques de Agua a tope.$"
+
+CeruleanCity_Gym_Text_Manolin_WacanBerryExplain:
+	.string "¡La BAYA RINNA reduce a la mitad\n"
+	.string "el daño si te enchufan un rayo!\l"
+	.string "Ideal si sacas a un tipo Agua.$"
+
+CeruleanCity_Gym_Text_Manolin_NoChoice:
+	.string "Sécate bien y decide cuando quieras,\n"
+	.string "que la piscina no se va a evaporar.$"
+
+CeruleanCity_Gym_Text_Manolin_AfterItem:
+	.string "No tragues agua en mitad del combate\n"
+	.string "¡y a por ese boss, mi gente!$"

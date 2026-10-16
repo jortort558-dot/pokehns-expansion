@@ -136,3 +136,109 @@ SeafoamIslands_Gym_Text_GymGuideWin2:
 	.string "Un GIMNASIO POKéMON puede estar\n"
 	.string "donde esté su LÍDER.\p"
 	.string "No hace falta ningún edificio.$"
+
+SeafoamIslands_Gym_EventScript_Manolin::
+	lock
+	faceplayer
+	goto_if_set FLAG_MANOLIN_ITEM_ESPUMA, SeafoamIslands_Gym_EventScript_Manolin_AfterItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox SeafoamIslands_Gym_Text_Manolin_Intro, MSGBOX_DEFAULT
+	goto_if_set FLAG_MANOLIN_HEAL_ESPUMA, SeafoamIslands_Gym_EventScript_Manolin_ChooseItem
+	setspeaker SP_NAME_MANOLIN
+	msgbox SeafoamIslands_Gym_Text_Manolin_CheckHealth, MSGBOX_DEFAULT
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	giveitem ITEM_FULL_RESTORE
+	setflag FLAG_MANOLIN_HEAL_ESPUMA
+	setspeaker SP_NAME_MANOLIN
+	msgbox SeafoamIslands_Gym_Text_Manolin_Healed, MSGBOX_DEFAULT
+
+SeafoamIslands_Gym_EventScript_Manolin_ChooseItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox SeafoamIslands_Gym_Text_Manolin_OfferChoices, MSGBOX_DEFAULT
+	multichoice 0, 0, MULTI_MANOLIN_ESPUMA, FALSE
+	switch VAR_RESULT
+	case 0, SeafoamIslands_Gym_EventScript_Manolin_GiveEjectButton
+	case 1, SeafoamIslands_Gym_EventScript_Manolin_GiveIcyRock
+	case MULTI_B_PRESSED, SeafoamIslands_Gym_EventScript_Manolin_NoChoice
+	end
+
+SeafoamIslands_Gym_EventScript_Manolin_GiveEjectButton::
+	giveitem ITEM_EJECT_BUTTON
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_ESPUMA
+	setspeaker SP_NAME_MANOLIN
+	msgbox SeafoamIslands_Gym_Text_Manolin_EjectButtonExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SeafoamIslands_Gym_EventScript_Manolin_GiveIcyRock::
+	giveitem ITEM_ICY_ROCK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MANOLIN_ITEM_ESPUMA
+	setspeaker SP_NAME_MANOLIN
+	msgbox SeafoamIslands_Gym_Text_Manolin_IcyRockExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SeafoamIslands_Gym_EventScript_Manolin_NoChoice::
+	setspeaker SP_NAME_MANOLIN
+	msgbox SeafoamIslands_Gym_Text_Manolin_NoChoice, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SeafoamIslands_Gym_EventScript_Manolin_AfterItem::
+	setspeaker SP_NAME_MANOLIN
+	msgbox SeafoamIslands_Gym_Text_Manolin_AfterItem, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SeafoamIslands_Gym_Text_Manolin_Intro:
+	.string "¡Brrr! ¡Qué pasa mi gente! ¡Qué rasca!\p"
+	.string "Oye, ¿pero esto no era la cima del\n"
+	.string "volcán de Monte Cenizo?\p"
+	.string "¿Por qué hace este frío polar y hay un\n"
+	.string "señor calvo con gafas de sol metido en\l"
+	.string "esta cueva helada tirando llamaradas?\p"
+	.string "Vaya bug en el decorado de la raid…\n"
+	.string "Casi me da un síncope térmico.$"
+
+SeafoamIslands_Gym_Text_Manolin_CheckHealth:
+	.string "¡Quieto parao! ¡Pero si tienes a tus\n"
+	.string "bichos tiritando y chamuscados a la vez!\p"
+	.string "Un Envite Ígneo y te mandan al lobby.\n"
+	.string "Trago reconstituyente para todos ya.$"
+
+SeafoamIslands_Gym_Text_Manolin_Healed:
+	.string "¡Salud recuperada y consumible top\n"
+	.string "para que no te falte cuerda!$"
+
+SeafoamIslands_Gym_Text_Manolin_OfferChoices:
+	.string "Para sobrevivir a esta mezcla de hielo\n"
+	.string "y fuego tengo dos objetos bis fetén.\l"
+	.string "¿Cuál te mola más?$"
+
+SeafoamIslands_Gym_Text_Manolin_EjectButtonExplain:
+	.string "¡El BOTÓN ESCAPE es puro trameo!\n"
+	.string "Si recibes daño, ¡tu Pokémon sale de\l"
+	.string "inmediato y metes a otro gratis!\l"
+	.string "Para cambiar de tanque sin perder turno.$"
+
+SeafoamIslands_Gym_Text_Manolin_IcyRockExplain:
+	.string "¡La ROCA HELADA alarga el Granizo o la\n"
+	.string "Nieve a 8 turnazos completos!\l"
+	.string "Sube la Defensa a tipos Hielo y no para\l"
+	.string "de desgastar a los bichos de fuego.$"
+
+SeafoamIslands_Gym_Text_Manolin_NoChoice:
+	.string "Entra en calor y decide cuando estés\n"
+	.string "listo, que aquí no hay prisa.$"
+
+SeafoamIslands_Gym_Text_Manolin_AfterItem:
+	.string "Cuidado con los cambios de temperatura\n"
+	.string "¡y a reventar al boss, mi gente!$"
