@@ -1179,7 +1179,7 @@ static u8 GetPreEvolutionAbilities(u16 targetSpecies, enum Ability currentAbilit
         u8 slot;
         for (slot = 0; slot < NUM_ABILITY_SLOTS; slot++)
         {
-            enum Ability ab = GetSpeciesAbility(ancSpecies, slot);
+            enum Ability ab = GetAbilityBySpecies(ancSpecies, slot);
             if (ab != ABILITY_NONE && ab != currentAbility)
             {
                 // Comprobar si ya está en outAbilities
@@ -1228,9 +1228,9 @@ void DaraOtaku_CheckAndPrepareAbilities(void)
     enum Ability currentAbility = GetMonAbility(mon);
     StringCopy(gStringVar2, gAbilitiesInfo[currentAbility].name);
 
-    enum Ability ab0 = GetSpeciesAbility(species, 0);
-    enum Ability ab1 = GetSpeciesAbility(species, 1);
-    enum Ability abHidden = GetSpeciesAbility(species, 2);
+    enum Ability ab0 = GetAbilityBySpecies(species, 0);
+    enum Ability ab1 = GetAbilityBySpecies(species, 1);
+    enum Ability abHidden = GetAbilityBySpecies(species, 2);
 
     bool32 hasSecondary = (ab1 != ABILITY_NONE && ab1 != ab0);
     bool32 hasHidden = (abHidden != ABILITY_NONE && abHidden != ab0 && abHidden != ab1);
@@ -1238,7 +1238,7 @@ void DaraOtaku_CheckAndPrepareAbilities(void)
     // Mode determination:
     // If current is normal (0 or 1):
     u8 targetNormalSlot = (currentAbilityNum == 0) ? 1 : 0;
-    enum Ability targetNormalAbility = GetSpeciesAbility(species, targetNormalSlot);
+    enum Ability targetNormalAbility = GetAbilityBySpecies(species, targetNormalSlot);
     bool32 canSwitchNormal = (hasSecondary && targetNormalAbility != ABILITY_NONE && targetNormalAbility != currentAbility);
     bool32 canSwitchHidden = (hasHidden && currentAbilityNum != 2);
 
@@ -1294,12 +1294,12 @@ void DaraOtaku_PrepareChoiceAbility(void)
         u8 targetNormalSlot = (currentAbilityNum == 0) ? 1 : 0;
         if (currentAbilityNum == 2)
             targetNormalSlot = 0;
-        enum Ability targetNormalAbility = GetSpeciesAbility(species, targetNormalSlot);
+        enum Ability targetNormalAbility = GetAbilityBySpecies(species, targetNormalSlot);
         StringCopy(gStringVar3, gAbilitiesInfo[targetNormalAbility].name);
     }
     else if (choice == 2)
     {
-        enum Ability abHidden = GetSpeciesAbility(species, 2);
+        enum Ability abHidden = GetAbilityBySpecies(species, 2);
         StringCopy(gStringVar3, gAbilitiesInfo[abHidden].name);
     }
 }
@@ -1453,7 +1453,7 @@ void DaraOtaku_ApplyEvolutionAbilityChange(void)
 
     for (s = 0; s < NUM_ABILITY_SLOTS; s++)
     {
-        if (GetSpeciesAbility(species, s) == chosenAbility)
+        if (GetAbilityBySpecies(species, s) == chosenAbility)
         {
             targetSlot = s;
             foundSlot = TRUE;

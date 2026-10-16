@@ -252,6 +252,9 @@ VermilionCity_Gym_EventScript_Surge::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_VERMILION_GYM, VermilionCity_Gym_EventScript_Surge_Defeated
+	setvar VAR_0x8008, 11
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, VermilionCity_Gym_EventScript_Surge_NotReady
 	msgbox VermilionGym_Text_LtSurgeIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_LTSURGE_HNS, VermilionGym_Text_LtSurgeWinLoss
 	message VermilionGym_Text_ReceivedThunderBadge
@@ -271,6 +274,18 @@ VermilionCity_Gym_EventScript_Surge::
 	closemessage
 	release
 	end
+
+VermilionCity_Gym_EventScript_Surge_NotReady::
+	msgbox VermilionGym_Text_LtSurge_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+VermilionGym_Text_LtSurge_NotReady:
+	.string "SURGE: ¡Alto ahí, recluta!\p"
+	.string "En mi pelotón nadie se salta la\n"
+	.string "cadena de mando.\p"
+	.string "¡Derrota primero a todos los\n"
+	.string "soldados de mi GIMNASIO!$"
 
 VermilionCity_Gym_EventScript_GiveThunderstone::
 	msgbox VermilionGym_Text_LtSurgeThunderstone, MSGBOX_DEFAULT

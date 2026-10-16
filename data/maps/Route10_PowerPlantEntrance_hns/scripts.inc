@@ -1,5 +1,22 @@
 Route10_PowerPlantEntrance_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route10_PowerPlantEntrance_OnTransition
 	.byte 0
+
+Route10_PowerPlantEntrance_OnTransition::
+	call Route10_PowerPlantEntrance_EventScript_UpdateSitoVisibility
+	end
+
+Route10_PowerPlantEntrance_EventScript_UpdateSitoVisibility::
+	goto_if_set FLAG_SITO_POWER_PLANT_DEFEATED, Route10_PowerPlantEntrance_EventScript_HideSito
+	goto_if_set FLAG_MOHEDANO_QUEST_STARTED, Route10_PowerPlantEntrance_EventScript_ShowSito
+
+Route10_PowerPlantEntrance_EventScript_HideSito::
+	setflag FLAG_HIDE_POWER_PLANT_SITO
+	return
+
+Route10_PowerPlantEntrance_EventScript_ShowSito::
+	clearflag FLAG_HIDE_POWER_PLANT_SITO
+	return
 
 Route10_PowerPlantEntrance_EventScript_Cop::
 	lock
@@ -214,3 +231,49 @@ Route10_PowerPlantEntrance_Text_TradeCompleted:
 Route10_PowerPlantEntrance_Text_Engineer4WeCanGetMagnetTrainRunning:
 	.string "¡Bien! ¡Por fin podremos poner\n"
 	.string "en marcha el MAGNETOTRÉN!$"
+
+Route10_PowerPlantEntrance_EventScript_Sito::
+	lock
+	faceplayer
+	goto_if_defeated TRAINER_SITO_POWER_PLANT_HNS, Route10_PowerPlantEntrance_EventScript_SitoReward
+	msgbox Route10_PowerPlantEntrance_Text_SitoIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_SITO_POWER_PLANT_HNS, Route10_PowerPlantEntrance_Text_SitoDefeated
+
+Route10_PowerPlantEntrance_EventScript_SitoReward::
+	checkitemspace ITEM_MIMINUCLEO_TARAFANTASTICO, 1
+	goto_if_eq VAR_RESULT, FALSE, Route10_PowerPlantEntrance_EventScript_SitoBagFull
+	msgbox Route10_PowerPlantEntrance_Text_SitoAfter, MSGBOX_DEFAULT
+	giveitem ITEM_MIMINUCLEO_TARAFANTASTICO
+	setflag FLAG_SITO_POWER_PLANT_DEFEATED
+	setflag FLAG_HIDE_POWER_PLANT_SITO
+	removeobject VAR_LAST_TALKED
+	release
+	end
+
+Route10_PowerPlantEntrance_EventScript_SitoBagFull::
+	msgbox Route10_PowerPlantEntrance_Text_SitoBagFull, MSGBOX_DEFAULT
+	release
+	end
+
+Route10_PowerPlantEntrance_Text_SitoIntro:
+	.string "¡Anda! ¡Si es el recadero de\n"
+	.string "Silph!\p"
+	.string "Este cacharro daba unos chispazos\n"
+	.string "guapísimos, así que me lo llevé.\p"
+	.string "Mis chicas y yo nos lo estamos\n"
+	.string "pasando de miedo.\p"
+	.string "¿Lo quieres? ¡Pues tendrás que\n"
+	.string "quitárnoslo!$"
+
+Route10_PowerPlantEntrance_Text_SitoDefeated:
+	.string "¡Pero si mis perras tenían el\n"
+	.string "combate controladísimo!$"
+
+Route10_PowerPlantEntrance_Text_SitoAfter:
+	.string "Vale, vale... Toma el cacharro.\p"
+	.string "Yo no he estado aquí y tú no me\n"
+	.string "has visto. ¡Hasta luego!$"
+
+Route10_PowerPlantEntrance_Text_SitoBagFull:
+	.string "¡No te cabe el cacharro!\n"
+	.string "Haz sitio y vuelve.$"

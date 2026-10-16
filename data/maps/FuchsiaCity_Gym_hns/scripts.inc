@@ -45,6 +45,9 @@ FuchsiaCity_Gym_EventScript_Janine::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_FUCHSIA_GYM, FuchsiaCity_Gym_EventScript_Janine_Defeated
+	setvar VAR_0x8008, 14
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, FuchsiaCity_Gym_EventScript_Janine_NotReady
 	msgbox FuchsiaCity_Gym_Text_Janine_DisappointYou, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_JANINE_HNS, FuchsiaCity_Gym_Text_Janine_ToughOne
 	message FuchsiaCity_Gym_Text_ReceivedSoulBadge
@@ -79,6 +82,18 @@ FuchsiaCity_Gym_EventScript_Janine::
 	closemessage
 	release
 	end
+
+FuchsiaCity_Gym_EventScript_Janine_NotReady::
+	msgbox FuchsiaCity_Gym_Text_Janine_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+FuchsiaCity_Gym_Text_Janine_NotReady:
+	.string "SACHIKO: Fufufufu…\p"
+	.string "¿Creías que encontrar a la auténtica\n"
+	.string "sería suficiente?\p"
+	.string "¡Un maestro ninja debe desenmascarar\n"
+	.string "y vencer a todos mis impostores!$"
 
 FuchsiaCity_Gym_EventScript_Janine_Defeated::
 	msgbox FuchsiaCity_Gym_Text_Janine_ApplyMyself, MSGBOX_DEFAULT

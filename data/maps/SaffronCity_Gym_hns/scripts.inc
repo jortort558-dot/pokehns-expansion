@@ -34,6 +34,9 @@ SaffronCity_Gym_EventScript_Sabrina::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_SAFFRON_GYM, SaffronCity_Gym_EventScript_Sabrina_Defeated
+	setvar VAR_0x8008, 13
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, SaffronCity_Gym_EventScript_Sabrina_NotReady
 	msgbox SaffronCity_Gym_Text_SabrinaIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_SABRINA_HNS, SaffronCity_Gym_Text_SabrinaWinLoss
 	message SaffronCity_Gym_Text_ReceivedMarshBadge
@@ -53,6 +56,17 @@ SaffronCity_Gym_EventScript_Sabrina::
 	clearflag FLAG_HIDE_OLIVINE_SABRINA
 	release
 	end
+
+SaffronCity_Gym_EventScript_Sabrina_NotReady::
+	msgbox SaffronCity_Gym_Text_Sabrina_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+SaffronCity_Gym_Text_Sabrina_NotReady:
+	.string "SABRINA: Ya presentía tu llegada…\p"
+	.string "Pero tu mente aún no ha sintonizado\n"
+	.string "con este espacio. Derrota a todos los\l"
+	.string "médiums del GIMNASIO primero.$"
 
 SaffronCity_Gym_EventScript_Sabrina_Defeated::
 	msgbox SaffronCity_Gym_Text_SabrinaPostBattle, MSGBOX_DEFAULT

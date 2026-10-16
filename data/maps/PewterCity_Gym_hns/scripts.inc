@@ -12,6 +12,9 @@ PewterCity_Gym_EventScript_Brock::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_PEWTER_GYM, PewterCity_Gym_EventScript_Brock_Defeated
+	setvar VAR_0x8008, 9
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, PewterCity_Gym_EventScript_Brock_NotReady
 	msgbox PewterCity_Gym_Text_Brock_Intro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_BROCK_HNS, PewterCity_Gym_Text_Brock_WinLoss
 	message PewterCity_Gym_Text_ReceivedBoulderBadge
@@ -38,6 +41,16 @@ PewterCity_Gym_EventScript_Brock_Defeated::
 	release
 	end
 
+PewterCity_Gym_EventScript_Brock_NotReady::
+	msgbox PewterCity_Gym_Text_Brock_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+PewterCity_Gym_Text_Brock_NotReady:
+	.string "BROCK: ¡Un momento!\p"
+	.string "Antes de medir tu temple contra\n"
+	.string "mi defensa, debes vencer a todos\l"
+	.string "los entrenadores de mi GIMNASIO.$"
 
 PewterCity_Gym_Text_Brock_Intro:
 	.string "BROCK: Vaya, no solemos recibir\n"

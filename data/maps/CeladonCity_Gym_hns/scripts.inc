@@ -6,6 +6,9 @@ CeladonCity_Gym_EventScript_Erika::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_CELADON_GYM, CeladonCity_Gym_EventScript_Erika_Defeated
+	setvar VAR_0x8008, 12
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, CeladonCity_Gym_EventScript_Erika_NotReady
 	msgbox CeladonCity_Gym_Text_ErikaBeforeBattle, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_ERIKA_HNS, CeladonCity_Gym_Text_ErikaBeaten
 	message CeladonCity_Gym_Text_PlayerReceivedRainbowBadge
@@ -24,6 +27,17 @@ CeladonCity_Gym_EventScript_Erika::
 	closemessage
 	release
 	end
+
+CeladonCity_Gym_EventScript_Erika_NotReady::
+	msgbox CeladonCity_Gym_Text_Erika_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+CeladonCity_Gym_Text_Erika_NotReady:
+	.string "ERIKA: Mis compañeras cuidan este\n"
+	.string "jardín con esmero…\p"
+	.string "Primero deberías poner a prueba tu\n"
+	.string "habilidad contra todas ellas.$"
 
 CeladonCity_Gym_EventScript_Erika_Defeated::
 	msgbox CeladonCity_Gym_Text_ErikaAfterBattle, MSGBOX_DEFAULT

@@ -182,6 +182,9 @@ CeruleanCity_Gym_EventScript_Misty::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_CERULEAN_GYM, CeruleanCity_Gym_EventScript_Misty_Defeated
+	setvar VAR_0x8008, 10
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, CeruleanCity_Gym_EventScript_Misty_NotReady
 	msgbox CeruleanGym_Text_MistyIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_MISTY_HNS, CeruleanGym_Text_MistyWinLoss
 	message CeruleanGym_Text_ReceivedBadge
@@ -201,6 +204,17 @@ CeruleanCity_Gym_EventScript_Misty::
 	closemessage
 	release
 	end
+
+CeruleanCity_Gym_EventScript_Misty_NotReady::
+	msgbox CeruleanGym_Text_Misty_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+CeruleanGym_Text_Misty_NotReady:
+	.string "MISTY: ¿Crees que puedes saltar a la\n"
+	.string "piscina sin saber nadar?\p"
+	.string "¡Demuestra tu nivel venciendo a todos\n"
+	.string "los entrenadores de mi GIMNASIO!$"
 
 CeruleanCity_Gym_SetSuicuneScene::
 	setvar VAR_SUICUNE_ENCOUNTERS, 6
