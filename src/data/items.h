@@ -17851,8 +17851,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "Componente cuántico que\n"
             "sirve de corazón al Arca\n"
-            "de Zygarde. Recuperado\n"
-            "del Profesor Mohedano."),
+            "de Zygarde."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .iconPic = gItemIcon_ZygardeCube,

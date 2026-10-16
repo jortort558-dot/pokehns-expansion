@@ -46,37 +46,22 @@ CeladonCity_Gym_EventScript_Erika_Defeated::
 	end
 
 CeladonCity_Gym_Text_ErikaBeforeBattle:
-	.string "ERIKA: Hola…\n"
-	.string "Bonito día,\p"
-	.string "¿verdad? Se está\n"
-	.string "tan bien…\p"
-	.string "Podría hasta\n"
-	.string "dormirme…\p"
-	.string "Me llamo ERIKA.\n"
-	.string "Soy la LÍDER\p"
-	.string "del GIMNASIO de\n"
-	.string "CIUDAD AZULONA.\p"
-	.string "¿Cómo? ¿Vienes\n"
-	.string "de JOHTO?\l"
-	.string "¡Qué bien…!\p"
-	.string "¡Oh! Lo siento,\n"
-	.string "no me di cuenta\p"
-	.string "de que querías\n"
-	.string "desafiarme.\p"
-	.string "Muy bien, pero no\n"
-	.string "perderé.$"
+	.string "ERIKA: Hola… Hace un día tan\n"
+	.string "agradable que podría dormirme…\p"
+	.string "Me llamo ERIKA. Soy la LÍDER del\n"
+	.string "GIMNASIO de CIUDAD AZULONA.\p"
+	.string "¿Vienes de JOHTO? ¡Qué bien…!\n"
+	.string "Perdona, no advertí que querías\l"
+	.string "desafiarme. Adelante, ¡no perderé!$"
 
 CeladonCity_Gym_Text_ErikaBeaten:
-	.string "ERIKA: ¡Oh! Admito\n"
-	.string "que he perdido…\p"
-	.string "Eres realmente\n"
-	.string "fuerte…\p"
-	.string "Te daré la MEDALLA\n"
-	.string "ARCOIRIS…$"
+	.string "ERIKA: ¡Oh! Admito mi derrota…\n"
+	.string "Eres realmente fuerte.\p"
+	.string "Te daré la MEDALLA ARCOÍRIS…$"
 
 CeladonCity_Gym_Text_PlayerReceivedRainbowBadge:
 	.string "{PLAYER} recibió\n"
-	.string "MEDALLA ARCOIRIS.$"
+	.string "la MEDALLA ARCOÍRIS.$"
 
 CeladonCity_Gym_Text_Erika_GiveTM:
 	.string "ERIKA: Ha sido un combate\n"
@@ -91,13 +76,9 @@ CeladonCity_Gym_Text_Erika_ExplainTM:
 	.string "Úsala si es de tu agrado…$"
 
 CeladonCity_Gym_Text_ErikaAfterBattle:
-	.string "ERIKA: La derrota\n"
-	.string "deja mal sabor de\l"
-	.string "boca…\p"
-	.string "Pero saber que hay\n"
-	.string "entrenadores más\p"
-	.string "fuertes me anima a\n"
-	.string "mejorar…$"
+	.string "ERIKA: La derrota deja un mal sabor\n"
+	.string "de boca, pero saber que hay rivales\l"
+	.string "más fuertes me anima a mejorar…$"
 
 CeladonCity_Gym_Text_ErikaRematch:
 	.string "ERIKA: Ah, hola.\p"
@@ -219,13 +200,13 @@ CeladonCity_Gym_EventScript_GymStatuePostVictory::
 CeladonCity_Gym_Text_GymStatue::
     .string "GIMNASIO POKéMON DE AZULONA\n"
     .string "LÍDER: ERIKA\p"
-	.string "GANADORES:\n"
+	.string "GANADORES VENCEDORES:\n"
 	.string "AZUL, ROJO$"
 
 CeladonCity_Gym_Text_GymStatuePlayerWon::
     .string "GIMNASIO POKéMON DE AZULONA\n"
     .string "LÍDER: ERIKA\p"
-    .string "GANADORES:\n"
+    .string "GANADORES VENCEDORES:\n"
 	.string "AZUL, ROJO, {PLAYER}$"
 
 CeladonCity_Gym_EventScript_Manolin::
@@ -290,39 +271,43 @@ CeladonCity_Gym_EventScript_Manolin_AfterItem::
 	end
 
 CeladonCity_Gym_Text_Manolin_Intro:
-	.string "¡Buenas mi gente! ¡Qué pasada de jardín!\p"
+	.string "¡Buenas mi gente!\n"
+	.string "¡Qué pasada de jardín!\p"
 	.string "Esta debe de ser Ciudad Arborada,\n"
 	.string "el feudo de Alana, ¿a que sí?\p"
-	.string "Aunque no veo casitas en los árboles ni\n"
-	.string "pájaros... ¡solo flores gigantes y chicas!\p"
-	.string "Me he colado disimulando antes de que\n"
-	.string "me echen. Hay que tramear el pull.$"
+	.string "Aunque no veo casitas ni pájaros…\n"
+	.string "¡solo flores gigantes y chicas!\p"
+	.string "Me he colado disimulando antes\n"
+	.string "de que me echen.\l"
+	.string "Hay que tramear el pull.$"
 
 CeladonCity_Gym_Text_Manolin_CheckHealth:
-	.string "¡Ojo al dato! ¡Llevas la party a punto\n"
-	.string "de caer de rodillas!\p"
-	.string "Aquí las flores pegan con drenadoras\n"
-	.string "y somníferos molestos.\l"
-	.string "Primero full de vida y luego hablamos.$"
+	.string "¡Ojo al dato! ¡Llevas la party\n"
+	.string "a punto de caer de rodillas!\p"
+	.string "Aquí las flores pegan con\n"
+	.string "drenadoras y somníferos molestos.\l"
+	.string "Primero full de vida y hablamos.$"
 
 CeladonCity_Gym_Text_Manolin_Healed:
-	.string "¡Salud restaurada y una cura premium\n"
-	.string "para tu inventario!$"
+	.string "¡Salud restaurada y una cura\n"
+	.string "premium para tu inventario!$"
 
 CeladonCity_Gym_Text_Manolin_OfferChoices:
 	.string "Para quemar este bosque con estilo\n"
 	.string "hace falta calor del bueno.\l"
-	.string "¿Cuál de estos dos objetos bis quieres?$"
+	.string "¿Cuál de estos objetos bis quieres?$"
 
 CeladonCity_Gym_Text_Manolin_FlameOrbExplain:
-	.string "¡La LLAMASFERA te quema al final del\n"
-	.string "primer turno! Pega brutal con Agallas\l"
-	.string "o Imagen, y encima evita parálisis.$"
+	.string "¡La LLAMASFERA te quema al final\n"
+	.string "del primer turno!\l"
+	.string "Pega brutal con Agallas o Imagen\l"
+	.string "y encima evita parálisis.$"
 
 CeladonCity_Gym_Text_Manolin_HeatRockExplain:
-	.string "¡La ROCA CALOR alarga el Día Soleado\n"
-	.string "a 8 turnazos completos!\l"
-	.string "Los ataques de Fuego pegan una barbaridad.$"
+	.string "¡La ROCA CALOR alarga el Día\n"
+	.string "Soleado a 8 turnazos completos!\l"
+	.string "¡Los ataques de Fuego pegan\l"
+	.string "una auténtica barbaridad!$"
 
 CeladonCity_Gym_Text_Manolin_NoChoice:
 	.string "Tómate tu tiempo, huele las flores\n"

@@ -707,8 +707,10 @@
 #define TRAINER_ROSA_CHALLENGE_12_HNS          683
 #define TRAINER_ROSA_CHALLENGE_13_HNS          684
 #define TRAINER_SITO_POWER_PLANT_HNS            685
+#define TRAINER_LOWELL_HNS                      686
+#define TRAINER_DANIEL_SEAFOAM_HNS              687
 
-#define TRAINERS_COUNT_HNS                       686
+#define TRAINERS_COUNT_HNS                       688
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

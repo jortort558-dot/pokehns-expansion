@@ -278,6 +278,8 @@ FuchsiaCity_Gym_SetGymTrainers_hns::
 	return
 
 CinnabarIsland_Gym_SetGymTrainers_hns::
+	settrainerflag TRAINER_LOWELL_HNS
+	settrainerflag TRAINER_DANIEL_SEAFOAM_HNS
 	return
 
 ViridianCity_Gym_SetGymTrainers_hns::

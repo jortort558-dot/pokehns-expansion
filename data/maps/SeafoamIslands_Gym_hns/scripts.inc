@@ -3,13 +3,15 @@ SeafoamIslands_Gym_hns_MapScripts::
 	.byte 0
 
 SeafoamIslands_Gym_OnTransition: 
-	setflag FLAG_TEMP_1
 	end
 
 SeafoamIslands_Gym_EventScript_Blaine::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_CINNABAR_ISLAND_GYM, SeafoamIslands_Gym_EventScript_Blaine_Defeated
+	setvar VAR_0x8008, 15
+	special CheckGymTrainersDefeated
+	goto_if_eq VAR_RESULT, FALSE, SeafoamIslands_Gym_EventScript_Blaine_NotReady
 	msgbox SeafoamIslands_Gym_Text_BlaineIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_BLAINE_HNS, SeafoamIslands_Gym_Text_BlaineWinLoss
 	message SeafoamIslands_Gym_Text_ReceivedVolcanoBadge
@@ -28,6 +30,49 @@ SeafoamIslands_Gym_EventScript_Blaine::
 	closemessage
 	release
 	end
+
+SeafoamIslands_Gym_EventScript_Blaine_NotReady::
+	msgbox SeafoamIslands_Gym_Text_Blaine_NotReady, MSGBOX_DEFAULT
+	release
+	end
+
+SeafoamIslands_Gym_Text_Blaine_NotReady:
+	.string "BLAINE: ¡Buaaa!\n"
+	.string "¡El fuego no espera a nadie!\p"
+	.string "Si pretendes medirte a mi calor,\n"
+	.string "¡primero derrota a mis chicos!$"
+
+SeafoamIslands_Gym_EventScript_Lowell::
+	trainerbattle_single TRAINER_LOWELL_HNS, SeafoamIslands_Gym_Text_LowellSeen, SeafoamIslands_Gym_Text_LowellBeaten
+	msgbox SeafoamIslands_Gym_Text_LowellAfter, MSGBOX_AUTOCLOSE
+	end
+
+SeafoamIslands_Gym_Text_LowellSeen:
+	.string "¡Esta cueva estará helada, pero\n"
+	.string "mi espíritu arde al rojo vivo!$"
+
+SeafoamIslands_Gym_Text_LowellBeaten:
+	.string "¡Me has apagado la llama!$"
+
+SeafoamIslands_Gym_Text_LowellAfter:
+	.string "BLAINE es una auténtica leyenda.\n"
+	.string "¡Su pasión jamás se extinguirá!$"
+
+SeafoamIslands_Gym_EventScript_Daniel::
+	trainerbattle_single TRAINER_DANIEL_SEAFOAM_HNS, SeafoamIslands_Gym_Text_DanielSeen, SeafoamIslands_Gym_Text_DanielBeaten
+	msgbox SeafoamIslands_Gym_Text_DanielAfter, MSGBOX_AUTOCLOSE
+	end
+
+SeafoamIslands_Gym_Text_DanielSeen:
+	.string "¡No dejaré que nadie interrumpa\n"
+	.string "el entrenamiento del maestro!$"
+
+SeafoamIslands_Gym_Text_DanielBeaten:
+	.string "¡Uf! ¡Qué sofocón!$"
+
+SeafoamIslands_Gym_Text_DanielAfter:
+	.string "Perdimos nuestro GIMNASIO, pero\n"
+	.string "seguimos unidos junto a BLAINE.$"
 
 SeafoamIslands_Gym_EventScript_Blaine_Defeated::
 	msgbox SeafoamIslands_Gym_Text_BlaineAfterBattle, MSGBOX_DEFAULT
@@ -199,46 +244,47 @@ SeafoamIslands_Gym_EventScript_Manolin_AfterItem::
 	end
 
 SeafoamIslands_Gym_Text_Manolin_Intro:
-	.string "¡Brrr! ¡Qué pasa mi gente! ¡Qué rasca!\p"
-	.string "Oye, ¿pero esto no era la cima del\n"
+	.string "¡Brrr! ¡Qué pasa mi gente!\n"
+	.string "¡Vaya rasca hace aquí!\p"
+	.string "¿Pero esto no era la cima del\n"
 	.string "volcán de Monte Cenizo?\p"
-	.string "¿Por qué hace este frío polar y hay un\n"
-	.string "señor calvo con gafas de sol metido en\l"
-	.string "esta cueva helada tirando llamaradas?\p"
-	.string "Vaya bug en el decorado de la raid…\n"
+	.string "¿Por qué hace este frío polar y hay\n"
+	.string "un señor calvo con gafas de sol\l"
+	.string "tirando llamaradas en el hielo?\p"
+	.string "Vaya bug en el decorado…\n"
 	.string "Casi me da un síncope térmico.$"
 
 SeafoamIslands_Gym_Text_Manolin_CheckHealth:
-	.string "¡Quieto parao! ¡Pero si tienes a tus\n"
-	.string "bichos tiritando y chamuscados a la vez!\p"
-	.string "Un Envite Ígneo y te mandan al lobby.\n"
-	.string "Trago reconstituyente para todos ya.$"
+	.string "¡Quieto parao! ¡Tienes a tus\n"
+	.string "bichos tiritando y chamuscados!\p"
+	.string "Un Envite Ígneo y vas al lobby.\n"
+	.string "Trago reconstituyente para todos.$"
 
 SeafoamIslands_Gym_Text_Manolin_Healed:
 	.string "¡Salud recuperada y consumible top\n"
 	.string "para que no te falte cuerda!$"
 
 SeafoamIslands_Gym_Text_Manolin_OfferChoices:
-	.string "Para sobrevivir a esta mezcla de hielo\n"
-	.string "y fuego tengo dos objetos bis fetén.\l"
+	.string "Para sobrevivir a este contraste\n"
+	.string "tengo dos objetos fetén.\l"
 	.string "¿Cuál te mola más?$"
 
 SeafoamIslands_Gym_Text_Manolin_EjectButtonExplain:
 	.string "¡El BOTÓN ESCAPE es puro trameo!\n"
-	.string "Si recibes daño, ¡tu Pokémon sale de\l"
-	.string "inmediato y metes a otro gratis!\l"
-	.string "Para cambiar de tanque sin perder turno.$"
+	.string "Si recibes daño, ¡tu Pokémon sale\l"
+	.string "y metes a otro gratis al instante!\l"
+	.string "Cambias de tanque sin perder turno.$"
 
 SeafoamIslands_Gym_Text_Manolin_IcyRockExplain:
-	.string "¡La ROCA HELADA alarga el Granizo o la\n"
-	.string "Nieve a 8 turnazos completos!\l"
-	.string "Sube la Defensa a tipos Hielo y no para\l"
-	.string "de desgastar a los bichos de fuego.$"
+	.string "¡La ROCA HELADA alarga el Granizo\n"
+	.string "o Nieve a 8 turnazos completos!\l"
+	.string "Sube Defensa a tipos Hielo y\l"
+	.string "desgasta a los bichos de fuego.$"
 
 SeafoamIslands_Gym_Text_Manolin_NoChoice:
-	.string "Entra en calor y decide cuando estés\n"
-	.string "listo, que aquí no hay prisa.$"
+	.string "Entra en calor y decide cuando\n"
+	.string "estés listo. ¡Aquí no hay prisa!$"
 
 SeafoamIslands_Gym_Text_Manolin_AfterItem:
-	.string "Cuidado con los cambios de temperatura\n"
+	.string "Cuidado con los cambios térmicos,\n"
 	.string "¡y a reventar al boss, mi gente!$"

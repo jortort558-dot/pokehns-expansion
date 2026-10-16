@@ -6433,6 +6433,7 @@ void CheckGymTrainersDefeated(void)
     static const u16 sCeladonGymTrainers[]   = { TRAINER_MICHELLE_HNS, TRAINER_TANYA_HNS, TRAINER_JULIA_HNS, TRAINER_JO_AND_ZOE_HNS };
     static const u16 sSaffronGymTrainers[]   = { TRAINER_REBECCA_HNS, TRAINER_FRANKLIN_HNS, TRAINER_DORIS_HNS, TRAINER_JARED_HNS };
     static const u16 sFuchsiaGymTrainers[]   = { TRAINER_ALICE_HNS, TRAINER_LINDA_HNS, TRAINER_CINDY_HNS, TRAINER_BARRY_HNS };
+    static const u16 sCinnabarGymTrainers[]  = { TRAINER_LOWELL_HNS, TRAINER_DANIEL_SEAFOAM_HNS };
 
     const u16 *trainers = NULL;
     u32 count = 0;
@@ -6456,7 +6457,7 @@ void CheckGymTrainersDefeated(void)
     case 12: trainers = sCeladonGymTrainers; count = ARRAY_COUNT(sCeladonGymTrainers); break;
     case 13: trainers = sSaffronGymTrainers; count = ARRAY_COUNT(sSaffronGymTrainers); break;
     case 14: trainers = sFuchsiaGymTrainers; count = ARRAY_COUNT(sFuchsiaGymTrainers); break;
-    case 15: // Blaine (Cinnabar / Seafoam - no gym trainers)
+    case 15: trainers = sCinnabarGymTrainers; count = ARRAY_COUNT(sCinnabarGymTrainers); break;
     case 16: // Blue (Viridian - no gym trainers)
         gSpecialVar_Result = TRUE;
         return;

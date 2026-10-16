@@ -18008,3 +18008,38 @@ IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Dark Pulse
 - Will-O-Wisp
 - Destiny Bond
+
+=== TRAINER_LOWELL_HNS ===
+Name: LOWELL
+Class: Firebreather Hns
+Pic: Firebreather Hns
+Gender: Male
+Music: Hg Suspicious 2
+Double Battle: No
+AI: Check Bad Move
+
+Magmar
+Level: 61
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+Arcanine
+Level: 62
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+=== TRAINER_DANIEL_SEAFOAM_HNS ===
+Name: DANIEL
+Class: Firebreather Hns
+Pic: Firebreather Hns
+Gender: Male
+Music: Hg Suspicious 2
+Double Battle: No
+AI: Check Bad Move
+
+Ninetales
+Level: 61
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+Magcargo
+Level: 62
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
