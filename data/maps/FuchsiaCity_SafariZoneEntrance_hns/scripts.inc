@@ -26,6 +26,7 @@ FuchsiaCity_SafariZoneEntrance_EventScript_ExitSafari::
 	special ExitSafariMode
 	setvar VAR_SAFARI_ZONE_STATE, 1
 	setflag FLAG_GOOD_LUCK_SAFARI_ZONE
+	setflag FLAG_KANTO_SAFARI_ZONE_COMPLETED
 	msgbox SafariZone_South_Text_ExitEarlyThankYouForPlaying
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, FuchsiaCity_SafariZoneEntrance_Movement_ExitSafariZone
@@ -100,11 +101,21 @@ FuchsiaCity_SafariZoneEntrance_Text_StevenChamp:
 FuchsiaCity_SafariZoneEntrance_EventScript_EntranceCounterTrigger::
 	lockall
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	special CheckAndResetSaturdayWeeklyCaptures
+	goto_if_set FLAG_KANTO_SAFARI_ZONE_COMPLETED, FuchsiaCity_SafariZoneEntrance_EventScript_AlreadyPlayed
 	showmoneybox 0, 0
 	msgbox Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, FuchsiaCity_SafariZoneEntrance_EventScript_TryEnterSafariZone
 	msgbox Route121_SafariZoneEntrance_Text_PlayAnotherTime, MSGBOX_DEFAULT
 	goto FuchsiaCity_SafariZoneEntrance_EventScript_MovePlayerBackFromCounter
+	end
+
+FuchsiaCity_SafariZoneEntrance_EventScript_AlreadyPlayed::
+	msgbox FuchsiaCity_SafariZoneEntrance_Text_AlreadyPlayed, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, FuchsiaCity_SafariZoneEntrance_Movement_BackAwayFromCounter
+	waitmovement 0
+	releaseall
 	end
 
 FuchsiaCity_SafariZoneEntrance_EventScript_TryEnterSafariZone::
@@ -356,8 +367,8 @@ FuchsiaCity_SafariZoneEntrance_Text_StevenWantToTrade:
 	.string "por mi {STR_VAR_2}?$"
 
 FuchsiaCity_SafariZoneEntrance_Text_StevenTakeCare:
-	.string "¡Excelente!\n"
-	.string "Cuida muy bien de IRON.$"
+	.string "¡Excelente! Cuida muy bien\n"
+	.string "de IRON.$"
 
 FuchsiaCity_SafariZoneEntrance_Text_StevenDeclineTrade:
 	.string "No pasa nada.\n"
@@ -379,3 +390,12 @@ FuchsiaCity_SafariZoneEntrance_Text_MaxLevel:
 	.string "Hola, {PLAYER}. Gracias por seguir\n"
 	.string "siendo miembro prémium de la\l"
 	.string "ZONA SAFARI de FUCSIA.$"
+
+FuchsiaCity_SafariZoneEntrance_Text_AlreadyPlayed:
+	.string "¡Hola! Por normas del recinto,\n"
+	.string "la ZONA SAFARI de FUCSIA solo abre\l"
+	.string "sus puertas para capturas los\l"
+	.string "sábados.\p"
+	.string "Si ya has participado este sábado,\n"
+	.string "¡te esperamos el próximo!\p"
+	.string "¡Muchas gracias por visitarnos!$"

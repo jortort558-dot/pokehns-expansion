@@ -667,7 +667,8 @@ static void CB2_InitBattleInternal(void)
             if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS && !BATTLE_TWO_VS_ONE_OPPONENT)
                 CreateNPCTrainerParty(&gEnemyParty[PARTY_SIZE / 2], TRAINER_BATTLE_PARAM.opponentB, FALSE);
 
-            if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_SITO_POWER_PLANT_HNS)
+            if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_SITO_POWER_PLANT_HNS
+             || TRAINER_BATTLE_PARAM.opponentA == TRAINER_KALIGULA_FUCHSIA_HNS)
             {
                 s32 playerHighestLevel = GetHighestLevelInPlayerParty();
                 if (playerHighestLevel < 5)

@@ -6546,6 +6546,7 @@ void CheckAndResetSaturdayWeeklyCaptures(void)
     if (GetDayOfWeek() == WEEKDAY_SAT)
     {
         FlagClear(FLAG_SAFARI_ZONE_COMPLETED);
+        FlagClear(FLAG_KANTO_SAFARI_ZONE_COMPLETED);
         FlagClear(FLAG_BUG_CONTEST_COMPLETED);
     }
 }

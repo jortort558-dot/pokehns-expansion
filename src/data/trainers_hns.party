@@ -18043,3 +18043,72 @@ Magcargo
 Level: 62
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
+=== TRAINER_KALIGULA_FUCHSIA_HNS ===
+Name: KALIGULA
+Class: Super Nerd Hns
+Pic: Scientist Frlg
+Gender: Male
+Music: Hg Suspicious 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Weezing-Galar @ Black Sludge
+Ability: Neutralizing Gas
+Level: 50
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Strange Steam
+- Sludge Bomb
+- Defog
+- Will-O-Wisp
+
+Muk-Alola @ Figy Berry
+Ability: Poison Touch
+Level: 50
+Nature: Careful
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Poison Jab
+- Shadow Sneak
+- Drain Punch
+
+Nidoking @ Life Orb
+Ability: Sheer Force
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earth Power
+- Sludge Wave
+- Ice Beam
+- Thunderbolt
+
+Tentacruel @ Leftovers
+Ability: Liquid Ooze
+Level: 50
+Nature: Calm
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Scald
+- Sludge Bomb
+- Rapid Spin
+- Toxic Spikes
+
+Crobat @ Choice Band
+Ability: Infiltrator
+Level: 50
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-turn
+- Leech Life
+
+Gengar @ Focus Sash
+Ability: Cursed Body
+Level: 50
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Shadow Ball
+- Sludge Wave
+- Focus Blast
+- Destiny Bond
+

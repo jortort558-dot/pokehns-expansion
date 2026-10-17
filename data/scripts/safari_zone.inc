@@ -20,6 +20,7 @@ SafariZone_EventScript_OutOfBallsMidBattle::
 
 SafariZone_EventScript_ExitKantoMidBattle::
 	clearflag FLAG_IN_KANTO_SAFARI_ZONE
+	setflag FLAG_KANTO_SAFARI_ZONE_COMPLETED
 	setwarp MAP_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE_HNS, 5, 6
 	end
 
@@ -46,6 +47,7 @@ SafariZone_EventScript_Exit::
 
 SafariZone_EventScript_ExitKanto::
 	clearflag FLAG_IN_KANTO_SAFARI_ZONE
+	setflag FLAG_KANTO_SAFARI_ZONE_COMPLETED
 	warp MAP_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE_HNS, 5, 6
 	waitstate
 	end

@@ -1,3 +1,6 @@
+.set LOCALID_TOXICOLOGIST, 22
+.set LOCALID_KALIGULA, 23
+
 FuchsiaCity_hns_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FuchsiaCity_EventScript_CityEnter
 	.byte 0
@@ -131,11 +134,55 @@ FuchsiaCity_EventScript_ToxicologistReward::
 	goto_if_eq VAR_RESULT, FALSE, FuchsiaCity_EventScript_ToxicologistBagFull
 	msgbox FuchsiaCity_Text_ToxicologistReward, MSGBOX_DEFAULT
 	giveitem ITEM_BLACK_SLUDGE
+	msgbox FuchsiaCity_Text_ToxicologistDepart, MSGBOX_DEFAULT
+	closemessage
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+	goto_if_eq VAR_TEMP_0, 23, FuchsiaCity_EventScript_ToxicologistRunUpWest
+	applymovement LOCALID_TOXICOLOGIST, FuchsiaCity_Movement_ToxicologistRunWest
+	waitmovement LOCALID_TOXICOLOGIST
+	goto FuchsiaCity_EventScript_ToxicologistFinishDepart
+
+FuchsiaCity_EventScript_ToxicologistRunUpWest::
+	applymovement LOCALID_TOXICOLOGIST, FuchsiaCity_Movement_ToxicologistRunUpWest
+	waitmovement LOCALID_TOXICOLOGIST
+
+FuchsiaCity_EventScript_ToxicologistFinishDepart::
+	removeobject LOCALID_TOXICOLOGIST
 	setflag FLAG_FUCHSIA_BLACK_SLUDGE_RECEIVED
 	setflag FLAG_HIDE_FUCHSIA_TOXICOLOGIST
-	removeobject VAR_LAST_TALKED
 	release
 	end
+
+FuchsiaCity_Movement_ToxicologistRunWest:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+FuchsiaCity_Movement_ToxicologistRunUpWest:
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
 
 FuchsiaCity_EventScript_ToxicologistBagFull::
 	msgbox FuchsiaCity_Text_ToxicologistBagFull, MSGBOX_DEFAULT
@@ -150,11 +197,46 @@ FuchsiaCity_EventScript_Kaligula::
 	goto_if_unset FLAG_FUCHSIA_BERRY_SAMPLE, FuchsiaCity_EventScript_KaligulaMislead
 	goto_if_unset FLAG_FUCHSIA_MUD_SAMPLE, FuchsiaCity_EventScript_KaligulaMislead
 	msgbox FuchsiaCity_Text_KaligulaExposed, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_KALIGULA_FUCHSIA_HNS, FuchsiaCity_Text_KaligulaDefeated
+	msgbox FuchsiaCity_Text_KaligulaPostBattle, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_KALIGULA, FuchsiaCity_Movement_KaligulaRunAway
+	waitmovement LOCALID_KALIGULA
+	removeobject LOCALID_KALIGULA
 	setflag FLAG_FUCHSIA_KALIGULA_EXPOSED
 	setflag FLAG_HIDE_FUCHSIA_KALIGULA
-	removeobject VAR_LAST_TALKED
 	release
 	end
+
+FuchsiaCity_Movement_KaligulaRunAway:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
 
 FuchsiaCity_EventScript_KaligulaCover::
 	msgbox FuchsiaCity_Text_KaligulaCover, MSGBOX_DEFAULT
@@ -207,6 +289,12 @@ FuchsiaCity_Text_ToxicologistReward:
 	.string "Este Lodo Negro quedó purificado.\n"
 	.string "Quédatelo.$"
 
+FuchsiaCity_Text_ToxicologistDepart:
+	.string "Iré a entregar las muestras a los\n"
+	.string "agentes de la ciudad y terminar el\l"
+	.string "tratamiento de los recintos.\p"
+	.string "¡Gracias por tu ayuda, Entrenador!$"
+
 FuchsiaCity_Text_ToxicologistBagFull:
 	.string "No tienes sitio para el Lodo Negro.\n"
 	.string "Haz hueco y vuelve.$"
@@ -227,6 +315,14 @@ FuchsiaCity_Text_KaligulaExposed:
 	.string "mundo y luego privatiza la cura.\p"
 	.string "Yo solo he acelerado la verdad.\n"
 	.string "¡La ciencia será del pueblo!\p"
+	.string "¡Te demostraré la auténtica fuerza\n"
+	.string "del veneno!$"
+
+FuchsiaCity_Text_KaligulaDefeated:
+	.string "¡Maldita sea! ¿Cómo puedes tener\n"
+	.string "semejante compenetración?$"
+
+FuchsiaCity_Text_KaligulaPostBattle:
 	.string "¡Joder con el cabezón!\n"
 	.string "Dijo que acabarías atando cabos...\p"
 	.string "Pero no me atraparás aquí.$"

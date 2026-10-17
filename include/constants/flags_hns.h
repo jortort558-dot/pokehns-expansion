@@ -1210,8 +1210,9 @@
 #define FLAG_POKEGEAR_PEWTER_MUSEUM_NOTICE          0x4AB
 #define FLAG_HIDE_PEWTER_MUSEUM_YAMI                0x4AC
 #define FLAG_PEWTER_MUSEUM_ROBBERY_COMPLETE         0x4AD
+#define FLAG_KANTO_SAFARI_ZONE_COMPLETED            0x4AE
 
-// 0x4AE–0x4FF remaining reserved for future expansion
+// 0x4AF–0x4FF remaining reserved for future expansion
 
 // Trainer registered (match call) flags — one per rematchable trainer
 #define TRAINER_REGISTERED_FLAGS_START               0x310

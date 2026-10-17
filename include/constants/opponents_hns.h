@@ -709,8 +709,9 @@
 #define TRAINER_SITO_POWER_PLANT_HNS            685
 #define TRAINER_LOWELL_HNS                      686
 #define TRAINER_DANIEL_SEAFOAM_HNS              687
+#define TRAINER_KALIGULA_FUCHSIA_HNS            688
 
-#define TRAINERS_COUNT_HNS                       688
+#define TRAINERS_COUNT_HNS                       689
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

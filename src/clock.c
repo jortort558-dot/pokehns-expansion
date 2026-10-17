@@ -62,6 +62,7 @@ static void UpdatePerDay(struct Time *localTime)
         if (GetDayOfWeek() == WEEKDAY_SAT)
         {
             FlagClear(FLAG_SAFARI_ZONE_COMPLETED);
+            FlagClear(FLAG_KANTO_SAFARI_ZONE_COMPLETED);
             FlagClear(FLAG_BUG_CONTEST_COMPLETED);
         }
 #endif
