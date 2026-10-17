@@ -1395,6 +1395,7 @@ static bool32 IsThreeStageStarter(u16 species)
 
 static u16 ChooseRandomForm(struct Sfc32State *state, const u16 baseSpecies);
 static u16 ChooseFormSpecial(struct Sfc32State *state, const u16 baseSpecies);
+static u16 RandomizeStaticMonSimilarBst(u16 originalSpecies, struct Sfc32State *state);
 
 void GetUniqueMonList(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, u32 seed1, u16 seed2, u8 count, const u16 *originalSpecies, u16 *resultSpecies)
 {
@@ -1533,6 +1534,9 @@ u16 RandomizeMon(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, 
         return species;
 
     state = RandomizerRandSeed(reason, seed, species);
+
+    if (reason == RANDOMIZER_REASON_FIXED_ENCOUNTER)
+        return RandomizeStaticMonSimilarBst(species, &state);
 
     for (attempts = 0; attempts < RANDOMIZER_SPECIES_COUNT; attempts++)
     {
@@ -2461,16 +2465,111 @@ u16 RandomizeTrainerMon(u16 trainerId, u8 slot, u8 totalMons, u16 species, u8 le
     return randMon.species;
 }
 
+static u16 RandomizeStaticMonSimilarBst(u16 originalSpecies, struct Sfc32State *state)
+{
+    u16 targetBst, minBst, maxBst;
+    u16 candidatePool[120];
+    u16 candidateCount = 0;
+    u16 species;
+    u16 attempts;
+    bool32 isCover = IsCoverLegendary(originalSpecies);
+    bool32 isSubLegendary = (gSpeciesInfo[originalSpecies].isSubLegendary || gSpeciesInfo[originalSpecies].isRestrictedLegendary || gSpeciesInfo[originalSpecies].isUltraBeast) && !isCover;
+    bool32 isPseudo = IsFinalPseudoLegendary(originalSpecies);
+    bool32 isSnorlax = (originalSpecies == SPECIES_SNORLAX);
+    bool32 includeLegendaries = gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries;
+
+    // Si es un pseudolegendario, sustituir siempre por otro pseudolegendario final
+    if (isPseudo && ARRAY_COUNT(sFinalPseudoLegendaries) > 0)
+    {
+        u32 pseudoIndex = RandomizerNextRange(state, ARRAY_COUNT(sFinalPseudoLegendaries));
+        return sFinalPseudoLegendaries[pseudoIndex];
+    }
+
+    targetBst = GetSpeciesBST(originalSpecies);
+    minBst = (targetBst * 90) / 100;
+    maxBst = (targetBst * 110) / 100;
+
+    // Selección por sorteo con reservoir sampling de 1 pasada sobre especies permitidas
+    for (species = 1; species < RANDOMIZER_SPECIES_COUNT; species++)
+    {
+        const struct SpeciesInfo *info;
+        u16 bst;
+
+        if (!IsSpeciesValidForWildRandomizer(species))
+            continue;
+
+        info = &gSpeciesInfo[species];
+
+        // 1. Legendarios de portada (Mewtwo, Lugia, Ho-Oh, etc.) -> solo otros legendarios de portada
+        if (isCover)
+        {
+            if (!IsCoverLegendary(species))
+                continue;
+        }
+        // 2. Sublegendarios (Articuno, Zapdos, Suicune, Regis, etc.) -> solo otros sublegendarios / Ultraentes
+        else if (isSubLegendary)
+        {
+            if (IsCoverLegendary(species) || (!info->isSubLegendary && !info->isRestrictedLegendary && !info->isUltraBeast))
+                continue;
+        }
+        // 3. Pokémon estáticos normales:
+        else
+        {
+            if (IsCoverLegendary(species))
+                continue;
+
+            // Para Snorlax se permite la inclusión de sublegendarios ya que entran en su rango de BST (+-10%)
+            if (info->isSubLegendary || info->isRestrictedLegendary || info->isUltraBeast)
+            {
+                if (!isSnorlax || !includeLegendaries)
+                    continue;
+            }
+        }
+
+        bst = GetSpeciesBST(species);
+        if (bst >= minBst && bst <= maxBst)
+        {
+            if (candidateCount < ARRAY_COUNT(candidatePool))
+            {
+                candidatePool[candidateCount++] = species;
+            }
+            else
+            {
+                u32 r = RandomizerNextRange(state, candidateCount + 1);
+                if (r < ARRAY_COUNT(candidatePool))
+                    candidatePool[r] = species;
+                candidateCount++;
+            }
+        }
+    }
+
+    if (candidateCount > 0)
+    {
+        u16 poolSize = min(candidateCount, ARRAY_COUNT(candidatePool));
+        u16 chosen = candidatePool[RandomizerNextRange(state, poolSize)];
+        return ChooseWildForm(state, chosen);
+    }
+
+    // Fallback: si por restricciones de gen scope no hay candidatos en +-10%, usar especie base o RandomizeMonFromSeed
+    return RandomizeMonFromSeed(state, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), originalSpecies);
+}
+
 u16 RandomizeFixedEncounterMon(u16 species, u8 mapNum, u8 mapGroup, u8 localId)
 {
     if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
     {
         u32 seed;
+        struct Sfc32State state;
+
+        if (!IsSpeciesValidForRandomizer(species))
+            return species;
+
         seed = (u32)mapNum << 16;
         seed |= (u32)mapGroup << 8;
         seed |= localId;
 
-        return RandomizeMon(RANDOMIZER_REASON_FIXED_ENCOUNTER, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), seed, species);
+        state = RandomizerRandSeed(RANDOMIZER_REASON_FIXED_ENCOUNTER, seed, species);
+        return RandomizeStaticMonSimilarBst(species, &state);
     }
 
     return species;
