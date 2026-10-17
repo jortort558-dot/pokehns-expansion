@@ -4,6 +4,32 @@ PewterCity_hns_MapScripts::
 
 PewterCity_EventScript_CityEnter::
 	setflag FLAG_VISITED_PEWTER_CITY
+	goto_if_unset FLAG_PEWTER_MUSEUM_DANI_DEFEATED, PewterCity_EventScript_HideMuseumDuo
+	goto_if_set FLAG_PEWTER_MUSEUM_DUO_DEFEATED, PewterCity_EventScript_HideMuseumDuo
+	clearflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
+	clearflag FLAG_HIDE_PEWTER_MUSEUM_PANDA
+	end
+
+PewterCity_EventScript_HideMuseumDuo::
+	setflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
+	setflag FLAG_HIDE_PEWTER_MUSEUM_PANDA
+	end
+
+PewterCity_EventScript_ZortexPanda::
+	trainerbattle_double TRAINER_ZORTEX_PANDA_MUSEUM_HNS, PewterCity_Text_ZortexPandaIntro, PewterCity_Text_ZortexPandaDefeat, PewterCity_Text_ZortexPandaNotEnoughMons, PewterCity_EventScript_ZortexPandaDefeated
+	msgbox PewterCity_Text_ZortexPandaAfter, MSGBOX_AUTOCLOSE
+	end
+
+PewterCity_EventScript_ZortexPandaDefeated::
+	special PlayerFaceTrainerAfterBattle
+	setflag FLAG_PEWTER_MUSEUM_DUO_DEFEATED
+	msgbox PewterCity_Text_ZortexPandaEscape, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
+	setflag FLAG_HIDE_PEWTER_MUSEUM_PANDA
+	removeobject LOCALID_PEWTER_HNS_ZORTEX
+	removeobject LOCALID_PEWTER_HNS_PANDA
+	releaseall
 	end
 
 PewterCity_EventScript_CooltrainerF::
@@ -65,6 +91,29 @@ PewterCity_Text_BugCatcher:
 	.string "De noche, los CLEFAIRY salen a\n"
 	.string "jugar en MT. MOON.\p"
 	.string "Pero no todas las noches.$"
+
+PewterCity_Text_ZortexPandaIntro:
+	.string "ZORTEX: YAMI ya está lejos.\p"
+	.string "PANDA: Nosotros solo necesitamos\n"
+	.string "que tú sigas aquí.$"
+
+PewterCity_Text_ZortexPandaDefeat:
+	.string "Hasta juntos dejamos un rastro…$"
+
+PewterCity_Text_ZortexPandaNotEnoughMons:
+	.string "PANDA: Esto se hace por parejas.\p"
+	.string "Vuelve con dos POKéMON capaces\n"
+	.string "de combatir.$"
+
+PewterCity_Text_ZortexPandaEscape:
+	.string "ZORTEX: La M no es una firma.\n"
+	.string "Es una invitación.\p"
+	.string "PANDA: Si sigues investigando,\n"
+	.string "el PROFESOR te encontrará.$"
+
+PewterCity_Text_ZortexPandaAfter:
+	.string "Los dos ninjas vigilan la plaza\n"
+	.string "sin decir una palabra.$"
 
 PewterCity_Text_Gramps:
 	.string "Ah, ¿has venido desde JOHTO?\p"

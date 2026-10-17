@@ -5,14 +5,29 @@ PewterCity_Museum_2F_hns_MapScripts::
 PewterCity_Museum_2F_OnTransition::
 	setweather WEATHER_NONE
 	doweather
+	call PewterCity_Museum_2F_UpdateYami
+	call PewterCity_Museum_2F_UpdateJP
+	end
+
+PewterCity_Museum_2F_UpdateYami::
 	goto_if_unset FLAG_FUCHSIA_BLACK_SLUDGE_RECEIVED, PewterCity_Museum_2F_HideYami
 	goto_if_set FLAG_PEWTER_MUSEUM_ROBBERY_COMPLETE, PewterCity_Museum_2F_HideYami
 	clearflag FLAG_HIDE_PEWTER_MUSEUM_YAMI
-	end
+	return
 
 PewterCity_Museum_2F_HideYami::
 	setflag FLAG_HIDE_PEWTER_MUSEUM_YAMI
-	end
+	return
+
+PewterCity_Museum_2F_UpdateJP::
+	goto_if_unset FLAG_PEWTER_MUSEUM_ROBBERY_COMPLETE, PewterCity_Museum_2F_HideJP
+	goto_if_set FLAG_PEWTER_MUSEUM_JP_DEFEATED, PewterCity_Museum_2F_HideJP
+	clearflag FLAG_HIDE_PEWTER_MUSEUM_JP
+	return
+
+PewterCity_Museum_2F_HideJP::
+	setflag FLAG_HIDE_PEWTER_MUSEUM_JP
+	return
 
 PewterCity_Museum_2F_EventScript_Yami::
 	lockall
@@ -55,6 +70,23 @@ PewterCity_Museum_2F_EventScript_Blackout::
 	fadescreenspeed FADE_FROM_BLACK, 2
 	msgbox PewterCity_Museum_2F_Text_LightsReturn, MSGBOX_DEFAULT
 	closemessage
+	clearflag FLAG_HIDE_PEWTER_MUSEUM_JP
+	addobject LOCALID_MUSEUM_2F_JP
+	releaseall
+	end
+
+PewterCity_Museum_2F_EventScript_JP::
+	trainerbattle_single TRAINER_JP_MUSEUM_HNS, PewterCity_Museum_2F_Text_JPIntro, PewterCity_Museum_2F_Text_JPDefeat, PewterCity_Museum_2F_EventScript_JPDefeated
+	msgbox PewterCity_Museum_2F_Text_JPAfter, MSGBOX_AUTOCLOSE
+	end
+
+PewterCity_Museum_2F_EventScript_JPDefeated::
+	special PlayerFaceTrainerAfterBattle
+	setflag FLAG_PEWTER_MUSEUM_JP_DEFEATED
+	msgbox PewterCity_Museum_2F_Text_JPEscape, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_PEWTER_MUSEUM_JP
+	removeobject LOCALID_MUSEUM_2F_JP
 	releaseall
 	end
 
@@ -137,6 +169,23 @@ PewterCity_Museum_2F_Text_LightsReturn:
 	.string "Las luces vuelven.\p"
 	.string "La visitante y la muestra lunar\n"
 	.string "han desaparecido.$"
+
+PewterCity_Museum_2F_Text_JPIntro:
+	.string "JP: YAMI ya tiene la muestra.\p"
+	.string "Mi trabajo es asegurar que nadie\n"
+	.string "recuerde por dónde salió.$"
+
+PewterCity_Museum_2F_Text_JPDefeat:
+	.string "Demasiado ruido para un ninja…$"
+
+PewterCity_Museum_2F_Text_JPEscape:
+	.string "JP: DANI cubre la planta baja.\p"
+	.string "Si puedes alcanzarlo, quizá aún\n"
+	.string "veas cómo trabaja nuestro grupo.$"
+
+PewterCity_Museum_2F_Text_JPAfter:
+	.string "JP no aparta la vista de la\n"
+	.string "escalera.$"
 
 PewterCity_Museum_2F_Text_NerdAfterRobbery:
 	.string "¡Se ha llevado la muestra lunar!\p"

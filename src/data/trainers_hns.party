@@ -18112,3 +18112,129 @@ IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Focus Blast
 - Destiny Bond
 
+=== TRAINER_JP_MUSEUM_HNS ===
+Name: JP
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Music: Hg Suspicious 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Accelgor @ Focus Sash
+Ability: Unburden
+Level: 60
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Bug Buzz
+- Sludge Bomb
+- Energy Ball
+- U-turn
+
+Sableye @ Leftovers
+Ability: Prankster
+Level: 61
+Nature: Careful
+IVs: 31 HP / 31 Atk / 31 Def / 0 SpA / 31 SpD / 31 Spe
+- Knock Off
+- Will-O-Wisp
+- Recover
+- Shadow Sneak
+
+Greninja @ Life Orb
+Ability: Protean
+Level: 61
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Pump
+- Dark Pulse
+- Ice Beam
+- Extrasensory
+
+=== TRAINER_DANI_MUSEUM_HNS ===
+Name: DANI
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Music: Hg Suspicious 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Crobat @ Black Sludge
+Ability: Infiltrator
+Level: 61
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 0 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Cross Poison
+- U-turn
+- Roost
+
+Weavile @ Focus Sash
+Ability: Pressure
+Level: 62
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 0 SpA / 31 SpD / 31 Spe
+- Triple Axel
+- Knock Off
+- Ice Shard
+- Low Kick
+
+Toxicroak @ Life Orb
+Ability: Dry Skin
+Level: 62
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 0 SpA / 31 SpD / 31 Spe
+- Drain Punch
+- Poison Jab
+- Sucker Punch
+- Swords Dance
+
+=== TRAINER_ZORTEX_PANDA_MUSEUM_HNS ===
+Name: ZORTEX/P.
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Music: Hg Suspicious 2
+Double Battle: Yes
+AI: Smart Trainer / Prediction
+
+Ninjask @ Focus Sash
+Ability: Speed Boost
+Level: 62
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 0 SpA / 31 SpD / 31 Spe
+- X-Scissor
+- Aerial Ace
+- Protect
+- Baton Pass
+
+Pangoro @ Assault Vest
+Ability: Iron Fist
+Level: 63
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 0 SpA / 31 SpD / 31 Spe
+- Drain Punch
+- Knock Off
+- Bullet Punch
+- Thunder Punch
+
+Zoroark @ Life Orb
+Ability: Illusion
+Level: 63
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dark Pulse
+- Flamethrower
+- Sludge Bomb
+- Protect
+
+Toxicroak @ Black Sludge
+Ability: Dry Skin
+Level: 62
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 0 SpA / 31 SpD / 31 Spe
+- Drain Punch
+- Poison Jab
+- Fake Out
+- Protect

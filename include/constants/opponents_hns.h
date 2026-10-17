@@ -710,8 +710,11 @@
 #define TRAINER_LOWELL_HNS                      686
 #define TRAINER_DANIEL_SEAFOAM_HNS              687
 #define TRAINER_KALIGULA_FUCHSIA_HNS            688
+#define TRAINER_JP_MUSEUM_HNS                   689
+#define TRAINER_DANI_MUSEUM_HNS                 690
+#define TRAINER_ZORTEX_PANDA_MUSEUM_HNS         691
 
-#define TRAINERS_COUNT_HNS                       689
+#define TRAINERS_COUNT_HNS                       692
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H
