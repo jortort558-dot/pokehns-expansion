@@ -43,6 +43,7 @@ void PlayerHasHatchedAnyEgg(void);
 void PlayerHasAnyMail(void);
 void CheckPlayerHasKenyaOrMail(void);
 void TakeDeliveredMail(void);
+void CheckAndResetSaturdayWeeklyCaptures(void);
 
 #endif // GUARD_FIELD_SPECIALS_H
 

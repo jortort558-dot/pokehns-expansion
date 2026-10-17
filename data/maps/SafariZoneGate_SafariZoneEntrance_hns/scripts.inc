@@ -256,6 +256,7 @@ SafariZoneGate_SafariZoneEntrance_Text_BaobaDone:
 SafariZoneGate_SafariZoneEntrance_EventScript_EntranceCounterTrigger::
 	lockall
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	special CheckAndResetSaturdayWeeklyCaptures
 	goto_if_set FLAG_SAFARI_ZONE_COMPLETED, SafariZoneGate_SafariZoneEntrance_EventScript_AlreadyPlayed
 	showmoneybox 0, 0
 	msgbox Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay, MSGBOX_YESNO
@@ -435,8 +436,9 @@ SafariZoneGate_SafariZoneEntrance_Text_Engineer:
 
 SafariZoneGate_SafariZoneEntrance_Text_AlreadyPlayed:
 	.string "¡Hola! Por normas del recinto,\n"
-	.string "solo se permite una incursión en\l"
-	.string "la ZONA SAFARI por aventura.\p"
-	.string "¡Ya has disfrutado de tu juego!\n"
-	.string "¡Muchas gracias por participar!$"
+	.string "la ZONA SAFARI solo abre sus\l"
+	.string "puertas para capturas los sábados.\p"
+	.string "Si ya has participado este sábado,\n"
+	.string "¡te esperamos el próximo!\p"
+	.string "¡Muchas gracias por visitarnos!$"
 

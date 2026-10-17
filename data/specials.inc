@@ -757,3 +757,4 @@ gSpecials::
 	def_special DoctoreFernan_ApplyFormChange
 	def_special DoctoreFernan_ShowPreview
 	def_special DoctoreFernan_HidePreview
+	def_special CheckAndResetSaturdayWeeklyCaptures

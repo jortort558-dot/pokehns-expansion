@@ -4,6 +4,7 @@ Gate_NationalPark_hns_MapScripts::
 Gate_NationalPark_EventScript_Attendant::
 	lockall
 	faceplayer
+	special CheckAndResetSaturdayWeeklyCaptures
 	goto_if_set FLAG_BUG_CONTEST_COMPLETED, Gate_NationalPark_EventScript_AttendantAlreadyPlayed
 	goto_if_set FLAG_DAILY_BUG_CONTEST_COMPLETED, Gate_NationalPark_EventScript_AttendantAlreadyPlayed
 	msgbox Route35NationalParkGate_Text_OfficerAskToParticipate, MSGBOX_YESNO
@@ -115,6 +116,7 @@ Gate_NationalPark_Movement_Player_EnterParkBot:
 Gate_NationalPark_EventScript_BAttendant::
 	lockall
 	faceplayer
+	special CheckAndResetSaturdayWeeklyCaptures
 	goto_if_set FLAG_BUG_CONTEST_COMPLETED, Gate_NationalPark_EventScript_AttendantAlreadyPlayed
 	goto_if_set FLAG_DAILY_BUG_CONTEST_COMPLETED, Gate_NationalPark_EventScript_AttendantAlreadyPlayed
 	msgbox Route35NationalParkGate_Text_OfficerAskToParticipate, MSGBOX_YESNO
@@ -214,9 +216,8 @@ Route35NationalParkGate_Text_OfficerAskToParticipate:
 	.string "Concurso de Caza de Bichos.\p"
 	.string "Pero ojo al piojo: las normas\n"
 	.string "son sagradas y estrictas.\p"
-	.string "Solo tienes un único pase en\n"
-	.string "toda tu aventura.\l"
-	.string "¡Una oportunidad y ya!\p"
+	.string "Solo se permite una incursión\n"
+	.string "por sábado en el concurso.\p"
 	.string "Entras con un solo POKéMON y\n"
 	.string "lo que caces, tuyo será.\p"
 	.string "¿Tientas a la suerte o te\n"
@@ -237,7 +238,8 @@ Route35NationalParkGate_Text_OfficerExplainRules:
 	.string "Si agotas tus BALLS, a la calle.\n"
 	.string "Caza varios, pero solo el último\l"
 	.string "quedará en tu poder.\p"
-	.string "¡Y no hay segundas vueltas!\n"
+	.string "¡Y hasta el próximo sábado no\n"
+	.string "habrá otra oportunidad!\l"
 	.string "¡Que la musa te bendiga!$"
 
 Route35NationalParkGate_Text_OfficerAskToUseFirstMon:
@@ -282,9 +284,9 @@ Route35NationalParkGate_Text_EggAsFirstMon:
 
 Route35NationalParkGate_Text_ContestIsOver:
 	.string "¡Alto ahí, tragaldabas!\n"
-	.string "Ya quemaste tu único cartucho.\p"
-	.string "No hay segundas vueltas sin el\n"
-	.string "permiso real de los mandamases.\l"
+	.string "Ya quemaste tu cartucho de hoy.\p"
+	.string "No hay segundas vueltas hasta\n"
+	.string "el próximo sábado.\l"
 	.string "¡A pasear a otra parte, pillín!$"
 
 

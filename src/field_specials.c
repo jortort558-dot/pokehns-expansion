@@ -6541,4 +6541,13 @@ void CheckRouteTrainersDefeated(void)
     gSpecialVar_Result = (remaining == 0);
 }
 
+void CheckAndResetSaturdayWeeklyCaptures(void)
+{
+    if (GetDayOfWeek() == WEEKDAY_SAT)
+    {
+        FlagClear(FLAG_SAFARI_ZONE_COMPLETED);
+        FlagClear(FLAG_BUG_CONTEST_COMPLETED);
+    }
+}
+
 

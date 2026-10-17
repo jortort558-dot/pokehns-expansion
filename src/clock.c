@@ -58,6 +58,13 @@ static void UpdatePerDay(struct Time *localTime)
         SetRandomLotteryNumber(daysSince);
         UpdateDaysPassedSinceFormChange(daysSince);
         DailyResetApricornTrees();
+#if IS_HNS
+        if (GetDayOfWeek() == WEEKDAY_SAT)
+        {
+            FlagClear(FLAG_SAFARI_ZONE_COMPLETED);
+            FlagClear(FLAG_BUG_CONTEST_COMPLETED);
+        }
+#endif
         *days = localTime->days;
     }
     else
