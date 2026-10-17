@@ -38529,29 +38529,29 @@
             "encounter_rate": 60,
             "mons": [
               {
-                "min_level": 30,
-                "max_level": 40,
-                "species": "SPECIES_SMEARGLE"
+                "min_level": 5,
+                "max_level": 8,
+                "species": "SPECIES_AIPOM"
               },
               {
-                "min_level": 30,
-                "max_level": 40,
-                "species": "SPECIES_SMEARGLE"
+                "min_level": 5,
+                "max_level": 8,
+                "species": "SPECIES_PINECO"
               },
               {
-                "min_level": 30,
-                "max_level": 40,
-                "species": "SPECIES_SMEARGLE"
+                "min_level": 5,
+                "max_level": 8,
+                "species": "SPECIES_NATU"
               },
               {
-                "min_level": 30,
-                "max_level": 40,
-                "species": "SPECIES_SMEARGLE"
+                "min_level": 5,
+                "max_level": 8,
+                "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 30,
-                "max_level": 40,
-                "species": "SPECIES_SMEARGLE"
+                "min_level": 5,
+                "max_level": 8,
+                "species": "SPECIES_AIPOM"
               }
             ]
           },
