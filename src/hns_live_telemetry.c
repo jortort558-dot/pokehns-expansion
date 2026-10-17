@@ -4,9 +4,13 @@
 #include "pokemon.h"
 #include "battle.h"
 #include "battle_setup.h"
+#include "challenge_menu.h"
+#include "nuzlocke.h"
 #include "overworld.h"
+#include "pokedex.h"
 #include "constants/battle.h"
 #include "constants/characters.h"
+#include "constants/pokedex.h"
 
 #define HNS_LIVE_VERSION 2
 #define HNS_LIVE_INTERVAL_FRAMES 60
@@ -78,8 +82,11 @@ struct PACKED HnsLiveTelemetry
 };
 
 static volatile struct HnsLiveTelemetry sHnsLiveTelemetry;
+static u32 sEncounterPersonality;
+static u32 sEncounterOtId;
+static u8 sEncounterFlags;
 
-static void RecordEvent(u8 type, struct Pokemon *mon, u16 otherSpecies, u16 trainerId, u16 moveId, u8 cause)
+static void RecordEvent(u8 type, struct Pokemon *mon, u16 otherSpecies, u16 trainerId, u16 moveId, u8 cause, u8 extraFlags)
 {
     volatile struct HnsLiveEvent *event;
     u8 index;
@@ -96,6 +103,7 @@ static void RecordEvent(u8 type, struct Pokemon *mon, u16 otherSpecies, u16 trai
     event->trainerId = trainerId;
     event->moveId = moveId;
     event->cause = cause;
+    event->flags = extraFlags;
     if (gSaveBlock1Ptr != NULL)
         event->mapSection = GetCurrentRegionMapSectionId();
     if (mon != NULL)
@@ -114,7 +122,7 @@ static void RecordEvent(u8 type, struct Pokemon *mon, u16 otherSpecies, u16 trai
 
 void HnsLiveTelemetry_RecordMonEvent(u8 type, struct Pokemon *mon, u16 otherSpecies)
 {
-    RecordEvent(type, mon, otherSpecies, 0, 0, 0);
+    RecordEvent(type, mon, otherSpecies, 0, 0, 0, 0);
 }
 
 void HnsLiveTelemetry_RecordFaint(struct Pokemon *mon, u8 battler)
@@ -132,7 +140,71 @@ void HnsLiveTelemetry_RecordFaint(struct Pokemon *mon, u8 battler)
     }
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         trainerId = TRAINER_BATTLE_PARAM.opponentA;
-    RecordEvent(HNS_LIVE_EVENT_FAINT, mon, attackerSpecies, trainerId, moveId, cause);
+    RecordEvent(HNS_LIVE_EVENT_FAINT, mon, attackerSpecies, trainerId, moveId, cause, 0);
+}
+
+void HnsLiveTelemetry_RecordEncounterStart(struct Pokemon *mon)
+{
+    u8 flags = 0;
+    u16 species;
+    bool8 shiny;
+    bool8 duplicateLine;
+    bool8 routeUsed;
+    bool8 captureSuspended;
+    bool8 scripted;
+    bool8 alreadyCaught;
+
+    if (mon == NULL)
+        return;
+
+    species = GetMonData(mon, MON_DATA_SPECIES);
+    shiny = IsMonShiny(mon);
+    duplicateLine = NuzlockeIsCaptureBlockedBySpeciesClause(species) != FALSE;
+    routeUsed = NuzlockeFlagGet(NuzlockeGetCurrentRegionMapSectionId());
+    captureSuspended = IsNuzlockeCaptureSuspended();
+    scripted = IsScriptedWildBattle();
+    alreadyCaught = GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT);
+
+    if (shiny)
+        flags |= HNS_LIVE_ENCOUNTER_SHINY;
+    if (shiny && gSaveBlock3Ptr->challengeSettings.tx_Nuzlocke_ShinyClause)
+        flags |= HNS_LIVE_ENCOUNTER_SHINY_EXCEPTION;
+    if (duplicateLine)
+        flags |= HNS_LIVE_ENCOUNTER_DUPLICATE_LINE;
+    if (routeUsed)
+        flags |= HNS_LIVE_ENCOUNTER_ROUTE_USED;
+    if (captureSuspended)
+        flags |= HNS_LIVE_ENCOUNTER_CAPTURE_SUSPENDED;
+    if (scripted)
+        flags |= HNS_LIVE_ENCOUNTER_SCRIPTED;
+    if (OneTypeChallengeCaptureBlocked)
+        flags |= HNS_LIVE_ENCOUNTER_OTHER_CHALLENGE_BLOCK;
+
+    // Esta es la misma elegibilidad normal que representa el indicador "1",
+    // separada de la excepción shiny para que la web no consuma una ruta usada.
+    if (IsNuzlockeActive() && !captureSuspended && !scripted && !alreadyCaught
+     && !duplicateLine && !routeUsed && !OneTypeChallengeCaptureBlocked)
+        flags |= HNS_LIVE_ENCOUNTER_FIRST_VALID;
+
+    sEncounterPersonality = GetMonData(mon, MON_DATA_PERSONALITY);
+    sEncounterOtId = GetMonData(mon, MON_DATA_OT_ID);
+    sEncounterFlags = flags;
+    RecordEvent(HNS_LIVE_EVENT_ENCOUNTER_START, mon, 0, 0, 0, 0, flags);
+}
+
+void HnsLiveTelemetry_RecordEncounterEnd(struct Pokemon *mon, u8 outcome)
+{
+    u8 flags = 0;
+
+    if (mon == NULL)
+        return;
+    if (GetMonData(mon, MON_DATA_PERSONALITY) == sEncounterPersonality
+     && GetMonData(mon, MON_DATA_OT_ID) == sEncounterOtId)
+        flags = sEncounterFlags;
+    RecordEvent(HNS_LIVE_EVENT_ENCOUNTER_END, mon, 0, 0, 0, outcome, flags);
+    sEncounterPersonality = 0;
+    sEncounterOtId = 0;
+    sEncounterFlags = 0;
 }
 
 // La seccion se enlaza al principio de EWRAM. El fork de mGBA usado por

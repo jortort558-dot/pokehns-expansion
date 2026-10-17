@@ -6232,6 +6232,7 @@ static void HandleEndTurn_FinishBattle(void)
                                         | BATTLE_TYPE_TOWER_LINK_MULTI
                                         | BATTLE_TYPE_RECORDED_LINK)))
             {
+                HnsLiveTelemetry_RecordEncounterEnd(&gEnemyParty[0], gBattleOutcome);
                 // An off-type mon under the One Type Challenge could never have been
                 // caught, so it must not burn the route's Nuzlocke encounter.
                 // The Safari Zone / Bug Contest suspend the one-encounter-per-zone
