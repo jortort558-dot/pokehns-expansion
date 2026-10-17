@@ -20,11 +20,19 @@ PewterCity_EventScript_MuseumDuoFrontExit::
 	goto_if_set FLAG_PEWTER_MUSEUM_DUO_DEFEATED, PewterCity_EventScript_MuseumDuoNoScene
 	setvar VAR_TEMP_0, 1
 	lockall
+	clearflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
+	clearflag FLAG_HIDE_PEWTER_MUSEUM_PANDA
 	setobjectxy LOCALID_PEWTER_HNS_ZORTEX, 17, 9
 	setobjectxyperm LOCALID_PEWTER_HNS_ZORTEX, 17, 9
 	setobjectxy LOCALID_PEWTER_HNS_PANDA, 21, 9
 	setobjectxyperm LOCALID_PEWTER_HNS_PANDA, 21, 9
-	call PewterCity_EventScript_MuseumDuoBlink
+	addobject LOCALID_PEWTER_HNS_ZORTEX
+	addobject LOCALID_PEWTER_HNS_PANDA
+	playse SE_PIN
+	applymovement LOCALID_PEWTER_HNS_ZORTEX, Common_Movement_ExclamationMark
+	applymovement LOCALID_PEWTER_HNS_PANDA, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 16
 	applymovement LOCALID_PEWTER_HNS_ZORTEX, PewterCity_Movement_ZortexApproachesFrontDoor
 	applymovement LOCALID_PEWTER_HNS_PANDA, PewterCity_Movement_PandaApproachesFrontDoor
 	waitmovement 0
@@ -35,11 +43,19 @@ PewterCity_EventScript_MuseumDuoSideExit::
 	goto_if_set FLAG_PEWTER_MUSEUM_DUO_DEFEATED, PewterCity_EventScript_MuseumDuoNoScene
 	setvar VAR_TEMP_0, 1
 	lockall
+	clearflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
+	clearflag FLAG_HIDE_PEWTER_MUSEUM_PANDA
 	setobjectxy LOCALID_PEWTER_HNS_ZORTEX, 25, 7
 	setobjectxyperm LOCALID_PEWTER_HNS_ZORTEX, 25, 7
 	setobjectxy LOCALID_PEWTER_HNS_PANDA, 29, 7
 	setobjectxyperm LOCALID_PEWTER_HNS_PANDA, 29, 7
-	call PewterCity_EventScript_MuseumDuoBlink
+	addobject LOCALID_PEWTER_HNS_ZORTEX
+	addobject LOCALID_PEWTER_HNS_PANDA
+	playse SE_PIN
+	applymovement LOCALID_PEWTER_HNS_ZORTEX, Common_Movement_ExclamationMark
+	applymovement LOCALID_PEWTER_HNS_PANDA, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 16
 	applymovement LOCALID_PEWTER_HNS_ZORTEX, PewterCity_Movement_ZortexApproachesSideDoor
 	applymovement LOCALID_PEWTER_HNS_PANDA, PewterCity_Movement_PandaApproachesSideDoor
 	waitmovement 0
@@ -48,29 +64,14 @@ PewterCity_EventScript_MuseumDuoSideExit::
 PewterCity_EventScript_MuseumDuoNoScene::
 	end
 
-PewterCity_EventScript_MuseumDuoBlink::
-	removeobject LOCALID_PEWTER_HNS_ZORTEX
-	removeobject LOCALID_PEWTER_HNS_PANDA
-	delay 6
-	addobject LOCALID_PEWTER_HNS_ZORTEX
-	addobject LOCALID_PEWTER_HNS_PANDA
-	delay 6
-	removeobject LOCALID_PEWTER_HNS_ZORTEX
-	removeobject LOCALID_PEWTER_HNS_PANDA
-	delay 6
-	addobject LOCALID_PEWTER_HNS_ZORTEX
-	addobject LOCALID_PEWTER_HNS_PANDA
-	delay 6
-	return
-
 PewterCity_EventScript_ZortexPanda::
 	lockall
 	faceplayer
 	goto PewterCity_EventScript_ZortexPandaChallenge
 
 PewterCity_EventScript_ZortexPandaChallenge::
-	specialvar VAR_RESULT, HasEnoughMonsForDoubleBattle
-	goto_if_eq VAR_RESULT, FALSE, PewterCity_EventScript_ZortexPandaNotEnoughMons
+	special HasEnoughMonsForDoubleBattle
+	goto_if_ne VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS, PewterCity_EventScript_ZortexPandaNotEnoughMons
 	msgbox PewterCity_Text_ZortexPandaIntro, MSGBOX_DEFAULT
 	closemessage
 	trainerbattle_no_intro TRAINER_ZORTEX_PANDA_MUSEUM_HNS, PewterCity_Text_ZortexPandaDefeat
