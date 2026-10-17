@@ -810,6 +810,11 @@ u8 TrySavingData(u8 saveType)
     }
 }
 
+void SaveFullGameSilent(void)
+{
+    TrySavingData(SAVE_NORMAL);
+}
+
 bool8 LinkFullSave_Init(void)
 {
     if (gFlashMemoryPresent != TRUE)
