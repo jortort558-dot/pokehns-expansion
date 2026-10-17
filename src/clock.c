@@ -64,6 +64,7 @@ static void UpdatePerDay(struct Time *localTime)
             FlagClear(FLAG_SAFARI_ZONE_COMPLETED);
             FlagClear(FLAG_KANTO_SAFARI_ZONE_COMPLETED);
             FlagClear(FLAG_BUG_CONTEST_COMPLETED);
+            FlagClear(FLAG_POKEGEAR_SATURDAY_RESET_NOTICE);
         }
 #endif
         *days = localTime->days;

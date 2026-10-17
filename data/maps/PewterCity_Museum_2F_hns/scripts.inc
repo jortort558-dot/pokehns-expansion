@@ -48,38 +48,26 @@ PewterCity_Museum_2F_EventScript_Blackout::
 	playse SE_SWITCH
 	waitse
 	delay 20
-	fadescreenspeed FADE_TO_BLACK, 2
-	setweather WEATHER_SHADE
-	doweather
+	fadescreen FADE_TO_BLACK
 	setflag FLAG_PEWTER_MUSEUM_ROBBERY_COMPLETE
 	setflag FLAG_HIDE_PEWTER_MUSEUM_YAMI
 	removeobject LOCALID_MUSEUM_2F_YAMI
 	playse SE_ICE_BREAK
 	waitse
 	delay 45
-	fadescreenspeed FADE_FROM_BLACK, 2
+	fadescreen FADE_FROM_BLACK
 	msgbox PewterCity_Museum_2F_Text_Blackout, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_MUSEUM_2F_NERD, PewterCity_Museum_2F_Movement_NerdChecksExhibit
 	waitmovement LOCALID_MUSEUM_2F_NERD
 	playse SE_SWITCH
 	waitse
-	fadescreenspeed FADE_TO_BLACK, 2
-	setweather WEATHER_NONE
-	doweather
-	fadescreenspeed FADE_FROM_BLACK, 2
-	msgbox PewterCity_Museum_2F_Text_LightsReturn, MSGBOX_DEFAULT
-	closemessage
+	fadescreen FADE_TO_BLACK
 	clearflag FLAG_HIDE_PEWTER_MUSEUM_JP
 	addobject LOCALID_MUSEUM_2F_JP
-	delay 6
-	removeobject LOCALID_MUSEUM_2F_JP
-	delay 6
-	addobject LOCALID_MUSEUM_2F_JP
-	delay 6
-	removeobject LOCALID_MUSEUM_2F_JP
-	delay 6
-	addobject LOCALID_MUSEUM_2F_JP
+	fadescreen FADE_FROM_BLACK
+	msgbox PewterCity_Museum_2F_Text_LightsReturn, MSGBOX_DEFAULT
+	closemessage
 	releaseall
 	end
 

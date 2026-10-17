@@ -1081,6 +1081,19 @@ u8 LoadGameSave(u8 saveType)
 #endif
         gSaveBlock1Ptr->saveVersion = 15;
     }
+    if (gSaveBlock1Ptr->saveVersion < 16)
+    {
+#if IS_HNS
+        if (GetDayOfWeek() == WEEKDAY_SAT)
+        {
+            FlagClear(FLAG_SAFARI_ZONE_COMPLETED);
+            FlagClear(FLAG_KANTO_SAFARI_ZONE_COMPLETED);
+            FlagClear(FLAG_BUG_CONTEST_COMPLETED);
+            FlagClear(FLAG_POKEGEAR_SATURDAY_RESET_NOTICE);
+        }
+#endif
+        gSaveBlock1Ptr->saveVersion = 16;
+    }
 
     // Add version migration steps here:
     // if (gSaveBlock1Ptr->saveVersion < 1)

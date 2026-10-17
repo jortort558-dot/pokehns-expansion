@@ -597,6 +597,7 @@ extern const u8 Common_EventScript_PokegearEvoUpdateNotice[];
 extern const u8 Common_EventScript_PokegearSilphEmergencyNotice[];
 extern const u8 Common_EventScript_PokegearFuchsiaPoisoningNotice[];
 extern const u8 Common_EventScript_PokegearPewterMuseumNotice[];
+extern const u8 Common_EventScript_PokegearSaturdayResetNotice[];
 
 // Secret Base
 extern const u8 SecretBase_EventScript_PC[];

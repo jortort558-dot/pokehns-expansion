@@ -967,6 +967,11 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
         ScriptContext_SetupScript(Common_EventScript_PokegearEvoUpdateNotice);
         return TRUE;
     }
+    if (GetDayOfWeek() == WEEKDAY_SAT && !FlagGet(FLAG_POKEGEAR_SATURDAY_RESET_NOTICE) && FlagGet(FLAG_SYS_POKENAV_GET))
+    {
+        ScriptContext_SetupScript(Common_EventScript_PokegearSaturdayResetNotice);
+        return TRUE;
+    }
     if (HnsUpdateRouteStepCounter())
         return TRUE;
 #endif

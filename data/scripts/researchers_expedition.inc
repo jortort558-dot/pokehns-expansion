@@ -527,3 +527,26 @@ Common_Text_PokegearMegaExchangeNotice:
 	.string "todavía no tengas.\p"
 	.string "Me encontrarás en el CENTRO\n"
 	.string "POKéMON de CIUDAD TRIGAL.$"
+
+Common_EventScript_PokegearSaturdayResetNotice::
+	lockall
+	setflag FLAG_POKEGEAR_SATURDAY_RESET_NOTICE
+	playse SE_POKENAV_CALL
+	waitse
+	pokenavcall Common_Text_PokegearSaturdayResetNotice
+	waitmessage
+	delay 30
+	releaseall
+	end
+
+Common_Text_PokegearSaturdayResetNotice:
+	.string "¡Aviso del POKéGEAR!\n"
+	.string "RENOVACIÓN DE LOS SÁBADOS:\p"
+	.string "Hoy se han reabierto las capturas\n"
+	.string "semanales de la ZONA SAFARI de\l"
+	.string "JOHTO, la ZONA SAFARI de FUCSIA\l"
+	.string "y el CONCURSO DE CAZA DE BICHOS\l"
+	.string "del PARQUE NACIONAL.\p"
+	.string "¡Aprovecha el sábado para capturar\n"
+	.string "nuevos compañeros de equipo!$"
+
