@@ -72,6 +72,14 @@ PewterCity_Museum_2F_EventScript_Blackout::
 	closemessage
 	clearflag FLAG_HIDE_PEWTER_MUSEUM_JP
 	addobject LOCALID_MUSEUM_2F_JP
+	delay 6
+	removeobject LOCALID_MUSEUM_2F_JP
+	delay 6
+	addobject LOCALID_MUSEUM_2F_JP
+	delay 6
+	removeobject LOCALID_MUSEUM_2F_JP
+	delay 6
+	addobject LOCALID_MUSEUM_2F_JP
 	releaseall
 	end
 
