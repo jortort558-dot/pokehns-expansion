@@ -1221,8 +1221,14 @@
 #define FLAG_POKEGEAR_SATURDAY_RESET_NOTICE         0x4B6
 #define FLAG_BATEMAGICO_MT_MOON_LEAD                0x4B7
 #define FLAG_MT_MOON_ECHO_CHAMBER_INTRO             0x4B8
+#define FLAG_MT_MOON_FOSSIL_TRACE                    0x4B9
+#define FLAG_MT_MOON_GEODUDE_TRACE                   0x4BA
+#define FLAG_MT_MOON_ALTAR_TRACE                     0x4BB
+#define FLAG_MT_MOON_LUNATONE_DEFEATED               0x4BC
+#define FLAG_MT_MOON_INVESTIGATION_COMPLETE          0x4BD
+#define FLAG_HIDE_MT_MOON_QUEST_CLEFAIRY             0x4BE
 
-// 0x4B9–0x4FF remaining reserved for future expansion
+// 0x4BF–0x4FF remaining reserved for future expansion
 
 // Trainer registered (match call) flags — one per rematchable trainer
 #define TRAINER_REGISTERED_FLAGS_START               0x310

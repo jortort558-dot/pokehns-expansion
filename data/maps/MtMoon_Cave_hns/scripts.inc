@@ -6,6 +6,17 @@ MtMoon_Cave_hns_MapScripts::
 
 MtMoon_Cave_OnTransition: 
 	callnative SetTimeBasedEncounters
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SCIENTIST_M_HNS
+	goto_if_unset FLAG_BATEMAGICO_MT_MOON_LEAD, MtMoon_Cave_OnTransition_SetIntro
+	goto_if_set FLAG_MT_MOON_INVESTIGATION_COMPLETE, MtMoon_Cave_OnTransition_QuestComplete
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_GYM_GUY_HNS
+	setflag FLAG_HIDE_MT_MOON_QUEST_CLEFAIRY
+	goto MtMoon_Cave_OnTransition_SetIntro
+
+MtMoon_Cave_OnTransition_QuestComplete:
+	clearflag FLAG_HIDE_MT_MOON_QUEST_CLEFAIRY
+
+MtMoon_Cave_OnTransition_SetIntro:
 	setvar VAR_TEMP_C, 1
 	goto_if_unset FLAG_BATEMAGICO_MT_MOON_LEAD, MtMoon_Cave_OnTransition_End
 	goto_if_set FLAG_MT_MOON_ECHO_CHAMBER_INTRO, MtMoon_Cave_OnTransition_End
@@ -30,7 +41,129 @@ MtMoon_Cave_EventScript_EchoChamberIntro::
 	release
 	end
 
+MtMoon_Cave_EventScript_Batemagico::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BATEMAGICO_MT_MOON_LEAD, MtMoon_Cave_EventScript_Scientist
+	setspeaker SP_NAME_BATEMAGICO
+	goto_if_set FLAG_MT_MOON_INVESTIGATION_COMPLETE, MtMoon_Cave_EventScript_BatemagicoAfter
+	goto_if_unset FLAG_MT_MOON_FOSSIL_TRACE, MtMoon_Cave_EventScript_BatemagicoCluesRemain
+	goto_if_unset FLAG_MT_MOON_GEODUDE_TRACE, MtMoon_Cave_EventScript_BatemagicoCluesRemain
+	goto_if_unset FLAG_MT_MOON_ALTAR_TRACE, MtMoon_Cave_EventScript_BatemagicoCluesRemain
+	goto MtMoon_Cave_EventScript_LunarGuardian
+
+MtMoon_Cave_EventScript_Scientist:
+	msgbox MtMoon_Cave_Text_Scientist, MSGBOX_DEFAULT
+	release
+	end
+
+MtMoon_Cave_EventScript_BatemagicoCluesRemain:
+	msgbox MtMoon_Cave_Text_BatemagicoCluesRemain, MSGBOX_DEFAULT
+	release
+	end
+
+MtMoon_Cave_EventScript_LunarGuardian:
+	msgbox MtMoon_Cave_Text_BatemagicoCluesComplete, MSGBOX_DEFAULT
+	closemessage
+	playmoncry SPECIES_LUNATONE, 0
+	waitmoncry
+	msgbox MtMoon_Cave_Text_LunatoneAppears, MSGBOX_DEFAULT
+	setwildbattle SPECIES_LUNATONE, 62, ITEM_STARDUST
+	dowildbattle
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtMoon_Cave_EventScript_LunarGuardianDefeated
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, MtMoon_Cave_EventScript_LunarGuardianDefeated
+	release
+	end
+
+MtMoon_Cave_EventScript_LunarGuardianDefeated:
+	setflag FLAG_MT_MOON_LUNATONE_DEFEATED
+	clearflag FLAG_HIDE_MT_MOON_QUEST_CLEFAIRY
+	addobject LOCALID_MTMOON_QUEST_CLEFAIRY_NORTH
+	addobject LOCALID_MTMOON_QUEST_CLEFAIRY
+	special EnableGlasstownMessageBox
+	msgbox MtMoon_Cave_Text_ClefairyReturn, MSGBOX_DEFAULT
+	setspeaker SP_NAME_BATEMAGICO
+	msgbox MtMoon_Cave_Text_BatemagicoConclusion, MSGBOX_DEFAULT
+	setflag FLAG_MT_MOON_INVESTIGATION_COMPLETE
+	release
+	end
+
+MtMoon_Cave_EventScript_BatemagicoAfter:
+	msgbox MtMoon_Cave_Text_BatemagicoAfter, MSGBOX_DEFAULT
+	release
+	end
+
+MtMoon_Cave_EventScript_FossilTrace::
+	lock
+	goto_if_unset FLAG_BATEMAGICO_MT_MOON_LEAD, MtMoon_Cave_EventScript_FossilNormal
+	goto_if_set FLAG_MT_MOON_INVESTIGATION_COMPLETE, MtMoon_Cave_EventScript_FossilNormal
+	goto_if_set FLAG_MT_MOON_FOSSIL_TRACE, MtMoon_Cave_EventScript_FossilAlreadyChecked
+	special EnableGlasstownMessageBox
+	msgbox MtMoon_Cave_Text_FossilTrace, MSGBOX_DEFAULT
+	setflag FLAG_MT_MOON_FOSSIL_TRACE
+	release
+	end
+
+MtMoon_Cave_EventScript_FossilAlreadyChecked:
+	msgbox MtMoon_Cave_Text_FossilAlreadyChecked, MSGBOX_DEFAULT
+	release
+	end
+
+MtMoon_Cave_EventScript_FossilNormal:
+	msgbox MtMoon_Cave_Text_FossilNormal, MSGBOX_DEFAULT
+	release
+	end
+
+MtMoon_Cave_EventScript_GeodudeTrace::
+	lock
+	goto_if_unset FLAG_BATEMAGICO_MT_MOON_LEAD, MtMoon_Cave_EventScript_GeodudeNormal
+	goto_if_set FLAG_MT_MOON_INVESTIGATION_COMPLETE, MtMoon_Cave_EventScript_GeodudeNormal
+	goto_if_set FLAG_MT_MOON_GEODUDE_TRACE, MtMoon_Cave_EventScript_GeodudeAlreadyChecked
+	playmoncry SPECIES_GEODUDE, 0
+	waitmoncry
+	special EnableGlasstownMessageBox
+	msgbox MtMoon_Cave_Text_GeodudeTrace, MSGBOX_DEFAULT
+	setflag FLAG_MT_MOON_GEODUDE_TRACE
+	release
+	end
+
+MtMoon_Cave_EventScript_GeodudeAlreadyChecked:
+	msgbox MtMoon_Cave_Text_GeodudeAlreadyChecked, MSGBOX_DEFAULT
+	release
+	end
+
+MtMoon_Cave_EventScript_GeodudeNormal:
+	playmoncry SPECIES_GEODUDE, 0
+	msgbox MtMoon_Cave_Text_GeodudeNormal, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+MtMoon_Cave_EventScript_QuestClefairy::
+	lock
+	playmoncry SPECIES_CLEFAIRY, 0
+	msgbox MtMoon_Cave_Text_QuestClefairy, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
 MtMoon_Cave_EventScript_Sign::
+	goto_if_unset FLAG_BATEMAGICO_MT_MOON_LEAD, MtMoon_Cave_EventScript_SignNormal
+	goto_if_set FLAG_MT_MOON_INVESTIGATION_COMPLETE, MtMoon_Cave_EventScript_SignNormal
+	goto_if_set FLAG_MT_MOON_ALTAR_TRACE, MtMoon_Cave_EventScript_AltarAlreadyChecked
+	lock
+	special EnableGlasstownMessageBox
+	msgbox MtMoon_Cave_Text_AltarTrace, MSGBOX_DEFAULT
+	setflag FLAG_MT_MOON_ALTAR_TRACE
+	release
+	end
+
+MtMoon_Cave_EventScript_AltarAlreadyChecked:
+	msgbox MtMoon_Cave_Text_AltarAlreadyChecked, MSGBOX_SIGN
+	end
+
+MtMoon_Cave_EventScript_SignNormal:
 	msgbox MtMoon_Cave_Text_Sign, MSGBOX_SIGN
 	end
 
@@ -141,3 +274,89 @@ MtMoon_Cave_Text_EchoChamberIntro:
 	.string "una piedra responde a otra.\p"
 	.string "No se oye cantar a ningún\n"
 	.string "CLEFAIRY.$"
+
+MtMoon_Cave_Text_Scientist:
+	.string "Estudio la respuesta magnética\n"
+	.string "de los minerales de esta cueva.$"
+
+MtMoon_Cave_Text_BatemagicoCluesRemain:
+	.string "La montaña no se ha quedado muda\n"
+	.string "porque sí, {PLAYER}.\p"
+	.string "Busca tres focos de resonancia:\n"
+	.string "el fósil, los GEODUDE y el altar.\p"
+	.string "Toca, escucha y vuelve conmigo.\n"
+	.string "Aquí hasta el silencio habla.$"
+
+MtMoon_Cave_Text_BatemagicoCluesComplete:
+	.string "Tres pulsos con el mismo intervalo.\n"
+	.string "Esto no es un fenómeno natural.\p"
+	.string "Alguien usó la muestra robada\n"
+	.string "para forzar el canto lunar.\p"
+	.string "Y creo que acabamos de despertar\n"
+	.string "a quien vigilaba el experimento…$"
+
+MtMoon_Cave_Text_LunatoneAppears:
+	.string "¡Un LUNATONE alterado bloquea\n"
+	.string "la resonancia de la cueva!$"
+
+MtMoon_Cave_Text_ClefairyReturn:
+	.string "El pulso artificial se extingue.\p"
+	.string "Desde el fondo de la montaña\n"
+	.string "regresa una canción temblorosa.\p"
+	.string "Los CLEFAIRY vuelven a salir.$"
+
+MtMoon_Cave_Text_BatemagicoConclusion:
+	.string "Perfecto… Quiero decir: bien hecho.\p"
+	.string "La señal llevaba datos biológicos\n"
+	.string "ocultos dentro del pulso.\p"
+	.string "Solo BILL puede separar materia\n"
+	.string "viva de información digital.\p"
+	.string "Ve a su casa, al norte de CELESTE.\n"
+	.string "Yo custodiaré este fragmento.$"
+
+MtMoon_Cave_Text_BatemagicoAfter:
+	.string "BILL vive al norte de CELESTE.\p"
+	.string "Dile que busque datos biológicos\n"
+	.string "dentro de una onda mineral.$"
+
+MtMoon_Cave_Text_FossilTrace:
+	.string "El fósil tiene un corte demasiado\n"
+	.string "limpio para ser una fractura.\p"
+	.string "En la ranura queda polvo plateado\n"
+	.string "con forma de una M diminuta.$"
+
+MtMoon_Cave_Text_FossilAlreadyChecked:
+	.string "La ranura del fósil conserva\n"
+	.string "restos de polvo plateado.$"
+
+MtMoon_Cave_Text_FossilNormal:
+	.string "Un fósil antiguo descansa entre\n"
+	.string "las rocas de la montaña.$"
+
+MtMoon_Cave_Text_GeodudeTrace:
+	.string "GEODUDE tiembla a intervalos\n"
+	.string "perfectamente regulares.\p"
+	.string "El polvo de su cuerpo vibra con\n"
+	.string "la misma frecuencia que la cueva.$"
+
+MtMoon_Cave_Text_GeodudeAlreadyChecked:
+	.string "GEODUDE continúa temblando al\n"
+	.string "ritmo del pulso subterráneo.$"
+
+MtMoon_Cave_Text_GeodudeNormal:
+	.string "GEODUDE parece encantado con\n"
+	.string "las piedras que lo rodean.$"
+
+MtMoon_Cave_Text_AltarTrace:
+	.string "Alguien ha vaciado los surcos\n"
+	.string "circulares del viejo altar.\p"
+	.string "Las marcas recientes forman un\n"
+	.string "conector parecido a los de SILPH.$"
+
+MtMoon_Cave_Text_AltarAlreadyChecked:
+	.string "El altar conserva las marcas\n"
+	.string "de un conector arrancado.$"
+
+MtMoon_Cave_Text_QuestClefairy:
+	.string "CLEFAIRY canta muy bajito.\p"
+	.string "Ya no parece tener miedo.$"
