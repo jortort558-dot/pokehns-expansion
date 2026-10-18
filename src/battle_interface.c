@@ -3080,11 +3080,12 @@ static void UpdateLastUsedBallCountTiles(void)
     u8 text[5];
     u32 textLen = 0;
     u32 totalW;
-    u32 startX, startY;
+    u32 startX;
     u32 curX;
     u32 chIdx;
-    u32 x, y;
-    u8 *vramTiles;
+    u32 py, j;
+    static ALIGNED(4) EWRAM_DATA u8 sBallCountTileBuffer[3 * 32];
+    const u8 *srcTiles;
     static const u16 sFont3x5[11] = {
         0x7B6F, // 0
         0x749A, // 1
@@ -3102,7 +3103,6 @@ static void UpdateLastUsedBallCountTiles(void)
     if (tileStart == 0xFFFF)
         return;
 
-    vramTiles = (u8 *)(OBJ_VRAM0 + tileStart * 32);
     count = CountTotalItemQuantityInBag(gBallToDisplay);
     if (count > 999)
         count = 999;
@@ -3128,27 +3128,34 @@ static void UpdateLastUsedBallCountTiles(void)
         textLen = 3;
     }
 
-    // Reset rows y=41..45 to card background color (0xD) across inner card x=4..20
-    for (y = 41; y <= 45; y++)
+    // Copiar los 3 tiles base (tiles 20, 21, 22) de la tarjeta al búfer
+    srcTiles = (const u8 *)GetLastUsedBallWindowSpriteSheet().data;
+    for (j = 0; j < 3 * 32; j++)
+        sBallCountTileBuffer[j] = srcTiles[20 * 32 + j];
+
+    // Limpiar el fondo del área de números (color 0xD)
+    // Tile 0 (tile 20): px=4..7 para py=1..5
+    for (py = 1; py <= 5; py++)
     {
-        for (x = 4; x <= 20; x++)
-        {
-            u32 tx = x / 8;
-            u32 ty = y / 8;
-            u32 tileIdx = ty * 4 + tx;
-            u32 px = x % 8;
-            u32 py = y % 8;
-            u32 byteIdx = tileIdx * 32 + py * 4 + px / 2;
-            if (px % 2 == 0)
-                vramTiles[byteIdx] = (vramTiles[byteIdx] & 0xF0) | 0x0D;
-            else
-                vramTiles[byteIdx] = (vramTiles[byteIdx] & 0x0F) | (0x0D << 4);
-        }
+        sBallCountTileBuffer[0 * 32 + py * 4 + 2] = 0xDD;
+        sBallCountTileBuffer[0 * 32 + py * 4 + 3] = 0xDD;
+    }
+    // Tile 1 (tile 21): px=0..7 para py=1..5
+    for (py = 1; py <= 5; py++)
+    {
+        for (j = 0; j < 4; j++)
+            sBallCountTileBuffer[1 * 32 + py * 4 + j] = 0xDD;
+    }
+    // Tile 2 (tile 22): px=0..4 para py=1..5
+    for (py = 1; py <= 5; py++)
+    {
+        sBallCountTileBuffer[2 * 32 + py * 4 + 0] = 0xDD;
+        sBallCountTileBuffer[2 * 32 + py * 4 + 1] = 0xDD;
+        sBallCountTileBuffer[2 * 32 + py * 4 + 2] = (sBallCountTileBuffer[2 * 32 + py * 4 + 2] & 0xF0) | 0x0D;
     }
 
     totalW = textLen * 3 + (textLen - 1);
     startX = 12 - (totalW / 2);
-    startY = 41;
     curX = startX;
 
     for (chIdx = 0; chIdx < textLen; chIdx++)
@@ -3162,22 +3169,21 @@ static void UpdateLastUsedBallCountTiles(void)
                 if (glyph & (1 << (r * 3 + c)))
                 {
                     u32 pxCoord = curX + c;
-                    u32 pyCoord = startY + r;
-                    u32 tx = pxCoord / 8;
-                    u32 ty = pyCoord / 8;
-                    u32 tileIdx = ty * 4 + tx;
-                    u32 px = pxCoord % 8;
-                    u32 py = pyCoord % 8;
-                    u32 byteIdx = tileIdx * 32 + py * 4 + px / 2;
-                    if (px % 2 == 0)
-                        vramTiles[byteIdx] = (vramTiles[byteIdx] & 0xF0) | 0x0F;
+                    u32 pyCoord = 1 + r;
+                    u32 tIdx = pxCoord / 8;
+                    u32 tPx = pxCoord % 8;
+                    u32 byteIdx = tIdx * 32 + pyCoord * 4 + tPx / 2;
+                    if (tPx % 2 == 0)
+                        sBallCountTileBuffer[byteIdx] = (sBallCountTileBuffer[byteIdx] & 0xF0) | 0x0F;
                     else
-                        vramTiles[byteIdx] = (vramTiles[byteIdx] & 0x0F) | (0x0F << 4);
+                        sBallCountTileBuffer[byteIdx] = (sBallCountTileBuffer[byteIdx] & 0x0F) | (0x0F << 4);
                 }
             }
         }
         curX += 4;
     }
+
+    DmaCopy16(3, sBallCountTileBuffer, (void *)(OBJ_VRAM0 + (tileStart + 20) * 32), sizeof(sBallCountTileBuffer));
 }
 
 #define LAST_USED_BALL_X_F    14
@@ -3419,7 +3425,10 @@ void TryRestoreLastUsedBall(void)
         return;
 
     if (gBattleStruct->ballSpriteIds[0] != MAX_SPRITES)
+    {
         TryHideOrRestoreLastUsedBall(1);
+        UpdateLastUsedBallCountTiles();
+    }
     else
         TryAddLastUsedBallItemSprites();
 }
