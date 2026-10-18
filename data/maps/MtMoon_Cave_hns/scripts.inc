@@ -6,13 +6,29 @@ MtMoon_Cave_hns_MapScripts::
 
 MtMoon_Cave_OnTransition: 
 	callnative SetTimeBasedEncounters
+	setvar VAR_TEMP_C, 1
+	goto_if_unset FLAG_BATEMAGICO_MT_MOON_LEAD, MtMoon_Cave_OnTransition_End
+	goto_if_set FLAG_MT_MOON_ECHO_CHAMBER_INTRO, MtMoon_Cave_OnTransition_End
+	setvar VAR_TEMP_C, 0
+
+MtMoon_Cave_OnTransition_End:
 	end
 
 
 MtMoon_Cave_MapScript_OnFrame::
 	map_script_2 VAR_PEWTER_CITY_STATE, 0, MtMoon_Cave_EventScript_Silver
 	map_script_2 VAR_PEWTER_CITY_STATE, 1, MtMoon_Cave_EventScript_Silver
+	map_script_2 VAR_TEMP_C, 0, MtMoon_Cave_EventScript_EchoChamberIntro
 	.2byte 0
+
+MtMoon_Cave_EventScript_EchoChamberIntro::
+	setvar VAR_TEMP_C, 1
+	lock
+	special EnableGlasstownMessageBox
+	msgbox MtMoon_Cave_Text_EchoChamberIntro, MSGBOX_DEFAULT
+	setflag FLAG_MT_MOON_ECHO_CHAMBER_INTRO
+	release
+	end
 
 MtMoon_Cave_EventScript_Sign::
 	msgbox MtMoon_Cave_Text_Sign, MSGBOX_SIGN
@@ -118,3 +134,10 @@ MtMoon_Cave_Text_Rival_Loss:
 
 MtMoon_Cave_Text_Sign:
 	.string "PLAZA MT. MOON ->$"
+
+MtMoon_Cave_Text_EchoChamberIntro:
+	.string "El aire pesa de una forma extraña.\p"
+	.string "En algún lugar de la montaña,\n"
+	.string "una piedra responde a otra.\p"
+	.string "No se oye cantar a ningún\n"
+	.string "CLEFAIRY.$"

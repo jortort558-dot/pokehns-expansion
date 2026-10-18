@@ -6,10 +6,12 @@ PewterCity_hns_MapScripts::
 PewterCity_OnFrame::
 	map_script_2 VAR_TEMP_0, 2, PewterCity_EventScript_MuseumDuoFrontExit
 	map_script_2 VAR_TEMP_0, 3, PewterCity_EventScript_MuseumDuoSideExit
+	map_script_2 VAR_TEMP_0, 4, PewterCity_EventScript_BatemagicoPokegearCall
 	.2byte 0
 
 PewterCity_EventScript_CityEnter::
 	setvar VAR_TEMP_0, 1
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_NINJA_BOY
 	setflag FLAG_VISITED_PEWTER_CITY
 	goto_if_unset FLAG_PEWTER_MUSEUM_DANI_DEFEATED, PewterCity_EventScript_HideMuseumDuo
 	goto_if_set FLAG_PEWTER_MUSEUM_DUO_DEFEATED, PewterCity_EventScript_HideMuseumDuo
@@ -41,12 +43,18 @@ PewterCity_EventScript_ArmMuseumSideExit::
 PewterCity_EventScript_HideMuseumDuo::
 	setflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
 	setflag FLAG_HIDE_PEWTER_MUSEUM_PANDA
+	goto_if_unset FLAG_PEWTER_MUSEUM_DUO_DEFEATED, PewterCity_EventScript_HideMuseumDuoEnd
+	goto_if_set FLAG_BATEMAGICO_MT_MOON_LEAD, PewterCity_EventScript_HideMuseumDuoEnd
+	setvar VAR_TEMP_0, 4
+
+PewterCity_EventScript_HideMuseumDuoEnd::
 	end
 
 PewterCity_EventScript_MuseumDuoFrontExit::
 	goto_if_unset FLAG_PEWTER_MUSEUM_DANI_DEFEATED, PewterCity_EventScript_MuseumDuoNoScene
 	goto_if_set FLAG_PEWTER_MUSEUM_DUO_DEFEATED, PewterCity_EventScript_MuseumDuoNoScene
 	setvar VAR_TEMP_0, 1
+	setvar VAR_TEMP_3, 1
 	lockall
 	clearflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
 	clearflag FLAG_HIDE_PEWTER_MUSEUM_PANDA
@@ -70,6 +78,7 @@ PewterCity_EventScript_MuseumDuoSideExit::
 	goto_if_unset FLAG_PEWTER_MUSEUM_DANI_DEFEATED, PewterCity_EventScript_MuseumDuoNoScene
 	goto_if_set FLAG_PEWTER_MUSEUM_DUO_DEFEATED, PewterCity_EventScript_MuseumDuoNoScene
 	setvar VAR_TEMP_0, 1
+	setvar VAR_TEMP_3, 2
 	lockall
 	clearflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
 	clearflag FLAG_HIDE_PEWTER_MUSEUM_PANDA
@@ -95,6 +104,7 @@ PewterCity_EventScript_MuseumDuoNoScene::
 PewterCity_EventScript_ZortexPanda::
 	lockall
 	faceplayer
+	setvar VAR_TEMP_3, 1
 	goto PewterCity_EventScript_ZortexPandaChallenge
 
 PewterCity_EventScript_ZortexPandaChallenge::
@@ -118,7 +128,42 @@ PewterCity_EventScript_ZortexPandaDefeated::
 	setflag FLAG_HIDE_PEWTER_MUSEUM_PANDA
 	removeobject LOCALID_PEWTER_HNS_ZORTEX
 	removeobject LOCALID_PEWTER_HNS_PANDA
+	goto_if_eq VAR_TEMP_3, 2, PewterCity_EventScript_BatemagicoAppearsSide
+	setobjectxy LOCALID_PEWTER_HNS_ZORTEX, 17, 9
+	setobjectxyperm LOCALID_PEWTER_HNS_ZORTEX, 17, 9
+	goto PewterCity_EventScript_BatemagicoAppears
+
+PewterCity_EventScript_BatemagicoAppearsSide::
+	setobjectxy LOCALID_PEWTER_HNS_ZORTEX, 25, 7
+	setobjectxyperm LOCALID_PEWTER_HNS_ZORTEX, 25, 7
+
+PewterCity_EventScript_BatemagicoAppears::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_GYM_GUY_HNS
+	clearflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
+	addobject LOCALID_PEWTER_HNS_ZORTEX
+	playse SE_PIN
+	applymovement LOCALID_PEWTER_HNS_ZORTEX, Common_Movement_ExclamationMark
+	waitmovement LOCALID_PEWTER_HNS_ZORTEX
+	applymovement LOCALID_PEWTER_HNS_ZORTEX, PewterCity_Movement_BatemagicoApproaches
+	waitmovement LOCALID_PEWTER_HNS_ZORTEX
+	setspeaker SP_NAME_BATEMAGICO
+	msgbox PewterCity_Text_BatemagicoMuseumLead, MSGBOX_DEFAULT
+	setflag FLAG_BATEMAGICO_MT_MOON_LEAD
+	closemessage
+	setflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
+	removeobject LOCALID_PEWTER_HNS_ZORTEX
 	releaseall
+	end
+
+PewterCity_EventScript_BatemagicoPokegearCall::
+	setvar VAR_TEMP_0, 1
+	lock
+	setspeaker SP_NAME_BATEMAGICO
+	pokenavcall PewterCity_Text_BatemagicoMuseumCall
+	waitmessage
+	delay 30
+	setflag FLAG_BATEMAGICO_MT_MOON_LEAD
+	release
 	end
 
 PewterCity_Movement_ZortexApproachesFrontDoor:
@@ -135,6 +180,10 @@ PewterCity_Movement_ZortexApproachesSideDoor:
 
 PewterCity_Movement_PandaApproachesSideDoor:
 	walk_left
+	step_end
+
+PewterCity_Movement_BatemagicoApproaches:
+	walk_right
 	step_end
 
 PewterCity_EventScript_CooltrainerF::
@@ -219,6 +268,33 @@ PewterCity_Text_ZortexPandaEscape:
 PewterCity_Text_ZortexPandaAfter:
 	.string "Los dos ninjas vigilan la plaza\n"
 	.string "sin decir una palabra.$"
+
+PewterCity_Text_BatemagicoMuseumLead:
+	.string "¡Vaya, futuro campeón!\n"
+	.string "Siempre apareces donde hay lío.\p"
+	.string "He seguido a esos encapuchados\n"
+	.string "desde que comenzó el apagón.\p"
+	.string "No han robado una simple roca.\n"
+	.string "La muestra reaccionaba igual que\l"
+	.string "una PIEDRA LUNAR.\p"
+	.string "Si quieres encontrar a YAMI,\n"
+	.string "empieza por el MONTE MOON.\p"
+	.string "Busca la cámara donde los\n"
+	.string "CLEFAIRY han dejado de cantar.\p"
+	.string "Y si ves algo imposible…\n"
+	.string "no confíes demasiado en tus ojos.$"
+
+PewterCity_Text_BatemagicoMuseumCall:
+	.string "BATEMÁGICO: ¡Futuro campeón!\n"
+	.string "Me han contado lo del museo.\p"
+	.string "Esos ninjas no robaron una roca\n"
+	.string "corriente. La muestra reaccionaba\l"
+	.string "como una PIEDRA LUNAR.\p"
+	.string "Ve al MONTE MOON y busca una\n"
+	.string "cámara donde los CLEFAIRY hayan\l"
+	.string "dejado de cantar.\p"
+	.string "Si ves algo imposible, recuerda:\n"
+	.string "los ojos también saben mentir.$"
 
 PewterCity_Text_Gramps:
 	.string "Ah, ¿has venido desde JOHTO?\p"

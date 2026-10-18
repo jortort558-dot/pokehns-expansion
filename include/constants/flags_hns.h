@@ -1219,8 +1219,10 @@
 #define FLAG_HIDE_PEWTER_MUSEUM_ZORTEX              0x4B4
 #define FLAG_HIDE_PEWTER_MUSEUM_PANDA               0x4B5
 #define FLAG_POKEGEAR_SATURDAY_RESET_NOTICE         0x4B6
+#define FLAG_BATEMAGICO_MT_MOON_LEAD                0x4B7
+#define FLAG_MT_MOON_ECHO_CHAMBER_INTRO             0x4B8
 
-// 0x4B7–0x4FF remaining reserved for future expansion
+// 0x4B9–0x4FF remaining reserved for future expansion
 
 // Trainer registered (match call) flags — one per rematchable trainer
 #define TRAINER_REGISTERED_FLAGS_START               0x310
