@@ -1724,6 +1724,8 @@ static const u8 sText_FormCounterfeit[] = _("FRAUDULENTA");
 static const u8 sText_FormArtisan[] = _("ARTESANAL");
 static const u8 sText_FormUnremarkable[] = _("MEDIOCRIDAD");
 static const u8 sText_FormMasterpiece[] = _("OBRA MAESTRA");
+static const u8 sText_FormSingleStrike[] = _("ESTILO BRUSCO");
+static const u8 sText_FormRapidStrike[] = _("ESTILO FLUIDO");
 
 static const u8 *GetFormDescriptionName(u16 targetSpecies)
 {
@@ -1862,6 +1864,9 @@ static const u8 *GetFormDescriptionName(u16 targetSpecies)
     case SPECIES_POLTCHAGEIST_ARTISAN:    return sText_FormArtisan;
     case SPECIES_SINISTCHA_UNREMARKABLE:  return sText_FormUnremarkable;
     case SPECIES_SINISTCHA_MASTERPIECE:   return sText_FormMasterpiece;
+    // Urshifu
+    case SPECIES_URSHIFU_SINGLE_STRIKE:   return sText_FormSingleStrike;
+    case SPECIES_URSHIFU_RAPID_STRIKE:    return sText_FormRapidStrike;
     default:
         return GetSpeciesName(targetSpecies);
     }
@@ -1886,8 +1891,10 @@ void DoctoreFernan_CheckAndPrepareForms(void)
     u16 currentSpecies = GetMonData(mon, MON_DATA_SPECIES);
     GetMonNickname(mon, gStringVar1);
 
-    // Get table: either custom regional family table or species formSpeciesIdTable
+    // Get table: custom regional family, advanced metamorphosis (16 badges), or species formSpeciesIdTable
     const u16 *formTable = GetRegionalFamilyTable(currentSpecies);
+    if (formTable == NULL && GetKantoBadgeCount() >= 8)
+        formTable = GetAdvancedMetamorphosisTable(currentSpecies);
     if (formTable == NULL)
         formTable = GetSpeciesFormTable(currentSpecies);
 

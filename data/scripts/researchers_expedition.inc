@@ -550,3 +550,26 @@ Common_Text_PokegearSaturdayResetNotice:
 	.string "¡Aprovecha el sábado para capturar\n"
 	.string "nuevos compañeros de equipo!$"
 
+Common_EventScript_PokegearAdvancedMetamorphosisNotice::
+	lockall
+	setflag FLAG_POKEGEAR_ADVANCED_METAMORPHOSIS_NOTICE
+	playse SE_POKENAV_CALL
+	waitse
+	pokenavcall Common_Text_PokegearAdvancedMetamorphosisNotice
+	waitmessage
+	delay 30
+	releaseall
+	end
+
+Common_Text_PokegearAdvancedMetamorphosisNotice:
+	.string "¡Aviso del DOCTORE FERNAN!\p"
+	.string "¡Has reunido las 16 MEDALLAS!\n"
+	.string "Gracias a tu dominio como CAMPEÓN,\l"
+	.string "he perfeccionado mi máquina en\l"
+	.string "el CENTRO POKéMON de la ZONA\l"
+	.string "SAFARI.\p"
+	.string "¡Ahora puedo adaptar formas\n"
+	.string "complejas como OGERPON y URSHIFU!\p"
+	.string "¡Pásate por el CENTRO POKéMON de\n"
+	.string "la ZONA SAFARI cuando quieras!$"
+

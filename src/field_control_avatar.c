@@ -2,6 +2,7 @@
 #include "battle_setup.h"
 #include "bike.h"
 #include "bug_contest.h"
+#include "caps.h"
 #include "coord_event_weather.h"
 #include "daycare.h"
 #include "debug.h"
@@ -970,6 +971,11 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
     if (GetDayOfWeek() == WEEKDAY_SAT && !FlagGet(FLAG_POKEGEAR_SATURDAY_RESET_NOTICE) && FlagGet(FLAG_SYS_POKENAV_GET))
     {
         ScriptContext_SetupScript(Common_EventScript_PokegearSaturdayResetNotice);
+        return TRUE;
+    }
+    if (GetKantoBadgeCount() >= 8 && !FlagGet(FLAG_POKEGEAR_ADVANCED_METAMORPHOSIS_NOTICE) && FlagGet(FLAG_SYS_POKENAV_GET))
+    {
+        ScriptContext_SetupScript(Common_EventScript_PokegearAdvancedMetamorphosisNotice);
         return TRUE;
     }
     if (HnsUpdateRouteStepCounter())

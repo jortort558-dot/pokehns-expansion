@@ -53,6 +53,44 @@ static const u16 sRegionalFamily_ZIGZAGOON[] = { SPECIES_ZIGZAGOON, SPECIES_ZIGZ
 static const u16 sRegionalFamily_ZOROARK[] = { SPECIES_ZOROARK, SPECIES_ZOROARK_HISUI, FORM_SPECIES_END };
 static const u16 sRegionalFamily_ZORUA[] = { SPECIES_ZORUA, SPECIES_ZORUA_HISUI, FORM_SPECIES_END };
 
+// Metamorfosis Avanzada (desbloqueada tras obtener las 16 medallas)
+static const u16 sAdvancedFamily_CHARCADET_EVOS[] = { SPECIES_CERULEDGE, SPECIES_ARMAROUGE, FORM_SPECIES_END };
+static const u16 sAdvancedFamily_APPLIN_EVOS[] = { SPECIES_FLAPPLE, SPECIES_APPLETUN, SPECIES_DIPPLIN, FORM_SPECIES_END };
+static const u16 sAdvancedFamily_SLOW_EVOS[] = { SPECIES_SLOWBRO, SPECIES_SLOWBRO_GALAR, SPECIES_SLOWKING, SPECIES_SLOWKING_GALAR, FORM_SPECIES_END };
+static const u16 sAdvancedFamily_POLI_EVOS[] = { SPECIES_POLIWRATH, SPECIES_POLITOED, FORM_SPECIES_END };
+static const u16 sAdvancedFamily_ODDISH_EVOS[] = { SPECIES_VILEPLUME, SPECIES_BELLOSSOM, FORM_SPECIES_END };
+static const u16 sAdvancedFamily_URSHIFU[] = { SPECIES_URSHIFU_SINGLE_STRIKE, SPECIES_URSHIFU_RAPID_STRIKE, FORM_SPECIES_END };
+
+static const u16 *GetAdvancedMetamorphosisTable(u16 species)
+{
+    switch (species)
+    {
+    case SPECIES_CERULEDGE:
+    case SPECIES_ARMAROUGE:
+        return sAdvancedFamily_CHARCADET_EVOS;
+    case SPECIES_FLAPPLE:
+    case SPECIES_APPLETUN:
+    case SPECIES_DIPPLIN:
+        return sAdvancedFamily_APPLIN_EVOS;
+    case SPECIES_SLOWBRO:
+    case SPECIES_SLOWBRO_GALAR:
+    case SPECIES_SLOWKING:
+    case SPECIES_SLOWKING_GALAR:
+        return sAdvancedFamily_SLOW_EVOS;
+    case SPECIES_POLIWRATH:
+    case SPECIES_POLITOED:
+        return sAdvancedFamily_POLI_EVOS;
+    case SPECIES_VILEPLUME:
+    case SPECIES_BELLOSSOM:
+        return sAdvancedFamily_ODDISH_EVOS;
+    case SPECIES_URSHIFU_SINGLE_STRIKE:
+    case SPECIES_URSHIFU_RAPID_STRIKE:
+        return sAdvancedFamily_URSHIFU;
+    default:
+        return NULL;
+    }
+}
+
 static const u16 *GetRegionalFamilyTable(u16 species)
 {
     switch (species)
