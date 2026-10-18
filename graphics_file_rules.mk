@@ -234,6 +234,9 @@ $(FONTGFXDIR)/small.latfont: $(FONTGFXDIR)/latin_small.png
 $(FONTGFXDIR)/normal.latfont: $(FONTGFXDIR)/latin_normal.png
 	$(GFX) $< $@
 
+$(FONTGFXDIR)/glasstown.latfont: $(FONTGFXDIR)/latin_glasstown.png
+	$(GFX) $< $@
+
 $(FONTGFXDIR)/short.latfont: $(FONTGFXDIR)/latin_short.png
 	$(GFX) $< $@
 

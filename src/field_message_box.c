@@ -12,6 +12,7 @@
 static EWRAM_DATA u8 sFieldMessageBoxMode = 0;
 static EWRAM_DATA bool8 sCompactItemMessagePending = FALSE;
 static EWRAM_DATA bool8 sCompactItemMessageActive = FALSE;
+static EWRAM_DATA bool8 sGlasstownMessagePending = FALSE;
 EWRAM_DATA u8 gWalkAwayFromSignpostTimer = 0;
 
 static void ExpandStringAndStartDrawFieldMessage(const u8 *, bool32);
@@ -26,11 +27,17 @@ void InitFieldMessageBox(void)
     gTextFlags.forceMidTextSpeed = FALSE;
     sCompactItemMessagePending = FALSE;
     sCompactItemMessageActive = FALSE;
+    sGlasstownMessagePending = FALSE;
 }
 
 void EnableCompactItemMessageBox(void)
 {
     sCompactItemMessagePending = TRUE;
+}
+
+void EnableGlasstownMessageBox(void)
+{
+    sGlasstownMessagePending = TRUE;
 }
 
 static void RestoreStandardFieldMessageBox(void)
@@ -166,7 +173,17 @@ static void ExpandStringAndStartDrawFieldMessage(const u8 *str, bool32 allowSkip
             sCompactItemMessageActive = TRUE;
         }
     }
-    AddTextPrinterForMessage(allowSkippingDelayWithButtonPress);
+    if (sGlasstownMessagePending)
+    {
+        sGlasstownMessagePending = FALSE;
+        gTextFlags.canABSpeedUpPrint = allowSkippingDelayWithButtonPress;
+        AddTextPrinterParameterized2(0, FONT_GLASSTOWN, gStringVar4, GetPlayerTextSpeedDelay(), NULL,
+                                     TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+    }
+    else
+    {
+        AddTextPrinterForMessage(allowSkippingDelayWithButtonPress);
+    }
     CreateTask_DrawFieldMessage();
 }
 
@@ -182,6 +199,7 @@ void HideFieldMessageBox(void)
     ClearDialogWindowAndFrame(0, TRUE);
     DestroyNamebox();
     RestoreStandardFieldMessageBox();
+    sGlasstownMessagePending = FALSE;
     sFieldMessageBoxMode = FIELD_MESSAGE_BOX_HIDDEN;
 }
 

@@ -1,13 +1,41 @@
 PewterCity_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PewterCity_OnFrame
 	map_script MAP_SCRIPT_ON_TRANSITION, PewterCity_EventScript_CityEnter
 	.byte 0
 
+PewterCity_OnFrame::
+	map_script_2 VAR_TEMP_0, 2, PewterCity_EventScript_MuseumDuoFrontExit
+	map_script_2 VAR_TEMP_0, 3, PewterCity_EventScript_MuseumDuoSideExit
+	.2byte 0
+
 PewterCity_EventScript_CityEnter::
+	setvar VAR_TEMP_0, 1
 	setflag FLAG_VISITED_PEWTER_CITY
 	goto_if_unset FLAG_PEWTER_MUSEUM_DANI_DEFEATED, PewterCity_EventScript_HideMuseumDuo
 	goto_if_set FLAG_PEWTER_MUSEUM_DUO_DEFEATED, PewterCity_EventScript_HideMuseumDuo
 	clearflag FLAG_HIDE_PEWTER_MUSEUM_ZORTEX
 	clearflag FLAG_HIDE_PEWTER_MUSEUM_PANDA
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	goto_if_eq VAR_TEMP_1, 19, PewterCity_EventScript_CheckMuseumFrontExit
+	goto_if_eq VAR_TEMP_1, 27, PewterCity_EventScript_CheckMuseumSideExit
+	end
+
+PewterCity_EventScript_CheckMuseumFrontExit::
+	goto_if_eq VAR_TEMP_2, 8, PewterCity_EventScript_ArmMuseumFrontExit
+	goto_if_eq VAR_TEMP_2, 9, PewterCity_EventScript_ArmMuseumFrontExit
+	end
+
+PewterCity_EventScript_ArmMuseumFrontExit::
+	setvar VAR_TEMP_0, 2
+	end
+
+PewterCity_EventScript_CheckMuseumSideExit::
+	goto_if_eq VAR_TEMP_2, 6, PewterCity_EventScript_ArmMuseumSideExit
+	goto_if_eq VAR_TEMP_2, 7, PewterCity_EventScript_ArmMuseumSideExit
+	end
+
+PewterCity_EventScript_ArmMuseumSideExit::
+	setvar VAR_TEMP_0, 3
 	end
 
 PewterCity_EventScript_HideMuseumDuo::

@@ -22,6 +22,7 @@ static u16 RenderText(struct TextPrinter *);
 static u32 RenderFont(struct TextPrinter *);
 static u16 FontFunc_Small(struct TextPrinter *);
 static u16 FontFunc_Normal(struct TextPrinter *);
+static u16 FontFunc_Glasstown(struct TextPrinter *);
 static u16 FontFunc_Short(struct TextPrinter *);
 static u16 FontFunc_ShortCopy1(struct TextPrinter *);
 static u16 FontFunc_ShortCopy2(struct TextPrinter *);
@@ -34,6 +35,7 @@ static u16 FontFunc_ShortNarrow(struct TextPrinter *);
 static u16 FontFunc_ShortNarrower(struct TextPrinter *);
 static void DecompressGlyph_Small(u16, bool32);
 static void DecompressGlyph_Normal(u16, bool32);
+static void DecompressGlyph_Glasstown(u16, bool32);
 static void DecompressGlyph_Short(u16, bool32);
 static void DecompressGlyph_Narrow(u16, bool32);
 static void DecompressGlyph_SmallNarrow(u16, bool32);
@@ -44,6 +46,7 @@ static void DecompressGlyph_ShortNarrow(u16, bool32);
 static void DecompressGlyph_ShortNarrower(u16, bool32);
 static u32 GetGlyphWidth_Small(u16, bool32);
 static u32 GetGlyphWidth_Normal(u16, bool32);
+static u32 GetGlyphWidth_Glasstown(u16, bool32);
 static u32 GetGlyphWidth_Short(u16, bool32);
 static u32 GetGlyphWidth_Narrow(u16, bool32);
 static u32 GetGlyphWidth_SmallNarrow(u16, bool32);
@@ -76,6 +79,7 @@ static const struct GlyphWidthFunc sGlyphWidthFuncs[] =
 {
     { FONT_SMALL,          GetGlyphWidth_Small },
     { FONT_NORMAL,         GetGlyphWidth_Normal },
+    { FONT_GLASSTOWN,      GetGlyphWidth_Glasstown },
     { FONT_SHORT,          GetGlyphWidth_Short },
     { FONT_SHORT_COPY_1,   GetGlyphWidth_Short },
     { FONT_SHORT_COPY_2,   GetGlyphWidth_Short },
@@ -269,6 +273,17 @@ static const struct FontInfo sFontInfos[] =
         .color.accent = 1,
         .color.shadow = 3,
     },
+    [FONT_GLASSTOWN] = {
+        .fontFunction = FontFunc_Glasstown,
+        .maxLetterWidth = 10,
+        .maxLetterHeight = 15,
+        .letterSpacing = 0,
+        .lineSpacing = 0,
+        .color.foreground = 2,
+        .color.background = 1,
+        .color.accent = 1,
+        .color.shadow = 3,
+    },
 };
 
 static const u8 sMenuCursorDimensions[][2] =
@@ -287,6 +302,7 @@ static const u8 sMenuCursorDimensions[][2] =
     [FONT_SMALL_NARROWER] = { 8,   8 },
     [FONT_SHORT_NARROW]   = { 8,  14 },
     [FONT_SHORT_NARROWER] = { 8,  14 },
+    [FONT_GLASSTOWN]      = { 8,  15 },
 };
 
 // these three arrays are most for readability, ie instead of returning a magic number 8
@@ -1059,6 +1075,16 @@ static u16 FontFunc_Normal(struct TextPrinter *textPrinter)
     return RenderText(textPrinter);
 }
 
+static u16 FontFunc_Glasstown(struct TextPrinter *textPrinter)
+{
+    if (textPrinter->hasFontIdBeenSet == FALSE)
+    {
+        textPrinter->fontId = FONT_GLASSTOWN;
+        textPrinter->hasFontIdBeenSet = TRUE;
+    }
+    return RenderText(textPrinter);
+}
+
 static u16 FontFunc_Short(struct TextPrinter *textPrinter)
 {
     if (textPrinter->hasFontIdBeenSet == FALSE)
@@ -1584,6 +1610,9 @@ static u16 RenderText(struct TextPrinter *textPrinter)
             break;
         case FONT_NORMAL:
             DecompressGlyph_Normal(currChar, textPrinter->japanese);
+            break;
+        case FONT_GLASSTOWN:
+            DecompressGlyph_Glasstown(currChar, textPrinter->japanese);
             break;
         case FONT_SHORT:
         case FONT_SHORT_COPY_1:
@@ -2417,6 +2446,46 @@ static u32 GetGlyphWidth_Normal(u16 glyphId, bool32 isJapanese)
         return gFontNormalLatinGlyphWidths[glyphId];
 }
 
+static void DecompressGlyph_Glasstown(u16 glyphId, bool32 isJapanese)
+{
+    const u16 *glyphs;
+
+    if (isJapanese == TRUE)
+    {
+        DecompressGlyph_Normal(glyphId, TRUE);
+        return;
+    }
+
+    glyphs = gFontGlasstownLatinGlyphs + (0x20 * glyphId);
+    if (glyphId < 256)
+        gCurGlyph.width = gFontGlasstownLatinGlyphWidths[glyphId];
+    else
+        gCurGlyph.width = gFontNormalLatinGlyphWidths[glyphId];
+
+    if (gCurGlyph.width <= 8)
+    {
+        DecompressGlyphTile(glyphs, gCurGlyph.gfxBufferTop);
+        DecompressGlyphTile(glyphs + 0x10, gCurGlyph.gfxBufferBottom);
+    }
+    else
+    {
+        DecompressGlyphTile(glyphs, gCurGlyph.gfxBufferTop);
+        DecompressGlyphTile(glyphs + 0x8, gCurGlyph.gfxBufferTop + 8);
+        DecompressGlyphTile(glyphs + 0x10, gCurGlyph.gfxBufferBottom);
+        DecompressGlyphTile(glyphs + 0x18, gCurGlyph.gfxBufferBottom + 8);
+    }
+    gCurGlyph.height = 15;
+}
+
+static u32 GetGlyphWidth_Glasstown(u16 glyphId, bool32 isJapanese)
+{
+    if (isJapanese == TRUE)
+        return 8;
+    if (glyphId < 256)
+        return gFontGlasstownLatinGlyphWidths[glyphId];
+    return gFontNormalLatinGlyphWidths[glyphId];
+}
+
 static void DecompressGlyph_Bold(u16 glyphId)
 {
     const u16 *glyphs;
@@ -2616,6 +2685,7 @@ static const s8 sNarrowerFontIds[] =
     [FONT_SMALL_NARROWER] = -1,
     [FONT_SHORT_NARROW] = FONT_SHORT_NARROWER,
     [FONT_SHORT_NARROWER] = -1,
+    [FONT_GLASSTOWN] = -1,
 };
 
 // If the narrowest font ID doesn't fit the text, we still return that

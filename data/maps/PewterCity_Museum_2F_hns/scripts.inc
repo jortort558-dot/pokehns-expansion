@@ -56,6 +56,7 @@ PewterCity_Museum_2F_EventScript_Blackout::
 	waitse
 	delay 45
 	fadescreen FADE_FROM_BLACK
+	special EnableGlasstownMessageBox
 	msgbox PewterCity_Museum_2F_Text_Blackout, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_MUSEUM_2F_NERD, PewterCity_Museum_2F_Movement_NerdChecksExhibit
@@ -66,6 +67,7 @@ PewterCity_Museum_2F_EventScript_Blackout::
 	clearflag FLAG_HIDE_PEWTER_MUSEUM_JP
 	addobject LOCALID_MUSEUM_2F_JP
 	fadescreen FADE_FROM_BLACK
+	special EnableGlasstownMessageBox
 	msgbox PewterCity_Museum_2F_Text_LightsReturn, MSGBOX_DEFAULT
 	closemessage
 	releaseall
