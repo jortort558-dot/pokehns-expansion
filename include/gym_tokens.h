@@ -9,6 +9,8 @@ bool32 IsGymTokenModeActive(void);
 bool32 GymTokenCanTradeMon(struct BoxPokemon *boxMon);
 bool32 GymTokenCanReviveMon(struct BoxPokemon *boxMon);
 bool32 GiftMonCanTrade(struct BoxPokemon *boxMon);
+bool32 IsFossilSpecies(u16 species);
+u16 GetRandomSpeciesFossilSimilarFinalBst(u16 fossilSpecies);
 u16 GetRandomSpeciesSimilarBst(u16 baseSpecies);
 void CheckPlayerHasGiftMon(void);
 void UseGiftMonTrade(void);

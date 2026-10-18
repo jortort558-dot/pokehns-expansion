@@ -576,6 +576,156 @@ void UseSelectedGymTokenRetry(void)
     gSpecialVar_Result = 1;
 }
 
+static u16 GetFinalEvolutionSpecies(u16 species)
+{
+    u32 depth;
+    u16 current = species;
+
+    for (depth = 0; depth < 5; depth++)
+    {
+        const struct Evolution *evos = GetSpeciesEvolutions(current);
+        u16 next = SPECIES_NONE;
+        u32 i;
+
+        if (evos == NULL || evos[0].method == EVOLUTIONS_END)
+            break;
+
+        for (i = 0; evos[i].method != EVOLUTIONS_END; i++)
+        {
+            u16 target = evos[i].targetSpecies;
+            if (target != SPECIES_NONE && IsSpeciesEnabled(target)
+             && !gSpeciesInfo[target].isMegaEvolution
+             && !gSpeciesInfo[target].isPrimalReversion
+             && !gSpeciesInfo[target].isUltraBurst)
+            {
+                next = target;
+                break;
+            }
+        }
+
+        if (next == SPECIES_NONE || next == current)
+            break;
+
+        current = next;
+    }
+
+    return current;
+}
+
+bool32 IsFossilSpecies(u16 species)
+{
+    u16 base = species;
+    while (GetSpeciesPreEvolution(base) != SPECIES_NONE)
+        base = GetSpeciesPreEvolution(base);
+
+    switch (base)
+    {
+    case SPECIES_OMANYTE:
+    case SPECIES_KABUTO:
+    case SPECIES_AERODACTYL:
+    case SPECIES_LILEEP:
+    case SPECIES_ANORITH:
+    case SPECIES_CRANIDOS:
+    case SPECIES_SHIELDON:
+    case SPECIES_TIRTOUGA:
+    case SPECIES_ARCHEN:
+    case SPECIES_TYRUNT:
+    case SPECIES_AMAURA:
+    case SPECIES_DRACOZOLT:
+    case SPECIES_ARCTOZOLT:
+    case SPECIES_DRACOVISH:
+    case SPECIES_ARCTOVISH:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
+u16 GetRandomSpeciesFossilSimilarFinalBst(u16 fossilSpecies)
+{
+    u16 finalFossil = GetFinalEvolutionSpecies(fossilSpecies);
+    u16 targetFinalBst = GetBaseStatTotal(finalFossil);
+    s32 minBst = (s32)targetFinalBst - ((s32)targetFinalBst * 10 / 100);
+    s32 maxBst = (s32)targetFinalBst + ((s32)targetFinalBst * 10 / 100);
+    u16 eligibleCount = 0;
+    u16 selectedSpecies = fossilSpecies;
+    u16 species;
+    s32 maxDiff;
+
+    if (fossilSpecies == SPECIES_NONE)
+        return SPECIES_NONE;
+
+    // First pass: exact ±10% range of the final evolution's BST
+    for (species = 1; species < NUM_SPECIES; species++)
+    {
+        const struct SpeciesInfo *info = &gSpeciesInfo[species];
+        u16 finalCandidate;
+        s32 candidateFinalBst;
+
+        if (!IsSpeciesEnabled(species) || GET_BASE_SPECIES_ID(species) != species)
+            continue;
+        if (info->isRestrictedLegendary || info->isSubLegendary
+         || info->isMythical || info->isUltraBeast || info->isMegaEvolution
+         || info->isPrimalReversion || info->isUltraBurst)
+            continue;
+
+        // Must be a base stage (first form of its line)
+        if (GetSpeciesPreEvolution(species) != SPECIES_NONE)
+            continue;
+
+        finalCandidate = GetFinalEvolutionSpecies(species);
+        candidateFinalBst = (s32)GetBaseStatTotal(finalCandidate);
+
+        if (candidateFinalBst >= minBst && candidateFinalBst <= maxBst)
+        {
+            eligibleCount++;
+            if (Random() % eligibleCount == 0)
+                selectedSpecies = species;
+        }
+    }
+
+    if (eligibleCount > 0)
+        return selectedSpecies;
+
+    // Fallback: widen BST gap if strict ±10% had 0 candidates
+    for (maxDiff = 60; maxDiff <= 500; maxDiff += 40)
+    {
+        eligibleCount = 0;
+        for (species = 1; species < NUM_SPECIES; species++)
+        {
+            const struct SpeciesInfo *info = &gSpeciesInfo[species];
+            u16 finalCandidate;
+            s32 diff;
+
+            if (!IsSpeciesEnabled(species) || GET_BASE_SPECIES_ID(species) != species)
+                continue;
+            if (info->isRestrictedLegendary || info->isSubLegendary
+             || info->isMythical || info->isUltraBeast || info->isMegaEvolution
+             || info->isPrimalReversion || info->isUltraBurst)
+                continue;
+
+            if (GetSpeciesPreEvolution(species) != SPECIES_NONE)
+                continue;
+
+            finalCandidate = GetFinalEvolutionSpecies(species);
+            diff = (s32)GetBaseStatTotal(finalCandidate) - (s32)targetFinalBst;
+            if (diff < 0)
+                diff = -diff;
+
+            if (diff <= maxDiff)
+            {
+                eligibleCount++;
+                if (Random() % eligibleCount == 0)
+                    selectedSpecies = species;
+            }
+        }
+        if (eligibleCount > 0)
+            return selectedSpecies;
+    }
+
+    return selectedSpecies;
+}
+
 u16 GetRandomSpeciesSimilarBst(u16 baseSpecies)
 {
     u16 targetBst = GetBaseStatTotal(baseSpecies);
