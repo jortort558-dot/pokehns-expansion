@@ -3128,25 +3128,25 @@ static void UpdateLastUsedBallCountTiles(void)
         textLen = 3;
     }
 
-    // Copiar los 3 tiles base (tiles 20, 21, 22) de la tarjeta al búfer
+    // Copiar los 3 tiles base (tiles 24, 25, 26) de la tarjeta al búfer
     srcTiles = (const u8 *)GetLastUsedBallWindowSpriteSheet().data;
     for (j = 0; j < 3 * 32; j++)
-        sBallCountTileBuffer[j] = srcTiles[20 * 32 + j];
+        sBallCountTileBuffer[j] = srcTiles[24 * 32 + j];
 
     // Limpiar el fondo del área de números (color 0xD)
-    // Tile 0 (tile 20): px=4..7 para py=1..5
+    // Tile 0 (tile 24): px=4..7 para py=1..5
     for (py = 1; py <= 5; py++)
     {
         sBallCountTileBuffer[0 * 32 + py * 4 + 2] = 0xDD;
         sBallCountTileBuffer[0 * 32 + py * 4 + 3] = 0xDD;
     }
-    // Tile 1 (tile 21): px=0..7 para py=1..5
+    // Tile 1 (tile 25): px=0..7 para py=1..5
     for (py = 1; py <= 5; py++)
     {
         for (j = 0; j < 4; j++)
             sBallCountTileBuffer[1 * 32 + py * 4 + j] = 0xDD;
     }
-    // Tile 2 (tile 22): px=0..4 para py=1..5
+    // Tile 2 (tile 26): px=0..4 para py=1..5
     for (py = 1; py <= 5; py++)
     {
         sBallCountTileBuffer[2 * 32 + py * 4 + 0] = 0xDD;
@@ -3183,7 +3183,7 @@ static void UpdateLastUsedBallCountTiles(void)
         curX += 4;
     }
 
-    DmaCopy16(3, sBallCountTileBuffer, (void *)(OBJ_VRAM0 + (tileStart + 20) * 32), sizeof(sBallCountTileBuffer));
+    DmaCopy16(3, sBallCountTileBuffer, (void *)(OBJ_VRAM0 + (tileStart + 24) * 32), sizeof(sBallCountTileBuffer));
 }
 
 #define LAST_USED_BALL_X_F    14
