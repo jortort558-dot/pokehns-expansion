@@ -858,6 +858,12 @@ const u32 gObjectEventPic_Knekro_hns[] =
 const u16 gObjectEventPal_Knekro_hns[] =
     INCBIN_U16("graphics/object_events/palettes/knekro_hns.gbapal");
 
+const u32 gObjectEventPic_EntreAbby[] =
+    INCBIN_U32("graphics/object_events/pics/people/custom/entre_abby.4bpp");
+
+const u16 gObjectEventPal_EntreAbby[] =
+    INCBIN_U16("graphics/object_events/palettes/entre_abby.gbapal");
+
 
 // HnS protagonist sprite data
 const u32 gObjectEventPic_GoldNormalRunning_hns[] = INCBIN_U32("graphics/object_events/pics/people/gold/walking_hns.4bpp", "graphics/object_events/pics/people/gold/running_hns.4bpp");

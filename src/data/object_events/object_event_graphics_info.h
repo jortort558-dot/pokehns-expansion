@@ -7485,6 +7485,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AlolaOak_hns = {TA
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Knekro_hns = {TAG_NONE, OBJ_EVENT_PAL_TAG_KNEKRO_HNS, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 5, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_Knekro_hns, gDummySpriteAffineAnimTable};
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EntreAbby = {TAG_NONE, OBJ_EVENT_PAL_TAG_ENTRE_ABBY, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 5, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_EntreAbby, gDummySpriteAffineAnimTable};
+
 // HnS protagonist graphics info — Gold
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GoldNormal_hns = {
     .tileTag = TAG_NONE,

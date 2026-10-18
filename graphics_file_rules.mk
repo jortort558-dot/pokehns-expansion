@@ -27,6 +27,9 @@ TITLESCREENGFXDIR := graphics/title_screen
 graphics/object_events/pics/people/custom/knekro_hns.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+graphics/object_events/pics/people/custom/entre_abby.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 types := none normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark fairy stellar
 contest_types := cool beauty cute smart tough
 
