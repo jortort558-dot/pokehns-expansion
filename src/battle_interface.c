@@ -3073,6 +3073,113 @@ static const struct SpriteSheet sSpriteSheet_MoveInfoWindow =
     sMoveInfoWindowGfx, sizeof(sMoveInfoWindowGfx), MOVE_INFO_WINDOW_TAG
 };
 
+static void UpdateLastUsedBallCountTiles(void)
+{
+    u16 tileStart = GetSpriteTileStartByTag(TAG_LAST_BALL_WINDOW);
+    u16 count;
+    u8 text[5];
+    u32 textLen = 0;
+    u32 totalW;
+    u32 startX, startY;
+    u32 curX;
+    u32 chIdx;
+    u32 x, y;
+    u8 *vramTiles;
+    static const u16 sFont3x5[11] = {
+        0x7B6F, // 0
+        0x749A, // 1
+        0x73E7, // 2
+        0x79E7, // 3
+        0x49ED, // 4
+        0x79CF, // 5
+        0x7BCF, // 6
+        0x24A7, // 7
+        0x7BEF, // 8
+        0x79EF, // 9
+        0x0AA8  // x (index 10)
+    };
+
+    if (tileStart == 0xFFFF)
+        return;
+
+    vramTiles = (u8 *)(OBJ_VRAM0 + tileStart * 32);
+    count = CountTotalItemQuantityInBag(gBallToDisplay);
+    if (count > 999)
+        count = 999;
+
+    if (count < 10)
+    {
+        text[0] = 10; // 'x'
+        text[1] = count;
+        textLen = 2;
+    }
+    else if (count < 100)
+    {
+        text[0] = 10; // 'x'
+        text[1] = count / 10;
+        text[2] = count % 10;
+        textLen = 3;
+    }
+    else
+    {
+        text[0] = count / 100;
+        text[1] = (count / 10) % 10;
+        text[2] = count % 10;
+        textLen = 3;
+    }
+
+    // Reset rows y=41..45 to card background color (0xD) across inner card x=4..20
+    for (y = 41; y <= 45; y++)
+    {
+        for (x = 4; x <= 20; x++)
+        {
+            u32 tx = x / 8;
+            u32 ty = y / 8;
+            u32 tileIdx = ty * 4 + tx;
+            u32 px = x % 8;
+            u32 py = y % 8;
+            u32 byteIdx = tileIdx * 32 + py * 4 + px / 2;
+            if (px % 2 == 0)
+                vramTiles[byteIdx] = (vramTiles[byteIdx] & 0xF0) | 0x0D;
+            else
+                vramTiles[byteIdx] = (vramTiles[byteIdx] & 0x0F) | (0x0D << 4);
+        }
+    }
+
+    totalW = textLen * 3 + (textLen - 1);
+    startX = 12 - (totalW / 2);
+    startY = 41;
+    curX = startX;
+
+    for (chIdx = 0; chIdx < textLen; chIdx++)
+    {
+        u16 glyph = sFont3x5[text[chIdx]];
+        u32 r, c;
+        for (r = 0; r < 5; r++)
+        {
+            for (c = 0; c < 3; c++)
+            {
+                if (glyph & (1 << (r * 3 + c)))
+                {
+                    u32 pxCoord = curX + c;
+                    u32 pyCoord = startY + r;
+                    u32 tx = pxCoord / 8;
+                    u32 ty = pyCoord / 8;
+                    u32 tileIdx = ty * 4 + tx;
+                    u32 px = pxCoord % 8;
+                    u32 py = pyCoord % 8;
+                    u32 byteIdx = tileIdx * 32 + py * 4 + px / 2;
+                    if (px % 2 == 0)
+                        vramTiles[byteIdx] = (vramTiles[byteIdx] & 0xF0) | 0x0F;
+                    else
+                        vramTiles[byteIdx] = (vramTiles[byteIdx] & 0x0F) | (0x0F << 4);
+                }
+            }
+        }
+        curX += 4;
+    }
+}
+
 #define LAST_USED_BALL_X_F    14
 #define LAST_USED_BALL_X_0    -14
 #define LAST_USED_BALL_Y      ((IsDoubleBattle()) ? 78 : 68)
@@ -3159,6 +3266,7 @@ void TryAddLastUsedBallItemSprites(void)
     }
     if (B_LAST_USED_BALL_CYCLE == TRUE)
         ArrowsChangeColorLastBallCycle(0); //Default the arrows to be invisible
+    UpdateLastUsedBallCountTiles();
 }
 
 static void DestroyLastUsedBallWinGfx(struct Sprite *sprite)
@@ -3364,6 +3472,7 @@ static void Task_BounceBall(u8 taskId)
             gSprites[gBattleStruct->ballSpriteIds[0]].x = LAST_USED_BALL_X_F;
             gSprites[gBattleStruct->ballSpriteIds[0]].y = LAST_USED_BALL_Y_BNC;
             sprite = &gSprites[gBattleStruct->ballSpriteIds[0]];
+            UpdateLastUsedBallCountTiles();
             task->sState++;
         }  // Fallthrough
     case 3: // Bounce Down
