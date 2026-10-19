@@ -17,10 +17,10 @@ Alola_Melemele_Pokecenter_EventScript_Swimmer::
 	end
 
 Alola_Melemele_Pokecenter_Text_Swimmer:
-	.string "Ah, it's so hard to keep these\n"
-	.string "isles straight!\p"
-	.string "I always seem to mix them up!\p"
-	.string "Thank goodness for this map!$"
+	.string "¡Uf, qué difícil es acordarse de\n"
+	.string "dónde está cada isla!\p"
+	.string "¡Siempre las confundo!\p"
+	.string "¡Menos mal que tenemos este mapa!$"
 
 Alola_Melemele_Pokecenter_Map::
 	lockall
@@ -70,16 +70,16 @@ Alola_Melemele_Pokecenter_BugCatcher_Movement_0:
 	step_end
 
 Alola_Melemele_Pokecenter_AceTrainer_Text_0:
-	.string "There are so many unique POKéMON here!\n"
-	.string "I'm gonna catch 'em all!$"
+	.string "¡Hay muchísimos POKéMON únicos aquí!\n"
+	.string "¡Pienso hacerme con todos!$"
 
 Alola_Melemele_Pokecenter_BugCatcher_Text_0:
-	.string "I found some brand new POKéMON\n"
-	.string "here on the ISLES!\p"
-	.string "Like my new friend RATTATA here!$"
+	.string "¡Encontré POKéMON totalmente nuevos\n"
+	.string "aquí en las ISLAS!\p"
+	.string "¡Como mi nuevo amigo RATTATA!$"
 
 Alola_Melemele_Pokecenter_Grubbin_Text_0:
-	.string "Grrr!$"
+	.string "¡Grrr!$"
 
 
 @ Jessica's Paldean Tauros trade. Which Tauros she offers depends on the
@@ -153,20 +153,20 @@ Alola_Melemele_Pokecenter_Jessica_TradeCompleted::
 	end
 
 Alola_Melemele_Pokecenter_Jessica_Text_WantToTrade:
-	.string "The {STR_VAR_2} out here aren't like\n"
-	.string "the ones on the mainland.\p"
-	.string "Want to trade for my {STR_VAR_2}?$"
+	.string "Los {STR_VAR_2} de aquí no son\n"
+	.string "como los de tierra firme.\p"
+	.string "¿Me cambias tu {STR_VAR_2}?$"
 
 Alola_Melemele_Pokecenter_Jessica_Text_TakeCare:
-	.string "Thanks!\n"
-	.string "TORY, you take care!$"
+	.string "¡Muchas gracias!\n"
+	.string "¡TORY, cuídate mucho!$"
 
 Alola_Melemele_Pokecenter_Jessica_Text_DeclineTrade:
-	.string "You don't want to trade? Aww...$"
+	.string "¿No te apetece cambiar? Qué pena…$"
 
 Alola_Melemele_Pokecenter_Jessica_Text_TradeCompleted:
-	.string "Hi, how's my old TORY doing?$"
+	.string "Hola, ¿qué tal le va a mi viejo TORY?$"
 
 Alola_Melemele_Pokecenter_Map_Text_0:
-	.string "{PLAYER} took a closer look at the\n"
-	.string "ALOLA ISLES map.$"
+	.string "{PLAYER} echó un vistazo de cerca al\n"
+	.string "mapa de las ISLAS ALOLA.$"

@@ -19,16 +19,16 @@ Melemele_House6_GameboyKid::
 
 
 Melemele_House6_Hiker_Text_0:
-	.string "I bought this place so that my son\n"
-	.string "and I could explore the outdoors…\p"
-	.string "All he wants to do is play on that\n"
-	.string "Game Boy Advance.$"
+	.string "Compré esta casa para que mi hijo\n"
+	.string "y yo disfrutáramos del aire libre…\p"
+	.string "¡Pero no suelta esa Game Boy\n"
+	.string "Advance ni para comer!$"
 
 Melemele_House6_GameboyKid_Text_0:
-	.string "I have a game on my Game Boy Advance\n"
-	.string "that lets me explore the ALOLA Region!\p"
-	.string "It's just like the real thing.\p"
-	.string "It's called ULTRA ECLIPSE,\n"
-	.string "by PHANTONOMY!\p"
-	.string "Haha, look!\n"
-	.string "I'm riding an icy NOIVERN!$"
+	.string "¡Tengo un juego en mi Game Boy\n"
+	.string "Advance para explorar ALOLA!\p"
+	.string "Es clavadito a la realidad.\p"
+	.string "¡Se llama ULTRA ECLIPSE,\n"
+	.string "creado por PHANTONOMY!\p"
+	.string "¡Mira, mira!\n"
+	.string "¡Voy montado en un NOIVERN gélido!$"

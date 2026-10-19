@@ -340,47 +340,47 @@ VermilionCity_Text_TheShipSetSail::
 	.string "The ship set sail.$"
 
 VermilionCity_Text_BoardSeagallopTriPass::
-	.string "Ah, you have a TRI-PASS.\p"
-	.string "Would you like to board\n"
-	.string "a SEAGALLOP ferry?$"
+	.string "Ah, tienes un TRIA-TICKET.\p"
+	.string "¿Te gustaría subir a bordo\n"
+	.string "del ferry IMPULSO?$"
 
 VermilionCity_Text_Seagallop7Departing::
-	.string "Okay, everything's in order.\p"
-	.string "SEAGALLOP HI-SPEED 7 will be\n"
-	.string "departing immediately.$"
+	.string "Todo en orden.\p"
+	.string "El ferry VELOZ IMPULSO 7 zarpará\n"
+	.string "de inmediato.$"
 
 VermilionCity_Text_BoardSeagallopRainbowPass::
-	.string "Ah, you have a RAINBOW PASS.\p"
-	.string "Would you like to board\n"
-	.string "a SEAGALLOP ferry?$"
+	.string "Ah, tienes un IRIS-TICKET.\p"
+	.string "¿Te gustaría subir a bordo\n"
+	.string "del ferry IMPULSO?$"
 
 VermilionCity_Text_OhMysticTicketTakeYouToNavelRock::
-	.string "Oh! That's a MYSTICTICKET!\n"
-	.string "Now that is rare.\p"
-	.string "We'll be happy to take you to\n"
-	.string "NAVEL ROCK anytime.$"
+	.string "¡Oh! ¡Ese es el ORI-TICKET!\n"
+	.string "Qué pieza tan rara.\p"
+	.string "Será un placer llevarte a\n"
+	.string "ROCA OMBLIGO cuando quieras.$"
 
 VermilionCity_Text_OhAuroraTicketTakeYouToBirthIsland::
-	.string "Oh! That's an AURORATICKET!\n"
-	.string "Now that is rare.\p"
-	.string "We'll be happy to take you to\n"
-	.string "BIRTH ISLAND anytime.$"
+	.string "¡Oh! ¡Ese es el TIQUEAURORA!\n"
+	.string "Qué pieza tan rara.\p"
+	.string "Será un placer llevarte a\n"
+	.string "ISLA ORIGEN cuando quieras.$"
 
 VermilionCity_Text_BoardSeagallopFerry::
-	.string "Would you like to board\n"
-	.string "a SEAGALLOP ferry?$"
+	.string "¿Te gustaría subir a bordo\n"
+	.string "del ferry IMPULSO?$"
 
 VermilionCity_Text_Seagallop10Departing::
-	.string "Okay, everything's in order for you\n"
-	.string "to board a special ferry.\p"
-	.string "SEAGALLOP HI-SPEED 10 will be\n"
-	.string "departing immediately.$"
+	.string "Todo listo para embarcar en el\n"
+	.string "ferry especial.\p"
+	.string "El ferry VELOZ IMPULSO 10 zarpará\n"
+	.string "de inmediato.$"
 
 VermilionCity_Text_Seagallop12Departing::
-	.string "Okay, everything's in order for you\n"
-	.string "to board a special ferry.\p"
-	.string "SEAGALLOP HI-SPEED 12 will be\n"
-	.string "departing immediately.$"
+	.string "Todo listo para embarcar en el\n"
+	.string "ferry especial.\p"
+	.string "El ferry VELOZ IMPULSO 12 zarpará\n"
+	.string "de inmediato.$"
 
 VermilionCity_Text_Route2AideHasPackageForYou::
 	.string "Oh, hello, {PLAYER}!\n"

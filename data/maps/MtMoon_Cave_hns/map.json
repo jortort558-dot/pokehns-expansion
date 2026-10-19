@@ -30,7 +30,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MON_BASE+SPECIES_GEODUDE",
-      "x": 14,
+      "x": 17,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -84,7 +84,7 @@
     {
       "local_id": "LOCALID_MTMOON_QUEST_FOSSIL",
       "graphics_id": "OBJ_EVENT_GFX_FOSSIL_HNS",
-      "x": 17,
+      "x": 18,
       "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -99,7 +99,7 @@
       "local_id": "LOCALID_MTMOON_BATEMAGICO",
       "graphics_id": "OBJ_EVENT_GFX_VAR_1",
       "x": 16,
-      "y": 6,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_LEFT",
       "movement_range_x": 0,

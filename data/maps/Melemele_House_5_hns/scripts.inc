@@ -42,16 +42,16 @@ Melemele_House5_Son_Movement:
 	step_end
 
 Melemele_House5_Mom_Text_0:
-	.string "I'm thinking of moving to the ALOLA\n"
-	.string "region with my son, ELIO.\p"
-	.string "We're just getting a little taste here\n"
-	.string "on the ISLES!$"
+	.string "Estoy pensando en mudarme a ALOLA\n"
+	.string "con mi hijo, ELIO.\p"
+	.string "¡De momento estamos probando el\n"
+	.string "ambiente aquí en las ISLAS!$"
 
 Melemele_House5_Son_Text_0:
-	.string "Hehe... tag is so fun!$"
+	.string "Je, je… ¡jugar al pilla-pilla mola!$"
 
 Melemele_House5_Son_Text_1:
-	.string "Try to catch me MEOWTH!$"
+	.string "¡A ver si me pillas, MEOWTH!$"
 
 Melemele_House5_Cat_Text_0:
-	.string "Mwaaawwwrrrrrrrr!!!$"
+	.string "¡Miaaauuuurrrrrr!$"

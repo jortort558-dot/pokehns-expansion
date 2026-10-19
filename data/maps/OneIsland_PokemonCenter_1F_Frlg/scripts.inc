@@ -631,15 +631,15 @@ OneIsland_PokemonCenter_1F_Text_AcceptedMeteoriteFromBill::
 	.string "from BILL.$"
 
 OneIsland_PokemonCenter_1F_Text_CelioPleaseTakeThis::
-	.string "CELIO: {PLAYER}, if you are going\n"
-	.string "to TWO ISLAND, please take this.$"
+	.string "CELIO: {PLAYER}, si vas a ir a\n"
+	.string "ISLA SECUNDA, toma esto, por favor.$"
 
 OneIsland_PokemonCenter_1F_Text_PassLetsYouTravelBetweenIslands::
-	.string "It's a PASS for the ferry service\n"
-	.string "serving the local islands.\p"
-	.string "It will let you travel between the\n"
-	.string "ISLANDS ONE, TWO, and THREE.\p"
-	.string "Oh, you should have this, too.$"
+	.string "Es un PASE para el servicio de\n"
+	.string "ferry que conecta estas islas.\p"
+	.string "Te permitirá viajar libremente entre\n"
+	.string "las ISLAS PRIMA, SECUNDA y TERA.\p"
+	.string "Ah, toma esto también.$"
 
 OneIsland_PokemonCenter_1F_Text_ReceivedExtraPageForTownMap::
 	.string "{PLAYER} received an extra page\n"
@@ -790,12 +790,12 @@ OneIsland_PokemonCenter_1F_Text_AnotherGemstoneInSeviiIslands::
 	.string "PASS and the TOWN MAP?$"
 
 OneIsland_PokemonCenter_1F_Text_ReturnedTriPassForRainbowPass::
-	.string "{PLAYER} returned the TRI-PASS and\n"
-	.string "received the RAINBOW PASS.$"
+	.string "{PLAYER} devolvió el TRIA-TICKET\n"
+	.string "y recibió el IRIS-TICKET.$"
 
 OneIsland_PokemonCenter_1F_Text_ObtainedExtraMapPage::
-	.string "Obtained an extra page for the\n"
-	.string "TOWN MAP!$"
+	.string "¡Se ha añadido una página más\n"
+	.string "al MAPA!$"
 
 OneIsland_PokemonCenter_1F_Text_PassLetYouGetToAllIslands::
 	.string "This is my own ferry PASS.\p"
@@ -917,5 +917,5 @@ OneIsland_PokemonCenter_1F_Text_MachineLinkedWithKantoAndHoenn::
 	.string "and HOENN regions.$"
 
 OneIsland_PokemonCenter_1F_Text_ObtainedTriPass::
-	.string "Obtained the TRI-PASS!$"
+	.string "¡Has obtenido el TRIA-TICKET!$"
 
