@@ -760,3 +760,4 @@ gSpecials::
 	def_special DoctoreFernan_ShowPreview
 	def_special DoctoreFernan_HidePreview
 	def_special CheckAndResetSaturdayWeeklyCaptures
+	def_special Script_GiveRandomLegendaryEgg

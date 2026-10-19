@@ -1396,6 +1396,7 @@ static bool32 IsThreeStageStarter(u16 species)
 static u16 ChooseRandomForm(struct Sfc32State *state, const u16 baseSpecies);
 static u16 ChooseFormSpecial(struct Sfc32State *state, const u16 baseSpecies);
 static u16 RandomizeStaticMonSimilarBst(u16 originalSpecies, struct Sfc32State *state);
+static bool32 IsSpeciesValidForWildRandomizer(u16 species);
 
 void GetUniqueMonList(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, u32 seed1, u16 seed2, u8 count, const u16 *originalSpecies, u16 *resultSpecies)
 {
@@ -1668,7 +1669,7 @@ static bool32 IsCoverLegendary(u16 species)
     return FALSE;
 }
 
-static bool32 IsTrueStaticLegendary(u16 species)
+bool32 IsTrueStaticLegendary(u16 species)
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[species];
     if (info->isMythical || info->isUltraBeast)
@@ -1678,6 +1679,28 @@ static bool32 IsTrueStaticLegendary(u16 species)
     if ((info->isSubLegendary || info->isRestrictedLegendary) && GetSpeciesBST(species) >= 570)
         return TRUE;
     return FALSE;
+}
+
+u16 GetRandomTrueLegendarySpecies(void)
+{
+    u16 species;
+    u16 selected = SPECIES_LUGIA;
+    u16 eligibleCount = 0;
+
+    for (species = 1; species < RANDOMIZER_SPECIES_COUNT; species++)
+    {
+        if (!IsSpeciesValidForWildRandomizer(species))
+            continue;
+
+        if (IsTrueStaticLegendary(species))
+        {
+            eligibleCount++;
+            if (Random() % eligibleCount == 0)
+                selected = species;
+        }
+    }
+
+    return selected;
 }
 
 static bool32 IsFinalPseudoLegendary(u16 species)

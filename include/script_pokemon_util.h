@@ -32,5 +32,6 @@ void DoctoreFernan_CheckAndPrepareForms(void);
 void DoctoreFernan_ApplyFormChange(void);
 void DoctoreFernan_ShowPreview(void);
 void DoctoreFernan_HidePreview(void);
+void Script_GiveRandomLegendaryEgg(void);
 
 #endif // GUARD_SCRIPT_POKEMON_UTIL_H

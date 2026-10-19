@@ -2015,3 +2015,25 @@ void DoctoreFernan_ApplyFormChange(void)
     gSpecialVar_Result = TRUE;
 }
 
+void Script_GiveRandomLegendaryEgg(void)
+{
+    struct Pokemon mon;
+    u8 isEgg;
+    u16 species = GetRandomTrueLegendarySpecies();
+
+    CreateEgg(&mon, species, TRUE);
+    isEgg = TRUE;
+    SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
+
+    if (GetMaxPartySize() == 1)
+    {
+        SetMonData(&mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+        SetMonData(&mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+        SetMonData(&mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
+        gSpecialVar_Result = CopyMonToPC(&mon);
+        return;
+    }
+
+    gSpecialVar_Result = GiveCapturedMonToPlayer(&mon);
+}
+

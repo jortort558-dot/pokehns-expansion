@@ -204,6 +204,9 @@ static inline bool32 GroupSetsIntersect(struct RandomizerGroupSet* originalCache
 // Gen 1-3 family. Also used to scope the One Type Challenge starter pool.
 bool32 IsSpeciesInGenScope(u16 species);
 
+bool32 IsTrueStaticLegendary(u16 species);
+u16 GetRandomTrueLegendarySpecies(void);
+
 #if RANDOMIZER_DYNAMIC_SPECIES
 void PreloadRandomizationTables(void);
 #endif

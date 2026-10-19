@@ -1153,7 +1153,7 @@
 #define FLAG_BATTLED_EXEGGUTOR                          (HNS_EXTENDED_CONTENT_START + 267) // used for progression if battled exeggutor at all
 #define FLAG_HIDE_SAMSONOAK_INTRO                       (HNS_EXTENDED_CONTENT_START + 268) // hides the samson oak intro object
 #define FLAG_CAUGHT_PALOSSAND                           (HNS_EXTENDED_CONTENT_START + 269) // hide palossand if caught or defeated
-#define FLAG_EXTENDED_CONTENT_270                          (HNS_EXTENDED_CONTENT_START + 270)
+#define FLAG_REWARD_ATLAS_COMPLETED                     (HNS_EXTENDED_CONTENT_START + 270)
 #define FLAG_HIDE_SANDSLASH_ALOLA                     (HNS_EXTENDED_CONTENT_START + 271) // hide alolan sandslash if caught or defeated
 #define FLAG_HIDE_NINETALES_ALOLA                     (HNS_EXTENDED_CONTENT_START + 272) // hide alolan ninetales if caught or defeated
 #define FLAG_HIDE_MUK_ALOLA                           (HNS_EXTENDED_CONTENT_START + 273) // hide alolan muk if caught or defeated

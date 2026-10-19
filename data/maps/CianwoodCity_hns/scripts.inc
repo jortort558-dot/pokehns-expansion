@@ -85,9 +85,51 @@ CianwoodCity_EventScript_SecretSageAfterOrigin::
 	end
 
 CianwoodCity_EventScript_SecretSageAfterPapis::
-	msgbox CianwoodCity_Text_SecretSageAfterPapis, MSGBOX_DEFAULT
+	goto_if_set FLAG_REWARD_ATLAS_COMPLETED, CianwoodCity_EventScript_SecretSageAtlasCompleted
+	msgbox CianwoodCity_Text_SecretSageAfterPapisIntro, MSGBOX_DEFAULT
+	checkitemspace ITEM_TUFILLO_JUNIOR, 1
+	goto_if_eq VAR_RESULT, FALSE, CianwoodCity_EventScript_SecretSageNoBagSpace
+	checkitemspace ITEM_MASTER_BALL, 1
+	goto_if_eq VAR_RESULT, FALSE, CianwoodCity_EventScript_SecretSageNoBagSpace
+	specialvar VAR_0x8004, GetMaxPartySize
+	goto_if_eq VAR_0x8004, 1, CianwoodCity_EventScript_SecretSageGiveRewards
+	getpartysize
+	goto_if_eq VAR_RESULT, VAR_0x8004, CianwoodCity_EventScript_SecretSageNoPartySpace
+CianwoodCity_EventScript_SecretSageGiveRewards::
+	giveitem ITEM_TUFILLO_JUNIOR, 1
+	giveitem ITEM_MASTER_BALL, 1
+	msgbox CianwoodCity_Text_SecretSageGiveEgg, MSGBOX_DEFAULT
+	closemessage
+	playfanfare MUS_HG_OBTAIN_EGG
+	message LavaridgeTown_Text_ReceivedTheEgg
+	waitfanfare
+	special Script_GiveRandomLegendaryEgg
+	goto_if_eq VAR_RESULT, MON_CANT_GIVE, Common_EventScript_NoMoreRoomForPokemon
+	call_if_eq VAR_RESULT, MON_GIVEN_TO_PC, CianwoodCity_EventScript_SecretSageEggToPC
+	setflag FLAG_REWARD_ATLAS_COMPLETED
+	msgbox CianwoodCity_Text_SecretSageAtlasFinalWords, MSGBOX_DEFAULT
 	release
 	end
+
+CianwoodCity_EventScript_SecretSageAtlasCompleted::
+	msgbox CianwoodCity_Text_SecretSageAtlasFinalWords, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_SecretSageNoBagSpace::
+	msgbox CianwoodCity_Text_SecretSageNoBagSpace, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_SecretSageNoPartySpace::
+	msgbox CianwoodCity_Text_SecretSageNoPartySpace, MSGBOX_DEFAULT
+	release
+	end
+
+CianwoodCity_EventScript_SecretSageEggToPC::
+	msgbox VioletCity_PokeCenter_Text_ElmsAideEggToPC, MSGBOX_DEFAULT
+	closemessage
+	return
 
 CianwoodCity_Text_SecretSageTide:
 	.string "La primera voz aguarda bajo las\n"
@@ -139,13 +181,35 @@ CianwoodCity_Text_SecretSageAfterOrigin:
 	.string "¡No dejes que usurpen la gracia\n"
 	.string "del ATLAS ANCESTRAL!$"
 
-CianwoodCity_Text_SecretSageAfterPapis:
+CianwoodCity_Text_SecretSageAfterPapisIntro:
 	.string "¡Increíble! Has derrotado a\n"
-	.string "GIUSEPPE y PILARITO en duelo.\p"
-	.string "El ATLAS y el alma de ambas\n"
-	.string "regiones resplandecen por ti.\p"
-	.string "Tu nombre quedará grabado para la\n"
-	.string "eternidad entre las leyendas.$"
+	.string "GIUSEPPE y PILARITO en la cumbre.\p"
+	.string "El ATLAS ANCESTRAL y el alma de\n"
+	.string "ambas regiones brillan por ti.\p"
+	.string "Como custodio del equilibrio,\n"
+	.string "deseo hacerte entrega de las\l"
+	.string "recompensas más sagradas.$"
+
+CianwoodCity_Text_SecretSageGiveEgg:
+	.string "Y por último, custodia este\n"
+	.string "HUEVO. En su interior duerme la\l"
+	.string "esencia de un POKéMON legendario.$"
+
+CianwoodCity_Text_SecretSageAtlasFinalWords:
+	.string "Tu proeza resonará a lo largo de\n"
+	.string "las eras. ¡Que la armonía del\l"
+	.string "ATLAS guíe siempre tu camino!$"
+
+CianwoodCity_Text_SecretSageNoBagSpace:
+	.string "No tienes suficiente espacio en tu\n"
+	.string "MOCHILA para recibir los dones.\p"
+	.string "Haz hueco y habla conmigo de nuevo.$"
+
+CianwoodCity_Text_SecretSageNoPartySpace:
+	.string "Llevas el equipo lleno y no puedes\n"
+	.string "recibir el sagrado HUEVO.\p"
+	.string "Haz un hueco en tu equipo POKéMON\n"
+	.string "y regresa a hablar conmigo.$"
 
 
 
