@@ -72,7 +72,7 @@ MtSilver_Outside_EventScript_SceneLosPapis::
 	removeobject 15
 	removeobject 16
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_GENTLEMAN_HNS
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_YOUNGSTER_HNS
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_WOMAN_1_HNS
 	addobject 15
 	addobject 16
 	fadescreen FADE_FROM_BLACK
