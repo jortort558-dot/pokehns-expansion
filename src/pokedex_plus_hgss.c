@@ -397,7 +397,10 @@ struct FromScreenData
 
 struct PokedexView
 {
-    struct PokedexListItem pokedexList[OBTAINABLE_DEX_COUNT + 1];
+    // The randomizer can expose species outside HnS's curated obtainable dex.
+    // Keep enough room for every national entry so those species remain
+    // searchable and navigable once seen.
+    struct PokedexListItem pokedexList[NATIONAL_DEX_COUNT + 1];
     u16 pokemonListCount;
     u16 selectedPokemon;
     u16 selectedPokemonBackup;
@@ -2064,15 +2067,15 @@ static void ResetPokedexView(struct PokedexView *pokedexView)
 {
     u16 i;
 
-    for (i = 0; i < OBTAINABLE_DEX_COUNT; i++)
+    for (i = 0; i < NATIONAL_DEX_COUNT; i++)
     {
         pokedexView->pokedexList[i].dexNum = 0xFFFF;
         pokedexView->pokedexList[i].seen = FALSE;
         pokedexView->pokedexList[i].owned = FALSE;
     }
-    pokedexView->pokedexList[OBTAINABLE_DEX_COUNT].dexNum = 0;
-    pokedexView->pokedexList[OBTAINABLE_DEX_COUNT].seen = FALSE;
-    pokedexView->pokedexList[OBTAINABLE_DEX_COUNT].owned = FALSE;
+    pokedexView->pokedexList[NATIONAL_DEX_COUNT].dexNum = 0;
+    pokedexView->pokedexList[NATIONAL_DEX_COUNT].seen = FALSE;
+    pokedexView->pokedexList[NATIONAL_DEX_COUNT].owned = FALSE;
     pokedexView->pokemonListCount = 0;
     pokedexView->selectedPokemon = 0;
     pokedexView->selectedPokemonBackup = 0;
@@ -2497,7 +2500,7 @@ static void CreatePokedexList(u8 dexMode, u8 order)
     case DEX_MODE_NATIONAL:
         if (IsNationalPokedexEnabled())
         {
-            temp_dexCount = OBTAINABLE_DEX_COUNT;
+            temp_dexCount = NATIONAL_DEX_COUNT;
             temp_isHoennDex = FALSE;
         }
         else
@@ -2527,7 +2530,7 @@ static void CreatePokedexList(u8 dexMode, u8 order)
         {
             for (i = 0; i < temp_dexCount; i++)
             {
-                temp_dexNum = ObtainableToNationalOrder(i + 1);
+                temp_dexNum = i + 1;
                 sPokedexView->pokedexList[i].dexNum = temp_dexNum;
                 sPokedexView->pokedexList[i].seen = GetSetPokedexFlag(temp_dexNum, FLAG_GET_SEEN);
                 sPokedexView->pokedexList[i].owned = GetSetPokedexFlag(temp_dexNum, FLAG_GET_CAUGHT);
@@ -2608,7 +2611,7 @@ static void CreatePokedexList(u8 dexMode, u8 order)
         break;
     }
 
-    for (i = sPokedexView->pokemonListCount; i < OBTAINABLE_DEX_COUNT; i++)
+    for (i = sPokedexView->pokemonListCount; i < NATIONAL_DEX_COUNT; i++)
     {
         sPokedexView->pokedexList[i].dexNum = 0xFFFF;
         sPokedexView->pokedexList[i].seen = FALSE;
@@ -2651,7 +2654,7 @@ static void CreateMonListEntry(u8 position, u16 b, u16 ignored)
         entryNum = b - 5;
         for (i = 0; i <= 10; i++)
         {
-            if (entryNum < 0 || entryNum >= OBTAINABLE_DEX_COUNT || sPokedexView->pokedexList[entryNum].dexNum == 0xFFFF)
+            if (entryNum < 0 || entryNum >= NATIONAL_DEX_COUNT || sPokedexView->pokedexList[entryNum].dexNum == 0xFFFF)
             {
                 ClearMonListEntry(MON_LIST_X, i * 2, ignored);
             }
@@ -2676,7 +2679,7 @@ static void CreateMonListEntry(u8 position, u16 b, u16 ignored)
         break;
     case 1: // Up
         entryNum = b - 5;
-        if (entryNum < 0 || entryNum >= OBTAINABLE_DEX_COUNT || sPokedexView->pokedexList[entryNum].dexNum == 0xFFFF)
+        if (entryNum < 0 || entryNum >= NATIONAL_DEX_COUNT || sPokedexView->pokedexList[entryNum].dexNum == 0xFFFF)
         {
             ClearMonListEntry(MON_LIST_X, sPokedexView->listVOffset * 2, ignored);
         }
@@ -2702,7 +2705,7 @@ static void CreateMonListEntry(u8 position, u16 b, u16 ignored)
         vOffset = sPokedexView->listVOffset + 10;
         if (vOffset >= LIST_SCROLL_STEP)
             vOffset -= LIST_SCROLL_STEP;
-        if (entryNum < 0 || entryNum >= OBTAINABLE_DEX_COUNT || sPokedexView->pokedexList[entryNum].dexNum == 0xFFFF)
+        if (entryNum < 0 || entryNum >= NATIONAL_DEX_COUNT || sPokedexView->pokedexList[entryNum].dexNum == 0xFFFF)
             ClearMonListEntry(MON_LIST_X, vOffset * 2, ignored);
         else
         {
@@ -2744,7 +2747,7 @@ static void CreateMonDexNum(u16 entryNum, u8 left, u8 top, u16 unused)
             dexNum = obtainable;
     }
     memcpy(text, sText_No0000, ARRAY_COUNT(sText_No0000));
-    if (OBTAINABLE_DEX_COUNT > 999 && sPokedexView->dexMode != DEX_MODE_HOENN)
+    if (NATIONAL_DEX_COUNT > 999 && sPokedexView->dexMode != DEX_MODE_HOENN)
     {
         text[0] = CHAR_0 + dexNum / 1000;
         offset++;
@@ -4590,7 +4593,7 @@ static void PrintMonInfo(u32 num, u32 value, u32 owned, u32 newEntry)
     const u8 *name;
     const u8 *category;
     const u8 *description;
-    u8 digitCount = (OBTAINABLE_DEX_COUNT > 999 && value != 0) ? 4 : 3;
+    u8 digitCount = (NATIONAL_DEX_COUNT > 999 && value != 0) ? 4 : 3;
 
     if (value == 0)
     {
@@ -8037,7 +8040,7 @@ static int DoPokedexSearch(u8 dexMode, u8 order, u8 abcGroup, enum BodyColor bod
 
     CreatePokedexList(dexMode, order);
 
-    for (i = 0, resultsCount = 0; i < OBTAINABLE_DEX_COUNT; i++)
+    for (i = 0, resultsCount = 0; i < NATIONAL_DEX_COUNT; i++)
     {
         if (sPokedexView->pokedexList[i].seen)
         {
@@ -8131,7 +8134,7 @@ static int DoPokedexSearch(u8 dexMode, u8 order, u8 abcGroup, enum BodyColor bod
 
     if (sPokedexView->pokemonListCount != 0)
     {
-        for (i = sPokedexView->pokemonListCount; i < OBTAINABLE_DEX_COUNT; i++)
+        for (i = sPokedexView->pokemonListCount; i < NATIONAL_DEX_COUNT; i++)
         {
             sPokedexView->pokedexList[i].dexNum = 0xFFFF;
             sPokedexView->pokedexList[i].seen = FALSE;
