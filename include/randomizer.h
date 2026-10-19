@@ -206,6 +206,7 @@ bool32 IsSpeciesInGenScope(u16 species);
 
 bool32 IsTrueStaticLegendary(u16 species);
 u16 GetRandomTrueLegendarySpecies(void);
+u16 GetRandomizedGen9MegaStone(u16 megaStone);
 
 #if RANDOMIZER_DYNAMIC_SPECIES
 void PreloadRandomizationTables(void);

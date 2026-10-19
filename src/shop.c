@@ -2781,14 +2781,27 @@ static const u16 sElPiedrasBlackMarketStones[] = {
     ITEM_NONE
 };
 
+static EWRAM_DATA u16 sElPiedrasShuffledBlackMarketStones[16] = {0};
+
 void CreateElPiedrasBlackMarketShop(void)
 {
     u8 taskId;
     s16 *data;
+    u32 i;
+
+    for (i = 0; i < ARRAY_COUNT(sElPiedrasBlackMarketStones) - 1; i++)
+    {
+#if RANDOMIZER_AVAILABLE
+        sElPiedrasShuffledBlackMarketStones[i] = GetRandomizedGen9MegaStone(sElPiedrasBlackMarketStones[i]);
+#else
+        sElPiedrasShuffledBlackMarketStones[i] = sElPiedrasBlackMarketStones[i];
+#endif
+    }
+    sElPiedrasShuffledBlackMarketStones[i] = ITEM_NONE;
 
     LockPlayerFieldControls();
     sMartInfo.martType = MART_TYPE_MEGA_STONES;
-    SetShopItemsForSale(sElPiedrasBlackMarketStones);
+    SetShopItemsForSale(sElPiedrasShuffledBlackMarketStones);
     ClearItemPurchases();
     SetShopMenuCallback(ScriptContext_Enable);
 

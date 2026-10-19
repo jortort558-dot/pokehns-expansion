@@ -454,6 +454,72 @@ static inline s32 GetExplorationMegaStoneIndex(u16 itemId)
     return -1;
 }
 
+// 45 Megapiedras de Legends Z-A y DLC repartidas en exploración (30 en suelo) y mercado negro (15).
+// Se barajan deterministamente entre sí según la semilla de la partida (igual que las MTs).
+static const u16 sGen9MegaStonesPool[] =
+{
+    // 30 iniciales colocadas en el suelo
+    ITEM_EXCADRITE,
+    ITEM_ZYGARDITE,
+    ITEM_DRAGALGITE,
+    ITEM_DRAGONINITE,
+    ITEM_SKARMORITE,
+    ITEM_DELPHOXITE,
+    ITEM_CHIMECHITE,
+    ITEM_SCRAFTINITE,
+    ITEM_GOLURKITE,
+    ITEM_MALAMARITE,
+    ITEM_MEGANIUMITE,
+    ITEM_ABSOLITE_Z,
+    ITEM_GRENINJITE,
+    ITEM_LUCARIONITE_Z,
+    ITEM_SCOVILLAINITE,
+    ITEM_STARAPTITE,
+    ITEM_DARKRANITE,
+    ITEM_DRAMPANITE,
+    ITEM_FERALIGITE,
+    ITEM_FALINKSITE,
+    ITEM_CHESNAUGHTITE,
+    ITEM_BAXCALIBRITE,
+    ITEM_RAICHUNITE_X,
+    ITEM_MAGEARNITE,
+    ITEM_EELEKTROSSITE,
+    ITEM_HEATRANITE,
+    ITEM_STARMINITE,
+    ITEM_SCOLIPITE,
+    ITEM_GLIMMORANITE,
+    ITEM_GOLISOPITE,
+    // 15 de El Piedras (Monte Plateado)
+    ITEM_TATSUGIRINITE,
+    ITEM_ZERAORITE,
+    ITEM_CRABOMINITE,
+    ITEM_CLEFABLITE,
+    ITEM_EMBOARITE,
+    ITEM_HAWLUCHANITE,
+    ITEM_VICTREEBELITE,
+    ITEM_PYROARITE,
+    ITEM_FLOETTITE,
+    ITEM_GARCHOMPITE_Z,
+    ITEM_RAICHUNITE_Y,
+    ITEM_CHANDELURITE,
+    ITEM_FROSLASSITE,
+    ITEM_BARBARACITE,
+    ITEM_MEOWSTICITE
+};
+
+static inline s32 GetGen9MegaStoneIndex(u16 itemId)
+{
+    u32 i;
+
+    for (i = 0; i < ARRAY_COUNT(sGen9MegaStonesPool); i++)
+    {
+        if (sGen9MegaStonesPool[i] == itemId)
+            return i;
+    }
+
+    return -1;
+}
+
 // =============================================================================
 // Mapeo de Mapas a Tier de Progresión
 // =============================================================================

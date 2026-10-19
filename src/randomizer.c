@@ -666,6 +666,32 @@ static u16 GetRandomizedExplorationMegaStone(u16 megaStone)
     return sMegaStonesPool[permutation[anchorIndex]];
 }
 
+u16 GetRandomizedGen9MegaStone(u16 megaStone)
+{
+    u8 permutation[ARRAY_COUNT(sGen9MegaStonesPool)];
+    s32 stoneIdx = GetGen9MegaStoneIndex(megaStone);
+    struct Sfc32State state;
+    u32 i;
+
+    if (stoneIdx < 0)
+        return megaStone;
+
+    state = RandomizerRandSeed(RANDOMIZER_REASON_FIELD_ITEM, 0x5A414D47 /* "ZAMG" */, 0x53544F4E /* "STON" */);
+    for (i = 0; i < ARRAY_COUNT(sGen9MegaStonesPool); i++)
+        permutation[i] = (u8)i;
+
+    // Fisher-Yates shuffle determinista según la semilla de la partida
+    for (i = ARRAY_COUNT(sGen9MegaStonesPool) - 1; i > 0; i--)
+    {
+        u32 j = RandomizerNextRange(&state, i + 1);
+        u8 temp = permutation[i];
+        permutation[i] = permutation[j];
+        permutation[j] = temp;
+    }
+
+    return sGen9MegaStonesPool[permutation[stoneIdx]];
+}
+
 u32 GetMegaStonePoolCount(void)
 {
     return ARRAY_COUNT(sMegaStonesPool);
@@ -845,10 +871,15 @@ u16 GetRandomizedFieldItem(u16 originalItem, u8 mapGroup, u8 mapNum, u8 localId)
     if (GetCompetitiveItemIndex(originalItem) >= 0)
         return GetRandomizedCompetitiveItem(originalItem);
 
-    // HMs y Objetos Clave / Historia: NUNCA se tocan
+    // Megapiedras de Legends Z-A: Shuffle determinista 1 a 1 sin repetición según la semilla del jugador
+    if (GetGen9MegaStoneIndex(originalItem) >= 0)
+        return GetRandomizedGen9MegaStone(originalItem);
+
+    // HMs y Objetos Clave / Historia: NUNCA se tocan (100% garantizados)
     if ((originalItem >= ITEM_HM01 && originalItem <= ITEM_HM08)
      || IsKeyItem(originalItem)
-     || originalItem == ITEM_GS_BALL)
+     || originalItem == ITEM_GS_BALL
+     || GetItemHoldEffect(originalItem) == HOLD_EFFECT_MEGA_STONE)
     {
         return originalItem;
     }
