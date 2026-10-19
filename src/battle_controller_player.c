@@ -101,7 +101,9 @@ static void MoveSelectionDisplayMoveEffectiveness(u32 foeEffectiveness, enum Bat
 
 // Battle Info UI (Heart & Soul extension)
 static void DisplayBattleInfoPanel(enum BattlerId battler);
+static void DisplayBattleRivalPanel(enum BattlerId battler);
 static void DisplayMovePowerBreakdownPanel(enum BattlerId battler);
+static u8 sBattleInfoPage;
 
 static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(enum BattlerId battler) =
 {
@@ -934,7 +936,11 @@ void HandleInputChooseMove(enum BattlerId battler)
             && !(B_BATTLE_INFO_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
         {
             PlaySE(SE_SELECT);
-            DisplayBattleInfoPanel(battler);
+            sBattleInfoPage ^= 1;
+            if (sBattleInfoPage == 0)
+                DisplayBattleInfoPanel(battler);
+            else
+                DisplayBattleRivalPanel(battler);
         }
         // R button opens damage breakdown panel from description view
         else if (JOY_NEW(R_BUTTON))
@@ -951,6 +957,15 @@ void HandleInputChooseMove(enum BattlerId battler)
         gBattleStruct->powerBreakdownSubmenu = TRUE;
         PlaySE(SE_SELECT);
         DisplayMovePowerBreakdownPanel(battler);
+    }
+    else if (B_BATTLE_INFO_MENU && JOY_NEW(B_BATTLE_INFO_BUTTON)
+        && !(B_BATTLE_INFO_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
+    {
+        // L opens the first page directly from move selection.
+        sBattleInfoPage = 0;
+        gBattleStruct->descriptionSubmenu = TRUE;
+        PlaySE(SE_SELECT);
+        DisplayBattleInfoPanel(battler);
     }
     else if (JOY_NEW(B_MOVE_DESCRIPTION_BUTTON) &&
         !(B_MOVE_DESCRIPTION_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
@@ -2145,6 +2160,65 @@ static void DisplayBattleInfoPanel(enum BattlerId battler)
     if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_LIGHTSCREEN)
         StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" PL"));
 
+    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
+    CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
+}
+
+// Panel B: information learned about the active opposing Pokémon.
+// Move slots are deliberately read from the active BattlePokemon: this keeps
+// the page useful in wild, trainer and double battles without revealing the
+// rest of the opponent's party.
+static void DisplayBattleRivalPanel(enum BattlerId battler)
+{
+    enum BattlerId opponent = GetOpposingSideBattler(battler);
+    u8 i;
+    u8 num[8];
+
+    if (gCategoryIconSpriteId != 0xFF)
+    {
+        DestroySprite(&gSprites[gCategoryIconSpriteId]);
+        gCategoryIconSpriteId = 0xFF;
+    }
+
+    LoadMessageBoxAndBorderGfx();
+    DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
+
+    StringCopy(gDisplayedStringBattle, COMPOUND_STRING("PÁG. 2/2  INFO RIVAL\n"));
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("HAB: "));
+    StringAppend(gDisplayedStringBattle, gAbilitiesInfo[gBattleMons[opponent].ability].name);
+    StringAppend(gDisplayedStringBattle, gText_NewLine);
+
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("MOVIMIENTOS:\n"));
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        StringAppend(gDisplayedStringBattle, (i & 1) ? COMPOUND_STRING("  ") : COMPOUND_STRING(""));
+        ConvertIntToDecimalStringN(num, i + 1, STR_CONV_MODE_LEFT_ALIGN, 1);
+        StringAppend(gDisplayedStringBattle, num);
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(". "));
+        if (gBattleMons[opponent].moves[i] == MOVE_NONE)
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING("???"));
+        else
+            StringAppend(gDisplayedStringBattle, GetMoveName(gBattleMons[opponent].moves[i]));
+        if (i & 1)
+            StringAppend(gDisplayedStringBattle, gText_NewLine);
+    }
+
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("ÚLTIMO: "));
+    if (gBattleStruct->lastTakenMove[opponent] == MOVE_NONE)
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("---"));
+    else
+        StringAppend(gDisplayedStringBattle, GetMoveName(gBattleStruct->lastTakenMove[opponent]));
+
+    if (gBattleStruct->moveDamage[opponent] > 0)
+    {
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" (-"));
+        ConvertIntToDecimalStringN(num, gBattleStruct->moveDamage[opponent], STR_CONV_MODE_LEFT_ALIGN, 4);
+        StringAppend(gDisplayedStringBattle, num);
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" PS)"));
+    }
+
+    StringAppend(gDisplayedStringBattle, gText_NewLine);
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("L: PÁG. 1   B: CERRAR"));
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
     CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
 }
