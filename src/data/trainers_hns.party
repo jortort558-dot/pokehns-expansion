@@ -13540,7 +13540,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Hg Girl 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Politoed @ Damp Rock  
 Ability: Drizzle  
@@ -13562,16 +13562,15 @@ IVs: 0 Atk
 - Signal Beam  
 - Aqua Ring  
 
-Luvdisc (F) @ Big Root  
-Ability: Swift Swim  
-Level: 64  
-EVs: 248 Spe  
-Timid Nature  
-IVs: 0 Atk  
-- Attract  
-- Draining Kiss  
-- Scald  
-- Sweet Kiss  
+Slowbro @ Slowbronite
+Ability: Regenerator
+Level: 66
+Bold Nature
+IVs: 0 Atk
+- Scald
+- Psychic
+- Slack Off
+- Calm Mind
 
 
 
@@ -13582,7 +13581,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Hg Boy 2
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Pelipper  
 Ability: Keen Eye  
@@ -13617,7 +13616,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Hg Girl 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Starmie @ Lagging Tail  
 Ability: Analytic  
@@ -13655,7 +13654,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Hg Girl 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Corsola @ Zoom Lens  
 Ability: Hustle  
@@ -13691,7 +13690,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Hg Boy 2
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Tentacruel  
 Ability: Liquid Ooze  
@@ -13701,13 +13700,13 @@ Level: 64
 - Toxic Spikes  
 - Rapid Spin  
 
-Gyarados  
+Gyarados @ Gyaradosite
 Ability: Moxie  
-Level: 64 
-- Crunch  
+Level: 67
+- Waterfall
+- Crunch
 - Earthquake  
-- Rage  
-- Scary Face  
+- Dragon Dance
 
 Kingdra @ Scope Lens  
 Ability: Sniper  
@@ -13727,7 +13726,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Hg Girl 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Gorebyss  
 Ability: Hydration  
@@ -13768,7 +13767,7 @@ Pic: Tuber M
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Lanturn  
 Ability: Volt Absorb  
@@ -13790,14 +13789,15 @@ IVs: 0 Atk
 - Noble Roar  
 - Ice Beam  
 
-Kingler @ Life Orb  
-Ability: Sheer Force  
-Level: 65 
-EVs: 8 HP / 248 Atk / 252 SpD  
-- Crabhammer  
-- Hone Claws  
-- Dig  
-- Guillotine  
+Tapu Fini @ Leftovers
+Ability: Misty Surge
+Level: 68
+Bold Nature
+IVs: 0 Atk
+- Moonblast
+- Surf
+- Calm Mind
+- Aqua Ring
 
 
 
@@ -13808,7 +13808,7 @@ Pic: Hiker
 Gender: Male
 Music: Hg Suspicious 2
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Lunatone @ Clear Amulet  
 Ability: Levitate  
@@ -13828,13 +13828,15 @@ IVs: 0 Atk
 - Morning Sun  
 - Solar Beam  
 
-Magmar @ Eviolite  
-Ability: Flame Body  
-Level: 65 
-- Flame Charge  
-- Substitute  
-- Focus Punch  
-- Double Team  
+Heatran @ Air Balloon
+Ability: Flash Fire
+Level: 68
+Modest Nature
+IVs: 0 Atk
+- Magma Storm
+- Earth Power
+- Flash Cannon
+- Stealth Rock
 
 
 
@@ -13845,7 +13847,7 @@ Pic: Picnicker
 Gender: Female
 Music: Hg Girl 2
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Dustox @ Focus Sash  
 Ability: Compound Eyes  
@@ -13881,7 +13883,7 @@ Pic: Camper
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Swellow  
 Ability: Scrappy  
@@ -13917,7 +13919,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Pinsir @ Life Orb  
 Ability: Hyper Cutter  
@@ -13944,7 +13946,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Butterfree @ Bright Powder  
 Ability: Compound Eyes  
@@ -13955,13 +13957,13 @@ IVs: 0 Atk
 - Signal Beam  
 - Sleep Powder  
 
-Heracross @ Flame Orb  
-Ability: Guts  
-Level: 61  
-- Facade  
+Heracross @ Heracronite
+Ability: Moxie
+Level: 66
+- Pin Missile
 - Close Combat  
-- Throat Chop  
-- Megahorn  
+- Rock Blast
+- Bullet Seed
 
 
 
@@ -13972,7 +13974,7 @@ Pic: Picnicker
 Gender: Female
 Music: Hg Girl 2
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Mankey @ Flying Gem  
 Ability: Vital Spirit  
@@ -14007,7 +14009,7 @@ Pic: Camper
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Primeape  
 Ability: Anger Point  
@@ -14042,7 +14044,7 @@ Pic: Hiker
 Gender: Male
 Music: Hg Suspicious 2
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Kangaskhan  
 Ability: Scrappy  
@@ -14075,7 +14077,7 @@ Pic: Picnicker
 Gender: Female
 Music: Hg Girl 2
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Swellow  
 Ability: Scrappy  
@@ -14112,7 +14114,7 @@ Pic: Youngster Hns
 Gender: Male
 Music: Hg Boy 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Raticate-Alola  
 Ability: Hustle  
@@ -14147,15 +14149,15 @@ Pic: Hiker
 Gender: Male
 Music: Hg Suspicious 2
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
-Mawile  
+Mawile @ Mawilite
 Ability: Intimidate  
-Level: 62  
-- Ice Fang  
+Level: 67
+- Sucker Punch
 - Play Rough  
-- Stealth Rock  
-- Psychic Fangs  
+- Swords Dance
+- Iron Head
 
 Magmar @ Sitrus Berry  
 Ability: Flame Body  
@@ -14184,7 +14186,7 @@ Pic: Cooltrainer F
 Gender: Female
 Music: Hg Girl 1
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Skarmory  
 Ability: Keen Eye  
@@ -14203,13 +14205,14 @@ Happiness: 0
 - Lash Out  
 - Taunt  
 
-Tauros @ Life Orb  
-Ability: Sheer Force  
-Level: 63 
-- Wild Charge  
-- Bulldoze  
-- Raging Bull  
-- Focus Energy  
+Tapu Koko @ Life Orb
+Ability: Electric Surge
+Level: 68
+Naive Nature
+- Thunderbolt
+- Dazzling Gleam
+- Brave Bird
+- U-turn
 
 
 
@@ -14262,6 +14265,16 @@ EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
 - Defense Curl
 - Body Press 
 - RollOut
+
+Regigigas @ Lum Berry
+Level: 72
+Ability: Slow Start
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 Atk / 0 Def / 0 SpA / 4 SpD / 0 Spe
+- Crush Grip
+- Knock Off
+- Drain Punch
+- Thunder Wave
 
 Miltank @ Lagging Tail
 Level: 70

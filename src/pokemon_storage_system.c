@@ -4559,18 +4559,18 @@ static bool32 ShouldBoxmonSpriteBeTransparent(u32 boxId, u32 boxPosition)
      && IsBoxMonExcluded(GetBoxedMonPtr(boxId, boxPosition)))
         return TRUE;
 
-    struct Pokemon mon = {0};
-    BoxMonAtToMon(boxId, boxPosition, &mon);
-
     if (IsNuzlockeActive() || IsNuzlockeEasyActive())
     {
         if (GetPcMonSelectionType() != SELECT_PC_MON_GYM_TOKEN_REVIVE
          && (sStorage->boxOption == OPTION_SELECT_MON
           || sStorage->boxOption == OPTION_DEPOSIT
           || sStorage->boxOption == OPTION_WITHDRAW
-          || sStorage->boxOption == OPTION_MOVE_MONS)
-         && GetMonData(&mon, MON_DATA_HP) == 0 && GetMonData(&mon, MON_DATA_IS_EGG) == FALSE)
-            return TRUE;
+          || sStorage->boxOption == OPTION_MOVE_MONS))
+        {
+            if (GetBoxMonDataAt(boxId, boxPosition, MON_DATA_IS_EGG) == FALSE
+             && GetBoxMonDataAt(boxId, boxPosition, MON_DATA_HP_LOST) > 0)
+                return TRUE;
+        }
     }
     return FALSE;
 }

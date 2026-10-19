@@ -42,7 +42,12 @@ Common_Text_ElPiedrasBlackMarketIntro:
 	.string "Tengo el cargamento más exclusivo\l"
 	.string "y contrabandeado del juego.\p"
 	.string "Megapiedras traídas de contrabando\n"
-	.string "directamente de Kalos y más allá.\l"
+	.string "directamente de Kalos y más allá.\p"
+	.string "Y si alguna se te escapa, corre\n"
+	.string "un rumor entre coleccionistas...\p"
+	.string "Dicen que hay Megapiedras ocultas\n"
+	.string "en los rincones más recónditos\l"
+	.string "de Johto. ¡Mira bien, socio!\p"
 	.string "¿Te sobra pasta? Hagamos business.$"
 
 Common_Text_ElPiedrasBlackMarketFarewell:
