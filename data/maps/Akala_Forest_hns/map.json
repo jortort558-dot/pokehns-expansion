@@ -172,6 +172,14 @@
       "elevation": 0,
       "item": "ITEM_FULL_RESTORE",
       "flag": "FLAG_AKALA_FOREST_HIDDEN_ITEM_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 14,
+      "y": 8,
+      "elevation": 3,
+      "item": "ITEM_DRAGONINITE",
+      "flag": "FLAG_HIDDEN_ITEM_AKALA_FOREST"
     }
   ],
   "game_version": "hns",

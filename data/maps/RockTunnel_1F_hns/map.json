@@ -262,6 +262,14 @@
       "elevation": 0,
       "item": "ITEM_IRON",
       "flag": "FLAG_HIDDEN_ITEM_ROCKTUNNEL_1F_IRON"
+    },
+    {
+      "type": "hidden_item",
+      "x": 23,
+      "y": 17,
+      "elevation": 3,
+      "item": "ITEM_STARMINITE",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROCK_TUNNEL_1F"
     }
   ],
   "game_version": "hns",

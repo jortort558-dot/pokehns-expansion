@@ -713,8 +713,11 @@
 #define TRAINER_JP_MUSEUM_HNS                   689
 #define TRAINER_DANI_MUSEUM_HNS                 690
 #define TRAINER_ZORTEX_PANDA_MUSEUM_HNS         691
+#define TRAINER_MOHEDANO_EXPERIMENT_HNS          692
+#define TRAINER_PROFESSOR_MOHEDANO_HNS           693
+#define TRAINER_TABULA_RASA_HNS                  694
 
-#define TRAINERS_COUNT_HNS                       692
+#define TRAINERS_COUNT_HNS                       695
 #define MAX_TRAINERS_COUNT_HNS                   864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_HNS_H

@@ -332,6 +332,14 @@
       "elevation": 0,
       "item": "ITEM_TM_ROCK_POLISH",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_TM_ROCK_POLISH"
+    },
+    {
+      "type": "hidden_item",
+      "x": 16,
+      "y": 30,
+      "elevation": 3,
+      "item": "ITEM_HEATRANITE",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE10"
     }
   ],
   "game_version": "hns",

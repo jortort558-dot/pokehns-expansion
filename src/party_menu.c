@@ -5313,13 +5313,17 @@ void ItemUseCB_Mint(u8 taskId, TaskFunc task)
 #define tState      data[0]
 #define tMonId      data[1]
 #define tIvType     data[2]
+#define tIvValue    data[3]
 #define tOldFunc    4
 
 static void Task_Chupito(u8 taskId)
 {
-    static const u8 sText_ChupitoAsk[] = _("¿Quieres darle este trago a\n{STR_VAR_1}?");
-    static const u8 sText_ChupitoDoneSingle[] = _("¡El potencial de {STR_VAR_1} ha\nllegado al máximo (31 IVs)!{PAUSE_UNTIL_PRESS}");
-    static const u8 sText_ChupitoDoneAll[] = _("¡{STR_VAR_1} ha alcanzado la cima!\n¡Todos sus IVs han subido a 31!{PAUSE_UNTIL_PRESS}");
+    static const u8 sText_ChupitoAskMode[] = _("¿Cómo quieres ajustar los IVs\nde {STR_VAR_1}?");
+    static const u8 sText_ChupitoDoneSingleMax[] = _("¡El potencial de {STR_VAR_1} ha\nllegado al máximo (31 IVs)!{PAUSE_UNTIL_PRESS}");
+    static const u8 sText_ChupitoDoneSingleMin[] = _("¡Los IVs de {STR_VAR_1} se han\nreducido a 0!{PAUSE_UNTIL_PRESS}");
+    static const u8 sText_ChupitoDoneAllMax[] = _("¡{STR_VAR_1} ha alcanzado la cima!\n¡Todos sus IVs han subido a 31!{PAUSE_UNTIL_PRESS}");
+    static const u8 sText_ChupitoDoneAllMin[] = _("¡Todos los IVs de {STR_VAR_1}\nse han reducido a 0!{PAUSE_UNTIL_PRESS}");
+    static const u8 sText_IvOptions[] = _("31 IVS\n0 IVS");
     s16 *data = gTasks[taskId].data;
     struct Pokemon *mon = &gPlayerParty[tMonId];
 
@@ -5336,40 +5340,9 @@ static void Task_Chupito(u8 taskId)
             return;
         }
 
-        // Check if stats are already 31
-        if (tIvType == 0xFF)
-        {
-            if (GetMonData(mon, MON_DATA_HP_IV) == 31 &&
-                GetMonData(mon, MON_DATA_ATK_IV) == 31 &&
-                GetMonData(mon, MON_DATA_DEF_IV) == 31 &&
-                GetMonData(mon, MON_DATA_SPEED_IV) == 31 &&
-                GetMonData(mon, MON_DATA_SPATK_IV) == 31 &&
-                GetMonData(mon, MON_DATA_SPDEF_IV) == 31)
-            {
-                gPartyMenuUseExitCallback = FALSE;
-                PlaySE(SE_SELECT);
-                DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
-                ScheduleBgCopyTilemapToVram(2);
-                gTasks[taskId].func = Task_ClosePartyMenuAfterText;
-                return;
-            }
-        }
-        else
-        {
-            if (GetMonData(mon, tIvType) == 31)
-            {
-                gPartyMenuUseExitCallback = FALSE;
-                PlaySE(SE_SELECT);
-                DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
-                ScheduleBgCopyTilemapToVram(2);
-                gTasks[taskId].func = Task_ClosePartyMenuAfterText;
-                return;
-            }
-        }
-
         gPartyMenuUseExitCallback = TRUE;
         GetMonNickname(mon, gStringVar1);
-        StringExpandPlaceholders(gStringVar4, sText_ChupitoAsk);
+        StringExpandPlaceholders(gStringVar4, sText_ChupitoAskMode);
         PlaySE(SE_SELECT);
         DisplayPartyMenuMessage(gStringVar4, 1);
         ScheduleBgCopyTilemapToVram(2);
@@ -5378,17 +5351,41 @@ static void Task_Chupito(u8 taskId)
     case 1:
         if (!IsPartyMenuTextPrinterActive())
         {
+            u8 winId;
+            struct TextPrinterTemplate printer;
             PartyMenuDisplayYesNoMenu();
+            winId = GetYesNoWindowId();
+            printer.currentChar = sText_IvOptions;
+            printer.type = WINDOW_TEXT_PRINTER;
+            printer.windowId = winId;
+            printer.fontId = FONT_NORMAL;
+            printer.x = 8;
+            printer.y = 1;
+            printer.currentX = printer.x;
+            printer.currentY = printer.y;
+            printer.color.foreground = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_FOREGROUND);
+            printer.color.background = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_BACKGROUND);
+            printer.color.shadow = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_SHADOW);
+            printer.color.accent = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_ACCENT);
+            printer.letterSpacing = 0;
+            printer.lineSpacing = 0;
+            FillWindowPixelBuffer(winId, PIXEL_FILL(1));
+            AddTextPrinter(&printer, TEXT_SKIP_DRAW, NULL);
+            InitMenuInUpperLeftCornerNormal(winId, 2, 0);
             tState++;
         }
         break;
     case 2:
         switch (Menu_ProcessInputNoWrapClearOnChoose())
         {
-        case 0:
+        case 0: // 31 IVs
+            tIvValue = 31;
             tState++;
             break;
-        case 1:
+        case 1: // 0 IVs
+            tIvValue = 0;
+            tState++;
+            break;
         case MENU_B_PRESSED:
             gPartyMenuUseExitCallback = FALSE;
             PlaySE(SE_SELECT);
@@ -5403,9 +5400,19 @@ static void Task_Chupito(u8 taskId)
     case 3:
         PlaySE(SE_USE_ITEM);
         if (tIvType == 0xFF)
-            StringExpandPlaceholders(gStringVar4, sText_ChupitoDoneAll);
+        {
+            if (tIvValue == 31)
+                StringExpandPlaceholders(gStringVar4, sText_ChupitoDoneAllMax);
+            else
+                StringExpandPlaceholders(gStringVar4, sText_ChupitoDoneAllMin);
+        }
         else
-            StringExpandPlaceholders(gStringVar4, sText_ChupitoDoneSingle);
+        {
+            if (tIvValue == 31)
+                StringExpandPlaceholders(gStringVar4, sText_ChupitoDoneSingleMax);
+            else
+                StringExpandPlaceholders(gStringVar4, sText_ChupitoDoneSingleMin);
+        }
 
         DisplayPartyMenuMessage(gStringVar4, 1);
         ScheduleBgCopyTilemapToVram(2);
@@ -5417,19 +5424,19 @@ static void Task_Chupito(u8 taskId)
         break;
     case 5:
         {
-            u32 maxIv = 31;
+            u32 iv = (u32)tIvValue;
             if (tIvType == 0xFF)
             {
-                SetMonData(mon, MON_DATA_HP_IV, &maxIv);
-                SetMonData(mon, MON_DATA_ATK_IV, &maxIv);
-                SetMonData(mon, MON_DATA_DEF_IV, &maxIv);
-                SetMonData(mon, MON_DATA_SPEED_IV, &maxIv);
-                SetMonData(mon, MON_DATA_SPATK_IV, &maxIv);
-                SetMonData(mon, MON_DATA_SPDEF_IV, &maxIv);
+                SetMonData(mon, MON_DATA_HP_IV, &iv);
+                SetMonData(mon, MON_DATA_ATK_IV, &iv);
+                SetMonData(mon, MON_DATA_DEF_IV, &iv);
+                SetMonData(mon, MON_DATA_SPEED_IV, &iv);
+                SetMonData(mon, MON_DATA_SPATK_IV, &iv);
+                SetMonData(mon, MON_DATA_SPDEF_IV, &iv);
             }
             else
             {
-                SetMonData(mon, tIvType, &maxIv);
+                SetMonData(mon, tIvType, &iv);
             }
             CalculateMonStats(mon);
             RemoveBagItem(gSpecialVar_ItemId, 1);

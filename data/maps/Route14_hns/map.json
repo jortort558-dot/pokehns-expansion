@@ -241,6 +241,14 @@
       "elevation": 0,
       "item": "ITEM_LUCKY_PUNCH",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE14_LUCKY_PUNCH"
+    },
+    {
+      "type": "hidden_item",
+      "x": 15,
+      "y": 18,
+      "elevation": 3,
+      "item": "ITEM_RARE_CANDY",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE14"
     }
   ],
   "game_version": "hns",

@@ -2761,3 +2761,41 @@ void CreateElPiedrasMegaShop(void)
     gTasks[taskId].func = Task_GoToBuyOrSellMenu;
     FadeScreen(FADE_TO_BLACK, 0);
 }
+
+static const u16 sElPiedrasBlackMarketStones[] = {
+    ITEM_TATSUGIRINITE,
+    ITEM_ZERAORITE,
+    ITEM_CRABOMINITE,
+    ITEM_CLEFABLITE,
+    ITEM_EMBOARITE,
+    ITEM_HAWLUCHANITE,
+    ITEM_VICTREEBELITE,
+    ITEM_PYROARITE,
+    ITEM_FLOETTITE,
+    ITEM_GARCHOMPITE_Z,
+    ITEM_RAICHUNITE_Y,
+    ITEM_CHANDELURITE,
+    ITEM_FROSLASSITE,
+    ITEM_BARBARACITE,
+    ITEM_MEOWSTICITE,
+    ITEM_NONE
+};
+
+void CreateElPiedrasBlackMarketShop(void)
+{
+    u8 taskId;
+    s16 *data;
+
+    LockPlayerFieldControls();
+    sMartInfo.martType = MART_TYPE_MEGA_STONES;
+    SetShopItemsForSale(sElPiedrasBlackMarketStones);
+    ClearItemPurchases();
+    SetShopMenuCallback(ScriptContext_Enable);
+
+    taskId = CreateTask(Task_ShopMenu, 8);
+    data = gTasks[taskId].data;
+    data[8] = (u32)CB2_InitBuyMenu >> 16;
+    data[9] = (u32)CB2_InitBuyMenu;
+    gTasks[taskId].func = Task_GoToBuyOrSellMenu;
+    FadeScreen(FADE_TO_BLACK, 0);
+}

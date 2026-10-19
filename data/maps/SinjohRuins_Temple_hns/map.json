@@ -71,6 +71,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SinjohRuins_Temple_EventScript_RegidragoScanner"
+    },
+    {
+      "type": "hidden_item",
+      "x": 10,
+      "y": 12,
+      "elevation": 3,
+      "item": "ITEM_SCOVILLAINITE",
+      "flag": "FLAG_HIDDEN_ITEM_SINJOH_TEMPLE"
     }
   ],
   "game_version": "hns",

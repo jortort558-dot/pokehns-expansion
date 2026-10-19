@@ -270,6 +270,14 @@
       "elevation": 0,
       "item": "ITEM_CALCIUM",
       "flag": "FLAG_ITEM_ROUTE13_CALCIUM"
+    },
+    {
+      "type": "hidden_item",
+      "x": 20,
+      "y": 24,
+      "elevation": 3,
+      "item": "ITEM_GOLISOPITE",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE13"
     }
   ],
   "game_version": "hns",

@@ -307,6 +307,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Alola_Poni_Island_Sign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 18,
+      "y": 25,
+      "elevation": 3,
+      "item": "ITEM_GOLURKITE",
+      "flag": "FLAG_HIDDEN_ITEM_PONI_1"
     }
   ],
   "game_version": "hns",

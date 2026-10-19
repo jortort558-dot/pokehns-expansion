@@ -226,6 +226,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route22_EventScript_Sign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 20,
+      "y": 10,
+      "elevation": 3,
+      "item": "ITEM_COMET_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE22"
     }
   ],
   "game_version": "hns",

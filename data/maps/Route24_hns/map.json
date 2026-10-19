@@ -171,6 +171,14 @@
       "elevation": 0,
       "item": "ITEM_PECHA_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE24_PECHA_BERRY_HNS"
+    },
+    {
+      "type": "hidden_item",
+      "x": 12,
+      "y": 15,
+      "elevation": 1,
+      "item": "ITEM_RARE_CANDY",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE24"
     }
   ],
   "game_version": "hns",

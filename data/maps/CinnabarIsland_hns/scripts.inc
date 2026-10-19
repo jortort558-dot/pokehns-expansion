@@ -6,7 +6,15 @@ CinnabarIsland_hns_MapScripts::
 CinnabarIsland_OnTransition:
 	setflag FLAG_VISITED_CINNABAR_ISLAND
 	callnative SetTimeBasedEncounters
+	setflag FLAG_HIDE_MOHEDANO_CINNABAR_BATEMAGICO
+	call_if_set FLAG_BILL_MOHEDANO_TERMINAL_READ, CinnabarIsland_EventScript_CheckMohedanoChapter
 	end
+
+CinnabarIsland_EventScript_CheckMohedanoChapter::
+	goto_if_set FLAG_MOHEDANO_CINNABAR_COMPLETE, CinnabarIsland_EventScript_CheckMohedanoEnd
+	clearflag FLAG_HIDE_MOHEDANO_CINNABAR_BATEMAGICO
+CinnabarIsland_EventScript_CheckMohedanoEnd::
+	return
 
 CinnabarIsland_EventScript_Blaine::
     lock
@@ -104,11 +112,48 @@ CinnabarIsland_Text_Blue:
 	.string "Allí aceptaré tu desafío.$"
 
 CinnabarIsland_EventScript_Sign::
+	goto_if_set FLAG_BILL_MOHEDANO_TERMINAL_READ, CinnabarIsland_EventScript_VolcanoClue
 	msgbox CinnabarIsland_Text_Sign, MSGBOX_SIGN
 	end
 
+CinnabarIsland_EventScript_VolcanoClue::
+	setflag FLAG_MOHEDANO_CINNABAR_CLUE_VOLCANO
+	msgbox CinnabarIsland_Text_VolcanoClue, MSGBOX_SIGN
+	end
+
 CinnabarIsland_EventScript_GymSign::
+	goto_if_set FLAG_BILL_MOHEDANO_TERMINAL_READ, CinnabarIsland_EventScript_LabClue
 	msgbox CinnabarIsland_Text_GymSign, MSGBOX_SIGN
+	end
+
+CinnabarIsland_EventScript_LabClue::
+	setflag FLAG_MOHEDANO_CINNABAR_CLUE_LAB
+	msgbox CinnabarIsland_Text_LabClue, MSGBOX_SIGN
+	end
+
+CinnabarIsland_EventScript_Batemagico::
+	lock
+	faceplayer
+	setspeaker SP_NAME_BATEMAGICO
+	goto_if_unset FLAG_MOHEDANO_CINNABAR_CLUE_VOLCANO, CinnabarIsland_EventScript_BatemagicoMissingClues
+	goto_if_unset FLAG_MOHEDANO_CINNABAR_CLUE_LAB, CinnabarIsland_EventScript_BatemagicoMissingClues
+	goto_if_defeated TRAINER_MOHEDANO_EXPERIMENT_HNS, CinnabarIsland_EventScript_BatemagicoAfterExperiment
+	msgbox CinnabarIsland_Text_BatemagicoExperiment, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_MOHEDANO_EXPERIMENT_HNS, CinnabarIsland_Text_ExperimentDefeated
+CinnabarIsland_EventScript_BatemagicoAfterExperiment::
+	setspeaker SP_NAME_BATEMAGICO
+	msgbox CinnabarIsland_Text_BatemagicoSilph, MSGBOX_DEFAULT
+	setflag FLAG_MOHEDANO_CINNABAR_COMPLETE
+	setflag FLAG_HIDE_MOHEDANO_CINNABAR_BATEMAGICO
+	closemessage
+	removeobject LOCALID_CINNABAR_BATEMAGICO
+	release
+	end
+
+CinnabarIsland_EventScript_BatemagicoMissingClues::
+	msgbox CinnabarIsland_Text_BatemagicoMissingClues, MSGBOX_DEFAULT
+	release
 	end
 
 CinnabarIsland_Text_GymSign:
@@ -120,3 +165,43 @@ CinnabarIsland_Text_GymSign:
 CinnabarIsland_Text_Sign:
 	.string "ISLA CANELA\p"
 	.string "El pueblo del ardiente deseo$"
+
+CinnabarIsland_Text_VolcanoClue:
+	.string "Entre la ceniza hay una placa.\p"
+	.string "PROYECTO TABULA RASA.\n"
+	.string "Fuente térmica: CANELA.\p"
+	.string "Alguien ha raspado la firma.$"
+
+CinnabarIsland_Text_LabClue:
+	.string "Bajo el aviso hay un informe.\p"
+	.string "FUJI rechazó el ensayo final.\n"
+	.string "La muestra fue enviada a SILPH.\p"
+	.string "Una nota añade: BILL sabe.$"
+
+CinnabarIsland_Text_BatemagicoMissingClues:
+	.string "Las ruinas hablan, pero hay que\n"
+	.string "saber dónde mirar.\p"
+	.string "Revisa los dos carteles.$"
+
+CinnabarIsland_Text_BatemagicoExperiment:
+	.string "Has unido las piezas.\p"
+	.string "MOHEDANO usó el calor volcánico\n"
+	.string "para calcinar los registros\l"
+	.string "del PROYECTO TABULA RASA.\p"
+	.string "¡Cuidado! Ese investigador...\n"
+	.string "¡Es el custodio de MOHEDANO y\l"
+	.string "viene a silenciarnos!$"
+
+CinnabarIsland_Text_ExperimentDefeated:
+	.string "Los datos... ya han sido\n"
+	.string "transferidos a SILPH...$"
+
+CinnabarIsland_Text_BatemagicoSilph:
+	.string "Ese sujeto intentaba destruir\n"
+	.string "hasta la última prueba.\p"
+	.string "Pero lo logramos: el informe\n"
+	.string "confirma que BILL descubrió la\l"
+	.string "red secreta de MOHEDANO.\p"
+	.string "Por eso lo tienen retenido.\p"
+	.string "¡Rápido! Nos vemos en la sede\n"
+	.string "de SILPH S.A., en AZAFRÁN.$"

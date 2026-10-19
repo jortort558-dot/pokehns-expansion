@@ -13,6 +13,8 @@ enum SpeakerNames {
     SP_NAME_METACABALLERO,
     SP_NAME_JOSE,
     SP_NAME_PILAR,
+    SP_NAME_MOHEDANO,
+    SP_NAME_BILL,
     SP_NAME_COUNT
 };
 

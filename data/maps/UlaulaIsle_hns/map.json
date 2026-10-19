@@ -396,6 +396,14 @@
       "elevation": 0,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_ULAULA_HIDDEN_ITEM_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 26,
+      "y": 43,
+      "elevation": 3,
+      "item": "ITEM_DELPHOXITE",
+      "flag": "FLAG_HIDDEN_ITEM_ULAULA_1"
     }
   ],
   "game_version": "hns",

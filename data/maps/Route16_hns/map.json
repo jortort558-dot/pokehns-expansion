@@ -136,6 +136,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route16_EventScript_Sign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 12,
+      "y": 40,
+      "elevation": 3,
+      "item": "ITEM_ABILITY_CAPSULE",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE16"
     }
   ],
   "game_version": "hns",

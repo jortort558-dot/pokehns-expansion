@@ -18238,3 +18238,144 @@ IVs: 31 HP / 31 Atk / 31 Def / 0 SpA / 31 SpD / 31 Spe
 - Poison Jab
 - Fake Out
 - Protect
+
+=== TRAINER_MOHEDANO_EXPERIMENT_HNS ===
+Name: CUSTODIO
+Class: Scientist Frlg
+Pic: Scientist Frlg
+Gender: Male
+Music: Hg Suspicious 1
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Porygon-Z @ Choice Scarf
+Ability: Download
+Level: 64
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Tri Attack
+- Dark Pulse
+- Ice Beam
+- Thunderbolt
+
+Ditto @ Choice Scarf
+Ability: Imposter
+Level: 64
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Transform
+
+Beheeyem @ Life Orb
+Ability: Analytic
+Level: 65
+Nature: Quiet
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Psychic
+- Energy Ball
+- Thunderbolt
+- Recover
+
+=== TRAINER_PROFESSOR_MOHEDANO_HNS ===
+Name: MOHEDANO
+Class: Scientist Frlg
+Pic: Scientist Frlg
+Gender: Male
+Music: Hg Champion
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Rotom Wash @ Leftovers
+Ability: Levitate
+Level: 69
+Nature: Bold
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Pump
+- Volt Switch
+- Will-O-Wisp
+- Pain Split
+
+Reuniclus @ Life Orb
+Ability: Magic Guard
+Level: 69
+Nature: Quiet
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Psychic
+- Focus Blast
+- Recover
+- Trick Room
+
+Magnezone @ Choice Specs
+Ability: Magnet Pull
+Level: 70
+Nature: Modest
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunderbolt
+- Flash Cannon
+- Volt Switch
+- Body Press
+
+Silvally @ Expert Belt
+Ability: Rks System
+Level: 70
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 0 SpA / 31 SpD / 31 Spe
+- Multi-Attack
+- Crunch
+- Iron Head
+- Parting Shot
+
+Metagross @ Metagrossite
+Ability: Clear Body
+Level: 71
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 0 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch
+
+=== TRAINER_TABULA_RASA_HNS ===
+Name: TABULA
+Class: Developer Hns
+Pic: Scientist Frlg
+Gender: Male
+Music: Hg Champion
+Double Battle: No
+AI: Smart Trainer / Prediction
+
+Porygon-Z @ Focus Sash
+Ability: Adaptability
+Level: 71
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Tri Attack
+- Shadow Ball
+- Ice Beam
+- Nasty Plot
+
+Genesect @ Expert Belt
+Ability: Download
+Level: 71
+Nature: Hasty
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Techno Blast
+- U-turn
+- Flamethrower
+- Iron Head
+
+Ditto @ Choice Scarf
+Ability: Imposter
+Level: 72
+Nature: Jolly
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Transform
+
+Mewtwo @ Life Orb
+Ability: Pressure
+Level: 72
+Nature: Timid
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psystrike
+- Aura Sphere
+- Ice Beam
+- Recover

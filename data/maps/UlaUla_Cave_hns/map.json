@@ -171,7 +171,16 @@
     }
   ],
   "coord_events": [],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 9,
+      "y": 14,
+      "elevation": 3,
+      "item": "ITEM_SCRAFTINITE",
+      "flag": "FLAG_HIDDEN_ITEM_ULAULA_CAVE"
+    }
+  ],
   "game_version": "hns",
   "region": "REGION_ALOLA"
 }

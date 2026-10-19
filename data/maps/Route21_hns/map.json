@@ -143,6 +143,14 @@
       "elevation": 0,
       "item": "ITEM_STARDUST",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE21_STARDUST_3"
+    },
+    {
+      "type": "hidden_item",
+      "x": 12,
+      "y": 25,
+      "elevation": 1,
+      "item": "ITEM_BIG_NUGGET",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE21"
     }
   ],
   "game_version": "hns",

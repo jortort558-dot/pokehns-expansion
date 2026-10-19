@@ -214,6 +214,14 @@
       "elevation": 0,
       "item": "ITEM_BIG_MUSHROOM",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE4_BIG_MUSHROOM"
+    },
+    {
+      "type": "hidden_item",
+      "x": 40,
+      "y": 8,
+      "elevation": 3,
+      "item": "ITEM_FALINKSITE",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE4"
     }
   ],
   "game_version": "hns",

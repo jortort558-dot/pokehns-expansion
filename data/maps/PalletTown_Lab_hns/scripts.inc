@@ -1,5 +1,53 @@
 PalletTown_Lab_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_Lab_OnTransition
 	.byte 0
+
+PalletTown_Lab_OnTransition::
+	setflag FLAG_HIDE_MOHEDANO_PALLET
+	clearflag FLAG_HIDE_PALLET_LAB_OAK
+	call_if_set FLAG_MOHEDANO_PALLET_FINALE_READY, PalletTown_Lab_EventScript_CheckMohedanoFinale
+	end
+
+PalletTown_Lab_EventScript_CheckMohedanoFinale::
+	goto_if_set FLAG_MOHEDANO_STORY_COMPLETE, PalletTown_Lab_EventScript_CheckMohedanoFinaleEnd
+	setflag FLAG_HIDE_PALLET_LAB_OAK
+	clearflag FLAG_HIDE_MOHEDANO_PALLET
+PalletTown_Lab_EventScript_CheckMohedanoFinaleEnd::
+	return
+
+PalletTown_Lab_EventScript_Mohedano::
+	lock
+	faceplayer
+	setspeaker SP_NAME_MOHEDANO
+	goto_if_defeated TRAINER_TABULA_RASA_HNS, PalletTown_Lab_EventScript_MohedanoEnding
+	goto_if_defeated TRAINER_PROFESSOR_MOHEDANO_HNS, PalletTown_Lab_EventScript_TabulaBattle
+	msgbox PalletTown_Lab_Text_MohedanoReveal, MSGBOX_DEFAULT
+	closemessage
+	special HealPlayerParty
+	trainerbattle_no_intro TRAINER_PROFESSOR_MOHEDANO_HNS, PalletTown_Lab_Text_MohedanoDefeated
+
+PalletTown_Lab_EventScript_TabulaBattle::
+	setspeaker SP_NAME_MOHEDANO
+	msgbox PalletTown_Lab_Text_TabulaAwakens, MSGBOX_DEFAULT
+	closemessage
+	special HealPlayerParty
+	trainerbattle_no_intro TRAINER_TABULA_RASA_HNS, PalletTown_Lab_Text_TabulaDefeated
+
+PalletTown_Lab_EventScript_MohedanoEnding::
+	setspeaker SP_NAME_MOHEDANO
+	msgbox PalletTown_Lab_Text_MohedanoEnding, MSGBOX_DEFAULT
+	setflag FLAG_MOHEDANO_STORY_COMPLETE
+	setflag FLAG_HIDE_MOHEDANO_PALLET
+	clearflag FLAG_HIDE_PALLET_LAB_OAK
+	closemessage
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_PALLET_LAB_MOHEDANO
+	addobject LOCALID_PALLET_LAB_OAK
+	fadescreenswapbuffers FADE_FROM_BLACK
+	setspeaker SP_NAME_NONE
+	msgbox PalletTown_Lab_Text_OakAfterMohedano, MSGBOX_DEFAULT
+	release
+	end
 
 PalletTown_Lab_EventScript_Oak::
 	lock
@@ -154,3 +202,43 @@ PalletTown_Lab_Text_OaksLabPC:
 	.string "bastante fama.\p"
 	.string "Me alegra mucho saberlo.\p"
 	.string "ELM, en PUEBLO PRIMAVERA 8-)$"
+
+PalletTown_Lab_Text_MohedanoReveal:
+	.string "Llegas tarde para impedirlo,\n"
+	.string "pero justo a tiempo para verlo.\p"
+	.string "Los recuerdos de un POKéMON\n"
+	.string "limitan aquello que puede ser.\p"
+	.string "TABULA RASA los libera.\n"
+	.string "Sin miedo. Sin dueño. Sin pasado.\p"
+	.string "¿Acaso tu NUZLOCKE no hace lo\n"
+	.string "mismo cada vez que pierdes?\p"
+	.string "Demuéstrame que tu vínculo vale\n"
+	.string "más que mi ciencia.$"
+
+PalletTown_Lab_Text_MohedanoDefeated:
+	.string "Así que esto es recordar...$"
+
+PalletTown_Lab_Text_TabulaAwakens:
+	.string "No importa. El profesor era solo\n"
+	.string "la hipótesis.\p"
+	.string "TABULA RASA ya ha aprendido de\n"
+	.string "todos nosotros.\p"
+	.string "Y ahora va a aprender de ti.$"
+
+PalletTown_Lab_Text_TabulaDefeated:
+	.string "TABULA RASA pierde la señal.$"
+
+PalletTown_Lab_Text_MohedanoEnding:
+	.string "Curioso... No la venciste\n"
+	.string "olvidando, sino recordando.\p"
+	.string "Quizá me equivoqué. O quizá solo\n"
+	.string "faltaba una muestra como tú.\p"
+	.string "Cuando vuelvas a verme, decide\n"
+	.string "cuál de las dos cosas ocurrió.$"
+
+PalletTown_Lab_Text_OakAfterMohedano:
+	.string "OAK: El sistema ha quedado limpio.\p"
+	.string "Pero no encuentro a MOHEDANO\n"
+	.string "entre los registros de salida.\p"
+	.string "Sea lo que sea TABULA RASA,\n"
+	.string "esto aún no ha terminado.$"

@@ -153,6 +153,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route1_EventScript_Sign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 14,
+      "y": 19,
+      "elevation": 3,
+      "item": "ITEM_STARAPTITE",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE1"
     }
   ],
   "game_version": "hns",

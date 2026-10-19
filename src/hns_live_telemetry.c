@@ -12,7 +12,7 @@
 #include "constants/characters.h"
 #include "constants/pokedex.h"
 
-#define HNS_LIVE_VERSION 2
+#define HNS_LIVE_VERSION 3
 #define HNS_LIVE_INTERVAL_FRAMES 60
 #define HNS_LIVE_NAME_LENGTH 11
 #define HNS_LIVE_EVENT_CAPACITY 8
@@ -56,6 +56,27 @@ struct PACKED HnsLiveEvent
     u8 flags;
 };
 
+// Estado del combate activo (cero cuando no hay combate).
+struct PACKED HnsLiveBattleMon
+{
+    u16 species;    // Species ID del battler
+    u8  level;      // Nivel
+    u8  status;     // HnsLiveStatus del battler
+    u16 hp;         // PS actuales
+    u16 maxHp;      // PS máximos
+    s8  speedStage; // Modificador de velocidad (-6 a +6)
+    u8  reserved[3];
+};
+
+struct PACKED HnsLiveBattleState
+{
+    u8 inBattle;            // 0 = no combate, 1 = combate activo
+    u8 isWild;              // 1 = combate salvaje, 0 = entrenador
+    u8 reserved[2];
+    struct HnsLiveBattleMon player;   // Pokémon activo del jugador
+    struct HnsLiveBattleMon opponent; // Pokémon activo del rival
+};
+
 struct PACKED HnsLiveTelemetry
 {
     u8 signature[4];
@@ -77,6 +98,7 @@ struct PACKED HnsLiveTelemetry
     u16 eventReserved;
     u32 eventSequence;
     struct HnsLiveEvent events[HNS_LIVE_EVENT_CAPACITY];
+    struct HnsLiveBattleState battle; // Estado del combate activo (v3)
     u32 checksum;
     u32 sequenceEnd;
 };
@@ -311,6 +333,43 @@ void HnsLiveTelemetry_Update(void)
                 memset((void *)dst, 0, sizeof(*dst));
             }
         }
+    }
+
+    // Actualizar estado del combate activo (v3)
+    if (gMain.inBattle)
+    {
+        const struct BattlePokemon *playerMon   = &gBattleMons[B_POSITION_PLAYER_LEFT];
+        const struct BattlePokemon *opponentMon = &gBattleMons[B_POSITION_OPPONENT_LEFT];
+        volatile struct HnsLiveBattleState *battle = &sHnsLiveTelemetry.battle;
+        volatile struct HnsLiveBattleMon *bp = &battle->player;
+        volatile struct HnsLiveBattleMon *bo = &battle->opponent;
+
+        battle->inBattle = 1;
+        battle->isWild   = (gBattleTypeFlags & BATTLE_TYPE_TRAINER) ? 0 : 1;
+        battle->reserved[0] = 0;
+        battle->reserved[1] = 0;
+
+        // Battler jugador
+        bp->species    = playerMon->species;
+        bp->level      = playerMon->level;
+        bp->hp         = playerMon->hp;
+        bp->maxHp      = playerMon->maxHP;
+        bp->speedStage = playerMon->statStages[STAT_SPEED - 1];
+        bp->status     = GetLiveStatus(playerMon->status1, playerMon->hp);
+        bp->reserved[0] = 0; bp->reserved[1] = 0; bp->reserved[2] = 0;
+
+        // Battler rival
+        bo->species    = opponentMon->species;
+        bo->level      = opponentMon->level;
+        bo->hp         = opponentMon->hp;
+        bo->maxHp      = opponentMon->maxHP;
+        bo->speedStage = opponentMon->statStages[STAT_SPEED - 1];
+        bo->status     = GetLiveStatus(opponentMon->status1, opponentMon->hp);
+        bo->reserved[0] = 0; bo->reserved[1] = 0; bo->reserved[2] = 0;
+    }
+    else
+    {
+        memset((void *)&sHnsLiveTelemetry.battle, 0, sizeof(sHnsLiveTelemetry.battle));
     }
 
     sHnsLiveTelemetry.checksum = CalculatePayloadChecksum();

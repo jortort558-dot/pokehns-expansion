@@ -244,6 +244,14 @@
       "elevation": 0,
       "item": "ITEM_REVIVE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE11_REVIVE"
+    },
+    {
+      "type": "hidden_item",
+      "x": 30,
+      "y": 15,
+      "elevation": 3,
+      "item": "ITEM_SCOLIPITE",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE11"
     }
   ],
   "game_version": "hns",

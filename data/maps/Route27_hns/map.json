@@ -372,6 +372,14 @@
       "elevation": 0,
       "item": "ITEM_REVIVE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE27_REVIVE"
+    },
+    {
+      "type": "hidden_item",
+      "x": 40,
+      "y": 22,
+      "elevation": 3,
+      "item": "ITEM_FOCUS_SASH",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE27"
     }
   ],
   "game_version": "hns",

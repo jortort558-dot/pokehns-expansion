@@ -1,5 +1,22 @@
 SaffronCity_SilphCo_hns_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SaffronCity_SilphCo_OnTransition
 	.byte 0
+
+SaffronCity_SilphCo_OnTransition::
+	setflag FLAG_HIDE_MOHEDANO_SILPH_BATEMAGICO
+	setflag FLAG_HIDE_MOHEDANO_SILPH_BILL
+	call_if_set FLAG_MOHEDANO_CINNABAR_COMPLETE, SaffronCity_SilphCo_EventScript_CheckMohedanoChapter
+	end
+
+SaffronCity_SilphCo_EventScript_CheckMohedanoChapter::
+	goto_if_set FLAG_MOHEDANO_PALLET_FINALE_READY, SaffronCity_SilphCo_EventScript_CheckMohedanoEnd
+	goto_if_set FLAG_MOHEDANO_BILL_RESCUED, SaffronCity_SilphCo_EventScript_ShowBill
+	clearflag FLAG_HIDE_MOHEDANO_SILPH_BATEMAGICO
+	return
+SaffronCity_SilphCo_EventScript_ShowBill::
+	clearflag FLAG_HIDE_MOHEDANO_SILPH_BILL
+SaffronCity_SilphCo_EventScript_CheckMohedanoEnd::
+	return
 
 SaffronCity_SilphCo_EventScript_Steven::
 	lock 
@@ -117,6 +134,7 @@ SaffronCity_SilphCo_Text_Steven4:
 	.string "con cariño me hará muy feliz.$"
 
 SaffronCity_SilphCo_EventScript_Receptionist::
+	goto_if_set FLAG_MOHEDANO_CINNABAR_COMPLETE, SaffronCity_SilphCo_EventScript_Terminal3
 	msgbox SilphCo_Text_Receptionist, MSGBOX_NPC
 	end
 SaffronCity_SilphCo_EventScript_Officer::
@@ -129,11 +147,69 @@ SaffronCity_SilphCo_EventScript_OfficerAfter::
 	end
 
 SaffronCity_SilphCo_EventScript_Sign1::
+	goto_if_set FLAG_MOHEDANO_CINNABAR_COMPLETE, SaffronCity_SilphCo_EventScript_Terminal1
 	msgbox SilphCo_Text_Sign1, MSGBOX_SIGN
 	end
 
 SaffronCity_SilphCo_EventScript_Sign2::
+	goto_if_set FLAG_MOHEDANO_CINNABAR_COMPLETE, SaffronCity_SilphCo_EventScript_Terminal2
 	msgbox SilphCo_Text_Sign2, MSGBOX_SIGN
+	end
+
+SaffronCity_SilphCo_EventScript_Terminal1::
+	setflag FLAG_MOHEDANO_SILPH_TERMINAL_1
+	msgbox SaffronCity_SilphCo_Text_Terminal1, MSGBOX_SIGN
+	end
+
+SaffronCity_SilphCo_EventScript_Terminal2::
+	setflag FLAG_MOHEDANO_SILPH_TERMINAL_2
+	msgbox SaffronCity_SilphCo_Text_Terminal2, MSGBOX_SIGN
+	end
+
+SaffronCity_SilphCo_EventScript_Terminal3::
+	setflag FLAG_MOHEDANO_SILPH_TERMINAL_3
+	msgbox SaffronCity_SilphCo_Text_Terminal3, MSGBOX_NPC
+	end
+
+SaffronCity_SilphCo_EventScript_Batemagico::
+	lock
+	faceplayer
+	setspeaker SP_NAME_BATEMAGICO
+	goto_if_unset FLAG_MOHEDANO_SILPH_TERMINAL_1, SaffronCity_SilphCo_EventScript_BatemagicoWaiting
+	goto_if_unset FLAG_MOHEDANO_SILPH_TERMINAL_2, SaffronCity_SilphCo_EventScript_BatemagicoWaiting
+	goto_if_unset FLAG_MOHEDANO_SILPH_TERMINAL_3, SaffronCity_SilphCo_EventScript_BatemagicoWaiting
+	msgbox SaffronCity_SilphCo_Text_BatemagicoRescue, MSGBOX_DEFAULT
+	closemessage
+	playse SE_DOOR
+	waitse
+	setflag FLAG_MOHEDANO_BILL_RESCUED
+	clearflag FLAG_HIDE_MOHEDANO_SILPH_BILL
+	addobject LOCALID_SILPH_MOHEDANO_BILL
+	playse SE_PIN
+	applymovement LOCALID_SILPH_MOHEDANO_BATEMAGICO, Common_Movement_ExclamationMark
+	waitmovement 0
+	release
+	end
+
+SaffronCity_SilphCo_EventScript_BatemagicoWaiting::
+	msgbox SaffronCity_SilphCo_Text_BatemagicoWaiting, MSGBOX_DEFAULT
+	release
+	end
+
+SaffronCity_SilphCo_EventScript_Bill::
+	lock
+	faceplayer
+	setspeaker SP_NAME_BILL
+	msgbox SaffronCity_SilphCo_Text_BillPallet, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_MOHEDANO_PALLET_FINALE_READY
+	setflag FLAG_HIDE_MOHEDANO_SILPH_BATEMAGICO
+	setflag FLAG_HIDE_MOHEDANO_SILPH_BILL
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_SILPH_MOHEDANO_BILL
+	removeobject LOCALID_SILPH_MOHEDANO_BATEMAGICO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
 	end
 
 SilphCo_Text_Sign1:
@@ -143,6 +219,39 @@ SilphCo_Text_Sign1:
 SilphCo_Text_Sign2:
 	.string "SILPH S.A.\n"
 	.string "ASCENSOR FUERA DE SERVICIO$"
+
+SaffronCity_SilphCo_Text_Terminal1:
+	.string "TERMINAL DE SEGURIDAD.\p"
+	.string "Registro: sujeto BILL.\n"
+	.string "Retención autorizada por M.$"
+
+SaffronCity_SilphCo_Text_Terminal2:
+	.string "RUTA DE RESPALDO ABIERTA.\p"
+	.string "Origen: laboratorio de OAK.\n"
+	.string "Destino: TABULA RASA.$"
+
+SaffronCity_SilphCo_Text_Terminal3:
+	.string "La recepcionista baja la voz.\p"
+	.string "Los códigos son CANELA, FUJI\n"
+	.string "y METAMORFOSIS.$"
+
+SaffronCity_SilphCo_Text_BatemagicoWaiting:
+	.string "Hay tres capas de seguridad.\p"
+	.string "Mira el directorio, el ascensor\n"
+	.string "y pregunta en recepción.$"
+
+SaffronCity_SilphCo_Text_BatemagicoRescue:
+	.string "CANELA. FUJI. METAMORFOSIS.\p"
+	.string "Ya está. He abierto la cámara.\n"
+	.string "BILL, ¡sal de ahí!$"
+
+SaffronCity_SilphCo_Text_BillPallet:
+	.string "MOHEDANO no quería mis datos.\n"
+	.string "Quería que validase una copia.\p"
+	.string "La TABULA RASA está conectada\n"
+	.string "al laboratorio del PROF. OAK.\p"
+	.string "Ve a PUEBLO PALETA. Yo cortaré\n"
+	.string "la red desde aquí.$"
 
 SilphCo_Text_Receptionist:
 	.string "Bienvenido a la sede central\n"

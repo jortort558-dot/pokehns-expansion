@@ -513,6 +513,22 @@
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_MELEMELE_HIDDEN_ITEM"
+    },
+    {
+      "type": "hidden_item",
+      "x": 15,
+      "y": 30,
+      "elevation": 1,
+      "item": "ITEM_EXCADRITE",
+      "flag": "FLAG_HIDDEN_ITEM_MELEMELE_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 38,
+      "y": 11,
+      "elevation": 3,
+      "item": "ITEM_ZYGARDITE",
+      "flag": "FLAG_HIDDEN_ITEM_MELEMELE_2"
     }
   ],
   "game_version": "hns",

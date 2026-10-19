@@ -343,6 +343,14 @@
       "elevation": 0,
       "item": "ITEM_MAX_ELIXIR",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE17_MAX_ELIXIR_HNS"
+    },
+    {
+      "type": "hidden_item",
+      "x": 14,
+      "y": 45,
+      "elevation": 3,
+      "item": "ITEM_ABILITY_PATCH",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE17"
     }
   ],
   "game_version": "hns",

@@ -434,6 +434,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SinjohRuins_EventScript_Sign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 23,
+      "y": 20,
+      "elevation": 3,
+      "item": "ITEM_LUCARIONITE_Z",
+      "flag": "FLAG_HIDDEN_ITEM_SINJOH_RUINS"
     }
   ],
   "game_version": "hns",

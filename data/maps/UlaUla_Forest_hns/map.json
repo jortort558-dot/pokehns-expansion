@@ -131,6 +131,14 @@
       "elevation": 0,
       "item": "ITEM_MAX_REVIVE",
       "flag": "FLAG_ULAULA_FOREST_HIDDEN_ITEM_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 11,
+      "y": 14,
+      "elevation": 3,
+      "item": "ITEM_CHIMECHITE",
+      "flag": "FLAG_HIDDEN_ITEM_ULAULA_FOREST"
     }
   ],
   "game_version": "hns",

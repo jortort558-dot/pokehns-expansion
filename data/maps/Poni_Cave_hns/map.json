@@ -117,7 +117,16 @@
     }
   ],
   "coord_events": [],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 20,
+      "y": 15,
+      "elevation": 4,
+      "item": "ITEM_MALAMARITE",
+      "flag": "FLAG_HIDDEN_ITEM_PONI_CAVE"
+    }
+  ],
   "game_version": "hns",
   "region": "REGION_ALOLA"
 }

@@ -710,6 +710,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NewSinjoh_EventScript_Cave_Sign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 24,
+      "y": 18,
+      "elevation": 3,
+      "item": "ITEM_MEGANIUMITE",
+      "flag": "FLAG_HIDDEN_ITEM_NEWSINJOH_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 19,
+      "y": 32,
+      "elevation": 3,
+      "item": "ITEM_ABSOLITE_Z",
+      "flag": "FLAG_HIDDEN_ITEM_NEWSINJOH_2"
     }
   ],
   "game_version": "hns",

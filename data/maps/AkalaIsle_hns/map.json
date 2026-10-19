@@ -461,6 +461,14 @@
       "elevation": 0,
       "item": "ITEM_ZINC",
       "flag": "FLAG_AKALA_HIDDEN_ITEM_3"
+    },
+    {
+      "type": "hidden_item",
+      "x": 22,
+      "y": 16,
+      "elevation": 3,
+      "item": "ITEM_DRAGALGITE",
+      "flag": "FLAG_HIDDEN_ITEM_AKALA_1"
     }
   ],
   "game_version": "hns",

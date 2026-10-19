@@ -304,6 +304,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route19_EventScript_Sign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 10,
+      "y": 20,
+      "elevation": 1,
+      "item": "ITEM_GOLD_BOTTLE_CAP",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_ROUTE19"
     }
   ],
   "game_version": "hns",

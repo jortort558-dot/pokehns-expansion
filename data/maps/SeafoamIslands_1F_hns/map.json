@@ -216,6 +216,14 @@
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_SEAFOAM_ISLANDS_1F_RARE_CANDY"
+    },
+    {
+      "type": "hidden_item",
+      "x": 17,
+      "y": 10,
+      "elevation": 4,
+      "item": "ITEM_MAX_REVIVE",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_SEAFOAM_1F"
     }
   ],
   "game_version": "hns",

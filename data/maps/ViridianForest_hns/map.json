@@ -718,6 +718,14 @@
       "elevation": 0,
       "item": "ITEM_LEAF_STONE",
       "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_FOREST_LEAF_STONE"
+    },
+    {
+      "type": "hidden_item",
+      "x": 18,
+      "y": 30,
+      "elevation": 3,
+      "item": "ITEM_DARKRANITE",
+      "flag": "FLAG_HIDDEN_ITEM_KANTO_VIRIDIAN_FOREST"
     }
   ],
   "game_version": "hns",
