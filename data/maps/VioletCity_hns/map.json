@@ -924,6 +924,15 @@
       "var": "VAR_VIOLET_CITY_STATE",
       "var_value": "3",
       "script": "VioletCity_EventScript_ElmCall_Trigger"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "VioletCity_EventScript_SecretCaveEntrance"
     }
   ],
   "bg_events": [
@@ -934,14 +943,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VioletCity_EventScript_GymSign"
-    },
-    {
-      "type": "sign",
-      "x": 19,
-      "y": 10,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VioletCity_EventScript_SecretCaveEntrance"
     },
     {
       "type": "sign",

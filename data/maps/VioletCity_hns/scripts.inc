@@ -286,7 +286,6 @@ VioletCity_EventScript_SecretCaveOpen::
 	closemessage
 	playse SE_M_ROCK_THROW
 	waitse
-	fadescreen FADE_TO_BLACK
 	warp MAP_VIOLET_CITY_CAVE_KALOS, 10, 2
 	waitstate
 	end

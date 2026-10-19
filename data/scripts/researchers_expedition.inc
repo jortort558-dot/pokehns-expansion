@@ -148,8 +148,7 @@ Common_EventScript_Researchers_Route32::
 	setflag FLAG_REWARD_RESEARCHERS_ROUTE32
 	msgbox Common_Text_Researchers_Pilar_PostRoute32, MSGBOX_DEFAULT
 	closemessage
-	release
-	end
+	goto Common_EventScript_Researchers_Depart
 
 Common_EventScript_Researchers_Route38::
 	goto_if_set FLAG_REWARD_RESEARCHERS_ROUTE38, Common_EventScript_Researchers_DoneRoute38
@@ -162,8 +161,7 @@ Common_EventScript_Researchers_Route38::
 	setflag FLAG_REWARD_RESEARCHERS_ROUTE38
 	msgbox Common_Text_Researchers_Pilar_PostRoute38, MSGBOX_DEFAULT
 	closemessage
-	release
-	end
+	goto Common_EventScript_Researchers_Depart
 
 Common_EventScript_Researchers_Route41::
 	goto_if_set FLAG_REWARD_RESEARCHERS_ROUTE41, Common_EventScript_Researchers_DoneRoute41
@@ -176,8 +174,7 @@ Common_EventScript_Researchers_Route41::
 	setflag FLAG_REWARD_RESEARCHERS_ROUTE41
 	msgbox Common_Text_Researchers_Pilar_PostTufillo, MSGBOX_DEFAULT
 	closemessage
-	release
-	end
+	goto Common_EventScript_Researchers_Depart
 
 Common_EventScript_Researchers_Route43::
 	goto_if_set FLAG_REWARD_RESEARCHERS_ROUTE43, Common_EventScript_Researchers_DoneRoute43
@@ -190,8 +187,7 @@ Common_EventScript_Researchers_Route43::
 	setflag FLAG_REWARD_RESEARCHERS_ROUTE43
 	msgbox Common_Text_Researchers_Pilar_PostRoute43, MSGBOX_DEFAULT
 	closemessage
-	release
-	end
+	goto Common_EventScript_Researchers_Depart
 
 Common_EventScript_Researchers_Route45::
 	goto_if_set FLAG_REWARD_RESEARCHERS_ROUTE45, Common_EventScript_Researchers_DoneRoute45
@@ -204,6 +200,44 @@ Common_EventScript_Researchers_Route45::
 	setflag FLAG_REWARD_RESEARCHERS_ROUTE45
 	msgbox Common_Text_Researchers_Pilar_PostRoute45, MSGBOX_DEFAULT
 	closemessage
+	goto Common_EventScript_Researchers_Depart
+
+Common_EventScript_Researchers_Depart::
+	fadescreen FADE_TO_BLACK
+	switch VAR_0x8004
+	case 32, Common_EventScript_Researchers_DepartRoute32
+	case 38, Common_EventScript_Researchers_DepartRoute38
+	case 41, Common_EventScript_Researchers_DepartRoute41
+	case 43, Common_EventScript_Researchers_DepartRoute43
+	case 45, Common_EventScript_Researchers_DepartRoute45
+	goto Common_EventScript_Researchers_DepartDone
+
+Common_EventScript_Researchers_DepartRoute32::
+	removeobject 39
+	removeobject 40
+	goto Common_EventScript_Researchers_DepartDone
+
+Common_EventScript_Researchers_DepartRoute38::
+	removeobject 20
+	removeobject 21
+	goto Common_EventScript_Researchers_DepartDone
+
+Common_EventScript_Researchers_DepartRoute41::
+	removeobject 26
+	removeobject 27
+	goto Common_EventScript_Researchers_DepartDone
+
+Common_EventScript_Researchers_DepartRoute43::
+	removeobject 19
+	removeobject 20
+	goto Common_EventScript_Researchers_DepartDone
+
+Common_EventScript_Researchers_DepartRoute45::
+	removeobject 27
+	removeobject 28
+
+Common_EventScript_Researchers_DepartDone::
+	fadescreen FADE_FROM_BLACK
 	release
 	end
 
@@ -572,4 +606,3 @@ Common_Text_PokegearAdvancedMetamorphosisNotice:
 	.string "complejas como OGERPON y URSHIFU!\p"
 	.string "¡Pásate por el CENTRO POKéMON de\n"
 	.string "la ZONA SAFARI cuando quieras!$"
-
