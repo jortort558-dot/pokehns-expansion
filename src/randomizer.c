@@ -1668,6 +1668,18 @@ static bool32 IsCoverLegendary(u16 species)
     return FALSE;
 }
 
+static bool32 IsTrueStaticLegendary(u16 species)
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[species];
+    if (info->isMythical || info->isUltraBeast)
+        return FALSE;
+    if (IsCoverLegendary(species))
+        return TRUE;
+    if ((info->isSubLegendary || info->isRestrictedLegendary) && GetSpeciesBST(species) >= 570)
+        return TRUE;
+    return FALSE;
+}
+
 static bool32 IsFinalPseudoLegendary(u16 species)
 {
     u32 i;
@@ -1678,6 +1690,7 @@ static bool32 IsFinalPseudoLegendary(u16 species)
     }
     return FALSE;
 }
+
 
 enum WildPowerCategory GetWildPowerCategory(u16 species)
 {
@@ -2471,9 +2484,7 @@ static u16 RandomizeStaticMonSimilarBst(u16 originalSpecies, struct Sfc32State *
     u16 candidatePool[120];
     u16 candidateCount = 0;
     u16 species;
-    u16 attempts;
-    bool32 isCover = IsCoverLegendary(originalSpecies);
-    bool32 isSubLegendary = (gSpeciesInfo[originalSpecies].isSubLegendary || gSpeciesInfo[originalSpecies].isRestrictedLegendary || gSpeciesInfo[originalSpecies].isUltraBeast) && !isCover;
+    bool32 isLegendary = IsTrueStaticLegendary(originalSpecies);
     bool32 isPseudo = IsFinalPseudoLegendary(originalSpecies);
     bool32 isSnorlax = (originalSpecies == SPECIES_SNORLAX);
     bool32 includeLegendaries = gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries;
@@ -2500,25 +2511,20 @@ static u16 RandomizeStaticMonSimilarBst(u16 originalSpecies, struct Sfc32State *
 
         info = &gSpeciesInfo[species];
 
-        // 1. Legendarios de portada (Mewtwo, Lugia, Ho-Oh, etc.) -> solo otros legendarios de portada
-        if (isCover)
+        // 1. Legendarios estáticos (Lugia, Ho-Oh, Zapdos, Groudon, Palkia, Tapus, Tesoros de la Ruina, etc.):
+        // Sustituir exclusivamente por cualquier otro Legendario Auténtico (BST >= 570, sin UBs ni Singulares)
+        if (isLegendary)
         {
-            if (!IsCoverLegendary(species))
+            if (!IsTrueStaticLegendary(species))
                 continue;
         }
-        // 2. Sublegendarios (Articuno, Zapdos, Suicune, Regis, etc.) -> solo otros sublegendarios / Ultraentes
-        else if (isSubLegendary)
-        {
-            if (IsCoverLegendary(species) || (!info->isSubLegendary && !info->isRestrictedLegendary && !info->isUltraBeast))
-                continue;
-        }
-        // 3. Pokémon estáticos normales:
+        // 2. Pokémon estáticos normales:
         else
         {
-            if (IsCoverLegendary(species))
+            if (IsTrueStaticLegendary(species) || IsCoverLegendary(species))
                 continue;
 
-            // Para Snorlax se permite la inclusión de sublegendarios ya que entran en su rango de BST (+-10%)
+            // Para Snorlax se permite la inclusión de sublegendarios si tx_Random_IncludeLegendaries está activo
             if (info->isSubLegendary || info->isRestrictedLegendary || info->isUltraBeast)
             {
                 if (!isSnorlax || !includeLegendaries)
@@ -2526,8 +2532,10 @@ static u16 RandomizeStaticMonSimilarBst(u16 originalSpecies, struct Sfc32State *
             }
         }
 
+        // Para Pokémon no legendarios se aplica la banda de +-10% BST.
+        // Para legendarios estáticos, cualquier legendario auténtico de la bolsa (BST >= 570) es elegible.
         bst = GetSpeciesBST(species);
-        if (bst >= minBst && bst <= maxBst)
+        if (isLegendary || (bst >= minBst && bst <= maxBst))
         {
             if (candidateCount < ARRAY_COUNT(candidatePool))
             {
@@ -2544,6 +2552,7 @@ static u16 RandomizeStaticMonSimilarBst(u16 originalSpecies, struct Sfc32State *
     }
 
     if (candidateCount > 0)
+
     {
         u16 poolSize = min(candidateCount, ARRAY_COUNT(candidatePool));
         u16 chosen = candidatePool[RandomizerNextRange(state, poolSize)];
