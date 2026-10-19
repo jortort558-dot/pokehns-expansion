@@ -864,6 +864,12 @@ const u32 gObjectEventPic_EntreAbby[] =
 const u16 gObjectEventPal_EntreAbby[] =
     INCBIN_U16("graphics/object_events/palettes/entre_abby.gbapal");
 
+const u32 gObjectEventPic_Campfire_hns[] =
+    INCBIN_U32("graphics/battle_anims/sprites/fire.4bpp");
+
+const u16 gObjectEventPal_Campfire_hns[] =
+    INCBIN_U16("graphics/battle_anims/sprites/fire.gbapal");
+
 
 // HnS protagonist sprite data
 const u32 gObjectEventPic_GoldNormalRunning_hns[] = INCBIN_U32("graphics/object_events/pics/people/gold/walking_hns.4bpp", "graphics/object_events/pics/people/gold/running_hns.4bpp");

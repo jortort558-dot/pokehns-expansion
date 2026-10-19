@@ -283,7 +283,12 @@ VioletCity_EventScript_SecretCaveEntrance::
 
 VioletCity_EventScript_SecretCaveOpen::
 	msgbox VioletCity_Text_SecretCaveOpen, MSGBOX_DEFAULT
-	releaseall
+	closemessage
+	playse SE_M_ROCK_THROW
+	waitse
+	fadescreen FADE_TO_BLACK
+	warp MAP_VIOLET_CITY_CAVE_KALOS, 10, 2
+	waitstate
 	end
 
 VioletCity_Text_GustalHint:
@@ -348,8 +353,8 @@ VioletCity_Text_SecretCaveClosed:
 
 VioletCity_Text_SecretCaveOpen:
 	.string "Las piedras se han separado.\n"
-	.string "Un túnel inundado desciende,\l"
-	.string "pero aún no puede explorarse.$"
+	.string "Un sendero desciende bajo\l"
+	.string "la luz de CIUDAD MALVA.$"
 
 VioletCity_EventScript_Pichu::
 	lock
