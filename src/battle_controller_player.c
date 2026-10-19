@@ -2185,7 +2185,10 @@ static void DisplayBattleRivalPanel(enum BattlerId battler)
 
     StringCopy(gDisplayedStringBattle, COMPOUND_STRING("PÁG. 2/2  INFO RIVAL\n"));
     StringAppend(gDisplayedStringBattle, COMPOUND_STRING("HAB: "));
-    StringAppend(gDisplayedStringBattle, gAbilitiesInfo[gBattleMons[opponent].ability].name);
+    if (gBattleHistory->abilities[opponent] == ABILITY_NONE)
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("???"));
+    else
+        StringAppend(gDisplayedStringBattle, gAbilitiesInfo[gBattleHistory->abilities[opponent]].name);
     StringAppend(gDisplayedStringBattle, gText_NewLine);
 
     StringAppend(gDisplayedStringBattle, COMPOUND_STRING("MOVIMIENTOS:\n"));
@@ -2195,19 +2198,19 @@ static void DisplayBattleRivalPanel(enum BattlerId battler)
         ConvertIntToDecimalStringN(num, i + 1, STR_CONV_MODE_LEFT_ALIGN, 1);
         StringAppend(gDisplayedStringBattle, num);
         StringAppend(gDisplayedStringBattle, COMPOUND_STRING(". "));
-        if (gBattleMons[opponent].moves[i] == MOVE_NONE)
+        if (gBattleHistory->usedMoves[opponent][i] == MOVE_NONE)
             StringAppend(gDisplayedStringBattle, COMPOUND_STRING("???"));
         else
-            StringAppend(gDisplayedStringBattle, GetMoveName(gBattleMons[opponent].moves[i]));
+            StringAppend(gDisplayedStringBattle, GetMoveName(gBattleHistory->usedMoves[opponent][i]));
         if (i & 1)
             StringAppend(gDisplayedStringBattle, gText_NewLine);
     }
 
     StringAppend(gDisplayedStringBattle, COMPOUND_STRING("ÚLTIMO: "));
-    if (gBattleStruct->lastTakenMove[opponent] == MOVE_NONE)
+    if (gLastMoves[opponent] == MOVE_NONE || gLastMoves[opponent] == MOVE_UNAVAILABLE)
         StringAppend(gDisplayedStringBattle, COMPOUND_STRING("---"));
     else
-        StringAppend(gDisplayedStringBattle, GetMoveName(gBattleStruct->lastTakenMove[opponent]));
+        StringAppend(gDisplayedStringBattle, GetMoveName(gLastMoves[opponent]));
 
     if (gBattleStruct->moveDamage[opponent] > 0)
     {

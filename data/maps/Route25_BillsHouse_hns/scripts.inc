@@ -10,6 +10,10 @@ Route25_BillsHouse_hns_OnTransition::
 
 Route25_BillsHouse_hns_EventScript_TeleporterTest::
 	lockall
+	goto_if_unset FLAG_MT_MOON_INVESTIGATION_COMPLETE, Route25_BillsHouse_hns_EventScript_TeleporterNormal
+	goto_if_unset FLAG_BILL_MOHEDANO_INVESTIGATION_STARTED, Route25_BillsHouse_hns_EventScript_TerminalLocked
+	goto_if_unset FLAG_BILL_MOHEDANO_TERMINAL_READ, Route25_BillsHouse_hns_EventScript_MohedanoTerminal
+Route25_BillsHouse_hns_EventScript_TeleporterNormal:
 	goto_if_unset FLAG_TELEPORTER_UNLOCKED, Route25_BillsHouse_hns_EndChoice
 	helpwindow HELP_TELEPORTER_WINDOW
 	msgbox Route25_BillsHouse_Text_Teleporter, MSGBOX_YESNO
@@ -135,6 +139,48 @@ Route25_BillsHouse_hns_EndChoice::
 	closemessage
 	releaseall
 	end
+
+Route25_BillsHouse_hns_EventScript_TerminalLocked::
+	special EnableGlasstownMessageBox
+	msgbox Route25_BillsHouse_hns_Text_TerminalLocked, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Route25_BillsHouse_hns_EventScript_MohedanoTerminal::
+	special EnableGlasstownMessageBox
+	msgbox Route25_BillsHouse_hns_Text_MohedanoTerminal, MSGBOX_DEFAULT
+	setflag FLAG_BILL_MOHEDANO_TERMINAL_READ
+	playse SE_POKENAV_CALL
+	waitse
+	pokenavcall Route25_BillsHouse_hns_Text_BatemagicoCall
+	waitmessage
+	delay 30
+	releaseall
+	end
+
+Route25_BillsHouse_hns_Text_TerminalLocked:
+	.string "El terminal exige la clave de BILL.\p"
+	.string "Quizá alguien de la casa sepa\n"
+	.string "qué estaba investigando.$"
+
+Route25_BillsHouse_hns_Text_MohedanoTerminal:
+	.string "REGISTRO DE TRANSFERENCIA 33.\p"
+	.string "Materia biológica separada de\n"
+	.string "una onda mineral artificial.\p"
+	.string "DESTINO REMOTO: CANELA.\n"
+	.string "ARCHIVO FUJI... CORROMPIDO.\p"
+	.string "Último mensaje de BILL:\n"
+	.string "Oak, si recibes esto, no abras...\p"
+	.string "La transmisión termina aquí.$"
+
+Route25_BillsHouse_hns_Text_BatemagicoCall:
+	.string "BATEMÁGICO: ¡Justo a tiempo!\p"
+	.string "He seguido la señal que salió\n"
+	.string "de la casa. Va hacia CANELA.\p"
+	.string "Bill debió descubrir qué estaban\n"
+	.string "reconstruyendo con las muestras.\p"
+	.string "Busca el ARCHIVO FUJI. Yo intentaré\n"
+	.string "localizar al propio Bill.$"
 
 Route25_BillsHouse_hns_CheckParty::
 	special CheckPartyForSpecies
@@ -371,6 +417,10 @@ Route25_BillsHouse_hns_Text_NotInParty:
 Route25_BillsHouse_EventScript_Gramps::
 	lock
 	faceplayer
+	goto_if_unset FLAG_MT_MOON_INVESTIGATION_COMPLETE, Route25_BillsHouse_EventScript_GrampsNormal
+	goto_if_unset FLAG_BILL_MOHEDANO_INVESTIGATION_STARTED, Route25_BillsHouse_EventScript_GrampsMohedanoIntro
+	goto_if_unset FLAG_BILL_MOHEDANO_TERMINAL_READ, Route25_BillsHouse_EventScript_GrampsMohedanoReminder
+Route25_BillsHouse_EventScript_GrampsNormal:
 	goto_if_eq VAR_BILLS_GRANDPA, 1, Route25_BillsHouse_EventScript_Gramps_Meowth
 	goto_if_eq VAR_BILLS_GRANDPA, 2, Route25_BillsHouse_EventScript_Gramps_Zigzagoon
 	goto_if_eq VAR_BILLS_GRANDPA, 3, Route25_BillsHouse_EventScript_Gramps_Ponyta
@@ -380,6 +430,17 @@ Route25_BillsHouse_EventScript_Gramps::
 	msgbox Route25_BillsHouse_Text_GrandpaIntro, MSGBOX_DEFAULT
 	setvar VAR_BILLS_GRANDPA, 1
 	goto Route25_BillsHouse_EventScript_Gramps_Meowth
+
+Route25_BillsHouse_EventScript_GrampsMohedanoIntro::
+	msgbox Route25_BillsHouse_Text_GrampsMohedanoIntro, MSGBOX_DEFAULT
+	setflag FLAG_BILL_MOHEDANO_INVESTIGATION_STARTED
+	release
+	end
+
+Route25_BillsHouse_EventScript_GrampsMohedanoReminder::
+	msgbox Route25_BillsHouse_Text_GrampsMohedanoReminder, MSGBOX_DEFAULT
+	release
+	end
 
 Route25_BillsHouse_EventScript_Gramps_Declined::
 	msgbox Route25_BillsHouse_Text_YouDontHaveIt, MSGBOX_DEFAULT
@@ -527,6 +588,23 @@ Route25_BillsHouse_Test::
 	givemon SPECIES_FARFETCHD, 10
 	givemon SPECIES_SLOWPOKE, 10
 	end
+
+Route25_BillsHouse_Text_GrampsMohedanoIntro:
+	.string "¿Vienes de MONTE MOON?\p"
+	.string "BILL recibió una onda extraña\n"
+	.string "desde allí hace unas horas.\p"
+	.string "Dijo que escondía datos vivos y\n"
+	.string "que debía avisar al PROFESOR OAK.\p"
+	.string "Después se cortó la luz. Cuando\n"
+	.string "volvió, BILL había desaparecido.\p"
+	.string "Su terminal conserva el último\n"
+	.string "registro. Examínalo, por favor.$"
+
+Route25_BillsHouse_Text_GrampsMohedanoReminder:
+	.string "El terminal de BILL está junto\n"
+	.string "al sistema de transferencia.\p"
+	.string "Quizá conserve alguna pista de\n"
+	.string "adónde se lo llevaron.$"
 
 Route25_BillsHouse_Movement_MonCelebration:
 	jump_in_place_down

@@ -1227,8 +1227,10 @@
 #define FLAG_MT_MOON_LUNATONE_DEFEATED               0x4BC
 #define FLAG_MT_MOON_INVESTIGATION_COMPLETE          0x4BD
 #define FLAG_HIDE_MT_MOON_QUEST_CLEFAIRY             0x4BE
+#define FLAG_BILL_MOHEDANO_INVESTIGATION_STARTED      0x4BF
+#define FLAG_BILL_MOHEDANO_TERMINAL_READ               0x4C0
 
-// 0x4BF–0x4FF remaining reserved for future expansion
+// 0x4C1–0x4FF remaining reserved for future expansion
 
 // Trainer registered (match call) flags — one per rematchable trainer
 #define TRAINER_REGISTERED_FLAGS_START               0x310
