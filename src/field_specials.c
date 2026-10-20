@@ -6548,6 +6548,11 @@ void CheckAndResetSaturdayWeeklyCaptures(void)
         FlagClear(FLAG_SAFARI_ZONE_COMPLETED);
         FlagClear(FLAG_KANTO_SAFARI_ZONE_COMPLETED);
         FlagClear(FLAG_BUG_CONTEST_COMPLETED);
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
     }
 }
 

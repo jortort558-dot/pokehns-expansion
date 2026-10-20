@@ -2060,6 +2060,19 @@ static void DisplayMovePowerBreakdownPanel(enum BattlerId battler)
 // Battle Info UI — Panel B: Stat stages + field conditions
 // ---------------------------------------------------------------------------
 
+// Correct order matching header: AT, DF, AE, DE, VL, PR, EV
+// In include/constants/pokemon.h:
+// STAT_ATK=1, STAT_DEF=2, STAT_SPATK=4, STAT_SPDEF=5, STAT_SPEED=3, STAT_ACC=6, STAT_EVASION=7
+static const u8 sBattleStatsOrder[] = {
+    STAT_ATK,
+    STAT_DEF,
+    STAT_SPATK,
+    STAT_SPDEF,
+    STAT_SPEED,
+    STAT_ACC,
+    STAT_EVASION
+};
+
 static const u8 sStageStrings[][4] =
 {
     [0]  = _("-6"),
@@ -2078,23 +2091,45 @@ static const u8 sStageStrings[][4] =
 };
 
 // Weather abbreviations for the field panel
-static const u8 sWeatherNames[][6] =
+static const u8 *const sWeatherNames[] =
 {
-    [BATTLE_WEATHER_RAIN]         = _("LLUV"),
-    [BATTLE_WEATHER_RAIN_PRIMAL]  = _("LLUP"),
-    [BATTLE_WEATHER_SUN]          = _("SOL "),
-    [BATTLE_WEATHER_SUN_PRIMAL]   = _("SOLP"),
-    [BATTLE_WEATHER_SANDSTORM]    = _("AREN"),
-    [BATTLE_WEATHER_HAIL]         = _("GRNZ"),
-    [BATTLE_WEATHER_SNOW]         = _("NIEV"),
-    [BATTLE_WEATHER_FOG]          = _("NIEB"),
-    [BATTLE_WEATHER_STRONG_WINDS] = _("VTRT"),
+    [BATTLE_WEATHER_RAIN]         = COMPOUND_STRING("LLUVIA"),
+    [BATTLE_WEATHER_RAIN_PRIMAL]  = COMPOUND_STRING("DILUVIO"),
+    [BATTLE_WEATHER_SUN]          = COMPOUND_STRING("SOL"),
+    [BATTLE_WEATHER_SUN_PRIMAL]   = COMPOUND_STRING("SOL ABRAS"),
+    [BATTLE_WEATHER_SANDSTORM]    = COMPOUND_STRING("ARENA"),
+    [BATTLE_WEATHER_HAIL]         = COMPOUND_STRING("GRANIZO"),
+    [BATTLE_WEATHER_SNOW]         = COMPOUND_STRING("NIEVE"),
+    [BATTLE_WEATHER_FOG]          = COMPOUND_STRING("NIEBLA"),
+    [BATTLE_WEATHER_STRONG_WINDS] = COMPOUND_STRING("VIENTO"),
 };
+
+static void AppendColoredStage(u8 stage)
+{
+    if (stage > 6)
+    {
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR GREEN}{SHADOW LIGHT_GREEN}"));
+        StringAppend(gDisplayedStringBattle, sStageStrings[stage]);
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"));
+    }
+    else if (stage < 6)
+    {
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR RED}{SHADOW LIGHT_RED}"));
+        StringAppend(gDisplayedStringBattle, sStageStrings[stage]);
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"));
+    }
+    else
+    {
+        StringAppend(gDisplayedStringBattle, sStageStrings[stage]);
+    }
+}
 
 static void DisplayBattleInfoPanel(enum BattlerId battler)
 {
     enum BattlerId opponent = GetOpposingSideBattler(battler);
-    s32 stat;
+    u32 i;
+    u8 tBuf[8];
+    bool32 hasFieldCond = FALSE;
 
     if (gCategoryIconSpriteId != 0xFF)
     {
@@ -2105,35 +2140,32 @@ static void DisplayBattleInfoPanel(enum BattlerId battler)
     LoadMessageBoxAndBorderGfx();
     DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
 
-    // --- Line 1: Compact headers for all seven battle stats ---
-    StringCopy(gDisplayedStringBattle, COMPOUND_STRING("   AT DF AE DE VL PR EV"));
-    StringAppend(gDisplayedStringBattle, gText_NewLine);
+    // --- Line 1: Header ---
+    StringCopy(gDisplayedStringBattle, COMPOUND_STRING("{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}(L) PÁG. 1/2 ESTADÍSTICAS\n"));
 
-    // --- Line 2: Player stages ---
+    // --- Line 2: Stat column labels ---
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("   AT DF AE DE VL PR EV\n"));
+
+    // --- Line 3: Player stages ---
     StringAppend(gDisplayedStringBattle, COMPOUND_STRING("TU "));
-    for (stat = STAT_ATK; stat < NUM_BATTLE_STATS; stat++)
+    for (i = 0; i < ARRAY_COUNT(sBattleStatsOrder); i++)
     {
-        StringAppend(gDisplayedStringBattle, sStageStrings[gBattleMons[battler].statStages[stat]]);
+        AppendColoredStage(gBattleMons[battler].statStages[sBattleStatsOrder[i]]);
         StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" "));
     }
     StringAppend(gDisplayedStringBattle, gText_NewLine);
 
-    // --- Line 3: Opponent stages ---
+    // --- Line 4: Opponent stages ---
     StringAppend(gDisplayedStringBattle, COMPOUND_STRING("RV "));
-    for (stat = STAT_ATK; stat < NUM_BATTLE_STATS; stat++)
+    for (i = 0; i < ARRAY_COUNT(sBattleStatsOrder); i++)
     {
-        StringAppend(gDisplayedStringBattle, sStageStrings[gBattleMons[opponent].statStages[stat]]);
+        AppendColoredStage(gBattleMons[opponent].statStages[sBattleStatsOrder[i]]);
         StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" "));
     }
     StringAppend(gDisplayedStringBattle, gText_NewLine);
 
-    // --- Line 4: Weather and screens ---
-    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("Clima: "));
-    if (gBattleWeather == B_WEATHER_NONE)
-    {
-        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("Ninguno"));
-    }
-    else
+    // --- Line 5: Weather and screens ---
+    if (gBattleWeather != B_WEATHER_NONE)
     {
         u32 bit;
         for (bit = 0; bit < BATTLE_WEATHER_COUNT; bit++)
@@ -2141,38 +2173,64 @@ static void DisplayBattleInfoPanel(enum BattlerId battler)
             if (gBattleWeather & (1u << bit))
             {
                 StringAppend(gDisplayedStringBattle, sWeatherNames[bit]);
+                hasFieldCond = TRUE;
                 break;
             }
         }
         if (gBattleStruct->weatherDuration > 0)
         {
-            u8 tBuf[8];
-            u8 *p = ConvertIntToDecimalStringN(tBuf, gBattleStruct->weatherDuration, STR_CONV_MODE_LEFT_ALIGN, 2);
-            *p++ = CHAR_SPACE;
-            *p = EOS;
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING("("));
+            ConvertIntToDecimalStringN(tBuf, gBattleStruct->weatherDuration, STR_CONV_MODE_LEFT_ALIGN, 2);
             StringAppend(gDisplayedStringBattle, tBuf);
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING("T)"));
         }
     }
 
     // Screens indicator (player side)
     if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_REFLECT)
-        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" Ref"));
+    {
+        if (hasFieldCond)
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" "));
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("REFLEJO"));
+        if (gSideTimers[GetBattlerSide(battler)].reflectTimer > 0)
+        {
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING("("));
+            ConvertIntToDecimalStringN(tBuf, gSideTimers[GetBattlerSide(battler)].reflectTimer, STR_CONV_MODE_LEFT_ALIGN, 2);
+            StringAppend(gDisplayedStringBattle, tBuf);
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING("T)"));
+        }
+        hasFieldCond = TRUE;
+    }
+
     if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_LIGHTSCREEN)
-        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" PL"));
+    {
+        if (hasFieldCond)
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" "));
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("P.LUZ"));
+        if (gSideTimers[GetBattlerSide(battler)].lightscreenTimer > 0)
+        {
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING("("));
+            ConvertIntToDecimalStringN(tBuf, gSideTimers[GetBattlerSide(battler)].lightscreenTimer, STR_CONV_MODE_LEFT_ALIGN, 2);
+            StringAppend(gDisplayedStringBattle, tBuf);
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING("T)"));
+        }
+        hasFieldCond = TRUE;
+    }
+
+    if (!hasFieldCond)
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("Sin efectos de campo"));
 
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
     CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
 }
 
 // Panel B: information learned about the active opposing Pokémon.
-// Move slots are deliberately read from the active BattlePokemon: this keeps
-// the page useful in wild, trainer and double battles without revealing the
-// rest of the opponent's party.
 static void DisplayBattleRivalPanel(enum BattlerId battler)
 {
     enum BattlerId opponent = GetOpposingSideBattler(battler);
     u8 i;
     u8 num[8];
+    u16 lastMove;
 
     if (gCategoryIconSpriteId != 0xFF)
     {
@@ -2183,7 +2241,10 @@ static void DisplayBattleRivalPanel(enum BattlerId battler)
     LoadMessageBoxAndBorderGfx();
     DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
 
-    StringCopy(gDisplayedStringBattle, COMPOUND_STRING("PÁG. 2/2  INFO RIVAL\n"));
+    // --- Line 1: Header ---
+    StringCopy(gDisplayedStringBattle, COMPOUND_STRING("{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}(L) PÁG. 2/2 INFO RIVAL\n"));
+
+    // --- Line 2: Ability ---
     StringAppend(gDisplayedStringBattle, COMPOUND_STRING("HAB: "));
     if (gBattleHistory->abilities[opponent] == ABILITY_NONE)
         StringAppend(gDisplayedStringBattle, COMPOUND_STRING("???"));
@@ -2191,37 +2252,48 @@ static void DisplayBattleRivalPanel(enum BattlerId battler)
         StringAppend(gDisplayedStringBattle, gAbilitiesInfo[gBattleHistory->abilities[opponent]].name);
     StringAppend(gDisplayedStringBattle, gText_NewLine);
 
-    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("MOVIMIENTOS:\n"));
+    // --- Lines 3 & 4: Known moves (2x2 grid) ---
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        StringAppend(gDisplayedStringBattle, (i & 1) ? COMPOUND_STRING("  ") : COMPOUND_STRING(""));
         ConvertIntToDecimalStringN(num, i + 1, STR_CONV_MODE_LEFT_ALIGN, 1);
         StringAppend(gDisplayedStringBattle, num);
-        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(". "));
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("."));
         if (gBattleHistory->usedMoves[opponent][i] == MOVE_NONE)
             StringAppend(gDisplayedStringBattle, COMPOUND_STRING("???"));
         else
             StringAppend(gDisplayedStringBattle, GetMoveName(gBattleHistory->usedMoves[opponent][i]));
-        if (i & 1)
+
+        if ((i & 1) == 0)
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING("  "));
+        else
             StringAppend(gDisplayedStringBattle, gText_NewLine);
     }
 
+    // --- Line 5: Last move + damage dealt to player ---
     StringAppend(gDisplayedStringBattle, COMPOUND_STRING("ÚLTIMO: "));
-    if (gLastMoves[opponent] == MOVE_NONE || gLastMoves[opponent] == MOVE_UNAVAILABLE)
-        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("---"));
-    else
-        StringAppend(gDisplayedStringBattle, GetMoveName(gLastMoves[opponent]));
 
-    if (gBattleStruct->moveDamage[opponent] > 0)
+    lastMove = gLastMoves[opponent];
+    if (lastMove == MOVE_NONE || lastMove == MOVE_UNAVAILABLE)
+        lastMove = gLastPrintedMoves[opponent];
+    if ((lastMove == MOVE_NONE || lastMove == MOVE_UNAVAILABLE) && gBattleStruct != NULL)
+        lastMove = gBattleStruct->lastTakenMoveFrom[battler][opponent];
+
+    if (lastMove == MOVE_NONE || lastMove == MOVE_UNAVAILABLE)
     {
-        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" (-"));
-        ConvertIntToDecimalStringN(num, gBattleStruct->moveDamage[opponent], STR_CONV_MODE_LEFT_ALIGN, 4);
-        StringAppend(gDisplayedStringBattle, num);
-        StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" PS)"));
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("---"));
+    }
+    else
+    {
+        StringAppend(gDisplayedStringBattle, GetMoveName(lastMove));
+        if (gBattleStruct != NULL && gBattleStruct->moveDamage[battler] > 0)
+        {
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" (-"));
+            ConvertIntToDecimalStringN(num, gBattleStruct->moveDamage[battler], STR_CONV_MODE_LEFT_ALIGN, 4);
+            StringAppend(gDisplayedStringBattle, num);
+            StringAppend(gDisplayedStringBattle, COMPOUND_STRING(" PS)"));
+        }
     }
 
-    StringAppend(gDisplayedStringBattle, gText_NewLine);
-    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("L: PÁG. 1   B: CERRAR"));
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
     CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
 }

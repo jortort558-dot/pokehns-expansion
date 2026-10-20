@@ -6,7 +6,6 @@ Gate_NationalPark_EventScript_Attendant::
 	faceplayer
 	special CheckAndResetSaturdayWeeklyCaptures
 	goto_if_set FLAG_BUG_CONTEST_COMPLETED, Gate_NationalPark_EventScript_AttendantAlreadyPlayed
-	goto_if_set FLAG_DAILY_BUG_CONTEST_COMPLETED, Gate_NationalPark_EventScript_AttendantAlreadyPlayed
 	msgbox Route35NationalParkGate_Text_OfficerAskToParticipate, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, TRUE, Gate_NationalPark_EventScript_AttendantStart
 	msgbox Route35NationalParkGate_Text_TakePartInFuture, MSGBOX_DEFAULT
@@ -118,7 +117,6 @@ Gate_NationalPark_EventScript_BAttendant::
 	faceplayer
 	special CheckAndResetSaturdayWeeklyCaptures
 	goto_if_set FLAG_BUG_CONTEST_COMPLETED, Gate_NationalPark_EventScript_AttendantAlreadyPlayed
-	goto_if_set FLAG_DAILY_BUG_CONTEST_COMPLETED, Gate_NationalPark_EventScript_AttendantAlreadyPlayed
 	msgbox Route35NationalParkGate_Text_OfficerAskToParticipate, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, TRUE, Gate_NationalPark_EventScript_BAttendantStart
 	msgbox Route35NationalParkGate_Text_TakePartInFuture, MSGBOX_DEFAULT
@@ -212,12 +210,12 @@ Gate_NationalPark_Movement_Player_EnterParkBotB:
 
 Route35NationalParkGate_Text_OfficerAskToParticipate:
 	.string "¡Oíd, noble aventurero!\n"
-	.string "Hoy se celebra el grandioso\l"
+	.string "Aquí se celebra el grandioso\l"
 	.string "Concurso de Caza de Bichos.\p"
 	.string "Pero ojo al piojo: las normas\n"
 	.string "son sagradas y estrictas.\p"
 	.string "Solo se permite una incursión\n"
-	.string "por sábado en el concurso.\p"
+	.string "por semana en el concurso.\p"
 	.string "Entras con un solo POKéMON y\n"
 	.string "lo que caces, tuyo será.\p"
 	.string "¿Tientas a la suerte o te\n"
@@ -239,7 +237,7 @@ Route35NationalParkGate_Text_OfficerExplainRules:
 	.string "Caza varios, pero solo el último\l"
 	.string "quedará en tu poder.\p"
 	.string "¡Y hasta el próximo sábado no\n"
-	.string "habrá otra oportunidad!\l"
+	.string "se renovará tu turno semanal!\l"
 	.string "¡Que la musa te bendiga!$"
 
 Route35NationalParkGate_Text_OfficerAskToUseFirstMon:
@@ -284,9 +282,9 @@ Route35NationalParkGate_Text_EggAsFirstMon:
 
 Route35NationalParkGate_Text_ContestIsOver:
 	.string "¡Alto ahí, tragaldabas!\n"
-	.string "Ya quemaste tu cartucho de hoy.\p"
+	.string "Ya quemaste tu cartucho semanal.\p"
 	.string "No hay segundas vueltas hasta\n"
-	.string "el próximo sábado.\l"
+	.string "que el sábado se renueve el cupo.\l"
 	.string "¡A pasear a otra parte, pillín!$"
 
 

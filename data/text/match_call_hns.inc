@@ -281,7 +281,7 @@ MatchCall_HNS_Gina_Battle::
 
 MatchCall_HNS_Irwin_General1::
 	.string "Eh, ¿hola, {PLAYER}? ¡Soy tu\n"
-	.string "amigo IRWIN!\p"
+	.string "amigo RAFI!\p"
 
 	.string "¡El otro día vi un combate\n"
 	.string "increíble!\p"
@@ -293,7 +293,7 @@ MatchCall_HNS_Irwin_General1::
 
 MatchCall_HNS_Irwin_General2::
 	.string "Eh, ¿hola, {PLAYER}? ¡Soy tu\n"
-	.string "amigo IRWIN!\p"
+	.string "amigo RAFI!\p"
 
 	.string "¡Je, je, acabo de llamar!\p"
 
@@ -302,7 +302,7 @@ MatchCall_HNS_Irwin_General2::
 
 MatchCall_HNS_Irwin_General3::
 	.string "Eh, ¿hola, {PLAYER}? ¡Soy tu\n"
-	.string "amigo IRWIN!\p"
+	.string "amigo RAFI!\p"
 
 	.string "¡Oír lo de tus aventuras me\n"
 	.string "alegra el alma!\p"
@@ -311,7 +311,7 @@ MatchCall_HNS_Irwin_General3::
 
 MatchCall_HNS_Irwin_Battle::
 	.string "Eh, ¿hola, {PLAYER}? ¡Soy tu\n"
-	.string "amigo IRWIN!\p"
+	.string "amigo RAFI!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
@@ -346,7 +346,7 @@ MatchCall_HNS_Arnie_Battle::
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Alan_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy ALAN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ARTURO!\p"
 
 	.string "{PLAYER}, ¿estás criando bien a\n"
 	.string "tus POKéMON?\p"
@@ -356,13 +356,13 @@ MatchCall_HNS_Alan_General1::
 	.string "POKéMON que captures.$"
 
 MatchCall_HNS_Alan_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy ALAN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ARTURO!\p"
 
 	.string "Mi {STR_VAR_3} está cada vez más\n"
 	.string "fuerte, ¡justo como calculé!$"
 
 MatchCall_HNS_Alan_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy ALAN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ARTURO!\p"
 
 	.string "Por cierto, el otro día\n"
 	.string "noqueamos a un {STR_VAR_3}\l"
@@ -371,7 +371,7 @@ MatchCall_HNS_Alan_General3::
 	.string "¡Estudiar funciona!$"
 
 MatchCall_HNS_Alan_FoundItem::
-	.string "¡Hola, {PLAYER}! ¡Soy ALAN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ARTURO!\p"
 
 	.string "¡Je, je, he cogido algo\n"
 	.string "interesante!\p"
@@ -382,12 +382,12 @@ MatchCall_HNS_Alan_FoundItem::
 	.string "y te lo llevas?$"
 
 MatchCall_HNS_Alan_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy ALAN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ARTURO!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Dana_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy DANA!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy SARA!\p"
 
 	.string "Mi {STR_VAR_3} está tan lleno de\n"
 	.string "energía que da un poco de miedo.\p"
@@ -395,14 +395,14 @@ MatchCall_HNS_Dana_General1::
 	.string "¿Qué tal están tus POKéMON?$"
 
 MatchCall_HNS_Dana_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy DANA!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy SARA!\p"
 
 	.string "¡Mi {STR_VAR_3} está precioso!\p"
 
 	.string "¡Le he hecho un montón de fotos!$"
 
 MatchCall_HNS_Dana_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy DANA!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy SARA!\p"
 
 	.string "Acabé con un {STR_VAR_3} salvaje\n"
 	.string "en un segundo.\p"
@@ -411,7 +411,7 @@ MatchCall_HNS_Dana_General3::
 	.string "me diste consejos de combate.$"
 
 MatchCall_HNS_Dana_FoundItem::
-	.string "¡Hola, {PLAYER}! ¡Soy DANA!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy SARA!\p"
 
 	.string "¿Sabes una cosa? ¡Conseguí un\n"
 	.string "gran regalo!\p"
@@ -423,12 +423,12 @@ MatchCall_HNS_Dana_FoundItem::
 	.string "RUTA 38!$"
 
 MatchCall_HNS_Dana_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy DANA!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy SARA!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Chad_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy CHAD!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JAVIER!\p"
 
 	.string "¿Qué tal están tus POKéMON?\p"
 
@@ -442,7 +442,7 @@ MatchCall_HNS_Chad_General1::
 	.string "profesor POKéMON.$"
 
 MatchCall_HNS_Chad_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy CHAD!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JAVIER!\p"
 
 	.string "Hace poco empecé a observar a\n"
 	.string "los {STR_VAR_3} salvajes.\p"
@@ -456,19 +456,19 @@ MatchCall_HNS_Chad_General2::
 	.string "PROF. OAK.$"
 
 MatchCall_HNS_Chad_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy CHAD!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JAVIER!\p"
 
 	.string "¡Voy a estudiar mucho para que\n"
 	.string "el PROF. OAK me haga su\l"
 	.string "ayudante!$"
 
 MatchCall_HNS_Chad_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy CHAD!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JAVIER!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Derek_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy DEREK!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JONAY!\p"
 
 	.string "¡Tienes que oír esto!\p"
 
@@ -479,7 +479,7 @@ MatchCall_HNS_Derek_General1::
 	.string "gemelas!$"
 
 MatchCall_HNS_Derek_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy DEREK!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JONAY!\p"
 
 	.string "Escucha esto.\p"
 
@@ -491,7 +491,7 @@ MatchCall_HNS_Derek_General2::
 	.string "Debo de ser especial.$"
 
 MatchCall_HNS_Derek_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy DEREK!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JONAY!\p"
 
 	.string "¿Cómo está tu PIKACHU?\p"
 
@@ -499,7 +499,7 @@ MatchCall_HNS_Derek_General3::
 	.string "nuestros PIKACHU!$"
 
 MatchCall_HNS_Derek_FoundItem::
-	.string "¡Hola, {PLAYER}! ¡Soy DEREK!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JONAY!\p"
 
 	.string "Quiero darte una PEPITA.\p"
 
@@ -507,19 +507,19 @@ MatchCall_HNS_Derek_FoundItem::
 	.string "recogerlo!$"
 
 MatchCall_HNS_Derek_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy DEREK!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JONAY!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Tully_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy TULLY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ÓSCAR!\p"
 
 	.string "¿Qué tal va tu viaje?\p"
 
 	.string "¡No puedo quejarme de mi pesca!$"
 
 MatchCall_HNS_Tully_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy TULLY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ÓSCAR!\p"
 
 	.string "Mi {STR_VAR_3} ha vuelto a\n"
 	.string "crecer.\p"
@@ -529,7 +529,7 @@ MatchCall_HNS_Tully_General2::
 	.string "mayor.$"
 
 MatchCall_HNS_Tully_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy TULLY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ÓSCAR!\p"
 
 	.string "Ya lo creo, noqueé a un\n"
 	.string "{STR_VAR_3} salvaje.\p"
@@ -540,7 +540,7 @@ MatchCall_HNS_Tully_General3::
 	.string "por teléfono…$"
 
 MatchCall_HNS_Tully_FoundItem::
-	.string "¡Hola, {PLAYER}! ¡Soy TULLY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ÓSCAR!\p"
 
 	.string "Pesqué una cosita interesante en\n"
 	.string "la orilla.\p"
@@ -550,12 +550,12 @@ MatchCall_HNS_Tully_FoundItem::
 	.string "Te esperaré en la RUTA 42.$"
 
 MatchCall_HNS_Tully_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy TULLY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ÓSCAR!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Brent_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy BRENT!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JULIO!\p"
 
 	.string "El otro día te vi salir de un\n"
 	.string "CENTRO POKéMON.\p"
@@ -568,7 +568,7 @@ MatchCall_HNS_Brent_General1::
 	.string "POKéMON. ¡Je, je!$"
 
 MatchCall_HNS_Brent_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy BRENT!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JULIO!\p"
 
 	.string "Sí, conseguí un POKéMON raro\n"
 	.string "mediante intercambio hace un\l"
@@ -579,7 +579,7 @@ MatchCall_HNS_Brent_General2::
 	.string "Je, je, ¡es un secreto!$"
 
 MatchCall_HNS_Brent_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy BRENT!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JULIO!\p"
 
 	.string "¿Sabías que…?\p"
 
@@ -589,12 +589,12 @@ MatchCall_HNS_Brent_General3::
 	.string "da bien luchar.$"
 
 MatchCall_HNS_Brent_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy BRENT!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JULIO!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Tiffany_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy TIFFANY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy VERA!\p"
 
 	.string "¿Qué tal van tus POKéMON?\p"
 
@@ -609,7 +609,7 @@ MatchCall_HNS_Tiffany_General1::
 	.string "POKéMON.$"
 
 MatchCall_HNS_Tiffany_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy TIFFANY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy VERA!\p"
 
 	.string "Mi {STR_VAR_3} es adorable, ¿no\n"
 	.string "crees?\p"
@@ -618,7 +618,7 @@ MatchCall_HNS_Tiffany_General2::
 	.string "blando y calentito!$"
 
 MatchCall_HNS_Tiffany_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy TIFFANY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy VERA!\p"
 
 	.string "Oh, y teníamos que luchar contra\n"
 	.string "un {STR_VAR_3} salvaje hace un\l"
@@ -630,12 +630,12 @@ MatchCall_HNS_Tiffany_General3::
 	.string "{STR_VAR_3}!$"
 
 MatchCall_HNS_Tiffany_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy TIFFANY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy VERA!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Vance_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy VANCE!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy VIDAL!\p"
 
 	.string "¿Estáis bien tus POKéMON y tú?\p"
 
@@ -646,7 +646,7 @@ MatchCall_HNS_Vance_General1::
 	.string "legendarias y vencerlas!$"
 
 MatchCall_HNS_Vance_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy VANCE!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy VIDAL!\p"
 
 	.string "Mi {STR_VAR_3} está más y más\n"
 	.string "fuerte.\p"
@@ -654,7 +654,7 @@ MatchCall_HNS_Vance_General2::
 	.string "¡Hemos despegado!$"
 
 MatchCall_HNS_Vance_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy VANCE!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy VIDAL!\p"
 
 	.string "¡Podemos derrotar a {STR_VAR_3}\n"
 	.string "sin problemas!\p"
@@ -662,12 +662,12 @@ MatchCall_HNS_Vance_General3::
 	.string "¿Sí? ¿Tú también? ¡Estupendo!$"
 
 MatchCall_HNS_Vance_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy VANCE!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy VIDAL!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Wilton_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy WILTON!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy DAVID!\p"
 
 	.string "¿Han crecido algo tus POKéMON?\p"
 
@@ -675,7 +675,7 @@ MatchCall_HNS_Wilton_General1::
 	.string "poco.$"
 
 MatchCall_HNS_Wilton_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy WILTON!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy DAVID!\p"
 
 	.string "¡Mi {STR_VAR_3} está\n"
 	.string "impresionante!\p"
@@ -683,7 +683,7 @@ MatchCall_HNS_Wilton_General2::
 	.string "¡También soy mejor pescador!$"
 
 MatchCall_HNS_Wilton_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy WILTON!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy DAVID!\p"
 
 	.string "Hemos vencido a un {STR_VAR_3}\n"
 	.string "salvaje…\p"
@@ -693,25 +693,25 @@ MatchCall_HNS_Wilton_General3::
 	.string "salvajes.$"
 
 MatchCall_HNS_Wilton_FoundItem::
-	.string "¡Hola, {PLAYER}! ¡Soy WILTON!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy DAVID!\p"
 
 	.string "Enganché un objeto pescando.\p"
 
 	.string "Ven a recogerlo en la RUTA 44.$"
 
 MatchCall_HNS_Wilton_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy WILTON!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy DAVID!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Kenji_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy KENJI!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy LEUCO!\p"
 
 	.string "¡{PLAYER}! Qué buen tiempo,\n"
 	.string "¿verdad?$"
 
 MatchCall_HNS_Kenji_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy KENJI!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy LEUCO!\p"
 
 	.string "¿Continúas viajando?\p"
 
@@ -720,7 +720,7 @@ MatchCall_HNS_Kenji_General2::
 	.string "¡Oooooaaarrrgh!$"
 
 MatchCall_HNS_Kenji_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy KENJI!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy LEUCO!\p"
 
 	.string "Ahora estoy entrenándome.\p"
 
@@ -730,14 +730,14 @@ MatchCall_HNS_Kenji_General3::
 	.string "¡Oooooaaarrrgh!$"
 
 MatchCall_HNS_Kenji_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy KENJI!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy LEUCO!\p"
 
 	.string "¡Estoy descansando!\p"
 
 	.string "¿Por qué no te pasas un rato?$"
 
 MatchCall_HNS_Kenji_FoundItem::
-	.string "¡Hola, {PLAYER}! ¡Soy KENJI!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy LEUCO!\p"
 
 	.string "Estoy descansando del\n"
 	.string "entrenamiento.\p"
@@ -746,7 +746,7 @@ MatchCall_HNS_Kenji_FoundItem::
 	.string "por ello si lo quieres!$"
 
 MatchCall_HNS_Parry_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy PARRY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ÁNGELO!\p"
 
 	.string "¿Qué tal están tus POKéMON?\p"
 
@@ -754,12 +754,12 @@ MatchCall_HNS_Parry_General1::
 	.string "bien! ¡Ja, ja, ja, ja!$"
 
 MatchCall_HNS_Parry_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy PARRY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ÁNGELO!\p"
 
 	.string "No hay nada como mi {STR_VAR_3}.$"
 
 MatchCall_HNS_Parry_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy PARRY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ÁNGELO!\p"
 
 	.string "¡Noqueamos a un {STR_VAR_3}\n"
 	.string "salvaje!\p"
@@ -768,12 +768,12 @@ MatchCall_HNS_Parry_General3::
 	.string "atraparlo…$"
 
 MatchCall_HNS_Parry_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy PARRY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ÁNGELO!\p"
 
 	.string "Volveremos a luchar, ¿verdad?$"
 
 MatchCall_HNS_Erin_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy ERIN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ELISA!\p"
 
 	.string "¿Estás mejorando a tus POKéMON?\p"
 
@@ -781,13 +781,13 @@ MatchCall_HNS_Erin_General1::
 	.string "bien!$"
 
 MatchCall_HNS_Erin_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy ERIN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ELISA!\p"
 
 	.string "El {STR_VAR_3} de  está mucho\n"
 	.string "más fuerte que antes.$"
 
 MatchCall_HNS_Erin_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy ERIN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ELISA!\p"
 
 	.string "Y, y… ¡Acabo de derrotar a\n"
 	.string "{STR_VAR_3}!\p"
@@ -796,7 +796,7 @@ MatchCall_HNS_Erin_General3::
 	.string "POKéMON!$"
 
 MatchCall_HNS_Erin_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy ERIN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy ELISA!\p"
 
 	.string "¡Trabajo duro para entrenar a\n"
 	.string "mis POKéMON!\p"
@@ -804,7 +804,7 @@ MatchCall_HNS_Erin_Battle::
 	.string "¡Vuelve para luchar de nuevo!$"
 
 MatchCall_HNS_Jack_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy JACK!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy AITOR!\p"
 
 	.string "¿Qué tal están tus POKéMON?\p"
 
@@ -814,7 +814,7 @@ MatchCall_HNS_Jack_General1::
 	.string "Quizá es como yo…$"
 
 MatchCall_HNS_Jack_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy JACK!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy AITOR!\p"
 
 	.string "La inteligencia de mi\n"
 	.string "{STR_VAR_3} sigue creciendo.\p"
@@ -823,7 +823,7 @@ MatchCall_HNS_Jack_General2::
 	.string "tuyos!$"
 
 MatchCall_HNS_Jack_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy JACK!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy AITOR!\p"
 
 	.string "¿Sabías qué…?\p"
 
@@ -835,12 +835,12 @@ MatchCall_HNS_Jack_General3::
 	.string "llamaré para contártelos.$"
 
 MatchCall_HNS_Jack_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy JACK!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy AITOR!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Beverly_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy BEVERLY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JULIA!\p"
 
 	.string "¿Son felices tus POKéMON?\p"
 
@@ -848,20 +848,20 @@ MatchCall_HNS_Beverly_General1::
 	.string "mucho todos los días.$"
 
 MatchCall_HNS_Beverly_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy BEVERLY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JULIA!\p"
 
 	.string "¡He arreglado a mi {STR_VAR_3} y\n"
 	.string "está más guapo que nunca!$"
 
 MatchCall_HNS_Beverly_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy BEVERLY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JULIA!\p"
 
 	.string "¿Están tus POKéMON en forma?\p"
 
 	.string "Hablemos de POKéMON otra vez.$"
 
 MatchCall_HNS_Beverly_FoundItem::
-	.string "¡Hola, {PLAYER}! ¡Soy BEVERLY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JULIA!\p"
 
 	.string "Mi marido obtuvo algunas\n"
 	.string "PEPITAS.\p"
@@ -874,17 +874,17 @@ MatchCall_HNS_Beverly_FoundItem::
 	.string "puedas.$"
 
 MatchCall_HNS_Beverly_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy BEVERLY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JULIA!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Huey_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy HUEY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy KEN!\p"
 
 	.string "¿Qué tal va todo?$"
 
 MatchCall_HNS_Huey_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy HUEY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy KEN!\p"
 
 	.string "Tenemos que luchar en otra\n"
 	.string "ocasión.\p"
@@ -893,12 +893,12 @@ MatchCall_HNS_Huey_General2::
 	.string "hasta que te gane.$"
 
 MatchCall_HNS_Huey_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy HUEY!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy KEN!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Gaven_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy GAVEN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy GALO!\p"
 
 	.string "¿Qué tal están tus POKéMON?\p"
 
@@ -909,7 +909,7 @@ MatchCall_HNS_Gaven_General1::
 	.string "CAMPEONES POKéMON!$"
 
 MatchCall_HNS_Gaven_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy GAVEN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy GALO!\p"
 
 	.string "Mi {STR_VAR_3} puede ser mejor\n"
 	.string "de lo que imaginaba.\p"
@@ -918,18 +918,18 @@ MatchCall_HNS_Gaven_General2::
 	.string "mejor que el mío.$"
 
 MatchCall_HNS_Gaven_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy GAVEN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy GALO!\p"
 
 	.string "Me obsesiona la idea de\n"
 	.string "vencerte.$"
 
 MatchCall_HNS_Gaven_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy GAVEN!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy GALO!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Beth_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy BETH!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy TINA!\p"
 
 	.string "¿Eres del tipo de persona que va\n"
 	.string "a menudo a los CENTROS POKéMON?\p"
@@ -940,7 +940,7 @@ MatchCall_HNS_Beth_General1::
 	.string "entrenar POKéMON.$"
 
 MatchCall_HNS_Beth_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy BETH!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy TINA!\p"
 
 	.string "¿Recuerdas a mi dulce\n"
 	.string "{STR_VAR_3}?\p"
@@ -952,17 +952,17 @@ MatchCall_HNS_Beth_General2::
 	.string "emocionante.$"
 
 MatchCall_HNS_Beth_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy BETH!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy TINA!\p"
 
 	.string "¡Debemos luchar en otra ocasión!$"
 
 MatchCall_HNS_Beth_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy BETH!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy TINA!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Jose_General1::
-	.string "¡Hola, {PLAYER}! ¡Soy JOSE!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JOSÉ!\p"
 
 	.string "Tus POKéMON, ¿aún se entrenan?\p"
 
@@ -973,7 +973,7 @@ MatchCall_HNS_Jose_General1::
 	.string "rato.$"
 
 MatchCall_HNS_Jose_General2::
-	.string "¡Hola, {PLAYER}! ¡Soy JOSE!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JOSÉ!\p"
 
 	.string "Escucha, el puerro de mi\n"
 	.string "{STR_VAR_3} tiene un aroma\l"
@@ -982,7 +982,7 @@ MatchCall_HNS_Jose_General2::
 	.string "¡Ese aroma me abre el apetito!$"
 
 MatchCall_HNS_Jose_General3::
-	.string "¡Hola, {PLAYER}! ¡Soy JOSE!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JOSÉ!\p"
 
 	.string "Hace un tiempo, mi FARFETCH'D\n"
 	.string "derrotó a {STR_VAR_3}.\p"
@@ -993,7 +993,7 @@ MatchCall_HNS_Jose_General3::
 	.string "¡Impresionante!$"
 
 MatchCall_HNS_Jose_FoundItem::
-	.string "¡Hola, {PLAYER}! ¡Soy JOSE!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JOSÉ!\p"
 
 	.string "Mi FARFETCH'D llevaba en el pico\n"
 	.string "algo bonito.\p"
@@ -1004,12 +1004,12 @@ MatchCall_HNS_Jose_FoundItem::
 	.string "daré.$"
 
 MatchCall_HNS_Jose_Battle::
-	.string "¡Hola, {PLAYER}! ¡Soy JOSE!\p"
+	.string "¡Hola, {PLAYER}! ¡Soy JOSÉ!\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 
 MatchCall_HNS_Reena_General1::
-	.string "Hola, {PLAYER}. Soy REENA.\p"
+	.string "Hola, {PLAYER}. Soy TARA.\p"
 
 	.string "Eh, ¿qué tal van tus POKéMON?\p"
 
@@ -1021,7 +1021,7 @@ MatchCall_HNS_Reena_General1::
 	.string "bien! ¿A qué te refieres?$"
 
 MatchCall_HNS_Reena_General2::
-	.string "Hola, {PLAYER}. Soy REENA.\p"
+	.string "Hola, {PLAYER}. Soy TARA.\p"
 
 	.string "Escucha, joven…\p"
 
@@ -1034,7 +1034,7 @@ MatchCall_HNS_Reena_General2::
 	.string "perfecta para mí?$"
 
 MatchCall_HNS_Reena_General3::
-	.string "Hola, {PLAYER}. Soy REENA.\p"
+	.string "Hola, {PLAYER}. Soy TARA.\p"
 
 	.string "No te enorgullezcas tanto por\n"
 	.string "haberme vencido…\p"
@@ -1042,7 +1042,7 @@ MatchCall_HNS_Reena_General3::
 	.string "¡Ha sido chiripa!$"
 
 MatchCall_HNS_Reena_Battle::
-	.string "Hola, {PLAYER}. Soy REENA.\p"
+	.string "Hola, {PLAYER}. Soy TARA.\p"
 
 	.string "Te estaba esperando. ¡Luchemos!$"
 

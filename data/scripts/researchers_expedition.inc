@@ -576,13 +576,13 @@ Common_EventScript_PokegearSaturdayResetNotice::
 Common_Text_PokegearSaturdayResetNotice:
 	.string "¡Aviso del POKéGEAR!\n"
 	.string "RENOVACIÓN DE LOS SÁBADOS:\p"
-	.string "Hoy se han reabierto las capturas\n"
-	.string "semanales de la ZONA SAFARI de\l"
-	.string "JOHTO, la ZONA SAFARI de FUCSIA\l"
-	.string "y el CONCURSO DE CAZA DE BICHOS\l"
-	.string "del PARQUE NACIONAL.\p"
-	.string "¡Aprovecha el sábado para capturar\n"
-	.string "nuevos compañeros de equipo!$"
+	.string "Hoy se ha renovado el acceso de\n"
+	.string "1 participación por semana a la\l"
+	.string "ZONA SAFARI de JOHTO, a la ZONA\l"
+	.string "SAFARI de FUCSIA y al CONCURSO\l"
+	.string "DE CAZA DE BICHOS del PARQUE.\p"
+	.string "¡Aprovecha tu oportunidad semanal\n"
+	.string "para conseguir grandes POKéMON!$"
 
 Common_EventScript_PokegearAdvancedMetamorphosisNotice::
 	lockall

@@ -393,9 +393,9 @@ FuchsiaCity_SafariZoneEntrance_Text_MaxLevel:
 
 FuchsiaCity_SafariZoneEntrance_Text_AlreadyPlayed:
 	.string "¡Hola! Por normas del recinto,\n"
-	.string "la ZONA SAFARI de FUCSIA solo abre\l"
-	.string "sus puertas para capturas los\l"
-	.string "sábados.\p"
-	.string "Si ya has participado este sábado,\n"
-	.string "¡te esperamos el próximo!\p"
+	.string "solo se permite participar en la\l"
+	.string "ZONA SAFARI una vez por semana.\p"
+	.string "El acceso se resetea los sábados.\n"
+	.string "Si ya has participado esta semana,\l"
+	.string "¡te esperamos el próximo sábado!\p"
 	.string "¡Muchas gracias por visitarnos!$"
