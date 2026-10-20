@@ -1427,6 +1427,7 @@ static bool32 IsThreeStageStarter(u16 species)
 static u16 ChooseRandomForm(struct Sfc32State *state, const u16 baseSpecies);
 static u16 ChooseFormSpecial(struct Sfc32State *state, const u16 baseSpecies);
 static u16 RandomizeStaticMonSimilarBst(u16 originalSpecies, struct Sfc32State *state);
+static u16 RandomizeStaticMonSimilarBstWithType(u16 originalSpecies, u8 requiredType, struct Sfc32State *state);
 static bool32 IsSpeciesValidForWildRandomizer(u16 species);
 
 void GetUniqueMonList(enum RandomizerReason reason, enum RandomizerSpeciesMode mode, u32 seed1, u16 seed2, u8 count, const u16 *originalSpecies, u16 *resultSpecies)
@@ -2532,6 +2533,169 @@ u16 RandomizeTrainerMon(u16 trainerId, u8 slot, u8 totalMons, u16 species, u8 le
     return randMon.species;
 }
 
+static u16 RandomizeStaticMonSimilarBstWithType(u16 originalSpecies, u8 requiredType, struct Sfc32State *state)
+{
+    u16 targetBst, minBst, maxBst;
+    u16 candidatePool[120];
+    u16 candidateCount = 0;
+    u16 species;
+    bool32 isLegendary = IsTrueStaticLegendary(originalSpecies) || (originalSpecies == SPECIES_ARCEUS_STEEL) || (originalSpecies == SPECIES_ARCEUS);
+
+    targetBst = GetSpeciesBST(originalSpecies);
+    minBst = (targetBst * 80) / 100; // Un margen algo más flexible (+-20%) para asegurar candidatos con el tipo requerido
+    maxBst = (targetBst * 120) / 100;
+
+    for (species = 1; species < RANDOMIZER_SPECIES_COUNT; species++)
+    {
+        const struct SpeciesInfo *info;
+        u16 bst;
+
+        if (!IsSpeciesValidForWildRandomizer(species))
+            continue;
+
+        info = &gSpeciesInfo[species];
+
+        // Comprobar que cumpla el tipo temático requerido (tipo 1 o tipo 2)
+        if (requiredType != TYPE_NONE && info->types[0] != requiredType && info->types[1] != requiredType)
+            continue;
+
+        if (isLegendary)
+        {
+            if (!IsTrueStaticLegendary(species) && !IsCoverLegendary(species) && (GetSpeciesBST(species) < 570))
+                continue;
+        }
+        else
+        {
+            if (IsTrueStaticLegendary(species) || IsCoverLegendary(species))
+                continue;
+        }
+
+        bst = GetSpeciesBST(species);
+        if (isLegendary || (bst >= minBst && bst <= maxBst))
+        {
+            if (candidateCount < ARRAY_COUNT(candidatePool))
+            {
+                candidatePool[candidateCount++] = species;
+            }
+            else
+            {
+                u32 r = RandomizerNextRange(state, candidateCount + 1);
+                if (r < ARRAY_COUNT(candidatePool))
+                    candidatePool[r] = species;
+                candidateCount++;
+            }
+        }
+    }
+
+    if (candidateCount > 0)
+    {
+        u16 poolSize = min(candidateCount, ARRAY_COUNT(candidatePool));
+        u16 chosen = candidatePool[RandomizerNextRange(state, poolSize)];
+        return ChooseWildForm(state, chosen);
+    }
+
+    // Si no hay candidatos con el tipo exacto en el rango de BST, intentar sin restricción de BST pero manteniendo el tipo
+    for (species = 1; species < RANDOMIZER_SPECIES_COUNT; species++)
+    {
+        const struct SpeciesInfo *info;
+        if (!IsSpeciesValidForWildRandomizer(species))
+            continue;
+        info = &gSpeciesInfo[species];
+        if (requiredType != TYPE_NONE && info->types[0] != requiredType && info->types[1] != requiredType)
+            continue;
+
+        if (candidateCount < ARRAY_COUNT(candidatePool))
+        {
+            candidatePool[candidateCount++] = species;
+        }
+        else
+        {
+            u32 r = RandomizerNextRange(state, candidateCount + 1);
+            if (r < ARRAY_COUNT(candidatePool))
+                candidatePool[r] = species;
+            candidateCount++;
+        }
+    }
+
+    if (candidateCount > 0)
+    {
+        u16 poolSize = min(candidateCount, ARRAY_COUNT(candidatePool));
+        u16 chosen = candidatePool[RandomizerNextRange(state, poolSize)];
+        return ChooseWildForm(state, chosen);
+    }
+
+    return RandomizeStaticMonSimilarBst(originalSpecies, state);
+}
+
+u16 RandomizeWildBossMon(u16 originalSpecies, enum Item heldItem)
+{
+    if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
+    {
+        u32 seed;
+        struct Sfc32State state;
+        u8 requiredType = TYPE_NONE;
+
+        if (!IsSpeciesValidForRandomizer(originalSpecies))
+            return originalSpecies;
+
+        // Si porta una tabla elemental (o según lore de jefes de Sinjoh/Hisui), respetar el tipo
+        if (heldItem >= ITEM_FLAME_PLATE && heldItem <= ITEM_PIXIE_PLATE)
+        {
+            requiredType = GetItemSecondaryId(heldItem);
+        }
+        else
+        {
+            // Mapeo temático por especie original
+            switch (originalSpecies)
+            {
+                case SPECIES_ARCANINE_HISUI:
+                    requiredType = TYPE_FIRE;
+                    break;
+                case SPECIES_URSALUNA:
+                    requiredType = TYPE_GROUND;
+                    break;
+                case SPECIES_TYPHLOSION_HISUI:
+                    requiredType = TYPE_GHOST;
+                    break;
+                case SPECIES_KLEAVOR:
+                    requiredType = TYPE_ROCK;
+                    break;
+                case SPECIES_ELECTRODE_HISUI:
+                    requiredType = TYPE_GRASS;
+                    break;
+                case SPECIES_OVERQWIL:
+                    requiredType = TYPE_POISON;
+                    break;
+                case SPECIES_WYRDEER:
+                    requiredType = TYPE_PSYCHIC;
+                    break;
+                case SPECIES_SNEASLER:
+                case SPECIES_MACHAMP:
+                    requiredType = TYPE_FIGHTING;
+                    break;
+                case SPECIES_ARCEUS_STEEL:
+                    requiredType = TYPE_STEEL;
+                    break;
+                case SPECIES_ARCEUS:
+                    requiredType = TYPE_NORMAL;
+                    break;
+                default:
+                    requiredType = gSpeciesInfo[originalSpecies].types[0];
+                    break;
+            }
+        }
+
+        seed = ((u32)gSaveBlock1Ptr->location.mapNum << 16)
+             | ((u32)gSaveBlock1Ptr->location.mapGroup << 8)
+             | (u32)originalSpecies;
+
+        state = RandomizerRandSeed(RANDOMIZER_REASON_FIXED_ENCOUNTER, seed, originalSpecies);
+        return RandomizeStaticMonSimilarBstWithType(originalSpecies, requiredType, &state);
+    }
+
+    return originalSpecies;
+}
+
 static u16 RandomizeStaticMonSimilarBst(u16 originalSpecies, struct Sfc32State *state)
 {
     u16 targetBst, minBst, maxBst;
@@ -2632,6 +2796,38 @@ u16 RandomizeFixedEncounterMon(u16 species, u8 mapNum, u8 mapGroup, u8 localId)
         seed |= localId;
 
         state = RandomizerRandSeed(RANDOMIZER_REASON_FIXED_ENCOUNTER, seed, species);
+
+        // Si estamos en las cámaras de los Regis de Sinjoh, forzar que la especie aleatoria conserve el tipo elemental del Regi
+        if (mapGroup == 29) // gMapGroup_IndoorSinjoh_Hns
+        {
+            u8 regiType = TYPE_NONE;
+            switch (species)
+            {
+                case SPECIES_REGIROCK:
+                    regiType = TYPE_ROCK;
+                    break;
+                case SPECIES_REGICE:
+                    regiType = TYPE_ICE;
+                    break;
+                case SPECIES_REGISTEEL:
+                    regiType = TYPE_STEEL;
+                    break;
+                case SPECIES_REGIDRAGO:
+                    regiType = TYPE_DRAGON;
+                    break;
+                case SPECIES_REGIELEKI:
+                    regiType = TYPE_ELECTRIC;
+                    break;
+                case SPECIES_REGIGIGAS:
+                    regiType = TYPE_NORMAL;
+                    break;
+                default:
+                    break;
+            }
+            if (regiType != TYPE_NONE)
+                return RandomizeStaticMonSimilarBstWithType(species, regiType, &state);
+        }
+
         return RandomizeStaticMonSimilarBst(species, &state);
     }
 

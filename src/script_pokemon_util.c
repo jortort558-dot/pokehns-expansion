@@ -234,6 +234,10 @@ void CreateScriptedWildBossMon(u16 species, u8 level, enum Item item, enum Move 
 {
     u8 heldItem[2];
 
+    #if RANDOMIZER_AVAILABLE
+    species = RandomizeWildBossMon(species, item);
+    #endif
+
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species, GetSynchronizedGender(STATIC_WILDMON_ORIGIN, species),
                                         GetSynchronizedNature(STATIC_WILDMON_ORIGIN, species), RANDOM_UNOWN_LETTER);
@@ -264,6 +268,11 @@ void CreateScriptedDoubleWildBossMon(u16 species1, u8 level1, enum Item item1, e
                                      u16 species2, u8 level2, enum Item item2, enum Move moves2[MAX_MON_MOVES])
 {
     u8 heldItem1[2];
+
+    #if RANDOMIZER_AVAILABLE
+    species1 = RandomizeWildBossMon(species1, item1);
+    species2 = RandomizeWildBossMon(species2, item2);
+    #endif
     u8 heldItem2[2];
     struct Pokemon *mon;
     u32 personality;
