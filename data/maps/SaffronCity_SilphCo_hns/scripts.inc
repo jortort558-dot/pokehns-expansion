@@ -248,6 +248,8 @@ SaffronCity_SilphCo_Text_BatemagicoRescue:
 SaffronCity_SilphCo_Text_BillPallet:
 	.string "No buscaban mis datos. Querían\n"
 	.string "que validase una copia.\p"
+	.string "Hablaban de liberar la ciencia\n"
+	.string "de quienes la controlan.\p"
 	.string "La TABULA RASA está conectada\n"
 	.string "al laboratorio del PROF. OAK.\p"
 	.string "Ve a PUEBLO PALETA. Yo cortaré\n"
