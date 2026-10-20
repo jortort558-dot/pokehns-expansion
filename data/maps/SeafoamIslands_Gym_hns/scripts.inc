@@ -104,14 +104,14 @@ SeafoamIslands_Gym_EventScript_GymStatuePostVictory::
 SeafoamIslands_Gym_Text_GymStatue::
 	.string "GIMNASIO POKéMON DE CANELA\n"
 	.string "LÍDER: BLAINE\p"
-	.string "ENTRENADORES VENCEDORES:\n"
-	.string "BLUE, RED$"
+	.string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO$"
 
 SeafoamIslands_Gym_Text_GymStatuePlayerWon::
 	.string "GIMNASIO POKéMON DE CANELA\n"
 	.string "LÍDER: BLAINE\p"
-	.string "ENTRENADORES VENCEDORES:\n"
-	.string "BLUE, RED, {PLAYER}$"
+	.string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO, {PLAYER}$"
 
 SeafoamIslands_Gym_Text_Blaine_GiveTM:
 	.string "¡Llévate esto también!$"

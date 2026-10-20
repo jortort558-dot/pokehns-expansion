@@ -124,26 +124,18 @@ Route10_PowerPlantEntrance_Movement_WalkBack:
 	step_end
 
 Route10_PowerPlantEntrance_Text_Officer1AThiefBrokeIn:
-	.string "Entró un ladrón en"
-	.string "\nla CENTRAL"
-	.string "\lENERGÍA…"
-	.string "\p¿Adónde vamos a ir"
-	.string "\na parar?$"
+	.string "Entró un ladrón en la\n"
+	.string "CENTRAL DE ENERGÍA…\p"
+	.string "¿Adónde vamos a ir a parar?$"
 Route10_PowerPlantEntrance_Text_Officer1CeruleanShadyCharacter:
-	.string "Tengo noticias de"
-	.string "\nCIUDAD CELESTE."
-	.string "\pParece que ha"
-	.string "\nestado merodeando"
-	.string "\ppor allí un hombre"
-	.string "\nmuy sospechoso.$"
+	.string "Tengo noticias de CIUDAD CELESTE.\p"
+	.string "Parece que un tipo sospechoso\n"
+	.string "ha estado merodeando por allí.$"
 Route10_PowerPlantEntrance_Text_Officer1CouldIAskForYourCooperation:
-	.string "¿Puedo pedirte"
-	.string "\nayuda?$"
+	.string "¿Puedo pedirte ayuda?$"
 Route10_PowerPlantEntrance_Text_Officer1HaveToBeefUpSecurity:
-	.string "Tendremos que"
-	.string "\nreforzar las"
-	.string "\pmedidas de"
-	.string "\nseguridad.$"
+	.string "Tendremos que reforzar las\n"
+	.string "medidas de seguridad.$"
 Route10_PowerPlantEntrance_Text_Engineer1SomeoneStoleAPart:
 	.string "Alguien robó una pieza esencial\n"
 	.string "del generador.\p"

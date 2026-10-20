@@ -27,8 +27,7 @@ PalletTown_EventScript_OaksLabSign::
 
 PalletTown_Text_Teacher:
 	.string "También crío POKéMON.\p"
-	.string "Son mis guardaespaldas\n"
-	.string "privados.$"
+	.string "Me sirven de guardaespaldas.$"
 
 PalletTown_Text_Fisher:
 	.string "¡La tecnología es increíble!\p"
@@ -41,11 +40,11 @@ PalletTown_Text_Sign:
 	.string "y pureza$"
 
 PalletTown_Text_RedsHouseSign:
-	.string "CASA DE RED$"
+	.string "CASA DE ROJO$"
 
 PalletTown_Text_OaksLabSign:
 	.string "LABORATORIO POKéMON\n"
 	.string "DE OAK$"
 
 PalletTown_Text_BluesHouseSign:
-	.string "CASA DE BLUE$"
+	.string "CASA DE AZUL$"

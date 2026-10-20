@@ -207,8 +207,8 @@ Route25_Text_Eusine2:
 	.string "a quien poder confiarse.$"
 
 Route25_Text_Eusine3:
-	.string "{PLAYER}...\n"
-	.string "Los dos sois increíbles...\p"
+	.string "{PLAYER}… Los dos sois\n"
+	.string "increíbles…\p"
 	.string "¡Nunca había visto un combate\n"
 	.string "tan intenso!\l"
 	.string "No me arrepiento de nada...\p"

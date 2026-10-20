@@ -68,22 +68,18 @@ Route10_PowerPlantBackRoom_Text_ManagerWhoWouldRuinMyGenerator:
 	.string "ELECTROCAÑÓN!$"
 
 Route10_PowerPlantBackRoom_Text_ManagerIWontForgiveCulprit:
-	.string "DIRECTOR: ¡Nunca"
-	.string "\nle perdonaré!"
-	.string "\pAunque el culpable"
-	.string "\nllore y suplique"
-	.string "\pperdón, ¡le"
-	.string "\nmachacaré!"
-	.string "\p¡Ja, ja, ja!$"
+	.string "DIRECTOR: ¡Nunca lo perdonaré!\p"
+	.string "Aunque el culpable llore y suplique\n"
+	.string "perdón, ¡le machacaré!\p"
+	.string "¡Ja, ja, ja!$"
 Route10_PowerPlantBackRoom_Text_ManagerThatsThePart:
 	.string "DIRECTOR: ¡Ah! ¡Sí!\p"
 	.string "¡Es la PIEZA que le faltaba a mi\n"
 	.string "querido generador! ¿La hallaste?$"
 
 Route10_PowerPlantBackRoom_Text_ManagerTakeThisTM:
-	.string "¡Yuju! ¡Gracias!"
-	.string "\p¡Toma esta MT"
-	.string "\ncomo recompensa!$"
+	.string "¡Yuju! ¡Gracias!\p"
+	.string "¡Toma esta MT como recompensa!$"
 Route10_PowerPlantBackRoom_Text_ManagerTM07IsZapCannon:
 	.string "DIRECTOR: Esa MT contiene TRUENO.\p"
 	.string "¡Es una técnica muy potente!\p"

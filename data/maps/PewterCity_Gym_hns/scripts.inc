@@ -142,14 +142,14 @@ PewterCity_Gym_EventScript_GymStatuePostVictory::
 PewterCity_Gym_Text_GymStatue::
     .string "GIMNASIO POKéMON DE PLATEADA\n"
     .string "LÍDER: BROCK\p"
-	.string "ENTRENADORES VENCEDORES:\n"
-	.string "BLUE, RED$"
+	.string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO$"
 
 PewterCity_Gym_Text_GymStatuePlayerWon::
     .string "GIMNASIO POKéMON DE PLATEADA\n"
     .string "LÍDER: BROCK\p"
-    .string "ENTRENADORES VENCEDORES:\n"
-	.string "BLUE, RED, {PLAYER}$"
+    .string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO, {PLAYER}$"
 
 PewterCity_Gym_EventScript_Brock_Trade::
 	goto_if_set FLAG_PEWTER_GYM_NPC_TRADE_COMPLETED, PewterCity_Gym_EventScript_BrockTradeCompleted
@@ -178,7 +178,7 @@ PewterCity_Gym_Text_BrockWantToTrade:
 	.string "BROCK: Hola, {PLAYER}. Encontré a\n"
 	.string "este BONSLY entrenando en el monte.\p"
 	.string "Es mono, pero creo que necesita\n"
-	.string "otro tipo de Entrenador.\p"
+	.string "otro tipo de ENTRENADOR.\p"
 	.string "¿Cambiarías un {STR_VAR_1}\n"
 	.string "por mi {STR_VAR_2}?$"
 
@@ -260,17 +260,17 @@ PewterCity_Gym_EventScript_Manolin_AfterItem::
 	end
 
 PewterCity_Gym_Text_Manolin_Intro:
-	.string "¡Qué pasa mi gente! ¡Menudo canchal!\p"
-	.string "Esta es Ciudad Férrica de toda la vida,\n"
-	.string "pero… ¿qué le ha pasado a la líder Petra?\l"
-	.string "¿Se ha puesto mazada, se ha quitado la\l"
+	.string "¡Qué pasa, mi gente! ¡Cuánta roca!\p"
+	.string "Esto es Ciudad Férrica, pero…\n"
+	.string "¿qué le ha pasado a la LÍDER Petra?\l"
+	.string "¿Se ha puesto mazada, quitado la\l"
 	.string "falda y se ha dejado tupé?\p"
 	.string "Un cambio de skin muy loco, tú…\n"
-	.string "Aunque las piedras pegan igual de duro.$"
+	.string "Aunque las piedras pegan igual.$"
 
 PewterCity_Gym_Text_Manolin_CheckHealth:
 	.string "¡Pausa el combate, hermano!\n"
-	.string "¡Que tienes a tus bichos casi en el pozo!\p"
+	.string "¡Tus bichos están casi en el pozo!\p"
 	.string "Te cae una Avalancha encima y no lo\n"
 	.string "cuenta ni el apuntador.\l"
 	.string "Poción de sanación al canto.$"
@@ -285,21 +285,21 @@ PewterCity_Gym_Text_Manolin_OfferChoices:
 	.string "¿Qué objeto bis te viene mejor?$"
 
 PewterCity_Gym_Text_Manolin_HeavyDutyBootsExplain:
-	.string "¡Las BOTAS GRUESAS son Dios en patinete!\n"
-	.string "Inmunidad total a Trampa Rocas, Púas\l"
+	.string "¡Las BOTAS GRUESAS son geniales!\n"
+	.string "Ignoran Trampa Rocas, Púas\l"
 	.string "y porquerías en el suelo.\l"
 	.string "Entras a la raid como si nada.$"
 
 PewterCity_Gym_Text_Manolin_SmoothRockExplain:
-	.string "¡La ROCA SUAVE alarga la Tormenta de\n"
-	.string "Arena a 8 turnazos completos!\l"
-	.string "Sube la Defensa Especial de tus tipos\l"
-	.string "Roca y desgasta al rival sin piedad.$"
+	.string "¡La ROCA SUAVE alarga la tormenta\n"
+	.string "hasta 8 turnazos completos!\l"
+	.string "Sube la Def. Esp. del tipo ROCA\l"
+	.string "y desgasta al rival sin piedad.$"
 
 PewterCity_Gym_Text_Manolin_NoChoice:
-	.string "Piénsatelo bien, que las piedras no se\n"
+	.string "Piénsatelo. Las piedras no se\n"
 	.string "van a desgastar por esperar.$"
 
 PewterCity_Gym_Text_Manolin_AfterItem:
-	.string "No te confíes con la robustez del boss,\n"
+	.string "No te confíes con la robustez,\n"
 	.string "¡y a romperle la defensa, mi gente!$"

@@ -165,8 +165,8 @@ IndigoPlateau_Movement_ElmDepart13:
 	step_end
 
 IndigoPlateau_Text_ElmCongrats:
-	.string "¡{PLAYER}!\n"
-	.string "¡Espera un segundo, por favor!\p"
+	.string "¡{PLAYER}! ¡Espera un segundo,\n"
+	.string "por favor!\p"
 	.string "¡Buf, qué carrera me he pegado!\n"
 	.string "¡No podía dejar de venir a verte!\p"
 	.string "Has atravesado la CALLE VICTORIA\n"

@@ -528,7 +528,7 @@ RocketHideout_B3F_Movement_Spin2:
 RocketHideout_B3F_Text_PetrelIntro:
 	.string "¡Mua, ja, ja! Te esperábamos.\nAsí que tú eres {PLAYER}…\p¿Yo? ¿No sabes quién soy?\nSoy GIOVANNI.\p¡El majestuoso GIOVANNI en persona!\n¡Ja, ja, ja!$"
 RocketHideout_B3F_Text_PetrelDisbelief:
-	.string "…¿Eh?\n¿No me parezco en nada a\lGIOVANNI?\p¿Ni siquiera tengo su aspecto?\n¿Cómo puede ser? ¡Me he esforzado\ltanto para imitarlo!$"
+	.string "…¿Eh? ¿No me parezco en nada a\nGIOVANNI?\p¿Ni siquiera tengo su aspecto?\n¿Cómo puede ser? ¡Me he esforzado\ltanto para imitarlo!$"
 RocketHideout_B3F_Text_PetrelReveal:
 	.string "PETREL: ¡Soy Ejecutivo del\nTEAM ROCKET!\pIntentas colarte en la sala del\ntransmisor de radio.\pPues no va a ocurrir. La protege\nuna contraseña especial.\pLa clave es: ¡VIVA ER BETI!\n¿Te sorprende que te la diga?\pPero conocerla no te servirá.\pSolo se abre si la digo yo.\nLa puerta reacciona a mi voz.$"
 RocketHideout_B3F_Text_PetrelBeaten:

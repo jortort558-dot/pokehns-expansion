@@ -52,8 +52,7 @@ Route18_Text_BirdKeeperBobBeaten:
 	.string "…¡Uf!$"
 
 Route18_Text_BirdKeeperBobAfterBattle:
-	.string "Si no tienes una BICI, no puedes\n"
-	.string "usar\l"
+	.string "Sin una BICI no puedes usar\n"
 	.string "el atajo.$"
 
 Route18_Text_Sign:

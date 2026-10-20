@@ -80,7 +80,7 @@ ViridianCity_Gym_Text_ReceivedEarthBadge:
 ViridianCity_Gym_Text_LeaderBlue_After:
 	.string "AZUL: …\p"
 	.string "Vale, me equivoqué. Eres de verdad.\n"
-	.string "Eres un buen Entrenador.\p"
+	.string "Eres un buen ENTRENADOR.\p"
 	.string "Pero algún día te derrotaré.\p"
 	.string "¡No lo olvides!$"
 
@@ -137,14 +137,14 @@ ViridianCity_Gym_EventScript_GymStatuePostVictory::
 ViridianCity_Gym_Text_GymStatue::
 	.string "GIMNASIO POKéMON DE CIUDAD VERDE\n"
 	.string "LÍDER: AZUL\p"
-	.string "ENTRENADORES VENCEDORES:\n"
-	.string "BLUE, RED$"
+	.string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO$"
 
 ViridianCity_Gym_Text_GymStatuePlayerWon::
 	.string "GIMNASIO POKéMON DE CIUDAD VERDE\n"
 	.string "LÍDER: AZUL\p"
-	.string "ENTRENADORES VENCEDORES:\n"
-	.string "BLUE, RED, {PLAYER}$"
+	.string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO, {PLAYER}$"
 
 ViridianCity_Gym_EventScript_Manolin::
 	lock
@@ -212,44 +212,44 @@ ViridianCity_Gym_Text_Manolin_Intro:
 	.string "Se supone que este es el GIMNASIO\n"
 	.string "de Ciudad Petalia frente a Norman,\l"
 	.string "¿a que sí?\p"
-	.string "¿Pero por qué me encuentro a un chaval\n"
-	.string "vacilón de pelo castaño diciendo que\l"
-	.string "es el antiguo Campeón?\p"
-	.string "Este tío no parece el padre de nadie…\n"
+	.string "¿Por qué hay un chaval de pelo\n"
+	.string "castaño diciendo que es el antiguo\l"
+	.string "CAMPEÓN?\p"
+	.string "No parece el padre de nadie…\n"
 	.string "¡Vaya boss mítico de final de raid!$"
 
 ViridianCity_Gym_Text_Manolin_CheckHealth:
 	.string "¡Frena las rotaciones, hermano!\n"
 	.string "¡Llevas a tu escuadrón tiritando!\p"
-	.string "Este boss tiene cobertura para todo y\n"
+	.string "Este boss cubre de todo y lleva\n"
 	.string "un equipo de élite.\l"
-	.string "Barra verde al completo y a meter dps.$"
+	.string "Vida al máximo y a meter dps.$"
 
 ViridianCity_Gym_Text_Manolin_Healed:
 	.string "¡Party full de salud y consumible\n"
 	.string "de raid definitivo a la mochila!$"
 
 ViridianCity_Gym_Text_Manolin_OfferChoices:
-	.string "Contra un boss de esta categoría no vale\n"
+	.string "Contra un boss así no sirve\n"
 	.string "ir con baratijas. ¡Toma equipo bis!\l"
 	.string "¿Con cuál te la juegas?$"
 
 ViridianCity_Gym_Text_Manolin_RedCardExplain:
-	.string "¡La TARJETA ROJA es un trameo de locos!\n"
-	.string "Si el rival te pega, ¡lo expulsas del\l"
-	.string "campo y entra otro Pokémon al azar!\l"
+	.string "¡La TARJETA ROJA es un trameo loco!\n"
+	.string "Si el rival te pega, lo expulsas\l"
+	.string "y entra otro POKéMON al azar.\l"
 	.string "Le arruinas el boost en un segundo.$"
 
 ViridianCity_Gym_Text_Manolin_ChopleBerryExplain:
-	.string "¡La BAYA OCA mitiga a la mitad el daño\n"
-	.string "de tipo Lucha si te sacuden!\l"
-	.string "Esencial para salvar a un tipo Normal\l"
-	.string "o Acero de un golpe demoledor.$"
+	.string "¡La BAYA OCA reduce a la mitad\n"
+	.string "el daño de tipo LUCHA!\l"
+	.string "Salva a un tipo NORMAL o ACERO\l"
+	.string "de un golpe demoledor.$"
 
 ViridianCity_Gym_Text_Manolin_NoChoice:
-	.string "Piénsatelo bien, que este es el boss\n"
+	.string "Piénsatelo: este es el boss\n"
 	.string "más tocho antes de la Liga.$"
 
 ViridianCity_Gym_Text_Manolin_AfterItem:
-	.string "No dejes que te vacile con sus poses,\n"
-	.string "¡y a tirarle la torre al boss, mi gente!$"
+	.string "No dejes que te vacile.\n"
+	.string "¡A tumbar al boss, mi gente!$"

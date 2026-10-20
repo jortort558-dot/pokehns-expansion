@@ -59,12 +59,11 @@ CinnabarIsland_EventScript_BlueActive::
 
 CinnabarIsland_Text_BlueBefore:
 	.string "¿Quién eres?\p"
-	.string "Está claro que eres\n"
-	.string "ENTRENADOR…\p"
-	.string "Me llamo BLUE.\p"
+	.string "Está claro que eres ENTRENADOR…\p"
+	.string "Me llamo AZUL.\p"
 	.string "Una vez fui CAMPEÓN, aunque solo\n"
 	.string "durante muy poco tiempo…\p"
-	.string "Ese entrometido de RED me venció…\p"
+	.string "Ese entrometido de ROJO me venció…\p"
 	.string "En fin, ¿qué quieres? ¿Pretendes\n"
 	.string "desafiarme o algo así?\p"
 	.string "…Me fastidia decirlo, pero ahora\n"
@@ -86,12 +85,11 @@ CinnabarIsland_Text_BlueBefore:
 
 CinnabarIsland_Text_Blue:
 	.string "¿Quién eres?\p"
-	.string "Está claro que eres\n"
-	.string "ENTRENADOR…\p"
-	.string "Me llamo BLUE.\p"
+	.string "Está claro que eres ENTRENADOR…\p"
+	.string "Me llamo AZUL.\p"
 	.string "Una vez fui CAMPEÓN, aunque solo\n"
 	.string "durante muy poco tiempo…\p"
-	.string "Ese entrometido de RED me venció…\p"
+	.string "Ese entrometido de ROJO me venció…\p"
 	.string "En fin, ¿qué quieres? ¿Pretendes\n"
 	.string "desafiarme o algo así?\p"
 	.string "…Me fastidia decirlo, pero ahora\n"

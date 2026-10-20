@@ -59,14 +59,13 @@ PalletTown_House2_Text_Hello:
 	.string "DAISY: ¡Hola! Mi hermano pequeño\n"
 	.string "es el LÍDER de CIUDAD VERDE.\p"
 	.string "Pero sale tanto de la ciudad que\n"
-	.string "causa problemas a los\l"
-	.string "ENTRENADORES.$"
+	.string "causa problemas a los entrenadores.$"
 
 PalletTown_House2_Text_OfferGrooming:
 	.string "DAISY: ¡Hola! Llegas a tiempo.\n"
 	.string "Iba a tomar el té.\p"
 	.string "¿Quieres acompañarme?\p"
-	.string "Oh, tus POKéMON están algo sucios.\p"
+	.string "Vaya, tus POKéMON están sucios.\p"
 	.string "¿Quieres que acicale a uno?$"
 
 PalletTown_House2_Text_WhichMon:

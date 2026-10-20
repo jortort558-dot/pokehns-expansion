@@ -23,16 +23,14 @@ PalletTown_RedsHouse_1F_EventScript_TV::
 
 RedsHouse_Text_Mom1:
 	.string "¡Hola!\p"
-	.string "RED lleva mucho tiempo fuera.\p"
+	.string "ROJO lleva mucho tiempo fuera.\p"
 	.string "Tampoco ha llamado, así que no sé\n"
-	.string "dónde está ni\l"
-	.string "qué hace.\p"
-	.string "Dicen que no tener noticias es\n"
-	.string "señal, pero me preocupo\l"
-	.string "por él.$"
+	.string "dónde está ni qué estará haciendo.\p"
+	.string "Dicen que no tener noticias son\n"
+	.string "buenas noticias, pero me preocupa.$"
 
 RedsHouse_Text_Mom2:
-	.string "Me preocupa que RED se haga daño o\n"
+	.string "Me preocupa que ROJO se haga daño o\n"
 	.string "enferme, pero ya es mayor.\p"
 	.string "Me enorgullece que haga lo que\n"
 	.string "desea.$"

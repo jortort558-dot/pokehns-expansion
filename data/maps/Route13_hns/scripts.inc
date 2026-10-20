@@ -469,5 +469,5 @@ Route13_TravelToAlola_Text_NeedKantoLeague:
 	.string "demostrado ser capaz de vencer a la\l"
 	.string "LIGA POKéMON en su revancha tras\l"
 	.string "conquistar KANTO.\p"
-	.string "¡Vuelve cuando el ALTO MANDO te haya\n"
+	.string "¡Vuelve cuando el ALTO MANDO te\n"
 	.string "coronado por segunda vez!$"

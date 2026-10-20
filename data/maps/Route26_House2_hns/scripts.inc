@@ -29,7 +29,7 @@ DayOfWeekSiblingsHouse_Text_Pokedex1:
 DayOfWeekSiblingsHouse_Text_Pokedex2:
     .string "Para mis hermanos y hermanas:\p"
     .string "Nos enorgullece ayudar a los\n"
-    .string "Entrenadores POKéMON.\p"
+    .string "ENTRENADORES POKéMON.\p"
     .string "Cuando te hablen, dales algo útil.\p"
     .string "Con cariño,\n"
     .string "MÓNICA.\p"

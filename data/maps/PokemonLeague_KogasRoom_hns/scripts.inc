@@ -84,8 +84,8 @@ PokemonLeague_KogasRoom_Text_RematchBefore:
     .string "Te esperan trampas siniestras.\p"
     .string "Veneno, sueño y mucho más…\n"
     .string "¡Prepárate!\p"
-    .string "¡Jajajajaja!\n"
-    .string "¡Muéstrame cuánto has crecido!$"
+    .string "¡Jajajajaja! ¡Muéstrame cuánto\n"
+    .string "has crecido!$"
 
 PokemonLeague_KogasRoom_Text_Before:
     .string "¡Jajajajaja!\p"

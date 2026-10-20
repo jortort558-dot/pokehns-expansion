@@ -43,8 +43,8 @@ SSAqua_B1F_EventScript_Barfcan::
 	end
 
 SSAqua_B1F_Text_BarfCan:
-    .string "¡Puaj!\n"
-    .string "¡No debería haber mirado!$"
+    .string "¡Puaj! ¡No debería haber\n"
+    .string "mirado!$"
 
 SSAqua_B1F_Text_FastShipOnDutySailor:
 	.string "Oye, chico. ¿Puedes buscar a\n"

@@ -59,8 +59,7 @@ Route4_Text_PicnickerHope_AfterBattle:
 	.string "MT. MOON. Pero ¿dónde?$"
 
 Route4_Text_PicnickerSharon_Seen:
-	.string "Mmm…\n"
-	.string "Yo…$"
+	.string "Mmm… Yo…$"
 
 Route4_Text_PicnickerSharon_Beaten:
 	.string "…$"

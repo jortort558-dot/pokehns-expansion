@@ -89,7 +89,7 @@ MtSilver_PokemonCenter_Text_MearaNeedKantoLeague:
 	.string "Sin embargo, ese territorio está\n"
 	.string "habitado por fuerzas titánicas\l"
 	.string "de poder inconmensurable.\p"
-	.string "Jamás permitiría que nadie vaya allí\n"
+	.string "No permitiré que nadie vaya allí\n"
 	.string "sin demostrar antes ser digno de\l"
 	.string "vencer la revancha de la LIGA\l"
 	.string "POKéMON tras conquistar KANTO.\p"
