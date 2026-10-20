@@ -15,13 +15,10 @@ CeruleanCity_PokemonCenter_EventScript_Guy::
 	end
 
 CeruleanCity_PokemonCenter1F_Text_SuperNerd:
-	.string "En los combates yo\n"
-	.string "prefiero usar\p"
-	.string "POKéMON que he\n"
-	.string "entrenado, aunque\p"
-	.string "sean más débiles\n"
-	.string "que los POKéMON\l"
-	.string "recién capturados.$"
+	.string "Para combatir prefiero usar los\n"
+	.string "POKéMON que he criado, aunque sean\l"
+	.string "más débiles que otros recién\l"
+	.string "capturados.$"
 CeruleanCity_PokemonCenter1F_Text_GymGuide:
 	.string "El MAGNETOTRÉN supera los\n"
 	.string "500 km/h. Une KANTO y JOHTO\l"

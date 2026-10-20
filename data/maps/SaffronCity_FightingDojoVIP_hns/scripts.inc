@@ -910,7 +910,7 @@ SaffronCity_FightingDojoVIP_Text_Blaine_RematchDefeat:
 	.string "cenizas.$"
 
 SaffronCity_FightingDojoVIP_Text_Blue_Rematch:
-	.string "BLUE: Vaya, vaya. ¡CAMPEÓN!\p"
+	.string "AZUL: Vaya, vaya. ¡CAMPEÓN!\p"
 	.string "Parece que has llegado muy lejos.\p"
 	.string "Yo también tuve ese título, ¿sabes?\p"
 	.string "Pero no seré blando contigo.\p"
@@ -918,5 +918,5 @@ SaffronCity_FightingDojoVIP_Text_Blue_Rematch:
 	.string "¿Quieres volver a combatir?$"
 
 SaffronCity_FightingDojoVIP_Text_Blue_RematchDefeat:
-	.string "BLUE: ¿Qué?\p"
+	.string "AZUL: ¿Qué?\p"
 	.string "¿Cómo demonios he vuelto a perder?$"

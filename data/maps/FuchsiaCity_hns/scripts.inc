@@ -264,7 +264,7 @@ FuchsiaCity_Text_MudSample:
 FuchsiaCity_Text_ToxicologistIntro:
 	.string "Soy toxicóloga de la ZONA SAFARI.\p"
 	.string "Alguien ha contaminado el agua y\n"
-	.string "varios Pokémon están enfermos.\p"
+	.string "varios POKéMON están enfermos.\p"
 	.string "Necesito muestras del agua, de las\n"
 	.string "bayas y del lodo de los estanques.\p"
 	.string "Examina a Dratini, Kangaskhan y\n"
@@ -285,7 +285,7 @@ FuchsiaCity_Text_ToxicologistKaligula:
 FuchsiaCity_Text_ToxicologistReward:
 	.string "¡Kaligula era el saboteador!\p"
 	.string "He neutralizado el veneno y los\n"
-	.string "Pokémon se recuperarán.\p"
+	.string "POKéMON se recuperarán.\p"
 	.string "Este Lodo Negro quedó purificado.\n"
 	.string "Quédatelo.$"
 
@@ -293,7 +293,7 @@ FuchsiaCity_Text_ToxicologistDepart:
 	.string "Iré a entregar las muestras a los\n"
 	.string "agentes de la ciudad y terminar el\l"
 	.string "tratamiento de los recintos.\p"
-	.string "¡Gracias por tu ayuda, Entrenador!$"
+	.string "¡Gracias por tu ayuda, ENTRENADOR!$"
 
 FuchsiaCity_Text_ToxicologistBagFull:
 	.string "No tienes sitio para el Lodo Negro.\n"
@@ -352,7 +352,7 @@ FuchsiaCity_EventScript_SafariZone::
 	end
 
 FuchsiaCity_Text_Youngster:
-	.string "Uno del ALTO MANDO fue LÍDER del\n"
+	.string "Un miembro del ALTO MANDO fue LÍDER\n"
 	.string "GIMNASIO de FUCSIA.$"
 
 FuchsiaCity_Text_PokefanM:

@@ -34,28 +34,20 @@ CeruleanCity_Text_ThisIsCeruleanCave::
 	.string "gran hazaña.$"
 
 CeruleanCity_Text_CooltrainerM1:
-	.string "¿La CENTRAL\n"
-	.string "ENERGÍA de KANTO?\p"
-	.string "Está al final de\n"
-	.string "la RUTA 9, el\p"
-	.string "camino que hay\n"
-	.string "al este de aquí.\p"
-	.string "Creo que hubo\n"
-	.string "algún tipo de\l"
-	.string "accidente allí.$"
+	.string "¿La CENTRAL DE ENERGÍA de KANTO?\p"
+	.string "Está cerca del final de la RUTA 9,\n"
+	.string "la que sale hacia el este.\p"
+	.string "Creo que allí hubo algún tipo\n"
+	.string "de accidente.$"
 CeruleanCity_Text_CooltrainerM2:
-	.string "¿Vas a atrapar\n"
-	.string "todos los tipos de\l"
-	.string "POKéMON?\p"
-	.string "Parece un gran\n"
-	.string "desafío, pero será\l"
-	.string "divertido.$"
+	.string "¿Intentas capturar todas las\n"
+	.string "especies de POKéMON?\p"
+	.string "Parece todo un reto, pero también\n"
+	.string "suena divertido.$"
 CeruleanCity_Text_SuperNerd:
-	.string "El CABO que está\n"
-	.string "al norte es ideal\p"
-	.string "para una cita a\n"
-	.string "ciegas.\l"
-	.string "¡Es tan romántico!$"
+	.string "El CABO del norte es un lugar\n"
+	.string "ideal para tener una cita.\p"
+	.string "¡A las chicas les encanta!$"
 CeruleanCity_EventScript_Slowbro::
 	lock
 	faceplayer
@@ -85,12 +77,10 @@ CeruleanCity_EventScript_SlowbroWoman::
 	end
 
 CeruleanCity_Text_CooltrainerF1:
-	.string "¡Mi SLOWBRO y yo\n"
-	.string "formamos un equipo\l"
-	.string "impresionante!$"
+	.string "¡Mi SLOWBRO y yo formamos un\n"
+	.string "equipo impresionante!$"
 CeruleanCity_Text_CooltrainerF2:
-	.string "¡SLOWBRO, enséñame\n"
-	.string "tu CONFUSIÓN!$"
+	.string "¡SLOWBRO, enséñame tu CONFUSIÓN!$"
 CeruleanCity_Text_CooltrainerF3:
 	.string "<……>$"
 CeruleanCity_EventScript_Fisher::
@@ -103,15 +93,11 @@ CeruleanCity_EventScript_FisherDuringRocket::
 	end
 
 CeruleanCity_Text_Fisher:
-	.string "Soy un gran segui-\n"
-	.string "dor de MISTY, la\p"
-	.string "LÍDER de GIMNASIO\n"
-	.string "de CIUDAD CELESTE.$"
+	.string "Soy un gran admirador de MISTY,\n"
+	.string "la LÍDER del GIMNASIO de CELESTE.$"
 CeruleanCity_Text_Fisher_RocketTip:
-	.string "Vi a ese tipo\n"
-	.string "sospechoso de\p"
-	.string "camino al CABO de\n"
-	.string "CIUDAD CELESTE.$"
+	.string "Vi a ese tipo sospechoso ir\n"
+	.string "hacia el CABO CELESTE.$"
 CeruleanCity_EventScript_Youngster::
 	msgbox CeruleanCity_Text_Youngster1, MSGBOX_NPC
 	end
@@ -122,8 +108,7 @@ CeruleanCity_Text_Youngster1:
 
 CeruleanCity_Text_Youngster2:
 	.string "¡Caray!\p"
-	.string "Mi BUSCAOBJETOS\n"
-	.string "responde…$"
+	.string "Mi BUSCAOBJETOS está reaccionando…$"
 CeruleanCity_EventScript_Sign::
 	msgbox CeruleanCity_Text_Sign, MSGBOX_SIGN
 	end
@@ -146,30 +131,23 @@ CeruleanCity_EventScript_CapeSign::
 
 CeruleanCity_Text_Sign:
 	.string "CIUDAD CELESTE\p"
-	.string "Una misteriosa\n"
-	.string "aura azulada la\l"
-	.string "rodea$"
+	.string "Una misteriosa aura azul\n"
+	.string "la envuelve.$"
 CeruleanCity_Text_GymSign:
-	.string "LÍDER DEL GIMNASIO\n"
-	.string "POKéMON DE CIUDAD\l"
-	.string "CELESTE: MISTY\p"
-	.string "La sirena poco\n"
-	.string "femenina$"
+	.string "GIMNASIO POKéMON DE CELESTE\n"
+	.string "LÍDER: MISTY\p"
+	.string "¡La sirena indómita!$"
 CeruleanCity_Text_BikeShopSign:
 	.string "Aquí hay una nota…\p"
-	.string "La TIENDA DE BICIS\n"
-	.string "se ha trasladado a\p"
-	.string "CIUDAD TRIGAL, en\n"
-	.string "JOHTO…$"
+	.string "La TIENDA DE BICIS se ha mudado\n"
+	.string "a CIUDAD TRIGAL, en JOHTO…$"
 CeruleanCity_Text_PoliceSign:
 	.string "Aquí hay una nota…\p"
-	.string "¡Acaba con los\n"
-	.string "ladrones y haz que\p"
-	.string "la ciudad sea más\n"
-	.string "grata y alegre!\p"
-	.string "POLICÍA C. CELESTE$"
+	.string "¡Acabemos con los robos y hagamos\n"
+	.string "de la ciudad un lugar más alegre!\p"
+	.string "POLICÍA DE CIUDAD CELESTE$"
 CeruleanCity_Text_CapeSign:
-	.string "Hacia el\n"
-	.string "CABO CELESTE$"
+	.string "CABO CELESTE\n"
+	.string "TODO RECTO$"
 CeruleanCity_Text_LockedDoor:
 	.string "Está cerrado…$"

@@ -71,12 +71,9 @@ CeladonCity_EventScript_Item_Recycle::
     end
 
 CeladonCity_Text_Fisher:
-	.string "Este POLIWRATH es\n"
-	.string "mi compañero.\p"
-	.string "Me pregunto si\n"
-	.string "algún día\p"
-	.string "evolucionará en\n"
-	.string "una rana POKéMON.$"
+	.string "Este POLIWRATH es mi compañero.\p"
+	.string "Me pregunto si algún día\n"
+	.string "evolucionará en un POKéMON rana.$"
 
 CeladonCity_Text_Poliwrath:
 	.string "POLIWRATH: ¡Polii!$"
@@ -87,52 +84,36 @@ CeladonCity_Text_Teacher1:
 	.string "Deberías probar tú también.$"
 
 CeladonCity_Text_Gramps1:
-	.string "Últimamente han\n"
-	.string "aparecido GRIMER.\p"
-	.string "¿Ves esa charca\n"
-	.string "que hay delante de\p"
-	.string "la casa? Ahí viven\n"
-	.string "GRIMER.\p"
-	.string "¿De dónde han\n"
-	.string "venido? Es un\l"
-	.string "grave problema…$"
+	.string "Últimamente aparecen GRIMER.\p"
+	.string "¿Ves el estanque que hay delante\n"
+	.string "de esa casa? Ahora viven allí.\p"
+	.string "¿De dónde habrán salido? Esto es\n"
+	.string "un problema grave…$"
 
 CeladonCity_Text_Gramps2:
-	.string "¡Bravo! ¡Este\n"
-	.string "GIMNASIO es\p"
-	.string "genial! ¡Es sólo\n"
-	.string "para chicas!$"
+	.string "¡Je, je, je! ¡Este GIMNASIO es\n"
+	.string "genial! ¡Solo admiten chicas!$"
 
 CeladonCity_Text_Youngster1:
-	.string "¿Te cuento un\n"
-	.string "secreto?\p"
-	.string "La MANSIÓN AZULONA\n"
-	.string "tiene una puerta\l"
-	.string "trasera secreta.$"
+	.string "¿Quieres saber un secreto?\p"
+	.string "La MANSIÓN AZULONA tiene una\n"
+	.string "puerta trasera oculta.$"
 
 CeladonCity_Text_Youngster2:
-	.string "Hay un concurso\n"
-	.string "de tragones en el\l"
-	.string "restaurante.\p"
-	.string "Sólo verlo hace\n"
-	.string "que me sienta\l"
-	.string "lleno…$"
+	.string "En el restaurante celebran un\n"
+	.string "concurso de tragones.\p"
+	.string "Solo de verlos comer ya me siento\n"
+	.string "empachado…$"
 
 CeladonCity_Text_Teacher2:
-	.string "El C. COMERCIAL\n"
-	.string "de CIUDAD AZULONA\p"
-	.string "dispone de los\n"
-	.string "mejores artículos.\p"
-	.string "Si no encuentras\n"
-	.string "algo aquí, no lo\p"
-	.string "encontrarás en\n"
-	.string "ningún otro sitio.\p"
-	.string "¡Vaya…! Parezco\n"
-	.string "una vendedora.$"
+	.string "El CENTRO COMERCIAL de AZULONA\n"
+	.string "ofrece la mejor selección.\p"
+	.string "Si no lo tienen allí, no lo\n"
+	.string "encontrarás en ninguna parte.\p"
+	.string "Vaya… Parezco una dependienta.$"
 CeladonCity_Text_Lass:
-	.string "Mirar al suelo\n"
-	.string "mientras camino\l"
-	.string "me marea.$"
+	.string "Mirar al suelo mientras caminaba\n"
+	.string "me ha mareado.$"
 CeladonCity_EventScript_CitySign::
 	msgbox CeladonCity_Text_Sign, MSGBOX_SIGN
 	end
@@ -159,20 +140,14 @@ CeladonCity_EventScript_TrainerTips::
 
 CeladonCity_Text_Sign:
 	.string "CIUDAD AZULONA\p"
-	.string "La ciudad de los\n"
-	.string "sueños de arco\l"
-	.string "iris$"
+	.string "La ciudad de los sueños arcoíris$"
 CeladonGym_Text_Sign:
-	.string "LÍDER DEL GIMNASIO\n"
-	.string "POKéMON DE CIUDAD\l"
-	.string "AZULONA: ERIKA\p"
-	.string "La princesa amante\n"
-	.string "de la naturaleza$"
+	.string "GIMNASIO POKéMON DE AZULONA\p"
+	.string "LÍDER: ERIKA\p"
+	.string "La princesa amante de la naturaleza$"
 CeladonCity_Text_DeptStoreSign:
-	.string "¡Encuentra lo que\n"
-	.string "necesitas en el\p"
-	.string "CENTRO COMERCIAL\n"
-	.string "de CIUDAD AZULONA!$"
+	.string "¡Todo lo que buscas en el CENTRO\n"
+	.string "COMERCIAL DE AZULONA!$"
 CeladonCity_Text_MansionSign:
 	.string "MANSIÓN AZULONA$"
 CeladonCity_Text_GameCornerSign:
@@ -181,8 +156,8 @@ CeladonCity_Text_GameCornerSign:
 
 CeladonCity_Text_TrainerTips:
 	.string "CONSEJOS PARA ENTRENADORES\p"
-	.string "PROTEC. ESPECIAL protege frente\n"
-	.string "a ataques especiales como\l"
-	.string "LANZALLAMAS y SURF.\p"
-	.string "¡Compra en el C. COMERCIAL de\n"
-	.string "CIUDAD AZULONA!$"
+	.string "PROTEC. ESPECIAL protege a los\n"
+	.string "POKéMON de ataques especiales\l"
+	.string "como los de fuego y agua.\p"
+	.string "¡Compra tus objetos en el CENTRO\n"
+	.string "COMERCIAL DE AZULONA!$"

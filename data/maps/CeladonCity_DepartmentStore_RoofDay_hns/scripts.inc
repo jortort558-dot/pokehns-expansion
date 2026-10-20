@@ -27,36 +27,31 @@ CeladonDept6_EventScript_Directory::
 
 
 CeladonDeptStore6F_Text_Vending:
-	.string "¡Una máquina\n"
-	.string "expendedora!$"
+	.string "¡Una máquina expendedora!\p"
+	.string "Este es el menú.$"
 
 CeladonDeptStore6F_Text_Clang:
 	.string "Clang!\p"
 	.string "{STRING} popped out.$"
 
 CeladonDeptStore6F_Text_VendingNoMoney:
-	.string "¡Uups, no tienes\n"
-	.string "bastantes fichas!$"
+	.string "Vaya, no tienes suficiente dinero…$"
 
 CeladonDeptStore6F_Text_VendingNoSpace:
-	.string "No hay sitio\n"
-	.string "para nada más…$"
+	.string "No hay sitio para nada más…$"
 
 CeladonDeptStore6F_Text_SuperNerd:
-	.string "Una máquina expen-\n"
-	.string "dedora con una\l"
-	.string "ruleta de premios…\p"
-	.string "Nunca verás\n"
-	.string "nada igual.$"
+	.string "Una máquina expendedora con ruleta\n"
+	.string "de premios…\p"
+	.string "Ya no se ven máquinas así.$"
 
 CeladonDeptStore6F_Text_Youngster:
-	.string "¡Auu! ¡Aquí no\n"
-	.string "hay juegos!\p"
+	.string "¡Jo! ¡Aquí no hay juegos!\p"
 	.string "Quería jugar…$"
 
 CeladonDeptStore6F_Text_Directory:
-	.string "P5: AZOTEA\n"
-	.string "EXPENDEDORAS$"
+	.string "P5: PLAZA DE LA AZOTEA\n"
+	.string "MÁQUINAS EXPENDEDORAS$"
 
 CeladonDeptRoof_EventScript_Mori::
 	lock
@@ -211,11 +206,11 @@ CeladonDeptRoof_Text_DaraIntro:
 	.string "Vendo libros abajo en la ciudad,\l"
 	.string "pero subo aquí con Mori para leer\l"
 	.string "tranquila y tomar el aire.\p"
-	.string "He estudiado mucho sobre el potencial\n"
-	.string "oculto y el linaje de los Pokémon.\p"
+	.string "He estudiado el potencial oculto\n"
+	.string "y el linaje de los POKéMON.\p"
 	.string "Por 30.000¥ puedo despertar otra\n"
 	.string "habilidad actual de tu compañero.\p"
-	.string "O por 100.000¥ puedo rastrear sus\n"
+	.string "Por 100.000¥ puedo rastrear sus\n"
 	.string "raíces y recuperar una habilidad\l"
 	.string "que tuviera en su línea evolutiva.\p"
 	.string "¿Te gustaría que lo intente?$"
@@ -237,18 +232,18 @@ CeladonDeptRoof_Text_DaraNoMoney:
 	.string "mantener. ¡Vuelve cuando puedas!$"
 
 CeladonDeptRoof_Text_DaraNoMoneyEvo:
-	.string "Vaya... Rastrear el linaje evolutivo\n"
-	.string "requiere consultar tomos rarísimos\l"
+	.string "Vaya… Rastrear su linaje requiere\n"
+	.string "consultar tomos muy raros\l"
 	.string "y cuesta 100.000¥.\p"
 	.string "¡Vuelve cuando tengas el dinero!$"
 
 CeladonDeptRoof_Text_DaraNoOtherAbility:
-	.string "Mmm... Mori y yo hemos mirado bien,\n"
+	.string "Mmm… Mori y yo hemos mirado bien,\n"
 	.string "pero {STR_VAR_1} ya tiene todo\l"
 	.string "su potencial actual descubierto.$"
 
 CeladonDeptRoof_Text_DaraNoEvoAbilityAvailable:
-	.string "Mmm... He revisado a fondo su línea\n"
+	.string "Mmm… He revisado a fondo su línea\n"
 	.string "evolutiva, pero {STR_VAR_1} no\l"
 	.string "cuenta con habilidades previas\l"
 	.string "distintas a las que ya conoce.$"
@@ -272,16 +267,16 @@ CeladonDeptRoof_Text_DaraSelectEvoAbility:
 
 CeladonDeptRoof_Text_DaraConfirmEvoAbility:
 	.string "{STR_VAR_1} tiene {STR_VAR_2}.\p"
-	.string "¿Quieres que recupere la habilidad\n"
-	.string "{STR_VAR_3} de su linaje por 100.000¥?$"
+	.string "¿Quieres que recupere {STR_VAR_3}\n"
+	.string "de su linaje por 100.000¥?$"
 
 CeladonDeptRoof_Text_DaraSuccess:
-	.string "¡Una lectura rápida y...\n"
+	.string "¡Una lectura rápida y…\n"
 	.string "¡{STR_VAR_1} ha despertado\l"
 	.string "{STR_VAR_2}! ¡Le sienta genial!$"
 
 CeladonDeptRoof_Text_DaraSuccessEvo:
-	.string "¡Increíble! He sintonizado sus raíces\n"
-	.string "con los tomos ancestrales...\p"
-	.string "¡{STR_VAR_1} ha recuperado con éxito\n"
+	.string "¡He conectado sus raíces con los\n"
+	.string "tomos ancestrales…\p"
+	.string "¡{STR_VAR_1} ha recuperado\n"
 	.string "{STR_VAR_2}! ¡Menudo poder!$"

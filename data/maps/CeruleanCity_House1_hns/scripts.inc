@@ -6,5 +6,5 @@ CeruleanCity_House1_EventScript_BadgeMan::
 	end
 
 CeruleanHouse1_Text_PokefanM:
-	.string "¿Coleccionas las\n"
-	.string "MEDALLAS DE KANTO?$"
+	.string "¿Coleccionas las MEDALLAS de\n"
+	.string "los GIMNASIOS de KANTO?$"

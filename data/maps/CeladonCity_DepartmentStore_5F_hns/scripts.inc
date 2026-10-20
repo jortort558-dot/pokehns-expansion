@@ -36,8 +36,8 @@ CeladonDeptStore_Text_5FReceptionistWait:
     .string "¡Espera, ya te di esa MT!$"
 
 CeladonDeptStore_Text_5FReceptionistPutInSomeMoreEffort:
-	.string "Mmm…\n"
-	.string "No está mal, pero tampoco bien.\p"
+	.string "Mmm… No está mal,\n"
+	.string "pero tampoco bien.\p"
 	.string "Como ENTRENADOR, debes esforzarte\n"
 	.string "un poco más.$"
 
@@ -74,12 +74,13 @@ CeladonDeptStore5_EventScript_Falkner::
 CeladonDeptStore5_Text_Falkner:
 	.string "{PLAYER}. No esperaba verte aquí.\p"
 	.string "Estoy comprando equipo para mis\n"
-	.string "POKéMON pájaro.\p"
-	.string "Si quieres volver a enfrentarte,\n"
-	.string "estaré en el DOJO de AZAFRÁN.$"
+	.string "POKéMON de tipo volador.\p"
+	.string "Si quieres volver a enfrentarte\n"
+	.string "conmigo, estaré en el DOJO de\l"
+	.string "AZAFRÁN.$"
 
 CeladonDeptStore5F_Text_Gentleman:
-	.string "Quiero comprar objetos que mejoran\n"
+	.string "Quiero comprar objetos que mejoren\n"
 	.string "las características de los POKéMON,\l"
 	.string "pero no tengo bastante dinero…$"
 
@@ -88,9 +89,9 @@ CeladonDeptStore5F_Text_Sailor:
 	.string "PP de un movimiento. No se vende…$"
 
 CeladonDeptStore5F_Text_Teacher:
-	.string "Usar objetos en los POKéMON hace\n"
-	.string "que estén felices.\p"
+	.string "Usar objetos con los POKéMON hace\n"
+	.string "que sean más felices.\p"
 	.string "Aunque hay objetos que detestan…$"
 
 CeladonDeptStore5F_Text_Directory:
-	.string "P5: FARMACIA$"
+	.string "P4: FARMACIA$"

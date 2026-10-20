@@ -23,6 +23,5 @@ CeladonDeptStore4F_Text_Youngster:
 	.string "Pero dicen que se ha agotado.$"
 
 CeladonDeptStore4F_Text_Directory:
-	.string "¡Dilo con un\n"
-	.string "regalo!\p"
+	.string "¡Exprésate con un regalo!\p"
 	.string "P3: REGALOS$"

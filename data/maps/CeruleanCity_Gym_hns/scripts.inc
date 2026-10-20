@@ -160,16 +160,16 @@ CeruleanCity_Gym_EventScript_GymGuyAfter::
 	end
 
 CeruleanCity_Gym_Text_GymStatue::
-    .string "CERULEAN POKéMON GYM\n"
-    .string "LEADER: MISTY\p"
-	.string "WINNING TRAINERS:\n"
-	.string "BLUE, RED$"
+    .string "GIMNASIO POKéMON DE CELESTE\n"
+    .string "LÍDER: MISTY\p"
+	.string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO$"
 
 CeruleanCity_Gym_Text_GymStatuePlayerWon::
-    .string "CERULEAN POKéMON GYM\n"
-    .string "LEADER: MISTY\p"
-    .string "WINNING TRAINERS:\n"
-	.string "BLUE, RED, {PLAYER}$"
+    .string "GIMNASIO POKéMON DE CELESTE\n"
+    .string "LÍDER: MISTY\p"
+    .string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO, {PLAYER}$"
 
 CeruleanGym_Text_Note:
 	.string "Perdón, estaré fuera un rato.\p"
@@ -211,10 +211,10 @@ CeruleanCity_Gym_EventScript_Misty_NotReady::
 	end
 
 CeruleanGym_Text_Misty_NotReady:
-	.string "MISTY: ¿Crees que puedes saltar a la\n"
+	.string "MISTY: ¿Crees que puedes tirarte\n"
 	.string "piscina sin saber nadar?\p"
-	.string "¡Demuestra tu nivel venciendo a todos\n"
-	.string "los entrenadores de mi GIMNASIO!$"
+	.string "¡Demuestra tu nivel venciendo\n"
+	.string "a todos mis entrenadores!$"
 
 CeruleanCity_Gym_SetSuicuneScene::
 	setvar VAR_SUICUNE_ENCOUNTERS, 6
@@ -228,26 +228,20 @@ CeruleanCity_Gym_EventScript_Misty_Defeated::
 	end
 
 CeruleanGym_Text_GruntIntro:
-	.string "¡Uups! ¡Yo sentir!\n"
-	.string "Tú no hacer daño,\l"
-	.string "¿de acuerdo?\p"
-	.string "Yo muy ocupado.\n"
-	.string "No tener tiempo\p"
-	.string "para hablar\n"
-	.string "contigo. No poder\l"
-	.string "verme nadie.$"
+	.string "¡Uups! ¡Yo sentirlo! Tú no estar\n"
+	.string "herido, ¿verdad?\p"
+	.string "Yo muy ocupado. No tener tiempo\n"
+	.string "para hablar. Malo si alguien\l"
+	.string "verme.$"
 CeruleanGym_Text_GruntBigMistake:
-	.string "¡Oh, no! ¡Tú\n"
-	.string "verme! ¡Yo cometer\l"
-	.string "gran error!$"
+	.string "¡Oh, no! ¡Tú ya verme!\n"
+	.string "¡Yo cometer gran error!$"
 CeruleanGym_Text_GruntBye:
-	.string "¡Oye! Tú olvidar\n"
-	.string "que me has visto,\p"
-	.string "¿vale? Tú ver, oír\n"
-	.string "y saber nada, ¿de\p"
-	.string "acuerdo?\n"
-	.string "¡Adiós, joven!\p"
-	.string "¡Hasta la vista!$"
+	.string "¡Oye! Tú olvidar haberme visto,\n"
+	.string "¿vale?\p"
+	.string "Tú no ver, oír ni saber nada.\p"
+	.string "¡Adiós, joven! ¡Nada de nada!\p"
+	.string "¡Adiós y muy buenas!$"
 CeruleanGym_Text_Note1:
 	.string "Perdón, estaré fuera un rato.\p"
 	.string "MISTY, LÍDER DEL GIMNASIO\p"
@@ -256,35 +250,23 @@ CeruleanGym_Text_Note1:
 	.string "ENTRENADORES DEL GIMNASIO$"
 
 CeruleanGym_Text_MistyIntro:
-	.string "MISTY: ¡Te estaba\n"
-	.string "esperando, pelma!\p"
-	.string "Seguro que tienes\n"
-	.string "muchas MEDALLAS de\p"
-	.string "JOHTO, pero no me\n"
-	.string "subestimes en\l"
-	.string "absoluto.\p"
-	.string "¡Mis POKéMON de\n"
-	.string "tipo agua son\l"
-	.string "fuertes!$"
+	.string "MISTY: ¡Te esperaba, pelma!\p"
+	.string "Puede que tengas muchas MEDALLAS\n"
+	.string "de JOHTO, pero no me subestimes.\p"
+	.string "¡Mis POKéMON de tipo AGUA\n"
+	.string "son muy duros!$"
 CeruleanGym_Text_MistyWinLoss:
-	.string "MISTY: Eres\n"
-	.string "realmente genial…\p"
-	.string "Reconozco tu gran\n"
-	.string "experiencia…\p"
-	.string "Aquí tienes la\n"
-	.string "MEDALLA CASCADA.$"
+	.string "MISTY: De verdad que eres bueno…\p"
+	.string "Admito que tienes mucha habilidad…\p"
+	.string "Aquí tienes la MEDALLA CASCADA.$"
 CeruleanGym_Text_ReceivedBadge:
-	.string "{PLAYER} recibió\n"
+	.string "{PLAYER} recibió la\n"
 	.string "MEDALLA CASCADA.$"
 CeruleanGym_Text_MistyFightDone:
-	.string "MISTY: ¿Hay muchos\n"
-	.string "entrenadores\p"
-	.string "fuertes en JOHTO?\n"
-	.string "Como tú, digo.\p"
-	.string "Un día viajaré y\n"
-	.string "lucharé contra\p"
-	.string "entrenadores\n"
-	.string "expertos.$"
+	.string "MISTY: ¿Hay muchos entrenadores\n"
+	.string "fuertes en JOHTO? Como tú, digo.\p"
+	.string "Algún día viajaré para combatir\n"
+	.string "contra entrenadores expertos.$"
 CeruleanGym_Text_MistyRematch:
 	.string "MISTY: ¡Uau, ahora eres CAMPEÓN\n"
 	.string "de KANTO!\p"
@@ -297,28 +279,22 @@ CeruleanGym_Text_MistyRematchDefeat:
 	.string "MISTY: De verdad que eres bueno…$"
 
 CeruleanGym_Text_SwimmerfDianaSeen:
-	.string "Siento haber\n"
-	.string "estado fuera.\l"
-	.string "¡A lo nuestro!$"
+	.string "Siento haber estado fuera.\n"
+	.string "¡Vamos al lío!$"
 CeruleanGym_Text_SwimmerfDianaBeaten:
 	.string "¡Me rindo!\n"
 	.string "¡Has ganado!$"
 CeruleanGym_Text_SwimmerfDianaAfter:
-	.string "Estaré nadando\n"
-	.string "tranquilamente.$"
+	.string "Seguiré nadando tranquilamente.$"
 CeruleanGym_Text_SwimmerfBrianaSeen:
-	.string "No te desanimes\n"
-	.string "por mi elegante\l"
-	.string "forma de nadar.$"
+	.string "Que mi elegante forma de nadar\n"
+	.string "no te intimide.$"
 CeruleanGym_Text_SwimmerfBrianaBeaten:
-	.string "¡Ooh! Has acabado\n"
-	.string "conmigo…$"
+	.string "¡Oh! Me has vencido sin inmutarte…$"
 CeruleanGym_Text_SwimmerfBrianaAfter:
-	.string "No fardes tanto de\n"
-	.string "haberme vencido.\p"
-	.string "MISTY acabará\n"
-	.string "contigo si te\l"
-	.string "confías demasiado.$"
+	.string "No presumas tanto por vencerme.\p"
+	.string "MISTY te destrozará si bajas\n"
+	.string "la guardia.$"
 CeruleanGym_Text_SwimmermParkerSeen:
 	.string "¡Glup…!\p"
 	.string "¡Soy el primero!\n"
@@ -326,12 +302,9 @@ CeruleanGym_Text_SwimmermParkerSeen:
 CeruleanGym_Text_SwimmermParkerBeaten:
 	.string "No puede ser…$"
 CeruleanGym_Text_SwimmermParkerAfter:
-	.string "MISTY ha mejorado\n"
-	.string "mucho en los\l"
-	.string "últimos años.\p"
-	.string "¡No bajes la\n"
-	.string "guardia o acabarás\l"
-	.string "mal!$"
+	.string "MISTY ha mejorado muchísimo\n"
+	.string "estos últimos años.\p"
+	.string "¡No te descuides o te aplastará!$"
 CeruleanGym_Text_GuideIntro:
 	.string "¡Hola, futuro CAMPEÓN!\p"
 	.string "Como MISTY no estaba, yo también\n"
@@ -414,23 +387,23 @@ CeruleanCity_Gym_EventScript_Manolin_AfterItem::
 
 CeruleanCity_Gym_Text_Manolin_Intro:
 	.string "¡Ey, mi gente! ¡Menudo chapuzón!\p"
-	.string "Oye, ¿esta no es Ciudad Arrecípolis?\n"
+	.string "Oye, ¿esto no es Arrecípolis?\n"
 	.string "¿Dónde está la cascada gigante y el\l"
 	.string "boss Plubio con su capa elegante?\p"
-	.string "¡Esto es solo una piscina olímpica con\n"
-	.string "una pelirroja enfurruñada al fondo!\l"
+	.string "¡Esto es solo una piscina olímpica\n"
+	.string "con una pelirroja enfurruñada!\l"
 	.string "Vaya despiste de coordenadas llevo…$"
 
 CeruleanCity_Gym_Text_Manolin_CheckHealth:
 	.string "¡Para el pull un segundo, loco!\n"
-	.string "¡Llevas a la party empapada y sin PS!\p"
+	.string "¡La party está empapada y sin PS!\p"
 	.string "Un Hidrobomba crítico y nos vamos\n"
 	.string "directos al fondo del mar.\l"
 	.string "Toma cura completa y agárrate.$"
 
 CeruleanCity_Gym_Text_Manolin_Healed:
 	.string "¡Toda la party con la vida al cien\n"
-	.string "y consumible de raid para el bolsillo!$"
+	.string "y un consumible para el bolsillo!$"
 
 CeruleanCity_Gym_Text_Manolin_OfferChoices:
 	.string "Para lidiar con el agua a presión\n"
@@ -438,7 +411,7 @@ CeruleanCity_Gym_Text_Manolin_OfferChoices:
 	.string "¿Cuál prefieres para el trameo?$"
 
 CeruleanCity_Gym_Text_Manolin_DampRockExplain:
-	.string "¡La ROCA LLUVIA alarga la Danza Lluvia\n"
+	.string "¡La ROCA LLUVIA alarga Danza Lluvia\n"
 	.string "a 8 turnos enteros!\l"
 	.string "Para spamear Trueno o potenciar tus\l"
 	.string "propios ataques de Agua a tope.$"
@@ -449,9 +422,9 @@ CeruleanCity_Gym_Text_Manolin_WacanBerryExplain:
 	.string "Ideal si sacas a un tipo Agua.$"
 
 CeruleanCity_Gym_Text_Manolin_NoChoice:
-	.string "Sécate bien y decide cuando quieras,\n"
+	.string "Sécate y decide cuando quieras,\n"
 	.string "que la piscina no se va a evaporar.$"
 
 CeruleanCity_Gym_Text_Manolin_AfterItem:
-	.string "No tragues agua en mitad del combate\n"
-	.string "¡y a por ese boss, mi gente!$"
+	.string "No tragues agua durante el combate.\n"
+	.string "¡A por ese boss, mi gente!$"

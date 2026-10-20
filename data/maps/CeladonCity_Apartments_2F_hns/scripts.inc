@@ -15,22 +15,15 @@ CeladonCity_Apartments_2F_EventScript_Sign::
 	end
 
 CeladonMansion2F_Text_Computer:
-	.string "{PLAYER} encendió\n"
-	.string "el PC.\p"
+	.string "{PLAYER} encendió el PC.\p"
 	.string "…\p"
-	.string "Alguien estaba\n"
-	.string "escribiendo un\l"
-	.string "e-mail.\p"
-	.string "Espero que vengas\n"
-	.string "a KANTO.\p"
-	.string "Te sorprenderás de\n"
-	.string "cuánto han\p"
-	.string "cambiado las\n"
-	.string "cosas por aquí.\p"
-	.string "También verás\n"
-	.string "muchos POKéMON\p"
-	.string "que no son nativos\n"
-	.string "de JOHTO.\p"
+	.string "Alguien estaba redactando un\n"
+	.string "correo electrónico.\p"
+	.string "Espero que vengas a KANTO.\p"
+	.string "Creo que te sorprenderá cuánto\n"
+	.string "han cambiado las cosas aquí.\p"
+	.string "También verás muchos POKéMON que\n"
+	.string "no son originarios de JOHTO.\p"
 	.string "Al PRODUCTOR\p"
 	.string "…$"
 
@@ -62,16 +55,16 @@ CeladonMansion2F_EventScript_DaniRainbow::
     end
 
 CeladonMansion2F_Text_LilDill:
-	.string "¡Hola a todos, parche 15!\p"
+	.string "¡Hola a todos, parche 15…!\p"
 	.string "Perdón, quería decir…\p"
-	.string "¡Hola! ¡Soy el DIRECTOR!\p"
-	.string "Creé los mapas, los tilesets,\n"
-	.string "los scripts y mucho más.\p"
-	.string "Pero no habría podido hacerlo\n"
-	.string "sin los demás desarrolladores\l"
-	.string "y quienes probaron el juego.\p"
+	.string "¡Hola! ¡Soy el DIRECTOR DEL JUEGO!\p"
+	.string "Creé los mapas, los gráficos, los\n"
+	.string "scripts y muchas cosas más.\p"
+	.string "Pero no podría haberlo hecho sin\n"
+	.string "los demás desarrolladores ni\l"
+	.string "quienes probaron el juego.\p"
 	.string "¡Gracias por jugar! Espero que\n"
-	.string "hayas disfrutado de POKéMON\l"
+	.string "hayas disfrutado POKéMON\l"
 	.string "HEART & SOUL.$"
 
 CeladonMansion2F_Text_InfiniteBacon:
@@ -87,15 +80,15 @@ CeladonMansion2F_Text_TixoRebel:
 
 CeladonMansion2F_Text_Phant:
 	.string "¡Me encantan los DEMAKES!\p"
-	.string "¿Has jugado a SWORD AND SHIELD\n"
-	.string "ULTIMATE PLUS - ENGLISH?\p"
-	.string "¡Yo lo traduje!\p"
+	.string "¿Has jugado a ESPADA Y ESCUDO\n"
+	.string "ULTIMATE PLUS, versión inglesa?\p"
+	.string "¡Yo hice esa traducción!\p"
 	.string "Creo que mi próximo DEMAKE será\n"
-	.string "¡el de ALOLA!$"
+	.string "sobre ALOLA.$"
 
 CeladonMansion2F_Text_Exclsior:
-	.string "¡Implementé sprites únicos para\n"
-	.string "cada POKéMON al hacer SURF!\p"
+	.string "¡Implementé gráficos únicos para\n"
+	.string "cada POKéMON que usa SURF!\p"
 	.string "Como el proyecto es de CÓDIGO\n"
 	.string "ABIERTO, ¡tú también puedes\l"
 	.string "añadir funciones!$"
@@ -107,6 +100,6 @@ CeladonMansion2F_Text_DaniRaibow:
 	.string "¿Quieres oír un chiste?\p"
 	.string "Lance quiso enseñar a DRAGONITE\n"
 	.string "el movimiento DRAGOALIENTO.\p"
-	.string "Pero DRAGONITE iba demasiado\n"
-	.string "rápido con VELOC. EXTREMA\l"
-	.string "¡y no pudo atraparlo!$"
+	.string "Pero iba tan rápido con VELOCIDAD\n"
+	.string "EXTREMA que no pudo ni recuperar\l"
+	.string "el aliento.$"

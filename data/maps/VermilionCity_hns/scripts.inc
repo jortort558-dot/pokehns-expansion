@@ -506,7 +506,7 @@ VermilionCity_Movement_StevenWalkToPlayer:
 VermilionCity_Text_StevenIntro:
 	.string "¡Hola!\n"
 	.string "Me llamo MÁXIMO.\l"
-	.string "Soy el Campeón de HOENN.\p"
+	.string "Soy el CAMPEÓN de HOENN.\p"
 	.string "¿Nos hemos visto… antes?\p"
 	.string "No puede ser.\n"
 	.string "Aunque todos los entrenadores\l"
@@ -525,7 +525,7 @@ VermilionCity_Text_StevenIntro:
 	.string "Mantente alerta y captura cualquier\n"
 	.string "POKéMON de HOENN que encuentres.\p"
 	.string "Algunos entrenadores han visto uno\n"
-	.string "uno que surca el cielo como un jet…\l"
+	.string "que surca el cielo como un jet…\l"
 	.string "¿De qué color era?$"
 
 VermilionCity_Text_StevenOutro:

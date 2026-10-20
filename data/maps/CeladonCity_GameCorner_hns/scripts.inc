@@ -86,8 +86,7 @@ CeladonGameCorner_EventScript_Woman::
 	end
 
 CeladonGameCorner_Text_PokefanM:
-	.string "Todas las\n"
-	.string "tragaperras son de\l"
+	.string "Todas las tragaperras son de\n"
 	.string "última generación.$"
 
 CeladonGameCorner_Text_Teacher:
@@ -98,7 +97,8 @@ CeladonGameCorner_Text_Teacher:
 CeladonGameCorner_Text_FishingGuru:
 	.string "Creo que esta tragaperras va a\n"
 	.string "dar premio…\p"
-	.string "Cada máquina tiene su azar.$"
+	.string "Las probabilidades cambian de una\n"
+	.string "máquina a otra.$"
 
 CeladonGameCorner_Text_Fisher1:
 	.string "¡Ja, ja, ja!\p"
@@ -107,10 +107,9 @@ CeladonGameCorner_Text_Fisher1:
 	.string "¡Compartiré mi suerte contigo!$"
 
 CeladonGameCorner_Text_Fisher2:
-	.string "¡Bien!\p"
-	.string "¡Me gusta hacer\n"
-	.string "favores a la\l"
-	.string "gente!$"
+	.string "¡Ja, ja, ja!\p"
+	.string "¡Me encanta hacer cosas buenas por\n"
+	.string "los demás!$"
 
 CeladonGameCorner_Text_GymGuide:
 	.string "¡Hola, futuro CAMPEÓN!\p"

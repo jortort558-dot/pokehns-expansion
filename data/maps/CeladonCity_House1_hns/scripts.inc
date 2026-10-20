@@ -55,46 +55,38 @@ CeladonCity_House1_EventScript_Sign::
 
 CeladonCity_House1_Text_ChefEatathon:
 	.string "¡Hola!\p"
-	.string "Estamos celebrando\n"
-	.string "un concurso de\l"
+	.string "Estamos celebrando un concurso de\n"
 	.string "tragones.\p"
-	.string "Perdona. Ahora no\n"
-	.string "podemos atenderte.$"
+	.string "Lo siento, ahora no podemos\n"
+	.string "atenderte.$"
 
 CeladonCity_House1_Text_Fisher1Snarfle:
 	.string "¡Ñam, ñam!$"
 
 CeladonCity_House1_Text_Fisher1Concentration:
 	.string "¡No me hables!\p"
-	.string "¡Me vas a\n"
-	.string "desconcentrar!$"
+	.string "¡Vas a hacer que me desconcentre!$"
 
 CeladonCity_House1_Text_Fisher2GulpChew:
 	.string "¡Glup…! ¡Ñam!$"
 
 CeladonCity_House1_Text_Fisher2Quantity:
-	.string "¡Mejor cantidad\n"
-	.string "que calidad!\p"
-	.string "¡Si estoy lleno,\n"
-	.string "estoy feliz!$"
+	.string "¡Prefiero cantidad a calidad!\p"
+	.string "¡Con el estómago lleno soy feliz!$"
 
 CeladonCity_House1_Text_Fisher3MunchMunch:
 	.string "¡Ñam, ñam!$"
 
 CeladonCity_House1_Text_Fisher3GoldenrodIsBest:
-	.string "La comida de aquí\n"
-	.string "es buena, pero en\p"
-	.string "CIUDAD TRIGAL es\n"
-	.string "aún mejor.$"
+	.string "Aquí se come bien, pero la mejor\n"
+	.string "comida está en CIUDAD TRIGAL.$"
 
 CeladonCity_House1_Text_TeacherCrunchCrunch:
 	.string "¡Ñam, ñam!$"
 
 CeladonCity_House1_Text_TeacherNoCoinCase:
-	.string "Aquí nadie te va\n"
-	.string "a dar un MONEDERO.\p"
-	.string "Mejor que lo\n"
-	.string "busques en JOHTO.$"
+	.string "Aquí nadie te dará un MONEDERO.\p"
+	.string "Deberías buscarlo en JOHTO.$"
 
 CeladonCity_House1_Text_TeacherKeepEating:
 	.string "Ñam… Ñam…\p"
@@ -102,9 +94,7 @@ CeladonCity_House1_Text_TeacherKeepEating:
 	.string "¡Más, COCINERO!$"
 
 CeladonCity_House1_Text_EatathonContestPoster:
-	.string "¡Concurso de\n"
-	.string "tragones! ¡Sin\p"
-	.string "tiempo! ¡Una lucha\n"
-	.string "sin fin! ¡El mayor\p"
-	.string "tragón podrá comer\n"
-	.string "gratis!$"
+	.string "¡Concurso de tragones!\n"
+	.string "¡Sin límite de tiempo!\p"
+	.string "¡Una batalla interminable!\n"
+	.string "¡El que más coma no pagará nada!$"

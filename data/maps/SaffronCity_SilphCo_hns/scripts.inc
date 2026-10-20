@@ -109,8 +109,8 @@ SaffronCity_SilphCo_Movement_StevenLeave:
 
 
 SaffronCity_SilphCo_Text_Steven1:
-	.string "Hola…\n"
-	.string "Se entrecorta la llamada…\l"
+	.string "Hola… La llamada\n"
+	.string "se entrecorta…\l"
 	.string "Creo que depende de mi padre.\p"
 	.string "Ya veo…\n"
 	.string "Me pondré en camino. Hasta pronto.$"

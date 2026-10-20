@@ -36,8 +36,8 @@ SaffronCity_Tunnel_NS_Text_BaldingManIntro:
 	.string "Solo pensarlo me pone furioso.$"
 
 SaffronCity_Tunnel_NS_Text_BaldingManCandybarDetected:
-	.string "¡Ajá!\n"
-	.string "¡Eso es un CARAMELO FURIA!\p"
+	.string "¡Ajá! ¡Eso es un\n"
+	.string "CARAMELO FURIA!\p"
 	.string "¿Me lo das?\n"
 	.string "¡Por favor!$"
 
@@ -57,16 +57,12 @@ SaffronCity_Tunnel_NS_Text_BaldingManGaveCandybar:
 	.string "¡Quiero que te quedes esto!$"
 
 SaffronCity_Tunnel_NS_Text_BaldingManGaveTm:
-	.string "TM 64 contains........\p"
-	.string "tick-\n"
-	.string "            tock\l"
-	.string "tick-\l"
-	.string "            tock\l"
-	.string "tick-\l"
-	.string "            tock\l"
-	.string "tick-\l"
-	.string "            tock\l"
-	.string "tick.....\l"
+	.string "La MT64 contiene…\p"
+	.string "tic… tac…\n"
+	.string "tic… tac…\l"
+	.string "tic… tac…\l"
+	.string "tic… tac…\l"
+	.string "tic… ¡y entonces!\l"
 	.string "......................\l"
 	.string "......................\l"
-	.string "KA-BOOM!!!$"	
+	.string "¡¡¡BUM!!!$"

@@ -328,7 +328,7 @@ FuchsiaCity_SafariZoneEntrance_Text_Level3:
 	.string "Te costará 400 000 ¥.$"
 
 FuchsiaCity_SafariZoneEntrance_Text_UpgradeGuyDeclined:
-	.string "Oh, qué pena entonces…$"
+	.string "Vaya, qué pena…$"
 
 FuchsiaCity_SafariZoneEntrance_Text_UpgradeGuyAccepted:
 	.string "¡Disfruta de la experiencia prémium\n"

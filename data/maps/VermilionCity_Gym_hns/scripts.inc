@@ -398,8 +398,7 @@ VermilionGym_Text_JugglerHortonAfter:
 	.string "LT. SURGE es muy duro.$"
 
 VermilionCity_Gym_Text_GymGuyAdvice::
-    .string "¡Ey!\n"
-    .string "¡Futuro CAMPEÓN!\p"
+    .string "¡Ey, futuro CAMPEÓN!\p"
     .string "LT. SURGE tiene un apodo.\p"
     .string "¡Lo llaman el americano\n"
     .string "relámpago!\p"
@@ -419,19 +418,19 @@ VermilionCity_Gym_Text_GymGuyPostVictory::
 VermilionCity_Gym_Text_GymStatue::
 	.string "GIMNASIO POKéMON DE CIUDAD CARMÍN\n"
     .string "LÍDER: LT. SURGE\p"
-	.string "ENTRENADORES VENCEDORES:\n"
-	.string "BLUE, RED$"
+	.string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO$"
 
 
 VermilionCity_Gym_Text_GymStatuePlayerWon::
     .string "GIMNASIO POKéMON DE CIUDAD CARMÍN\n"
     .string "LÍDER: LT. SURGE\p"
-    .string "ENTRENADORES VENCEDORES:\n"
-    .string "BLUE, RED, {PLAYER}$"
+    .string "ENTRENADORES GANADORES:\n"
+    .string "AZUL, ROJO, {PLAYER}$"
 
 VermilionCity_Gym_Text_NopeOnlyTrashHere::
-    .string "¡Nada!\n"
-    .string "Aquí solo hay basura.$"
+    .string "¡Nada! Aquí solo hay\n"
+    .string "basura.$"
 
 VermilionCity_Gym_Text_SwitchUnderTrashFirstLockOpened::
     .string "¡Eh! ¡Hay un interruptor bajo\n"
@@ -444,10 +443,9 @@ VermilionCity_Gym_Text_SecondLockOpened::
     .string "¡La puerta automática se abrió!$"
 
 VermilionCity_Gym_Text_OnlyTrashLocksWereReset::
-    .string "¡Nada!\n"
-    .string "Aquí solo hay basura.\p"
-    .string "¡Eh!\n"
-    .string "¡Los cierres se han reiniciado!$"
+    .string "¡Nada! Aquí solo hay basura.\p"
+    .string "¡Eh! ¡Los cierres eléctricos\n"
+    .string "se han reiniciado!$"
 
 VermilionCity_Gym_EventScript_Manolin::
 	lock
@@ -517,42 +515,42 @@ VermilionCity_Gym_Text_Manolin_Intro:
 	.string "Esta es Ciudad Malvalona, ¿no?\p"
 	.string "He venido a raidear al boss Erico,\n"
 	.string "pero veo cubos de basura por todos\l"
-	.string "lados y a un señor militar gritando.\l"
+	.string "lados y un militar gritando.\l"
 	.string "Qué mecánica más rara, tú…$"
 
 VermilionCity_Gym_Text_Manolin_CheckHealth:
 	.string "Oye, pero espera un segundo…\n"
-	.string "¡Llevas a la party tiritando de vida!\p"
-	.string "¡No se puede iniciar el combate con\n"
-	.string "los PS por los suelos, alma de cántaro!\l"
-	.string "Trago de poción mágica y pull limpio.$"
+	.string "¡La party está tiritando de vida!\p"
+	.string "¡No puedes iniciar el combate con\n"
+	.string "los PS por los suelos, alma de\l"
+	.string "cántaro! Poción y pull limpio.$"
 
 VermilionCity_Gym_Text_Manolin_Healed:
-	.string "¡Pum! Barras de vida al máximo y toma\n"
+	.string "¡Pum! Vida al máximo. Toma también\n"
 	.string "un consumible de raid de calidad.\p"
 	.string "Ahora sí que no nos hacen wipe.$"
 
 VermilionCity_Gym_Text_Manolin_OfferChoices:
-	.string "A ver, coleguita, para tanquear este\n"
-	.string "burst eléctrico necesitas equipo bis.\p"
+	.string "Para tanquear este burst eléctrico\n"
+	.string "necesitas equipo bis, coleguita.\p"
 	.string "¿Qué estrategia prefieres llevar?$"
 
 VermilionCity_Gym_Text_Manolin_WeaknessPolicyExplain:
 	.string "¡El SEGURO DEBILIDAD es pura crema!\n"
 	.string "Si el boss te sacude un golpe súper\l"
 	.string "eficaz y aguantas, ¡tu Ataque\l"
-	.string "y Ataque Especial suben a lo bestia!\p"
-	.string "Ideal para reventar en la segunda fase.$"
+	.string "y At. Esp. suben a lo bestia!\p"
+	.string "Ideal para reventar en fase dos.$"
 
 VermilionCity_Gym_Text_Manolin_ShucaBerryExplain:
 	.string "¡La BAYA ACARDO mitiga el daño de\n"
 	.string "tipo Tierra si te lo clavan!\p"
-	.string "O bueno, si el boss te tira chispazos,\n"
+	.string "Si el boss te tira chispazos,\n"
 	.string "te cubre las espaldas que da gusto.$"
 
 VermilionCity_Gym_Text_Manolin_NoChoice:
 	.string "¿No te decides? Piénsatelo bien,\n"
-	.string "que la raid no se va a mover de aquí.$"
+	.string "que la raid seguirá aquí.$"
 
 VermilionCity_Gym_Text_Manolin_AfterItem:
 	.string "Acuérdate de no pisar las trampas\n"

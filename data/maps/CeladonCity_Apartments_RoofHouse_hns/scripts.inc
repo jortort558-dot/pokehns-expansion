@@ -28,15 +28,13 @@ CeladonCity_Apartments_RoofHouse_EventScript_BlackBeltAfter::
 	end
 
 CeladonMansionRoofHouse_Text_PharmacistIntro:
-	.string "Te contaré una\n"
-	.string "historia de miedo.$"
+	.string "Deja que te cuente una historia\n"
+	.string "terrorífica…$"
 
 CeladonMansionRoofHouse_Text_PharmacistNotNight:
-	.string "Pero no te dará\n"
-	.string "tanto miedo si aún\l"
-	.string "es de día.\p"
-	.string "Vuelve cuando\n"
-	.string "anochezca, ¿vale?$"
+	.string "Aunque no da tanto miedo mientras\n"
+	.string "aún haya luz fuera.\p"
+	.string "Vuelve después del anochecer.$"
 
 CeladonMansionRoofHouse_Text_PharmacistStory:
 	.string "Érase una vez un niño al que\n"
@@ -49,22 +47,21 @@ CeladonMansionRoofHouse_Text_PharmacistStory:
 	.string "¡Los pedales pesaban mucho!\p"
 	.string "Cuando dejó de pedalear, la bici\n"
 	.string "¡empezó a ir hacia atrás!\p"
-	.string "Parecía estar maldita y querer\n"
-	.string "arrastrarlo al abismo.\p"
+	.string "¡Parecía maldita y dispuesta a\n"
+	.string "arrastrarlo al olvido!\p"
 	.string "…\p"
 	.string "…\p"
 	.string "¡AAAAAH!\p"
 	.string "¡El niño iba cuesta arriba por\n"
 	.string "el CARRIL BICI!\p"
-	.string "…\n"
-	.string "¡Chan, chan!\p"
+	.string "Y entonces…\n"
+	.string "¡Chan, chan, chaaaan!\p"
 	.string "Por escuchar con paciencia,\n"
 	.string "¡puedes llevarte esta MT82!$"
 
 CeladonMansionRoofHouse_Text_PharmacistCurse:
 	.string "La MT82 es SONÁMBULO.\p"
-	.string "Permite usar un movimiento al\n"
-	.string "azar mientras duerme.\p"
+	.string "Permite atacar con un movimiento\n"
+	.string "al azar mientras se duerme.\p"
 	.string "¡A ver quién duerme después de\n"
 	.string "esta historia terrorífica!$"
-

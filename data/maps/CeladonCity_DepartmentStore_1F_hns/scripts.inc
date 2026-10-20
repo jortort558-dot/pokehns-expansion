@@ -19,32 +19,23 @@ CeladonDept1_EventScript_Directory::
     end
 
 CeladonDeptStore_Text_1FReceptionist:
-	.string "¡Hola! ¡Éste es el\n"
-	.string "CENTRO COMERCIAL\l"
-	.string "de CIUDAD AZULONA!\p"
-	.string "El directorio está\n"
-	.string "en la pared.$"
+	.string "¡Hola! ¡Bienvenido al CENTRO\n"
+	.string "COMERCIAL DE CIUDAD AZULONA!\p"
+	.string "El directorio está en la pared.$"
 
 CeladonDeptStore_Text_1FGentleman:
-	.string "Este C. COMERCIAL\n"
-	.string "pertenece a la\p"
-	.string "misma cadena que\n"
-	.string "el de C. TRIGAL.\p"
-	.string "Los dos fueron\n"
-	.string "renovados al\l"
-	.string "mismo tiempo.$"
+	.string "Este CENTRO COMERCIAL pertenece a\n"
+	.string "la misma cadena que el de TRIGAL.\p"
+	.string "Los renovaron al mismo tiempo.$"
 
 CeladonDeptStore_Text_1FTeacher:
-	.string "Es la primera vez\n"
-	.string "que vengo.\p"
+	.string "Es la primera vez que vengo.\p"
 	.string "Es muy grande…\p"
-	.string "Me da miedo\n"
-	.string "perderme.$"
+	.string "Me preocupa acabar perdiéndome.$"
 
 CeladonDeptStore_Text_1FDirectory:
 	.string "PB: INFORMACIÓN\p"
-	.string "P1: TIENDA DE\n"
-	.string "    ENTRENADORES\p"
+	.string "P1: MERCADO PARA ENTRENADORES\p"
 	.string "P2: TIENDA DE MT\p"
 	.string "P3: REGALOS\p"
 	.string "P4: FARMACIA\p"

@@ -34,5 +34,5 @@ FuchsiaCity_House2_Text_WardenPhoto:
 	.string "rodeado de POKéMON.$"
 
 FuchsiaCity_House2_Text_SafariZonePhoto:
-	.string "Es una gran pradera donde juegan\n"
+	.string "Es una foto de una gran pradera\n"
 	.string "POKéMON poco comunes.$"

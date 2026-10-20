@@ -35,7 +35,6 @@ CeruleanHouse_Text_Granny:
 CeruleanHouse_Text_Gramps:
 	.string "Soy tan feliz…$"
 CeruleanHouse_Text_Kangaskhan:
-	.string "KANGASKHAN:\n"
-	.string "Kangas, kangas.$"
+	.string "KANGASKHAN: ¡Kangas, kangas!$"
 CeruleanHouse_Text_Zubat:
 	.string "ZUBAT: Zu, zubaa.$"

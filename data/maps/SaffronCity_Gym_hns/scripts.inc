@@ -65,8 +65,8 @@ SaffronCity_Gym_EventScript_Sabrina_NotReady::
 SaffronCity_Gym_Text_Sabrina_NotReady:
 	.string "SABRINA: Ya presentía tu llegada…\p"
 	.string "Pero tu mente aún no ha sintonizado\n"
-	.string "con este espacio. Derrota a todos los\l"
-	.string "médiums del GIMNASIO primero.$"
+	.string "con este lugar. Derrota primero\l"
+	.string "a todos los médiums del GIMNASIO.$"
 
 SaffronCity_Gym_EventScript_Sabrina_Defeated::
 	msgbox SaffronCity_Gym_Text_SabrinaPostBattle, MSGBOX_DEFAULT
@@ -155,8 +155,8 @@ SaffronCity_Gym_Text_PsychicFranklinAfter:
 	.string "tus habilidades de combate.$"
 
 SaffronCity_Gym_Text_MediumDorisSeen:
-	.string "¡Fufufufu…!\n"
-	.string "Lo veo claramente.\p"
+	.string "¡Fufufufu…! Lo veo\n"
+	.string "con total claridad.\p"
 	.string "¡Puedo ver todo lo que encierra\n"
 	.string "tu alma!$"
 
@@ -202,16 +202,16 @@ SaffronCity_Gym_EventScript_GymStatuePostVictory::
 
 
 SaffronCity_Gym_Text_GymStatue::
-    .string "SAFFRON POKéMON GYM\n"
-    .string "LEADER: SABRINA\p"
-	.string "WINNING TRAINERS:\n"
-	.string "BLUE, RED$"
+    .string "GIMNASIO POKéMON DE AZAFRÁN\n"
+    .string "LÍDER: SABRINA\p"
+	.string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO$"
 
 SaffronCity_Gym_Text_GymStatuePlayerWon::
-    .string "SAFFRON POKéMON GYM\n"
-    .string "LEADER: SABRINA\p"
-    .string "WINNING TRAINERS:\n"
-	.string "BLUE, RED, {PLAYER}$"
+    .string "GIMNASIO POKéMON DE AZAFRÁN\n"
+    .string "LÍDER: SABRINA\p"
+    .string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO, {PLAYER}$"
 
 SaffronCity_Gym_EventScript_Manolin::
 	lock
@@ -275,12 +275,13 @@ SaffronCity_Gym_EventScript_Manolin_AfterItem::
 	end
 
 SaffronCity_Gym_Text_Manolin_Intro:
-	.string "¡Ey, mi gente! ¡Qué mareo de teleport!\p"
+	.string "¡Ey, mi gente! ¡Vaya mareo\n"
+	.string "de teleport!\p"
 	.string "Se supone que este es el GIMNASIO\n"
 	.string "de Ciudad Algaria, ¿verdad?\l"
 	.string "¿Pero dónde narices están los dos\l"
 	.string "gemelos que levitan, Vito y Leti?\p"
-	.string "Solo veo baldosas mágicas y a una chica\n"
+	.string "Solo veo baldosas mágicas y una\n"
 	.string "con cara de pocos amigos al fondo.\l"
 	.string "El lag mental que llevo es fino…$"
 
@@ -292,23 +293,25 @@ SaffronCity_Gym_Text_Manolin_CheckHealth:
 	.string "Trago de cura y todos listos.$"
 
 SaffronCity_Gym_Text_Manolin_Healed:
-	.string "¡Salud a tope y toma un consumible\n"
-	.string "gourmet para que no te falte sustain!$"
+	.string "¡Salud a tope! Toma un consumible\n"
+	.string "gourmet para mantener el sustain.$"
 
 SaffronCity_Gym_Text_Manolin_OfferChoices:
-	.string "Contra bosses con control mental hay\n"
+	.string "Contra bosses con control mental\n"
 	.string "que tramear con cabeza.\l"
-	.string "¿Qué objeto bis prefieres para el pull?$"
+	.string "¿Qué bis quieres para este pull?$"
 
 SaffronCity_Gym_Text_Manolin_ToxicOrbExplain:
 	.string "¡La TOXISFERA es pura táctica!\n"
-	.string "Te envenena al final del primer turno,\l"
-	.string "así que nadie te puede dormir ni paralizar,\l"
-	.string "¡y con Agallas o Antídoto revientas!$"
+	.string "Te envenena al acabar el primer\l"
+	.string "turno: así no podrán dormirte ni\l"
+	.string "paralizarte. ¡Con Agallas o\l"
+	.string "Antídoto revientas!$"
 
 SaffronCity_Gym_Text_Manolin_MentalHerbExplain:
-	.string "¡La HIERBA MENTAL te quita al instante\n"
-	.string "la Mofa, la Atracción o el Anulación!\l"
+	.string "¡La HIERBA MENTAL te libra al\n"
+	.string "instante de Mofa, Atracción o\l"
+	.string "Anulación; así nadie te corta\l"
 	.string "Para que nadie te corte el casteo.$"
 
 SaffronCity_Gym_Text_Manolin_NoChoice:
@@ -316,6 +319,6 @@ SaffronCity_Gym_Text_Manolin_NoChoice:
 	.string "no va a dejar de mirarte fijamente.$"
 
 SaffronCity_Gym_Text_Manolin_AfterItem:
-	.string "Cuidado con pisar las baldosas que no\n"
+	.string "Cuidado con pisar las baldosas\n"
 	.string "son, que acabas en otra dimensión.\l"
 	.string "¡A por el boss, mi gente!$"

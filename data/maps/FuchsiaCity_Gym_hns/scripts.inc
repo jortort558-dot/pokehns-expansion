@@ -90,10 +90,10 @@ FuchsiaCity_Gym_EventScript_Janine_NotReady::
 
 FuchsiaCity_Gym_Text_Janine_NotReady:
 	.string "SACHIKO: Fufufufu…\p"
-	.string "¿Creías que encontrar a la auténtica\n"
+	.string "¿Creías que encontrar a la LÍDER\n"
 	.string "sería suficiente?\p"
-	.string "¡Un maestro ninja debe desenmascarar\n"
-	.string "y vencer a todos mis impostores!$"
+	.string "¡Un maestro ninja debe descubrir\n"
+	.string "y vencer a todos sus impostores!$"
 
 FuchsiaCity_Gym_EventScript_Janine_Defeated::
 	msgbox FuchsiaCity_Gym_Text_Janine_ApplyMyself, MSGBOX_DEFAULT
@@ -294,14 +294,14 @@ FuchsiaCity_Gym_EventScript_GymStatuePostVictory::
 FuchsiaCity_Gym_Text_GymStatue::
 	.string "GIMNASIO POKéMON DE FUCSIA\n"
 	.string "LÍDER: SACHIKO\p"
-	.string "ENTRENADORES VENCEDORES:\n"
-	.string "BLUE, RED$"
+	.string "ENTRENADORES GANADORES:\n"
+	.string "AZUL, ROJO$"
 
 FuchsiaCity_Gym_Text_GymStatuePlayerWon::
 	.string "GIMNASIO POKéMON DE FUCSIA\n"
 	.string "LÍDER: SACHIKO\p"
-	.string "ENTRENADORES VENCEDORES:\n"
-    .string "BLUE, RED, {PLAYER}$"
+	.string "ENTRENADORES GANADORES:\n"
+    .string "AZUL, ROJO, {PLAYER}$"
 
 FuchsiaCity_Gym_Text_Guide:
 	.string "¡Hola, futuro CAMPEÓN!\p"
@@ -376,45 +376,45 @@ FuchsiaCity_Gym_EventScript_Manolin_AfterItem::
 	end
 
 FuchsiaCity_Gym_Text_Manolin_Intro:
-	.string "¡Qué pasa mi gente! ¡Oye, qué calor!\p"
+	.string "¡Qué pasa, mi gente! ¡Qué calor!\p"
 	.string "Pensaba que este era el gimnasio de\n"
 	.string "fuego de Lavacalda con Candela...\l"
-	.string "¿Pero por qué hay paredes invisibles\l"
+	.string "¿Por qué hay paredes invisibles\l"
 	.string "y señoras ninja que parecen clones?\p"
-	.string "Casi me como una esquina transparente.\n"
+	.string "Casi me como una esquina invisible.\n"
 	.string "Vaya fase de mazmorra más rara, tú.$"
 
 FuchsiaCity_Gym_Text_Manolin_CheckHealth:
 	.string "¡Poco a poco, frena el carro!\n"
-	.string "¡Si llevas a tus bichos casi tiesos!\p"
+	.string "¡Llevas a tus bichos casi tiesos!\p"
 	.string "Aquí el veneno y las púas te dejan\n"
 	.string "seco en tres ticks.\l"
 	.string "Poción mágica al canto y a seguir.$"
 
 FuchsiaCity_Gym_Text_Manolin_Healed:
-	.string "¡Barras de PS llenas y consumible de\n"
+	.string "¡PS llenos y un consumible de\n"
 	.string "cura directa al inventario!$"
 
 FuchsiaCity_Gym_Text_Manolin_OfferChoices:
-	.string "Para sobrevivir a los debuffs de este\n"
-	.string "boss ninja te he traído dos opciones bis.\l"
+	.string "Para sobrevivir a los debuffs del\n"
+	.string "boss ninja traigo dos opciones bis.\l"
 	.string "¿Cuál prefieres?$"
 
 FuchsiaCity_Gym_Text_Manolin_BlackSludgeExplain:
 	.string "¡El LODO NEGRO es gloria pura!\n"
 	.string "Cura vida en cada turno como unos\l"
-	.string "Restos si eres tipo Veneno, ¡pero daña\l"
+	.string "RESTOS si eres VENENO, pero daña\l"
 	.string "a cualquiera que intente robártelo!$"
 
 FuchsiaCity_Gym_Text_Manolin_PayapaBerryExplain:
-	.string "¡La BAYA PAYAPA absorbe los castañazos\n"
+	.string "¡La BAYA PAYAPA reduce los golpes\n"
 	.string "de tipo Psíquico a la mitad!\l"
-	.string "Una salvación si te tiran Psicocorte.$"
+	.string "Te salvará frente a Psicocorte.$"
 
 FuchsiaCity_Gym_Text_Manolin_NoChoice:
-	.string "No te líes con los clones, tómate tu\n"
+	.string "No te líes con los clones. Tómate\n"
 	.string "tiempo y elige bien.$"
 
 FuchsiaCity_Gym_Text_Manolin_AfterItem:
-	.string "Toca con las manos las paredes antes\n"
-	.string "de correr, ¡y a wipear al boss!$"
+	.string "Toca las paredes antes de correr,\n"
+	.string "¡y a wipear al boss!$"

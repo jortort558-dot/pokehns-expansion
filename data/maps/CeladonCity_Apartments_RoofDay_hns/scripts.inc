@@ -24,16 +24,10 @@ CeladonCity_Apartments_RoofDay_EventScript_Sign::
 	end
 
 CeladonMansionRoof_Text_Fisher:
-	.string "Las alturas…\n"
-	.string "¡me gustan tanto…!\p"
-	.string "¡Me atrevería a\n"
-	.string "decir que la única\p"
-	.string "cosa que ama las\n"
-	.string "alturas como yo es\l"
-	.string "el humo!$"
+	.string "Las alturas… ¡Cómo me gustan!\p"
+	.string "Diría que lo único que ama tanto\n"
+	.string "las alturas como yo es el humo.$"
 
 CeladonMansionRoof_Text_Graffiti:
-	.string "Hay un graffiti\n"
-	.string "en la pared…\p"
-	.string "¡{PLAYER} añadió\n"
-	.string "un bigote!$"
+	.string "Hay un grafiti en la pared…\p"
+	.string "¡{PLAYER} le añadió un bigote!$"

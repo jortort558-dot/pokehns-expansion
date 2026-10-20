@@ -141,7 +141,7 @@ SaffronCity_Text_Fisher:
 
 SaffronCity_Text_Fisher_ReturnedPart:
 	.string "¡Ñam, ñam!\p"
-	.string "Dicen que hay problemas en la\n"
+	.string "Dicen que hubo problemas en la\n"
 	.string "CENTRAL ENERGÍA.\p"
 	.string "¡Ñam, ñam! ¡Estoy lleno!$"
 
@@ -174,7 +174,7 @@ SaffronCity_Text_GymSign:
 	.string "psíquicos.$"
 
 SaffronCity_Text_FightingDojoSign:
-	.string "¡Bienvenidos!\n"
+	.string "PUERTAS ABIERTAS:\n"
 	.string "DOJO KARATE$"
 
 SaffronCity_Text_SilphCoSign:

@@ -20,14 +20,11 @@ CeruleanCity_House2_EventScript_Diglett::
 	end
 
 CeruleanPolice_Text_FishingGuru:
-	.string "Dicen que hay un\n"
-	.string "tipo sospechoso\l"
-	.string "merodeando.\p"
-	.string "Si resulta ser el\n"
-	.string "ladrón, le\l"
-	.string "detendré.$"
+	.string "Dicen que hay un tipo sospechoso\n"
+	.string "merodeando por aquí.\p"
+	.string "Si resulta ser un ladrón,\n"
+	.string "¡no pienso dejarlo escapar!$"
 CeruleanPolice_Text_PokefanF:
-	.string "Ya nos atracaron\n"
-	.string "antes.$"
+	.string "Ya nos atracaron una vez.$"
 CeruleanPolice_Text_Diglett:
 	.string "DIGLETT: Dig, dig.$"

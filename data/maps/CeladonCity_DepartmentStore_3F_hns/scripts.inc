@@ -43,35 +43,25 @@ CeladonDept3_EventScript_Directory::
 	end
 
 CeladonDeptStore3F_Text_Youngster:
-	.string "No sé en qué\n"
-	.string "POKéMON debería\l"
-	.string "utilizar esta MT…$"
+	.string "No sé con qué POKéMON debería\n"
+	.string "usar esta MT…$"
 
 CeladonDeptStore3F_Text_GameboyKid1:
-	.string "¡Oh, oh! Cambié\n"
-	.string "mis POKéMON sin\p"
-	.string "quitarles la\n"
-	.string "MEJORA.$"
+	.string "¡Oh, no! Intercambié mi POKéMON\n"
+	.string "sin quitarle la MEJORA.$"
 
 CeladonDeptStore3F_Text_GameboyKid2:
-	.string "¡Sí! ¡Ya tengo\n"
-	.string "un PORYGON!\p"
-	.string "Se me dan muy mal\n"
-	.string "las tragaperras.\p"
-	.string "¡Jamás ganaría\n"
-	.string "bastantes fichas!\p"
-	.string "¿Ehh…?\p"
-	.string "¡El PORYGON que he\n"
-	.string "cambiado se ha\p"
-	.string "convertido en otro\n"
-	.string "POKéMON!$"
+	.string "¡Sí! ¡Por fin tendré un PORYGON!\p"
+	.string "Se me dan fatal las tragaperras,\n"
+	.string "así que nunca reuniría las fichas…\p"
+	.string "¿Eh…?\p"
+	.string "¡El PORYGON intercambiado se ha\n"
+	.string "convertido en otro POKéMON!$"
 
 CeladonDeptStore3F_Text_SuperNerd:
-	.string "En la TIENDA DE MT\n"
-	.string "hay movimientos\l"
-	.string "raros.$"
+	.string "La TIENDA DE MT vende algunos\n"
+	.string "movimientos poco comunes.$"
 
 CeladonDeptStore3F_Text_Directory:
 	.string "P2: TIENDA DE MT\p"
-	.string "¡Fortalece a tus\n"
-	.string "POKéMON!$"
+	.string "¡Haz más fuertes a tus POKéMON!$"
