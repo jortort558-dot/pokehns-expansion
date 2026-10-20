@@ -185,11 +185,11 @@ CinnabarIsland_Text_BatemagicoMissingClues:
 
 CinnabarIsland_Text_BatemagicoExperiment:
 	.string "Has unido las piezas.\p"
-	.string "MOHEDANO usó el calor volcánico\n"
+	.string "Usaron el calor volcánico\n"
 	.string "para calcinar los registros\l"
 	.string "del PROYECTO TABULA RASA.\p"
 	.string "¡Cuidado! Ese investigador...\n"
-	.string "¡Es el custodio de MOHEDANO y\l"
+	.string "¡Es el custodio del proyecto y\l"
 	.string "viene a silenciarnos!$"
 
 CinnabarIsland_Text_ExperimentDefeated:
@@ -201,7 +201,7 @@ CinnabarIsland_Text_BatemagicoSilph:
 	.string "hasta la última prueba.\p"
 	.string "Pero lo logramos: el informe\n"
 	.string "confirma que BILL descubrió la\l"
-	.string "red secreta de MOHEDANO.\p"
+	.string "red secreta del proyecto.\p"
 	.string "Por eso lo tienen retenido.\p"
 	.string "¡Rápido! Nos vemos en la sede\n"
 	.string "de SILPH S.A., en AZAFRÁN.$"
