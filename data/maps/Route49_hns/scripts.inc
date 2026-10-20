@@ -34,39 +34,41 @@ Route49_EventScript_SkylarAfter::
 	end
 
 Route49_Text_SkylarDefeat:
-	.string "OKAY, you can have the PLATE.$"
+	.string "VALE, quédate con la TABLA.$"
 
 Route49_Text_SkylarAfter:
-	.string "As cool as that PLATE is,\n"
-	.string "you earned it fair and square.\p"
-	.string "I'll just buy something at the gift\n"
-	.string "shop instead.$"
+	.string "Por muy alucinante que sea esa\n"
+	.string "TABLA, te la ganaste justamente.\p"
+	.string "Mejor me compraré algún recuerdo\n"
+	.string "en la tienda del pueblo.$"
 
 Route49_Text_SkylarBeforeBattle:
-	.string "What?\p"
-	.string "You want the PLATE?\n"
-	.string "It's an artifact imbued with an\l"
-	.string "ancient power with a connection\l"
-	.string "to the legendary POKéMON?!\p"
-	.string "Well now I'm definitely keeping it.\p"
-	.string "Fine.\p"
-	.string "You'll just have to battle me for it.$"
+	.string "¿Cómo?\p"
+	.string "¿Que buscas la TABLA?\n"
+	.string "¿Dices que es una reliquia con un\l"
+	.string "poder ancestral conectado a los\l"
+	.string "POKéMON legendarios?!\p"
+	.string "¡Pues ahora sí que me la quedo!\p"
+	.string "Si tanto la quieres, ¡tendrás que\n"
+	.string "ganármela en un combate!$"
 
 Route49_Text_SkylarBefore:
-	.string "When I was hitting the slopes, my\n"
-	.string "skis snagged on something.\p"
-	.string "It was this strange SKY-blue PLATE.\p"
-	.string "I think I'll hold onto it as a\n"
-	.string "souvenir!$"
+	.string "Cuando estaba bajando las pistas,\n"
+	.string "mis esquís tropezaron con algo.\p"
+	.string "Era esta extraña TABLA de color\n"
+	.string "azul CIELO.\p"
+	.string "¡Creo que me la quedaré como\n"
+	.string "recuerdo de las pistas!$"
 
 Route49_EventScript_SkierM::
 	msgbox Route49_Text_SkierM, MSGBOX_NPC
 	end
 
 Route49_Text_SkierM::
-	.string "Hey, watch out for my board!\p"
-	.string "What? You want to battle?\n"
-	.string "No way, these slopes are too wicked!$"
+	.string "¡Oye, cuidado con mi tabla!\p"
+	.string "¿Cómo? ¿Que quieres un combate?\n"
+	.string "¡Ni hablar, estas pistas son\l"
+	.string "demasiado extremas!$"
 
 Route49_EventScripts_KimonoGirl::
     delay 10
@@ -114,14 +116,15 @@ Route49_KimonoGitl_Movement2:
 	step_end
 
 Route49_Text_KimonoGirl:
-    .string "You....\p"
-	.string "You must be {PLAYER}, correct?\n"
-    .string "I've heard all about you and\l"
-	.string "your deeds from my cousins\l"
-	.string "in ECRUTEAK CITY.\p"
-	.string "My sisters wish to meet with you.\l"
-	.string "If you find the time, please\n"
-	.string "seek us out in the town up ahead.$"
+    .string "Tú...\p"
+	.string "Debes de ser {PLAYER}, ¿verdad?\n"
+    .string "He oído hablar mucho sobre ti\l"
+	.string "y tus hazañas a través de mis\l"
+	.string "primas de CIUDAD IRIS.\p"
+	.string "Mis hermanas desean reunirse\n"
+	.string "contigo cuanto antes.\l"
+	.string "Si dispones de tiempo, ven a\n"
+	.string "buscarnos al pueblo más adelante.$"
 
 Route49_EventScript_Item_StarDust::
     finditem ITEM_STARDUST
@@ -136,8 +139,8 @@ Route49_EventScript_Sign::
     end
 
 Route49_Text_Sign:
-    .string "The sign is faded.\n"
-    .string "ROUTE 49$"
+    .string "El cartel está desgastado...\n"
+    .string "RUTA 49$"
 
 Route49_EventScript_ActivateOverqwil::
     lock

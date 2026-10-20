@@ -252,10 +252,16 @@ Route13_GetOffBoat_2:
 Route13_TravelToAlola::
 	lock
 	faceplayer
+	goto_if_unset FLAG_IS_KANTO_CHAMPION, Route13_TravelToAlola_NeedKantoLeague
 	checkitem ITEM_STRANGE_SOUVENIR
 	compare VAR_RESULT, 0
 	goto_if_ne Route13_TravelToAlola_1
 	msgbox Route13_TravelToAlola_Text_4, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route13_TravelToAlola_NeedKantoLeague:
+	msgbox Route13_TravelToAlola_Text_NeedKantoLeague, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -453,3 +459,15 @@ Route13_TravelToAlola_Text_4:
 	.string "{PAUSE 30}recuerdos muy extraños.\p"
 	.string "Es tan fácil reconocerlos que ni\n"
 	.string "siquiera compruebo los billetes.$"
+
+Route13_TravelToAlola_Text_NeedKantoLeague:
+	.string "¡Ah del barco, grumete!\p"
+	.string "Las aguas hacia esas islas remotas\n"
+	.string "son bravas y traicioneras, y sus\l"
+	.string "tierras están repletas de peligros.\p"
+	.string "Solo llevaré a bordo a quien haya\n"
+	.string "demostrado ser capaz de vencer a la\l"
+	.string "LIGA POKéMON en su revancha tras\l"
+	.string "conquistar KANTO.\p"
+	.string "¡Vuelve cuando el ALTO MANDO te haya\n"
+	.string "coronado por segunda vez!$"
