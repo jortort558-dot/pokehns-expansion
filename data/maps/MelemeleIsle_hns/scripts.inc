@@ -823,3 +823,43 @@ Alola_Melemele_Picnicker_Text_0:
 	.string "POKéMON únicos!\p"
 	.string "¡Tengo que comprar un cargamento de\n"
 	.string "POKé BALLS para atraparlos a todos!$"
+
+MelemeleIsle_EventScript_Metacaballero::
+	lock
+	faceplayer
+	setspeaker SP_NAME_METACABALLERO
+	msgbox MelemeleIsle_Text_MetacaballeroIntro, MSGBOX_DEFAULT
+	pokemart MelemeleIsle_MetacaballeroShop
+	setspeaker SP_NAME_METACABALLERO
+	msgbox MelemeleIsle_Text_MetacaballeroFarewell, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+MelemeleIsle_MetacaballeroShop:
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_HEAVY_BALL
+	pokemartlistend
+
+MelemeleIsle_Text_MetacaballeroIntro:
+	.string "Brisa marina, cero estrés y máxima\n"
+	.string "eficiencia de campo.\p"
+	.string "Qué agustito se está en esta playa\n"
+	.string "inspeccionando la fauna insular.\p"
+	.string "He traído BALLS de diseño avanzado\n"
+	.string "y artesanales para ratios complejos.\p"
+	.string "Pesca, peso, amistad y especies\n"
+	.string "registradas. ¿Compras?$"
+
+MelemeleIsle_Text_MetacaballeroFarewell:
+	.string "Planifica cada captura.\n"
+	.string "El azar es el enemigo del meta.$"
+

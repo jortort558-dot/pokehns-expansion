@@ -510,3 +510,39 @@ NewSinjoh_HotSprings_EventScript_UrsalunaRan::
 	clearflag FLAG_NO_SHINY
 	release
 	end
+
+NewSinjoh_HotSprings_EventScript_Metacaballero::
+	lock
+	faceplayer
+	setspeaker SP_NAME_METACABALLERO
+	msgbox NewSinjoh_HotSprings_Text_MetacaballeroIntro, MSGBOX_DEFAULT
+	pokemart NewSinjoh_HotSprings_MetacaballeroShop
+	setspeaker SP_NAME_METACABALLERO
+	msgbox NewSinjoh_HotSprings_Text_MetacaballeroFarewell, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+NewSinjoh_HotSprings_MetacaballeroShop:
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_NEST_BALL
+	pokemartlistend
+
+NewSinjoh_HotSprings_Text_MetacaballeroIntro:
+	.string "Temperatura óptima. El rendimiento\n"
+	.string "muscular se maximiza aquí.\p"
+	.string "Qué agustito se está en estas aguas\n"
+	.string "termales mientras optimizo rutas.\p"
+	.string "Tengo un lote táctico de BALLS para\n"
+	.string "situaciones concretas.\p"
+	.string "Oscuridad, turnos largos o inicios\n"
+	.string "fulgurantes. ¿Compras?$"
+
+NewSinjoh_HotSprings_Text_MetacaballeroFarewell:
+	.string "El descanso también es cálculo.\n"
+	.string "No desperdicies ni un turno.$"
+
