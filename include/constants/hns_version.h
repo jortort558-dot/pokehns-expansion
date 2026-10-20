@@ -1,49 +1,6 @@
-﻿#ifndef GUARD_CONSTANTS_HNS_VERSION_H
+#ifndef GUARD_CONSTANTS_HNS_VERSION_H
 #define GUARD_CONSTANTS_HNS_VERSION_H
 
-#define HNS_VERSION_STRING "v0.60.7"
+#define HNS_VERSION_STRING "v0.60.8"
 
 #endif // GUARD_CONSTANTS_HNS_VERSION_H
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
