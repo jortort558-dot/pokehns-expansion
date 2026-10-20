@@ -10,18 +10,12 @@ LavenderTown_Mart_EventScript_Rocker::
 	end
 
 LavenderMart_Text_PokefanM:
-	.string "Si vas a explorar\n"
-	.string "una cueva, debes\p"
-	.string "llevar siempre\n"
-	.string "REPELENTE.\p"
-	.string "Aunque me gusta la\n"
-	.string "exploración, aún\p"
-	.string "no he recorrido\n"
-	.string "todas las cuevas.$"
+	.string "El REPELENTE es imprescindible\n"
+	.string "para explorar una cueva.\p"
+	.string "Me encanta explorar, pero aún no\n"
+	.string "he visitado todas las cuevas.$"
 LavenderMart_Text_Rocker:
-	.string "He oído hablar de\n"
-	.string "un artesano que\p"
-	.string "fabrica POKé BALL\n"
-	.string "a medida en PUEBLO\p"
-	.string "AZALEA, en JOHTO.\n"
-	.string "¡Yo quiero una!$"
+	.string "He oído que en PUEBLO AZALEA,\n"
+	.string "en JOHTO, vive un artesano que\l"
+	.string "fabrica POKé BALL a medida.\p"
+	.string "¡Ojalá tuviera alguna!$"

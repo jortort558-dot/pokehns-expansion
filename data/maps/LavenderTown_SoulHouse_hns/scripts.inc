@@ -20,39 +20,25 @@ LavenderTownSoulHouse_EventScript_Granny::
 	end
 
 MrFuji_Text_Main:
-	.string "SR. FUJI: ¡Hola!\p"
-	.string "¡Mmm…! Parece que\n"
-	.string "estás educando a\p"
-	.string "tus POKéMON con\n"
-	.string "mucho cariño.\p"
-	.string "Los amantes de los\n"
-	.string "POKéMON vienen a\p"
-	.string "rendir homenaje a\n"
-	.string "POKéMON muertos.\p"
-	.string "Por favor, muestra\n"
-	.string "tu condolencia por\p"
-	.string "las almas POKéMON\n"
-	.string "que han partido.\p"
-	.string "Seguro que eso\n"
-	.string "les hará felices.$"
+	.string "SR. FUJI: Te doy la bienvenida.\p"
+	.string "Mmm… Parece que crías a tus\n"
+	.string "POKéMON con cariño y bondad.\p"
+	.string "Los amantes de los POKéMON vienen\n"
+	.string "aquí para honrar a los que ya\l"
+	.string "partieron.\p"
+	.string "Presenta tus respetos a sus almas.\n"
+	.string "Seguro que eso las hará felices.$"
 SoulHouse_Text_Teacher:
-	.string "Creo que aquí hay\n"
-	.string "otras tumbas de\l"
+	.string "Creo que aquí hay más tumbas de\n"
 	.string "POKéMON.\p"
-	.string "Hay muchas cámaras\n"
-	.string "en las que sólo\p"
-	.string "puede entrar el\n"
-	.string "SR. FUJI.$"
+	.string "Hay muchas cámaras a las que solo\n"
+	.string "puede entrar el SR. FUJI.$"
 SoulHouse_Text_Lass:
-	.string "He venido con mi\n"
-	.string "madre a visitar\p"
-	.string "las tumbas de los\n"
-	.string "POKéMON…$"
+	.string "He venido con mi madre a visitar\n"
+	.string "las tumbas de los POKéMON…$"
 SoulHouse_Text_Granny:
-	.string "A los POKéMON que\n"
-	.string "vivían conmigo…\p"
-	.string "los quería como a\n"
-	.string "mis nietos…$"
+	.string "A los POKéMON que vivían conmigo…\p"
+	.string "Los quería como a mis nietos…$"
 
 LavenderTown_SoulHouse_EventScript_SetupAvatarAlmas::
 	goto_if_unset FLAG_JOHTO_AVATAR_VOICES_DEFEATED, LavenderTown_SoulHouse_EventScript_HideAvatarAlmas
@@ -93,5 +79,3 @@ LavenderTown_SoulHouse_Text_AvatarAlmasAfter:
 	.string "El lazo regional vibra con fuerza.\n"
 	.string "Habla con el SABIO de ORQUÍDEA\l"
 	.string "para alcanzar el origen de todo.$"
-
-

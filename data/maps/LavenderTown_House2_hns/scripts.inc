@@ -6,12 +6,7 @@ LavenderTown_House2_EventScript_Woman::
 	end
 
 LavenderSpeechHouse_Text_PokefanF:
-	.string "El PUEBLO LAVANDA\n"
-	.string "es un pequeño y\p"
-	.string "apacible lugar,\n"
-	.string "al pie de las\l"
-	.string "montañas.\p"
-	.string "Desde que se\n"
-	.string "construyó la TORRE\p"
-	.string "RADIO, acude algo\n"
-	.string "más de gente.$"
+	.string "PUEBLO LAVANDA es pequeño y\n"
+	.string "tranquilo, al pie de las montañas.\p"
+	.string "Desde que construyeron la TORRE\n"
+	.string "RADIO hay algo más de movimiento.$"
