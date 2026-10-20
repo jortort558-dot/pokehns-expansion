@@ -323,8 +323,8 @@ FuchsiaCity_Text_KaligulaDefeated:
 	.string "semejante compenetración?$"
 
 FuchsiaCity_Text_KaligulaPostBattle:
-	.string "¡Joder con sus planes!\n"
-	.string "Dijo que acabarías atando cabos...\p"
+	.string "¡Joder, qué mala suerte!\n"
+	.string "Esto no tenía que acabar así...\p"
 	.string "Pero no me atraparás aquí.$"
 
 FuchsiaCity_EventScript_Youngster::

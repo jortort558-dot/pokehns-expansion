@@ -223,7 +223,7 @@ SilphCo_Text_Sign2:
 SaffronCity_SilphCo_Text_Terminal1:
 	.string "TERMINAL DE SEGURIDAD.\p"
 	.string "Registro: sujeto BILL.\n"
-	.string "Autorización sin identificar.$"
+	.string "Firma de autorización ilegible.$"
 
 SaffronCity_SilphCo_Text_Terminal2:
 	.string "RUTA DE RESPALDO ABIERTA.\p"
@@ -246,9 +246,8 @@ SaffronCity_SilphCo_Text_BatemagicoRescue:
 	.string "BILL, ¡sal de ahí!$"
 
 SaffronCity_SilphCo_Text_BillPallet:
-	.string "Quien dirige esto no quería\n"
-	.string "mis datos, sino que validase\l"
-	.string "una copia.\p"
+	.string "No buscaban mis datos. Querían\n"
+	.string "que validase una copia.\p"
 	.string "La TABULA RASA está conectada\n"
 	.string "al laboratorio del PROF. OAK.\p"
 	.string "Ve a PUEBLO PALETA. Yo cortaré\n"
