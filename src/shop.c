@@ -2631,6 +2631,48 @@ void CreateKurtBallShop(void)
     FadeScreen(FADE_TO_BLACK, 0);
 }
 
+static EWRAM_DATA u16 sMissingTMShopItems[NUM_TECHNICAL_MACHINES + 1] = {0};
+
+static u16 BuildMissingTMShopItems(void)
+{
+    u16 tm;
+    u16 count = 0;
+
+    for (tm = ITEM_TM01; tm <= ITEM_TM100; tm++)
+    {
+        if (!CheckBagHasItem(tm, 1) && !CheckPCHasItem(tm, 1))
+            sMissingTMShopItems[count++] = tm;
+    }
+    sMissingTMShopItems[count] = ITEM_NONE;
+
+    return count;
+}
+
+void CountMissingTMShopItems(void)
+{
+    gSpecialVar_Result = BuildMissingTMShopItems();
+}
+
+void CreateMissingTMShop(void)
+{
+    u8 taskId;
+    s16 *data;
+
+    BuildMissingTMShopItems();
+    LockPlayerFieldControls();
+    sMartInfo.martType = MART_TYPE_NORMAL;
+    SetShopItemsForSale(sMissingTMShopItems);
+    ClearItemPurchases();
+    SetShopMenuCallback(ScriptContext_Enable);
+
+    taskId = CreateTask(Task_ShopMenu, 8);
+    data = gTasks[taskId].data;
+    data[8] = (u32)CB2_InitBuyMenu >> 16;
+    data[9] = (u32)CB2_InitBuyMenu;
+    gTasks[taskId].func = Task_GoToBuyOrSellMenu;
+    FadeScreen(FADE_TO_BLACK, 0);
+}
+
 static const u16 sMegaStonesTier1[] = {
     ITEM_VENUSAURITE,
     ITEM_CHARIZARDITE_X,

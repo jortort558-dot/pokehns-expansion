@@ -163,6 +163,7 @@ GoldenrodCity_PokemonCenter_EventScript_GymTokenClerk::
 	faceplayer
 	msgbox GoldenrodCity_PokemonCenter_Text_LockeAssistantIntro, MSGBOX_DEFAULT
 GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu::
+	goto_if_set FLAG_IS_KANTO_CHAMPION, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenuKantoChampion
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner, 0
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 1
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 2
@@ -178,6 +179,27 @@ GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu::
 	case 3, GoldenrodCity_PokemonCenter_EventScript_AssistantRewards
 	case 4, GoldenrodCity_PokemonCenter_EventScript_AssistantMegaExchange
 	case 5, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+
+GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenuKantoChampion::
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner, 0
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 1
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 2
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionRewards, 3
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMegaExchange, 4
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMissingTMs, 5
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionExit, 6
+	dynmultistack 0, 0, FALSE, 7, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	closemessage
+	switch VAR_RESULT
+	case 0, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner
+	case 1, GoldenrodCity_PokemonCenter_EventScript_AssistantGymTokens
+	case 2, GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps
+	case 3, GoldenrodCity_PokemonCenter_EventScript_AssistantRewards
+	case 4, GoldenrodCity_PokemonCenter_EventScript_AssistantMegaExchange
+	case 5, GoldenrodCity_PokemonCenter_EventScript_AssistantMissingTMs
+	case 6, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 
@@ -280,6 +302,18 @@ GoldenrodCity_PokemonCenter_EventScript_MegaExchangeSentToPC::
 	msgbox GoldenrodCity_PokemonCenter_Text_MegaExchangeSentToPC, MSGBOX_DEFAULT
 	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
 
+GoldenrodCity_PokemonCenter_EventScript_AssistantMissingTMs::
+	special CountMissingTMShopItems
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_MissingTMsComplete
+	msgbox GoldenrodCity_PokemonCenter_Text_MissingTMsIntro, MSGBOX_DEFAULT
+	special CreateMissingTMShop
+	waitstate
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_MissingTMsComplete::
+	msgbox GoldenrodCity_PokemonCenter_Text_MissingTMsComplete, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
 GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd::
 	msgbox GoldenrodCity_PokemonCenter_Text_LockeAssistantGoodbye, MSGBOX_DEFAULT
 	release
@@ -309,6 +343,9 @@ GoldenrodCity_PokemonCenter_Text_OptionRewards:
 
 GoldenrodCity_PokemonCenter_Text_OptionMegaExchange:
 	.string "Canjear megapiedras$"
+
+GoldenrodCity_PokemonCenter_Text_OptionMissingTMs:
+	.string "Comprar MT pendientes$"
 
 GoldenrodCity_PokemonCenter_Text_OptionExit:
 	.string "Salir$"
@@ -398,6 +435,16 @@ GoldenrodCity_PokemonCenter_Text_MegaExchangeSentToPC:
 GoldenrodCity_PokemonCenter_Text_MegaExchangeFailed:
 	.string "No he podido cerrar el intercambio.\n"
 	.string "No se ha retirado ninguna piedra.$"
+
+GoldenrodCity_PokemonCenter_Text_MissingTMsIntro:
+	.string "Tras superar las dos LIGAS, puedo\n"
+	.string "conseguir las MT que te falten.\p"
+	.string "Solo te mostraré las que todavía\n"
+	.string "no tengas. ¡Completa la colección!$"
+
+GoldenrodCity_PokemonCenter_Text_MissingTMsComplete:
+	.string "¡Ya tienes las 100 MT disponibles!\n"
+	.string "No queda ninguna por conseguir.$"
 
 GoldenrodCity_PokemonCenter_EventScript_GymTokenRetry::
 	msgbox GoldenrodCity_PokemonCenter_Text_GymTokenGachaponIntro, MSGBOX_YESNO

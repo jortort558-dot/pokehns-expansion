@@ -491,6 +491,8 @@ gSpecials::
 	def_special CreateKurtBallShop
 	def_special CreateElPiedrasMegaShop
 	def_special CreateElPiedrasBlackMarketShop
+	def_special CountMissingTMShopItems
+	def_special CreateMissingTMShop
 	def_special DisplayBerryPowderVendorMenu
 	def_special RemoveBerryPowderVendorMenu
 	def_special HasEnoughBerryPowder

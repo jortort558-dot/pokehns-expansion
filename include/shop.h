@@ -18,5 +18,7 @@ void CreateBPPowerShop(void);
 void CreateKurtBallShop(void);
 void CreateElPiedrasMegaShop(void);
 void CreateElPiedrasBlackMarketShop(void);
+void CountMissingTMShopItems(void);
+void CreateMissingTMShop(void);
 
 #endif // GUARD_SHOP_H
