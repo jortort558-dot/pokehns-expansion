@@ -29,6 +29,44 @@ static u8 HandleReplaceSector(u16, const struct SaveSectorLocation *);
 static void CopyToSaveBlock3(u32, struct SaveSector *);
 static void CopyFromSaveBlock3(u32, struct SaveSector *);
 
+static void SanitizeSavedItemSlots(struct ItemSlot *slots, u32 count)
+{
+    u32 read;
+    u32 write = 0;
+
+    for (read = 0; read < count; read++)
+    {
+        if (slots[read].itemId > ITEM_NONE && slots[read].itemId < ITEMS_COUNT)
+        {
+            if (write != read)
+                slots[write] = slots[read];
+            write++;
+        }
+    }
+
+    while (write < count)
+    {
+        slots[write].itemId = ITEM_NONE;
+        slots[write].quantity = 0;
+        write++;
+    }
+}
+
+static void SanitizeSavedItems(void)
+{
+    SanitizeSavedItemSlots(gSaveBlock1Ptr->pcItems, ARRAY_COUNT(gSaveBlock1Ptr->pcItems));
+    SanitizeSavedItemSlots(gSaveBlock1Ptr->bag.items, ARRAY_COUNT(gSaveBlock1Ptr->bag.items));
+    SanitizeSavedItemSlots(gSaveBlock1Ptr->bag.keyItems, ARRAY_COUNT(gSaveBlock1Ptr->bag.keyItems));
+    SanitizeSavedItemSlots(gSaveBlock1Ptr->bag.pokeBalls, ARRAY_COUNT(gSaveBlock1Ptr->bag.pokeBalls));
+    SanitizeSavedItemSlots(gSaveBlock1Ptr->bag.TMsHMs, ARRAY_COUNT(gSaveBlock1Ptr->bag.TMsHMs));
+    SanitizeSavedItemSlots(gSaveBlock1Ptr->bag.berries, ARRAY_COUNT(gSaveBlock1Ptr->bag.berries));
+    SanitizeSavedItemSlots(gSaveBlock1Ptr->bag.medicine, ARRAY_COUNT(gSaveBlock1Ptr->bag.medicine));
+#if I_COMBINE_BAG_POCKETS == FALSE
+    SanitizeSavedItemSlots(gSaveBlock1Ptr->bag.treasures, ARRAY_COUNT(gSaveBlock1Ptr->bag.treasures));
+    SanitizeSavedItemSlots(gSaveBlock1Ptr->bag.battleItems, ARRAY_COUNT(gSaveBlock1Ptr->bag.battleItems));
+#endif
+}
+
 // Divide save blocks into individual chunks to be written to flash sectors
 
 /*
@@ -1093,6 +1131,13 @@ u8 LoadGameSave(u8 saveType)
         }
 #endif
         gSaveBlock1Ptr->saveVersion = 16;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 17)
+    {
+        // Remove invalid internal IDs (such as ITEM_FIELD_ARROW) that may have
+        // reached old bags, then compact each pocket so later entries remain visible.
+        SanitizeSavedItems();
+        gSaveBlock1Ptr->saveVersion = 17;
     }
 
     // Add version migration steps here:

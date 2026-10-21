@@ -239,6 +239,8 @@ static bool32 NONNULL BagPocket_CheckHasItem(struct BagPocket *pocket, enum Item
 
 bool32 CheckBagHasItem(enum Item itemId, u16 count)
 {
+    if (itemId <= ITEM_NONE || itemId >= ITEMS_COUNT)
+        return FALSE;
     if (GetItemPocket(itemId) >= POCKETS_COUNT)
         return FALSE;
     if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_STORING_ITEMS_IN_PYRAMID_BAG) == TRUE)
@@ -269,6 +271,8 @@ bool32 HasAtLeastOnePokeBall(void)
 
 bool32 CheckBagHasSpace(enum Item itemId, u16 count)
 {
+    if (itemId <= ITEM_NONE || itemId >= ITEMS_COUNT)
+        return FALSE;
     if (GetItemPocket(itemId) >= POCKETS_COUNT)
         return FALSE;
 
@@ -296,6 +300,8 @@ static u32 NONNULL BagPocket_GetFreeSpaceForItem(struct BagPocket *pocket, enum 
 
 u32 GetFreeSpaceForItemInBag(enum Item itemId)
 {
+    if (itemId <= ITEM_NONE || itemId >= ITEMS_COUNT)
+        return 0;
     if (GetItemPocket(itemId) >= POCKETS_COUNT)
         return 0;
 
@@ -369,6 +375,8 @@ static bool32 NONNULL BagPocket_AddItem(struct BagPocket *pocket, enum Item item
 
 bool32 AddBagItem(enum Item itemId, u16 count)
 {
+    if (itemId <= ITEM_NONE || itemId >= ITEMS_COUNT)
+        return FALSE;
     if (GetItemPocket(itemId) >= POCKETS_COUNT)
         return FALSE;
 
@@ -425,7 +433,9 @@ static bool32 NONNULL BagPocket_RemoveItem(struct BagPocket *pocket, enum Item i
 
 bool32 RemoveBagItem(enum Item itemId, u16 count)
 {
-    if (GetItemPocket(itemId) >= POCKETS_COUNT || itemId == ITEM_NONE)
+    if (itemId <= ITEM_NONE || itemId >= ITEMS_COUNT)
+        return FALSE;
+    if (GetItemPocket(itemId) >= POCKETS_COUNT)
         return FALSE;
 
     // check Battle Pyramid Bag
@@ -476,12 +486,18 @@ static bool32 NONNULL BagPocket_CheckPocketForItemCount(struct BagPocket *pocket
 bool32 CheckPCHasItem(enum Item itemId, u16 count)
 {
     struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
+
+    if (itemId <= ITEM_NONE || itemId >= ITEMS_COUNT)
+        return FALSE;
     return BagPocket_CheckPocketForItemCount(&dummyPocket, itemId, count);
 }
 
 bool32 AddPCItem(enum Item itemId, u16 count)
 {
     struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
+
+    if (itemId <= ITEM_NONE || itemId >= ITEMS_COUNT)
+        return FALSE;
     return BagPocket_AddItem(&dummyPocket, itemId, count);
 }
 

@@ -6543,17 +6543,9 @@ void CheckRouteTrainersDefeated(void)
 
 void CheckAndResetSaturdayWeeklyCaptures(void)
 {
-    if (GetDayOfWeek() == WEEKDAY_SAT)
-    {
-        FlagClear(FLAG_SAFARI_ZONE_COMPLETED);
-        FlagClear(FLAG_KANTO_SAFARI_ZONE_COMPLETED);
-        FlagClear(FLAG_BUG_CONTEST_COMPLETED);
-        gSpecialVar_Result = TRUE;
-    }
-    else
-    {
-        gSpecialVar_Result = FALSE;
-    }
+    // The RTC day transition in clock.c performs the weekly reset once.
+    // Clearing these flags at every gate interaction allowed unlimited
+    // entries throughout Saturday after completing an event.
+    gSpecialVar_Result = (GetDayOfWeek() == WEEKDAY_SAT);
 }
-
 
