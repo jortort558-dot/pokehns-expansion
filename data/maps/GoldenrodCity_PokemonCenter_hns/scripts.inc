@@ -161,9 +161,15 @@ GoldenrodCity_PokemonCenter_Text_LinkExplainer:
 GoldenrodCity_PokemonCenter_EventScript_GymTokenClerk::
 	lock
 	faceplayer
+	goto_if_unset FLAG_BADGE16_GET, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantRegularIntro
+	goto_if_set FLAG_LOCKE_ASSISTANT_MISSING_TM_NOTICE, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantRegularIntro
+	setflag FLAG_LOCKE_ASSISTANT_MISSING_TM_NOTICE
+	msgbox GoldenrodCity_PokemonCenter_Text_MissingTMsUnlocked, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+GoldenrodCity_PokemonCenter_EventScript_LockeAssistantRegularIntro::
 	msgbox GoldenrodCity_PokemonCenter_Text_LockeAssistantIntro, MSGBOX_DEFAULT
 GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu::
-	goto_if_set FLAG_IS_KANTO_CHAMPION, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenuKantoChampion
+	goto_if_set FLAG_BADGE16_GET, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenuAllBadges
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner, 0
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 1
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 2
@@ -182,7 +188,7 @@ GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu::
 	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 
-GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenuKantoChampion::
+GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenuAllBadges::
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner, 0
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 1
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 2
@@ -437,10 +443,18 @@ GoldenrodCity_PokemonCenter_Text_MegaExchangeFailed:
 	.string "No se ha retirado ninguna piedra.$"
 
 GoldenrodCity_PokemonCenter_Text_MissingTMsIntro:
-	.string "Tras superar las dos LIGAS, puedo\n"
+	.string "Con las 16 MEDALLAS, puedo\n"
 	.string "conseguir las MT que te falten.\p"
 	.string "Solo te mostraré las que todavía\n"
 	.string "no tengas. ¡Completa la colección!$"
+
+GoldenrodCity_PokemonCenter_Text_MissingTMsUnlocked:
+	.string "¡Enhorabuena por conseguir las\n"
+	.string "16 MEDALLAS! Tengo nueva info.\p"
+	.string "Ahora puedo localizar las MT\n"
+	.string "que todavía te falten.\p"
+	.string "Verás COMPRAR MT PENDIENTES\n"
+	.string "en mi menú.$"
 
 GoldenrodCity_PokemonCenter_Text_MissingTMsComplete:
 	.string "¡Ya tienes las 100 MT disponibles!\n"
