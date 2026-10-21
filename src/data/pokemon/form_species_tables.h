@@ -1774,8 +1774,10 @@ static const u16 sLandorusFormSpeciesIdTable[] = {
 #if P_FAMILY_KYUREM
 static const u16 sKyuremFormSpeciesIdTable[] = {
     SPECIES_KYUREM,
+#if P_FUSION_FORMS
     SPECIES_KYUREM_WHITE,
     SPECIES_KYUREM_BLACK,
+#endif
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_KYUREM
