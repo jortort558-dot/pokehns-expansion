@@ -268,7 +268,7 @@ bool32 GiftMonCanTrade(struct BoxPokemon *boxMon)
     u16 species;
     u32 otId;
     u8 metLocation;
-    u8 level;
+    u8 metLevel;
 
     if (boxMon == NULL)
         return FALSE;
@@ -277,9 +277,15 @@ bool32 GiftMonCanTrade(struct BoxPokemon *boxMon)
     if (species == SPECIES_NONE || GetBoxMonData(boxMon, MON_DATA_IS_EGG))
         return FALSE;
 
+    // Scripted gifts and in-game trades carry a persistent marker that does
+    // not depend on their species, evolution, randomization or storage.
+    if (GetBoxMonData(boxMon, MON_DATA_GIFT_ORIGIN))
+        return TRUE;
+
+    // Compatibility for gifts obtained before the marker was introduced.
     otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
     metLocation = GetBoxMonData(boxMon, MON_DATA_MET_LOCATION);
-    level = GetBoxMonData(boxMon, MON_DATA_LEVEL);
+    metLevel = GetBoxMonData(boxMon, MON_DATA_MET_LEVEL);
 
     // 1. Kenya
     if (otId == 61225)
@@ -294,34 +300,21 @@ bool32 GiftMonCanTrade(struct BoxPokemon *boxMon)
         return TRUE;
 
     // 4. Tentacool de Ciudad Orquídea
-    if ((species == SPECIES_TENTACOOL || species == SPECIES_TENTACRUEL)
-     && metLocation == MAPSEC_CIANWOOD_CITY
-     && level >= 25)
+    if (metLocation == MAPSEC_CIANWOOD_CITY && metLevel == 25)
         return TRUE;
 
     // 5. Tyrogue del Maestro Kiyo
     if (FlagGet(FLAG_GOT_TYROGUE))
     {
-        if (species == SPECIES_TYROGUE
-         || species == SPECIES_HITMONLEE
-         || species == SPECIES_HITMONCHAN
-         || species == SPECIES_HITMONTOP)
-        {
-            if (metLocation == MAPSEC_MT_MORTAR)
-                return TRUE;
-        }
+        if (metLocation == MAPSEC_MT_MORTAR && metLevel == 25)
+            return TRUE;
     }
 
     // 6. Dratini de la Guarida Dragón
     if (FlagGet(FLAG_GOT_DRATINI))
     {
-        if (species == SPECIES_DRATINI
-         || species == SPECIES_DRAGONAIR
-         || species == SPECIES_DRAGONITE)
-        {
-            if (metLocation == MAPSEC_DRAGONS_DEN)
-                return TRUE;
-        }
+        if (metLocation == MAPSEC_DRAGONS_DEN && metLevel == 15)
+            return TRUE;
     }
 
     // 7. Huevo de Togepi

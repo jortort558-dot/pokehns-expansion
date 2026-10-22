@@ -4724,6 +4724,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_MODERN_FATEFUL_ENCOUNTER:
             retVal = GetSubstruct3(boxMon)->modernFatefulEncounter;
             break;
+        case MON_DATA_GIFT_ORIGIN:
+            retVal = GetSubstruct3(boxMon)->giftOrigin;
+            break;
         case MON_DATA_SPECIES_OR_EGG:
             retVal = GetSubstruct0(boxMon)->species;
             if (retVal && IsEggOrBadEgg(boxMon))
@@ -5239,6 +5242,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             break;
         case MON_DATA_MODERN_FATEFUL_ENCOUNTER:
             SET8(GetSubstruct3(boxMon)->modernFatefulEncounter);
+            break;
+        case MON_DATA_GIFT_ORIGIN:
+            SET8(GetSubstruct3(boxMon)->giftOrigin);
             break;
         case MON_DATA_IVS:
         {
@@ -9747,8 +9753,11 @@ struct BoxPokemon *GetSelectedBoxMonFromPcOrParty(void)
 
 u32 GiveScriptedMonToPlayer(struct Pokemon *mon, u8 slot)
 {
+    bool8 giftOrigin = TRUE;
     u32 sentToPc;
     u32 i = 0;
+
+    SetMonData(mon, MON_DATA_GIFT_ORIGIN, &giftOrigin);
     if (slot < PARTY_SIZE)
     {
         CopyMon(&gPlayerParty[slot], mon, sizeof(struct Pokemon));

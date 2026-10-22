@@ -4602,6 +4602,7 @@ static void CreateInGameTradePokemonInternal(u8 whichPlayerMon, u8 whichInGameTr
 
     struct Mail mail;
     metloc_u8_t metLocation = METLOC_IN_GAME_TRADE;
+    bool8 giftOrigin = TRUE;
     u8 mailNum;
     struct Pokemon *pokemon = &gEnemyParty[0];
 
@@ -4632,6 +4633,7 @@ static void CreateInGameTradePokemonInternal(u8 whichPlayerMon, u8 whichInGameTr
     SetMonData(pokemon, MON_DATA_TOUGH, &inGameTrade->conditions[4]);
     SetMonData(pokemon, MON_DATA_SHEEN, &inGameTrade->sheen);
     SetMonData(pokemon, MON_DATA_MET_LOCATION, &metLocation);
+    SetMonData(pokemon, MON_DATA_GIFT_ORIGIN, &giftOrigin);
 
     mailNum = 0;
     if (inGameTrade->heldItem != ITEM_NONE)

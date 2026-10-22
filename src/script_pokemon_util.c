@@ -91,6 +91,7 @@ u8 ScriptGiveEgg(u16 species)
 {
     struct Pokemon mon;
     u8 isEgg;
+    bool8 giftOrigin = TRUE;
 
     if (IsNuzlockeActive() || IsNuzlockeEasyActive() || RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
         species = GetRandomSpeciesSimilarBst(species);
@@ -98,6 +99,7 @@ u8 ScriptGiveEgg(u16 species)
     CreateEgg(&mon, species, TRUE);
     isEgg = TRUE;
     SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
+    SetMonData(&mon, MON_DATA_GIFT_ORIGIN, &giftOrigin);
 
     // tx_randomizer_and_challenges: with a party limit of 1 the only party slot is
     // always taken, and handing the Egg over would leave the player with a party of
@@ -2028,11 +2030,13 @@ void Script_GiveRandomLegendaryEgg(void)
 {
     struct Pokemon mon;
     u8 isEgg;
+    bool8 giftOrigin = TRUE;
     u16 species = GetRandomTrueLegendarySpecies();
 
     CreateEgg(&mon, species, TRUE);
     isEgg = TRUE;
     SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
+    SetMonData(&mon, MON_DATA_GIFT_ORIGIN, &giftOrigin);
 
     if (GetMaxPartySize() == 1)
     {
@@ -2045,4 +2049,3 @@ void Script_GiveRandomLegendaryEgg(void)
 
     gSpecialVar_Result = GiveCapturedMonToPlayer(&mon);
 }
-

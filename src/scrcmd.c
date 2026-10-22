@@ -1372,6 +1372,7 @@ bool8 ScrCmd_givenamedmon(struct ScriptContext *ctx)
     const u8 *otName;
     u8 heldItem[2];
     u8 mailIndex = 0;
+    bool8 giftOrigin = TRUE;
 
     static const u8 sKenyaNickname[] = _("KENYA");
     static const u8 sKenyaOtName[]   = _("RUDY");
@@ -1461,6 +1462,7 @@ bool8 ScrCmd_givenamedmon(struct ScriptContext *ctx)
         SetMonData(mon, MON_DATA_NICKNAME, nickname);
     SetMonData(mon, MON_DATA_OT_NAME, otName);
     SetMonData(mon, MON_DATA_HELD_ITEM, heldItem);
+    SetMonData(mon, MON_DATA_GIFT_ORIGIN, &giftOrigin);
 
     if (giftId == 1)
     {
