@@ -25,6 +25,26 @@ EventScript_MomGiftCall_Decoration::
 	releaseall
 	end
 
+Common_EventScript_PokegearMomAmuletCoinNotice::
+	lockall
+	setflag FLAG_MOM_AMULET_COIN_CALLED
+	playse SE_POKENAV_CALL
+	waitse
+	pokenavcall Mom_Text_AmuletCoinCall
+	waitmessage
+	delay 30
+	releaseall
+	end
+
+Mom_Text_AmuletCoinCall:
+	.string "MAMÁ: ¡Enhorabuena, cariño!\p"
+	.string "¡Ya eres CAMPEÓN de KANTO!\n"
+	.string "Estoy muy orgullosa de ti.\p"
+	.string "Tengo un regalo especial\n"
+	.string "esperándote en casa.\p"
+	.string "Ven a verme cuando puedas.\n"
+	.string "¡Cuídate mucho!$"
+
 Mom_Text_GiftCall_Item:
 	.string "MAMÁ: ¡Hola, cariño!\p"
 	.string "He comprado algo bonito\n"

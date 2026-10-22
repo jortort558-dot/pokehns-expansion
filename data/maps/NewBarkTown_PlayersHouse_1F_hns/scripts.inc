@@ -20,6 +20,17 @@ NewBarkTown_PlayersHouse_1F_SetMomStandingAtTable::
 NewBarkTown_PlayersHouse_1F_EventScript_Mom::
 	lock
 	faceplayer
+	goto_if_unset FLAG_MOM_AMULET_COIN_CALLED, NewBarkTown_PlayersHouse_1F_EventScript_Mom_CheckPokeVial
+	goto_if_set FLAG_MOM_AMULET_COIN_RECEIVED, NewBarkTown_PlayersHouse_1F_EventScript_Mom_CheckPokeVial
+	msgbox NewBarkTown_PlayersHouse_1F_Text_MomAmuletCoinGift, MSGBOX_DEFAULT
+	giveitem ITEM_AMULET_COIN
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_MOM_AMULET_COIN_RECEIVED
+	msgbox NewBarkTown_PlayersHouse_1F_Text_MomAmuletCoinAfter, MSGBOX_DEFAULT
+	release
+	end
+
+NewBarkTown_PlayersHouse_1F_EventScript_Mom_CheckPokeVial::
 	special CheckPokeVialEnabled
 	goto_if_eq VAR_RESULT, FALSE, NewBarkTown_PlayersHouse_1F_EventScript_Mom_Regular
 	checkitem ITEM_POKE_VIAL
@@ -168,6 +179,17 @@ NewBarkTown_PlayersHouse_1F_EventScript_ExitSavings::
 NewBarkTown_PlayersHouse_1F_Text_MomAnythingElse:
 	.string "¿Puedo ayudarte en algo más,\n"
 	.string "cariño?$"
+
+NewBarkTown_PlayersHouse_1F_Text_MomAmuletCoinGift:
+	.string "¡Mi CAMPEÓN de KANTO!\p"
+	.string "En una aventura tan imprevisible,\n"
+	.string "esto siempre viene bien.\p"
+	.string "Toma, es para ti.$"
+
+NewBarkTown_PlayersHouse_1F_Text_MomAmuletCoinAfter:
+	.string "Si uno de tus POKéMON lo lleva,\n"
+	.string "ganarás más dinero al combatir.\p"
+	.string "¡Te lo has ganado, cariño!$"
 
 NewBarkTown_PlayersHouse_1F_Text_CurrentSavings:
 	.string "Ahora mismo te guardo\n"

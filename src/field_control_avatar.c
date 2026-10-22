@@ -30,6 +30,7 @@
 #include "mom_savings.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "randomizer.h"
 #include "safari_zone.h"
 #include "script.h"
 #include "secret_base.h"
@@ -740,6 +741,14 @@ static bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileB
             && (mapType == MAP_TYPE_ROUTE || mapType == MAP_TYPE_OCEAN_ROUTE
              || mapType == MAP_TYPE_CITY || mapType == MAP_TYPE_TOWN);
 
+        if (canReceiveStoryCall
+         && FlagGet(FLAG_IS_KANTO_CHAMPION)
+         && RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS)
+         && !FlagGet(FLAG_MOM_AMULET_COIN_CALLED))
+        {
+            ScriptContext_SetupScript(Common_EventScript_PokegearMomAmuletCoinNotice);
+            return TRUE;
+        }
         if (canReceiveStoryCall
          && FlagGet(FLAG_FUCHSIA_BLACK_SLUDGE_RECEIVED)
          && !FlagGet(FLAG_PEWTER_MUSEUM_ROBBERY_COMPLETE)
