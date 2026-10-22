@@ -742,7 +742,7 @@ static bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileB
              || mapType == MAP_TYPE_CITY || mapType == MAP_TYPE_TOWN);
 
         if (canReceiveStoryCall
-         && FlagGet(FLAG_IS_KANTO_CHAMPION)
+         && FlagGet(FLAG_IS_CHAMPION)
          && RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS)
          && !FlagGet(FLAG_MOM_AMULET_COIN_CALLED))
         {
