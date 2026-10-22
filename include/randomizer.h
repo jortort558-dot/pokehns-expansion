@@ -122,6 +122,7 @@ enum WildPowerCategory GetWildPowerCategory(u16 species);
 
 
 bool8 IsRandomMovesActivated(void);
+bool8 IsFieldItemRandomizerEnabled(void);
 u32 GetRandomizerSeed(void);
 bool32 RandomizerFeatureEnabled(enum RandomizerFeature feature);
 u16 GetRandomizerOption(enum RandomizerOption option);

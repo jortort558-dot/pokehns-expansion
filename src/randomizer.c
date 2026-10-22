@@ -250,6 +250,11 @@ bool8 IsRandomMovesActivated(void)
     return gSaveBlock3Ptr->challengeSettings.tx_Random_Moves;
 }
 
+bool8 IsFieldItemRandomizerEnabled(void)
+{
+    return RandomizerFeatureEnabled(RANDOMIZE_FIELD_ITEMS);
+}
+
 u32 GetRandomizerSeed(void)
 {
     #if RANDOMIZER_SEED_IS_TRAINER_ID
