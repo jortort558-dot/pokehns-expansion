@@ -1245,24 +1245,30 @@ void DaraOtaku_CheckAndPrepareAbilities(void)
     StringCopy(gStringVar2, gAbilitiesInfo[currentAbility].name);
 
     enum Ability ab0 = GetAbilityBySpecies(species, 0);
-    enum Ability ab1 = GetAbilityBySpecies(species, 1);
     enum Ability abHidden = GetAbilityBySpecies(species, 2);
 
-    bool32 hasSecondary = (ab1 != ABILITY_NONE && ab1 != ab0);
-    bool32 hasHidden = (abHidden != ABILITY_NONE && abHidden != ab0 && abHidden != ab1);
+    // Use base (non-randomized) species data to determine if each slot actually
+    // exists.  With randomizer on, GetAbilityBySpecies may return the same value
+    // for different slots (seed collision), so comparing ability values would
+    // incorrectly mark a slot as non-existent.
+    enum Ability baseAb0 = GetSpeciesAbility(species, 0);
+    enum Ability baseAb1 = GetSpeciesAbility(species, 1);
+    enum Ability baseAbH = GetSpeciesAbility(species, 2);
+    bool32 hasSecondary = (baseAb1 != ABILITY_NONE && baseAb1 != baseAb0);
+    bool32 hasHidden = (baseAbH != ABILITY_NONE);
 
     // Mode determination:
     // If current is normal (0 or 1):
     u8 targetNormalSlot = (currentAbilityNum == 0) ? 1 : 0;
     enum Ability targetNormalAbility = GetAbilityBySpecies(species, targetNormalSlot);
     bool32 canSwitchNormal = (hasSecondary && targetNormalAbility != ABILITY_NONE && targetNormalAbility != currentAbility);
-    bool32 canSwitchHidden = (hasHidden && currentAbilityNum != 2);
+    bool32 canSwitchHidden = (hasHidden && currentAbilityNum != 2 && abHidden != currentAbility);
 
     // If currently at hidden ability (slot 2):
     // Can revert to normal slot 0
     if (currentAbilityNum == 2)
     {
-        canSwitchNormal = (ab0 != ABILITY_NONE);
+        canSwitchNormal = (ab0 != ABILITY_NONE && ab0 != currentAbility);
         targetNormalSlot = 0;
         targetNormalAbility = ab0;
         canSwitchHidden = FALSE;
