@@ -4727,6 +4727,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_GIFT_ORIGIN:
             retVal = GetSubstruct3(boxMon)->giftOrigin;
             break;
+        case MON_DATA_CUSTOM_ABILITY:
+            retVal = (GetSubstruct0(boxMon)->customAbilityLow) | (GetSubstruct0(boxMon)->customAbilityHigh << 6);
+            break;
         case MON_DATA_SPECIES_OR_EGG:
             retVal = GetSubstruct0(boxMon)->species;
             if (retVal && IsEggOrBadEgg(boxMon))
@@ -5246,6 +5249,14 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         case MON_DATA_GIFT_ORIGIN:
             SET8(GetSubstruct3(boxMon)->giftOrigin);
             break;
+        case MON_DATA_CUSTOM_ABILITY:
+        {
+            u16 customAbility;
+            SET16(customAbility);
+            GetSubstruct0(boxMon)->customAbilityLow = customAbility & 0x3F;
+            GetSubstruct0(boxMon)->customAbilityHigh = (customAbility >> 6) & 0x07;
+            break;
+        }
         case MON_DATA_IVS:
         {
             u32 ivs;
@@ -5595,11 +5606,20 @@ enum Ability GetAbilityBySpecies(u16 species, u8 abilityNum)
     return gLastUsedAbility;
 }
 
+enum Ability GetBoxMonAbility(struct BoxPokemon *boxMon)
+{
+    u16 customAbility = GetBoxMonData(boxMon, MON_DATA_CUSTOM_ABILITY);
+    if (customAbility != ABILITY_NONE && customAbility < ABILITIES_COUNT)
+        return customAbility;
+
+    u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
+    u8 abilityNum = GetBoxMonData(boxMon, MON_DATA_ABILITY_NUM);
+    return GetAbilityBySpecies(species, abilityNum);
+}
+
 enum Ability GetMonAbility(struct Pokemon *mon)
 {
-    u16 species = GetMonData(mon, MON_DATA_SPECIES);
-    u8 abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
-    return GetAbilityBySpecies(species, abilityNum);
+    return GetBoxMonAbility(&mon->box);
 }
 
 void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord)
@@ -5986,7 +6006,7 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst)
     dst->types[1] = GetSpeciesType(dst->species, 1);
     dst->types[2] = TYPE_MYSTERY;
     dst->isShiny = IsMonShiny(src);
-    dst->ability = GetAbilityBySpecies(dst->species, dst->abilityNum);
+    dst->ability = GetMonAbility(src);
     GetMonData(src, MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(dst->nickname, nickname);
     GetMonData(src, MON_DATA_OT_NAME, dst->otName);

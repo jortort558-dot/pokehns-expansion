@@ -1236,6 +1236,7 @@ void DaraOtaku_CheckAndPrepareAbilities(void)
 
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     u8 currentAbilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
+    u16 customAbility = GetMonData(mon, MON_DATA_CUSTOM_ABILITY);
 
     // Buffering species nickname
     GetMonNickname(mon, gStringVar1);
@@ -1258,20 +1259,32 @@ void DaraOtaku_CheckAndPrepareAbilities(void)
     bool32 hasHidden = (baseAbH != ABILITY_NONE);
 
     // Mode determination:
-    // If current is normal (0 or 1):
     u8 targetNormalSlot = (currentAbilityNum == 0) ? 1 : 0;
     enum Ability targetNormalAbility = GetAbilityBySpecies(species, targetNormalSlot);
-    bool32 canSwitchNormal = (hasSecondary && targetNormalAbility != ABILITY_NONE && targetNormalAbility != currentAbility);
-    bool32 canSwitchHidden = (hasHidden && currentAbilityNum != 2 && abHidden != currentAbility);
+    bool32 canSwitchNormal = FALSE;
+    bool32 canSwitchHidden = FALSE;
 
-    // If currently at hidden ability (slot 2):
-    // Can revert to normal slot 0
-    if (currentAbilityNum == 2)
+    if (customAbility != ABILITY_NONE)
     {
+        // Si tiene habilidad personalizada (p.ej. de linaje), permitir cambiar a slot 0 o slot 2
+        canSwitchNormal = (ab0 != ABILITY_NONE && ab0 != currentAbility);
+        targetNormalSlot = 0;
+        targetNormalAbility = ab0;
+        canSwitchHidden = (hasHidden && abHidden != ABILITY_NONE && abHidden != currentAbility);
+    }
+    else if (currentAbilityNum == 2)
+    {
+        // If currently at hidden ability (slot 2):
+        // Can revert to normal slot 0
         canSwitchNormal = (ab0 != ABILITY_NONE && ab0 != currentAbility);
         targetNormalSlot = 0;
         targetNormalAbility = ab0;
         canSwitchHidden = FALSE;
+    }
+    else
+    {
+        canSwitchNormal = (hasSecondary && targetNormalAbility != ABILITY_NONE && targetNormalAbility != currentAbility);
+        canSwitchHidden = (hasHidden && currentAbilityNum != 2 && abHidden != currentAbility);
     }
 
     // Buffering target ability names for single-choice confirmation
@@ -1365,6 +1378,8 @@ void DaraOtaku_ApplyAbilityChange(void)
     }
 
     SetMonData(mon, MON_DATA_ABILITY_NUM, &targetSlot);
+    u16 zero = ABILITY_NONE;
+    SetMonData(mon, MON_DATA_CUSTOM_ABILITY, &zero);
     GetMonNickname(mon, gStringVar1);
     enum Ability newAbility = GetMonAbility(mon);
     StringCopy(gStringVar2, gAbilitiesInfo[newAbility].name);
@@ -1469,7 +1484,6 @@ void DaraOtaku_ApplyEvolutionAbilityChange(void)
     }
 
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
-    u8 targetSlot = 0;
     u8 s;
     bool32 foundSlot = FALSE;
 
@@ -1477,25 +1491,26 @@ void DaraOtaku_ApplyEvolutionAbilityChange(void)
     {
         if (GetAbilityBySpecies(species, s) == chosenAbility)
         {
-            targetSlot = s;
+            u8 targetSlot = s;
+            SetMonData(mon, MON_DATA_ABILITY_NUM, &targetSlot);
+            u16 zero = ABILITY_NONE;
+            SetMonData(mon, MON_DATA_CUSTOM_ABILITY, &zero);
             foundSlot = TRUE;
             break;
         }
     }
 
-    if (foundSlot)
-    {
-        SetMonData(mon, MON_DATA_ABILITY_NUM, &targetSlot);
-        GetMonNickname(mon, gStringVar1);
-        StringCopy(gStringVar2, gAbilitiesInfo[chosenAbility].name);
-        gSpecialVar_Result = TRUE;
-    }
-    else
+    if (!foundSlot)
     {
         // La habilidad de preevolución no existe en ningún slot de la especie actual.
-        // No se puede aplicar el cambio; devolver FALSE para que el script no cobre el dinero.
-        gSpecialVar_Result = FALSE;
+        // Se almacena como customAbility para sobreescribir la habilidad actual del Pokémon.
+        u16 custom = chosenAbility;
+        SetMonData(mon, MON_DATA_CUSTOM_ABILITY, &custom);
     }
+
+    GetMonNickname(mon, gStringVar1);
+    StringCopy(gStringVar2, gAbilitiesInfo[chosenAbility].name);
+    gSpecialVar_Result = TRUE;
 }
 
 #include "data/regional_form_families.h"

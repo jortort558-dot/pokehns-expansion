@@ -147,6 +147,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 ribbonCount; // 0x6
         u8 ailment; // 0x7
         u8 abilityNum; // 0x8
+        u16 customAbility;
         metloc_u8_t metLocation; // 0x9
         u8 metLevel; // 0xA
         u8 metGame; // 0xB
@@ -1704,6 +1705,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->exp = GetMonData(mon, MON_DATA_EXP);
         sum->level = GetMonData(mon, MON_DATA_LEVEL);
         sum->abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
+        sum->customAbility = GetMonData(mon, MON_DATA_CUSTOM_ABILITY);
         sum->item = GetMonData(mon, MON_DATA_HELD_ITEM);
         sum->pid = GetMonData(mon, MON_DATA_PERSONALITY);
         sum->sanity = GetMonData(mon, MON_DATA_SANITY_IS_BAD_EGG);
@@ -3863,7 +3865,11 @@ static void PrintMonOTID(void)
 
 static void PrintMonAbilityName(void)
 {
-    enum Ability ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    enum Ability ability;
+    if (sMonSummaryScreen->summary.customAbility != ABILITY_NONE && sMonSummaryScreen->summary.customAbility < ABILITIES_COUNT)
+        ability = sMonSummaryScreen->summary.customAbility;
+    else
+        ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilitiesInfo[ability].name, 0, 1, 0, 1);
 }
 
@@ -3874,7 +3880,11 @@ static void PrintMonAbilityDescription(void)
 #if P_INFO_HINT_STYLE == P_INFO_HINT_LAST_LINE
     PrintTextOnWindowToFit(windowId, sText_MoreInfoHint, 0, 17, 0, 0);
 #else
-    enum Ability ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    enum Ability ability;
+    if (sMonSummaryScreen->summary.customAbility != ABILITY_NONE && sMonSummaryScreen->summary.customAbility < ABILITIES_COUNT)
+        ability = sMonSummaryScreen->summary.customAbility;
+    else
+        ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
     PrintTextOnWindowToFit(windowId, gAbilitiesInfo[ability].description, 0, 17, 0, 0);
 #endif
 }
@@ -5385,7 +5395,10 @@ static void OpenAbilityPopup(u8 taskId)
 
     FillWindowPixelRect(windowId, PIXEL_FILL(4), 6, 24, PSS_POPUP_PIXEL_WIDTH - 12, 1);
 
-    ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    if (sMonSummaryScreen->summary.customAbility != ABILITY_NONE && sMonSummaryScreen->summary.customAbility < ABILITIES_COUNT)
+        ability = sMonSummaryScreen->summary.customAbility;
+    else
+        ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
     BuildAdvancedAbilityDescription(ability, gStringVar4);
 
     AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROWER, 6, 3, 0, 0, sSummaryModalColor_Title, 0, gAbilitiesInfo[ability].name);
