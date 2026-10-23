@@ -177,14 +177,22 @@ CeladonDeptRoof_EventScript_DaraServiceEvolutionary::
 	special DaraOtaku_PrepareChosenEvoAbilityName
 	msgbox CeladonDeptRoof_Text_DaraConfirmEvoAbility, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CeladonDeptRoof_EventScript_DaraDeclined
+	@ Intentar el cambio ANTES de cobrar para evitar cobrar dinero si falla
+	playse SE_USE_ITEM
+	special DaraOtaku_ApplyEvolutionAbilityChange
+	waitse
+	goto_if_eq VAR_RESULT, FALSE, CeladonDeptRoof_EventScript_DaraEvoChangeFailed
 	removemoney 100000
 	updatemoneybox
 	playse SE_SHOP
 	waitse
-	playse SE_USE_ITEM
-	special DaraOtaku_ApplyEvolutionAbilityChange
-	waitse
 	msgbox CeladonDeptRoof_Text_DaraSuccessEvo, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
+CeladonDeptRoof_EventScript_DaraEvoChangeFailed::
+	msgbox CeladonDeptRoof_Text_DaraNoOtherAbility, MSGBOX_DEFAULT
 	hidemoneybox
 	release
 	end

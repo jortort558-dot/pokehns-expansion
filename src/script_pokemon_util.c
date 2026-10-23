@@ -1480,17 +1480,16 @@ void DaraOtaku_ApplyEvolutionAbilityChange(void)
     if (foundSlot)
     {
         SetMonData(mon, MON_DATA_ABILITY_NUM, &targetSlot);
+        GetMonNickname(mon, gStringVar1);
+        StringCopy(gStringVar2, gAbilitiesInfo[chosenAbility].name);
+        gSpecialVar_Result = TRUE;
     }
     else
     {
-        // En caso de especies donde la preevolución tiene una habilidad distinta y no está en los slots actuales,
-        // asignamos el slot disponible más coherente
-        SetMonData(mon, MON_DATA_ABILITY_NUM, &targetSlot);
+        // La habilidad de preevolución no existe en ningún slot de la especie actual.
+        // No se puede aplicar el cambio; devolver FALSE para que el script no cobre el dinero.
+        gSpecialVar_Result = FALSE;
     }
-
-    GetMonNickname(mon, gStringVar1);
-    StringCopy(gStringVar2, gAbilitiesInfo[chosenAbility].name);
-    gSpecialVar_Result = TRUE;
 }
 
 #include "data/regional_form_families.h"

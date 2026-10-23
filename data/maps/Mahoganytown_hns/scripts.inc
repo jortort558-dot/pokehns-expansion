@@ -404,3 +404,14 @@ MahoganyTown_Text_GymSign:
 	.string "GIMNASIO POKéMON DE PUEBLO CAOBA\pLÍDER: FREDO\pEl maestro del crudo invierno$"
 ElmPhoneRadioTowerRocketTakeoverText:
 	.string "PROF. ELM: {PLAYER}, ¿cómo va todo?\pTe llamo porque ocurre algo extraño\ncon las emisiones de radio.\pEstaban hablando del TEAM ROCKET.\p{PLAYER}, ¿sabes algo sobre ello?\pQuizá haya vuelto el TEAM ROCKET.\nNo, no puede ser verdad.\pSiento molestarte.\n¡Cuídate!$"
+
+MahoganyTown_EventScript_House2Blocker::
+	lock
+	faceplayer
+	msgbox MahoganyTown_Text_House2Blocker, MSGBOX_DEFAULT
+	release
+	end
+
+MahoganyTown_Text_House2Blocker:
+	.string "Aún no estás listo.\n"
+	.string "El acceso está restringido.$"

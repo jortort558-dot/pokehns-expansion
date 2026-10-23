@@ -137,7 +137,7 @@ void CB2_EndSafariBattle(void)
     sSafariZonePkblkUses += gBattleResults.pokeblockThrows;
     if (gBattleOutcome == B_OUTCOME_CAUGHT)
         sSafariZoneCaughtMons++;
-    if (IS_HNS && !FlagGet(FLAG_IN_KANTO_SAFARI_ZONE) && gBattleOutcome == B_OUTCOME_CAUGHT)
+    if (IS_HNS && gBattleOutcome == B_OUTCOME_CAUGHT)
     {
         ScriptContext_SetupScript(SafariZone_EventScript_CaughtMon);
         ScriptContext_Stop();

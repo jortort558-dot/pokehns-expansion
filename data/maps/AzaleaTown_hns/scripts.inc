@@ -472,3 +472,14 @@ AzaleaTown_Text_RatKid:
 	.string "Seguro que él descubre por qué\n"
 	.string "hay RATTATA sospechosos colándose\l"
 	.string "en los equipos de tanta gente.$"
+
+AzaleaTown_EventScript_House2Blocker::
+	lock
+	faceplayer
+	msgbox AzaleaTown_Text_House2Blocker, MSGBOX_DEFAULT
+	release
+	end
+
+AzaleaTown_Text_House2Blocker:
+	.string "Aún no estás listo.\n"
+	.string "El acceso está restringido.$"

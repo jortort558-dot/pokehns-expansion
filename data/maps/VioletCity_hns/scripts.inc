@@ -281,6 +281,17 @@ VioletCity_EventScript_SecretCaveEntrance::
 	releaseall
 	end
 
+VioletCity_EventScript_CaveBlocker::
+	lock
+	faceplayer
+	msgbox VioletCity_Text_CaveBlocker, MSGBOX_DEFAULT
+	release
+	end
+
+VioletCity_Text_CaveBlocker:
+	.string "Aún no estás listo.\n"
+	.string "El acceso está restringido.$"
+
 VioletCity_EventScript_SecretCaveOpen::
 	msgbox VioletCity_Text_SecretCaveOpen, MSGBOX_DEFAULT
 	closemessage
