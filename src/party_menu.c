@@ -118,6 +118,7 @@ enum {
     MENU_CHANGE_FORM,
     MENU_CHANGE_ABILITY,
     MENU_PKMN_FOLLOWER,
+    MENU_EVOLVE,
     MENU_FIELD_MOVES
 };
 
@@ -475,6 +476,7 @@ static void ShiftMoveSlot(struct BoxPokemon *, u8, u8);
 static void BlitBitmapToPartyWindow_LeftColumn(u8, u8, u8, u8, u8, bool8);
 static void BlitBitmapToPartyWindow_RightColumn(u8, u8, u8, u8, u8, bool8);
 static void CursorCb_Summary(u8);
+static void CursorCb_Evolve(u8);
 static void CursorCb_Switch(u8);
 static void CursorCb_Cancel1(u8);
 static void CursorCb_Item(u8);
@@ -2931,6 +2933,8 @@ static void SetPartyMonSelectionActions(struct Pokemon *mons, u8 slotId, u8 acti
 static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 {
     u8 i, j;
+    bool32 canStopEvo = TRUE;
+    bool32 canEvolve;
     bool32 hasFlyAlready = FALSE;
     bool32 hasFlashAlready = FALSE;
     u8 numFieldMoves = 0;
@@ -2941,6 +2945,16 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
+
+    canEvolve = !GetMonData(&mons[slotId], MON_DATA_IS_EGG)
+             && GetEvolutionTargetSpecies(&mons[slotId], EVO_MODE_NORMAL, ITEM_NONE, NULL, &canStopEvo, CHECK_EVO) != SPECIES_NONE;
+    if (canEvolve)
+    {
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_EVOLVE);
+        // Keep the contextual menu within its eight-entry storage limit.
+        if (maxFieldMoves > 0)
+            maxFieldMoves--;
+    }
 
     if (P_PARTY_MOVE_RELEARNER
      && GetMonData(&mons[slotId], MON_DATA_SPECIES)
@@ -3186,6 +3200,27 @@ static void CursorCb_Summary(u8 taskId)
     PlaySE(SE_SELECT);
     sPartyMenuInternal->exitCallback = CB2_ShowPokemonSummaryScreen;
     Task_ClosePartyMenu(taskId);
+}
+
+static void CursorCb_Evolve(u8 taskId)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    bool32 canStopEvo = TRUE;
+    u32 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL, &canStopEvo, CHECK_EVO);
+
+    PlaySE(SE_SELECT);
+    if (targetSpecies == SPECIES_NONE)
+    {
+        gTasks[taskId].func = Task_TryCreateSelectionWindow;
+        return;
+    }
+
+    GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL, &canStopEvo, DO_EVO);
+    gLastViewedMonIndex = gPartyMenu.slotId;
+    gCB2_AfterEvolution = CB2_ReturnToPartyMenuFromSummaryScreen;
+    FreePartyPointers();
+    BeginEvolutionScene(mon, targetSpecies, canStopEvo, gPartyMenu.slotId);
+    DestroyTask(taskId);
 }
 
 static void CB2_ShowPokemonSummaryScreen(void)

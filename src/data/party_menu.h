@@ -743,6 +743,7 @@ struct
     [MENU_CHANGE_FORM]     = {COMPOUND_STRING("Change form"),     CursorCb_ChangeForm},
     [MENU_CHANGE_ABILITY]  = {COMPOUND_STRING("Change Ability"),  CursorCb_ChangeAbility},
     [MENU_PKMN_FOLLOWER]   = {COMPOUND_STRING("{PKMN} SEGUIDOR"), CursorCb_PkmnFollower},
+    [MENU_EVOLVE]          = {COMPOUND_STRING("EVOLUCIONAR"),     CursorCb_Evolve},
 };
 
 static const u8 sPartyMenuAction_SummarySwitchCancel[] = {MENU_SUMMARY, MENU_SWITCH, MENU_CANCEL1};
