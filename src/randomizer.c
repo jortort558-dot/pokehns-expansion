@@ -21,7 +21,7 @@
 #include "constants/trainers.h"
 #include "difficulty.h"
 
-#define TRAINER_RANDOMIZER_VERSION 1
+#define TRAINER_RANDOMIZER_VERSION 2
 
 enum RandomizerOffensiveProfile
 {
@@ -2198,6 +2198,43 @@ static bool32 IsCustomMegaTrainer(u16 trainerId)
     return FALSE;
 }
 
+static bool32 IsSecondLeagueTrainer(u16 trainerId)
+{
+    switch (trainerId)
+    {
+    case TRAINER_WILL_2_HNS:
+    case TRAINER_KOGA_2_HNS:
+    case TRAINER_BRUNO_2_HNS:
+    case TRAINER_KAREN_2_HNS:
+    case TRAINER_LANCE_2_HNS:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
+static u16 ChooseSecondLeagueLegendary(u16 originalSpecies, struct Sfc32State *state)
+{
+    bool32 wantsCoverLegendary = IsCoverLegendary(originalSpecies);
+    u16 species;
+    u16 selected = originalSpecies;
+    u16 eligibleCount = 0;
+
+    for (species = 1; species < RANDOMIZER_SPECIES_COUNT; species++)
+    {
+        if (!IsSpeciesValidForWildRandomizer(species)
+         || !IsRandomizerLegendary(species)
+         || IsCoverLegendary(species) != wantsCoverLegendary)
+            continue;
+
+        eligibleCount++;
+        if (RandomizerNextRange(state, eligibleCount) == 0)
+            selected = species;
+    }
+
+    return selected;
+}
+
 static bool32 IsConfiguredMegaBoss(u16 trainerId, u8 trainerClass)
 {
     if (IsCustomMegaTrainer(trainerId))
@@ -2427,13 +2464,14 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
 
     s8 megaSlot = -1;
     s8 specialSlot = -1;
+    bool32 isSecondLeague = IsSecondLeagueTrainer(trainerId);
 
-    if (ShouldTrainerUseMega(trainerId, trainerClass) && totalMons > 0)
+    if (!isSecondLeague && ShouldTrainerUseMega(trainerId, trainerClass) && totalMons > 0)
     {
         megaSlot = totalMons - 1;
     }
 
-    if (tier == TRAINER_TIER_BOSS && totalMons >= 2)
+    if (!isSecondLeague && tier == TRAINER_TIER_BOSS && totalMons >= 2)
     {
         specialSlot = (megaSlot == totalMons - 1) ? (totalMons - 2) : (totalMons - 1);
     }
@@ -2442,7 +2480,11 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     bool32 isOriginalMega = (originalHeldItem >= ITEM_VENUSAURITE && originalHeldItem <= ITEM_DIANCITE);
     if ((isOriginalMega || slot == megaSlot) && ARRAY_COUNT(sTrainerMegaPairs) > 0)
     {
-        u32 pairIndex = RandomizerNextRange(&state, ARRAY_COUNT(sTrainerMegaPairs));
+        u32 pairIndex;
+        do
+        {
+            pairIndex = RandomizerNextRange(&state, ARRAY_COUNT(sTrainerMegaPairs));
+        } while (isSecondLeague && IsRandomizerLegendary(sTrainerMegaPairs[pairIndex].species));
         result.species = sTrainerMegaPairs[pairIndex].species;
         result.heldItem = sTrainerMegaPairs[pairIndex].stone;
         return result;
@@ -2451,6 +2493,13 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     // 2. Si el mon original es Legendario / Sublegendario: sustituir por otro Legendario
     if (IsRandomizerLegendary(originalSpecies))
     {
+        if (isSecondLeague)
+        {
+            result.species = ChooseSecondLeagueLegendary(originalSpecies, &state);
+            result.heldItem = RollCompatibleTrainerItem(result.species, tier, block, difficulty, &state);
+            return result;
+        }
+
         bool32 includeLegendaries = gSaveBlock3Ptr->challengeSettings.tx_Random_IncludeLegendaries;
         enum WildPowerCategory cat;
         if (IsCoverLegendary(originalSpecies) || trainerId == TRAINER_LANCE_1_HNS || trainerId == TRAINER_LANCE_2_HNS || trainerId == TRAINER_LANCE_3_HNS || trainerId == TRAINER_LANCE_POSTOBC_HNS)
@@ -2524,6 +2573,8 @@ struct RandomizedTrainerMon RandomizeTrainerPartyMon(u16 trainerId, u8 trainerCl
     }
 
     enum WildPowerCategory category = WeightedCategoryRoll(weights[effectiveBlock], &state);
+    if (isSecondLeague && category > CATEGORY_T4)
+        category = CATEGORY_T4;
     result.species = ChooseWildSpecies(category, &state, originalSpecies);
     if (tier >= TRAINER_TIER_ACE || level >= 25)
         result.species = PromoteSpeciesForLevel(result.species, level);

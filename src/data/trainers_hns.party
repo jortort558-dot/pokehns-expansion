@@ -8878,36 +8878,36 @@ Pic: Elite Four Will Hns
 Gender: Male
 Music: Hg Elite Four
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Prediction
 Mugshot: Pink
 Items: Full Restore / Full Restore
 
-Gardevoir
-Level: 66
+Gardevoir @ Gardevoirite
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Psychic
 - Hyper Voice
 - Moonblast
-- Reflect
+- Calm Mind
 
-Jynx
-Level: 67
+Lugia @ Leftovers
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Blizzard
+- Aeroblast
 - Psychic
-- Perish Song
-- Sing
+- Recover
+- Calm Mind
 
-Exeggutor @ Sitrus Berry
-Level: 67
+Mewtwo @ Life Orb
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Ancient Power
-- Sleep Powder
-- Dream Eater
-- Soft Boiled
+- Psystrike
+- Aura Sphere
+- Ice Beam
+- Flamethrower
 
 Grumpig
-Level: 67
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Teeter Dance
 - Power Gem
@@ -8915,7 +8915,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rest
 
 Slowbro @ Quick Claw
-Level: 66
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Fire Punch
 - Curse
@@ -8923,7 +8923,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Zen Headbutt
 
 Xatu @ Leftovers
-Level: 68
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Future Sight
 - Air Slash
@@ -8988,36 +8988,36 @@ Pic: Elite Four Bruno Hns
 Gender: Male
 Music: Hg Elite Four
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Prediction
 Mugshot: Orange
 Items: Full Restore / Full Restore
 
-Steelix @ Quick Claw
-Level: 67
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Crunch
-- Earthquake
-- Explosion
-- Iron Tail
-
-Poliwrath @ Scope Lens
-Level: 68
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Submission
-- Blizzard
-- Hydro Pump
-- Psychic
-
-Heracross @ Quick Claw
-Level: 67
+Terrakion @ Life Orb
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Close Combat
-- Megahorn
-- Reversal
+- Stone Edge
 - Earthquake
+- Swords Dance
+
+Zamazenta @ Leftovers
+Level: 70
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Behemoth Bash
+- Close Combat
+- Crunch
+- Iron Defense
+
+Heracross @ Heracronite
+Level: 70
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Close Combat
+- Pin Missile
+- Earthquake
+- Rock Blast
 
 Hariyama
-Level: 68
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Belly Drum
 - SmellingSalt
@@ -9025,7 +9025,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Seismic Toss
 
 Hitmontop @ Scope Lens
-Level: 67
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Triple Kick
 - Double Kick
@@ -9033,7 +9033,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Pursuit
 
 Machamp @ Leftovers
-Level: 68
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
 - Earthquake
@@ -9098,12 +9098,12 @@ Pic: Elite Four Karen Hns
 Gender: Male
 Music: Hg Elite Four
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Prediction
 Mugshot: Yellow
 Items: Full Restore / Full Restore
 
 Umbreon @ Sitrus Berry
-Level: 68
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Growth
 - Shadow Ball
@@ -9111,39 +9111,39 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Baton Pass
 
 Weavile
-Level: 67
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Hone Claws
 - Metal Claw
 - Night Slash
 - Avalanche
 
-Persian @ Scope Lens
-Level: 68
+Darkrai @ Wide Lens
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Slash
-- Assurance
-- Iron Tail
-- Play Rough
-
-Honchkrow @ Sharp Beak
-Level: 68
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Air Slash
+- Dark Void
 - Dark Pulse
-- Swagger
+- Dream Eater
 - Nasty Plot
 
+Yveltal @ Leftovers
+Level: 70
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Oblivion Wing
+- Dark Pulse
+- Heat Wave
+- Roost
+
 Absol @ Leftovers
-Level: 67
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Psycho Cut
 - Shadow Claw
 - Perish Song
 - Slash
 
-Houndoom @ Charcoal
-Level: 69
+Houndoom @ Houndoominite
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Flamethrower
 - Crunch
@@ -9208,28 +9208,28 @@ Pic: Elite Four Koga Hns
 Gender: Male
 Music: Hg Elite Four
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Prediction
 Mugshot: Purple
 Items: Full Restore / Full Restore
 
-Tentacruel @ Chesto Berry
-Level: 67
+Nihilego @ Power Herb
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Waterfall
-- Blizzard
+- Meteor Beam
 - Sludge Wave
-- Rest
+- Thunderbolt
+- Psychic
 
-Muk @ Leftovers
-Level: 67
+Eternatus @ Black Sludge
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Minimize
-- Fire Blast
-- Gunk Shot
-- Toxic
+- Dynamax Cannon
+- Sludge Bomb
+- Flamethrower
+- Recover
 
 Swalot
-Level: 67
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Swallow
 - Stockpile
@@ -9237,7 +9237,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Spit Up
 
 Nidoking @ Quick Claw
-Level: 67
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Lovely Kiss
 - Fire Blast
@@ -9245,20 +9245,20 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Earthquake
 
 Venomoth @ Bright Powder
-Level: 67
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Silver Wind
 - Signal Beam
 - Psychic
 - Supersonic
 
-Crobat @ Leftovers
-Level: 68
+Beedrill @ Beedrillite
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Cross Poison
-- Air Slash
-- Toxic
-- Confuse Ray
+- U Turn
+- Poison Jab
+- Drill Run
+- Fell Stinger
 
 === TRAINER_LANCE_1_HNS ===
 Name: LANCE
@@ -9326,36 +9326,36 @@ Pic: Champion Lance Hns
 Gender: Male
 Music: Hg Champion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / Prediction
 Items: Full Restore / Full Restore
 Mugshot: Blue
 
-Salamence
-Level: 69
+Salamence @ Salamencite
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Dragon Claw
 - Air Slash
 - Double Edge
 - Thunderbolt
 
-Dragonite @ Sitrus Berry
-Level: 68
+Dialga @ Adamant Orb
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Iron Tail
-- Ice Punch
-- Dragon Rush
-- Dragon Dance
+- Draco Meteor
+- Flash Cannon
+- Earth Power
+- Thunderbolt
 
-Gyarados @ Quick Claw
-Level: 69
+Palkia @ Lustrous Orb
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Waterfall
-- Hyper Beam
-- Crunch
-- Earthquake
+- Spacial Rend
+- Hydro Pump
+- Thunderbolt
+- Aura Sphere
 
 Charizard @ Leftovers
-Level: 68
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Fire Blast
 - Crunch
@@ -9363,7 +9363,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Swords Dance
 
 Aerodactyl @ Scope Lens
-Level: 69
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Sky Attack
 - Rock Slide
