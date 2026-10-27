@@ -514,7 +514,9 @@
       "id": "HEAL_LOCATION_MT_SILVER_HNS",
       "map": "MAP_MT_SILVER_OUTSIDE_HNS",
       "x": 25,
-      "y": 15
+      "y": 15,
+      "respawn_map": "MAP_MT_SILVER_POKEMON_CENTER_HNS",
+      "respawn_npc": "0"
     },
     {
       "id": "HEAL_LOCATION_LAKE_OF_RAGE_HNS",
@@ -534,7 +536,9 @@
       "id": "HEAL_LOCATION_SAFARI_ZONE_GATE_HNS",
       "map": "MAP_SAFARI_ZONE_GATE_HNS",
       "x": 11,
-      "y": 16
+      "y": 16,
+      "respawn_map": "MAP_SAFARI_ZONE_GATE_POKEMON_CENTER_HNS",
+      "respawn_npc": "0"
     },
     {
       "id": "HEAL_LOCATION_NEW_BARK_TOWN_PLAYERS_HOUSE_2F_HNS",
@@ -548,7 +552,9 @@
       "id": "HEAL_LOCATION_ROUTE_32_HNS",
       "map": "MAP_ROUTE32_HNS",
       "x": 25,
-      "y": 85
+      "y": 85,
+      "respawn_map": "MAP_ROUTE32_POKEMON_CENTER_HNS",
+      "respawn_npc": "0"
     },
     {
       "id": "HEAL_LOCATION_ROUTE26NORTH_HNS",
@@ -560,31 +566,41 @@
       "id": "HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST_HNS",
       "map": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST_HNS",
       "x": 12,
-      "y": 46
+      "y": 46,
+      "respawn_map": "MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F_HNS",
+      "respawn_npc": "0"
     },
     {
       "id": "HEAL_LOCATION_MELEMELE_ISLE_HNS",
       "map": "MAP_MELEMELE_ISLE_HNS",
       "x": 28,
-      "y": 7
+      "y": 7,
+      "respawn_map": "MAP_MELEMELE_HOUSE_HNS",
+      "respawn_npc": "0"
     },
     {
       "id": "HEAL_LOCATION_NEW_SINJOH_HNS",
       "map": "MAP_NEW_SINJOH_HNS",
       "x": 39,
-      "y": 42
+      "y": 42,
+      "respawn_map": "MAP_NEW_SINJOH_POKEMON_CENTER_HNS",
+      "respawn_npc": "0"
     },
     {
       "id": "HEAL_LOCATION_ROUTE10_HNS",
       "map": "MAP_ROUTE10_HNS",
       "x": 16,
-      "y": 36
+      "y": 36,
+      "respawn_map": "MAP_ROUTE9_POKEMON_CENTER_HNS",
+      "respawn_npc": "0"
     },
     {
       "id": "HEAL_LOCATION_ROUTE4_HNS",
       "map": "MAP_ROUTE4_HNS",
       "x": 12,
-      "y": 6
+      "y": 6,
+      "respawn_map": "MAP_ROUTE4_POKEMON_CENTER_HNS",
+      "respawn_npc": "0"
     }
   ]
 }
