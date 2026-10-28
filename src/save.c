@@ -1148,7 +1148,10 @@ u8 LoadGameSave(u8 saveType)
     // }
 
     if (saveType == SAVE_NORMAL && status == SAVE_STATUS_OK)
+    {
         NuzlockeGraveyard_CheckAndApplyOnLoad();
+        SyncNuzlockeCaughtRoutes();
+    }
 
     return status;
 }

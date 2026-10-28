@@ -54,7 +54,9 @@ static const u8 sNuzlockeLUT[] =
     [MAPSEC_ROUTE_20]         = 0x13,
     [MAPSEC_ROUTE_21]         = 0x14,
     [MAPSEC_ROUTE_22]         = 0x15,
+#if !IS_HNS
     [MAPSEC_ROUTE_23]         = 0x16,
+#endif
     [MAPSEC_ROUTE_24]         = 0x17,
     [MAPSEC_ROUTE_25]         = 0x18,
     // Johto-Kanto Routes
