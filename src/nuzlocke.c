@@ -287,7 +287,7 @@ bool8 IsNuzlockeActive(void)
         return FALSE;
     if (!FlagGet(FLAG_START_NUZLOCKE))
         return FALSE;
-    if (FlagGet(FLAG_END_NUZLOCKE))
+    if (FlagGet(FLAG_END_NUZLOCKE) && !cs->tx_PokemitosCup)
         return FALSE;
 
     return cs->tx_Challenges_Nuzlocke;
@@ -301,7 +301,7 @@ bool8 IsNuzlockeEasyActive(void)
         return FALSE;
     if (!FlagGet(FLAG_START_NUZLOCKE))
         return FALSE;
-    if (FlagGet(FLAG_END_NUZLOCKE))
+    if (FlagGet(FLAG_END_NUZLOCKE) && !cs->tx_PokemitosCup)
         return FALSE;
 
     return cs->tx_Nuzlocke_EasyMode && !cs->tx_Challenges_Nuzlocke;
@@ -313,7 +313,7 @@ bool8 IsNuzlockeNicknamingActive(void)
 
     if (!cs->tx_Challenges_Nuzlocke)
         return FALSE;
-    if (FlagGet(FLAG_END_NUZLOCKE))
+    if (FlagGet(FLAG_END_NUZLOCKE) && !cs->tx_PokemitosCup)
         return FALSE;
 
     return cs->tx_Nuzlocke_Nicknaming;

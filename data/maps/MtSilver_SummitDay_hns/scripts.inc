@@ -55,7 +55,11 @@ MtSilver_SummitDay_EventScript_RedOnDefeat::
 	delay 180
 	fadescreenspeed FADE_TO_BLACK, 24
 	setflag FLAG_DEFEATED_RED
+	callnative Script_CheckPokemitosCupActive
+	goto_if_eq VAR_RESULT, TRUE, MtSilver_SummitDay_EventScript_RedSkipEndNuzlocke
+	goto_if_lt VAR_SINJOH_STORYLINE, 13, MtSilver_SummitDay_EventScript_RedSkipEndNuzlocke
 	setflag FLAG_END_NUZLOCKE
+MtSilver_SummitDay_EventScript_RedSkipEndNuzlocke::
 	clearflag FLAG_HIDE_MTSILVER_RED
 	special GameClear
 	waitstate

@@ -18,6 +18,8 @@
 #include "gym_tokens.h"
 #include "nuzlocke.h"
 #include "randomizer.h"
+#include "item.h"
+#include "new_game.h"
 
 static u16 CalculateChecksum(void *, u16);
 static bool8 ReadFlashSector(u8, struct SaveSector *);
@@ -1139,16 +1141,35 @@ u8 LoadGameSave(u8 saveType)
         SanitizeSavedItems();
         gSaveBlock1Ptr->saveVersion = 17;
     }
-
-    // Add version migration steps here:
-    // if (gSaveBlock1Ptr->saveVersion < 1)
-    // {
-    //     /* migration code */
-    //     gSaveBlock1Ptr->saveVersion = 1;
-    // }
+    if (gSaveBlock1Ptr->saveVersion < 18)
+    {
+#if IS_HNS
+        if (gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup || CheckBagHasItem(ITEM_CARNET_POKEMITOS, 1))
+        {
+            gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup = TRUE;
+            gSaveBlock3Ptr->challengeSettings.tx_Challenges_Nuzlocke = 1;
+            FlagSet(FLAG_START_NUZLOCKE);
+            FlagClear(FLAG_END_NUZLOCKE);
+        }
+        else if (VarGet(VAR_SINJOH_STORYLINE) < 13 && gSaveBlock3Ptr->challengeSettings.tx_Challenges_Nuzlocke)
+        {
+            FlagClear(FLAG_END_NUZLOCKE);
+        }
+#endif
+        gSaveBlock1Ptr->saveVersion = 18;
+    }
 
     if (saveType == SAVE_NORMAL && status == SAVE_STATUS_OK)
     {
+#if IS_HNS
+        if (gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup || CheckBagHasItem(ITEM_CARNET_POKEMITOS, 1))
+        {
+            gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup = TRUE;
+            gSaveBlock3Ptr->challengeSettings.tx_Challenges_Nuzlocke = 1;
+            FlagSet(FLAG_START_NUZLOCKE);
+            FlagClear(FLAG_END_NUZLOCKE);
+        }
+#endif
         NuzlockeGraveyard_CheckAndApplyOnLoad();
         SyncNuzlockeCaughtRoutes();
     }
