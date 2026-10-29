@@ -9571,6 +9571,9 @@ void HealPokemon(struct Pokemon *mon)
 {
     u32 data;
 
+    if (NuzlockeGraveyard_IsMonDead(GetMonData(mon, MON_DATA_PERSONALITY), GetMonData(mon, MON_DATA_OT_ID)))
+        return;
+
     data = GetMonData(mon, MON_DATA_MAX_HP);
     SetMonData(mon, MON_DATA_HP, &data);
 

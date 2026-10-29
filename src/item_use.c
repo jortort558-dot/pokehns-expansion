@@ -1481,7 +1481,7 @@ bool32 CannotUseItemsInBattle(enum Item itemId, struct Pokemon *mon)
     case EFFECT_ITEM_REVIVE:
         if (hp != 0)
             cannotUse = TRUE;
-        if (IsNuzlockeActive())
+        if (IsNuzlockeActive() || IsNuzlockeEasyActive() || NuzlockeGraveyard_IsMonDead(GetMonData(mon, MON_DATA_PERSONALITY), GetMonData(mon, MON_DATA_OT_ID)))
             cannotUse = TRUE;
         break;
     case EFFECT_ITEM_RESTORE_PP:

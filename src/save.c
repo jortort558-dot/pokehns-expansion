@@ -1158,6 +1158,11 @@ u8 LoadGameSave(u8 saveType)
 #endif
         gSaveBlock1Ptr->saveVersion = 18;
     }
+    if (gSaveBlock1Ptr->saveVersion < 19)
+    {
+        NuzlockeGraveyard_CheckAndApplyOnLoad();
+        gSaveBlock1Ptr->saveVersion = 19;
+    }
 
     if (saveType == SAVE_NORMAL && status == SAVE_STATUS_OK)
     {

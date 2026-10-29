@@ -62,7 +62,12 @@ void HealPlayerParty(void)
 
 static bool8 IsBoxMonDead(u8 boxId, u8 boxPosition)
 {
+    struct BoxPokemon *boxMon = &gPokemonStoragePtr->boxes[boxId][boxPosition];
     struct Pokemon tempMon;
+
+    if (NuzlockeGraveyard_IsMonDead(GetBoxMonData(boxMon, MON_DATA_PERSONALITY), GetBoxMonData(boxMon, MON_DATA_OT_ID)))
+        return TRUE;
+
     BoxMonAtToMon(boxId, boxPosition, &tempMon);
     return GetMonData(&tempMon, MON_DATA_HP, NULL) == 0;
 }

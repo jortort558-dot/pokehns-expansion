@@ -1091,9 +1091,16 @@ static bool8 IsBoxMonNuzlockeDead(u8 boxId, u8 position)
 {
     struct Pokemon tempMon;
     struct ChallengeSettings *cs = &gSaveBlock3Ptr->challengeSettings;
+    u32 personality;
+    u32 otId;
 
     if (!cs->tx_Challenges_Nuzlocke && !cs->tx_Nuzlocke_EasyMode)
         return FALSE;
+
+    personality = GetBoxMonDataAt(boxId, position, MON_DATA_PERSONALITY);
+    otId = GetBoxMonDataAt(boxId, position, MON_DATA_OT_ID);
+    if (NuzlockeGraveyard_IsMonDead(personality, otId))
+        return TRUE;
 
     BoxMonAtToMon(boxId, position, &tempMon);
     return GetMonData(&tempMon, MON_DATA_HP, NULL) == 0;
@@ -1102,11 +1109,18 @@ static bool8 IsBoxMonNuzlockeDead(u8 boxId, u8 position)
 static bool8 IsMovingMonNuzlockeDead(void)
 {
     struct ChallengeSettings *cs = &gSaveBlock3Ptr->challengeSettings;
+    u32 personality;
+    u32 otId;
 
     if (!cs->tx_Challenges_Nuzlocke && !cs->tx_Nuzlocke_EasyMode)
         return FALSE;
     if (!sIsMonBeingMoved)
         return FALSE;
+
+    personality = GetMonData(&sStorage->movingMon, MON_DATA_PERSONALITY);
+    otId = GetMonData(&sStorage->movingMon, MON_DATA_OT_ID);
+    if (NuzlockeGraveyard_IsMonDead(personality, otId))
+        return TRUE;
 
     return GetMonData(&sStorage->movingMon, MON_DATA_HP, NULL) == 0;
 }
@@ -4567,9 +4581,14 @@ static bool32 ShouldBoxmonSpriteBeTransparent(u32 boxId, u32 boxPosition)
           || sStorage->boxOption == OPTION_WITHDRAW
           || sStorage->boxOption == OPTION_MOVE_MONS))
         {
-            if (GetBoxMonDataAt(boxId, boxPosition, MON_DATA_IS_EGG) == FALSE
-             && GetBoxMonDataAt(boxId, boxPosition, MON_DATA_HP_LOST) > 0)
-                return TRUE;
+            if (GetBoxMonDataAt(boxId, boxPosition, MON_DATA_IS_EGG) == FALSE)
+            {
+                u32 personality = GetBoxMonDataAt(boxId, boxPosition, MON_DATA_PERSONALITY);
+                u32 otId = GetBoxMonDataAt(boxId, boxPosition, MON_DATA_OT_ID);
+                if (NuzlockeGraveyard_IsMonDead(personality, otId)
+                 || GetBoxMonDataAt(boxId, boxPosition, MON_DATA_HP_LOST) > 0)
+                    return TRUE;
+            }
         }
     }
     return FALSE;
@@ -4887,7 +4906,9 @@ static void  CreatePartyMonSprite(u8 partyPosition, bool8 visible)
           || sStorage->boxOption == OPTION_WITHDRAW
           || sStorage->boxOption == OPTION_MOVE_MONS))
         {
-            if (GetMonData(partyPokemon, MON_DATA_HP) == 0 && GetMonData(partyPokemon, MON_DATA_IS_EGG) == FALSE)
+            if (GetMonData(partyPokemon, MON_DATA_IS_EGG) == FALSE
+             && (GetMonData(partyPokemon, MON_DATA_HP) == 0
+              || NuzlockeGraveyard_IsMonDead(GetMonData(partyPokemon, MON_DATA_PERSONALITY), GetMonData(partyPokemon, MON_DATA_OT_ID))))
                 partySprite->oam.objMode = ST_OAM_OBJ_BLEND;
         }
     }
@@ -4956,8 +4977,9 @@ static void CreatePartyMonsSprites(bool8 visible)
             for (i = 0; i < PARTY_SIZE; i++)
             {
                 if (sStorage->partySprites[i] != NULL
-                 && GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0
-                 && GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) == FALSE)
+                 && GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) == FALSE
+                 && (GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0
+                  || NuzlockeGraveyard_IsMonDead(GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY), GetMonData(&gPlayerParty[i], MON_DATA_OT_ID))))
                     sStorage->partySprites[i]->oam.objMode = ST_OAM_OBJ_BLEND;
             }
         }

@@ -4,6 +4,8 @@
 #include "global.h"
 
 #define GYM_TOKEN_MAX 99
+#define GYM_TOKEN_REVIVE_SLOTS 8
+#define GYM_TOKEN_REVIVE_COST 2
 
 bool32 IsGymTokenModeActive(void);
 bool32 GymTokenCanTradeMon(struct BoxPokemon *boxMon);

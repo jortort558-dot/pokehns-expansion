@@ -26,8 +26,6 @@
 #include "constants/region_map_sections.h"
 
 #define GYM_TOKEN_TRADE_LIMIT 1
-#define GYM_TOKEN_REVIVE_COST 2
-#define GYM_TOKEN_REVIVE_SLOTS 8
 
 static EWRAM_DATA u8 sSelectedRetryZone = 0;
 static EWRAM_DATA u8 sRetrySearchStart = 0;

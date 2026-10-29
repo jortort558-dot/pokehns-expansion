@@ -53,5 +53,8 @@ struct NuzlockeGraveyard
 void NuzlockeGraveyard_RecordFaint(struct Pokemon *mon);
 void NuzlockeGraveyard_RemoveMon(u32 personality, u32 otId);
 void NuzlockeGraveyard_CheckAndApplyOnLoad(void);
+bool32 NuzlockeGraveyard_IsMonDead(u32 personality, u32 otId);
+bool32 IsMonRevivedByGymTokens(u32 personality, u32 otId);
+void NuzlockeGraveyard_InvalidateCache(void);
 
 #endif // GUARD_NUZLOCKE_H

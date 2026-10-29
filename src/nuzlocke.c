@@ -19,6 +19,7 @@
 #include "save.h"
 #include "load_save.h"
 #include "script_pokemon_util.h"
+#include "gym_tokens.h"
 
 EWRAM_DATA u8 NuzlockeIsCaptureBlocked = FALSE;
 EWRAM_DATA u8 NuzlockeIsSpeciesClauseActive = FALSE;
@@ -578,6 +579,66 @@ static u16 Graveyard_CalculateChecksum(const struct NuzlockeGraveyard *gy)
     return checksum;
 }
 
+bool32 IsMonRevivedByGymTokens(u32 personality, u32 otId)
+{
+    u32 i;
+    for (i = 0; i < GYM_TOKEN_REVIVE_SLOTS; i++)
+    {
+        if (gSaveBlock3Ptr->gymTokens.revivedPersonalities[i] == personality
+         && gSaveBlock3Ptr->gymTokens.revivedOtIds[i] == otId)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+static bool8 EnsureGraveyardLoaded(void)
+{
+    if (sGraveyardBuffer.magic == NUZLOCKE_GRAVEYARD_MAGIC)
+        return TRUE;
+
+    memset(&sGraveyardBuffer, 0, sizeof(sGraveyardBuffer));
+    if (TryReadSpecialSaveSectorNBytes(SECTOR_ID_TRAINER_HILL, (u8 *)&sGraveyardBuffer, sizeof(sGraveyardBuffer)) != SAVE_STATUS_OK)
+        return FALSE;
+
+    if (sGraveyardBuffer.magic != NUZLOCKE_GRAVEYARD_MAGIC
+        || sGraveyardBuffer.count > NUZLOCKE_GRAVEYARD_MAX_ENTRIES
+        || sGraveyardBuffer.checksum != Graveyard_CalculateChecksum(&sGraveyardBuffer))
+    {
+        sGraveyardBuffer.magic = 0;
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+void NuzlockeGraveyard_InvalidateCache(void)
+{
+    sGraveyardBuffer.magic = 0;
+}
+
+bool32 NuzlockeGraveyard_IsMonDead(u32 personality, u32 otId)
+{
+    u16 i;
+
+    if (personality == 0 && otId == 0)
+        return FALSE;
+
+    if (IsMonRevivedByGymTokens(personality, otId))
+        return FALSE;
+
+    if (!EnsureGraveyardLoaded())
+        return FALSE;
+
+    for (i = 0; i < sGraveyardBuffer.count; i++)
+    {
+        if (sGraveyardBuffer.entries[i].personality == personality
+         && sGraveyardBuffer.entries[i].otId == otId)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void NuzlockeGraveyard_RecordFaint(struct Pokemon *mon)
 {
     u32 personality;
@@ -666,18 +727,6 @@ void NuzlockeGraveyard_RemoveMon(u32 personality, u32 otId)
     }
 }
 
-static bool32 IsMonRevivedByGymTokens(u32 personality, u32 otId)
-{
-    u32 i;
-    for (i = 0; i < 8; i++) // GYM_TOKEN_REVIVE_SLOTS
-    {
-        if (gSaveBlock3Ptr->gymTokens.revivedPersonalities[i] == personality
-         && gSaveBlock3Ptr->gymTokens.revivedOtIds[i] == otId)
-            return TRUE;
-    }
-    return FALSE;
-}
-
 void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
 {
     u16 g, p;
@@ -691,17 +740,7 @@ void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
     if (!FlagGet(FLAG_RECEIVED_FIRST_BALLS))
         return;
 
-    memset(&sGraveyardBuffer, 0, sizeof(sGraveyardBuffer));
-    if (TryReadSpecialSaveSectorNBytes(SECTOR_ID_TRAINER_HILL, (u8 *)&sGraveyardBuffer, sizeof(sGraveyardBuffer)) != SAVE_STATUS_OK)
-        return;
-
-    if (sGraveyardBuffer.magic != NUZLOCKE_GRAVEYARD_MAGIC)
-        return;
-
-    if (sGraveyardBuffer.count > NUZLOCKE_GRAVEYARD_MAX_ENTRIES)
-        return;
-
-    if (sGraveyardBuffer.checksum != Graveyard_CalculateChecksum(&sGraveyardBuffer))
+    if (!EnsureGraveyardLoaded())
         return;
 
     for (g = 0; g < sGraveyardBuffer.count; g++)
@@ -775,6 +814,33 @@ void NuzlockeGraveyard_CheckAndApplyOnLoad(void)
                             }
                             break;
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    // Asegurar que cualquier Pokémon del PC que esté en el cementerio
+    // tenga MON_DATA_HP_LOST establecido al máximo de PS para permanecer debilitado.
+    if (gPokemonStoragePtr != NULL)
+    {
+        u8 b, s;
+        for (b = 0; b < TOTAL_BOXES_COUNT; b++)
+        {
+            for (s = 0; s < IN_BOX_COUNT; s++)
+            {
+                struct BoxPokemon *boxMon = &gPokemonStoragePtr->boxes[b][s];
+                if (GetBoxMonData(boxMon, MON_DATA_SANITY_HAS_SPECIES) && !GetBoxMonData(boxMon, MON_DATA_IS_EGG))
+                {
+                    u32 p = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
+                    u32 ot = GetBoxMonData(boxMon, MON_DATA_OT_ID);
+                    if (NuzlockeGraveyard_IsMonDead(p, ot))
+                    {
+                        struct Pokemon tempMon;
+                        u32 maxHp;
+                        BoxMonAtToMon(b, s, &tempMon);
+                        maxHp = GetMonData(&tempMon, MON_DATA_MAX_HP, NULL);
+                        SetBoxMonData(boxMon, MON_DATA_HP_LOST, &maxHp);
                     }
                 }
             }

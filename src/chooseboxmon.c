@@ -264,8 +264,9 @@ u32 IsBoxMonExcluded(struct BoxPokemon *boxmon)
 
     if (sSelectionType != SELECT_PC_MON_GYM_TOKEN_REVIVE
      && (IsNuzlockeActive() || IsNuzlockeEasyActive())
-     && GetMonData(&mon, MON_DATA_HP) == 0
-     && GetMonData(&mon, MON_DATA_IS_EGG) == FALSE)
+     && GetMonData(&mon, MON_DATA_IS_EGG) == FALSE
+     && (GetMonData(&mon, MON_DATA_HP) == 0
+      || NuzlockeGraveyard_IsMonDead(GetMonData(&mon, MON_DATA_PERSONALITY), GetMonData(&mon, MON_DATA_OT_ID))))
         return TRUE;
 
     return sPcMonSelectionTypes[sSelectionType].isMonInvalid(boxmon);
