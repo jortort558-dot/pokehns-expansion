@@ -2045,6 +2045,28 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
     }
 }
 
+static bool32 IsRosaChallengeTrainer(u16 trainerId)
+{
+    return trainerId >= TRAINER_ROSA_CHALLENGE_0_HNS && trainerId <= TRAINER_ROSA_CHALLENGE_13_HNS;
+}
+
+static u8 GetPlayerPartyMaxLevel(void)
+{
+    u8 maxLevel = 0;
+    u32 i;
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+         && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+        {
+            u8 lvl = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            if (lvl > maxLevel)
+                maxLevel = lvl;
+        }
+    }
+    return (maxLevel > 0) ? maxLevel : 50;
+}
+
 static bool32 IsTrainerExemptFromScaling(u16 trainerId, u8 trainerClass)
 {
     switch (trainerClass)
@@ -2202,10 +2224,16 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                                  && !FlagGet(FLAG_IS_KANTO_CHAMPION);
         bool32 isKantoLeader = isKantoProgression && IsKantoLeaderClass(trainer->trainerClass);
         bool32 isKantoGymTrainer = isKantoProgression && IsCurrentMapKantoGym();
+        bool32 isRosa = IsRosaChallengeTrainer(trainerId);
         bool32 canScale;
         s32 targetMaxLevel;
 
-        if (isKantoProgression)
+        if (isRosa)
+        {
+            canScale = TRUE;
+            targetMaxLevel = (s32)GetPlayerPartyMaxLevel();
+        }
+        else if (isKantoProgression)
         {
             canScale = isKantoLeader || !IsTrainerExemptFromScaling(trainerId, trainer->trainerClass);
             targetMaxLevel = (s32)currentCap - (isKantoLeader ? 0 : 2);
@@ -2230,7 +2258,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             {
                 s32 diffFromAs = (s32)maxPartyLevel - (s32)monLevel;
                 s32 scaledLevel = targetMaxLevel - diffFromAs;
-                if (!isKantoProgression && scaledLevel < monLevel)
+                if (!isRosa && !isKantoProgression && scaledLevel < monLevel)
                     scaledLevel = monLevel;
                 if (scaledLevel < 2)
                     scaledLevel = 2;
