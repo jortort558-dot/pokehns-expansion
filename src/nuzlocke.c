@@ -401,9 +401,12 @@ void SyncNuzlockeCaughtRoutes(void)
         struct Pokemon *mon = &gPlayerParty[i];
         if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && !GetMonData(mon, MON_DATA_IS_EGG))
         {
-            u16 mapsec = GetMonData(mon, MON_DATA_MET_LOCATION);
-            if (IsNuzlockeEncounterArea(mapsec))
-                NuzlockeFlagSet(mapsec);
+            if (!GetMonData(mon, MON_DATA_GIFT_ORIGIN))
+            {
+                u16 mapsec = GetMonData(mon, MON_DATA_MET_LOCATION);
+                if (IsNuzlockeEncounterArea(mapsec))
+                    NuzlockeFlagSet(mapsec);
+            }
         }
     }
 
@@ -416,9 +419,12 @@ void SyncNuzlockeCaughtRoutes(void)
                 struct BoxPokemon *boxMon = &gPokemonStoragePtr->boxes[box][slot];
                 if (GetBoxMonData(boxMon, MON_DATA_SPECIES) != SPECIES_NONE && !GetBoxMonData(boxMon, MON_DATA_IS_EGG))
                 {
-                    u16 mapsec = GetBoxMonData(boxMon, MON_DATA_MET_LOCATION);
-                    if (IsNuzlockeEncounterArea(mapsec))
-                        NuzlockeFlagSet(mapsec);
+                    if (!GetBoxMonData(boxMon, MON_DATA_GIFT_ORIGIN))
+                    {
+                        u16 mapsec = GetBoxMonData(boxMon, MON_DATA_MET_LOCATION);
+                        if (IsNuzlockeEncounterArea(mapsec))
+                            NuzlockeFlagSet(mapsec);
+                    }
                 }
             }
         }

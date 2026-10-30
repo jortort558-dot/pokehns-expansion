@@ -1499,25 +1499,22 @@ bool8 ScrCmd_givenamedmon(struct ScriptContext *ctx)
             HandleSetPokedexFlag(dexNum, FLAG_SET_CAUGHT, personality);
 
             gSpecialVar_Result = MON_GIVEN_TO_PARTY;
+            VarSet(VAR_TEMP_TRANSFERRED_SPECIES, species);
+            StringCopy(gStringVar1, GetSpeciesName(species));
             return FALSE;
         }
     }
 
-    // Named mission Pokemon must not block their quest when Randomlocke limits
-    // the party to one slot. Store them in the PC, as regular gifts already do.
-    if ((giftId == 1 || giftId == 2) && (IsNuzlockeActive() || IsNuzlockeEasyActive()))
+    // Named gift Pokemon: store in PC when party is full
+    gSpecialVar_Result = CopyMonToPC(mon);
+    if (gSpecialVar_Result != MON_CANT_GIVE)
     {
-        gSpecialVar_Result = CopyMonToPC(mon);
-        if (gSpecialVar_Result != MON_CANT_GIVE)
-        {
-            u16 dexNum = SpeciesToNationalPokedexNum(species);
-            HandleSetPokedexFlag(dexNum, FLAG_SET_SEEN, personality);
-            HandleSetPokedexFlag(dexNum, FLAG_SET_CAUGHT, personality);
-        }
-        return FALSE;
+        u16 dexNum = SpeciesToNationalPokedexNum(species);
+        HandleSetPokedexFlag(dexNum, FLAG_SET_SEEN, personality);
+        HandleSetPokedexFlag(dexNum, FLAG_SET_CAUGHT, personality);
+        VarSet(VAR_TEMP_TRANSFERRED_SPECIES, species);
+        StringCopy(gStringVar1, GetSpeciesName(species));
     }
-
-    gSpecialVar_Result = MON_CANT_GIVE;
     return FALSE;
 }
 
