@@ -1163,6 +1163,9 @@ static void CreateLearnableMovesList(void)
 
     GetBoxMonData(boxmon, MON_DATA_NICKNAME, gStringVar1);
 
+    if (sMoveRelearnerStruct->numMenuChoices > MAX_RELEARNER_MOVES)
+        sMoveRelearnerStruct->numMenuChoices = MAX_RELEARNER_MOVES;
+
     sMoveRelearnerStruct->menuItems[sMoveRelearnerStruct->numMenuChoices].name = gText_Cancel;
     sMoveRelearnerStruct->menuItems[sMoveRelearnerStruct->numMenuChoices].id = LIST_CANCEL;
     sMoveRelearnerStruct->numMenuChoices++;
@@ -1298,7 +1301,7 @@ static u32 GetRelearnerLevelUpMoves(struct BoxPokemon *mon, u16 *moves)
                 if (move == moves[j])
                     alreadyInList = TRUE;
             }
-            if (!alreadyInList)
+            if (!alreadyInList && numMoves < MAX_RELEARNER_MOVES)
                 moves[numMoves++] = move;
         }
 
@@ -1332,7 +1335,7 @@ static u32 GetRelearnerEggMoves(struct BoxPokemon *mon, u16 *moves)
 
     for (u32 i = 0; eggMoves[i] != MOVE_UNAVAILABLE; i++)
     {
-        if (!BoxMonKnowsMove(mon, eggMoves[i]))
+        if (!BoxMonKnowsMove(mon, eggMoves[i]) && numMoves < MAX_RELEARNER_MOVES)
             moves[numMoves++] = eggMoves[i];
     }
 
@@ -1368,7 +1371,7 @@ static u32 GetRelearnerTMMoves(struct BoxPokemon *mon, u16 *moves)
         if (!CanLearnTeachableMove(species, move))
             continue;
 
-        if (!BoxMonKnowsMove(mon, move))
+        if (!BoxMonKnowsMove(mon, move) && numMoves < MAX_RELEARNER_MOVES)
             moves[numMoves++] = move;
     }
 
@@ -1397,7 +1400,7 @@ static u32 GetRelearnerTutorMoves(struct BoxPokemon *mon, u16 *moves)
         if (!CanLearnTeachableMove(species, move))
             continue;
 
-        if (!BoxMonKnowsMove(mon, move))
+        if (!BoxMonKnowsMove(mon, move) && numMoves < MAX_RELEARNER_MOVES)
             moves[numMoves++] = move;
     }
 

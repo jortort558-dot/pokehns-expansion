@@ -1435,8 +1435,10 @@
 #define FLAG_VISITED_SAFFRON_CITY                   (SYS_FLAGS + 0xA7)
 #define FLAG_VISITED_FUCHSIA_CITY                   (SYS_FLAGS + 0xA8)
 #define FLAG_VISITED_CINNABAR_ISLAND                (SYS_FLAGS + 0xA9)
+#define FLAG_RECEIVED_BLUE_ORB_HNS                  (SYS_FLAGS + 0xAA)
+#define FLAG_RECEIVED_RED_ORB_HNS                   (SYS_FLAGS + 0xAB)
 
-#define HNS_SYS_FLAGS_END                           (SYS_FLAGS + 0xA9)
+#define HNS_SYS_FLAGS_END                           (SYS_FLAGS + 0xAB)
 
 // Daily flags
 #define DAILY_FLAGS_START                            0x910
