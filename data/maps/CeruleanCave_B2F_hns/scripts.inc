@@ -11,6 +11,7 @@ CeruleanCave3_EventScript_MewtwoNew::
 waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, CeruleanCave3_EventScript_MewtwoRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, CeruleanCave3_EventScript_MewtwoRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_CERULEANCAVE_MEWTWO
 	setflag FLAG_HIDE_MEWTWO
@@ -19,6 +20,12 @@ waitstate
 	end
 
 CeruleanCave3_EventScript_MewtwoRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_CERULEANCAVE_MEWTWO
+	setflag FLAG_HIDE_MEWTWO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_MEWTWO
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

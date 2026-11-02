@@ -210,7 +210,18 @@ VermilionCity_EventScript_SnorlaxWakeUp::
     end
 
 VermilionCity_EventScript_SnorlaxRan::
+    fadescreenswapbuffers FADE_TO_BLACK
+    removeobject LOCALID_VERMILION_SNORLAX
+    removeobject 8
+    removeobject 9
+    removeobject 10
+    removeobject 11
+    setflag FLAG_HIDE_VERMILION_SNORLAX
+    fadescreenswapbuffers FADE_FROM_BLACK
+    setflag FLAG_INDIGOJUNCTION_HIDE_KANTO_GUARD
     fadedefaultbgm
+    bufferspeciesname STR_VAR_1, SPECIES_SNORLAX
+    msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
     release
     end
 

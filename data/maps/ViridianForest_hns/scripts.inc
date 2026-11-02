@@ -258,6 +258,12 @@ ViridianForest_EventScript_SpikyEaredPichu::
 	end
 
 ViridianForest_EventScript_SpikyEaredPichuRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_VIRIDIAN_FOREST_PICHU
+	setflag FLAG_HIDE_VIRIDIAN_FOREST_SPIKY_EARED_PICHU
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_PICHU_SPIKY_EARED
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

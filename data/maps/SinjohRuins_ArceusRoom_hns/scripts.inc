@@ -313,6 +313,12 @@ SinjohRuins_ArceusRoom_EventScript_ArceusPhase2::
 	end
 
 SinjohRuins_ArceusRoom_EventScript_ArceusRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_SINJOHRUINS_ARCEUSROOM_ARCEUS
+	setflag FLAG_HIDE_SINJOHRUINS_ARCEUSROOM_ARCEUS
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_ARCEUS
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

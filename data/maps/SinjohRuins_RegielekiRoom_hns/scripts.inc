@@ -11,6 +11,7 @@ SinjohRuins_RegielekiRoom_EventScript_Regieleki::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SinjohRuins_RegielekiRoom_EventScript_RegielekiRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SinjohRuins_RegielekiRoom_EventScript_RegielekiRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_SINJOHRUINS_REGIELEKI
 	setflag FLAG_HIDE_SINJOHRUINS_REGIELEKI
@@ -19,5 +20,11 @@ SinjohRuins_RegielekiRoom_EventScript_Regieleki::
 	end
 
 SinjohRuins_RegielekiRoom_EventScript_RegielekiRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_SINJOHRUINS_REGIELEKI
+	setflag FLAG_HIDE_SINJOHRUINS_REGIELEKI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_REGIELEKI
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end

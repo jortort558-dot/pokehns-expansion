@@ -287,6 +287,8 @@ IlexForest_EventScript_Celebi_Event::
 	special BattleSetup_StartLegendaryBattle
 waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, IlexForest_EventScript_CelebiRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, IlexForest_EventScript_CelebiRan
 	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_Shrine_Caught
 	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_Shrine_Caught
 	fadescreenswapbuffers FADE_TO_BLACK
@@ -294,6 +296,14 @@ waitstate
 	setflag FLAG_HIDE_CELEBI
 	special GivePartyMonNationalRibbon
 	fadescreenswapbuffers FADE_FROM_BLACK
+IlexForest_EventScript_CelebiRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_ILEX_FOREST_CELEBI
+	setflag FLAG_HIDE_CELEBI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_CELEBI
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
+	goto IlexForest_EventScript_Kurt
 IlexForest_EventScript_Kurt::
 	clearflag FLAG_HIDE_ILEX_FOREST_KURT
 	addobject LOCALID_ILEX_FOREST_KURT
@@ -331,6 +341,7 @@ IlexForest_EventScript_SecondCelebi::
 waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, IlexForest_EventScript_SecondCelebiRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, IlexForest_EventScript_SecondCelebiRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_ILEX_FOREST_SECOND_CELEBI
 	setflag FLAG_HIDE_ILEX_FOREST_SECOND_CELEBI
@@ -340,6 +351,12 @@ waitstate
 	end
 
 IlexForest_EventScript_SecondCelebiRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_ILEX_FOREST_SECOND_CELEBI
+	setflag FLAG_HIDE_ILEX_FOREST_SECOND_CELEBI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_CELEBI
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

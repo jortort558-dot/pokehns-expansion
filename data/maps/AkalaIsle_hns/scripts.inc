@@ -355,9 +355,13 @@ Alola_Akala_BattleVsTapuLele::
 	goto_if_eq Alola_Akala_BattleVsTapuLele_2
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq Alola_Akala_BattleVsTapuLele_3
-	release
-	end
-
+	setflag FLAG_HIDE_TAPU_LELE
+	setflag FLAG_BATTLED_TAPU_LELE
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject Akala_Tapu
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_TAPU_LELE
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

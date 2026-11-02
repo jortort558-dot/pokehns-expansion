@@ -235,6 +235,7 @@ Route25_EventScript_Suicune::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route25_EventScript_SuicuneRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route25_EventScript_SuicuneRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_ROUTE25_SUICUNE
 	setflag FLAG_HIDE_ROUTE25_SUICUNE
@@ -257,6 +258,12 @@ Route25_EventScript_Suicune::
 	end
 
 Route25_EventScript_SuicuneRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_ROUTE25_SUICUNE
+	setflag FLAG_HIDE_ROUTE25_SUICUNE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_SUICUNE
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

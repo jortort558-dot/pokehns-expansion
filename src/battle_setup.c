@@ -632,7 +632,6 @@ void BattleSetup_StartLegendaryBattle(void)
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
-    FlagSet(B_FLAG_NO_RUNNING);
 
     switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES))
     {

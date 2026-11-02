@@ -24,6 +24,7 @@ MtSilver_1F_MoltresRoom_EventScript_Moltres::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, MtSilver_1F_MoltresRoom_EventScript_MoltresRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MtSilver_1F_MoltresRoom_EventScript_MoltresRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_MTSILVER_MOLTRES
 	setflag FLAG_HIDE_MOLTRES
@@ -32,5 +33,11 @@ MtSilver_1F_MoltresRoom_EventScript_Moltres::
 	end
 
 MtSilver_1F_MoltresRoom_EventScript_MoltresRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_MTSILVER_MOLTRES
+	setflag FLAG_HIDE_MOLTRES
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_MOLTRES
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end

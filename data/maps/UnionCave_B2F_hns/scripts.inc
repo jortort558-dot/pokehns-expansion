@@ -33,6 +33,12 @@ UnionCave_B2F_EventScript_Lapras::
 	end
 
 UnionCave_B2F_EventScript_LaprasRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_UNION_CAVE_LAPRAS
+	setflag FLAG_HIDE_UNION_CAVE_LAPRAS
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_LAPRAS
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

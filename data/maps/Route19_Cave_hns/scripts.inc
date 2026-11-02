@@ -13,6 +13,7 @@ Route19Cave_EventScript_Kyogre::
 waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route19Cave_EventScript_KyogreRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route19Cave_EventScript_KyogreRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_ROUTE19CAVEKYOGRE
 	setflag FLAG_HIDE_KYOGRE
@@ -21,5 +22,11 @@ waitstate
 	end
 
 Route19Cave_EventScript_KyogreRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_ROUTE19CAVEKYOGRE
+	setflag FLAG_HIDE_KYOGRE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_KYOGRE
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end

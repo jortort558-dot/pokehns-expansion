@@ -127,6 +127,7 @@ MtMoon_Outside_EventScript_Jirachi::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, MtMoon_Outside_EventScript_JirachiRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MtMoon_Outside_EventScript_JirachiRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_MTMOON_JIRACHI
 	setflag FLAG_HIDE_MTMOON_JIRACHI
@@ -135,6 +136,12 @@ MtMoon_Outside_EventScript_Jirachi::
 	end
 
 MtMoon_Outside_EventScript_JirachiRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_MTMOON_JIRACHI
+	setflag FLAG_HIDE_MTMOON_JIRACHI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_JIRACHI
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

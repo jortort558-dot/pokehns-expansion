@@ -337,6 +337,18 @@ LakeOfRage_Text_TalkToSilverFirst:
 	.string "mirada del GYARADOS rojo.$"
 
 LakeOfRage_EventScript_Ran_Gyarados::
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_HIDE_LAKE_OF_RAGE_GYARADOS
+	clearflag FLAG_TEMP_1
+	removeobject LOCALID_LAKEOFRAGE_GYARADOS
+	clearflag FLAG_HIDE_LAKE_OF_RAGE_LANCE
+	addobject LOCALID_LAKEOFRAGE_LANCE
+	giveitem ITEM_RED_SCALE
+	setobjectxyperm LOCALID_LAKEOFRAGE_OLDMAN, 32, 38
+	setvar VAR_MAHOGANY_TOWN_STATE, 2
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_GYARADOS
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

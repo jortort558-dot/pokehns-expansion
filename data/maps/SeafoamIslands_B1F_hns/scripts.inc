@@ -13,6 +13,7 @@ SeafoamIslands_B1F_EventScript_Articuno::
 waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SeafoamIslands_B1F_EventScript_ArticunoRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SeafoamIslands_B1F_EventScript_ArticunoRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_SEAFOAM_ARTICUNO
 	setflag FLAG_HIDE_ARTICUNO
@@ -21,6 +22,12 @@ waitstate
 	end
 
 SeafoamIslands_B1F_EventScript_ArticunoRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_SEAFOAM_ARTICUNO
+	setflag FLAG_HIDE_ARTICUNO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_ARTICUNO
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

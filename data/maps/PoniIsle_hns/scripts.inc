@@ -273,9 +273,13 @@ Alola_Poni_BattleVsTapuFini::
 	goto_if_eq Alola_Poni_BattleVsTapuFini_2
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq Alola_Poni_BattleVsTapuFini_3
-	release
-	end
-
+	setflag FLAG_HIDE_TAPU_FINI
+	setflag FLAG_BATTLED_TAPU_FINI
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject Poni_Tapu
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_TAPU_FINI
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

@@ -309,9 +309,13 @@ Alola_Ulaula_BattleVsTapuBulu::
 	goto_if_eq Alola_Ulaula_BattleVsTapuBulu_2
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq Alola_Ulaula_BattleVsTapuBulu_3
-	release
-	end
-
+	setflag FLAG_HIDE_TAPU_BULU
+	setflag FLAG_BATTLED_TAPU_BULU
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject Ulaula_Tapu
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_TAPU_BULU
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

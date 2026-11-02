@@ -61,6 +61,7 @@ Route10_EventScript_Zapdos::
 waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route10_EventScript_ZapdosRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route10_EventScript_ZapdosRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_ROUTE10_ZAPDOS
 	setflag FLAG_HIDE_ZAPDOS
@@ -69,6 +70,12 @@ waitstate
 	end
 
 Route10_EventScript_ZapdosRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_ROUTE10_ZAPDOS
+	setflag FLAG_HIDE_ZAPDOS
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_ZAPDOS
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

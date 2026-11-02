@@ -13,6 +13,7 @@ EmbeddedTower_EventScript_Rayquaza::
 waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, EmbeddedTower_EventScript_RayquazaRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, EmbeddedTower_EventScript_RayquazaRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_EMBEDDEDRAYQUAZA
 	setflag FLAG_HIDE_RAYQUAZA
@@ -21,5 +22,11 @@ waitstate
 	end
 
 EmbeddedTower_EventScript_RayquazaRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_EMBEDDEDRAYQUAZA
+	setflag FLAG_HIDE_RAYQUAZA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_RAYQUAZA
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end

@@ -132,7 +132,14 @@ Route36_EventScript_Defeated_Sudowoodo::
 	end
 
 Route36_EventScript_RanSudowoodo::
-	turnobject LOCALID_ROUTE36_SUDOWOODO, DIR_NORTH
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_HIDE_SUDOWOODO
+	removeobject LOCALID_ROUTE36_SUDOWOODO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_SUDOWOODO
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
+	checkitem ITEM_HM_ROCK_SMASH
+	call_if_eq VAR_RESULT, FALSE, Route36_EventScript_RockSmashGuySudoWoodo
 	release
 	end
 

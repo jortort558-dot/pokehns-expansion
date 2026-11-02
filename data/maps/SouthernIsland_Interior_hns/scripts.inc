@@ -22,6 +22,7 @@ SouthernIsland_Interior_hns_EventScript_Latios::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SouthernIsland_Interior_hns_EventScript_LatiosRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SouthernIsland_Interior_hns_EventScript_LatiosRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_SOUTHERN_ISLAND_INTERIOR_HNS_LATIOS
 	setflag FLAG_HIDE_LATIOS
@@ -30,6 +31,12 @@ SouthernIsland_Interior_hns_EventScript_Latios::
 	end
 
 SouthernIsland_Interior_hns_EventScript_LatiosRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_SOUTHERN_ISLAND_INTERIOR_HNS_LATIOS
+	setflag FLAG_HIDE_LATIOS
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_LATIOS
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 
@@ -44,6 +51,7 @@ SouthernIsland_Interior_hns_EventScript_Latias::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SouthernIsland_Interior_hns_EventScript_LatiasRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SouthernIsland_Interior_hns_EventScript_LatiasRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_SOUTHERN_ISLAND_INTERIOR_HNS_LATIAS
 	setflag FLAG_HIDE_LATIAS
@@ -52,5 +60,11 @@ SouthernIsland_Interior_hns_EventScript_Latias::
 	end
 
 SouthernIsland_Interior_hns_EventScript_LatiasRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_SOUTHERN_ISLAND_INTERIOR_HNS_LATIAS
+	setflag FLAG_HIDE_LATIAS
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_LATIAS
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end

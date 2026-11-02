@@ -487,9 +487,13 @@ Alola_Melemele_BattleVsTapuKoko::
 	goto_if_eq Alola_Melemele_BattleVsTapuKoko_2
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq Alola_Melemele_BattleVsTapuKoko_3
-	release
-	end
-
+	setflag FLAG_HIDE_TAPU_KOKO
+	setflag FLAG_BATTLED_TAPU_KOKO
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject Melemele_Tapu
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_TAPU_KOKO
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 

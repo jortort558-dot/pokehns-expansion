@@ -11,6 +11,7 @@ SinjohRuins_RegisteelRoom_EventScript_Registeel::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SinjohRuins_RegisteelRoom_EventScript_RegisteelRan
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SinjohRuins_RegisteelRoom_EventScript_RegisteelRan
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_SINJOHRUINS_REGISTEEL
 	setflag FLAG_HIDE_SINJOHRUINS_REGISTEEL
@@ -19,5 +20,11 @@ SinjohRuins_RegisteelRoom_EventScript_Registeel::
 	end
 
 SinjohRuins_RegisteelRoom_EventScript_RegisteelRan::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_SINJOHRUINS_REGISTEEL
+	setflag FLAG_HIDE_SINJOHRUINS_REGISTEEL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, SPECIES_REGISTEEL
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end

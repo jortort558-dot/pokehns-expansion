@@ -239,6 +239,7 @@ TinTower_RoofDay_EventScript_CaughtHooh::
 	return
 
 TinTower_RoofDay_EventScript_RanFromHoOh::
+	call TinTower_RoofDay_EventScript_HoohFlewAway
 	releaseall
 	end
 

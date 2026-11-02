@@ -278,6 +278,7 @@ WhirlIslands_LugiaChamber_EventScript_CaughtLugia::
 	return
 
 WhirlIslands_LugiaChamber_EventScript_RanFromLugia::
+	call WhirlIslands_LugiaChamber_EventScript_LugiaFlewAway
 	releaseall
 	end
 
