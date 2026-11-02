@@ -164,7 +164,13 @@ void CreateScriptedWildMon(u16 species, u8 level, enum Item item)
 
     #if RANDOMIZER_AVAILABLE
     if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON) && !FlagGet(FLAG_SPARRING_NO_EVS))
-        species = RandomizeMon(RANDOMIZER_REASON_FIXED_ENCOUNTER, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);
+    {
+        u8 localId = (gSelectedObjectEvent != 0) ? gObjectEvents[gSelectedObjectEvent].localId : gSpecialVar_LastTalked;
+        species = RandomizeFixedEncounterMon(species,
+            gSaveBlock1Ptr->location.mapNum,
+            gSaveBlock1Ptr->location.mapGroup,
+            localId);
+    }
     #endif
 
     ZeroEnemyPartyMons();

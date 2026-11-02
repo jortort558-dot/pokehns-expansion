@@ -115,7 +115,9 @@ enum {
     MENU_CATALOG_FRIDGE,
     MENU_CATALOG_FAN,
     MENU_CATALOG_MOWER,
-    MENU_CHANGE_FORM,
+    MENU_ZYGARDE_10,
+    MENU_ZYGARDE_50,
+    MENU_ZYGARDE_COMPLETE,
     MENU_CHANGE_ABILITY,
     MENU_PKMN_FOLLOWER,
     MENU_EVOLVE,
@@ -507,7 +509,9 @@ static void CursorCb_CatalogWashing(u8);
 static void CursorCb_CatalogFridge(u8);
 static void CursorCb_CatalogFan(u8);
 static void CursorCb_CatalogMower(u8);
-static void CursorCb_ChangeForm(u8);
+static void CursorCb_Zygarde10(u8);
+static void CursorCb_Zygarde50(u8);
+static void CursorCb_ZygardeComplete(u8);
 static void CursorCb_ChangeAbility(u8);
 static void CursorCb_PkmnFollower(u8);
 void TryItemHoldFormChange(struct Pokemon *mon, s8 slotId);
@@ -7361,15 +7365,27 @@ void ItemUseCB_PokeBall(u8 taskId, TaskFunc task)
     }
 }
 
-static void CursorCb_ChangeForm(u8 taskId)
+static void CursorCb_Zygarde10(u8 taskId)
 {
     gSpecialVar_Result = 0;
     TryMultichoiceFormChange(taskId);
 }
 
-static void CursorCb_ChangeAbility(u8 taskId)
+static void CursorCb_Zygarde50(u8 taskId)
 {
     gSpecialVar_Result = 1;
+    TryMultichoiceFormChange(taskId);
+}
+
+static void CursorCb_ZygardeComplete(u8 taskId)
+{
+    gSpecialVar_Result = 2;
+    TryMultichoiceFormChange(taskId);
+}
+
+static void CursorCb_ChangeAbility(u8 taskId)
+{
+    gSpecialVar_Result = 3;
     TryMultichoiceFormChange(taskId);
 }
 

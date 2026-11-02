@@ -550,7 +550,7 @@ bool32 TryRunFromBattle(enum BattlerId battler)
     u8 speedVar;
 
     // If this flag is set, running will never be successful under any circumstances.
-    if (FlagGet(B_FLAG_NO_RUNNING))
+    if (FlagGet(B_FLAG_NO_RUNNING) || (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY))
         return effect;
 
     if (gBattleMons[battler].item == ITEM_ENIGMA_BERRY_E_READER)
@@ -8857,13 +8857,17 @@ bool32 TryBattleFormChange(enum BattlerId battler, enum FormChanges method, enum
     struct PartyState *battlePartyState = GetBattlerPartyState(battler);
     // If the battle ends, and there's not a specified species to change back to,
     // use the species at the start of the battle.
-    if (targetSpecies == SPECIES_NONE
-        && battlePartyState != NULL && battlePartyState->changedSpecies != SPECIES_NONE
-        // This is added to prevent FORM_CHANGE_END_BATTLE_ENVIRONMENT from omitting move changes
-        // at the end of the battle, as it was being counting as a successful form change.
-        && (method == FORM_CHANGE_END_BATTLE || method == FORM_CHANGE_FAINT))
+    if (targetSpecies == SPECIES_NONE)
     {
-        targetSpecies = battlePartyState->changedSpecies;
+        if (battlePartyState != NULL && battlePartyState->changedSpecies != SPECIES_NONE
+            && (method == FORM_CHANGE_END_BATTLE || method == FORM_CHANGE_FAINT))
+        {
+            targetSpecies = battlePartyState->changedSpecies;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
     assertf(targetSpecies != SPECIES_NONE, "form change target returned NONE. cur:%d, method:%d", currentSpecies, method)

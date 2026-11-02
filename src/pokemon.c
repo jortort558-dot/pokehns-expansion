@@ -3678,7 +3678,13 @@ void CreateEnemyEventMon(void)
 
     #if RANDOMIZER_AVAILABLE
     if (RandomizerFeatureEnabled(RANDOMIZE_FIXED_MON))
-        species = RandomizeMon(RANDOMIZER_REASON_FIXED_ENCOUNTER, GetRandomizerOption(RANDOMIZER_OPTION_SPECIES_MODE), Random32(), species);
+    {
+        u8 localId = (gSelectedObjectEvent != 0) ? gObjectEvents[gSelectedObjectEvent].localId : gSpecialVar_LastTalked;
+        species = RandomizeFixedEncounterMon(species,
+            gSaveBlock1Ptr->location.mapNum,
+            gSaveBlock1Ptr->location.mapGroup,
+            localId);
+    }
     #endif
 
     ZeroEnemyPartyMons();
@@ -9393,13 +9399,17 @@ bool32 TryFormChange(struct Pokemon *mon, enum FormChanges method)
     struct PartyState *battlePartyState = GetBattlerPartyStateByPokemon(mon);
     // If the battle ends, and there's not a specified species to change back to,
     // use the species at the start of the battle.
-    if (targetSpecies == SPECIES_NONE
-        && battlePartyState != NULL && battlePartyState->changedSpecies != SPECIES_NONE
-        // This is added to prevent FORM_CHANGE_END_BATTLE_ENVIRONMENT from omitting move changes
-        // at the end of the battle, as it was being counting as a successful form change.
-        && (method == FORM_CHANGE_END_BATTLE || method == FORM_CHANGE_FAINT))
+    if (targetSpecies == SPECIES_NONE)
     {
-        targetSpecies = battlePartyState->changedSpecies;
+        if (battlePartyState != NULL && battlePartyState->changedSpecies != SPECIES_NONE
+            && (method == FORM_CHANGE_END_BATTLE || method == FORM_CHANGE_FAINT))
+        {
+            targetSpecies = battlePartyState->changedSpecies;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
     assertf(targetSpecies != SPECIES_NONE, "form change target returned NONE. cur:%d, method:%d", currentSpecies, method)
