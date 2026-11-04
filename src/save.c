@@ -1163,6 +1163,12 @@ u8 LoadGameSave(u8 saveType)
         NuzlockeGraveyard_CheckAndApplyOnLoad();
         gSaveBlock1Ptr->saveVersion = 19;
     }
+    if (gSaveBlock1Ptr->saveVersion < 20)
+    {
+        FlagClear(FLAG_NO_WILD_RUNNING);
+        FlagClear(FLAG_NO_WILD_CATCHING);
+        gSaveBlock1Ptr->saveVersion = 20;
+    }
 
     if (saveType == SAVE_NORMAL && status == SAVE_STATUS_OK)
     {

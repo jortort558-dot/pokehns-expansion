@@ -410,6 +410,7 @@ static void DoStandardWildBattle(bool32 isDouble)
     StopPlayerAvatar();
     gMain.savedCallback = CB2_EndWildBattle;
     gBattleTypeFlags = 0;
+    FlagClear(B_FLAG_NO_RUNNING);
     if (IsNPCFollowerWildBattle())
     {
         gBattleTypeFlags |= BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_DOUBLE;
@@ -435,6 +436,7 @@ void DoStandardWildBattle_Debug(void)
     StopPlayerAvatar();
     gMain.savedCallback = CB2_EndWildBattle;
     gBattleTypeFlags = 0;
+    FlagClear(B_FLAG_NO_RUNNING);
     if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)
     {
         VarSet(VAR_TEMP_PLAYING_PYRAMID_MUSIC, 0);
@@ -756,6 +758,9 @@ static void CB2_EndWildBattle(void)
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
 
+    FlagClear(B_FLAG_NO_RUNNING);
+    FlagClear(B_FLAG_NO_CATCHING);
+
     if (IsNPCFollowerWildBattle())
     {
         RestorePartyAfterFollowerNPCBattle();
@@ -781,6 +786,9 @@ static void CB2_EndScriptedWildBattle(void)
 {
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
+
+    FlagClear(B_FLAG_NO_RUNNING);
+    FlagClear(B_FLAG_NO_CATCHING);
 
     if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
