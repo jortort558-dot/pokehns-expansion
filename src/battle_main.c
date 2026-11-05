@@ -2069,6 +2069,9 @@ static u8 GetPlayerPartyMaxLevel(void)
 
 static bool32 IsTrainerExemptFromScaling(u16 trainerId, u8 trainerClass)
 {
+    if (trainerId == TRAINER_RED_HNS || trainerId == TRAINER_RED_POSTOBC_HNS)
+        return TRUE;
+
     switch (trainerClass)
     {
     case TRAINER_CLASS_LEADER:
@@ -2219,9 +2222,10 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
 
         u32 currentCap = GetCurrentLevelCap();
         u32 previousCap = GetPreviousLevelCap();
+        bool32 isPostKanto = FlagGet(FLAG_IS_KANTO_CHAMPION);
         bool32 isKantoProgression = gSaveBlock3Ptr->challengeSettings.tx_Challenges_LevelCap != 0
                                  && FlagGet(FLAG_IS_CHAMPION)
-                                 && !FlagGet(FLAG_IS_KANTO_CHAMPION);
+                                 && !isPostKanto;
         bool32 isKantoLeader = isKantoProgression && IsKantoLeaderClass(trainer->trainerClass);
         bool32 isKantoGymTrainer = isKantoProgression && IsCurrentMapKantoGym();
         bool32 isRosa = IsRosaChallengeTrainer(trainerId);
@@ -2232,6 +2236,11 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         {
             canScale = TRUE;
             targetMaxLevel = (s32)GetPlayerPartyMaxLevel();
+        }
+        else if (isPostKanto)
+        {
+            canScale = !IsTrainerExemptFromScaling(trainerId, trainer->trainerClass);
+            targetMaxLevel = (s32)GetPlayerPartyMaxLevel() - 5;
         }
         else if (isKantoProgression)
         {

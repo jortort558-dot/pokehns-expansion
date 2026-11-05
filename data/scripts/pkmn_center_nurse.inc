@@ -90,7 +90,6 @@ EventScript_PkmnCenterNurse_CheckTrainerHillAndUnionRoom::
 
 @ VAR_0x8004 is 1 when player has Gold Card
 EventScript_PkmnCenterNurse_ReturnPkmn::
-	special SaveFullGameSilent
 	goto_if_eq VAR_0x8004, 1, EventScript_PkmnCenterNurse_ReturnPkmn2
 	message gText_RestoredPkmnToFullHealth
 	waitmessage
@@ -178,6 +177,7 @@ EventScript_PkmnCenterNurse_PlayerTurn::
 	callnative UpdateFollowingPokemon
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 	waitmovement 0
+	special SaveFullGameSilent
 	release
 	end
 
