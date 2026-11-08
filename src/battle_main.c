@@ -6277,7 +6277,8 @@ static void HandleEndTurn_FinishBattle(void)
                 // rule, so a catch there must not burn the zone either.
                 if (!NuzlockeIsSpeciesClauseActive && !OneTypeChallengeCaptureBlocked
                  && !IsScriptedWildBattle()
-                 && !IsNuzlockeCaptureSuspended())
+                 && !IsNuzlockeCaptureSuspended()
+                 && !GetMonData(&gEnemyParty[0], MON_DATA_MODERN_FATEFUL_ENCOUNTER, NULL))
                 {
                     if (gBattleOutcome != B_OUTCOME_CAUGHT)
                     {

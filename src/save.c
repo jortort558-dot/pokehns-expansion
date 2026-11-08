@@ -1170,6 +1170,15 @@ u8 LoadGameSave(u8 saveType)
         FlagClear(FLAG_NO_WILD_CATCHING);
         gSaveBlock1Ptr->saveVersion = 20;
     }
+    if (gSaveBlock1Ptr->saveVersion < 21)
+    {
+#if IS_HNS
+        // El estático de Islas Espuma (Articuno) consumía la ruta indebidamente en partidas previas.
+        NuzlockeFlagClear(MAPSEC_SEAFOAM_ISLANDS);
+        GymTokenClearEncounterState(MAPSEC_SEAFOAM_ISLANDS);
+#endif
+        gSaveBlock1Ptr->saveVersion = 21;
+    }
 
     if (saveType == SAVE_NORMAL && status == SAVE_STATUS_OK)
     {

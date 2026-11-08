@@ -401,7 +401,8 @@ void SyncNuzlockeCaughtRoutes(void)
         struct Pokemon *mon = &gPlayerParty[i];
         if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && !GetMonData(mon, MON_DATA_IS_EGG))
         {
-            if (!GetMonData(mon, MON_DATA_GIFT_ORIGIN))
+            if (!GetMonData(mon, MON_DATA_GIFT_ORIGIN)
+             && !GetMonData(mon, MON_DATA_MODERN_FATEFUL_ENCOUNTER, NULL))
             {
                 u16 mapsec = GetMonData(mon, MON_DATA_MET_LOCATION);
                 if (IsNuzlockeEncounterArea(mapsec))
@@ -419,7 +420,8 @@ void SyncNuzlockeCaughtRoutes(void)
                 struct BoxPokemon *boxMon = &gPokemonStoragePtr->boxes[box][slot];
                 if (GetBoxMonData(boxMon, MON_DATA_SPECIES) != SPECIES_NONE && !GetBoxMonData(boxMon, MON_DATA_IS_EGG))
                 {
-                    if (!GetBoxMonData(boxMon, MON_DATA_GIFT_ORIGIN))
+                    if (!GetBoxMonData(boxMon, MON_DATA_GIFT_ORIGIN)
+                     && !GetBoxMonData(boxMon, MON_DATA_MODERN_FATEFUL_ENCOUNTER))
                     {
                         u16 mapsec = GetBoxMonData(boxMon, MON_DATA_MET_LOCATION);
                         if (IsNuzlockeEncounterArea(mapsec))
