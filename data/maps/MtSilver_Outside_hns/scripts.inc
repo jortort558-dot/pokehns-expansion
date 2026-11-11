@@ -19,8 +19,8 @@ MtSilver_Outside_EventScript_HideAvatarOrigen::
 MtSilver_Outside_EventScript_CheckPapis::
 	goto_if_unset FLAG_JOHTO_AVATAR_ORIGIN_DEFEATED, MtSilver_Outside_EventScript_HidePapis
 	goto_if_set FLAG_JOHTO_LOS_PAPIS_DEFEATED, MtSilver_Outside_EventScript_HidePapis
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SCIENTIST_M_HNS
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SCIENTIST_F_HNS
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_GENTLEMAN_HNS
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_WOMAN_1_HNS
 	clearflag FLAG_HIDE_JOHTO_LOS_PAPIS
 	return
 MtSilver_Outside_EventScript_HidePapis::
@@ -85,6 +85,10 @@ MtSilver_Outside_EventScript_SceneLosPapis::
 	msgbox MtSilver_Outside_Text_PapisHeal, MSGBOX_DEFAULT
 	closemessage
 	trainerbattle_no_intro TRAINER_LOS_PAPIS_HNS, MtSilver_Outside_Text_PapisDefeat
+	goto MtSilver_Outside_EventScript_PapisDefeated
+	end
+
+MtSilver_Outside_EventScript_PapisDefeated::
 	setflag FLAG_JOHTO_LOS_PAPIS_DEFEATED
 	msgbox MtSilver_Outside_Text_PapisAfter, MSGBOX_DEFAULT
 	closemessage
@@ -101,14 +105,49 @@ MtSilver_Outside_EventScript_SceneLosPapis::
 MtSilver_Outside_EventScript_Giuseppe::
 	lock
 	faceplayer
-	msgbox MtSilver_Outside_Text_GiuseppeStandalone, MSGBOX_DEFAULT
+	msgbox MtSilver_Outside_Text_GiuseppeRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MtSilver_Outside_EventScript_GiuseppeDecline
+	special HasEnoughMonsForDoubleBattle
+	goto_if_ne VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS, MtSilver_Outside_EventScript_PapisNeedTwoMons
+	msgbox MtSilver_Outside_Text_GiuseppeAccept, MSGBOX_DEFAULT
+	closemessage
+	special HealPlayerParty
+	playse SE_USE_ITEM
+	waitse
+	playbgm MUS_HG_VS_CHAMPION, FALSE
+	trainerbattle_no_intro TRAINER_LOS_PAPIS_HNS, MtSilver_Outside_Text_PapisDefeat
+	goto MtSilver_Outside_EventScript_PapisDefeated
+	end
+
+MtSilver_Outside_EventScript_GiuseppeDecline::
+	msgbox MtSilver_Outside_Text_GiuseppeDecline, MSGBOX_DEFAULT
 	release
 	end
 
 MtSilver_Outside_EventScript_Pilarito::
 	lock
 	faceplayer
+	msgbox MtSilver_Outside_Text_PilaritoRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MtSilver_Outside_EventScript_PilaritoDecline
+	special HasEnoughMonsForDoubleBattle
+	goto_if_ne VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS, MtSilver_Outside_EventScript_PapisNeedTwoMons
+	msgbox MtSilver_Outside_Text_PilaritoAccept, MSGBOX_DEFAULT
+	closemessage
+	special HealPlayerParty
+	playse SE_USE_ITEM
+	waitse
+	playbgm MUS_HG_VS_CHAMPION, FALSE
+	trainerbattle_no_intro TRAINER_LOS_PAPIS_HNS, MtSilver_Outside_Text_PapisDefeat
+	goto MtSilver_Outside_EventScript_PapisDefeated
+	end
+
+MtSilver_Outside_EventScript_PilaritoDecline::
 	msgbox MtSilver_Outside_Text_PilaritoStandalone, MSGBOX_DEFAULT
+	release
+	end
+
+MtSilver_Outside_EventScript_PapisNeedTwoMons::
+	msgbox MtSilver_Outside_Text_PapisNeedTwoMons, MSGBOX_DEFAULT
 	release
 	end
 
@@ -193,6 +232,35 @@ MtSilver_Outside_Text_GiuseppeStandalone:
 	.string "GIUSEPPE: El poder del ATLAS\n"
 	.string "supera cualquier cálculo.$"
 
+MtSilver_Outside_Text_GiuseppeRematchAsk:
+	.string "GIUSEPPE: El poder del ATLAS\n"
+	.string "supera cualquier cálculo.\p"
+	.string "¿Has replanteado tu estrategia?\n"
+	.string "¿Quieres volver a combatir?$"
+
+MtSilver_Outside_Text_GiuseppeDecline:
+	.string "GIUSEPPE: Tómate tu tiempo.\n"
+	.string "El ATLAS no irá a ninguna parte.$"
+
+MtSilver_Outside_Text_GiuseppeAccept:
+	.string "GIUSEPPE: No queremos excusas.\n"
+	.string "Comprobemos tu determinación.$"
+
+MtSilver_Outside_Text_PilaritoRematchAsk:
+	.string "PILARITO: ¿Qué pasa, chavalote?\n"
+	.string "¿Vienes a por la revancha?\p"
+	.string "¡Los PAPIS estamos listos!\n"
+	.string "¿Quieres volver a combatir?$"
+
 MtSilver_Outside_Text_PilaritoStandalone:
 	.string "PILARITO: ¡Acepta el reto cuando\n"
 	.string "estés preparado!$"
+
+MtSilver_Outside_Text_PilaritoAccept:
+	.string "PILARITO: ¡Esa es la actitud!\n"
+	.string "¡Que empiece la función!$"
+
+MtSilver_Outside_Text_PapisNeedTwoMons:
+	.string "PILARITO: ¡Esto es un combate\n"
+	.string "doble! Necesitas al menos dos\l"
+	.string "POKéMON listos para luchar.$"
