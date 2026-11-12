@@ -17,6 +17,7 @@ struct Quest
 };
 
 void Quest_InitSaveData(void);
+void Quest_SyncWithSave(void);
 void Quest_Start(u16 questId);
 void Quest_SetStage(u16 questId, u8 stage);
 void Quest_Complete(u16 questId);
@@ -37,6 +38,7 @@ void Special_QuestComplete(void);
 void Special_QuestGetStatus(void);
 void Special_QuestHasAny(void);
 void Special_BufferQuestTitle(void);
+void Special_SyncQuestsWithSave(void);
 
 #endif // GUARD_QUESTS_H
 

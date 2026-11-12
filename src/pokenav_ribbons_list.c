@@ -745,7 +745,11 @@ static void CreateRibbonMonsList(void)
     template.listTop = 1;
     template.maxShowed = 8;
     template.fillValue = 2;
+#if IS_HNS
+    template.fontId = FONT_SMALL;
+#else
     template.fontId = FONT_NORMAL;
+#endif
     template.bufferItemFunc = BufferRibbonMonInfoText;
     template.iconDrawFunc = NULL;
     CreatePokenavList(&sMonRibbonListBgTemplates[1], &template, 0);
@@ -757,7 +761,7 @@ static void BufferRibbonMonInfoText(struct PokenavListItem *listItem, u8 *dest)
 #if IS_HNS
     struct PokenavMonListItem *item = (struct PokenavMonListItem *)listItem;
     const struct Quest *q = Quest_GetQuestData(item->boxId);
-    u8 statusStr[16];
+    u8 statusStr[24];
 
     if (q == NULL)
     {
@@ -765,12 +769,12 @@ static void BufferRibbonMonInfoText(struct PokenavListItem *listItem, u8 *dest)
         return;
     }
 
-    dest = GetStringClearToWidth(dest, FONT_NORMAL, q->title, 82);
+    dest = GetStringClearToWidth(dest, FONT_SMALL, q->title, 84);
 
     if (item->monId == 0) // Activa
-        StringCopy(statusStr, COMPOUND_STRING("{COLOR BLUE}ACTIVA"));
+        StringCopy(statusStr, COMPOUND_STRING("{TEXT_COLORS 5 6 0}ACTIVA"));
     else
-        StringCopy(statusStr, COMPOUND_STRING("{COLOR GREEN}HECHA"));
+        StringCopy(statusStr, COMPOUND_STRING("{TEXT_COLORS 1 3 0}HECHA"));
 
     StringCopy(dest, statusStr);
 #else

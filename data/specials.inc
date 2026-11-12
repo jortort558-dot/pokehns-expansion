@@ -771,3 +771,4 @@ gSpecials::
 	def_special Special_QuestGetStatus
 	def_special Special_QuestHasAny
 	def_special Special_BufferQuestTitle
+	def_special Special_SyncQuestsWithSave

@@ -5,6 +5,8 @@
 #include "strings.h"
 #include "constants/flags_hns.h"
 #include "constants/vars_hns.h"
+#include "constants/flags.h"
+#include "constants/vars.h"
 
 static const u8 sText_QuestTitle_Manolin[] = _("El colega Manolín");
 static const u8 sText_QuestGiver_Manolin[] = _("Manolín");
@@ -12,19 +14,19 @@ static const u8 sText_QuestLoc_Manolin[]   = _("Ruta 34");
 static const u8 sText_QuestDesc_Manolin[]  = _("Manolín te ha pedido que le eches\nun cable con sus asuntos en Johto.\n¡Búscalo para ver qué trama!");
 static const u8 sText_QuestDone_Manolin[]  = _("Has cumplido el encargo de\nManolín. ¡Menuda pieza!");
 
-static const u8 sText_QuestTitle_Piedras[] = _("El Coleccionista de Rocas");
+static const u8 sText_QuestTitle_Piedras[] = _("Rocas de El Piedras");
 static const u8 sText_QuestGiver_Piedras[] = _("El Piedras");
 static const u8 sText_QuestLoc_Piedras[]   = _("Cueva Unión");
 static const u8 sText_QuestDesc_Piedras[]  = _("El Piedras busca minerales y fósiles\nraros por las cuevas de Johto.\nLlévale lo que descubras.");
 static const u8 sText_QuestDone_Piedras[]  = _("El Piedras ha quedado satisfecho\ncon las rocas que le trajiste.");
 
-static const u8 sText_QuestTitle_Mohedano[] = _("Conspiración en Kanto");
+static const u8 sText_QuestTitle_Mohedano[] = _("Prof. Mohedano");
 static const u8 sText_QuestGiver_Mohedano[] = _("Prof. Mohedano");
 static const u8 sText_QuestLoc_Mohedano[]   = _("Silph S.A. / Kanto");
 static const u8 sText_QuestDesc_Mohedano[]  = _("El Profesor Mohedano investiga\nanomalías ecológicas y células raras.\nPermanece atento a sus avisos.");
 static const u8 sText_QuestDone_Mohedano[]  = _("Has colaborado en resolver la trama\necológica del Prof. Mohedano.");
 
-static const u8 sText_QuestTitle_Magikarp[] = _("El Magikarp Gigante");
+static const u8 sText_QuestTitle_Magikarp[] = _("Magikarp Gigante");
 static const u8 sText_QuestGiver_Magikarp[] = _("Pescador");
 static const u8 sText_QuestLoc_Magikarp[]   = _("Lago de la Furia");
 static const u8 sText_QuestDesc_Magikarp[]  = _("Un pescador busca el espécimen de\nMagikarp más grande del lago.\nPesca uno enorme y enséñaselo.");
@@ -106,17 +108,82 @@ static const struct Quest sQuestsTable[QUEST_COUNT] =
     },
 };
 
+void Quest_SyncWithSave(void)
+{
+    // 1. Manolín
+    if (FlagGet(FLAG_BADGE16_GET) || FlagGet(FLAG_MANOLIN_ITEM_VERDE) || FlagGet(FLAG_MANOLIN_HEAL_VERDE))
+    {
+        gSaveBlock1Ptr->questStates[QUEST_MANOLIN_1] = QUEST_STATUS_COMPLETED;
+    }
+    else if (FlagGet(FLAG_BADGE01_GET) || FlagGet(FLAG_MANOLIN_ITEM_MALVA) || FlagGet(FLAG_MANOLIN_HEAL_MALVA))
+    {
+        if (gSaveBlock1Ptr->questStates[QUEST_MANOLIN_1] == QUEST_STATUS_UNASSIGNED)
+            gSaveBlock1Ptr->questStates[QUEST_MANOLIN_1] = QUEST_STATUS_ACTIVE;
+    }
+
+    // 2. El Piedras
+    if (FlagGet(FLAG_TALKED_EL_PIEDRAS_LAKE_OF_RAGE) || !FlagGet(FLAG_HIDE_MEGA_SHOP_EL_PIEDRAS))
+    {
+        gSaveBlock1Ptr->questStates[QUEST_EL_PIEDRAS] = QUEST_STATUS_COMPLETED;
+    }
+    else if (FlagGet(FLAG_DEFEATED_EL_PIEDRAS_GOLDENROD) || FlagGet(FLAG_HIDE_VIOLET_SCHOOL_EL_PIEDRAS) || FlagGet(FLAG_BADGE03_GET))
+    {
+        if (gSaveBlock1Ptr->questStates[QUEST_EL_PIEDRAS] == QUEST_STATUS_UNASSIGNED)
+            gSaveBlock1Ptr->questStates[QUEST_EL_PIEDRAS] = QUEST_STATUS_ACTIVE;
+    }
+
+    // 3. Prof. Mohedano
+    if (FlagGet(FLAG_MOHEDANO_STORY_COMPLETE) || FlagGet(FLAG_MOHEDANO_PALLET_FINALE_READY))
+    {
+        gSaveBlock1Ptr->questStates[QUEST_PROFESOR_MOHEDANO] = QUEST_STATUS_COMPLETED;
+    }
+    else if (FlagGet(FLAG_MOHEDANO_QUEST_STARTED) || FlagGet(FLAG_BILL_MOHEDANO_INVESTIGATION_STARTED) || FlagGet(FLAG_BADGE08_GET))
+    {
+        if (gSaveBlock1Ptr->questStates[QUEST_PROFESOR_MOHEDANO] == QUEST_STATUS_UNASSIGNED)
+            gSaveBlock1Ptr->questStates[QUEST_PROFESOR_MOHEDANO] = QUEST_STATUS_ACTIVE;
+    }
+
+    // 4. Magikarp Gigante
+    if (VarGet(VAR_LAKE_OF_RAGE_FISHERMAN) >= 2)
+    {
+        gSaveBlock1Ptr->questStates[QUEST_CONCURSO_MAGIKARP] = QUEST_STATUS_COMPLETED;
+    }
+    else if (VarGet(VAR_LAKE_OF_RAGE_FISHERMAN) >= 1 || FlagGet(FLAG_HIDE_ROCKETHIDEOUT_ROCKETS) || FlagGet(FLAG_BADGE07_GET))
+    {
+        if (gSaveBlock1Ptr->questStates[QUEST_CONCURSO_MAGIKARP] == QUEST_STATUS_UNASSIGNED)
+            gSaveBlock1Ptr->questStates[QUEST_CONCURSO_MAGIKARP] = QUEST_STATUS_ACTIVE;
+    }
+
+    // 5. Carnet Pokemitos
+    if (FlagGet(FLAG_BADGE16_GET))
+    {
+        gSaveBlock1Ptr->questStates[QUEST_CARNET_POKEMITOS] = QUEST_STATUS_COMPLETED;
+    }
+    else if (FlagGet(FLAG_BADGE01_GET) || FlagGet(FLAG_SYS_POKENAV_GET))
+    {
+        if (gSaveBlock1Ptr->questStates[QUEST_CARNET_POKEMITOS] == QUEST_STATUS_UNASSIGNED)
+            gSaveBlock1Ptr->questStates[QUEST_CARNET_POKEMITOS] = QUEST_STATUS_ACTIVE;
+    }
+
+    // 6. Expedición Malva
+    if (FlagGet(FLAG_RECEIVED_HM_FLASH) && FlagGet(FLAG_BADGE01_GET))
+    {
+        gSaveBlock1Ptr->questStates[QUEST_EXPEDICION_MALVA] = QUEST_STATUS_COMPLETED;
+    }
+    else if (FlagGet(FLAG_SYS_POKEDEX_GET) || FlagGet(FLAG_SYS_POKEMON_GET) || FlagGet(FLAG_BADGE01_GET))
+    {
+        if (gSaveBlock1Ptr->questStates[QUEST_EXPEDICION_MALVA] == QUEST_STATUS_UNASSIGNED)
+            gSaveBlock1Ptr->questStates[QUEST_EXPEDICION_MALVA] = QUEST_STATUS_ACTIVE;
+    }
+}
+
 void Quest_InitSaveData(void)
 {
     u32 i;
     for (i = 0; i < MAX_QUESTS; i++)
         gSaveBlock1Ptr->questStates[i] = QUEST_STATUS_UNASSIGNED;
 
-    // Sincronización con eventos existentes en partidas ya empezadas
-    if (FlagGet(FLAG_DEFEATED_EL_PIEDRAS_GOLDENROD))
-        gSaveBlock1Ptr->questStates[QUEST_EL_PIEDRAS] = QUEST_STATUS_ACTIVE;
-    if (FlagGet(FLAG_TALKED_EL_PIEDRAS_LAKE_OF_RAGE))
-        gSaveBlock1Ptr->questStates[QUEST_EL_PIEDRAS] = QUEST_STATUS_COMPLETED;
+    Quest_SyncWithSave();
 }
 
 const struct Quest *Quest_GetQuestData(u16 questId)
@@ -280,4 +347,9 @@ void Special_BufferQuestTitle(void)
         StringCopy(gStringVar1, q->title);
     else
         StringCopy(gStringVar1, gText_EmptyString2);
+}
+
+void Special_SyncQuestsWithSave(void)
+{
+    Quest_SyncWithSave();
 }

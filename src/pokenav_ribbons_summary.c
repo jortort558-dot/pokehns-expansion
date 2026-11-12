@@ -801,6 +801,18 @@ static u32 LoopedTask_ShrinkExpandedRibbon(s32 state)
     return LT_FINISH;
 }
 
+#if IS_HNS
+static const struct WindowTemplate sRibbonCountWindowTemplate =
+{
+    .bg = 2,
+    .tilemapLeft = 11,
+    .tilemapTop = 4,
+    .width = 17,
+    .height = 14,
+    .paletteNum = 10,
+    .baseBlock = 0x60,
+};
+#else
 static const struct WindowTemplate sRibbonCountWindowTemplate =
 {
     .bg = 2,
@@ -811,6 +823,7 @@ static const struct WindowTemplate sRibbonCountWindowTemplate =
     .paletteNum = 1,
     .baseBlock = 0x14,
 };
+#endif
 
 static void AddRibbonCountWindow(struct Pokenav_RibbonsSummaryMenu *menu)
 {
@@ -826,21 +839,35 @@ static void PrintCurrentMonRibbonCount(struct Pokenav_RibbonsSummaryMenu *menu)
     struct PokenavMonList *mons = list->monList;
     struct PokenavMonListItem *monInfo = &mons->monData[mons->currIndex];
     const struct Quest *q = Quest_GetQuestData(monInfo->boxId);
-    u8 colorHeader[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_LIGHT_GRAY};
-    u8 colorBody[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+    u8 colorText[]   = {1, 2, 3};   // Fondo 1 (marfil), texto 2 (negro), sombra 3 (gris)
+    u8 colorHeader[] = {1, 9, 10};  // Fondo 1, vino 9, sombra vino 10
+    u8 colorActive[] = {1, 5, 6};   // Fondo 1, azul 5, sombra azul 6
+    u8 colorDone[]   = {1, 7, 8};   // Fondo 1, verde 7, sombra verde 8
 
-    FillWindowPixelBuffer(menu->ribbonCountWindowId, PIXEL_FILL(4));
+    FillWindowPixelBuffer(menu->ribbonCountWindowId, PIXEL_FILL(1));
     if (q != NULL)
     {
-        StringCopy(gStringVar1, q->giver);
-        StringAppend(gStringVar1, COMPOUND_STRING(" - "));
-        StringAppend(gStringVar1, q->location);
-        AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 0, 1, colorHeader, TEXT_SKIP_DRAW, gStringVar1);
-
+        // Estado de la misión
         if (monInfo->monId == 0)
-            AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 0, 13, colorBody, TEXT_SKIP_DRAW, q->desc);
+            AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 4, 4, colorActive, TEXT_SKIP_DRAW, COMPOUND_STRING("ESTADO: EN CURSO"));
         else
-            AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 0, 13, colorBody, TEXT_SKIP_DRAW, q->descCompleted);
+            AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 4, 4, colorDone, TEXT_SKIP_DRAW, COMPOUND_STRING("ESTADO: COMPLETADA"));
+
+        // Emisor
+        StringCopy(gStringVar1, COMPOUND_STRING("Emisor: "));
+        StringAppend(gStringVar1, q->giver);
+        AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 4, 18, colorHeader, TEXT_SKIP_DRAW, gStringVar1);
+
+        // Lugar
+        StringCopy(gStringVar1, COMPOUND_STRING("Lugar:  "));
+        StringAppend(gStringVar1, q->location);
+        AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 4, 30, colorHeader, TEXT_SKIP_DRAW, gStringVar1);
+
+        // Descripción de la misión
+        if (monInfo->monId == 0)
+            AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 4, 46, colorText, TEXT_SKIP_DRAW, q->desc);
+        else
+            AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 4, 46, colorText, TEXT_SKIP_DRAW, q->descCompleted);
     }
     CopyWindowToVram(menu->ribbonCountWindowId, COPYWIN_GFX);
 #else
@@ -889,6 +916,18 @@ static void PrintRibbonNameAndDescription(struct Pokenav_RibbonsSummaryMenu *men
     CopyWindowToVram(menu->ribbonCountWindowId, COPYWIN_GFX);
 }
 
+#if IS_HNS
+static const struct WindowTemplate sRibbonSummaryMonNameWindowTemplate =
+{
+    .bg = 2,
+    .tilemapLeft = 11,
+    .tilemapTop = 1,
+    .width = 17,
+    .height = 2,
+    .paletteNum = 10,
+    .baseBlock = 0x30,
+};
+#else
 static const struct WindowTemplate sRibbonSummaryMonNameWindowTemplate =
 {
     .bg = 2,
@@ -899,6 +938,7 @@ static const struct WindowTemplate sRibbonSummaryMonNameWindowTemplate =
     .paletteNum = 10,
     .baseBlock = 0x54,
 };
+#endif
 
 static void AddRibbonSummaryMonNameWindow(struct Pokenav_RibbonsSummaryMenu *menu)
 {
@@ -919,11 +959,14 @@ static void PrintRibbbonsSummaryMonInfo(struct Pokenav_RibbonsSummaryMenu *menu)
     struct PokenavMonListItem *monInfo = &mons->monData[mons->currIndex];
     const struct Quest *q = Quest_GetQuestData(monInfo->boxId);
     u16 windowId = menu->nameWindowId;
+    u8 colorText[] = {1, 2, 3};
+    u32 x;
 
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
     if (q != NULL)
     {
-        AddTextPrinterParameterized(windowId, GetFontIdToFit(q->title, FONT_NORMAL, 0, 96), q->title, 0, 1, TEXT_SKIP_DRAW, NULL);
+        x = GetStringCenterAlignXOffset(FONT_NORMAL, q->title, 17 * 8);
+        AddTextPrinterParameterized3(windowId, FONT_NORMAL, x, 1, colorText, TEXT_SKIP_DRAW, q->title);
     }
     CopyWindowToVram(windowId, COPYWIN_GFX);
 #else
@@ -966,8 +1009,8 @@ static const struct WindowTemplate sRibbonMonListIndexWindowTemplate[] =
         .tilemapTop = 5,
         .width = 7,
         .height = 2,
-        .paletteNum = 1,
-        .baseBlock = 0x6E,
+        .paletteNum = 10,
+        .baseBlock = 0x20,
     },
     {},
 };
@@ -986,12 +1029,19 @@ static void PrintRibbonsMonListIndex(struct Pokenav_RibbonsSummaryMenu *menu)
     u8 *txtPtr;
     u32 id = GetRibbonsSummaryCurrentIndex() + 1;
     u32 count = GetRibbonsSummaryMonListCount();
+#if IS_HNS
+    u8 colorText[] = {1, 2, 3};
+#endif
 
     txtPtr = ConvertIntToDecimalStringN(gStringVar1, id, STR_CONV_MODE_RIGHT_ALIGN, 3);
     *(txtPtr++) = CHAR_SLASH;
     ConvertIntToDecimalStringN(txtPtr, count, STR_CONV_MODE_RIGHT_ALIGN, 3);
     x = GetStringCenterAlignXOffset(FONT_NORMAL, gStringVar1, 56);
+#if IS_HNS
+    AddTextPrinterParameterized3(menu->listIdxWindowId, FONT_NORMAL, x, 1, colorText, TEXT_SKIP_DRAW, gStringVar1);
+#else
     AddTextPrinterParameterized(menu->listIdxWindowId, FONT_NORMAL, gStringVar1, x, 1, TEXT_SKIP_DRAW, NULL);
+#endif
     CopyWindowToVram(menu->listIdxWindowId, COPYWIN_GFX);
 }
 
