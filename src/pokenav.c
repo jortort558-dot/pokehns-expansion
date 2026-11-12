@@ -610,7 +610,7 @@ u32 GetSelectedConditionSearch(void)
 bool32 CanViewRibbonsMenu(void)
 {
 #if IS_HNS
-    return (Quest_HasAnyQuests() || gPokenavResources->hasAnyRibbons);
+    return TRUE;
 #else
     return gPokenavResources->hasAnyRibbons;
 #endif

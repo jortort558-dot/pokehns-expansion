@@ -287,6 +287,17 @@ static u32 BuildQuestListHnS(s32 state)
         }
     }
 
+    // Si aún no tiene ninguna registrada, activamos una misión inicial para no dejar la lista vacía
+    if (list->monList->listCount == 0)
+    {
+        Quest_Start(QUEST_MANOLIN_1);
+        item.boxId = QUEST_MANOLIN_1;
+        item.monId = 0;
+        item.data = QUEST_STATUS_ACTIVE;
+        InsertMonListItem(list, &item);
+    }
+
+    list->changeBgs = 1;
     return LT_FINISH;
 }
 #endif
