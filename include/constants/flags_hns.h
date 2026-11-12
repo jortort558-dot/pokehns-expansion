@@ -1437,8 +1437,9 @@
 #define FLAG_VISITED_CINNABAR_ISLAND                (SYS_FLAGS + 0xA9)
 #define FLAG_RECEIVED_BLUE_ORB_HNS                  (SYS_FLAGS + 0xAA)
 #define FLAG_RECEIVED_RED_ORB_HNS                   (SYS_FLAGS + 0xAB)
+#define FLAG_RECEIVED_JADE_ORB_HNS                  (SYS_FLAGS + 0xAC)
 
-#define HNS_SYS_FLAGS_END                           (SYS_FLAGS + 0xAB)
+#define HNS_SYS_FLAGS_END                           (SYS_FLAGS + 0xAC)
 
 // Daily flags
 #define DAILY_FLAGS_START                            0x910

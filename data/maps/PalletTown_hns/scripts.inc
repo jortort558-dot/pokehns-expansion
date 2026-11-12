@@ -59,17 +59,15 @@ PalletTown_EventScript_CheckGroudon:
 PalletTown_EventScript_CheckRayquaza:
 	checkspecies SPECIES_RAYQUAZA
 	goto_if_eq VAR_RESULT, FALSE, PalletTown_EventScript_CheckFinished
-	msgbox PalletTown_Text_AskTeachDragonAscent, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, PalletTown_EventScript_DragonAscentDeclined
-	setvar VAR_0x8005, MOVE_DRAGON_ASCENT
-	special ChooseMonForMoveTutor
-	waitstate
-	lock
-	faceplayer
-	goto_if_eq VAR_RESULT, FALSE, PalletTown_EventScript_DragonAscentDeclined
-	msgbox PalletTown_Text_DragonAscentTaught, MSGBOX_DEFAULT
-	release
-	end
+	goto_if_set FLAG_RECEIVED_JADE_ORB_HNS, PalletTown_EventScript_CheckFinished
+	msgbox PalletTown_Text_SeenRayquazaGiveJadeOrb, MSGBOX_DEFAULT
+	checkitemspace ITEM_JADE_ORB, 1
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_JADE_ORB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_JADE_ORB_HNS
+	msgbox PalletTown_Text_JadeOrbExplain, MSGBOX_DEFAULT
+	addvar VAR_0x8008, 1
 
 PalletTown_EventScript_CheckFinished:
 	goto_if_ne VAR_0x8008, 0, PalletTown_EventScript_EndConversation
@@ -89,11 +87,6 @@ PalletTown_EventScript_PraiseLegendaries:
 	end
 
 PalletTown_EventScript_EndConversation:
-	release
-	end
-
-PalletTown_EventScript_DragonAscentDeclined:
-	msgbox PalletTown_Text_DragonAscentDeclined, MSGBOX_DEFAULT
 	release
 	end
 
@@ -134,24 +127,17 @@ PalletTown_Text_RedOrbExplain:
 	.string "Regresión Primigenia de Groudon\l"
 	.string "si lo lleva equipado en combate.$"
 
-PalletTown_Text_AskTeachDragonAscent:
-	.string "¡Increíble! El soberano de los\n"
-	.string "cielos, Rayquaza, vuela a tu lado!\p"
-	.string "Conozco el arte ancestral del\n"
-	.string "movimiento Ascenso Draco.\p"
-	.string "Con él, Rayquaza podrá alcanzar la\n"
-	.string "Megaevolución durante el combate.\p"
-	.string "¿Quieres que se lo enseñe ahora?$"
+PalletTown_Text_SeenRayquazaGiveJadeOrb:
+	.string "¡Por todos los cielos!\n"
+	.string "¡Vuelas junto al gran Rayquaza!\p"
+	.string "He custodiado esta reliquia de la\n"
+	.string "capa de ozono durante años…\p"
+	.string "Te pertenece por derecho.$"
 
-PalletTown_Text_DragonAscentTaught:
-	.string "¡Maravilloso! Rayquaza ha\n"
-	.string "dominado Ascenso Draco.\p"
-	.string "¡Su rugido rasgará los cielos\n"
-	.string "con el poder de la Megaevolución!$"
-
-PalletTown_Text_DragonAscentDeclined:
-	.string "Entiendo. Si decides que Rayquaza\n"
-	.string "aprenda Ascenso Draco, aquí estaré.$"
+PalletTown_Text_JadeOrbExplain:
+	.string "Ese Prisma Verde despertará la\n"
+	.string "Regresión Primigenia de Rayquaza\l"
+	.string "si lo lleva equipado en combate.$"
 
 PalletTown_Text_HoennLegendsHonored:
 	.string "Es todo un honor contemplar a los\n"

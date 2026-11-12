@@ -1093,10 +1093,13 @@ enum __attribute__((packed)) Item
     ITEM_CUBATA,
     ITEM_TUFILLO_JUNIOR,
     ITEM_MIMINUCLEO_TARAFANTASTICO,
+    ITEM_JADE_ORB,
 
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };
+
+#define ITEM_GREEN_ORB ITEM_JADE_ORB
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
 // Its icon is defined at ITEMS_COUNT as the "return to field" arrow

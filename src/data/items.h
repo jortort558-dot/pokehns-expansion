@@ -17857,6 +17857,24 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_ZygardeCube,
         .iconPalette = gItemIconPalette_ZygardeCube,
     },
+
+    [ITEM_JADE_ORB] =
+    {
+        .name = ITEM_NAME("PRISMA VERDE"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_PRIMAL_ORB,
+        .description = COMPOUND_STRING(
+            "Piedra esmeralda que,\n"
+            "según dicen, despierta la\n"
+            "Regresión Primigenia de\n"
+            "Rayquaza en combate."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_SPECIAL_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_JadeOrb,
+        .iconPalette = gItemIconPalette_JadeOrb,
+    },
 };
 
 #undef ITEM_NAME

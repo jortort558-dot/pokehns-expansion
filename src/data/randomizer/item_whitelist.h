@@ -321,6 +321,7 @@ static const u16 sRandomizerItemWhitelist[] =
     // Colored Orbs
     ITEM_RED_ORB,
     ITEM_BLUE_ORB,
+    ITEM_JADE_ORB,
     // Mega Stones (disabled: P_MEGA_EVOLUTIONS is FALSE, so these are dead items)
     //ITEM_VENUSAURITE,
     //ITEM_CHARIZARDITE_X,

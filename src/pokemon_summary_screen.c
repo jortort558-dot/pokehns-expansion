@@ -1942,8 +1942,16 @@ static void ShowShinyStarObjIfMonShiny(void)
 static void SetFriendshipSprite(void)
 {
     u8 *spriteId = &sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_FRIENDSHIP];
-    u16 friendship = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_FRIENDSHIP);
+    u16 friendship;
     u8 level = 0;
+
+    if (sMonSummaryScreen->summary.isEgg)
+    {
+        SetSpriteInvisibility(SPRITE_ARR_ID_FRIENDSHIP, TRUE);
+        return;
+    }
+
+    friendship = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_FRIENDSHIP);
 
     while (level + 1 < FRIENDSHIP_LEVEL_COUNT
         && friendship >= sFriendshipLevelToThreshold[level + 1])
@@ -4040,21 +4048,55 @@ static void PrintEggOTID(void)
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ID), gStringVar1, x, 1, 0, 1);
 }
 
+#if P_EGG_CYCLE_LENGTH <= GEN_3 || P_EGG_CYCLE_LENGTH == GEN_7
+#define SUMMARY_EGG_CYCLE_STEPS 256
+#elif P_EGG_CYCLE_LENGTH == GEN_4
+#define SUMMARY_EGG_CYCLE_STEPS 255
+#elif P_EGG_CYCLE_LENGTH == GEN_5 || P_EGG_CYCLE_LENGTH == GEN_6
+#define SUMMARY_EGG_CYCLE_STEPS 257
+#elif P_EGG_CYCLE_LENGTH >= GEN_8
+#define SUMMARY_EGG_CYCLE_STEPS 128
+#endif
+
+static u32 GetEggStepsRemaining(u32 eggCycles)
+{
+    u16 stepCounter = gSaveBlock1Ptr->daycare.stepCounter;
+    if (stepCounter >= SUMMARY_EGG_CYCLE_STEPS)
+        stepCounter = 0;
+    return (eggCycles + 1) * SUMMARY_EGG_CYCLE_STEPS - stepCounter;
+}
+
 static void PrintEggState(void)
 {
+    static const u8 sText_EggStateAboutToHatch[]  = _("¡Está a punto de nacer!\nPasos restantes: {STR_VAR_1}");
+    static const u8 sText_EggStateHatchSoon[]     = _("Debería nacer pronto.\nPasos restantes: {STR_VAR_1}");
+    static const u8 sText_EggStateTakeSomeTime[]  = _("Aún tardará un tiempo.\nPasos restantes: {STR_VAR_1}");
+    static const u8 sText_EggStateTakeALongTime[] = _("Llevará bastante tiempo.\nPasos restantes: {STR_VAR_1}");
+
     const u8 *text;
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
 
     if (sMonSummaryScreen->summary.sanity == TRUE)
+    {
         text = gText_EggWillTakeALongTime;
-    else if (sum->friendship <= 5)
-        text = gText_EggAboutToHatch;
-    else if (sum->friendship <= 10)
-        text = gText_EggWillHatchSoon;
-    else if (sum->friendship <= 40)
-        text = gText_EggWillTakeSomeTime;
+    }
     else
-        text = gText_EggWillTakeALongTime;
+    {
+        u32 stepsRemaining = GetEggStepsRemaining(sum->friendship);
+        ConvertIntToDecimalStringN(gStringVar1, stepsRemaining, STR_CONV_MODE_LEFT_ALIGN, 6);
+
+        if (sum->friendship <= 5)
+            text = sText_EggStateAboutToHatch;
+        else if (sum->friendship <= 10)
+            text = sText_EggStateHatchSoon;
+        else if (sum->friendship <= 40)
+            text = sText_EggStateTakeSomeTime;
+        else
+            text = sText_EggStateTakeALongTime;
+
+        StringExpandPlaceholders(gStringVar4, text);
+        text = gStringVar4;
+    }
 
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), text, 0, 1, 0, 0);
 }
