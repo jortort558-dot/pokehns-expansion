@@ -7,6 +7,7 @@
 #include "palette.h"
 #include "pokemon_storage_system.h"
 #include "pokenav.h"
+#include "quests.h"
 
 #define LOOPED_TASK_DECODE_STATE(action) (action - 5)
 
@@ -608,5 +609,9 @@ u32 GetSelectedConditionSearch(void)
 
 bool32 CanViewRibbonsMenu(void)
 {
+#if IS_HNS
+    return (Quest_HasAnyQuests() || gPokenavResources->hasAnyRibbons);
+#else
     return gPokenavResources->hasAnyRibbons;
+#endif
 }

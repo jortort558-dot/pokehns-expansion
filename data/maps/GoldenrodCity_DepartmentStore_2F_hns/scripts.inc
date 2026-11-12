@@ -284,6 +284,7 @@ GoldenrodDeptStore2_EventScript_ElPiedrasStartBattle::
 	setspeaker SP_NAME_EL_PIEDRAS
 	msgbox GoldenrodCity_Text_ElPiedrasPostBattle, MSGBOX_DEFAULT
 	closemessage
+	quest_start QUEST_EL_PIEDRAS
 	fadescreen FADE_TO_BLACK
 	setflag FLAG_HIDE_GOLDENROD_EL_PIEDRAS
 	removeobject VAR_LAST_TALKED

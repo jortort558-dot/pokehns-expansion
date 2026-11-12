@@ -8,6 +8,7 @@
 #include "string_util.h"
 #include "international_string_util.h"
 #include "constants/songs.h"
+#include "quests.h"
 
 enum
 {
@@ -64,13 +65,21 @@ static void AddRibbonsMonListWindow(struct Pokenav_RibbonsMonMenu *);
 static void UpdateIndexNumberDisplay(struct Pokenav_RibbonsMonMenu *);
 static void CreateRibbonMonsList(void);
 static void BufferRibbonMonInfoText(struct PokenavListItem *, u8 *);
+#if IS_HNS
+static u32 BuildQuestListHnS(s32);
 
+static const LoopedTask sMonRibbonListLoopTaskFuncs[] =
+{
+    BuildQuestListHnS
+};
+#else
 static const LoopedTask sMonRibbonListLoopTaskFuncs[] =
 {
     BuildPartyMonRibbonList,
     InitBoxMonRibbonList,
     BuildBoxMonRibbonList
 };
+#endif
 
 static const u16 sMonRibbonListFramePal[] = INCBIN_U16("graphics/pokenav/ribbons/list_bg.gbapal");
 static const u32 sMonRibbonListFrameTiles[] = INCBIN_U32("graphics/pokenav/ribbons/list_bg.4bpp.smol");
@@ -244,6 +253,43 @@ static u32 GetMonRibbonListLoopTaskFunc(s32 state)
 {
     return sMonRibbonListLoopTaskFuncs[state](state);
 }
+
+#if IS_HNS
+static u32 BuildQuestListHnS(s32 state)
+{
+    s32 i;
+    struct PokenavMonListItem item;
+    struct Pokenav_RibbonsMonList *list = GetSubstructPtr(POKENAV_SUBSTRUCT_RIBBONS_MON_LIST);
+
+    list->monList->listCount = 0;
+    list->monList->currIndex = 0;
+
+    // Primero misiones activas
+    for (i = 0; i < QUEST_COUNT; i++)
+    {
+        if (Quest_IsActive(i))
+        {
+            item.boxId = i; // questId
+            item.monId = 0; // 0 = activa
+            item.data = Quest_GetStatus(i);
+            InsertMonListItem(list, &item);
+        }
+    }
+    // Luego misiones completadas
+    for (i = 0; i < QUEST_COUNT; i++)
+    {
+        if (Quest_IsCompleted(i))
+        {
+            item.boxId = i; // questId
+            item.monId = 1; // 1 = completada
+            item.data = Quest_GetStatus(i);
+            InsertMonListItem(list, &item);
+        }
+    }
+
+    return LT_FINISH;
+}
+#endif
 
 static u32 BuildPartyMonRibbonList(s32 state)
 {
@@ -694,9 +740,29 @@ static void CreateRibbonMonsList(void)
     CreatePokenavList(&sMonRibbonListBgTemplates[1], &template, 0);
 }
 
-// Buffers the "Nickname gender/level" text for the ribbon mon list
+// Buffers the item text for the ribbon / quest mon list
 static void BufferRibbonMonInfoText(struct PokenavListItem *listItem, u8 *dest)
 {
+#if IS_HNS
+    struct PokenavMonListItem *item = (struct PokenavMonListItem *)listItem;
+    const struct Quest *q = Quest_GetQuestData(item->boxId);
+    u8 statusStr[16];
+
+    if (q == NULL)
+    {
+        dest[0] = EOS;
+        return;
+    }
+
+    dest = GetStringClearToWidth(dest, FONT_NORMAL, q->title, 82);
+
+    if (item->monId == 0) // Activa
+        StringCopy(statusStr, COMPOUND_STRING("{COLOR BLUE}ACTIVA"));
+    else
+        StringCopy(statusStr, COMPOUND_STRING("{COLOR GREEN}HECHA"));
+
+    StringCopy(dest, statusStr);
+#else
     u8 gender;
     u8 level;
     u8 *s, *end;
@@ -745,4 +811,5 @@ static void BufferRibbonMonInfoText(struct PokenavListItem *listItem, u8 *dest)
     ConvertIntToDecimalStringN(s, level, STR_CONV_MODE_LEFT_ALIGN, 3);
     dest = GetStringClearToWidth(dest, FONT_NORMAL, gStringVar1, 54);
     ConvertIntToDecimalStringN(dest, item->data, STR_CONV_MODE_RIGHT_ALIGN, 2);
+#endif
 }

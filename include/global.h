@@ -24,6 +24,7 @@
 #include "constants/trainer_tower.h"
 #include "constants/items.h"
 #include "constants/moves.h"
+#include "constants/quests.h"
 #include "config/save.h"
 
 // Prevent cross-jump optimization.
@@ -1352,6 +1353,7 @@ struct SaveBlock1
 #endif
 #if IS_HNS
     struct MomSavingsData momSavings;
+    u8 questStates[MAX_QUESTS];
 #endif
     // sizeof: 0x3???
 };

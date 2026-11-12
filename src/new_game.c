@@ -21,6 +21,7 @@
 #include "event_data.h"
 #include "money.h"
 #include "mom_savings.h"
+#include "quests.h"
 #include "trainer_hill.h"
 #include "trainer_tower.h"
 #include "tv.h"
@@ -386,6 +387,7 @@ void NewGameInitData(void)
 #if IS_HNS
     StringCopy(gSaveBlock2Ptr->rivalName, gText_ExpandedPlaceholder_Silver);
     InitMomSavings();
+    Quest_InitSaveData();
     if (gSaveBlock3Ptr->challengeSettings.tx_PokemitosCup)
         AddBagItem(ITEM_CARNET_POKEMITOS, 1);
 #endif

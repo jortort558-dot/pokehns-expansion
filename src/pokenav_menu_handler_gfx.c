@@ -121,7 +121,11 @@ static const u32 sPokenavDeviceBgTilemap[] = INCBIN_U32("graphics/pokenav/device
 static const u16 sMatchCallBlueLightPal[] = INCBIN_U16("graphics/pokenav/blue_light.gbapal");
 static const u32 sMatchCallBlueLightTiles[] = INCBIN_U32("graphics/pokenav/blue_light.4bpp.smol");
 
+#if IS_HNS
+static const u8 gText_NoRibbonWinners[] = _("No tienes misiones activas.");
+#else
 static const u8 gText_NoRibbonWinners[] = _("There are no RIBBON winners.");
+#endif
 
 static const struct BgTemplate sPokenavMainMenuBgTemplates[] = {
     {
@@ -343,12 +347,13 @@ static const u8 *const sPageDescriptions[] =
     [POKENAV_MENUITEM_MAP]                     = COMPOUND_STRING("Consulta el mapa de HOENN"),
     [POKENAV_MENUITEM_CONDITION]               = COMPOUND_STRING("Consulta datos de POKéMON."),
     [POKENAV_MENUITEM_MATCH_CALL]              = COMPOUND_STRING("Llama a un ENTRENADOR."),
-    [POKENAV_MENUITEM_RIBBONS]                 = COMPOUND_STRING("Consulta las CINTAS."),
 #if IS_HNS
+    [POKENAV_MENUITEM_RIBBONS]                 = COMPOUND_STRING("Consulta tus misiones en curso."),
     [POKENAV_MENUITEM_RADIO]                   = COMPOUND_STRING("Escucha la radio."),
     [POKENAV_MENUITEM_SWITCH_OFF]              = COMPOUND_STRING("Guarda el POKéGEAR."),
     [POKENAV_MENUITEM_CONDITION_CANCEL]        = COMPOUND_STRING("Vuelve al menú del POKéGEAR."),
 #else
+    [POKENAV_MENUITEM_RIBBONS]                 = COMPOUND_STRING("Consulta las CINTAS."),
     [POKENAV_MENUITEM_SWITCH_OFF]              = COMPOUND_STRING("Put away the POKéNAV."),
     [POKENAV_MENUITEM_CONDITION_CANCEL]        = COMPOUND_STRING("Return to the POKéNAV menu."),
 #endif

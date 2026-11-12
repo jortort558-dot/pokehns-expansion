@@ -4,6 +4,7 @@
 #include "main.h"
 #include "sound.h"
 #include "constants/songs.h"
+#include "quests.h"
 
 struct Pokenav_Menu
 {
@@ -141,7 +142,7 @@ static u8 GetPokenavMainMenuType(void)
     {
         menuType = POKENAV_MENU_TYPE_UNLOCK_MC;
 
-        if (FlagGet(FLAG_SYS_RIBBON_GET))
+        if (FlagGet(FLAG_SYS_RIBBON_GET) || Quest_HasAnyQuests())
             menuType = POKENAV_MENU_TYPE_UNLOCK_MC_RIBBONS;
     }
 

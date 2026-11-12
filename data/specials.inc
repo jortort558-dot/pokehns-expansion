@@ -765,3 +765,9 @@ gSpecials::
 	def_special DoctoreFernan_HidePreview
 	def_special CheckAndResetSaturdayWeeklyCaptures
 	def_special Script_GiveRandomLegendaryEgg
+	def_special Special_QuestStart
+	def_special Special_QuestSetStage
+	def_special Special_QuestComplete
+	def_special Special_QuestGetStatus
+	def_special Special_QuestHasAny
+	def_special Special_BufferQuestTitle

@@ -2977,3 +2977,32 @@
 	hidehelpwindow
 	closemessage
 	.endm
+
+	@ Misiones de Pokémon Heart & Soul
+	.macro quest_start questId:req
+	setvar VAR_0x8004, \questId, 0
+	special Special_QuestStart
+	call Common_EventScript_QuestNewNotification
+	.endm
+
+	.macro quest_start_silent questId:req
+	setvar VAR_0x8004, \questId, 0
+	special Special_QuestStart
+	.endm
+
+	.macro quest_set_stage questId:req, stage:req
+	setvar VAR_0x8004, \questId, 0
+	setvar VAR_0x8005, \stage, 0
+	special Special_QuestSetStage
+	.endm
+
+	.macro quest_complete questId:req
+	setvar VAR_0x8004, \questId, 0
+	special Special_QuestComplete
+	call Common_EventScript_QuestCompletedNotification
+	.endm
+
+	.macro quest_complete_silent questId:req
+	setvar VAR_0x8004, \questId, 0
+	special Special_QuestComplete
+	.endm

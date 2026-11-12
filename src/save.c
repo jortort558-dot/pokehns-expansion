@@ -20,6 +20,7 @@
 #include "randomizer.h"
 #include "item.h"
 #include "new_game.h"
+#include "quests.h"
 
 static u16 CalculateChecksum(void *, u16);
 static bool8 ReadFlashSector(u8, struct SaveSector *);
@@ -1178,6 +1179,13 @@ u8 LoadGameSave(u8 saveType)
         GymTokenClearEncounterState(MAPSEC_SEAFOAM_ISLANDS);
 #endif
         gSaveBlock1Ptr->saveVersion = 21;
+    }
+    if (gSaveBlock1Ptr->saveVersion < 22)
+    {
+#if IS_HNS
+        Quest_InitSaveData();
+#endif
+        gSaveBlock1Ptr->saveVersion = 22;
     }
 
     if (saveType == SAVE_NORMAL && status == SAVE_STATUS_OK)

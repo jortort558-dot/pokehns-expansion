@@ -41,6 +41,7 @@
 #include "constants/item.h"
 #include "constants/items.h"
 #include "constants/heal_locations.h"
+#include "constants/quests.h"
 #include "constants/help_window.h"
 #include "constants/layouts.h"
 #include "constants/lilycove_lady.h"
@@ -2431,3 +2432,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/VioletCity_Cave_Kalos/scripts.inc"
 	.include "data/scripts/researchers_expedition.inc"
 	.include "data/scripts/mohedano_story.inc"
+	.include "data/scripts/quests.inc"

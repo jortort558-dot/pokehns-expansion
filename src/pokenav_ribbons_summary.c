@@ -13,6 +13,7 @@
 #include "trainer_pokemon_sprites.h"
 #include "window.h"
 #include "constants/songs.h"
+#include "quests.h"
 
 enum
 {
@@ -236,9 +237,14 @@ static u32 RibbonsSummaryHandleInput(struct Pokenav_RibbonsSummaryList *list)
 
     if (JOY_NEW(A_BUTTON))
     {
+#if IS_HNS
+        list->callback = ReturnToRibbonsListFromSummary;
+        return RIBBONS_SUMMARY_FUNC_EXIT;
+#else
         // Enter ribbon selection
         list->callback = HandleExpandedRibbonInput;
         return RIBBONS_SUMMARY_FUNC_SELECT_RIBBON;
+#endif
     }
     if (JOY_NEW(B_BUTTON))
     {
@@ -441,6 +447,11 @@ static u32 GetCurrMonRibbonCount(void)
 
 static void GetMonRibbons(struct Pokenav_RibbonsSummaryList *list)
 {
+#if IS_HNS
+    list->numNormalRibbons = 0;
+    list->numGiftRibbons = 0;
+    list->normalRibbonLastRowStart = 0;
+#else
     u32 ribbonFlags;
     s32 i, j;
     struct PokenavMonList *mons = list->monList;
@@ -482,6 +493,7 @@ static void GetMonRibbons(struct Pokenav_RibbonsSummaryList *list)
         list->normalRibbonLastRowStart = 0;
         list->selectedPos = GIFT_RIBBON_START_POS;
     }
+#endif
 }
 
 static u32 *GetNormalRibbonIds(u32 *size)
@@ -809,6 +821,29 @@ static void AddRibbonCountWindow(struct Pokenav_RibbonsSummaryMenu *menu)
 
 static void PrintCurrentMonRibbonCount(struct Pokenav_RibbonsSummaryMenu *menu)
 {
+#if IS_HNS
+    struct Pokenav_RibbonsSummaryList *list = GetSubstructPtr(POKENAV_SUBSTRUCT_RIBBONS_SUMMARY_LIST);
+    struct PokenavMonList *mons = list->monList;
+    struct PokenavMonListItem *monInfo = &mons->monData[mons->currIndex];
+    const struct Quest *q = Quest_GetQuestData(monInfo->boxId);
+    u8 colorHeader[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_LIGHT_GRAY};
+    u8 colorBody[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+
+    FillWindowPixelBuffer(menu->ribbonCountWindowId, PIXEL_FILL(4));
+    if (q != NULL)
+    {
+        StringCopy(gStringVar1, q->giver);
+        StringAppend(gStringVar1, COMPOUND_STRING(" - "));
+        StringAppend(gStringVar1, q->location);
+        AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 0, 1, colorHeader, TEXT_SKIP_DRAW, gStringVar1);
+
+        if (monInfo->monId == 0)
+            AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 0, 13, colorBody, TEXT_SKIP_DRAW, q->desc);
+        else
+            AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_SMALL, 0, 13, colorBody, TEXT_SKIP_DRAW, q->descCompleted);
+    }
+    CopyWindowToVram(menu->ribbonCountWindowId, COPYWIN_GFX);
+#else
     u8 color[] = {TEXT_COLOR_RED, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
 
     ConvertIntToDecimalStringN(gStringVar1, GetCurrMonRibbonCount(), STR_CONV_MODE_LEFT_ALIGN, 2);
@@ -818,6 +853,7 @@ static void PrintCurrentMonRibbonCount(struct Pokenav_RibbonsSummaryMenu *menu)
     FillWindowPixelBuffer(menu->ribbonCountWindowId, PIXEL_FILL(4));
     AddTextPrinterParameterized3(menu->ribbonCountWindowId, FONT_NORMAL, 0, 1, color, TEXT_SKIP_DRAW, gStringVar4);
     CopyWindowToVram(menu->ribbonCountWindowId, COPYWIN_GFX);
+#endif
 }
 
 static void PrintRibbonNameAndDescription(struct Pokenav_RibbonsSummaryMenu *menu)
@@ -877,6 +913,20 @@ static const u8 sGenderlessIconString[] = _("{UNK_SPACER}");
 
 static void PrintRibbbonsSummaryMonInfo(struct Pokenav_RibbonsSummaryMenu *menu)
 {
+#if IS_HNS
+    struct Pokenav_RibbonsSummaryList *list = GetSubstructPtr(POKENAV_SUBSTRUCT_RIBBONS_SUMMARY_LIST);
+    struct PokenavMonList *mons = list->monList;
+    struct PokenavMonListItem *monInfo = &mons->monData[mons->currIndex];
+    const struct Quest *q = Quest_GetQuestData(monInfo->boxId);
+    u16 windowId = menu->nameWindowId;
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
+    if (q != NULL)
+    {
+        AddTextPrinterParameterized(windowId, GetFontIdToFit(q->title, FONT_NORMAL, 0, 96), q->title, 0, 1, TEXT_SKIP_DRAW, NULL);
+    }
+    CopyWindowToVram(windowId, COPYWIN_GFX);
+#else
     const u8 *genderTxt;
     u8 *txtPtr;
     u8 level, gender;
@@ -905,6 +955,7 @@ static void PrintRibbbonsSummaryMonInfo(struct Pokenav_RibbonsSummaryMenu *menu)
     ConvertIntToDecimalStringN(txtPtr, level, STR_CONV_MODE_LEFT_ALIGN, 3);
     AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar1, 60, 1, TEXT_SKIP_DRAW, NULL);
     CopyWindowToVram(windowId, COPYWIN_GFX);
+#endif
 }
 
 static const struct WindowTemplate sRibbonMonListIndexWindowTemplate[] =
@@ -946,6 +997,9 @@ static void PrintRibbonsMonListIndex(struct Pokenav_RibbonsSummaryMenu *menu)
 
 static void ResetSpritesAndDrawMonFrontPic(struct Pokenav_RibbonsSummaryMenu *menu)
 {
+#if IS_HNS
+    menu->monSpriteId = MAX_SPRITES;
+#else
     u16 species;
     u32 personality;
     bool8 isShiny;
@@ -954,11 +1008,14 @@ static void ResetSpritesAndDrawMonFrontPic(struct Pokenav_RibbonsSummaryMenu *me
     ResetAllPicSprites();
     menu->monSpriteId = DrawRibbonsMonFrontPic(MON_SPRITE_X_ON, MON_SPRITE_Y);
     PokenavFillPalette(15, 0);
+#endif
 }
 
 static void DestroyRibbonsMonFrontPic(struct Pokenav_RibbonsSummaryMenu *menu)
 {
+#if !IS_HNS
     FreeAndDestroyMonPicSprite(menu->monSpriteId);
+#endif
 }
 
 // x and y arguments are ignored
@@ -978,23 +1035,31 @@ static u16 DrawRibbonsMonFrontPic(s32 x, s32 y)
 
 static void SlideMonSpriteOff(struct Pokenav_RibbonsSummaryMenu *menu)
 {
+#if !IS_HNS
     StartMonSpriteSlide(&gSprites[menu->monSpriteId], MON_SPRITE_X_ON, MON_SPRITE_X_OFF, 6);
+#endif
 }
 
 static void SlideMonSpriteOn(struct Pokenav_RibbonsSummaryMenu *menu)
 {
+#if !IS_HNS
     // Switch to new mon sprite
     FreeAndDestroyMonPicSprite(menu->monSpriteId);
     menu->monSpriteId = DrawRibbonsMonFrontPic(MON_SPRITE_X_OFF, MON_SPRITE_Y);
 
     // Slide on
     StartMonSpriteSlide(&gSprites[menu->monSpriteId], MON_SPRITE_X_OFF, MON_SPRITE_X_ON, 6);
+#endif
 }
 
 // Is Pokémon summary sprite still sliding off/on
 static bool32 IsMonSpriteAnimating(struct Pokenav_RibbonsSummaryMenu *menu)
 {
+#if IS_HNS
+    return FALSE;
+#else
     return (gSprites[menu->monSpriteId].callback != SpriteCallbackDummy);
+#endif
 }
 
 #define sCurrX    data[0]
