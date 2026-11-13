@@ -1,3 +1,13 @@
+### 📦 Versión `v0.64.4`
+
+- **Fecha:** 13/11/2026
+- **Mejoras y correcciones incluidas:**
+  - [x] **Ajuste del cupo de pases a 1 por semana y límite máximo de 5 pases (Zona Safari y Concurso de Bichos)**:
+    - **Causa raíz del bug**: En `src/gym_tokens.c`, la cuota de Safari Johto y Safari Kanto se calculaba erróneamente multiplicando por 2 (`quota = weeks * 2`), lo que acreditaba hasta 10 tickets en lugar de 1 por semana transcurrida.
+    - **Ajuste de cuota unificada**: Se estableció la cuota estricta de 1 ticket por semana para los tres eventos (Concurso de Bichos, Safari Johto y Safari Kanto).
+    - **Límite máximo estricto de 5 pases**: Se fijó `POKEMITOS_MAX_WEEKS` en 5 como tope absoluto actual del torneo (5 semanas transcurridas desde el 10 de octubre de 2026), blindando la función ante RTCs acelerados o manipulados.
+    - **Saneamiento automático y retroactivo**: Se implementó `GetCleanTicketCount` y `UpdateSingleTicketCategory`, que recalculan el balance legítimo (`maxAllowed = quota - caught`) y reducen de forma segura cualquier exceso de pases previo al abrir el Carnet Copa, hablar con el Asistente del Locke o acceder a las entradas de los recintos.
+
 ### 📦 Versión `v0.64.3`
 
 - **Fecha:** 13/11/2026
