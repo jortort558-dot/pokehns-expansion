@@ -101,17 +101,18 @@ FuchsiaCity_SafariZoneEntrance_Text_StevenChamp:
 FuchsiaCity_SafariZoneEntrance_EventScript_EntranceCounterTrigger::
 	lockall
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	special CheckAndResetSaturdayWeeklyCaptures
-	goto_if_set FLAG_KANTO_SAFARI_ZONE_COMPLETED, FuchsiaCity_SafariZoneEntrance_EventScript_AlreadyPlayed
+	special CheckSafariKantoTickets
+	goto_if_eq VAR_RESULT, 0, FuchsiaCity_SafariZoneEntrance_EventScript_AlreadyPlayed
+	buffernumberstring STR_VAR_1, VAR_RESULT
 	showmoneybox 0, 0
-	msgbox Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay, MSGBOX_YESNO
+	msgbox FuchsiaCity_SafariZoneEntrance_Text_WouldYouLikeToPlayTickets, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, FuchsiaCity_SafariZoneEntrance_EventScript_TryEnterSafariZone
 	msgbox Route121_SafariZoneEntrance_Text_PlayAnotherTime, MSGBOX_DEFAULT
 	goto FuchsiaCity_SafariZoneEntrance_EventScript_MovePlayerBackFromCounter
 	end
 
 FuchsiaCity_SafariZoneEntrance_EventScript_AlreadyPlayed::
-	msgbox FuchsiaCity_SafariZoneEntrance_Text_AlreadyPlayed, MSGBOX_DEFAULT
+	msgbox FuchsiaCity_SafariZoneEntrance_Text_NoTickets, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, FuchsiaCity_SafariZoneEntrance_Movement_BackAwayFromCounter
 	waitmovement 0
@@ -128,6 +129,8 @@ FuchsiaCity_SafariZoneEntrance_EventScript_TryEnterSafariZone::
 	removemoney 500
 	playse SE_SHOP
 	updatemoneybox
+	special ConsumeSafariKantoTicket
+	clearflag FLAG_KANTO_SAFARI_ZONE_COMPLETED
 	msgbox Route121_SafariZoneEntrance_Text_HereAreYourSafariBalls, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_ITEM
 	message Route121_SafariZoneEntrance_Text_Received30SafariBalls
@@ -399,3 +402,16 @@ FuchsiaCity_SafariZoneEntrance_Text_AlreadyPlayed:
 	.string "Si ya has participado esta semana,\l"
 	.string "¡te esperamos el próximo sábado!\p"
 	.string "¡Muchas gracias por visitarnos!$"
+
+FuchsiaCity_SafariZoneEntrance_Text_WouldYouLikeToPlayTickets:
+	.string "Tienes {STR_VAR_1} pase(s) en tu\n"
+	.string "CARNET COPA para este SAFARI.\p"
+	.string "Por 500¥ recibirás 30 SAFARI BALLS\n"
+	.string "para capturar POKéMON en la zona.\p"
+	.string "¿Deseas consumir 1 pase y entrar?$"
+
+FuchsiaCity_SafariZoneEntrance_Text_NoTickets:
+	.string "No te quedan pases disponibles para\n"
+	.string "el SAFARI de KANTO en tu CARNET.\p"
+	.string "Consulta al Asistente del Locke\n"
+	.string "en cualquier Centro POKéMON.$"

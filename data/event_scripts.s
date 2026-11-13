@@ -2433,3 +2433,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/researchers_expedition.inc"
 	.include "data/scripts/mohedano_story.inc"
 	.include "data/scripts/quests.inc"
+	.include "data/scripts/carnet_pokemitos.inc"

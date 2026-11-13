@@ -163,9 +163,9 @@
 // --- in flags_hns.h and FlagGet(0) is always FALSE, so nothing writes them.
 // --- Giving any of those flags a real address (e.g. during the PokeGear port)
 // --- makes the corresponding var live again.
-#define VAR_UNUSED_HNS_0x40F2                            0x40F2 // Emerald VAR_WALLY_CALL_STEP_COUNTER - gated on FLAG_ENABLE_FIRST_WALLY_POKENAV_CALL
-#define VAR_UNUSED_HNS_0x40F3                            0x40F3 // Emerald VAR_SCOTT_FORTREE_CALL_STEP_COUNTER - gated on FLAG_ENABLE_SCOTT_FORTREE_CALL
-#define VAR_UNUSED_HNS_0x40F4                            0x40F4 // Emerald VAR_ROXANNE_CALL_STEP_COUNTER - gated on FLAG_ENABLE_ROXANNE_FIRST_CALL
+#define VAR_POKEMITOS_BUG_CONTEST_TICKETS                0x40F2 // Pases disponibles para el Concurso de Bichos
+#define VAR_POKEMITOS_SAFARI_JOHTO_TICKETS               0x40F3 // Pases disponibles para la Zona Safari de Johto
+#define VAR_POKEMITOS_SAFARI_KANTO_TICKETS               0x40F4 // Pases disponibles para la Zona Safari de Kanto
 #define VAR_UNUSED_HNS_0x40F5                            0x40F5 // Emerald VAR_SCOTT_BF_CALL_STEP_COUNTER - gated on FLAG_ENABLE_SCOTT_BATTLE_FRONTIER_CALL
 #define VAR_UNUSED_HNS_0x40F6                            0x40F6 // Emerald VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER - gated on FLAG_ENABLE_RIVAL_MATCH_CALL
 

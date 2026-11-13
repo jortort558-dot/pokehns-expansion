@@ -772,3 +772,12 @@ gSpecials::
 	def_special Special_QuestHasAny
 	def_special Special_BufferQuestTitle
 	def_special Special_SyncQuestsWithSave
+	def_special CheckBugContestTickets
+	def_special ConsumeBugContestTicket
+	def_special CheckSafariJohtoTickets
+	def_special ConsumeSafariJohtoTicket
+	def_special CheckSafariKantoTickets
+	def_special ConsumeSafariKantoTicket
+	def_special UpdateAndClaimPokemitosTickets
+	def_special BufferPokemitosTicketsSummary
+	def_special BufferPokemitosStatusSummary

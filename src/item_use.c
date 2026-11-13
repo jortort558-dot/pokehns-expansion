@@ -801,23 +801,16 @@ void ItemUseOutOfBattle_PowderJar(u8 taskId)
     }
 }
 
+static void Task_AccessCarnetPokemitos(u8 taskId)
+{
+    ScriptContext_SetupScript(EventScript_CarnetPokemitosMenu);
+    DestroyTask(taskId);
+}
+
 void ItemUseOutOfBattle_CarnetPokemitos(u8 taskId)
 {
-    u8 tokenCount = gSaveBlock3Ptr->gymTokens.count;
-    u16 badgeCount = VarGet(VAR_NUM_BADGES);
-
-    ConvertIntToDecimalStringN(gStringVar1, tokenCount, STR_CONV_MODE_LEFT_ALIGN, 2);
-    ConvertIntToDecimalStringN(gStringVar2, badgeCount, STR_CONV_MODE_LEFT_ALIGN, 2);
-    StringExpandPlaceholders(gStringVar4, sText_CarnetPokemitosInfo);
-
-    if (!gTasks[taskId].tUsingRegisteredKeyItem)
-    {
-        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
-    }
-    else
-    {
-        DisplayItemMessageOnField(taskId, gStringVar4, Task_CloseCantUseKeyItemMessage);
-    }
+    sItemUseOnFieldCB = Task_AccessCarnetPokemitos;
+    SetUpItemUseOnFieldCallback(taskId);
 }
 
 

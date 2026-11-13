@@ -4,11 +4,17 @@ Gate_NationalPark_hns_MapScripts::
 Gate_NationalPark_EventScript_Attendant::
 	lockall
 	faceplayer
-	special CheckAndResetSaturdayWeeklyCaptures
-	goto_if_set FLAG_BUG_CONTEST_COMPLETED, Gate_NationalPark_EventScript_AttendantAlreadyPlayed
-	msgbox Route35NationalParkGate_Text_OfficerAskToParticipate, MSGBOX_YESNO
+	special CheckBugContestTickets
+	goto_if_eq VAR_RESULT, 0, Gate_NationalPark_EventScript_AttendantNoTickets
+	buffernumberstring STR_VAR_1, VAR_RESULT
+	msgbox Gate_NationalPark_Text_OfficerAskToParticipateTickets, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, TRUE, Gate_NationalPark_EventScript_AttendantStart
 	msgbox Route35NationalParkGate_Text_TakePartInFuture, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Gate_NationalPark_EventScript_AttendantNoTickets::
+	msgbox Gate_NationalPark_Text_NoTickets, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -37,6 +43,8 @@ Gate_NationalPark_EventScript_AttendantStart::
 	call_if_eq VAR_FACING, DIR_NORTH, Gate_NationalPark_EventScript_AttendantEnterBot
 	playse SE_EXIT
 	clearflag FLAG_HIDE_BUG_CONTEST_ATTENDANT_SIDE
+	special ConsumeBugContestTicket
+	clearflag FLAG_BUG_CONTEST_COMPLETED
 	special EnterBugContestMode
 	setflag FLAG_DISABLE_EXP_GAIN
 	setvar VAR_BUG_CONTEST_STATE, 1
@@ -56,6 +64,8 @@ Gate_NationalPark_EventScript_OnlyOneMon::
 	call_if_eq VAR_FACING, DIR_NORTH, Gate_NationalPark_EventScript_AttendantEnterBot
 	playse SE_EXIT
 	clearflag FLAG_HIDE_BUG_CONTEST_ATTENDANT_SIDE
+	special ConsumeBugContestTicket
+	clearflag FLAG_BUG_CONTEST_COMPLETED
 	special EnterBugContestMode
 	setflag FLAG_DISABLE_EXP_GAIN
 	setvar VAR_BUG_CONTEST_STATE, 1
@@ -115,9 +125,10 @@ Gate_NationalPark_Movement_Player_EnterParkBot:
 Gate_NationalPark_EventScript_BAttendant::
 	lockall
 	faceplayer
-	special CheckAndResetSaturdayWeeklyCaptures
-	goto_if_set FLAG_BUG_CONTEST_COMPLETED, Gate_NationalPark_EventScript_AttendantAlreadyPlayed
-	msgbox Route35NationalParkGate_Text_OfficerAskToParticipate, MSGBOX_YESNO
+	special CheckBugContestTickets
+	goto_if_eq VAR_RESULT, 0, Gate_NationalPark_EventScript_AttendantNoTickets
+	buffernumberstring STR_VAR_1, VAR_RESULT
+	msgbox Gate_NationalPark_Text_OfficerAskToParticipateTickets, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, TRUE, Gate_NationalPark_EventScript_BAttendantStart
 	msgbox Route35NationalParkGate_Text_TakePartInFuture, MSGBOX_DEFAULT
 	releaseall
@@ -147,6 +158,8 @@ Gate_NationalPark_EventScript_BAttendantStart::
 	call_if_eq VAR_FACING, DIR_EAST, Gate_NationalPark_EventScript_AttendantBEnterTop
 	call_if_eq VAR_FACING, DIR_NORTH, Gate_NationalPark_EventScript_AttendantBEnterBot
 	playse SE_EXIT
+	special ConsumeBugContestTicket
+	clearflag FLAG_BUG_CONTEST_COMPLETED
 	special EnterBugContestMode
 	setflag FLAG_DISABLE_EXP_GAIN
 	setflag FLAG_HIDE_BUG_CONTEST_ATTENDANT_SIDE
@@ -166,6 +179,8 @@ Gate_NationalPark_EventScript_OnlyOneMonB::
 	call_if_eq VAR_FACING, DIR_EAST, Gate_NationalPark_EventScript_AttendantBEnterTop
 	call_if_eq VAR_FACING, DIR_NORTH, Gate_NationalPark_EventScript_AttendantBEnterBot
 	playse SE_EXIT
+	special ConsumeBugContestTicket
+	clearflag FLAG_BUG_CONTEST_COMPLETED
 	special EnterBugContestMode
 	setflag FLAG_DISABLE_EXP_GAIN
 	setflag FLAG_HIDE_BUG_CONTEST_ATTENDANT_SIDE
@@ -338,6 +353,20 @@ Route35NationalParkGate_Text_WeHoldContests:
 	.string "Celebramos concursos en el PARQUE a\nmenudo. Deberías animarte a probar.$"
 Route35NationalParkGate_Text_YoungsterWonders:
 	.string "¿Cuándo será el próximo Concurso de\nCaptura de Bichos?$"
+
+Gate_NationalPark_Text_OfficerAskToParticipateTickets:
+	.string "Tienes {STR_VAR_1} pase(s) para el\n"
+	.string "Concurso en tu CARNET COPA.\p"
+	.string "Hoy se celebra el Concurso de\n"
+	.string "Captura de POKéMON Bicho.\p"
+	.string "¿Deseas consumir 1 pase oficial\n"
+	.string "para participar?$"
+
+Gate_NationalPark_Text_NoTickets:
+	.string "No te quedan pases disponibles para\n"
+	.string "el Concurso en tu CARNET COPA.\p"
+	.string "Consulta al Asistente del Locke\n"
+	.string "en cualquier Centro POKéMON.$"
 Route35NationalParkGate_Text_ContestExplanation:
 	.string "El Concurso de Captura de Bichos se\n"
 	.string "celebra los martes, jueves y\l"

@@ -171,44 +171,64 @@ GoldenrodCity_PokemonCenter_EventScript_LockeAssistantRegularIntro::
 	msgbox GoldenrodCity_PokemonCenter_Text_LockeAssistantIntro, MSGBOX_DEFAULT
 GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu::
 	goto_if_set FLAG_BADGE16_GET, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenuAllBadges
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner, 0
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 1
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 2
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionRewards, 3
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMegaExchange, 4
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionExit, 5
-	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
-	closemessage
-	switch VAR_RESULT
-	case 0, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner
-	case 1, GoldenrodCity_PokemonCenter_EventScript_AssistantGymTokens
-	case 2, GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps
-	case 3, GoldenrodCity_PokemonCenter_EventScript_AssistantRewards
-	case 4, GoldenrodCity_PokemonCenter_EventScript_AssistantMegaExchange
-	case 5, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
-	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
-	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
-
-GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenuAllBadges::
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner, 0
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 1
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 2
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionRewards, 3
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMegaExchange, 4
-	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMissingTMs, 5
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionPokemitosPasses, 0
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner, 1
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 2
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 3
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionRewards, 4
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMegaExchange, 5
 	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionExit, 6
 	dynmultistack 0, 0, FALSE, 7, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 	closemessage
 	switch VAR_RESULT
-	case 0, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner
-	case 1, GoldenrodCity_PokemonCenter_EventScript_AssistantGymTokens
-	case 2, GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps
-	case 3, GoldenrodCity_PokemonCenter_EventScript_AssistantRewards
-	case 4, GoldenrodCity_PokemonCenter_EventScript_AssistantMegaExchange
-	case 5, GoldenrodCity_PokemonCenter_EventScript_AssistantMissingTMs
+	case 0, GoldenrodCity_PokemonCenter_EventScript_AssistantPokemitosPasses
+	case 1, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner
+	case 2, GoldenrodCity_PokemonCenter_EventScript_AssistantGymTokens
+	case 3, GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps
+	case 4, GoldenrodCity_PokemonCenter_EventScript_AssistantRewards
+	case 5, GoldenrodCity_PokemonCenter_EventScript_AssistantMegaExchange
 	case 6, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
 	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+
+GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenuAllBadges::
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionPokemitosPasses, 0
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner, 1
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionGymTokens, 2
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionLevelCaps, 3
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionRewards, 4
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMegaExchange, 5
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionMissingTMs, 6
+	dynmultipush GoldenrodCity_PokemonCenter_Text_OptionExit, 7
+	dynmultistack 0, 0, FALSE, 8, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	closemessage
+	switch VAR_RESULT
+	case 0, GoldenrodCity_PokemonCenter_EventScript_AssistantPokemitosPasses
+	case 1, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner
+	case 2, GoldenrodCity_PokemonCenter_EventScript_AssistantGymTokens
+	case 3, GoldenrodCity_PokemonCenter_EventScript_AssistantLevelCaps
+	case 4, GoldenrodCity_PokemonCenter_EventScript_AssistantRewards
+	case 5, GoldenrodCity_PokemonCenter_EventScript_AssistantMegaExchange
+	case 6, GoldenrodCity_PokemonCenter_EventScript_AssistantMissingTMs
+	case 7, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+	case MULTI_B_PRESSED, GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantEnd
+
+GoldenrodCity_PokemonCenter_EventScript_AssistantPokemitosPasses::
+	checkitem ITEM_CARNET_POKEMITOS, 1
+	goto_if_eq VAR_RESULT, TRUE, GoldenrodCity_PokemonCenter_EventScript_AssistantPokemitosPassesAudit
+	giveitem ITEM_CARNET_POKEMITOS, 1
+	msgbox GoldenrodCity_PokemonCenter_Text_ReceivedCarnet, MSGBOX_DEFAULT
+GoldenrodCity_PokemonCenter_EventScript_AssistantPokemitosPassesAudit::
+	special UpdateAndClaimPokemitosTickets
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_PokemonCenter_EventScript_AssistantPokemitosPassesNoNew
+	playse SE_SHOP
+	msgbox GoldenrodCity_PokemonCenter_Text_PokemitosPassesClaimed, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
+
+GoldenrodCity_PokemonCenter_EventScript_AssistantPokemitosPassesNoNew::
+	msgbox GoldenrodCity_PokemonCenter_Text_PokemitosPassesUpToDate, MSGBOX_DEFAULT
+	goto GoldenrodCity_PokemonCenter_EventScript_LockeAssistantMenu
 
 GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearner::
 	goto_if_unset FLAG_BADGE08_GET, GoldenrodCity_PokemonCenter_EventScript_AssistantMoveRelearnerPrompt
@@ -334,6 +354,29 @@ GoldenrodCity_PokemonCenter_Text_LockeAssistantIntro:
 	.string "¡Hola! Soy el Asistente del Locke.\p"
 	.string "Ofrezco servicios de apoyo para tu\n"
 	.string "aventura. ¿En qué puedo ayudarte?$"
+
+GoldenrodCity_PokemonCenter_Text_OptionPokemitosPasses:
+	.string "Pases Torneo Pokémicos$"
+
+GoldenrodCity_PokemonCenter_Text_ReceivedCarnet:
+	.string "¡Toma tu CARNET COPA oficial!\n"
+	.string "En él podrás gestionar tus pases.$"
+
+GoldenrodCity_PokemonCenter_Text_PokemitosPassesClaimed:
+	.string "¡He sellado tu CARNET COPA!\p"
+	.string "Balance de regularización:\n"
+	.string "- Concurso Bichos: {STR_VAR_1}\l"
+	.string "- Safari Johto: {STR_VAR_2}\l"
+	.string "- Safari Kanto: {STR_VAR_3}\p"
+	.string "¡Pases acreditados correctamente!$"
+
+GoldenrodCity_PokemonCenter_Text_PokemitosPassesUpToDate:
+	.string "He auditado tu CARNET COPA.\p"
+	.string "Tus pases están al día según tus\n"
+	.string "capturas y semanas de torneo.\p"
+	.string "- Concurso Bichos: {STR_VAR_1}\n"
+	.string "- Safari Johto: {STR_VAR_2}\l"
+	.string "- Safari Kanto: {STR_VAR_3}$"
 
 GoldenrodCity_PokemonCenter_Text_OptionMoveRelearner:
 	.string "Recordar movimientos$"

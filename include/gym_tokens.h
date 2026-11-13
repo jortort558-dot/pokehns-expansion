@@ -33,4 +33,15 @@ void SaveGymTokenTransaction(void);
 void GymTokenRecordFailedEncounter(u16 mapsec);
 void GymTokenClearEncounterState(u16 mapsec);
 
+u16 GetPokemitosElapsedSaturdays(void);
+void CheckBugContestTickets(void);
+void ConsumeBugContestTicket(void);
+void CheckSafariJohtoTickets(void);
+void ConsumeSafariJohtoTicket(void);
+void CheckSafariKantoTickets(void);
+void ConsumeSafariKantoTicket(void);
+void UpdateAndClaimPokemitosTickets(void);
+void BufferPokemitosTicketsSummary(void);
+void BufferPokemitosStatusSummary(void);
+
 #endif

@@ -24,6 +24,7 @@
 #include "constants/vars.h"
 #include "constants/flags.h"
 #include "constants/region_map_sections.h"
+#include "rtc.h"
 
 #define GYM_TOKEN_TRADE_LIMIT 1
 
@@ -999,4 +1000,244 @@ void UseGiftMonTrade(void)
     SetCustomInGameTradeScene();
     StringCopy(gStringVar3, gSpeciesInfo[species].speciesName);
     gSpecialVar_Result = 1;
+}
+
+#define POKEMITOS_BASE_WEEKS 5
+
+u16 GetPokemitosElapsedSaturdays(void)
+{
+    struct SiiRtcInfo rtc;
+    u16 baseDays, currentDays;
+
+    RtcGetDateTime(&rtc);
+    if (RtcCheckInfo(&rtc) != 0)
+        return POKEMITOS_BASE_WEEKS;
+
+    baseDays = ConvertDateToDayCount(26, 10, 10);
+    currentDays = RtcGetDayCount(&rtc);
+
+    if (currentDays < baseDays)
+        return POKEMITOS_BASE_WEEKS;
+
+    return 1 + ((currentDays - baseDays) / 7);
+}
+
+static u16 CountMonsCapturedInMapsec(u16 mapsec1, u16 mapsec2)
+{
+    u16 count = 0;
+    u32 i;
+    u8 box;
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        struct Pokemon *mon = &gPlayerParty[i];
+        if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && !GetMonData(mon, MON_DATA_IS_EGG))
+        {
+            if (GetMonData(mon, MON_DATA_MET_LEVEL) != 0 // Descartar eclosionados de huevo
+             && !GetMonData(mon, MON_DATA_GIFT_ORIGIN))   // Descartar regalos
+            {
+                u16 loc = GetMonData(mon, MON_DATA_MET_LOCATION);
+                if (loc == mapsec1 || (mapsec2 != 0 && loc == mapsec2))
+                    count++;
+            }
+        }
+    }
+
+    if (gPokemonStoragePtr != NULL)
+    {
+        for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+        {
+            for (i = 0; i < IN_BOX_COUNT; i++)
+            {
+                struct BoxPokemon *boxMon = &gPokemonStoragePtr->boxes[box][i];
+                if (GetBoxMonData(boxMon, MON_DATA_SPECIES) != SPECIES_NONE && !GetBoxMonData(boxMon, MON_DATA_IS_EGG))
+                {
+                    if (GetBoxMonData(boxMon, MON_DATA_MET_LEVEL) != 0
+                     && !GetBoxMonData(boxMon, MON_DATA_GIFT_ORIGIN))
+                    {
+                        u16 loc = GetBoxMonData(boxMon, MON_DATA_MET_LOCATION);
+                        if (loc == mapsec1 || (mapsec2 != 0 && loc == mapsec2))
+                            count++;
+                    }
+                }
+            }
+        }
+    }
+
+    return count;
+}
+
+void CheckBugContestTickets(void)
+{
+    gSpecialVar_Result = VarGet(VAR_POKEMITOS_BUG_CONTEST_TICKETS);
+}
+
+void ConsumeBugContestTicket(void)
+{
+    u16 t = VarGet(VAR_POKEMITOS_BUG_CONTEST_TICKETS);
+    if (t > 0)
+        VarSet(VAR_POKEMITOS_BUG_CONTEST_TICKETS, t - 1);
+    FlagClear(FLAG_BUG_CONTEST_COMPLETED);
+}
+
+void CheckSafariJohtoTickets(void)
+{
+    gSpecialVar_Result = VarGet(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS);
+}
+
+void ConsumeSafariJohtoTicket(void)
+{
+    u16 t = VarGet(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS);
+    if (t > 0)
+        VarSet(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS, t - 1);
+    FlagClear(FLAG_SAFARI_ZONE_COMPLETED);
+}
+
+void CheckSafariKantoTickets(void)
+{
+    gSpecialVar_Result = VarGet(VAR_POKEMITOS_SAFARI_KANTO_TICKETS);
+}
+
+void ConsumeSafariKantoTicket(void)
+{
+    u16 t = VarGet(VAR_POKEMITOS_SAFARI_KANTO_TICKETS);
+    if (t > 0)
+        VarSet(VAR_POKEMITOS_SAFARI_KANTO_TICKETS, t - 1);
+    FlagClear(FLAG_KANTO_SAFARI_ZONE_COMPLETED);
+}
+
+static void FormatAuditResult(u8 *dest, bool8 unlocked, u16 newTickets, u16 currentTickets, const u8 *blockNotice)
+{
+    u8 numBuf1[8];
+    u8 numBuf2[8];
+
+    if (!unlocked)
+    {
+        StringCopy(dest, blockNotice);
+        return;
+    }
+
+    ConvertIntToDecimalStringN(numBuf1, newTickets, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(numBuf2, currentTickets, STR_CONV_MODE_LEFT_ALIGN, 2);
+
+    if (newTickets > 0)
+    {
+        StringCopy(dest, (const u8[])_("+"));
+        StringAppend(dest, numBuf1);
+        StringAppend(dest, (const u8[])_(" ("));
+        StringAppend(dest, numBuf2);
+        StringAppend(dest, (const u8[])_(" en carnet)"));
+    }
+    else
+    {
+        StringCopy(dest, (const u8[])_("Al día ("));
+        StringAppend(dest, numBuf2);
+        StringAppend(dest, (const u8[])_(" en carnet)"));
+    }
+}
+
+void UpdateAndClaimPokemitosTickets(void)
+{
+    u16 weeks = GetPokemitosElapsedSaturdays();
+    u16 newBug = 0, newSafariJohto = 0, newSafariKanto = 0;
+    bool8 bugUnlocked = FlagGet(FLAG_VISITED_GOLDENROD_CITY);
+    bool8 safariJohtoUnlocked = FlagGet(FLAG_VISITED_CIANWOOD_CITY);
+    bool8 safariKantoUnlocked = FlagGet(FLAG_VISITED_FUCHSIA_CITY);
+
+    // 1. Concurso de Bichos (1 por semana)
+    if (bugUnlocked)
+    {
+        u16 quota = weeks * 1;
+        u16 caught = CountMonsCapturedInMapsec(MAPSEC_NATIONAL_PARK, 0);
+        u16 cur = VarGet(VAR_POKEMITOS_BUG_CONTEST_TICKETS);
+        s32 diff = (s32)quota - (s32)(caught + cur);
+        if (diff > 0)
+        {
+            newBug = (u16)diff;
+            VarSet(VAR_POKEMITOS_BUG_CONTEST_TICKETS, cur + newBug);
+        }
+    }
+
+    // 2. Safari Johto (2 por semana)
+    if (safariJohtoUnlocked)
+    {
+        u16 quota = weeks * 2;
+        u16 caught = CountMonsCapturedInMapsec(MAPSEC_SAFARI_ZONE, MAPSEC_SAFARI_ZONE_GATE);
+        u16 cur = VarGet(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS);
+        s32 diff = (s32)quota - (s32)(caught + cur);
+        if (diff > 0)
+        {
+            newSafariJohto = (u16)diff;
+            VarSet(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS, cur + newSafariJohto);
+        }
+    }
+
+    // 3. Safari Kanto (2 por semana)
+    if (safariKantoUnlocked)
+    {
+        u16 quota = weeks * 2;
+        u16 caught = CountMonsCapturedInMapsec(MAPSEC_KANTO_SAFARI_ZONE, MAPSEC_FUCHSIA_CITY);
+        u16 cur = VarGet(VAR_POKEMITOS_SAFARI_KANTO_TICKETS);
+        s32 diff = (s32)quota - (s32)(caught + cur);
+        if (diff > 0)
+        {
+            newSafariKanto = (u16)diff;
+            VarSet(VAR_POKEMITOS_SAFARI_KANTO_TICKETS, cur + newSafariKanto);
+        }
+    }
+
+    FormatAuditResult(gStringVar1, bugUnlocked, newBug, VarGet(VAR_POKEMITOS_BUG_CONTEST_TICKETS), (const u8[])_("Bloqueado (Trigal)"));
+    FormatAuditResult(gStringVar2, safariJohtoUnlocked, newSafariJohto, VarGet(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS), (const u8[])_("Bloqueado (Orquídea)"));
+    FormatAuditResult(gStringVar3, safariKantoUnlocked, newSafariKanto, VarGet(VAR_POKEMITOS_SAFARI_KANTO_TICKETS), (const u8[])_("Bloqueado (Fucsia)"));
+
+    gSpecialVar_Result = newBug + newSafariJohto + newSafariKanto;
+}
+
+static void FormatPassesLine(u8 *dest, u16 caught, bool8 unlocked, u16 tickets)
+{
+    u8 buf1[8];
+    u8 buf2[8];
+
+    ConvertIntToDecimalStringN(buf1, caught, STR_CONV_MODE_LEFT_ALIGN, 2);
+    StringCopy(dest, (const u8[])_("Capturas: "));
+    StringAppend(dest, buf1);
+    StringAppend(dest, (const u8[])_("\lPases: "));
+
+    if (unlocked)
+    {
+        ConvertIntToDecimalStringN(buf2, tickets, STR_CONV_MODE_LEFT_ALIGN, 2);
+        StringAppend(dest, buf2);
+    }
+    else
+    {
+        StringAppend(dest, (const u8[])_("Bloqueado"));
+    }
+}
+
+void BufferPokemitosTicketsSummary(void)
+{
+    u16 caught;
+
+    // Bichos
+    caught = CountMonsCapturedInMapsec(MAPSEC_NATIONAL_PARK, 0);
+    FormatPassesLine(gStringVar1, caught, FlagGet(FLAG_VISITED_GOLDENROD_CITY), VarGet(VAR_POKEMITOS_BUG_CONTEST_TICKETS));
+
+    // Safari Johto
+    caught = CountMonsCapturedInMapsec(MAPSEC_SAFARI_ZONE, MAPSEC_SAFARI_ZONE_GATE);
+    FormatPassesLine(gStringVar2, caught, FlagGet(FLAG_VISITED_CIANWOOD_CITY), VarGet(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS));
+
+    // Safari Kanto
+    caught = CountMonsCapturedInMapsec(MAPSEC_KANTO_SAFARI_ZONE, MAPSEC_FUCHSIA_CITY);
+    FormatPassesLine(gStringVar3, caught, FlagGet(FLAG_VISITED_FUCHSIA_CITY), VarGet(VAR_POKEMITOS_SAFARI_KANTO_TICKETS));
+}
+
+void BufferPokemitosStatusSummary(void)
+{
+    u8 tokenCount = gSaveBlock3Ptr->gymTokens.count;
+    u16 badgeCount = VarGet(VAR_NUM_BADGES);
+    u16 weeks = GetPokemitosElapsedSaturdays();
+
+    ConvertIntToDecimalStringN(gStringVar1, tokenCount, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar2, badgeCount, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar3, weeks, STR_CONV_MODE_LEFT_ALIGN, 2);
 }
