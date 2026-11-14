@@ -1002,14 +1002,12 @@ void UseGiftMonTrade(void)
     gSpecialVar_Result = 1;
 }
 
-#define POKEMITOS_BASE_WEEKS 5
-#define POKEMITOS_MAX_WEEKS  5
+#define POKEMITOS_BASE_WEEKS 6
 
 u16 GetPokemitosElapsedSaturdays(void)
 {
     struct SiiRtcInfo rtc;
     u16 baseDays, currentDays;
-    u16 weeks;
 
     RtcGetDateTime(&rtc);
     if (RtcCheckInfo(&rtc) != 0)
@@ -1021,11 +1019,7 @@ u16 GetPokemitosElapsedSaturdays(void)
     if (currentDays < baseDays)
         return POKEMITOS_BASE_WEEKS;
 
-    weeks = 1 + ((currentDays - baseDays) / 7);
-    if (weeks > POKEMITOS_MAX_WEEKS)
-        weeks = POKEMITOS_MAX_WEEKS;
-
-    return weeks;
+    return 1 + ((currentDays - baseDays) / 7);
 }
 
 static u16 CountMonsCapturedInMapsec(u16 mapsec1, u16 mapsec2)
@@ -1117,6 +1111,9 @@ static u16 UpdateSingleTicketCategory(u16 varId, bool8 unlocked, u16 quota, u16 
 void CheckBugContestTickets(void)
 {
     u16 weeks = GetPokemitosElapsedSaturdays();
+    bool8 unlocked = FlagGet(FLAG_VISITED_GOLDENROD_CITY);
+    if (unlocked)
+        UpdateSingleTicketCategory(VAR_POKEMITOS_BUG_CONTEST_TICKETS, TRUE, weeks, MAPSEC_NATIONAL_PARK, 0);
     u16 caught = CountMonsCapturedInMapsec(MAPSEC_NATIONAL_PARK, 0);
     gSpecialVar_Result = GetCleanTicketCount(VAR_POKEMITOS_BUG_CONTEST_TICKETS, caught, weeks);
 }
@@ -1132,6 +1129,9 @@ void ConsumeBugContestTicket(void)
 void CheckSafariJohtoTickets(void)
 {
     u16 weeks = GetPokemitosElapsedSaturdays();
+    bool8 unlocked = FlagGet(FLAG_VISITED_CIANWOOD_CITY) || FlagGet(FLAG_VISITED_SAFARI_ZONE_GATE);
+    if (unlocked)
+        UpdateSingleTicketCategory(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS, TRUE, weeks, MAPSEC_SAFARI_ZONE, MAPSEC_SAFARI_ZONE_GATE);
     u16 caught = CountMonsCapturedInMapsec(MAPSEC_SAFARI_ZONE, MAPSEC_SAFARI_ZONE_GATE);
     gSpecialVar_Result = GetCleanTicketCount(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS, caught, weeks);
 }
@@ -1147,6 +1147,9 @@ void ConsumeSafariJohtoTicket(void)
 void CheckSafariKantoTickets(void)
 {
     u16 weeks = GetPokemitosElapsedSaturdays();
+    bool8 unlocked = FlagGet(FLAG_VISITED_FUCHSIA_CITY);
+    if (unlocked)
+        UpdateSingleTicketCategory(VAR_POKEMITOS_SAFARI_KANTO_TICKETS, TRUE, weeks, MAPSEC_KANTO_SAFARI_ZONE, MAPSEC_FUCHSIA_CITY);
     u16 caught = CountMonsCapturedInMapsec(MAPSEC_KANTO_SAFARI_ZONE, MAPSEC_FUCHSIA_CITY);
     gSpecialVar_Result = GetCleanTicketCount(VAR_POKEMITOS_SAFARI_KANTO_TICKETS, caught, weeks);
 }
@@ -1194,16 +1197,16 @@ void UpdateAndClaimPokemitosTickets(void)
     u16 weeks = GetPokemitosElapsedSaturdays();
     u16 newBug = 0, newSafariJohto = 0, newSafariKanto = 0;
     bool8 bugUnlocked = FlagGet(FLAG_VISITED_GOLDENROD_CITY);
-    bool8 safariJohtoUnlocked = FlagGet(FLAG_VISITED_CIANWOOD_CITY);
+    bool8 safariJohtoUnlocked = FlagGet(FLAG_VISITED_CIANWOOD_CITY) || FlagGet(FLAG_VISITED_SAFARI_ZONE_GATE);
     bool8 safariKantoUnlocked = FlagGet(FLAG_VISITED_FUCHSIA_CITY);
 
-    // 1. Concurso de Bichos (1 por semana, máx 5 actualmente)
+    // 1. Concurso de Bichos (1 por semana)
     newBug = UpdateSingleTicketCategory(VAR_POKEMITOS_BUG_CONTEST_TICKETS, bugUnlocked, weeks, MAPSEC_NATIONAL_PARK, 0);
 
-    // 2. Safari Johto (1 por semana, máx 5 actualmente)
+    // 2. Safari Johto (1 por semana)
     newSafariJohto = UpdateSingleTicketCategory(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS, safariJohtoUnlocked, weeks, MAPSEC_SAFARI_ZONE, MAPSEC_SAFARI_ZONE_GATE);
 
-    // 3. Safari Kanto (1 por semana, máx 5 actualmente)
+    // 3. Safari Kanto (1 por semana)
     newSafariKanto = UpdateSingleTicketCategory(VAR_POKEMITOS_SAFARI_KANTO_TICKETS, safariKantoUnlocked, weeks, MAPSEC_KANTO_SAFARI_ZONE, MAPSEC_FUCHSIA_CITY);
 
     FormatAuditResult(gStringVar1, bugUnlocked, newBug, VarGet(VAR_POKEMITOS_BUG_CONTEST_TICKETS), (const u8[])_("Bloqueado (Trigal)"));
@@ -1239,21 +1242,30 @@ void BufferPokemitosTicketsSummary(void)
     u16 weeks = GetPokemitosElapsedSaturdays();
     u16 caught;
     u16 tickets;
+    bool8 bugUnlocked = FlagGet(FLAG_VISITED_GOLDENROD_CITY);
+    bool8 johtoUnlocked = FlagGet(FLAG_VISITED_CIANWOOD_CITY) || FlagGet(FLAG_VISITED_SAFARI_ZONE_GATE);
+    bool8 kantoUnlocked = FlagGet(FLAG_VISITED_FUCHSIA_CITY);
 
     // Bichos
+    if (bugUnlocked)
+        UpdateSingleTicketCategory(VAR_POKEMITOS_BUG_CONTEST_TICKETS, TRUE, weeks, MAPSEC_NATIONAL_PARK, 0);
     caught = CountMonsCapturedInMapsec(MAPSEC_NATIONAL_PARK, 0);
     tickets = GetCleanTicketCount(VAR_POKEMITOS_BUG_CONTEST_TICKETS, caught, weeks);
-    FormatPassesLine(gStringVar1, caught, FlagGet(FLAG_VISITED_GOLDENROD_CITY), tickets);
+    FormatPassesLine(gStringVar1, caught, bugUnlocked, tickets);
 
     // Safari Johto
+    if (johtoUnlocked)
+        UpdateSingleTicketCategory(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS, TRUE, weeks, MAPSEC_SAFARI_ZONE, MAPSEC_SAFARI_ZONE_GATE);
     caught = CountMonsCapturedInMapsec(MAPSEC_SAFARI_ZONE, MAPSEC_SAFARI_ZONE_GATE);
     tickets = GetCleanTicketCount(VAR_POKEMITOS_SAFARI_JOHTO_TICKETS, caught, weeks);
-    FormatPassesLine(gStringVar2, caught, FlagGet(FLAG_VISITED_CIANWOOD_CITY), tickets);
+    FormatPassesLine(gStringVar2, caught, johtoUnlocked, tickets);
 
     // Safari Kanto
+    if (kantoUnlocked)
+        UpdateSingleTicketCategory(VAR_POKEMITOS_SAFARI_KANTO_TICKETS, TRUE, weeks, MAPSEC_KANTO_SAFARI_ZONE, MAPSEC_FUCHSIA_CITY);
     caught = CountMonsCapturedInMapsec(MAPSEC_KANTO_SAFARI_ZONE, MAPSEC_FUCHSIA_CITY);
     tickets = GetCleanTicketCount(VAR_POKEMITOS_SAFARI_KANTO_TICKETS, caught, weeks);
-    FormatPassesLine(gStringVar3, caught, FlagGet(FLAG_VISITED_FUCHSIA_CITY), tickets);
+    FormatPassesLine(gStringVar3, caught, kantoUnlocked, tickets);
 }
 
 void BufferPokemitosStatusSummary(void)

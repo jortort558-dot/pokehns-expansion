@@ -17620,8 +17620,9 @@ const struct ItemInfo gItemsInfo[] =
             "Pokemitos Cup II. Muestra tus\n"
             "Fichas Pokemitos y progreso\n"
             "del reto Nuzlocke."),
+        .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
+        .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_CarnetPokemitos,
         .iconPic = gItemIcon_HnsPass,
         .iconPalette = gItemIconPalette_HnsPass,

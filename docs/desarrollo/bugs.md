@@ -1,3 +1,16 @@
+### 📦 Versión `v0.64.5`
+
+- **Fecha:** 14/11/2026
+- **Mejoras y correcciones incluidas:**
+  - [x] **Solución al uso del CARNET COPA desde la Mochila (pantalla negra / no abre menú)**:
+    - **Causa raíz**: En `src/data/items.h`, `ITEM_CARNET_POKEMITOS` tenía asignado `.type = ITEM_USE_BAG_MENU`. Al usarse desde la bolsa, la función de retorno (`SetUpItemUseCallback`) indexaba fuera de rango en la tabla de callbacks de pantalla `sItemUseCallbacks`, impidiendo salir del menú de la bolsa al overworld.
+    - Se corrigió a `.type = ITEM_USE_FIELD` (idéntico a la Caja de Pokémon `ITEM_POKEMON_BOX_LINK`), permitiendo que el uso del objeto desde la mochila o mediante `SELECT` regrese al campo y ejecute el menú interactivo `EventScript_CarnetPokemitosMenu`.
+  - [x] **Habilitación de tickets para el sábado (Semana 6) y autocanjeo en taquillas**:
+    - **Causa raíz del bloqueo en sábado**: Se había establecido un tope artificial fijo de 5 semanas (`POKEMITOS_MAX_WEEKS 5`) correspondiente al viernes 13. Al entrar el sábado 14 de noviembre en la **Semana 6**, el tope impedía recibir el nuevo pase semanal a quienes ya estaban al día con 5 tickets/capturas.
+    - Se eliminó el tope artificial para que el cálculo por RTC avance de forma natural cada sábado (`1 + (días - base) / 7`), estableciendo `POKEMITOS_BASE_WEEKS 6`.
+    - Se amplió la condición de desbloqueo de Johto a `FLAG_VISITED_CIANWOOD_CITY || FlagGet(FLAG_VISITED_SAFARI_ZONE_GATE)`.
+    - Las taquillas de entrada (Zona Safari Johto, Safari Kanto y Concurso de Bichos) y el propio Carnet Copa ahora ejecutan el autocanjeo directo de pases pendientes al interactuar con ellas, sin obligar al jugador a desplazarse previamente a un Centro Pokémon.
+
 ### 📦 Versión `v0.64.4`
 
 - **Fecha:** 13/11/2026
